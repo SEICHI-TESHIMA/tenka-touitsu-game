@@ -88,7 +88,14 @@ window.OFFICER_ID_ALIASES = {
   "off_matsudaira_yoritaka": "off_edo_matsudaira_yorizane",
   "off_dm_fujiwara_hiraizumi_1156": "off_fujiwara_motohira",
   "off_tsunemoto_succ_3": "off_minamoto_tameyoshi",
-  "off_dm_so_1180": "off_dm_so_1156"
+  "off_dm_so_1180": "off_dm_so_1156",
+  "off_heian_court_succ3": "off_shirakawa_in",
+  "off_sadamori_tadamori": "off_taira_tadamori",
+  "off_shimazu_tadatoki_1221": "off_shimazu_tadatoki",
+  "off_abe_tadayoshi_939": "off_dm_abe_939",
+  "off_ooe_koretoki_anc": "off_ooe_koretoki_939",
+  "off_taira_kimimasa_1028": "off_fujiwara_takamasa_1028",
+  "off_taira_kimimasa_anc": "off_taira_kimimasa",
 };
 
 /**
@@ -117,15 +124,33 @@ function setupMobileLayout() {
     if (!headerToggle || !clanToggle) return;
     const headerOpen = !!(headerControls && headerControls.classList.contains('is-open'));
     const clanOpen = !!(clanBar && clanBar.classList.contains('is-open'));
-    headerToggle.textContent = headerOpen ? '操作メニューを閉じる' : '操作メニューを開く';
-    clanToggle.textContent = clanOpen ? '勢力状況を閉じる' : '勢力状況を表示（金・兵糧・兵力）';
+    headerToggle.textContent = headerOpen ? '操作を閉じる' : '操作メニュー';
+    clanToggle.textContent = clanOpen ? '勢力を閉じる' : '勢力状況';
     headerToggle.setAttribute('aria-expanded', headerOpen ? 'true' : 'false');
     clanToggle.setAttribute('aria-expanded', clanOpen ? 'true' : 'false');
+  };
+
+  // 地図が下部の固定バーに隠れず、その下に軍令の先頭が見える高さへ合わせる
+  const fitMobileMap = () => {
+    const map = document.getElementById('mapWrapper');
+    if (!map) return;
+    if (!mq.matches) {
+      map.style.height = '';
+      return;
+    }
+    const turn = document.getElementById('nextTurnBtn');
+    const auto = document.getElementById('autoPlayPanel');
+    const dockH = (turn?.offsetHeight || 48) + (auto?.offsetHeight || 52);
+    const peek = 88;
+    const available = window.innerHeight - map.offsetTop - dockH - peek;
+    const height = Math.max(300, Math.min(available, Math.round(window.innerHeight * 0.62)));
+    map.style.height = height + 'px';
   };
 
   headerToggle?.addEventListener('click', () => {
     headerControls?.classList.toggle('is-open');
     refreshLabels();
+    requestAnimationFrame(fitMobileMap);
   });
 
   clanToggle?.addEventListener('click', () => {
@@ -136,6 +161,7 @@ function setupMobileLayout() {
     if (willOpen && mq.matches) {
       clanBar?.scrollIntoView({ block: 'end', inline: 'nearest' });
     }
+    requestAnimationFrame(fitMobileMap);
   });
 
   // PC幅に戻したときはスマホ用の開閉状態を消し、元の全表示に戻す
@@ -145,16 +171,26 @@ function setupMobileLayout() {
       clanBar?.classList.remove('is-open');
     }
     refreshLabels();
+    requestAnimationFrame(fitMobileMap);
   };
 
   syncToWidth();
   mq.addEventListener('change', syncToWidth);
+  window.addEventListener('resize', fitMobileMap);
+  window.addEventListener('orientationchange', fitMobileMap);
 }
 
 // マスターデータベース群 (data.jsで定義されたグローバル配列・オブジェクトへの安全な参照)
 var SCENARIOS = window.SCENARIOS_DATA || [];
 var INITIAL_PROVINCES = window.PROVINCES_DATA || [];
 var CLAN_MASTER = window.CLAN_MASTER_DATA || {};
+
+// 史実イベントの受け取り先IDが地図上に無いとき、同じ家系として扱う別ID（先頭ほど優先）
+// 源義朝家は頼朝が継ぐため、鎌倉源氏のイベントは義朝家へも渡す
+var EVENT_CLAN_LINEAGE = [
+  ['genji_yoritomo', 'minamoto_yoritomo', 'genji', 'minamoto_yoshitomo'],
+  ['kiso', 'kiso_genji']
+];
 
 // 大名能力値取得ヘルパー
 function getClanAbility(clanId) {
@@ -707,6 +743,9 @@ class SengokuGame {
 
     this.year = scen.year;
     this.honnojiSplit = false;
+    this.kiyohiraFujiwaraAccepted = false;
+    this.kiyohiraSurnameDeclined = false;
+    this._kiyohiraAnnounced = false;
     const seasonMap = {'春': 0, '夏': 1, '秋': 2, '冬': 3};
     this.seasonIdx = scen.seasonIdx !== undefined ? scen.seasonIdx : (seasonMap[scen.season] ?? 0);
     this.alliances = this.normalizeAlliances(scen.alliances || [], this.year, this.seasonIdx);
@@ -933,13 +972,12 @@ class SengokuGame {
             && window.JODAI_CLAN_BY_SCENARIO[String(scenarioId)][targetIdOrName];
           if (forcedClan) {
             const named = this.activeOfficers.find(o => (o.id === targetIdOrName || o.name === targetIdOrName) && !o.isDead && (!o.isDaimyo || !o.assignedProvId));
-            if (named) named.clanId = forcedClan;
+            if (named && !this.isNamedLandedLeader(named)) named.clanId = forcedClan;
           }
-          const matchHist = (o) => (o.id === targetIdOrName || o.name === targetIdOrName) && !o.assignedProvId && !o.isDead && (!o.isDaimyo || !o.assignedProvId) && !this.isCourtFigure(o);
+          const matchHist = (o) => (o.id === targetIdOrName || o.name === targetIdOrName) && !o.assignedProvId && !o.isDead && (!o.isDaimyo || !o.assignedProvId) && !(this.isNamedLandedLeader(o) && o.clanId !== p.ownerId);
           let histOff = this.activeOfficers.find(o => matchHist(o) && o.clanId === p.ownerId);
-          // 地図に領国がない武将（浪人・滅家）は、史実マップが明示した国の城代として迎え入れる
           if (!histOff) {
-            histOff = this.activeOfficers.find(o => matchHist(o) && !this.provinces.some(pp => pp.ownerId === o.clanId));
+            histOff = this.activeOfficers.find(o => matchHist(o));
             if (histOff) histOff.clanId = p.ownerId;
           }
           if (histOff) {
@@ -950,13 +988,6 @@ class SengokuGame {
       });
     }
 
-    const skipBulkCastellan = (p) => {
-      const rule = this.currentScenario;
-      if (!rule || !p) return false;
-      if (Array.isArray(rule.daikanProvinces) && rule.daikanProvinces.includes(p.id)) return true;
-      if (Array.isArray(rule.kokufuClans) && rule.kokufuClans.includes(p.ownerId)) return true;
-      return false;
-    };
     const scenarioGovIds = new Set(Object.values(
       (window.SCENARIO_HISTORICAL_GOVERNORS && this.currentScenario)
         ? (window.SCENARIO_HISTORICAL_GOVERNORS[String(this.currentScenario.id)] || {})
@@ -967,7 +998,7 @@ class SengokuGame {
 
     // 2-B: 空き城で、同一勢力(clanId)かつ初期拠点(defaultProv)が一致する一般武将を配置
     this.provinces.forEach(p => {
-      if (!p.governorId && p.ownerId && !this.isCapitalProvince(p.id, p.ownerId) && !skipBulkCastellan(p)) {
+      if (!p.governorId && p.ownerId && !this.isCapitalProvince(p.id, p.ownerId)) {
         const matchingOfficer = this.activeOfficers.find(o => 
           o.defaultProv === p.id && 
           o.clanId === p.ownerId && 
@@ -984,31 +1015,8 @@ class SengokuGame {
       }
     });
 
-    // 2-C: なお空き城がある場合、自勢力の待機中有力武将（能力値順）を城代配置
-    // 史実配置を指定したシナリオでは、余った高能力者を全支城へ流さない
-    this.provinces.forEach(p => {
-      if (this.currentScenario && this.currentScenario.noAutoCastellan) return;
-      if (!p.governorId && p.ownerId && !this.isCapitalProvince(p.id, p.ownerId)) {
-        const candidates = this.activeOfficers.filter(o => 
-          o.clanId === p.ownerId && 
-          !o.assignedProvId && 
-          !o.isDead && 
-          !o.isDaimyo &&
-          !this.isCourtFigure(o) &&
-          !isUnlistedJodai(o)
-        );
-        if (candidates.length > 0) {
-          candidates.sort((a, b) => {
-            const scoreA = (a.military || 0) + (a.politic || 0) + (a.intel || 0);
-            const scoreB = (b.military || 0) + (b.politic || 0) + (b.intel || 0);
-            return scoreB - scoreA;
-          });
-          const bestOfficer = candidates[0];
-          p.governorId = bestOfficer.id;
-          bestOfficer.assignedProvId = p.id;
-        }
-      }
-    });
+    // 2-C: ゆかりの地でも史実城代でもない支城へ、能力の高い待機武将は流さない。
+    // 隠岐のように該当者がいない国は城主名を置かず、城代のままにする。
 
     this.foundingLeaderNames = {};
     (this.activeOfficers || []).forEach(o => {
@@ -1020,10 +1028,12 @@ class SengokuGame {
 
     // 空白地に過去に大名になったことのある武将がいれば旗揚げ・御家再興
     this.processBlankProvinceUprisings();
-    // 各勢力で待機中となっている武将を、歴史上本拠地とした城の城主に任命
+    // 初期配置は史実城代とゆかりの地だけ。進行が始まってから前線へ配る
     this.appointHistoricalHomeGovernors();
+    this.autoAppointComputerCastellans();
 
-    this.renderDaimyoGrid(scen.playables, scen.recommendedClan);
+    const allPlayables = this.ensureAllPlayables(scen);
+    this.renderDaimyoGrid(allPlayables, scen.recommendedClan);
     // ここで領主データが反映された正確な位置・家紋でSVGマップを再構築する
     this.initSvgMap();
     this.updateMapDisplay();
@@ -1091,6 +1101,137 @@ class SengokuGame {
     this.switchScenario(this.currentScenarioId);
   }
 
+  // 要望対応: シナリオに領国を持つすべての勢力をプレイ可能大名として網羅
+  ensureAllPlayables(scen) {
+    if (!scen || !this.provinces) return scen?.playables || [];
+
+    // 現在のマップ上で実際に領国を持っている全勢力（null, roninを除く）
+    const ownedProvsByClan = {};
+    this.provinces.forEach(p => {
+      const cid = p.ownerId;
+      if (!cid || cid === 'null' || cid === 'ronin') return;
+      if (!ownedProvsByClan[cid]) ownedProvsByClan[cid] = [];
+      ownedProvsByClan[cid].push(p.id);
+    });
+
+    const activeClanIds = Object.keys(ownedProvsByClan);
+    const existingPlayables = Array.isArray(scen.playables) ? [...scen.playables] : [];
+    const existingMap = new Map(existingPlayables.map(p => [p.id, p]));
+
+    const allPlayables = [];
+
+    activeClanIds.forEach(clanId => {
+      const owned = ownedProvsByClan[clanId] || [];
+      const provCount = owned.length;
+      if (provCount === 0) return;
+
+      const existing = existingMap.get(clanId);
+      if (existing) {
+        const item = { ...existing };
+        item.provCount = provCount;
+        item.myProvinces = owned;
+        // 当主名の最新化（生存中の大名武将を反映）
+        const currentLeader = (this.activeOfficers || []).find(o => o.clanId === clanId && o.isDaimyo && !o.isDead);
+        if (currentLeader && currentLeader.name) {
+          item.name = currentLeader.name;
+        }
+        allPlayables.push(item);
+      } else {
+        const master = (window.CLAN_MASTER_DATA && window.CLAN_MASTER_DATA[clanId]) || {};
+        const ability = getClanAbility(clanId);
+
+        // 当主武将の特定
+        let leaderName = '';
+        const daimyoOff = (this.activeOfficers || []).find(o => o.clanId === clanId && o.isDaimyo && !o.isDead);
+        if (daimyoOff) {
+          leaderName = daimyoOff.name;
+        } else {
+          leaderName = this.getDaimyoLeaderName(clanId);
+        }
+        if (!leaderName || leaderName === clanId || leaderName === '空白地') {
+          leaderName = master.family || clanId;
+        }
+
+        // 家名
+        let clanFamily = this.getClanFamilyName(clanId);
+        if (clanId === 'kakizaki' && scen.year >= 1599) {
+          clanFamily = '松前家';
+        }
+        if (!clanFamily || clanFamily === clanId) {
+          clanFamily = master.family || `${leaderName}家`;
+        }
+
+        // 難易度・勝率
+        let difficulty = '上級';
+        let winRate = 58;
+        if (provCount >= 5) {
+          difficulty = '初級';
+          winRate = 85;
+        } else if (provCount >= 3) {
+          difficulty = '中級';
+          winRate = 75;
+        } else if (provCount >= 2) {
+          difficulty = '中級';
+          winRate = 68;
+        } else {
+          difficulty = '上級';
+          winRate = 58;
+        }
+
+        const capitals = window.CLAN_CAPITAL_PROVINCES || {};
+        const capitalPref = capitals[clanId] || owned[0];
+        const startProvId = owned.includes(capitalPref) ? capitalPref : owned[0];
+
+        const desc = master.desc 
+          ? master.desc 
+          : `${clanFamily}の当主・${leaderName}。${provCount}国を領有し、領民を守りつつ天下統一の覇業に挑む。`;
+
+        const tactic = master.tactic || '剛勇の指揮';
+        const tacticDesc = master.tacticDesc || '士気を高め、軍勢の進軍と戦闘威力を向上させる。';
+
+        allPlayables.push({
+          id: clanId,
+          name: leaderName,
+          clan: clanFamily,
+          color: master.color || '#445566',
+          crest: clanFamily.slice(0, 1),
+          kamonSvgId: this.getClanKamonId(clanId),
+          difficulty: difficulty,
+          winRate: winRate,
+          startProvId: startProvId,
+          provCount: provCount,
+          myProvinces: owned,
+          gold: Math.max(2500, provCount * 2000 + 1000),
+          rice: Math.max(3000, provCount * 2500 + 1200),
+          desc: desc,
+          tactic: tactic,
+          tacticDesc: tacticDesc,
+          stats: {
+            military: ability.military || 60,
+            politics: ability.politics || 60,
+            intellect: ability.stratagem || 55,
+            stratagem: ability.stratagem || 55
+          },
+          personality: ability.personality || 'balanced'
+        });
+      }
+    });
+
+    // ソート: おすすめ大名を先頭、続いて領国数降順、家名順
+    const recClan = scen.recommendedClan;
+    allPlayables.sort((a, b) => {
+      if (a.id === recClan) return -1;
+      if (b.id === recClan) return 1;
+      if ((b.provCount || 1) !== (a.provCount || 1)) {
+        return (b.provCount || 1) - (a.provCount || 1);
+      }
+      return (a.clan || '').localeCompare(b.clan || '', 'ja');
+    });
+
+    scen.playables = allPlayables;
+    return allPlayables;
+  }
+
   renderDaimyoGrid(playables, defaultClanId) {
     const grid = document.getElementById('daimyoGrid');
     if (!grid) return;
@@ -1142,8 +1283,8 @@ class SengokuGame {
           </div>
           <span class="daimyo-prov-badge">${provCount}国</span>
         </div>
-        <div style="font-size: 11pt; color:var(--gold); display:flex; justify-content:space-between; align-items:center; margin-bottom:2px; gap:4px;">
-          <span style="color:#ddd; flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:11pt; letter-spacing:-0.4px;" title="${d.clan}">${d.clan}</span>
+        <div class="daimyo-clan-row">
+          <span class="daimyo-clan-name" title="${d.clan}">${d.clan}</span>
           <span style="color:${personColor}; font-size: 10.5pt; background:rgba(0,0,0,0.6); padding:1px 4px; border-radius:2px; border:1px solid ${personColor}; flex-shrink:0;">${d.difficulty}</span>
         </div>
         <div style="display:flex; justify-content:space-between; font-size: 11.5pt; background:rgba(0,0,0,0.35); padding:1px 4px; border-radius:2px;">
@@ -1554,6 +1695,23 @@ class SengokuGame {
     const year = this.year;
     const clanBefore = new Map(this.activeOfficers.map(o => [o.id, o.clanId]));
 
+    const scenGovMap = (window.SCENARIO_HISTORICAL_GOVERNORS && window.SCENARIO_HISTORICAL_GOVERNORS[String(scen.id)]) || {};
+
+    // 各領国の城主（城代または大名居城当主）の事前把握
+    const provCastellans = [];
+    (this.provinces || []).forEach(p => {
+      if (!p.ownerId || !ownersSet.has(p.ownerId)) return;
+      const govId = scenGovMap[p.id];
+      if (govId) {
+        provCastellans.push({ provId: p.id, ownerId: p.ownerId, officerId: govId });
+      } else if (this.isCapitalProvince(p.id, p.ownerId)) {
+        const daimyoOff = this.activeOfficers.find(o => o.clanId === p.ownerId && o.isDaimyo);
+        if (daimyoOff) {
+          provCastellans.push({ provId: p.id, ownerId: p.ownerId, officerId: daimyoOff.id });
+        }
+      }
+    });
+
     this.activeOfficers.forEach(off => {
       // プレイヤー配下に仕官済みの武将は、年が変わってもシナリオ補正で引き抜かない
       if (off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
@@ -1561,12 +1719,13 @@ class SengokuGame {
       // 【史実城代・配置武将の絶対保証】
       // シナリオの史実城代（SCENARIO_HISTORICAL_GOVERNORS）に指名されている武将は、
       // その領国の領主（ownerId）に確実に配属（浪人化・城主不在を完全防止）
-      const scenGovMap = (window.SCENARIO_HISTORICAL_GOVERNORS && window.SCENARIO_HISTORICAL_GOVERNORS[String(scen.id)]) || {};
       const myGovProv = Object.keys(scenGovMap).find(pId => scenGovMap[pId] === off.id);
       if (myGovProv) {
         const pObj = this.provinces.find(p => p.id === myGovProv);
         const provOwner = pObj ? pObj.ownerId : null;
         if (provOwner && ownersSet.has(provOwner)) {
+          // シナリオ当主は城代名簿で吸収しない（清衡が義家配下になる、など）
+          if (this.isNamedLandedLeader(off)) return;
           off.clanId = provOwner;
           off.isDaimyo = false;
           return;
@@ -1595,6 +1754,59 @@ class SengokuGame {
         if (off.name.includes('宮本武蔵') || off.id.includes('miyamoto_musashi')) {
           off.clanId = 'ronin';
           off.assignedProvId = null;
+          return;
+        }
+      }
+
+      // 【奥州藤原氏の史実配置・一門結集】（1156年 保元・平治の乱、1180年 治承・寿永の乱）
+      // 奥州藤原氏の拠点は陸中（平泉・柳之御所）。基成は秀衡の岳父・政治顧問として平泉に下向した公家。
+      if (ownersSet.has('fujiwara_hiraizumi')) {
+        const oshuFujiwaraNames = ['藤原秀衡', '藤原基衡', '藤原基成', '藤原秀栄', '藤原泰衡', '藤原国衡', '藤原忠衡', '樋爪俊衡', '佐藤基治', '照井高春', '佐藤継信', '佐藤忠信'];
+        if (oshuFujiwaraNames.some(kw => off.name === kw || off.name.includes(kw))) {
+          off.clanId = 'fujiwara_hiraizumi';
+          return;
+        }
+      }
+      // 【長宗我部氏の主家結集】（1336年 湊川の戦い、1350年 南北朝時代等）
+      // 土佐に長宗我部家が独立大名として存在する場合、親英（master clanIdがgodaiho）も長宗我部家へ合流
+      if (ownersSet.has('chosokabe') && (off.name.includes('長宗我部親英') || off.id === 'off_dm_chosokabe_1336')) {
+        off.clanId = 'chosokabe';
+        return;
+      }
+
+      // 【各シナリオの史実配属・誤配属防止補正】
+      // 1156年：源為義（崇徳上皇方）、源清光（甲斐源氏・武田）、土肥実平（相模）
+      if (String(scen.id) === '1156' || year === 1156) {
+        if ((off.name.includes('源為義') || off.id.includes('tameyoshi')) && ownersSet.has('sutoku_in')) {
+          off.clanId = 'sutoku_in';
+          return;
+        }
+        if ((off.name.includes('源清光') || off.id.includes('kiyomitsu')) && ownersSet.has('takeda')) {
+          off.clanId = 'takeda';
+          return;
+        }
+      }
+
+      // 1180年：佐々木定綱（鎌倉源氏）、根井行親（木曽義仲）、大庭景親（平家）
+      if (String(scen.id) === '1180' || year === 1180) {
+        if ((off.name.includes('佐々木定綱') || off.id.includes('sasaki_sadatsuna')) && ownersSet.has('genji_yoritomo')) {
+          off.clanId = 'genji_yoritomo';
+          return;
+        }
+        if ((off.name.includes('根井行親') || off.id.includes('nenoi_yukichika')) && ownersSet.has('kiso')) {
+          off.clanId = 'kiso';
+          return;
+        }
+        if ((off.name.includes('大庭景親') || off.id.includes('oba_kagechika')) && ownersSet.has('taira')) {
+          off.clanId = 'taira';
+          return;
+        }
+      }
+
+      // 1560年：馬場信春は武田信玄の重臣（甲斐武田家へ）
+      if ((String(scen.id) === '1560' || year === 1560) && (off.name.includes('馬場信春') || off.id.includes('baba_nobuharu'))) {
+        if (ownersSet.has('takeda')) {
+          off.clanId = 'takeda';
           return;
         }
       }
@@ -1684,6 +1896,51 @@ class SengokuGame {
             return;
           }
         }
+      }
+
+      // 1546年 河越夜戦。上杉の名跡継承（天文21年・1552年）より前。
+      // 越後の長尾景虎（謙信）と越後衆は山内上杉憲政の臣ではなく、守護代・長尾晴景の下にいる。
+      // 上野箕輪の長野業正は憲政の重臣。古河公方・足利晴氏は河越で上杉方。
+      if (String(scen.id) === '1546' && year < 1552) {
+        const place = (clan, prov) => {
+          if (!ownersSet.has(clan)) return false;
+          off.clanId = clan;
+          off.isDaimyo = false;
+          if (prov) off.defaultProv = prov;
+          return true;
+        };
+        if (['上杉謙信', '柿崎景家', '宇佐美定満', '甘粕景持', '斎藤朝信'].includes(off.name)) {
+          if (place('nagao', 'echigo')) return;
+        }
+        // 関東管領・上杉憲政は上野（平井・箕輪）。越後へはまだ落ち延びていない。
+        if (off.name === '上杉憲政' && ownersSet.has('uesugi')) {
+          off.clanId = 'uesugi';
+          off.defaultProv = 'kozuke';
+          return;
+        }
+        if (off.name === '長野業正' && place('uesugi', 'kozuke')) return;
+        if (off.name === '足利晴氏' && place('uesugi')) return;
+        // 大内義隆存命中の防長・石見国人。毛利服属は義長滅亡（1557年）以降。
+        if (off.name === '内藤隆春' && place('ouchi', 'suo')) return;
+        if (off.name === '益田藤兼' && place('ouchi')) return;
+        // 三好康長の織田降りは天正期。天文15年は三好一門。
+        if (off.name === '三好康長' && place('miyoshi')) return;
+        // 田尻鑑種が龍造寺に通じるのはのちの筑後。この時点は大友配下の筑後国人。
+        if (off.name === '田尻鑑種' && place('otomo')) return;
+        // 若狭武田が朝倉の麾下に入るのは義景の代。天文15年の若狭は将軍家の所領側。
+        if (off.name === '武田元明' && place('ashikaga', 'wakasa')) return;
+        // 宇喜多直家が浦上を覆すのは永禄年間。天文15年は浦上配下。
+        if (off.name === '宇喜多直家' && place('uragami')) return;
+        // 三河は今川領。松平広忠は岡崎で今川に属し、酒井忠次はその家臣。
+        if (off.name === '松平広忠' && place('imagawa', 'mikawa')) return;
+        if (off.name === '酒井忠次' && place('imagawa', 'suruga')) return;
+        // 土岐頼芸は道三に追われ織田信秀を頼る。斯波義達は尾張守護の名目のみ。
+        // 蜂須賀正勝・前野長康はこの時点では尾張の土豪で、丹波・但馬の城代ではない。
+        if (['土岐頼芸', '斯波義達', '蜂須賀正勝', '前野長康'].includes(off.name) && place('oda', 'owari')) return;
+        // 金森長近が飛騨を与えられるのは天正期。天文15年は斎藤道三に仕える。
+        if (off.name === '金森長近' && place('saito', 'mino')) return;
+        // 江口の戦い（1549年）より前、細川晴元はまだ三好長慶と袂を分かっていない。
+        if (off.name === '細川晴元' && place('miyoshi', 'settsu')) return;
       }
 
       // すでに浪人、または地図上の主家に仕えている武将は動かさない。
@@ -2215,6 +2472,72 @@ class SengokuGame {
         }
       }
 
+      // 【同族城主・一門待機ルール】
+      // 長宗我部氏や南部氏をはじめ、同族（一門・同姓）が城主（城代または大名）を務めている領国がある場合、
+      // 独立大名家として地図上にないシナリオでも浪人化させず、城主と同じ領国の支配勢力（ownerId）に仕官させ、
+      // その領国（ゆかりの国）で待機中とする。
+      const isChosokabeOff = (o) => {
+        if (!o) return false;
+        const n = o.name || '', id = o.id || '', c = o.clanId || '';
+        return n.startsWith('長宗我部') || n.startsWith('長曾我部') || id.includes('chosokabe') || c === 'chosokabe';
+      };
+      const isNanbuOff = (o) => {
+        if (!o) return false;
+        const n = o.name || '', id = o.id || '', c = o.clanId || '';
+        if (c === 'nanbu') return true;
+        if (n.startsWith('南部') || n.startsWith('八戸') || n.startsWith('九戸')) return true;
+        if (n.startsWith('北') && !n.startsWith('北条') && !n.startsWith('北畠')) return true;
+        if (n.startsWith('石川高信') || n.startsWith('浪岡顕保')) return true;
+        if (id.includes('nanbu') || id.includes('hachinohe') || id.includes('kunohe') || id === 'off_kita_nobuchika') return true;
+        return false;
+      };
+
+      if (isChosokabeOff(off)) {
+        const target = provCastellans.find(c => {
+          const cOff = this.activeOfficers.find(o => o.id === c.officerId);
+          return cOff && isChosokabeOff(cOff);
+        }) || provCastellans.find(c => c.provId === 'tosa' && ownersSet.has(c.ownerId));
+        if (target) {
+          off.clanId = target.ownerId;
+          off.isDaimyo = false;
+          off.assignedProvId = null;
+          off.defaultProv = target.provId;
+          return;
+        }
+      }
+
+      if (isNanbuOff(off)) {
+        const target = provCastellans.find(c => {
+          const cOff = this.activeOfficers.find(o => o.id === c.officerId);
+          return cOff && isNanbuOff(cOff);
+        }) || provCastellans.find(c => (c.provId === 'rikuchu' || c.provId === 'mutsu') && ownersSet.has(c.ownerId));
+        if (target) {
+          off.clanId = target.ownerId;
+          off.isDaimyo = false;
+          off.assignedProvId = null;
+          off.defaultProv = target.provId;
+          return;
+        }
+      }
+
+      // 一般一門：元々の主家clanIdが一致する城主がいる領国へ配属
+      const homeClan = clanBefore.get(off.id) || off.clanId;
+      if (homeClan && homeClan !== 'ronin' && homeClan !== 'independent' && homeClan !== 'court') {
+        const target = provCastellans.find(c => {
+          const cOff = this.activeOfficers.find(o => o.id === c.officerId);
+          if (!cOff) return false;
+          const cOrig = clanBefore.get(cOff.id) || cOff.clanId;
+          return cOrig === homeClan;
+        });
+        if (target) {
+          off.clanId = target.ownerId;
+          off.isDaimyo = false;
+          off.assignedProvId = null;
+          off.defaultProv = target.provId;
+          return;
+        }
+      }
+
       // 2. 所属大名が不在の武将は「浪人（諸国流浪・未仕官）」とし、仕官・登用の対象とする
       // 滅んだ家の旧臣を征服大名へ自動で吸収せず、浪人として登場させる
       // 天皇・親王は浪人にしない。新政府が地図に出るまで登場させない。
@@ -2261,6 +2584,22 @@ class SengokuGame {
     return playable?.name || '';
   }
 
+  // 領地を持つ家のシナリオ当主は、城代名簿で他家の配下にしない
+  isNamedLandedLeader(off) {
+    if (!off || !off.name) return false;
+    const owners = new Set((this.provinces || []).map(p => p.ownerId).filter(Boolean));
+    const playables = this.currentScenario?.playables || [];
+    for (const clanId of owners) {
+      const playable = playables.find(d => d.id === clanId);
+      if (playable && playable.name) {
+        if (this.leaderNamesMatch(off.name, playable.name)) return true;
+        continue;
+      }
+      if (this.leaderNamesMatch(off.name, this.getRosterLeaderName(clanId))) return true;
+    }
+    return false;
+  }
+
   leaderNamesMatch(a, b) {
     if (!a || !b) return false;
     if (a === b) return true;
@@ -2269,6 +2608,7 @@ class SengokuGame {
       if (n === '羽柴秀長' || n === '豊臣秀長') return '秀長';
       if (n === '羽柴秀次' || n === '豊臣秀次') return '秀次';
       if (n === '羽柴秀頼' || n === '豊臣秀頼') return '秀頼';
+      if (n === '清原清衡' || n === '藤原清衡') return '清衡';
       return n;
     };
     return canon(a) === canon(b);
@@ -2315,6 +2655,39 @@ class SengokuGame {
         if (o.id !== keep.id) o.isDaimyo = false;
       });
     });
+  }
+
+  // 蝦夷から薩摩まで、地方を北から南、地方内も北から南
+  provinceGeoRank(provId) {
+    if (!SengokuGame._provinceGeoRank) {
+      const order = [
+        'ezo',
+        'tsugaru', 'mutsu', 'ugo', 'rikuchu', 'uzen', 'rikuzen', 'iwashiro', 'iwaki',
+        'sado', 'echigo', 'noto', 'etchu', 'kaga', 'echizen', 'wakasa',
+        'shimotsuke', 'hitachi', 'kozuke', 'shimousa', 'musashi', 'kazusa', 'sagami', 'awa_boshu',
+        'north_shinano', 'south_shinano', 'hida', 'kai', 'mino', 'owari', 'izu', 'suruga', 'mikawa', 'totomi',
+        'tango', 'north_omi', 'south_omi', 'tamba', 'yamashiro', 'iga', 'ise', 'settsu', 'yamato', 'kawachi', 'shima', 'izumi', 'awaji', 'kii',
+        'oki', 'inaba', 'tajima', 'hoki', 'izumo', 'mimasaka', 'iwami', 'harima', 'bicchu', 'aki', 'bizen', 'bingo', 'nagato', 'suo',
+        'sanuki', 'awa_shikoku', 'iyo', 'tosa',
+        'tsushima', 'buzen', 'chikuzen', 'chikugo', 'hizen', 'bungo', 'higo', 'osumi', 'hyuga', 'satsuma'
+      ];
+      SengokuGame._provinceGeoRank = new Map(order.map((id, i) => [id, i]));
+    }
+    if (provId && SengokuGame._provinceGeoRank.has(provId)) return SengokuGame._provinceGeoRank.get(provId);
+    return 10000;
+  }
+
+  officerBaseProvinceId(off) {
+    if (!off) return '';
+    if (off.assignedProvId) return off.assignedProvId;
+    if (off.clanId === 'ronin') return off.defaultProv || '';
+    // 自勢力が領有しているゆかりの支城（城主と同族など）があれば、その領国で待機中
+    if (off.defaultProv) {
+      const ownedBranch = (this.provinces || []).find(p => p.id === off.defaultProv && p.ownerId === off.clanId);
+      if (ownedBranch) return ownedBranch.id;
+    }
+    const home = this.getDaimyoHomeProvince(off);
+    return home ? home.id : (off.defaultProv || '');
   }
 
   // 当主の居城は、その家が現に領有している国だけを返す
@@ -2438,7 +2811,7 @@ class SengokuGame {
   // 天皇・親王・上皇は支城の城代にしない。本拠の当主に選ばれたときだけ居城に座る。
   isCourtFigure(off) {
     if (!off || !off.name) return false;
-    return /親王|天皇|上皇|法皇|女院/.test(off.name);
+    return /天皇|上皇|法皇|神祇/.test(off.name);
   }
 
   // 史実イベントで「預かり」の城代を指定する。領地の主君は変えず、武将だけを家臣として座らせる。
@@ -2646,6 +3019,164 @@ class SengokuGame {
     return totalAppointed;
   }
 
+  // 他勢力や空白地と接する支城。進出と守りがかかる前線。
+  isClanFrontline(p) {
+    if (!p || !p.ownerId) return false;
+    return (p.neighbors || []).some(nId => {
+      const n = this.provinces.find(x => x.id === nId);
+      return n && n.ownerId !== p.ownerId;
+    });
+  }
+
+  frontlineWeight(p) {
+    let borders = 0;
+    (p.neighbors || []).forEach(nId => {
+      const n = this.provinces.find(x => x.id === nId);
+      if (n && n.ownerId !== p.ownerId) borders++;
+    });
+    return borders * 1000 + (Number(p.kokudaka) || 0);
+  }
+
+  // ゆかりの地の城主は動かさない。空いた前線へ戦力の高い家臣を、残った城へ政務向きの家臣を置く。
+  staffComputerVacancies(clanId, branches, pool, aliveGov, seat) {
+    const combat = (o) => (Number(o.military) || 0) * 2 + (Number(o.intel) || 0) + (Number(o.politic) || 0);
+    const civil = (o) => (Number(o.politic) || 0) * 2 + (Number(o.intel) || 0) + (Number(o.military) || 0);
+    const atHome = (o) => !!(o.assignedProvId && o.defaultProv === o.assignedProvId);
+    let moved = 0;
+
+    const availableForFront = () => pool.filter(o => {
+      if (atHome(o)) return false;
+      if (!o.assignedProvId) return true;
+      const seatP = this.provinces.find(x => x.id === o.assignedProvId && x.governorId === o.id && x.ownerId === clanId);
+      if (!seatP) return true;
+      return !this.isClanFrontline(seatP);
+    }).sort((a, b) => combat(b) - combat(a));
+
+    const fronts = branches.filter(p => this.isClanFrontline(p))
+      .sort((a, b) => this.frontlineWeight(b) - this.frontlineWeight(a));
+    fronts.forEach(p => {
+      const cur = aliveGov(p);
+      if (cur && cur.defaultProv === p.id) return;
+      const best = availableForFront()[0];
+      if (!best || best.assignedProvId === p.id) return;
+      if (cur && combat(cur) >= combat(best)) return;
+      if (seat(p, best)) moved++;
+    });
+
+    const rears = branches.filter(p => !aliveGov(p) && !this.isClanFrontline(p))
+      .sort((a, b) => (Number(b.kokudaka) || 0) - (Number(a.kokudaka) || 0));
+    rears.forEach(p => {
+      const next = pool.filter(o => !o.assignedProvId).sort((a, b) => civil(b) - civil(a))[0];
+      if (next && seat(p, next)) moved++;
+    });
+    return moved;
+  }
+
+  // コンピューター勢力の支城は、まずゆかりの地の家臣を城主にする。
+  // fillVacancies が真のときだけ、進行中の空き城を埋める。強い武将を前線へ、残りを後方の城へ。
+  // シナリオ開始時の初期配置では fillVacancies を渡さない。本拠親政は対象外。
+  // プレイヤー勢力は、国司在京・天領代官の城に限って同じ規則で任命する。
+  autoAppointComputerCastellans(options) {
+    const fillVacancies = !!(options && options.fillVacancies);
+    if (!this.provinces || !this.activeOfficers) return 0;
+
+    const scenarioGovIds = new Set(Object.values(
+      (window.SCENARIO_HISTORICAL_GOVERNORS && this.currentScenario)
+        ? (window.SCENARIO_HISTORICAL_GOVERNORS[String(this.currentScenario.id)] || {})
+        : {}
+    ));
+    const isUnlistedJodai = (o) => String(o.id || '').startsWith('off_jd_') && !scenarioGovIds.has(o.id);
+    const score = (o) => (Number(o.politic) || 0) * 2 + (Number(o.intel) || 0) + (Number(o.military) || 0);
+    const blocked = (p) => {
+      if (!p || !p.ownerId) return true;
+      if (this.isCapitalProvince(p.id, p.ownerId)) return true;
+      if (p.ownerId === this.playerClanId && !this.getVacantRule(p, p.ownerId)) return true;
+      return false;
+    };
+    const aliveGov = (p) => {
+      if (!p || !p.governorId) return null;
+      return this.activeOfficers.find(o => o.id === p.governorId && !o.isDead && o.clanId === p.ownerId) || null;
+    };
+    const seat = (prov, officer) => {
+      if (!prov || !officer) return false;
+      if (prov.governorId === officer.id && officer.assignedProvId === prov.id) return false;
+      if (officer.assignedProvId && officer.assignedProvId !== prov.id) {
+        const old = this.provinces.find(x => x.id === officer.assignedProvId);
+        if (old && old.governorId === officer.id) old.governorId = null;
+      }
+      if (prov.governorId && prov.governorId !== officer.id) {
+        const prev = this.activeOfficers.find(o => o.id === prov.governorId);
+        if (prev && prev.assignedProvId === prov.id) prev.assignedProvId = null;
+      }
+      prov.governorId = officer.id;
+      officer.assignedProvId = prov.id;
+      return true;
+    };
+
+    const clanIds = [...new Set(this.provinces.map(p => p.ownerId).filter(id => id && id !== 'ronin' && id !== 'null'))];
+    let total = 0;
+
+    for (const clanId of clanIds) {
+      const branches = this.provinces.filter(p => p.ownerId === clanId && !blocked(p));
+      if (branches.length === 0) continue;
+
+      this.activeOfficers.forEach(o => {
+        if (o.clanId !== clanId || !o.assignedProvId) return;
+        const seated = this.provinces.find(x => x.id === o.assignedProvId);
+        if (!seated || seated.ownerId !== clanId || seated.governorId !== o.id) o.assignedProvId = null;
+      });
+
+      branches.forEach(p => {
+        if (p.governorId && !aliveGov(p)) {
+          const stale = this.activeOfficers.find(o => o.id === p.governorId);
+          if (stale && stale.assignedProvId === p.id) stale.assignedProvId = null;
+          p.governorId = null;
+        }
+      });
+
+      const pool = this.activeOfficers.filter(o =>
+        o.clanId === clanId && !o.isDead && !o.isDaimyo && !this.isCourtFigure(o) && !isUnlistedJodai(o)
+      );
+
+      const homes = new Map();
+      pool.forEach(o => {
+        if (!o.defaultProv) return;
+        const home = branches.find(p => p.id === o.defaultProv);
+        if (!home) return;
+        const cur = aliveGov(home);
+        if (cur && cur.defaultProv === home.id) return;
+        if (!homes.has(home.id)) homes.set(home.id, []);
+        homes.get(home.id).push(o);
+      });
+
+      homes.forEach((cands, provId) => {
+        const home = branches.find(p => p.id === provId);
+        if (clanId === this.playerClanId && aliveGov(home)) return;
+        const movable = cands.filter(o => {
+          if (clanId === this.playerClanId && o.assignedProvId && o.assignedProvId !== provId) return false;
+          if (!o.assignedProvId || o.assignedProvId === provId) return true;
+          const seated = this.provinces.find(p => p.id === o.assignedProvId && p.governorId === o.id);
+          if (!seated) return true;
+          if (this.isCapitalProvince(seated.id, seated.ownerId)) return false;
+          if (o.defaultProv === seated.id) return false;
+          return true;
+        });
+        movable.sort((a, b) => score(b) - score(a));
+        const best = movable[0];
+        if (best && seat(home, best)) total++;
+      });
+
+      // シナリオ開始時はここまで。進行中だけ、ゆかり以外の待機を前線から埋める。
+      if (fillVacancies) total += this.staffComputerVacancies(clanId, branches, pool, aliveGov, seat);
+    }
+
+    const inGame = document.getElementById('startModal')?.classList.contains('hidden');
+    if (total > 0 && inGame) {
+      this.log(`🏯【城主配置】諸大名はゆかりの地を優先し、前線と空き城へ家臣${total}名を城主に任命しました。`);
+    }
+    return total;
+  }
+
   // シナリオを切り替えるたびに、史実本拠の初期値へ戻してから「今領有している城」へ合わせる
   ensureClanCapitalsMatchMap() {
     if (!window.CLAN_CAPITAL_PROVINCES_BASE) {
@@ -2702,6 +3233,30 @@ class SengokuGame {
   isClanExtant(clanId) {
     if (!clanId) return false;
     return (this.provinces || []).some(p => p.ownerId === clanId);
+  }
+
+  // 史実イベントの受け取り先IDを、いま地図上にいる同じ当主・同じ家系の勢力へ寄せる。
+  // 例: 保元シナリオで源義朝家を頼朝が継いでいる時、壇ノ浦の genji_yoritomo を別勢力として生やさない。
+  resolveEventTargetClan(clanId) {
+    if (!clanId || this.isClanExtant(clanId)) return clanId;
+
+    // 1. その家の史実当主が、すでに別IDの勢力を率いていればそこへ渡す
+    const leaderName = this.getDaimyoLeaderName(clanId);
+    if (leaderName && !this.looksLikeClanId(leaderName)) {
+      const lord = (this.activeOfficers || []).find(o =>
+        o && !o.isDead && o.isDaimyo && o.name && this.isClanExtant(o.clanId)
+        && this.leaderNamesMatch(o.name, leaderName)
+      );
+      if (lord) return lord.clanId;
+    }
+
+    // 2. 同じ家系の別ID（データ上の表記揺れ・家督継承）を探す
+    const lineage = EVENT_CLAN_LINEAGE.find(group => group.includes(clanId));
+    if (lineage) {
+      const heir = lineage.find(id => id !== clanId && this.isClanExtant(id));
+      if (heir) return heir;
+    }
+    return clanId;
   }
 
   allianceClanLabel(clanId) {
@@ -3093,6 +3648,123 @@ class SengokuGame {
     // 5. 1585 -> 1586 年越しの改姓アナウンス
     if (announce && this.year === 1586) {
       this.log('👑【豊臣賜姓】羽柴秀吉公は朝廷より「豊臣」の姓を賜りました！羽柴家はこれより「豊臣家」となり天下平定の総仕上げへ邁進します。', 'important');
+      if (this.audio) this.audio.playHyoshigi();
+    }
+
+    this.updateKiyohiraSurname(false);
+  }
+
+  // 清原清衡は寛治2年（1088）春、実父藤原経清の姓に復して藤原清衡となる
+  kiyohiraInFujiwaraEra() {
+    if (this.kiyohiraSurnameDeclined) return false;
+    if (this.kiyohiraFujiwaraAccepted) return true;
+    const y = Number(this.year);
+    // 史実: 寛治2年(1088年)春以降、または1087年冬金沢柵陥落後
+    if (y > 1088) return true;
+    if (y === 1088 && Number(this.seasonIdx) >= 0) return true;
+    if (y === 1087 && Number(this.seasonIdx) >= 3 && Boolean(this.kanazawaOccurred || (this.happenedEvents && this.happenedEvents.has('evt_1087_kanazawa')))) return true;
+    return false;
+  }
+
+  updateKiyohiraSurname(announce = false) {
+    const isFujiwaraEra = this.kiyohiraInFujiwaraEra();
+    const targetName = isFujiwaraEra ? '藤原清衡' : '清原清衡';
+
+    // 1. 武将名の更新 (activeOfficers & OFFICERS_MASTER)
+    const allOffs = [...(this.activeOfficers || []), ...(window.OFFICERS_MASTER || [])];
+    const seen = new Set();
+    allOffs.forEach(o => {
+      if (!o || seen.has(o)) return;
+      seen.add(o);
+      if (o.id === 'off_fujiwara_kiyohira' || o.name === '清原清衡' || o.name === '清原清衝' || o.name === '藤原清衡' || o.name === '藤原清衝') {
+        o.name = targetName;
+      }
+    });
+
+    // 2. プレイヤー大名情報の更新
+    if (this.playerClanId === 'kiyohara') {
+      if (this.playerDaimyo) {
+        if (!this.playerDaimyo._origClan) this.playerDaimyo._origClan = this.playerDaimyo.clan;
+        if (!this.playerDaimyo._origCrest) this.playerDaimyo._origCrest = this.playerDaimyo.crest;
+        if (!this.playerDaimyo._origKamon) this.playerDaimyo._origKamon = this.playerDaimyo.kamonSvgId;
+        if (!this.playerDaimyo._origColor) this.playerDaimyo._origColor = this.playerDaimyo.color;
+
+        if (this.playerDaimyo.name && (this.playerDaimyo.name.includes('清衡') || this.playerDaimyo.name.includes('清衝'))) {
+          this.playerDaimyo.name = targetName;
+        }
+        if (isFujiwaraEra) {
+          this.playerDaimyo.clan = '奥州藤原氏';
+          this.playerDaimyo.crest = '奥州藤原氏';
+          this.playerDaimyo.kamonSvgId = 'kamon-fujiwara';
+          this.playerDaimyo.color = '#d4ac0d';
+          this.playerDaimyo.desc = '安倍頼時の孫で藤原経清の子。後三年の役を経て実父の藤原姓へ復姓し、平泉に奥州藤原氏百年の黄金文化を築いた。';
+        } else {
+          this.playerDaimyo.clan = this.playerDaimyo._origClan || '清原清衡党';
+          this.playerDaimyo.crest = this.playerDaimyo._origCrest || '清原清衡党';
+          this.playerDaimyo.kamonSvgId = this.playerDaimyo._origKamon || 'kamon-kiyohara';
+          this.playerDaimyo.color = this.playerDaimyo._origColor || '#4a235a';
+        }
+      }
+    }
+
+    // 3. プレイアブル大名リストの更新
+    if (this.currentScenario && this.currentScenario.playables) {
+      const pKiyo = this.currentScenario.playables.find(d =>
+        d.id === 'kiyohara' && d.name && (d.name.includes('清衡') || d.name.includes('清衝'))
+      );
+      if (pKiyo) {
+        if (!pKiyo._origClan) pKiyo._origClan = pKiyo.clan;
+        if (!pKiyo._origCrest) pKiyo._origCrest = pKiyo.crest;
+        if (!pKiyo._origKamon) pKiyo._origKamon = pKiyo.kamonSvgId;
+        if (!pKiyo._origColor) pKiyo._origColor = pKiyo.color;
+        pKiyo.name = targetName;
+        if (isFujiwaraEra) {
+          pKiyo.clan = '奥州藤原氏';
+          pKiyo.crest = '奥州藤原氏';
+          pKiyo.kamonSvgId = 'kamon-fujiwara';
+          pKiyo.color = '#d4ac0d';
+          pKiyo.tactic = '黄金王国の威風';
+          pKiyo.tacticDesc = '莫大な砂金と名馬の富により全軍の装備と士気を最大化する。';
+          pKiyo.desc = '安倍頼時の孫で藤原経清の子。後三年の役を経て実父の藤原姓へ復姓し、平泉に奥州藤原氏百年の黄金文化を築いた。';
+        } else {
+          pKiyo.clan = pKiyo._origClan;
+          pKiyo.crest = pKiyo._origCrest;
+          pKiyo.kamonSvgId = pKiyo._origKamon;
+          pKiyo.color = pKiyo._origColor || '#4a235a';
+        }
+      }
+    }
+
+    // 4. CLAN_MASTER_DATA の更新
+    if (window.CLAN_MASTER_DATA && window.CLAN_MASTER_DATA.kiyohara) {
+      const master = window.CLAN_MASTER_DATA.kiyohara;
+      if (!master._origFamily) master._origFamily = master.family;
+      if (!master._origKamon) master._origKamon = master.kamon;
+      if (!master._origColor) master._origColor = master.color;
+      const scenarioLeaderIsKiyohira = !!(this.currentScenario && this.currentScenario.playables &&
+        this.currentScenario.playables.some(d => d.id === 'kiyohara' && d.name && (d.name.includes('清衡') || d.name.includes('清衝'))));
+      if (isFujiwaraEra && scenarioLeaderIsKiyohira) {
+        master.family = '奥州藤原氏';
+        master.kamon = 'kamon-fujiwara';
+        master.color = '#d4ac0d';
+        master.tactic = '黄金王国の威風';
+        master.tacticDesc = '莫大な砂金と名馬の富により全軍の装備と士気を最大化する。';
+        master.desc = '平泉に三代百年の黄金文化を築いた奥州藤原氏。清衡・基衡・秀衡が陸奥・出羽十七万石の独立王国を支配した。';
+        if (master.leaders) {
+          master.leaders['1088'] = '藤原清衡';
+          master.leaders.default = '藤原清衡';
+        }
+      } else if (!isFujiwaraEra && scenarioLeaderIsKiyohira) {
+        master.family = master._origFamily || '清原氏';
+        master.kamon = master._origKamon || 'kamon-kiyohara';
+        master.color = master._origColor || '#4a235a';
+      }
+    }
+
+    // 5. アナウンス
+    if (announce && isFujiwaraEra && !this._kiyohiraAnnounced) {
+      this._kiyohiraAnnounced = true;
+      this.log('👑【藤原復姓】清原清衡公は実父・藤原経清の姓に復し、「藤原清衡」と改姓しました。奥羽の主はこれより奥州藤原氏を称します。', 'important');
       if (this.audio) this.audio.playHyoshigi();
     }
   }
@@ -4051,11 +4723,8 @@ class SengokuGame {
         if (id) used.add(id);
       });
 
-      // 候補武将プール（大名以外、かつまだ割り当てられていない武将）
       let pool = officers().filter(o => !o.isDaimyo && !used.has(o.id));
       const vacant = mine.filter(p => !draft.get(p.id) && !this.isCapitalProvince(p.id, this.playerClanId));
-
-      // 【第1優先: 武将が領国・歴史上本拠地とした国への優先自動割り当て】
       const remainingVacant = [];
       vacant.forEach(p => {
         const homeOfficers = pool.filter(o => o.defaultProv === p.id);
@@ -4070,9 +4739,20 @@ class SengokuGame {
         }
       });
 
-      // 【第2優先: 残りの空き城に、残りの武将を高能力順に割り当て】
-      pool.sort((a, b) => officerScore(b) - officerScore(a));
-      remainingVacant.forEach(p => {
+      const combat = (o) => (Number(o.military) || 0) * 2 + (Number(o.intel) || 0) + (Number(o.politic) || 0);
+      const civil = (o) => (Number(o.politic) || 0) * 2 + (Number(o.intel) || 0) + (Number(o.military) || 0);
+      const fronts = remainingVacant.filter(p => this.isClanFrontline(p))
+        .sort((a, b) => this.frontlineWeight(b) - this.frontlineWeight(a));
+      const rears = remainingVacant.filter(p => !this.isClanFrontline(p));
+      pool.sort((a, b) => combat(b) - combat(a));
+      fronts.forEach(p => {
+        const next = pool.shift();
+        if (!next) return;
+        draft.set(p.id, next.id);
+        used.add(next.id);
+      });
+      pool.sort((a, b) => civil(b) - civil(a));
+      rears.forEach(p => {
         const next = pool.shift();
         if (!next) return;
         draft.set(p.id, next.id);
@@ -4080,14 +4760,11 @@ class SengokuGame {
       });
     };
 
-    // 初期状態でも、城主不在の空き城に歴史上ゆかりの武将（待機中）がいれば優先提案
     mine.forEach(p => {
       if (!draft.get(p.id) && !this.isCapitalProvince(p.id, this.playerClanId)) {
         const used = new Set([...draft.values()].filter(Boolean));
         const homeOff = officers().find(o => !o.isDaimyo && !used.has(o.id) && o.defaultProv === p.id);
-        if (homeOff) {
-          draft.set(p.id, homeOff.id);
-        }
+        if (homeOff) draft.set(p.id, homeOff.id);
       }
     });
 
@@ -4119,7 +4796,7 @@ class SengokuGame {
           <div style="padding:12px 20px; border-bottom:1px solid #5a4638; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%);">
             <div>
               <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 城主一括任命 ❖</h3>
-              <span style="font-size:12pt; color:#ccc;">各国の城主を選んで一度に任命します。空き城は武将ゆかりの領国を優先し、さらに能力の高い待機武将から自動で割り当てられます。本拠は自動任命の対象外です。</span>
+              <span style="font-size:12pt; color:#ccc;">各国の城主を選んで一度に任命します。自動任命はゆかりの地を優先し、強い武将を前線の城へ、残りの待機武将も空いた城へ配ります。本拠は対象外です。</span>
             </div>
             <button id="closeBatchGovBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer;">✕</button>
           </div>
@@ -4186,10 +4863,12 @@ class SengokuGame {
         this.log(`【城主一括任命】${changed}件の城主任命を更新しました。`, 'important');
         this.audio.playTaiko();
         this.showOrderResult('🏯 城主一括任命', `${changed}件の任命を更新しました`, '#2ecc71');
+        const listOpen = document.getElementById('provinceListModal')?.style.display === 'flex';
         close();
         if (this.selectedProvId) this.selectProvince(this.selectedProvId);
         this.updateStatusHeader();
         this.updateMapDisplay();
+        if (listOpen) this.openProvinceListModal();
       });
     };
 
@@ -4247,21 +4926,8 @@ class SengokuGame {
           diff = getRoleScore(a) - getRoleScore(b);
           if (diff === 0) diff = (a.military || 0) - (b.military || 0);
         } else if (sortKey === 'base') {
-          const getBaseName = (off) => {
-            if (off.assignedProvId) {
-              const pr = this.provinces.find(x => x.id === off.assignedProvId);
-              return pr ? pr.name : '';
-            }
-            if (off.isDaimyo) {
-              const home = this.getDaimyoHomeProvince(off);
-              return home ? home.name : '';
-            }
-            if (off.clanId === 'ronin') {
-              return off.defaultProv ? this.getProvinceJapaneseName(off.defaultProv) : '流浪';
-            }
-            return '';
-          };
-          diff = getBaseName(a).localeCompare(getBaseName(b), 'ja');
+          diff = this.provinceGeoRank(this.officerBaseProvinceId(a)) - this.provinceGeoRank(this.officerBaseProvinceId(b));
+          if (diff === 0) diff = (a.name || '').localeCompare(b.name || '', 'ja');
         } else if (sortKey === 'name') {
           diff = (a.name || '').localeCompare(b.name || '', 'ja');
         } else if (sortKey === 'clan') {
@@ -4400,7 +5066,7 @@ class SengokuGame {
 
                   return `
                     <tr class="officer-table-row" data-off-id="${off.id}" title="クリックで人物列伝を表示" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt; transition:background 0.15s;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt;">
+                      <td style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt; text-decoration:none; border-bottom:none;">
                         ${off.name}
                       </td>
                       <td style="padding:10px 12px; text-align:center; white-space:nowrap;">
@@ -4440,10 +5106,7 @@ class SengokuGame {
           <!-- フッター -->
           <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
             <span style="font-size:12pt; color:#aaa;">表示中: ${list.length}名 (現在年: ${this.year}年) 💡行クリックで人物列伝を表示 ｜ 遠国も登用可（遠いほど成功率は低下）。跡継ぎ不在時は確率が上がり、仕官も来ます</span>
-            <div style="display:flex; gap:10px;">
-              <button id="openRecruitModalFromOfficerList" style="background:linear-gradient(180deg, #d4af37, #b7950b); color:#111; border:none; padding:7px 18px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">🤝 浪人招聘所を開く</button>
-              <button id="closeOfficerModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉じる</button>
-            </div>
+            <button id="closeOfficerModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
           </div>
         </div>
       `;
@@ -4457,11 +5120,6 @@ class SengokuGame {
       document.getElementById('tabMyOfficers')?.addEventListener('click', () => { currentTab = 'my'; render(); });
       document.getElementById('tabRoninOfficers')?.addEventListener('click', () => { currentTab = 'ronin'; render(); });
       document.getElementById('tabAllOfficers')?.addEventListener('click', () => { currentTab = 'all'; render(); });
-
-      document.getElementById('openRecruitModalFromOfficerList')?.addEventListener('click', () => {
-        closeModal();
-        this.openRecruitRoninModal();
-      });
 
       // 浪人の直接登用ボタン
       modal.querySelectorAll('.btn-recruit-ronin-row').forEach(btn => {
@@ -4482,7 +5140,7 @@ class SengokuGame {
             sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
           } else {
             sortKey = key;
-            sortOrder = (key === 'name' || key === 'clan' ? 'asc' : 'desc');
+            sortOrder = (key === 'name' || key === 'clan' || key === 'base' ? 'asc' : 'desc');
           }
           render();
         });
@@ -4512,6 +5170,314 @@ class SengokuGame {
             newInp.focus();
             newInp.selectionStart = newInp.selectionEnd = newInp.value.length;
           }
+        });
+      }
+    };
+
+    render();
+    this.audio.playHyoshigi();
+  }
+
+  // 領国一覧モーダル（武将一覧と同じ表形式・ソート・検索）
+  openProvinceListModal() {
+    if (this.isAutoPlay) this.stopAutoPlay('領国一覧表示のため');
+
+    let modal = document.getElementById('provinceListModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'provinceListModal';
+      modal.className = 'custom-modal';
+      modal.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; display:flex; justify-content:center; align-items:center;';
+      document.body.appendChild(modal);
+    }
+
+    let currentTab = 'my'; // 'my', 'all', or 'blank'
+    let sortKey = 'castle';
+    let sortOrder = 'asc';
+    let searchQuery = '';
+    const geoIndex = (row) => this.provinceGeoRank(row.p && row.p.id);
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+
+    const formatManKoku = (n) => {
+      const v = Number(n) || 0;
+      if (v >= 10000) {
+        const man = v / 10000;
+        const text = man >= 100 ? String(Math.round(man)) : (Math.round(man * 10) / 10).toFixed(1).replace(/\.0$/, '');
+        return `${text}万石`;
+      }
+      return `${v.toLocaleString('ja-JP')}石`;
+    };
+
+    const render = () => {
+      const allProvs = this.provinces || [];
+      const myProvs = allProvs.filter(p => p.ownerId === this.playerClanId);
+      const blankProvs = allProvs.filter(p => !p.ownerId);
+      let source = currentTab === 'my' ? myProvs : (currentTab === 'blank' ? blankProvs : allProvs);
+
+      const castleOf = (p) => (this.currentScenario && this.currentScenario.castles && this.currentScenario.castles[p.id]) || p.castleName || p.castle || '居城';
+
+      let rows = source.map(p => {
+        const isBlank = !p.ownerId;
+        const isMine = p.ownerId === this.playerClanId;
+        const eff = isBlank ? null : this.getEffectiveStats(p.id);
+        const castle = castleOf(p);
+        const ownerName = isBlank ? '空白地' : (this.getClanFamilyName(p.ownerId) || '無所属');
+        let govName = isBlank ? '国人・土豪' : (eff?.name || '城代');
+        let roleRank = 0;
+        if (!isBlank && eff?.isCapital && eff?.isDaimyo) roleRank = 3;
+        else if (!isBlank && eff?.governor) roleRank = 2;
+        else if (!isBlank) roleRank = 1;
+        const officer = (!isBlank && eff && !eff.isJodai && eff.governor) ? eff.governor : null;
+        let military = isBlank ? null : Number(eff?.military ?? 0);
+        let politics = isBlank ? null : Number(eff?.politics ?? 0);
+        let stratagem = isBlank ? null : Number(eff?.stratagem ?? 0);
+        return {
+          p,
+          isBlank,
+          isMine,
+          eff,
+          castle,
+          region: p.region || '諸国',
+          ownerName,
+          govName,
+          roleRank,
+          officer,
+          military,
+          politics,
+          stratagem,
+          kokudaka: Number(p.kokudaka) || 0,
+          troops: Number(p.troops) || 0,
+          defense: Number(p.defense) || 0,
+          commerce: Number(p.commerce) || 0,
+          morale: Number(p.morale) || 0,
+          order: Number(p.order !== undefined ? p.order : 85) || 0,
+          specialty: p.specialty || ''
+        };
+      });
+
+      if (searchQuery) {
+        const q = searchQuery.trim().toLowerCase();
+        rows = rows.filter(r => {
+          const policy = r.isBlank ? '' : this.getGovernModeName(r.p.governance);
+          const blob = `${r.p.name || ''} ${r.castle} ${r.region} ${r.ownerName} ${r.govName} ${r.specialty} ${policy}`.toLowerCase();
+          return blob.includes(q);
+        });
+      }
+
+      rows.sort((a, b) => {
+        let diff = 0;
+        if (sortKey === 'name') diff = (a.p.name || '').localeCompare(b.p.name || '', 'ja');
+        else if (sortKey === 'castle' || sortKey === 'region') diff = geoIndex(a) - geoIndex(b);
+
+        else if (sortKey === 'owner') diff = a.ownerName.localeCompare(b.ownerName, 'ja');
+        else if (sortKey === 'governor') {
+          diff = a.roleRank - b.roleRank;
+          if (diff === 0) diff = a.govName.localeCompare(b.govName, 'ja');
+        } else if (sortKey === 'military') diff = (a.military ?? -1) - (b.military ?? -1);
+        else if (sortKey === 'politics') diff = (a.politics ?? -1) - (b.politics ?? -1);
+        else if (sortKey === 'stratagem') diff = (a.stratagem ?? -1) - (b.stratagem ?? -1);
+        else if (sortKey === 'kokudaka') diff = a.kokudaka - b.kokudaka;
+        else if (sortKey === 'troops') diff = a.troops - b.troops;
+        else if (sortKey === 'defense') diff = a.defense - b.defense;
+        else if (sortKey === 'commerce') diff = a.commerce - b.commerce;
+        else if (sortKey === 'morale') diff = a.morale - b.morale;
+        else if (sortKey === 'order') diff = a.order - b.order;
+        const tie = (a.p.name || '').localeCompare(b.p.name || '', 'ja');
+        const primary = sortOrder === 'desc' ? -diff : diff;
+        return primary || tie;
+      });
+
+      const getSortIcon = (key) => {
+        if (sortKey !== key) return '<span style="color:#776655; font-size:11pt; margin-left:4px;">↕</span>';
+        return sortOrder === 'asc'
+          ? '<span style="color:var(--gold-bright); font-size:12pt; margin-left:4px;">▲</span>'
+          : '<span style="color:var(--gold-bright); font-size:12pt; margin-left:4px;">▼</span>';
+      };
+
+      const th = (key, label, extra) => `<th class="sortable-prov-th" data-key="${key}" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; font-size:12pt; white-space:nowrap; ${extra || ''}">${label} ${getSortIcon(key)}</th>`;
+
+      const governorCell = (r, roleBadge) => `<td style="padding:8px 8px; white-space:nowrap;">${roleBadge}<b style="margin-left:6px; color:#fff;">${esc(r.govName)}</b></td>`;
+
+      modal.innerHTML = `
+        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:96vw; max-width:1560px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+          <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 領国録・城主と石高 ❖</h3>
+              <span style="font-size:12pt; color:#ccc;">城主と武勇・内政・智謀、兵力や表高を一覧できます。城主・当主の行をクリックすると、その武将の概要と列伝が開きます。城代や空白地の行は、地図でその領国を選びます。</span>
+            </div>
+            <button id="closeProvinceModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px;">✕</button>
+          </div>
+
+          <div style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button id="tabMyProvinces" style="background:${currentTab === 'my' ? '#922b21' : '#2b1d14'}; color:#fff; border:1px solid ${currentTab === 'my' ? '#c0392b' : '#664422'}; padding:6px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">
+                我が領国 (${myProvs.length}国)
+              </button>
+              <button id="tabAllProvinces" style="background:${currentTab === 'all' ? '#922b21' : '#2b1d14'}; color:#fff; border:1px solid ${currentTab === 'all' ? '#c0392b' : '#664422'}; padding:6px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">
+                天下の領国 (${allProvs.length}国)
+              </button>
+              <button id="tabBlankProvinces" style="background:${currentTab === 'blank' ? '#7f8c8d' : '#2b1d14'}; color:${currentTab === 'blank' ? '#fff' : '#bdc3c7'}; border:1px solid ${currentTab === 'blank' ? '#bdc3c7' : '#664422'}; padding:6px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">
+                空白地 (${blankProvs.length}国)
+              </button>
+              <button id="provListOpenBatchGov" title="自領の城主をまとめて任命" style="background:linear-gradient(180deg, #d4af37, #b7950b); color:#111; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">城主一括任命</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:12pt; color:#aaa;">検索:</span>
+              <input id="inputProvinceSearch" type="text" placeholder="国名・城・城主・領主..." value="${esc(searchQuery)}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:5px 10px; border-radius:4px; font-size:12pt; width:210px;">
+            </div>
+          </div>
+
+          <div id="provinceListScroll" style="flex:1; overflow:auto; padding:0 12px 0 20px;">
+            <table style="width:max-content; min-width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+              <thead>
+                <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  ${th('name', '国名', '')}
+                  ${th('castle', '城', 'min-width:14em;')}
+                  ${th('region', '地方', 'text-align:center;')}
+                  ${th('owner', '領主', '')}
+                  ${th('governor', '城主', 'min-width:11em;')}
+                  ${th('military', '武勇', 'text-align:center;')}
+                  ${th('politics', '内政', 'text-align:center;')}
+                  ${th('stratagem', '智謀', 'text-align:center;')}
+                  ${th('troops', '兵力', 'text-align:right;')}
+                  ${th('defense', '防御', 'text-align:center;')}
+                  ${th('morale', '士気', 'text-align:center;')}
+                  ${th('kokudaka', '表高', 'text-align:right;')}
+                  ${th('commerce', '商業', 'text-align:right;')}
+                  ${th('order', '治安度', 'text-align:center;')}
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.length === 0 ? `
+                  <tr>
+                    <td colspan="14" style="text-align:center; padding:30px; color:#888; font-size:12pt;">該当する領国は見つかりませんでした。</td>
+                  </tr>
+                ` : rows.map((r, idx) => {
+                  const eff = r.eff;
+                  let roleBadge = '';
+                  if (r.isBlank) {
+                    roleBadge = '<span style="background:#7f8c8d; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt;">空白</span>';
+                  } else if (eff && eff.isCapital && eff.isDaimyo) {
+                    roleBadge = '<span style="background:#b7950b; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt; font-weight:bold;">👑 本拠</span>';
+                  } else if (eff && eff.governor) {
+                    roleBadge = '<span style="background:#27ae60; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt; font-weight:bold;">🏯 城主</span>';
+                  } else {
+                    const rawBadge = String(eff?.vacantBadge || '城代');
+                    const badgeText = rawBadge.startsWith('城代統治') ? '城代統治' : rawBadge;
+                    const badge = esc(badgeText);
+                    roleBadge = `<span style="background:#d35400; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt; font-weight:bold;">${badge}</span>`;
+                  }
+                  const statCell = (value, color) => value == null
+                    ? '<td style="padding:10px 8px; text-align:center; white-space:nowrap; color:#777;">—</td>'
+                    : `<td style="padding:10px 8px; text-align:center; white-space:nowrap;"><b style="color:${color}; font-size:12.5pt;">${value}</b></td>`;
+                  const isSelected = r.p.id === this.selectedProvId;
+                  const rowBg = isSelected
+                    ? 'rgba(215, 175, 100, 0.22)'
+                    : (r.isMine && eff && eff.isCapital
+                      ? 'rgba(183, 149, 11, 0.12)'
+                      : (r.isBlank
+                        ? 'rgba(127, 140, 141, 0.08)'
+                        : (idx % 2 === 0 ? 'rgba(255, 255, 255, 0.02)' : 'rgba(0, 0, 0, 0.18)')));
+                  const ownerStyle = r.isBlank
+                    ? 'background:rgba(127,140,141,0.25); color:#bdc3c7; border:1px solid #7f8c8d;'
+                    : (r.isMine
+                      ? 'background:rgba(46,204,113,0.2); color:#2ecc71; border:1px solid #27ae60;'
+                      : 'background:rgba(255,255,255,0.05); color:#e0d8c3; border:1px solid #5a4638;');
+                  const rowTitle = r.officer ? 'クリックで武将の概要と列伝を表示' : 'クリックで地図上の領国を選択';
+                  return `
+                    <tr class="province-table-row" role="button" tabindex="0" data-prov-id="${esc(r.p.id)}" data-off-id="${esc(r.officer ? r.officer.id : '')}" title="${rowTitle}" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
+                      <td style="padding:10px 8px; font-weight:bold; color:#fff; white-space:nowrap; font-size:12.5pt;">${esc(r.p.name)}</td>
+                      <td style="padding:10px 8px; color:#f5eedc; white-space:nowrap; min-width:14em;" title="${esc(r.specialty)}">${esc(r.castle)}</td>
+                      <td style="padding:10px 8px; text-align:center; white-space:nowrap; color:#ccc;">${esc(r.region)}</td>
+                      <td style="padding:10px 10px; white-space:nowrap;">
+                        <span style="${ownerStyle} padding:3px 8px; border-radius:3px; font-size:12pt;">${esc(r.ownerName)}</span>
+                      </td>
+                      ${governorCell(r, roleBadge)}
+                      ${statCell(r.military, '#ff6b6b')}
+                      ${statCell(r.politics, '#5dade2')}
+                      ${statCell(r.stratagem, '#a3e4d7')}
+                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.troops.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 人</span></td>
+                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.defense}</td>
+                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.morale}</td>
+                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;"><b style="color:#ffd700; font-size:12.5pt;">${formatManKoku(r.kokudaka)}</b></td>
+                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.commerce.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 貫</span></td>
+                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.order}%</td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span style="font-size:12pt; color:#aaa;">表示中: ${rows.length}国 (現在年: ${this.year}年) ｜ 城主・当主の行は列伝 ｜ 城代・空白地の行は地図を選択</span>
+            <button id="closeProvinceModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">閉</button>
+          </div>
+        </div>
+      `;
+
+      modal.style.display = 'flex';
+
+      const closeModal = () => { modal.style.display = 'none'; };
+      document.getElementById('closeProvinceModalBtn')?.addEventListener('click', closeModal);
+      document.getElementById('closeProvinceModalBtnBottom')?.addEventListener('click', closeModal);
+
+      document.getElementById('tabMyProvinces')?.addEventListener('click', () => { currentTab = 'my'; render(); });
+      document.getElementById('tabAllProvinces')?.addEventListener('click', () => { currentTab = 'all'; render(); });
+      document.getElementById('tabBlankProvinces')?.addEventListener('click', () => { currentTab = 'blank'; render(); });
+      document.getElementById('provListOpenBatchGov')?.addEventListener('click', () => this.openBatchGovernorModal());
+
+      modal.querySelectorAll('.sortable-prov-th').forEach(el => {
+        el.addEventListener('click', () => {
+          const key = el.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'castle' || key === 'region' || key === 'owner') ? 'asc' : 'desc';
+          }
+          render();
+        });
+      });
+
+      modal.querySelectorAll('.province-table-row').forEach(row => {
+        row.addEventListener('click', () => {
+          const offId = row.dataset.offId;
+          if (offId) {
+            const off = (this.activeOfficers || []).find(o => o.id === offId)
+              || (this.officers || []).find(o => o.id === offId)
+              || (window.OFFICERS_MASTER || []).find(o => o.id === offId);
+            if (off) {
+              this.showOfficerDetailModal(off);
+              return;
+            }
+          }
+          const provId = row.dataset.provId;
+          if (!provId) return;
+          closeModal();
+          this.selectProvince(provId);
+        });
+      });
+
+      const searchInput = document.getElementById('inputProvinceSearch');
+      if (searchInput) {
+        const applySearch = (value) => {
+          searchQuery = value;
+          render();
+          const newInp = document.getElementById('inputProvinceSearch');
+          if (newInp) {
+            newInp.focus();
+            newInp.selectionStart = newInp.selectionEnd = newInp.value.length;
+          }
+        };
+        searchInput.addEventListener('input', (e) => {
+          if (e.isComposing) return;
+          applySearch(e.target.value);
+        });
+        searchInput.addEventListener('compositionend', (e) => {
+          applySearch(e.target.value);
         });
       }
     };
@@ -4628,7 +5594,7 @@ class SengokuGame {
       const myClanName = this.getClanFamilyName(this.playerClanId);
 
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1220px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1580px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
           <!-- ヘッダー -->
           <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
@@ -4666,9 +5632,9 @@ class SengokuGame {
             <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
-                  <th class="sortable-fac-th" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px; font-size:12pt;">大名家 ${getSortIcon('clan')}</th>
+                  <th class="sortable-fac-th" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:260px; min-width:260px; white-space:nowrap; font-size:12pt;">大名家 ${getSortIcon('clan')}</th>
                   <th class="sortable-fac-th" data-key="leader" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:130px; font-size:12pt;">当主 ${getSortIcon('leader')}</th>
-                  <th class="sortable-fac-th" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:160px; font-size:12pt;">本拠地 (居城) ${getSortIcon('base')}</th>
+                  <th class="sortable-fac-th" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:360px; min-width:360px; white-space:nowrap; font-size:12pt;">本拠地 (居城) ${getSortIcon('base')}</th>
                   <th class="sortable-fac-th" data-key="provCount" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:95px; text-align:center; font-size:12pt;">領国数 ${getSortIcon('provCount')}</th>
                   <th class="sortable-fac-th" data-key="totalRice" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総石高 ${getSortIcon('totalRice')}</th>
                   <th class="sortable-fac-th" data-key="totalTroops" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総兵力 ${getSortIcon('totalTroops')}</th>
@@ -4724,21 +5690,21 @@ class SengokuGame {
                   } else {
                     actionHtml = `
                       <div style="display:flex; justify-content:center; align-items:center; gap:6px;">
-                        <span style="background:#555; color:#ddd; padding:3px 8px; border-radius:4px; font-size:11pt;">⚔️ 敵対</span>
-                        <button class="btn-form-alliance-row" data-clan-id="${f.clanId}" style="background:linear-gradient(180deg, #27ae60, #1e8449); color:#fff; border:1px solid #2ecc71; padding:3px 10px; border-radius:4px; cursor:pointer; font-size:11pt; font-weight:bold; transition:0.2s;" title="使者を派遣して同盟を結びます (金500両・AP 1消費)">同盟締結</button>
+                        <span style="background:#555; color:#ddd; padding:3px 8px; border-radius:4px; font-size:11pt;">敵対</span>
+                        <button class="btn-form-alliance-row" data-clan-id="${f.clanId}" style="background:linear-gradient(180deg, #27ae60, #1e8449); color:#fff; border:1px solid #2ecc71; padding:3px 10px; border-radius:4px; cursor:pointer; font-size:11pt; font-weight:bold; transition:0.2s;" title="使者を派遣して同盟を結びます (金500両・AP 1消費)">同盟</button>
                       </div>
                     `;
                   }
 
                   return `
                     <tr style="border-bottom:1px solid #3d2b1f; background:${rowBg}; border-left:${borderLeft}; transition:background 0.2s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.06)'" onmouseout="this.style.backgroundColor='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:${isPlayer ? 'var(--gold-bright)' : '#fff'};">
+                      <td style="padding:10px 12px; font-weight:bold; color:${isPlayer ? 'var(--gold-bright)' : '#fff'}; white-space:nowrap;">
                         ${isPlayer ? '★ ' : ''}${f.clanName}
                       </td>
                       <td style="padding:10px 12px; color:var(--gold-bright); font-weight:bold;">
                         ${f.daimyoName}
                       </td>
-                      <td style="padding:10px 12px; color:#ddd;">
+                      <td style="padding:10px 12px; color:#ddd; white-space:nowrap;">
                         ${f.capitalDisplay}
                       </td>
                       <td style="padding:10px 10px; text-align:center;" title="支配領国: ${provNames}">
@@ -4773,7 +5739,7 @@ class SengokuGame {
               <span style="margin-left:14px; color:#bbb; font-size:11pt;">💡【同盟効果】相互攻撃不可・防衛戦での援軍（二年＝八季で解消。滅亡した大名は一覧から消える。締結: 金500両・AP 1点）</span>
             </div>
             <div>
-              <button id="closeFactionModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉じる</button>
+              <button id="closeFactionModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
             </div>
           </div>
         </div>
@@ -5258,7 +6224,7 @@ class SengokuGame {
   extractPersonSurname(fullName) {
     if (!fullName) return '';
     const name = String(fullName).replace(/家$/, '');
-    const prefixes = ['長宗我部', '宇喜多', '龍造寺', '竜造寺', '小早川', '宇都宮', '西園寺', '小笠原', '佐々木', '豊臣', '羽柴', '木下', '徳川', '松平'];
+    const prefixes = ['長宗我部', '宇喜多', '龍造寺', '竜造寺', '小早川', '宇都宮', '西園寺', '小笠原', '佐々木', '豊臣', '羽柴', '木下', '徳川', '松平', '藤原', '清原'];
     const list = [...new Set([...prefixes, ...this.getKnownSurnames()])].sort((a, b) => b.length - a.length);
     for (const surname of list) {
       if (!surname) continue;
@@ -5274,7 +6240,8 @@ class SengokuGame {
   surnameGroup(surname) {
     const groups = [
       ['豊臣', '羽柴', '木下'],
-      ['徳川', '松平']
+      ['徳川', '松平'],
+      ['藤原', '清原']
     ];
     if (!surname) return [];
     const found = groups.find(arr => arr.includes(surname));
@@ -5917,18 +6884,7 @@ class SengokuGame {
       if (match) seatVassal(p, match);
     });
 
-    openBranches().forEach(p => {
-      const candidates = this.activeOfficers.filter(o =>
-        o.clanId === p.ownerId && !o.assignedProvId && !o.isDead && !o.isDaimyo && !this.isCourtFigure(o)
-      );
-      if (candidates.length === 0) return;
-      candidates.sort((a, b) => {
-        const scoreA = (a.military || 0) + (a.politic || 0) + (a.intel || 0);
-        const scoreB = (b.military || 0) + (b.politic || 0) + (b.intel || 0);
-        return scoreB - scoreA;
-      });
-      seatVassal(p, candidates[0]);
-    });
+    this.autoAppointComputerCastellans({ fillVacancies: true });
   }
 
   // プレイヤー勢力の切り替え（本能寺の変・後継選択用）
@@ -6289,7 +7245,9 @@ class SengokuGame {
     // パン・ズーム
     const wrapper = document.getElementById('mapWrapper');
     const panLayer = document.getElementById('mapPanZoomLayer');
-    if (wrapper && panLayer) {
+    if (wrapper && panLayer && !this.mapGestureBound) {
+      // シナリオを切り替えて地図を描き直しても、ドラッグ操作が二重にならないようにする
+      this.mapGestureBound = true;
       wrapper.addEventListener('mousedown', (e) => {
         this.isMapDragging = true;
         this.dragStartX = e.clientX - this.mapPanX;
@@ -6307,26 +7265,55 @@ class SengokuGame {
         this.isMapDragging = false;
       });
 
-      // スマホ：横スワイプだけ地図を移動する。縦スワイプはページのスクロールに任せる
+      // スマホ：地図上のドラッグは上下左右とも地図を動かす。2本指で拡大縮小
+      const touchDistance = (a, b) => Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      const mapZoomLimit = () => (window.matchMedia('(max-width: 768px)').matches ? 5 : 3.5);
+
       wrapper.addEventListener('touchstart', (e) => {
-        if (e.touches.length !== 1) return;
-        const t = e.touches[0];
-        this.touchStartX = t.clientX;
-        this.touchStartY = t.clientY;
-        this.dragStartX = t.clientX - this.mapPanX;
-        this.dragStartY = t.clientY - this.mapPanY;
-        this.isMapTouchPanning = false;
+        if (e.target.closest('.map-ctrl-btn')) return;
+        if (e.touches.length === 1) {
+          const t = e.touches[0];
+          this.touchStartX = t.clientX;
+          this.touchStartY = t.clientY;
+          this.dragStartX = t.clientX - this.mapPanX;
+          this.dragStartY = t.clientY - this.mapPanY;
+          this.isMapTouchPanning = false;
+          this.mapPinching = false;
+          return;
+        }
+        if (e.touches.length === 2) {
+          this.mapPinching = true;
+          this.pinchStartDist = touchDistance(e.touches[0], e.touches[1]);
+          this.pinchStartScale = this.mapScale;
+          this.isMapTouchPanning = true;
+          this.mapSuppressClick = true;
+        }
       }, { passive: true });
 
       wrapper.addEventListener('touchmove', (e) => {
-        if (e.touches.length !== 1) return;
+        if (e.target.closest('.map-ctrl-btn') && !this.mapPinching && !this.isMapTouchPanning) return;
+        if (e.touches.length === 2 && this.mapPinching) {
+          e.preventDefault();
+          const dist = touchDistance(e.touches[0], e.touches[1]);
+          if (!this.pinchStartDist) return;
+          const rect = wrapper.getBoundingClientRect();
+          const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+          const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+          const oldScale = this.mapScale || 1;
+          const nextScale = Math.min(mapZoomLimit(), Math.max(0.65, this.pinchStartScale * (dist / this.pinchStartDist)));
+          this.mapPanX = cx - (cx - this.mapPanX) * (nextScale / oldScale);
+          this.mapPanY = cy - (cy - this.mapPanY) * (nextScale / oldScale);
+          this.mapScale = nextScale;
+          this.applyPanZoom();
+          this.mapSuppressClick = true;
+          return;
+        }
+        if (e.touches.length !== 1 || this.mapPinching) return;
         const t = e.touches[0];
         const dx = t.clientX - this.touchStartX;
         const dy = t.clientY - this.touchStartY;
         if (!this.isMapTouchPanning) {
           if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-          // 縦方向が優勢なら領国選択やページスクロールを邪魔しない
-          if (Math.abs(dy) > Math.abs(dx)) return;
           this.isMapTouchPanning = true;
         }
         e.preventDefault();
@@ -6336,8 +7323,21 @@ class SengokuGame {
         this.mapSuppressClick = true;
       }, { passive: false });
 
-      wrapper.addEventListener('touchend', () => {
-        this.isMapTouchPanning = false;
+      wrapper.addEventListener('touchend', (e) => {
+        if (e.touches.length === 1) {
+          const t = e.touches[0];
+          this.touchStartX = t.clientX;
+          this.touchStartY = t.clientY;
+          this.dragStartX = t.clientX - this.mapPanX;
+          this.dragStartY = t.clientY - this.mapPanY;
+          this.mapPinching = false;
+          this.isMapTouchPanning = false;
+          return;
+        }
+        if (e.touches.length === 0) {
+          this.isMapTouchPanning = false;
+          this.mapPinching = false;
+        }
       });
 
       // 地図を動かした直後のタップで領国が選ばれないようにする
@@ -6356,7 +7356,7 @@ class SengokuGame {
         // ホイールズームを細かく滑らかに調整できるように設定 (約5%刻みの微細ズーム)
         const zoomFactor = e.deltaY < 0 ? 1.05 : 0.952;
         const oldScale = this.mapScale;
-        const newScale = Math.min(3.5, Math.max(0.65, oldScale * zoomFactor));
+        const newScale = Math.min(mapZoomLimit(), Math.max(0.65, oldScale * zoomFactor));
         this.mapPanX = mouseX - (mouseX - this.mapPanX) * (newScale / oldScale);
         this.mapPanY = mouseY - (mouseY - this.mapPanY) * (newScale / oldScale);
         this.mapScale = newScale;
@@ -6364,7 +7364,7 @@ class SengokuGame {
       }, { passive: false });
 
       document.getElementById('mapZoomInBtn')?.addEventListener('click', () => {
-        this.mapScale = Math.min(3.5, this.mapScale * 1.2);
+        this.mapScale = Math.min(mapZoomLimit(), this.mapScale * 1.2);
         this.applyPanZoom();
       });
       document.getElementById('mapZoomOutBtn')?.addEventListener('click', () => {
@@ -6391,9 +7391,12 @@ class SengokuGame {
     if (!p.ownerId) {
       return '#3b322a'; // 空白地：落ち着いた無所属カラー
     }
-    if (p.ownerId === this.playerClanId) {
-      return '#2e5a88';
-    }
+    return this.getRegisteredProvinceColor(p);
+  }
+
+  // シナリオまたは大名家マスターに登録された、その大名固有の領国色
+  getRegisteredProvinceColor(p) {
+    if (!p || !p.ownerId) return '#3b322a';
     const scen = SCENARIOS.find(s => String(s.id) === String(this.currentScenarioId));
     const playable = scen?.playables?.find(x => x.id === p.ownerId);
     if (playable && playable.color) return playable.color;
@@ -6457,11 +7460,14 @@ class SengokuGame {
     }
     activeList.forEach(o => {
       if (o.assignedProvId === p.id) {
-        addOfficer(o, o.isDaimyo ? 'daimyo' : 'governor');
+        const isGov = (p.governorId === o.id);
+        addOfficer(o, o.isDaimyo ? 'daimyo' : (isGov ? 'governor' : 'vassal'));
       }
     });
 
-    // 2. 本拠地の場合：大名当主 および 城主になっていない待機家臣
+    // 2. 本拠地・支城の待機家臣：
+    // - 当該領国に滞在している待機家臣（拠点領国がこの国と一致）
+    // - または本拠地の場合は、特定の支城に配属されていない一般待機家臣
     if (p.ownerId) {
       const isCapital = this.isCapitalProvince(p.id, p.ownerId);
       activeList.forEach(o => {
@@ -6474,8 +7480,10 @@ class SengokuGame {
               }
             }
           } else if (!o.assignedProvId && (!p.governorId || p.governorId !== o.id)) {
-            const home = this.getDaimyoHomeProvince(o);
-            if ((home && home.id === p.id) || isCapital) {
+            const baseProvId = this.officerBaseProvinceId(o);
+            if (baseProvId === p.id) {
+              addOfficer(o, 'vassal');
+            } else if (!baseProvId && isCapital) {
               addOfficer(o, 'vassal');
             }
           }
@@ -6635,20 +7643,19 @@ class SengokuGame {
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
                   <th class="sortable-prov-th" data-key="name" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px;">名前 ${getSortIcon('name')}</th>
-                  <th class="sortable-prov-th" data-key="role" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:center;">身分・役職 ${getSortIcon('role')}</th>
+                  <th class="sortable-prov-th" data-key="role" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:170px; min-width:170px; white-space:nowrap; text-align:center;">身分・役職 ${getSortIcon('role')}</th>
                   <th class="sortable-prov-th" data-key="clan" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:120px;">所属 ${getSortIcon('clan')}</th>
-                  <th class="sortable-prov-th" data-key="age" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px; text-align:center;">年齢・生没年 ${getSortIcon('age')}</th>
+                  <th class="sortable-prov-th" data-key="age" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:220px; min-width:220px; white-space:nowrap; text-align:center;">年齢・生没年 ${getSortIcon('age')}</th>
                   <th class="sortable-prov-th" data-key="military" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">武勇 ${getSortIcon('military')}</th>
                   <th class="sortable-prov-th" data-key="politic" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">内政 ${getSortIcon('politic')}</th>
                   <th class="sortable-prov-th" data-key="intel" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">知略 ${getSortIcon('intel')}</th>
                   <th style="padding:10px 12px; color:var(--gold);">略歴・特徴</th>
-                  <th style="padding:10px 10px; color:var(--gold); width:90px; text-align:center;">操作</th>
                 </tr>
               </thead>
               <tbody>
                 ${list.length === 0 ? `
                   <tr>
-                    <td colspan="9" style="text-align:center; padding:40px 20px; color:#aaa;">
+                    <td colspan="8" style="text-align:center; padding:40px 20px; color:#aaa;">
                       <div style="font-size:28pt; margin-bottom:8px;">🏯</div>
                       <div style="font-size:13pt; color:#e0d8c3; font-weight:bold; margin-bottom:6px;">
                         ${provOfficers.length === 0 ? '現在、この国に滞在している武将はいません。' : '条件に合致する武将が見つかりませんでした。'}
@@ -6669,15 +7676,16 @@ class SengokuGame {
                   const age = this.year - (off.birthYear || 1530);
                   const comment = this.getOfficerComment(off);
 
+                  const roleBadgeBase = 'display:inline-block; white-space:nowrap; padding:2px 8px; border-radius:3px; font-size:11pt;';
                   let roleBadge = '';
                   if (isDaimyo) {
-                    roleBadge = '<span style="background:#b7950b; color:#fff; padding:2px 8px; border-radius:3px; font-size:11pt; font-weight:bold;">👑 当主</span>';
+                    roleBadge = `<span style="${roleBadgeBase} background:#b7950b; color:#fff; font-weight:bold;">👑 当主</span>`;
                   } else if (isGov) {
-                    roleBadge = '<span style="background:#27ae60; color:#fff; padding:2px 8px; border-radius:3px; font-size:11pt; font-weight:bold;">🏯 城主</span>';
+                    roleBadge = `<span style="${roleBadgeBase} background:#27ae60; color:#fff; font-weight:bold;">🏯 城主</span>`;
                   } else if (isRonin) {
-                    roleBadge = '<span style="background:#7f8c8d; color:#fff; padding:2px 8px; border-radius:3px; font-size:11pt;">🤝 浪人</span>';
+                    roleBadge = `<span style="${roleBadgeBase} background:#7f8c8d; color:#fff;">🤝 浪人</span>`;
                   } else {
-                    roleBadge = '<span style="background:#2980b9; color:#fff; padding:2px 8px; border-radius:3px; font-size:11pt;">⚔️ 配下待機</span>';
+                    roleBadge = `<span style="${roleBadgeBase} background:#2980b9; color:#fff;">⚔️ 配下待機</span>`;
                   }
 
                   const rowBg = isDaimyo 
@@ -6690,9 +7698,9 @@ class SengokuGame {
                         ${off.name}
                         ${off.isDaimyo ? ' <span style="color:var(--gold-bright); font-size:10.5pt;">★</span>' : ''}
                       </td>
-                      <td style="padding:10px 12px; text-align:center;">${roleBadge}</td>
+                      <td style="padding:10px 12px; text-align:center; white-space:nowrap;">${roleBadge}</td>
                       <td style="padding:10px 12px; color:#d5dbdb;">${clanName}</td>
-                      <td style="padding:10px 12px; text-align:center; color:#ccc;">
+                      <td style="padding:10px 12px; text-align:center; color:#ccc; white-space:nowrap;">
                         ${age}歳
                         <span style="font-size:10.5pt; color:#888;">(${off.birthYear || '?'}〜${off.deathYear || '?'})</span>
                       </td>
@@ -6701,13 +7709,6 @@ class SengokuGame {
                       <td style="padding:10px 10px; text-align:center; font-weight:bold; color:#a3e4d7;">${off.intel || 0}</td>
                       <td style="padding:10px 12px; font-size:11pt; color:#c8b9ab; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${comment}">
                         ${comment}
-                      </td>
-                      <td style="padding:10px 10px; text-align:center;">
-                        ${isRonin ? `
-                          <button class="btn-prov-recruit-ronin" data-off-id="${off.id}" style="background:linear-gradient(180deg, #d4af37, #b7950b); color:#1a110a; font-weight:bold; border:none; padding:3px 10px; border-radius:3px; cursor:pointer; font-size:11pt; box-shadow:0 1px 3px rgba(0,0,0,0.4);">登用</button>
-                        ` : `
-                          <button class="btn-prov-show-detail" data-off-id="${off.id}" style="background:#34495e; color:#fff; border:1px solid #7f8c8d; padding:2px 8px; border-radius:3px; cursor:pointer; font-size:10.5pt;">列伝</button>
-                        `}
                       </td>
                     </tr>
                   `;
@@ -6768,36 +7769,13 @@ class SengokuGame {
         });
       }
 
-      // 列伝表示
+      // 列伝表示（行クリック）
       modal.querySelectorAll('.prov-officer-table-row').forEach(row => {
-        row.addEventListener('click', (e) => {
-          if (e.target.closest('button')) return;
+        row.addEventListener('click', () => {
           const offId = row.dataset.offId;
           const off = (this.activeOfficers || []).find(o => o.id === offId) 
                    || (window.OFFICERS_MASTER || []).find(o => o.id === offId);
           if (off) this.showOfficerDetailModal(off);
-        });
-      });
-
-      modal.querySelectorAll('.btn-prov-show-detail').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const offId = btn.dataset.offId;
-          const off = (this.activeOfficers || []).find(o => o.id === offId) 
-                   || (window.OFFICERS_MASTER || []).find(o => o.id === offId);
-          if (off) this.showOfficerDetailModal(off);
-        });
-      });
-
-      // 浪人登用
-      modal.querySelectorAll('.btn-prov-recruit-ronin').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const offId = btn.dataset.offId;
-          this.recruitRonin(offId, () => {
-            render();
-            this.selectProvince(p.id);
-          });
         });
       });
     };
@@ -8127,6 +9105,7 @@ class SengokuGame {
     // 領国表示とマップ更新（必ず先行実行して領土色・バッジを確実に自国へ切り替え）
     this.selectProvince(dstProv.id);
     this.appointHistoricalHomeGovernors(this.playerClanId);
+    this.autoAppointComputerCastellans({ fillVacancies: true });
     this.updateStatusHeader();
     this.updateMapDisplay();
 
@@ -8839,6 +9818,8 @@ class SengokuGame {
     // AI大名の行動（外交・攻撃・成長）
     this.executeAiTurn();
     this.maintainAlliances();
+    // 攻略で空いた支城と、本拠に残った家臣を、ゆかりの地優先で城主にする。余りは前線から配る
+    this.autoAppointComputerCastellans({ fillVacancies: true });
 
     // 反覇道包囲網判定
     if (!this.coalitionFormed && myProvs.length >= 15) {
@@ -9361,6 +10342,8 @@ class SengokuGame {
         activeOfficers: this.activeOfficers,
         foundingLeaderNames: this.foundingLeaderNames || {},
         lastDaimyoNames: this.lastDaimyoNames || {},
+        kiyohiraFujiwaraAccepted: !!this.kiyohiraFujiwaraAccepted,
+        kiyohiraSurnameDeclined: !!this.kiyohiraSurnameDeclined,
         savedAt: new Date().toISOString()
       };
       localStorage.setItem('sengoku_save_data', JSON.stringify(saveData));
@@ -9401,6 +10384,9 @@ class SengokuGame {
     }
     this.foundingLeaderNames = data.foundingLeaderNames || this.foundingLeaderNames || {};
     this.lastDaimyoNames = data.lastDaimyoNames || { ...(this.foundingLeaderNames || {}) };
+    this.kiyohiraFujiwaraAccepted = !!data.kiyohiraFujiwaraAccepted;
+    this.kiyohiraSurnameDeclined = !!data.kiyohiraSurnameDeclined;
+    this.updateKiyohiraSurname(false);
 
     const templateDaimyo = DAIMYOS.find(x => x.id === this.playerClanId);
     if (templateDaimyo) {
@@ -10155,7 +11141,10 @@ class SengokuGame {
 
         if (isMine) {
           // 自国領土：大名・家紋に即した鮮明な輪郭（見づらい光彩は一切なし）
-          path.style.stroke = highlightColor;
+          // 選択時は登録領国色をはっきり明るくした輪郭にする（塗りとの差が分かる程度）
+          path.style.stroke = isSelected
+            ? this.brightenHexColor(this.getRegisteredProvinceColor(p), 50)
+            : highlightColor;
           // 自国領土の輪郭線は少し小さく(1.3px)、国を選んだ時はもう少し太く(3.2px)際立たせる
           path.style.strokeWidth = isSelected ? '3.2px' : '1.3px';
           path.style.filter = 'none';
@@ -10165,8 +11154,8 @@ class SengokuGame {
             path.style.strokeWidth = '';
             path.style.filter = 'none';
           } else {
-            // 他国偵察選択時：選択された国がはっきり分かるよう太めの黄金実線(3.0px)
-            path.style.stroke = '#d4af37';
+            // 他国偵察選択時：登録領国色をはっきり明るくした実線(3.0px)
+            path.style.stroke = this.brightenHexColor(this.getRegisteredProvinceColor(p), 50);
             path.style.strokeWidth = '3.0px';
             path.style.filter = 'none';
           }
@@ -10326,12 +11315,14 @@ class SengokuGame {
     // 勢力一覧モーダル
     document.getElementById('factionListModalBtn')?.addEventListener('click', () => this.openFactionListModal());
 
+    // 領国一覧モーダル
+    document.getElementById('provinceListModalBtn')?.addEventListener('click', () => this.openProvinceListModal());
+
     // 武将一覧モーダル
     document.getElementById('officerListModalBtn')?.addEventListener('click', () => this.openOfficerListModal());
 
     // 領国一括委任モーダル
     document.getElementById('governModalBtn')?.addEventListener('click', () => this.openGovernModal());
-    document.getElementById('batchGovernorBtn')?.addEventListener('click', () => this.openBatchGovernorModal());
     document.getElementById('closeGovernModalBtn')?.addEventListener('click', () => {
       document.getElementById('governModal')?.classList.add('hidden');
       if (this.selectedProvId) this.selectProvince(this.selectedProvId);
@@ -10863,6 +11854,81 @@ class SengokuGame {
   // ============================================================================
   getHistoricalEventsMaster() {
     return [
+      {
+        id: 'fujiwara_kiyohira_restoration',
+        scenarioId: '1087',
+        title: '❖ 奥州藤原氏の黎明・清原清衡の復姓 ❖',
+        subTitle: '後三年の役平定！清原の呪縛を断ち、父祖の藤原姓へ復姓',
+        check: (game) => (game.year >= 1088 || (game.year === 1087 && game.seasonIdx >= 3)) && (game.playerClanId === 'kiyohara' || game.playerClanId === 'minamoto_tsunemoto'),
+        narrative: (game) => game.playerClanId === 'kiyohara'
+          ? '寛治元年冬、出羽金沢柵が陥落し後三年の役は終結した。異父弟・家衡と叔父・武衡を討ち、奥羽六郡と出羽一円の実権を掌握した清衡。前九年の役で非業の最期を遂げた実父・藤原経清の無念と、連れ子として辛酸を舐めた清原一門の愛憎劇が胸に迫る。ここに養家の清原姓を捨てて父祖の「藤原」へと復姓し平泉に独自の仏国土・黄金平和王国を築くか、それとも出羽俘囚頭清原氏の武門を誇示し続けるか！'
+          : '出羽金沢柵を攻め落とし、後三年の役を平定した源義家。共に戦い抜いた清原清衡は、実父・藤原経清の姓に復して「藤原清衡」と名乗り、奥州平泉の地に仏国土を拓くと伝えてきた。朝廷はこの戦いを私戦として義家に恩賞を出さない中、盟友・清衡の復姓と独立王国を承認するか、それとも源氏の武威のもとに奥羽への軍政を強めるか！',
+        choices: (game) => game.playerClanId === 'kiyohara' ? [
+          {
+            text: '【史実ルート】父祖・藤原経清の志を継ぎ「藤原清衡」へ復姓！奥州藤原氏を興す！',
+            desc: '「藤原清衡」へ改姓、勢力は「奥州藤原氏」へ！平泉黄金文化の礎を築き、金+2,000、米+2,500、全領国の治安・兵力向上！',
+            isHistorical: true,
+            action: (g) => {
+              g.gold += 2000;
+              g.rice += 2500;
+              g.kiyoharaSurnameDeclined = false;
+              g.kiyoharaFujiwaraAccepted = true;
+              g.kanazawaOccurred = true;
+              g.updateKiyohiraSurname(true);
+              (g.provinces || []).filter(pr => pr.ownerId === 'kiyohara').forEach(pr => {
+                pr.order = Math.min(100, (Number(pr.order) || 80) + 15);
+                pr.troops += 1500;
+              });
+              g.log('👑【藤原復姓】清衡公は実父の姓に復して「藤原清衡」と名乗り、奥州藤原氏初代として平泉黄金文化の礎を築きました！', 'important');
+              return '「これより我が家は奥州藤原氏なり！」中尊寺の建立を期し、平泉の地に百年の黄金平和王国を打ち立てました！';
+            }
+          },
+          {
+            text: '【歴史改変IF】清原の正嫡として「清原清衡」を堅持！出羽・陸奥の武門俘囚を束ねる！',
+            desc: '清原氏の武威を誇示！出羽・奥州の荒武者を糾合し、全軍兵力+4,000、防衛力向上！',
+            isHistorical: false,
+            action: (g) => {
+              g.kiyoharaSurnameDeclined = true;
+              g.kiyoharaFujiwaraAccepted = false;
+              g.updateKiyohiraSurname(false);
+              (g.provinces || []).filter(pr => pr.ownerId === 'kiyohara').forEach(pr => {
+                pr.troops += 2000;
+                pr.defense = Math.min(100, (Number(pr.defense) || 60) + 15);
+              });
+              g.log('⚔️【清原武門の矜持】清原清衡公は清原の姓を保ち、出羽・陸奥の精強な武士団を率いて武威を示しました！', 'important');
+              return '清原氏の棟梁として奥羽全土の武士を束ね、強大な武門政権としての威勢を天下に示しました！';
+            }
+          }
+        ] : [
+          {
+            text: '【史実ルート】清衡の藤原復姓を承認し、固き盟約を結んで東国武士団の信を得る！',
+            desc: '清衡が「藤原清衡」へ復姓！私財を投げ打って諸将に報いた義家の武名が東国に轟き、源氏兵力+3,500、金+1,000！',
+            isHistorical: true,
+            action: (g) => {
+              g.gold += 1000;
+              g.kiyoharaSurnameDeclined = false;
+              g.kiyoharaFujiwaraAccepted = true;
+              g.kanazawaOccurred = true;
+              g.updateKiyohiraSurname(true);
+              const p = g.provinces.find(pr => pr.ownerId === 'minamoto_tsunemoto') || g.provinces[0];
+              if (p) p.troops += 3500;
+              g.log('🤝【八幡太郎の武名】清原清衡の「藤原復姓」を承認！義家公の器量に東国武士団が心服しました！', 'important');
+              return '清衡の藤原復姓を認め、奥羽との固い絆を締結！朝廷の恩賞なき中、義家公の私財による恩賞が武士の心を掴みました！';
+            }
+          },
+          {
+            text: '【歴史改変IF】奥羽の自立を許さず、鎮守府将軍として軍事的威圧を加え臣従を迫る！',
+            desc: '河内源氏の覇権を奥羽全土へ及ぼす！陸奥・出羽の調達により米+3,000、清原領から兵糧貢納！',
+            isHistorical: false,
+            action: (g) => {
+              g.rice += 3000;
+              (g.provinces || []).filter(pr => pr.ownerId === 'minamoto_tsunemoto').forEach(pr => pr.troops += 2000);
+              g.log('⚔️【源氏の奥羽軍政】鎮守府将軍の権威を掲げ、奥羽諸勢力に服属を迫りました！', 'important');
+              return '清衡の独立を牽制し、源氏軍の圧倒的威圧のもとに奥羽の軍事物資を収奪・掌握しました！';
+            }
+          }
+        ]
+      },
       {
         id: 'okehazama',
         scenarioId: '1560',
@@ -11424,87 +12490,23 @@ class SengokuGame {
         scenarioId: '*',
         title: '❖ 九戸政実の乱・奥州覇王の蜂起 ❖',
         subTitle: '秀吉の奥州仕置に抗う東北屈指の猛将・陸奥九戸城の死闘',
-        check: (game) => (game.year === 1590 || game.year === 1591 || game.year === 1592) && (game.playerClanId === 'nanbu' || game.playerClanId === 'kunohe' || game.playerClanId === 'toyotomi' || game.playerClanId === 'date'),
-        narrative: (game) => (game.playerClanId === 'nanbu' || game.playerClanId === 'kunohe')
-          ? '豊臣秀吉の小田原征伐・奥州仕置に対し、南部一族最強の猛将・九戸政実（くのへまさざね）と弟・実親が五千の精鋭とともに九戸城に拠って反旗を翻した！秀吉は蒲生氏郷・浅野長政・井伊直政・前田利家ら十万の仕置大軍を派遣。峻険なる九戸城の要害と精強な弓鉄砲で仕置軍十万を迎え撃ち「奥州の独立」を勝ち取るか、あるいは豊臣の天下秩序に従い御家安泰を図るか！'
-          : '奥州仕置の検地令に反発し、陸奥九戸城にて猛将・九戸政実が精兵五千とともに蜂起！蒲生氏郷・浅野長政ら十万の仕置軍をもって徹底包囲し力攻めで落城させるか、あるいは政実の武勇を惜しんで破格の条件で調略・豊臣直属大名として取り立てるか！',
-        choices: (game) => (game.playerClanId === 'nanbu' || game.playerClanId === 'kunohe') ? [
+        check: (game) => {
+          if (game.happenedEvents && game.happenedEvents.has('evt_1591_kunohe_rebellion')) return false;
+          return (game.year === 1590 || game.year === 1591 || game.year === 1592) && (game.playerClanId === 'nanbu' || game.playerClanId === 'kunohe' || game.playerClanId === 'toyotomi' || game.playerClanId === 'date');
+        },
+        narrative: () => '豊臣秀吉の奥州仕置に反発した九戸政実が、陸奥九戸城で蜂起した。史実通りなら仕置軍が乱を鎮圧し、陸奥・陸中は南部信直の支配に戻る。史実を適用しなければ、九戸政実が仕置軍を撃退して奥州独立を果たす。',
+        choices: () => [
           {
-            text: '【歴史改変IF・九戸政実の乱大成功！】九戸城の鉄壁要害で仕置軍十万を完全撃破！奥州独立の覇王へ！',
-            desc: '蒲生・浅野軍を馬淵川の合戦で撃退！陸奥・陸中を強固に直轄化し、自軍兵力+7,000、金+2,000獲得！九戸政実・実親兄弟が大奮戦！',
-            isHistorical: false,
-            action: (g) => {
-              g.gold += 2000;
-              const mutsu = g.provinces.find(pr => pr.id === 'mutsu');
-              if (mutsu) {
-                mutsu.ownerId = g.playerClanId;
-                mutsu.troops += 4000;
-                mutsu.defense = 100;
-                mutsu.order = 100;
-              }
-              const rikuchu = g.provinces.find(pr => pr.id === 'rikuchu');
-              if (rikuchu) {
-                rikuchu.ownerId = g.playerClanId;
-                rikuchu.troops += 3000;
-                rikuchu.defense = 90;
-              }
-              g.provinces.filter(pr => pr.ownerId === 'toyotomi').forEach(pr => {
-                pr.troops = Math.round(pr.troops * 0.75);
-              });
-              // 猛将・九戸政実＆実親を配下に加入
-              ['off_kunohe_masazane', 'off_kunohe_sanechika'].forEach(id => {
-                const master = (window.OFFICERS_MASTER || []).find(m => m.id === id);
-                if (master) {
-                  const existing = g.activeOfficers?.find(o => o.id === id);
-                  if (existing) { existing.clanId = g.playerClanId; existing.isDead = false; }
-                  else if (g.activeOfficers) { const o = JSON.parse(JSON.stringify(master)); o.clanId = g.playerClanId; g.activeOfficers.push(o); }
-                }
-              });
-              g.log('【九戸政実の乱 大勝利】豊臣仕置軍十万を九戸城にて撃退！秀吉の奥州支配を打ち破り、奥羽独立の覇王として天下に名声を轟かせました！', 'important');
-              return '峻険なる九戸城に拠る九戸勢の神速の迎撃！蒲生・浅野の大軍を総崩れに追い込み、みちのくに不抜の独立領国を築き上げました！';
-            }
+            text: '【史実ルート】奥州仕置軍が九戸城を攻略し、乱を鎮圧する。',
+            desc: '陸奥・陸中は南部信直の支配に戻る。九戸の独立は成らない。',
+            isHistorical: true,
+            action: (g) => g.applyRebellionFromChoice('kunohe_rebellion', 'suppress')
           },
           {
-            text: '【史実ルート】豊臣の圧倒的威勢を受け入れ、奥州仕置を完遂して領国安堵を確保。',
-            desc: '無益な抗戦を避け、天下統一の秩序に帰順。全領国の治安+20、金+800獲得。',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 800;
-              g.provinces.filter(pr => pr.ownerId === g.playerClanId).forEach(pr => pr.order = Math.min(100, (pr.order || 80) + 20));
-              g.log('【奥州仕置受容】豊臣政権への帰順を明確にし、領内の安定と御家安堵を確保しました。');
-              return '秀吉公の天下統一令に服し、戦乱を終息させて領民の安寧を優先させました。';
-            }
-          }
-        ] : [
-          {
-            text: '【史実ルート】蒲生氏郷・浅野長政の十万大軍で九戸城を完全包囲！乱を鎮圧し天下統一を完遂！',
-            desc: '圧倒的軍勢で九戸城を落城させ、天下統一を完成！金+1,500獲得、全領国治安+15！',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 1500;
-              g.provinces.forEach(pr => { if (pr.ownerId === g.playerClanId) pr.order = Math.min(100, (pr.order || 80) + 15); });
-              g.log('【九戸の乱 鎮圧】奥州仕置軍が九戸城を制圧！豊臣秀吉公による天下統一がここに完成しました！', 'important');
-              return '九戸勢の激しい抵抗を圧倒的兵力で制圧！日本全国六十六州の惣無事令が名実ともに達成されました！';
-            }
-          },
-          {
-            text: '【歴史改変IF】九戸政実の武勇を認め、奥州探題に抜擢して豊臣政権の東の要とする！',
-            desc: '東北最強の精鋭部隊を傘下に編入！本拠地兵力+5,000、九戸一族が心服帰順！',
+            text: '【歴史改変】史実を適用せず、九戸政実の乱を成功させる。',
+            desc: '九戸政実が仕置軍を撃退し、陸奥・陸中を掌握して奥州独立を果たす。',
             isHistorical: false,
-            action: (g) => {
-              const myProvs = g.provinces.filter(pr => pr.ownerId === g.playerClanId);
-              if (myProvs.length > 0) myProvs[0].troops += 5000;
-              ['off_kunohe_masazane', 'off_kunohe_sanechika'].forEach(id => {
-                const master = (window.OFFICERS_MASTER || []).find(m => m.id === id);
-                if (master) {
-                  const existing = g.activeOfficers?.find(o => o.id === id);
-                  if (existing) { existing.clanId = g.playerClanId; existing.isDead = false; }
-                  else if (g.activeOfficers) { const o = JSON.parse(JSON.stringify(master)); o.clanId = g.playerClanId; g.activeOfficers.push(o); }
-                }
-              });
-              g.log('【九戸政実の帰順】秀吉公の豪胆な器量により、猛将・九戸政実が豊臣家の忠臣として加わりました！', 'important');
-              return '猛勇鳴り響く九戸勢を味方に引き入れ、東北の守りを鉄壁のものとしました！';
-            }
+            action: (g) => g.applyRebellionFromChoice('kunohe_rebellion', 'success')
           }
         ]
       },
@@ -11513,88 +12515,23 @@ class SengokuGame {
         scenarioId: '1651',
         title: '❖ 由比正雪の乱（慶安の変）・十万牢人の江戸城強襲 ❖',
         subTitle: '家光急逝・十万の浪人を束ねて武断政治を揺るがす軍学者の大陰謀',
-        check: (game) => game.year >= 1651 && (game.playerClanId === 'yui' || game.playerClanId === 'tokugawa' || game.playerClanId === 'kishu' || game.playerClanId === 'owari' || game.playerClanId === 'aizu'),
-        narrative: (game) => game.playerClanId === 'yui'
-          ? '三代将軍徳川家光の薨去に乗じ、軍学者・由比正雪と宝蔵院流槍術の達人・丸橋忠弥が牢人救済のため江戸転覆の火蓋を切った！密告の危機を察知して計画を前倒し、丸橋忠弥の決死抜刀隊が江戸城大手門を夜襲！火薬庫を掌握して幕閣を無力化し、駿河から三万の牢人軍を進駐させて「牢人解放・張孔堂新政権」を樹立するか！'
-          : '軍学者・由比正雪率いる牢人党が江戸城乗っ取りと火薬庫爆破を企んでいるとの急報！老中・松平信綱の電光石火の捕縛網で一味を一網打尽にするか、あるいは正雪の主張を容れて牢人の幕府登用と改易制限を断行し、天下融和を図るか！',
-        choices: (game) => game.playerClanId === 'yui' ? [
+        check: (game) => {
+          if (game.happenedEvents && game.happenedEvents.has('evt_1651_keian_hen')) return false;
+          return game.year >= 1651 && (game.playerClanId === 'yui' || game.playerClanId === 'tokugawa' || game.playerClanId === 'kishu' || game.playerClanId === 'owari' || game.playerClanId === 'aizu');
+        },
+        narrative: () => '由比正雪と丸橋忠弥が、家光薨去に乗じて幕府転覆を謀った。史実通りなら松平信綱が一味を捕縛し、乱は鎮圧される。史実を適用しなければ、江戸城夜襲が成功し、正雪が武蔵・駿河・相模を掌握する。',
+        choices: () => [
           {
-            text: '【歴史改変IF・由比正雪の乱大成功！】丸橋忠弥の江戸城大手門奇襲成功！老中を捕縛し江戸・幕府を完全掌握！',
-            desc: '密告網を逆手に取り江戸城大手門を突破！火薬庫を制圧し幕閣を完全掌握！武蔵（江戸）・駿河・相模を直轄化し、十万牢人を糾合して自軍兵力+8,000、金+3,000！',
-            isHistorical: false,
-            action: (g) => {
-              g.gold += 3000;
-              const musashi = g.provinces.find(pr => pr.id === 'musashi');
-              if (musashi) {
-                musashi.ownerId = 'yui';
-                musashi.troops = 6000;
-                musashi.order = 95;
-              }
-              const suruga = g.provinces.find(pr => pr.id === 'suruga');
-              if (suruga) {
-                suruga.ownerId = 'yui';
-                suruga.troops += 4000;
-                suruga.order = 100;
-              }
-              const sagami = g.provinces.find(pr => pr.id === 'sagami');
-              if (sagami) {
-                sagami.ownerId = 'yui';
-                sagami.troops = 3000;
-              }
-              g.provinces.filter(pr => pr.ownerId === 'tokugawa').forEach(pr => {
-                pr.troops = Math.round(pr.troops * 0.7);
-              });
-              g.log('【由比正雪の乱 大勝利】丸橋忠弥の奇襲により江戸城を掌握！武断政治を打破し、十万牢人を救済する張孔堂新幕府が誕生しました！', 'important');
-              return '江戸城に翻る正雪の軍旗！困窮にあえぐ十万の牢人が歓喜結集し、天下の政権を完全掌握しました！';
-            }
+            text: '【史実ルート】松平信綱が正雪一党を捕縛し、乱を鎮圧する。',
+            desc: '慶安の変は未然に防がれ、武蔵・駿河は幕府の天領支配のままとなる。',
+            isHistorical: true,
+            action: (g) => g.applyRebellionFromChoice('keian_yui_rebellion', 'suppress')
           },
           {
-            text: '【史実ルート】武断政治の弊害を天下に訴え、保科正之と直接談判して浪人救済の約束を取り付ける。',
-            desc: '無益な殺傷を避け、文治政治への転換を促す。自軍治安+30、金+1,500獲得。',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 1500;
-              const suruga = g.provinces.find(pr => pr.id === 'suruga');
-              if (suruga) suruga.order = 100;
-              g.log('【義挙の訴え】由比正雪の建白が保科正之を動かし、末期養子の禁緩和と文治政治への転換を勝ち取りました！');
-              return '正雪の命がけの提言により幕政が刷新！牢人救済の道が開かれました！';
-            }
-          }
-        ] : [
-          {
-            text: '【史実ルート】知恵伊豆・松平信綱の電光石火の捕縛！慶安の変を未然に防ぎ幕府の天領支配を死守！',
-            desc: '正雪一党を捕縛し駿河を天領直轄化！幕府の威信回復、金+1,500獲得！',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 1500;
-              const suruga = g.provinces.find(pr => pr.id === 'suruga');
-              if (suruga) {
-                suruga.ownerId = g.playerClanId;
-                suruga.order = 90;
-              }
-              g.log('【慶安の変 平定】松平信綱の迅速な捜査により一味を捕縛！幕府の天領支配を強固に防衛しました！', 'important');
-              return '幕閣の迅速な対応により騒乱を未然に鎮圧。天下の静謐を維持しました！';
-            }
-          },
-          {
-            text: '【歴史改変IF】由比正雪・丸橋忠弥を幕臣に登用！牢人十万を幕府直属軍に再編！',
-            desc: '牢人問題を抜本解決！軍学者正雪の指南により全軍の知略向上、兵力+7,000！',
+            text: '【歴史改変】史実を適用せず、由比正雪の乱を成功させる。',
+            desc: '丸橋忠弥の江戸城夜襲が成功し、由比正雪が武蔵・駿河・相模を掌握する。',
             isHistorical: false,
-            action: (g) => {
-              const myProvs = g.provinces.filter(pr => pr.ownerId === g.playerClanId);
-              if (myProvs.length > 0) myProvs[0].troops += 7000;
-              ['off_edo_yui_1605_0', 'off_edo_yui_1605_1'].forEach(id => {
-                const master = (window.OFFICERS_MASTER || []).find(m => m.id === id);
-                if (master) {
-                  const existing = g.activeOfficers?.find(o => o.id === id);
-                  if (existing) { existing.clanId = g.playerClanId; existing.isDead = false; }
-                  else if (g.activeOfficers) { const o = JSON.parse(JSON.stringify(master)); o.clanId = g.playerClanId; g.activeOfficers.push(o); }
-                }
-              });
-              g.provinces.forEach(pr => { if (pr.ownerId === g.playerClanId) pr.order = Math.min(100, (pr.order || 80) + 20); });
-              g.log('【牢人登用の英断】由比正雪・丸橋忠弥を厚遇して十万の牢人を親衛軍に編入！幕府の軍事力が劇的向上しました！', 'important');
-              return '対立を乗り越え軍学者と武芸達人を幕政に招聘！天下の不満を一掃しました！';
-            }
+            action: (g) => g.applyRebellionFromChoice('keian_yui_rebellion', 'success')
           }
         ]
       },
@@ -11695,84 +12632,23 @@ class SengokuGame {
         scenarioId: '*',
         title: '❖ 水戸天狗党の乱・中山道突破と尊皇維新 ❖',
         subTitle: '筑波山挙兵から雪の中山道千キロを踏破・尊皇攘夷の熱誠',
-        check: (game) => game.year >= 1864 && (game.playerClanId === 'mito' || game.playerClanId === 'tokugawa' || game.playerClanId === 'mori' || game.playerClanId === 'shimazu' || game.playerClanId === 'aizu'),
-        narrative: (game) => game.playerClanId === 'mito'
-          ? '元治元年、武田耕雲斎・藤田小四郎ら水戸天狗党千余名が筑波山で挙兵！朝廷への直訴と尊皇攘夷の断行を求め、雪深い中山道を西上する。諸藩の追討軍を連破し、越前敦賀を猛突破して京都・御所へ到達！孝明天皇に直訴して「尊皇討幕」の密勅を獲得し、一挙に維新回天を成し遂げるか！'
-          : '水戸藩激派・天狗党が筑波山で挙兵し、中山道を西上して京都へ向かっているとの急報！諸藩の追討軍を派遣して敦賀で完全包囲するか、あるいは天狗党の熱誠を受け入れ、尊皇攘夷親衛軍として朝廷・幕政の主軸に迎えるか！',
-        choices: (game) => game.playerClanId === 'mito' ? [
+        check: (game) => {
+          if (game.happenedEvents && game.happenedEvents.has('evt_1864_tenguto_rebellion')) return false;
+          return game.year >= 1864 && (game.playerClanId === 'mito' || game.playerClanId === 'tokugawa' || game.playerClanId === 'mori' || game.playerClanId === 'shimazu' || game.playerClanId === 'aizu');
+        },
+        narrative: () => '武田耕雲斎・藤田小四郎率いる天狗党が筑波山で挙兵し、中山道を西上して越前敦賀に達した。史実通りなら追討軍が包囲して乱を鎮圧する。史実を適用しなければ、天狗党が包囲を突破して近江へ進出する。',
+        choices: () => [
           {
-            text: '【歴史改変IF・天狗党の乱大成功！】敦賀の包囲網を猛突破！京都御所に到達し朝廷から尊皇密勅を獲得！',
-            desc: '追討軍を連破し京都へ進駐！孝明天皇への直訴に成功し、長州藩・尊攘派と合流して幕府を震撼させる！常陸・近江を掌握、自軍兵力+7,000、士気激増！',
-            isHistorical: false,
-            action: (g) => {
-              g.gold += 2000;
-              g.rice += 2500;
-              const hitachi = g.provinces.find(pr => pr.id === 'hitachi');
-              if (hitachi) {
-                hitachi.troops += 4000;
-                hitachi.order = 100;
-              }
-              const omi = g.provinces.find(pr => pr.id === 'omi');
-              if (omi) {
-                omi.ownerId = 'mito';
-                omi.troops = 4000;
-                omi.order = 95;
-              }
-              g.provinces.filter(pr => pr.ownerId === 'tokugawa').forEach(pr => {
-                pr.troops = Math.round(pr.troops * 0.75);
-              });
-              ['off_takeda_kounsai', 'off_fujita_koshiro'].forEach(id => {
-                const master = (window.OFFICERS_MASTER || []).find(m => m.id === id);
-                if (master) {
-                  const existing = g.activeOfficers?.find(o => o.id === id);
-                  if (existing) { existing.clanId = g.playerClanId; existing.isDead = false; }
-                  else if (g.activeOfficers) { const o = JSON.parse(JSON.stringify(master)); o.clanId = g.playerClanId; g.activeOfficers.push(o); }
-                }
-              });
-              g.log('【天狗党の乱 大勝利】中山道を完全踏破して京都御所に進駐！朝廷より尊皇綸旨を賜り、水戸天狗党が維新の主導権を掌握しました！', 'important');
-              return '雪の敦賀を突破した天狗党千余名の熱誠！京洛に進駐して孝明天皇に拝謁し、維新の大業を成し遂げました！';
-            }
+            text: '【史実ルート】諸藩の追討軍が敦賀で天狗党を包囲し、乱を鎮圧する。',
+            desc: '天狗党は敦賀で降伏する。近江は井伊家・幕府の支配のまま、常陸は水戸藩の領に留まる。',
+            isHistorical: true,
+            action: (g) => g.applyRebellionFromChoice('tenguto_rebellion', 'suppress')
           },
           {
-            text: '【史実ルート】無益な内戦を避け、徳川慶喜への忠節を尽くして大義を後世の維新志士に託す。',
-            desc: '志士の魂が全国の尊攘派に受け継がれる。水戸藩の名声天下に轟き、軍資金+1,500獲得。',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 1500;
-              g.provinces.filter(pr => pr.ownerId === g.playerClanId).forEach(pr => pr.order = 100);
-              g.log('【天狗党の忠烈】武田耕雲斎らの至誠は全国の志士を奮起させ、水戸学の精神が維新の礎となりました！');
-              return '尊王攘夷に命を捧げた天狗党の熱誠は、後世の志士たちへと受け継がれました。';
-            }
-          }
-        ] : [
-          {
-            text: '【史実ルート】諸藩連合軍を敦賀に布陣し、天狗党を完全包囲して幕府の法度を守る！',
-            desc: '幕府の法度を維持し反乱を鎮圧。幕府直轄の威信回復、金+1,500獲得。',
-            isHistorical: true,
-            action: (g) => {
-              g.gold += 1500;
-              g.log('【天狗党 鎮圧】越前敦賀にて天狗党を包囲・降伏させ、天下の秩序を維持しました。');
-              return '幕府追討軍の布陣により騒乱を収拾し、街道の治安を回復させました。';
-            }
-          },
-          {
-            text: '【歴史改変IF】徳川慶喜が天狗党を赦免・受け入れ、精鋭「天狗義勇隊」として幕府直属軍に再編！',
-            desc: '水戸の精鋭志士を味方に引き入れ、幕軍の火力と白兵力を大幅強化！兵力+6,000獲得！',
+            text: '【歴史改変】史実を適用せず、天狗党の乱を成功させる。',
+            desc: '天狗党が敦賀の包囲を突破し、近江南北と常陸を水戸勢が掌握する。',
             isHistorical: false,
-            action: (g) => {
-              const myProvs = g.provinces.filter(pr => pr.ownerId === g.playerClanId);
-              if (myProvs.length > 0) myProvs[0].troops += 6000;
-              ['off_takeda_kounsai', 'off_fujita_koshiro'].forEach(id => {
-                const master = (window.OFFICERS_MASTER || []).find(m => m.id === id);
-                if (master) {
-                  const existing = g.activeOfficers?.find(o => o.id === id);
-                  if (existing) { existing.clanId = g.playerClanId; existing.isDead = false; }
-                  else if (g.activeOfficers) { const o = JSON.parse(JSON.stringify(master)); o.clanId = g.playerClanId; g.activeOfficers.push(o); }
-                }
-              });
-              g.log('【天狗義勇隊の結成】天狗党の熱誠を認め、精鋭部隊として編入！倒幕派を圧倒する強大な親衛軍が完成しました！', 'important');
-              return '水戸の精鋭武士団を迎え入れ、軍事力を大幅に増強しました！';
-            }
+            action: (g) => g.applyRebellionFromChoice('tenguto_rebellion', 'success')
           }
         ]
       },
@@ -12058,6 +12934,7 @@ class SengokuGame {
       const scen = SCENARIOS.find(s => String(s.id) === String(this.currentScenarioId));
 
       for (const ev of window.HISTORICAL_EVENTS_DATA) {
+        if (ev.skipAuto) continue;
         if (this.happenedEvents.has(ev.id)) continue;
 
         // シナリオ・年代・季節の判定
@@ -12102,7 +12979,63 @@ class SengokuGame {
     });
   }
 
+  rebellionPairs() {
+    return [
+      ['evt_1591_kunohe_rebellion', 'kunohe_rebellion', 'evt_1591_kunohe_victory_if'],
+      ['evt_1651_keian_hen', 'keian_yui_rebellion', 'evt_1651_keian_success_if'],
+      ['evt_1864_tenguto_rebellion', 'tenguto_rebellion', 'evt_1864_tenguto_success_if']
+    ];
+  }
+
+  sealRebellionPair(eventId) {
+    const pair = this.rebellionPairs().find(p => p.includes(eventId));
+    if (!pair) return;
+    this.happenedEvents = this.happenedEvents || new Set();
+    this.triggeredHistoricalEvents = this.triggeredHistoricalEvents || new Set();
+    this.happenedEvents.add(pair[0]);
+    this.happenedEvents.add(pair[2]);
+    this.triggeredHistoricalEvents.add(pair[1]);
+  }
+
+  applyEventTerritory(changes) {
+    if (!changes || !changes.territory) return;
+    const resolvedOwners = {};
+    for (const newOwner of new Set(Object.values(changes.territory))) {
+      resolvedOwners[newOwner] = this.resolveEventTargetClan(newOwner);
+    }
+    for (const [pId, rawOwner] of Object.entries(changes.territory)) {
+      const newOwner = resolvedOwners[rawOwner] || rawOwner;
+      const prov = this.provinces.find(p => p.id === pId);
+      if (prov) {
+        prov.ownerId = newOwner;
+        prov.troops = Math.max(3000, prov.troops || 3000);
+      }
+    }
+    this.syncDaimyoStatus();
+    if (changes.appoint) this.appointHistoricalCastellans(changes.appoint);
+    this.updateActiveOfficers();
+    if (this.currentScenario) this.resolveOfficerAffiliations(this.currentScenario);
+    this.updateCastlesForYear();
+    this.updateStatusHeader();
+    this.updateMapDisplay();
+    const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+    if (myProvs.length === 0) {
+      if (this.isAutoPlay) this.stopAutoPlay('御家滅亡のため');
+      setTimeout(() => { this.triggerDefeat(); }, 1200);
+    }
+  }
+
+  applyRebellionFromChoice(choiceId, outcome) {
+    const pair = this.rebellionPairs().find(p => p[1] === choiceId);
+    const ev = (window.HISTORICAL_EVENTS_DATA || []).find(e => e.id === pair?.[0]);
+    const changes = outcome === 'success' ? ev?.onReject : ev?.changes;
+    this.sealRebellionPair(choiceId);
+    if (changes) this.applyEventTerritory(changes);
+    return changes?.message || (outcome === 'success' ? '乱は成功しました。' : '乱は鎮圧されました。');
+  }
+
   fireHistoricalEvent(ev) {
+    this.sealRebellionPair(ev.id);
     if (this.isAutoPlay) this.pauseAutoPlayForEvent();
 
     try {
@@ -12128,7 +13061,11 @@ class SengokuGame {
 
     const noticeEl = document.getElementById('eventModalNotice');
     if (noticeEl) {
-      noticeEl.innerHTML = `<strong>【史実効果】</strong>${ev.changes?.message || '領地が再編されます。'}<br><span style="font-size:11pt; color:#ffd700; margin-top:4px; display:inline-block;">※史実通り効果を発動するか、現状維持するか選択してください。</span>`;
+      if (ev.onReject) {
+        noticeEl.innerHTML = `<strong>【史実を適用・乱は鎮圧】</strong>${ev.changes?.message || '乱は鎮圧されます。'}<br><strong style="color:#f39c12;">【史実を適用しない・乱は成功】</strong>${ev.onReject.message || '乱は成功します。'}`;
+      } else {
+        noticeEl.innerHTML = `<strong>【史実効果】</strong>${ev.changes?.message || '領地が再編されます。'}<br><span style="font-size:11pt; color:#ffd700; margin-top:4px; display:inline-block;">※史実通り効果を発動するか、現状維持するか選択してください。</span>`;
+      }
     }
 
     const acceptBtn = document.getElementById('eventModalAcceptBtn');
@@ -12137,6 +13074,7 @@ class SengokuGame {
     if (acceptBtn) {
       const newAccept = acceptBtn.cloneNode(true);
       acceptBtn.parentNode.replaceChild(newAccept, acceptBtn);
+      newAccept.textContent = ev.onReject ? '⚔️ 史実通り効果を適用（乱を鎮圧）' : '⚔️ 史実通り効果を適用';
       newAccept.addEventListener('click', () => {
         const followUp = this.applyHistoricalEventAccept(ev, { closeModal: true }) === true;
         if (!followUp) this.resumeAutoPlayAfterEvent();
@@ -12146,9 +13084,27 @@ class SengokuGame {
     if (rejectBtn) {
       const newReject = rejectBtn.cloneNode(true);
       rejectBtn.parentNode.replaceChild(newReject, rejectBtn);
+      newReject.textContent = ev.onReject ? '⚡ 史実を適用しない（乱が成功）' : '🛡️ 史実に抗い現状維持 (効果なし)';
       newReject.addEventListener('click', () => {
         this.audio.playHyoshigi();
-        this.log(`🛡️【現状維持】${ev.title}：史実に抗い、現在の領土秩序を維持しました。（イベント効果なし）`, 'normal');
+        if (ev.onReject) {
+          this.applyEventTerritory(ev.onReject);
+          this.log(`⚡【史実を適用せず】${ev.title}：${ev.onReject.message || '乱は成功しました。'}`, 'important');
+          modal.classList.add('hidden');
+          this.music.playTrack(this.getSeasonTrackKey());
+          this.resumeAutoPlayAfterEvent();
+          return;
+        }
+        if (ev.id === 'evt_1088_kiyohira_fujiwara') {
+          this.kiyohiraSurnameDeclined = true;
+          this.kiyohiraFujiwaraAccepted = false;
+          this.updateKiyohiraSurname(false);
+          this.updateStatusHeader();
+          this.updateMapDisplay();
+          this.log('🛡️【現状維持】清原清衡は清原の姓を保ち、奥州藤原氏を称しませんでした。', 'normal');
+        } else {
+          this.log(`🛡️【現状維持】${ev.title}：史実に抗い、現在の領土秩序を維持しました。（イベント効果なし）`, 'normal');
+        }
         modal.classList.add('hidden');
         this.music.playTrack(this.getSeasonTrackKey());
         this.resumeAutoPlayAfterEvent();
@@ -12167,16 +13123,7 @@ class SengokuGame {
     };
 
           // プレイヤーが反乱勢力時の特別逆転勝利処理（史実滅亡イベントを大逆転勝利へ昇華！）
-      if (this.playerClanId === 'yui' && ev.id === 'evt_1651_keian_hen') {
-        const musashi = this.provinces.find(p => p.id === 'musashi');
-        const suruga = this.provinces.find(p => p.id === 'suruga');
-        const sagami = this.provinces.find(p => p.id === 'sagami');
-        if (musashi) { musashi.ownerId = 'yui'; musashi.troops = Math.max(musashi.troops, 6000); musashi.order = 95; }
-        if (suruga) { suruga.ownerId = 'yui'; suruga.troops += 4000; suruga.order = 100; }
-        if (sagami) { sagami.ownerId = 'yui'; sagami.troops = Math.max(sagami.troops, 4000); }
-        this.gold += 3000;
-        this.log('⚔️【由比正雪の乱 大勝利】丸橋忠弥の奇襲により江戸城を掌握！十万牢人を糾合して新幕府秩序を樹立！', 'important');
-      } else if (this.playerClanId === 'oshio' && ev.id === 'evt_1837_oshio') {
+      if (this.playerClanId === 'oshio' && ev.id === 'evt_1837_oshio') {
         const settsu = this.provinces.find(p => p.id === 'settsu');
         const kawachi = this.provinces.find(p => p.id === 'kawachi');
         const izumi = this.provinces.find(p => p.id === 'izumi');
@@ -12194,7 +13141,13 @@ class SengokuGame {
         this.gold += 2500;
         this.log('⚔️【島原の乱 大勝利】原城にて幕府軍十二万を完全撃退！キリシタン・牢人自由領国を樹立！', 'important');
       } else if (ev.changes && ev.changes.territory) {
-      for (const [pId, newOwner] of Object.entries(ev.changes.territory)) {
+      // 受け取り先は領地を動かす前に決める（途中で新勢力が出来て判定がぶれないように）
+      const resolvedOwners = {};
+      for (const newOwner of new Set(Object.values(ev.changes.territory))) {
+        resolvedOwners[newOwner] = this.resolveEventTargetClan(newOwner);
+      }
+      for (const [pId, rawOwner] of Object.entries(ev.changes.territory)) {
+        const newOwner = resolvedOwners[rawOwner] || rawOwner;
         const prov = this.provinces.find(p => p.id === pId);
         if (prov) {
           prov.ownerId = newOwner;
@@ -12211,6 +13164,10 @@ class SengokuGame {
       if (ev.id === 'evt_1560_okehazama') {
         this.okehazamaOccurred = true;
         this.updateTokugawaSurname(true);
+      }
+      if (ev.id === 'evt_1087_kanazawa') {
+        this.kanazawaOccurred = true;
+        this.updateKiyohiraSurname(true);
       }
       this.updateCastlesForYear();
       this.updateStatusHeader();
@@ -12233,8 +13190,25 @@ class SengokuGame {
         setTimeout(() => { this.triggerDefeat(); }, 1200);
       }
     }
+    if (ev.id === 'evt_1088_kiyohira_fujiwara') {
+      this.kiyohiraSurnameDeclined = false;
+      this.kiyohiraFujiwaraAccepted = true;
+      this.updateKiyohiraSurname(true);
+      (this.provinces || []).filter(p => p.ownerId === 'kiyohara').forEach(p => {
+        p.order = Math.min(100, (Number(p.order) || 0) + 15);
+        p.troops += 1000;
+      });
+      if (this.playerClanId === 'kiyohara') {
+        this.gold += 1500;
+        this.rice += 2000;
+      }
+      this.updateStatusHeader();
+      this.updateMapDisplay();
+    }
     this.audio.playFanfare();
-    this.log(`⚔️【史実受容】${ev.title}：史実通り領地が再編されました。（${ev.changes?.message || ''}）`, 'important');
+    if (ev.id !== 'evt_1088_kiyohira_fujiwara') {
+      this.log(`⚔️【史実受容】${ev.title}：史実通り領地が再編されました。（${ev.changes?.message || ''}）`, 'important');
+    }
     cleanUpAndClose();
   }
 
@@ -12343,6 +13317,7 @@ class SengokuGame {
   }
 
   showHistoricalEvent(ev) {
+    this.sealRebellionPair(ev.id);
     const choices = typeof ev.choices === 'function' ? ev.choices(this) : (ev.choices || []);
     if (this.isAutoPlay) this.pauseAutoPlayForEvent();
 

@@ -425,9 +425,8 @@
     filter: none !important;
   }
 
-  /* 自国領の選択時：選択された国が明確に分かるよう太く際立たせる（3.2px）（光彩なし） */
+  /* 自国領の選択時：登録領国色をはっきり明るくした色をJSが当てる（3.2px）（光彩なし） */
   .prov-path.player-prov.selected {
-    stroke: var(--player-clan-color, #ffd700) !important;
     stroke-width: 3.2px !important;
     filter: none !important;
   }
@@ -444,9 +443,8 @@
     filter: none !important;
   }
 
-  /* 他国領の選択（軍情偵察時）：選択された国が明確に分かるよう太めの黄金実線枠（3.0px）（光彩なし） */
+  /* 他国領の選択（軍情偵察時）：登録領国色をはっきり明るくした色をJSが当てる（3.0px）（光彩なし） */
   .prov-path.enemy-prov.selected {
-    stroke: #d4af37 !important;
     stroke-width: 3.0px !important;
     filter: none !important;
   }
@@ -935,6 +933,27 @@
     font-weight: bold;
     white-space: nowrap;
     margin-top: 1px;
+  }
+  .daimyo-clan-row {
+    font-size: 11pt;
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+    gap: 4px;
+  }
+  /* 勢力選択カードの家名は省略せず折り返す */
+  .daimyo-clan-name {
+    color: #ddd;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 11pt;
+    line-height: 1.25;
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    overflow: visible;
   }
   .daimyo-diff {
     font-size: 12pt;
@@ -2034,7 +2053,7 @@
       max-width: 100%;
       overflow: visible;
       /* 画面下に固定する季節進行バーの裏に、本文が隠れない余白 */
-      padding: 0 0 calc(180px + env(safe-area-inset-bottom));
+      padding: 0 0 calc(116px + env(safe-area-inset-bottom));
       gap: 6px;
     }
 
@@ -2066,17 +2085,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      flex: 1 1 46%;
+      width: auto;
       min-height: 44px;
-      padding: 8px 12px;
+      padding: 8px 10px;
       border-radius: 4px;
       border: 1px solid var(--border-gold);
       background: linear-gradient(180deg, #442a1b 0%, #25160e 100%);
       color: var(--gold-bright);
       font-family: inherit;
-      font-size: 12pt;
+      font-size: 11pt;
       font-weight: bold;
       cursor: pointer;
+      white-space: nowrap;
+      height: 44px;
     }
 
     /* 操作メニューはスマホ初期状態で閉じる。is-open のときだけ開く */
@@ -2109,10 +2131,11 @@
     }
 
     .chronicle-wide-bar {
-      height: auto;
+      height: 44px;
       min-height: 44px;
-      flex-wrap: wrap;
-      padding: 6px 8px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      padding: 4px 8px;
     }
 
     /* 勢力状況（金・兵糧・兵力）は初期非表示。ボタンで開く */
@@ -2164,16 +2187,16 @@
 
     .map-wrapper {
       width: 100%;
-      /* 上部の見出しと下部の固定バーに隠れない高さにする */
-      height: calc(100dvh - 490px);
-      min-height: 260px;
+      /* JSが下部バーと軍令の見え始めを測って上書きする。ここは読み込み直後の仮の高さ */
+      height: 52dvh;
+      min-height: 300px;
       flex: none;
-      /* 縦スワイプはページ送り、横スワイプは地図移動に使う */
-      touch-action: pan-y;
+      /* 地図上の縦ドラッグをページスクロールに渡さない */
+      touch-action: none;
     }
 
     .sengoku-svg-map {
-      touch-action: pan-y;
+      touch-action: none;
     }
 
     .map-ctrl-btn {
@@ -2188,10 +2211,12 @@
 
     .map-legend {
       top: auto;
-      bottom: 8px;
-      left: 8px;
+      bottom: 6px;
+      left: 58px;
       right: 8px;
-      font-size: 10pt;
+      font-size: 9pt;
+      line-height: 1.3;
+      padding: 3px 6px;
     }
 
     .legend-desktop {
@@ -2222,8 +2247,13 @@
     }
 
     .cmd-btn {
-      min-height: 44px;
-      padding: 10px 12px;
+      min-height: 48px;
+      padding: 8px 10px;
+    }
+
+    /* 説明の2行目はスマホでは隠し、軍令ボタンを短く押せるようにする */
+    .cmd-btn > div:nth-child(2) {
+      display: none;
     }
 
     /* --- 下部固定：季節を進めるボタンと速度スライダー（親指で操作） --- */
@@ -2231,12 +2261,15 @@
       position: fixed;
       left: 0;
       right: 0;
-      bottom: calc(120px + env(safe-area-inset-bottom));
+      bottom: calc(56px + env(safe-area-inset-bottom));
       z-index: 50;
       width: auto;
       margin: 0;
       border-radius: 0;
-      min-height: 48px;
+      min-height: 44px;
+      height: 48px;
+      white-space: nowrap;
+      font-size: 12pt;
     }
 
     .autoplay-panel {
@@ -2247,15 +2280,41 @@
       z-index: 50;
       margin: 0;
       border-radius: 0;
-      min-height: calc(120px + env(safe-area-inset-bottom));
-      padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 6px;
+      height: calc(56px + env(safe-area-inset-bottom));
+      min-height: 0;
+      padding: 0 8px env(safe-area-inset-bottom);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .autoplay-header,
+    .autoplay-speed-row {
+      margin: 0;
+      min-width: 0;
+    }
+
+    .autoplay-header {
+      flex: 0 1 auto;
+    }
+
+    .autoplay-speed-row {
+      flex: 1 1 auto;
+    }
+
+    .autoplay-speed-title {
+      display: none;
     }
 
     .autoplay-toggle-btn {
       min-height: 44px;
-      min-width: 72px;
-      height: auto;
-      padding: 8px 14px;
+      min-width: 64px;
+      height: 44px;
+      padding: 4px 10px;
     }
 
     /* スライダーの当たりを指サイズ（44px相当）にする */

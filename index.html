@@ -39,12 +39,12 @@
 
     <!-- スマホのみ表示。操作ボタン群の開閉（PCでは非表示） -->
     <button type="button" id="headerControlsToggle" class="mobile-accordion-btn" aria-expanded="false" aria-controls="headerControls">
-      操作メニューを開く
+      操作メニュー
     </button>
 
     <!-- スマホのみ。勢力ステータスは初期折りたたみ（PCではボタン自体を出さない） -->
-    <button type="button" id="clanBarToggle" class="mobile-accordion-btn" aria-expanded="false" aria-controls="clanBar">
-      勢力状況を表示（金・兵糧・兵力）
+    <button type="button" id="clanBarToggle" class="mobile-accordion-btn" aria-expanded="false" aria-controls="clanBar" title="金・兵糧・兵力などの勢力状況">
+      勢力状況
     </button>
 
     <div class="header-controls" id="headerControls">
@@ -56,6 +56,10 @@
         <i data-lucide="shield" style="width:15px; height:15px;"></i>
         <span>勢力一覧</span>
       </button>
+      <button class="header-btn" id="provinceListModalBtn" title="全国の領国・城主・石高を確認" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
+        <i data-lucide="landmark" style="width:15px; height:15px;"></i>
+        <span>領国一覧</span>
+      </button>
       <button class="header-btn" id="officerListModalBtn" title="配下・参陣武将の一覧と列伝を確認" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="users" style="width:15px; height:15px;"></i>
         <span>武将一覧</span>
@@ -63,10 +67,6 @@
       <button class="header-btn" id="governModalBtn" title="複数の国をまとめて委任統治" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="briefcase" style="width:15px; height:15px;"></i>
         <span>領国一括委任</span>
-      </button>
-      <button class="header-btn" id="batchGovernorBtn" title="自領の城主をまとめて任命" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
-        <i data-lucide="castle" style="width:15px; height:15px;"></i>
-        <span>城主一括任命</span>
       </button>
       <button class="header-btn" id="saveGameBtn" title="戦況保存">
         <i data-lucide="save" style="width:15px; height:15px;"></i>
@@ -945,7 +945,7 @@
         <!-- PC向けの操作説明 -->
         <span class="legend-desktop">❖ <strong>ドラッグで移動</strong> ／ <strong>ホイールで拡大縮小</strong>可能。<br></span>
         <!-- スマホ向けの操作説明（768px以下でのみ表示） -->
-        <span class="legend-mobile">❖ <strong>左右にスワイプで移動</strong> ／ <strong>＋−ボタンで拡大縮小</strong>。<br></span>
+        <span class="legend-mobile">❖ <strong>指で上下左右に移動</strong> ／ <strong>2本指または＋−で拡大</strong>。<br></span>
         【金枠】：選択領地 ／ <strong>隣接する国にのみ出陣・侵攻</strong>できます。
       </div>
     </div>
@@ -1094,7 +1094,7 @@
     <!-- 歴史シナリオ選択セレクター (上下圧縮) -->
     <div style="margin-bottom: 4px;">
       <div style="font-size: 12pt; font-weight:bold; color:var(--gold-bright); margin-bottom:3px; display:flex; justify-content:space-between; align-items:center;">
-        <span>📜 歴史シナリオ選択 (全30大動乱・承平天慶から戊辰戦争まで)</span>
+        <span>📜 歴史シナリオ選択 (全35大動乱・承平天慶から戊辰戦争まで)</span>
         <span style="font-size: 12pt; color:#ffdd88;">全領国各大名プレイ可能</span>
       </div>
 
@@ -1141,27 +1141,30 @@
         <!-- 第2段: 南北朝・室町・戦国前期 (1350〜1570) -->
         <div style="display:flex; align-items:center; gap:6px;">
           <span style="font-size: 12pt; color:var(--gold); width:95px; flex-shrink:0;">【室町・戦国】</span>
-          <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(7, 1fr); gap:3px;">
+          <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(8, 1fr); gap:3px;">
             <button class="scenario-btn" data-scen-id="1350" style="padding:2px 3px; line-height:1.2;">
               ⑪ 1350年 <strong style="color:#ffd700; font-size: 12pt;">観応擾乱</strong><br><span style="font-size: 12pt; color:#ccc;">尊氏vs直義</span>
             </button>
+            <button class="scenario-btn" data-scen-id="1400" style="padding:2px 3px; line-height:1.2;">
+              ⑫ 1400年 <strong style="color:#ffd700; font-size: 12pt;">伊達政宗</strong><br><span style="font-size: 12pt; color:#ccc;">霊山の乱</span>
+            </button>
             <button class="scenario-btn" data-scen-id="1438" style="padding:2px 3px; line-height:1.2;">
-              ⑫ 1438年 <strong style="color:#ffd700; font-size: 12pt;">永享の乱</strong><br><span style="font-size: 12pt; color:#ccc;">万人恐怖</span>
+              ⑬ 1438年 <strong style="color:#ffd700; font-size: 12pt;">永享の乱</strong><br><span style="font-size: 12pt; color:#ccc;">万人恐怖</span>
             </button>
             <button class="scenario-btn" data-scen-id="1467" style="padding:2px 3px; line-height:1.2;">
-              ⑬ 1467年 <strong style="color:#ffd700; font-size: 12pt;">応仁の乱</strong><br><span style="font-size: 12pt; color:#ccc;">下剋上開幕</span>
+              ⑭ 1467年 <strong style="color:#ffd700; font-size: 12pt;">応仁の乱</strong><br><span style="font-size: 12pt; color:#ccc;">下剋上開幕</span>
             </button>
             <button class="scenario-btn" data-scen-id="1495" style="padding:2px 3px; line-height:1.2;">
-              ⑭ 1495年 <strong style="color:#ffd700; font-size: 12pt;">北条早雲</strong><br><span style="font-size: 12pt; color:#ccc;">伊豆討入り</span>
+              ⑮ 1495年 <strong style="color:#ffd700; font-size: 12pt;">北条早雲</strong><br><span style="font-size: 12pt; color:#ccc;">伊豆討入り</span>
             </button>
             <button class="scenario-btn" data-scen-id="1546" style="padding:2px 3px; line-height:1.2;">
-              ⑮ 1546年 <strong style="color:#ffd700; font-size: 12pt;">河越夜戦</strong><br><span style="font-size: 12pt; color:#ccc;">氏康乾坤一擲</span>
+              ⑯ 1546年 <strong style="color:#ffd700; font-size: 12pt;">河越夜戦</strong><br><span style="font-size: 12pt; color:#ccc;">氏康乾坤一擲</span>
             </button>
             <button class="scenario-btn selected" data-scen-id="1560" style="padding:2px 3px; line-height:1.2;">
-              ⑯ 1560年 <strong style="color:#ffd700; font-size: 12pt;">桶狭間</strong><br><span style="font-size: 12pt; color:#ccc;">風雲児信長</span>
+              ⑰ 1560年 <strong style="color:#ffd700; font-size: 12pt;">桶狭間</strong><br><span style="font-size: 12pt; color:#ccc;">風雲児信長</span>
             </button>
             <button class="scenario-btn" data-scen-id="1570" style="padding:2px 3px; line-height:1.2;">
-              ⑰ 1570年 <strong style="color:#ffd700; font-size: 12pt;">信長包囲網</strong><br><span style="font-size: 12pt; color:#ccc;">元亀の死闘</span>
+              ⑱ 1570年 <strong style="color:#ffd700; font-size: 12pt;">信長包囲網</strong><br><span style="font-size: 12pt; color:#ccc;">元亀の死闘</span>
             </button>
           </div>
         </div>
@@ -1171,28 +1174,28 @@
           <span style="font-size: 12pt; color:var(--gold); width:95px; flex-shrink:0;">【安土桃山】</span>
           <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(8, 1fr); gap:3px;">
             <button class="scenario-btn" data-scen-id="1582" style="padding:2px 3px; line-height:1.2;">
-              ⑱ 1582年 <strong style="color:#ffd700; font-size: 12pt;">本能寺の変</strong><br><span style="font-size: 12pt; color:#ccc;">覇王の最期</span>
+              ⑲ 1582年 <strong style="color:#ffd700; font-size: 12pt;">本能寺の変</strong><br><span style="font-size: 12pt; color:#ccc;">覇王の最期</span>
             </button>
             <button class="scenario-btn" data-scen-id="1584" style="padding:2px 3px; line-height:1.2;">
-              ⑲ 1584年 <strong style="color:#ffd700; font-size: 12pt;">小牧長久手</strong><br><span style="font-size: 12pt; color:#ccc;">秀吉vs家康</span>
+              ⑳ 1584年 <strong style="color:#ffd700; font-size: 12pt;">小牧長久手</strong><br><span style="font-size: 12pt; color:#ccc;">秀吉vs家康</span>
             </button>
             <button class="scenario-btn" data-scen-id="1587" style="padding:2px 3px; line-height:1.2;">
-              ⑳ 1587年 <strong style="color:#ffd700; font-size: 12pt;">九州征伐</strong><br><span style="font-size: 12pt; color:#ccc;">島津vs豊臣</span>
+              ㉑ 1587年 <strong style="color:#ffd700; font-size: 12pt;">九州征伐</strong><br><span style="font-size: 12pt; color:#ccc;">島津vs豊臣</span>
             </button>
             <button class="scenario-btn" data-scen-id="1590" style="padding:2px 3px; line-height:1.2;">
-              ㉑ 1590年 <strong style="color:#ffd700; font-size: 12pt;">小田原征伐</strong><br><span style="font-size: 12pt; color:#ccc;">天下統一</span>
+              ㉒ 1590年 <strong style="color:#ffd700; font-size: 12pt;">小田原征伐</strong><br><span style="font-size: 12pt; color:#ccc;">天下統一</span>
             </button>
             <button class="scenario-btn" data-scen-id="1592" style="padding:2px 3px; line-height:1.2;">
-              ㉒ 1592年 <strong style="color:#ffd700; font-size: 12pt;">文禄の役</strong><br><span style="font-size: 12pt; color:#ccc;">名護屋集結</span>
+              ㉓ 1592年 <strong style="color:#ffd700; font-size: 12pt;">文禄の役</strong><br><span style="font-size: 12pt; color:#ccc;">名護屋集結</span>
             </button>
             <button class="scenario-btn" data-scen-id="1600" style="padding:2px 3px; line-height:1.2;">
-              ㉓ 1600年 <strong style="color:#ffd700; font-size: 12pt;">関ヶ原決戦</strong><br><span style="font-size: 12pt; color:#ccc;">天下分け目</span>
+              ㉔ 1600年 <strong style="color:#ffd700; font-size: 12pt;">関ヶ原決戦</strong><br><span style="font-size: 12pt; color:#ccc;">天下分け目</span>
             </button>
             <button class="scenario-btn" data-scen-id="1614" style="padding:2px 3px; line-height:1.2;">
-              ㉔ 1614年 <strong style="color:#ffd700; font-size: 12pt;">大坂の陣</strong><br><span style="font-size: 12pt; color:#ccc;">真田丸咆哮</span>
+              ㉕ 1614年 <strong style="color:#ffd700; font-size: 12pt;">大坂の陣</strong><br><span style="font-size: 12pt; color:#ccc;">真田丸咆哮</span>
             </button>
             <button class="scenario-btn" data-scen-id="1637" style="padding:2px 3px; line-height:1.2;">
-              ㉕ 1637年 <strong style="color:#ffd700; font-size: 12pt;">島原の乱</strong><br><span style="font-size: 12pt; color:#ccc;">天草四郎</span>
+              ㉖ 1637年 <strong style="color:#ffd700; font-size: 12pt;">島原の乱</strong><br><span style="font-size: 12pt; color:#ccc;">天草四郎</span>
             </button>
           </div>
         </div>
@@ -1202,31 +1205,31 @@
           <span style="font-size: 12pt; color:var(--gold); width:95px; flex-shrink:0;">【江戸・幕末】</span>
           <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(9, 1fr); gap:3px;">
             <button class="scenario-btn" data-scen-id="1651" style="padding:2px 3px; line-height:1.2;">
-              ㉖ 1651年 <strong style="color:#ffd700; font-size: 12pt;">慶安の変</strong><br><span style="font-size: 12pt; color:#ccc;">由比正雪</span>
+              ㉗ 1651年 <strong style="color:#ffd700; font-size: 12pt;">慶安の変</strong><br><span style="font-size: 12pt; color:#ccc;">由比正雪</span>
             </button>
             <button class="scenario-btn" data-scen-id="1702" style="padding:2px 3px; line-height:1.2;">
-              ㉗ 1702年 <strong style="color:#ffd700; font-size: 12pt;">赤穂討入</strong><br><span style="font-size: 12pt; color:#ccc;">大石内蔵助</span>
+              ㉘ 1702年 <strong style="color:#ffd700; font-size: 12pt;">赤穂討入</strong><br><span style="font-size: 12pt; color:#ccc;">大石内蔵助</span>
             </button>
             <button class="scenario-btn" data-scen-id="1721" style="padding:2px 3px; line-height:1.2;">
-              ㉘ 1721年 <strong style="color:#ffd700; font-size: 12pt;">享保改革</strong><br><span style="font-size: 12pt; color:#ccc;">徳川吉宗</span>
+              ㉙ 1721年 <strong style="color:#ffd700; font-size: 12pt;">享保改革</strong><br><span style="font-size: 12pt; color:#ccc;">徳川吉宗</span>
             </button>
             <button class="scenario-btn" data-scen-id="1789" style="padding:2px 3px; line-height:1.2;">
-              ㉙ 1789年 <strong style="color:#ffd700; font-size: 12pt;">寛政改革</strong><br><span style="font-size: 12pt; color:#ccc;">松平定信</span>
+              ㉚ 1789年 <strong style="color:#ffd700; font-size: 12pt;">寛政改革</strong><br><span style="font-size: 12pt; color:#ccc;">松平定信</span>
             </button>
             <button class="scenario-btn" data-scen-id="1837" style="padding:2px 3px; line-height:1.2;">
-              ㉚ 1837年 <strong style="color:#ffd700; font-size: 12pt;">大塩の乱</strong><br><span style="font-size: 12pt; color:#ccc;">大坂蜂起</span>
+              ㉛ 1837年 <strong style="color:#ffd700; font-size: 12pt;">大塩の乱</strong><br><span style="font-size: 12pt; color:#ccc;">大坂蜂起</span>
             </button>
             <button class="scenario-btn" data-scen-id="1853" style="padding:2px 3px; line-height:1.2;">
-              ㉛ 1853年 <strong style="color:#ffd700; font-size: 12pt;">ペリー来航</strong><br><span style="font-size: 12pt; color:#ccc;">黒船浦賀</span>
+              ㉜ 1853年 <strong style="color:#ffd700; font-size: 12pt;">ペリー来航</strong><br><span style="font-size: 12pt; color:#ccc;">黒船浦賀</span>
             </button>
             <button class="scenario-btn" data-scen-id="1860" style="padding:2px 3px; line-height:1.2;">
-              ㉜ 1860年 <strong style="color:#ffd700; font-size: 12pt;">桜田門外</strong><br><span style="font-size: 12pt; color:#ccc;">井伊直弼</span>
+              ㉝ 1860年 <strong style="color:#ffd700; font-size: 12pt;">桜田門外</strong><br><span style="font-size: 12pt; color:#ccc;">井伊直弼</span>
             </button>
             <button class="scenario-btn" data-scen-id="1866" style="padding:2px 3px; line-height:1.2;">
-              ㉝ 1866年 <strong style="color:#ffd700; font-size: 12pt;">薩長同盟</strong><br><span style="font-size: 12pt; color:#ccc;">龍馬奔走</span>
+              ㉞ 1866年 <strong style="color:#ffd700; font-size: 12pt;">薩長同盟</strong><br><span style="font-size: 12pt; color:#ccc;">龍馬奔走</span>
             </button>
             <button class="scenario-btn" data-scen-id="1868" style="padding:2px 3px; line-height:1.2;">
-              ㉞ 1868年 <strong style="color:#ffd700; font-size: 12pt;">戊辰戦争</strong><br><span style="font-size: 12pt; color:#ccc;">維新胎動</span>
+              ㉟ 1868年 <strong style="color:#ffd700; font-size: 12pt;">戊辰戦争</strong><br><span style="font-size: 12pt; color:#ccc;">維新胎動</span>
             </button>
           </div>
         </div>

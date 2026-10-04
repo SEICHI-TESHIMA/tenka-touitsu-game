@@ -69,29 +69,35 @@ class SengokuMusicEngine {
         tempoMs: 180,
         melodyInst: 'trumpet',
         melody: [
-          P.A3, P.C4, P.E4, P.A4,  P.B4, P._, P.A4, P.E4,
-          P.D4, P.E4, P.F4, P.A4,  P.E4, P._, P.C4, P._,
-          P.D4, P.F4, P.A4, P.D5,  P.C5, P._, P.B4, P.A4,
-          P.G4, P.A4, P.B4, P.D5,  P.C5, P.B4, P.A4, P._
+          P.A4, P.A4, P.E5, P._,  P.C5, P._, P.G4, P.E4,
+          P.A4, P._, P.F4, P.C5,  P.B4, P.G4, P.E4, P._,
+          P.D5, P._, P.A4, P.F4,  P.D5, P.Bb4, P.F4, P._,
+          P.E5, P.C5, P.A4, P._,  P.B4, P.Gs4, P.E4, P._,
+          P.C5, P._, P.A4, P.F4,  P.G4, P.E4, P.C5, P._,
+          P.D5, P.A4, P.F4, P._,  P.E5, P._, P.C5, P.A4,
+          P.F5, P.D5, P.Bb4, P._,  P.C5, P.A4, P.F5, P._,
+          P.B4, P.Gs4, P.E5, P._,  P.C5, P.A4, P.E4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.A2, P._, P.E3, P._,  P.F3, P._, P.E3, P._,
-          P.D3, P._, P.F3, P._,  P.C3, P._, P.E3, P._,
-          P.D3, P._, P.F3, P._,  P.A3, P._, P.F3, P._,
-          P.E3, P._, P.G3, P._,  P.E3, P._, P.A3, P._
+          P.C4, P.C4, P.E4, P._,  P.C4, P.C4, P.E4, P._,
+          P.A3, P.A3, P.C4, P._,  P.G3, P.G3, P.B3, P._,
+          P.F3, P.F3, P.A3, P._,  P.F3, P.F3, P.A3, P._,
+          P.C4, P.C4, P.E4, P._,  P.Gs3, P.Gs3, P.B3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A3, P.C4, P.E4], [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4], [P.E3, P.G3, P.B3],
-          [P.D3, P.F3, P.A3], [P.D3, P.F3, P.A3], [P.A3, P.C4, P.E4], [P.E3, P.Gs3, P.B3]
+          [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.A3, P.C4, P.E4], [P.E3, P.Gs3, P.B3],
+          [P.F3, P.A3, P.C4], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3], [P.A3, P.C4, P.E4],
+          [P.Bb2, P.D3, P.F3], [P.F3, P.A3, P.C4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.A4, P.E4, P.C4, P.E4, P.A4, P.C5, P.B4, P.E4,
           P.D4, P.F4, P.A4, P.D5, P.C5, P.A4, P.E4, P.A3
         ],
-        bass: [P.A2, P.A2, P.F2, P.E2, P.D2, P.D2, P.C2, P.E2],
+        bass: [P.A2, P.A2, P.F2, P.E2, P.D2, P.Bb1, P.A2, P.E2, P.F2, P.C2, P.D2, P.A1, P.Bb1, P.F2, P.E2, P.A2],
         drums: [
           { wadaiko: true, taiko: false, timpani: true, cymbal: true },
           { wadaiko: false, taiko: true, timpani: false, cymbal: false },
@@ -109,29 +115,35 @@ class SengokuMusicEngine {
         tempoMs: 220,
         melodyInst: 'flute',
         melody: [
-          P.A4, P.C5, P.B4, P.A4,  P.E4, P._, P.F4, P.A4,
-          P.B4, P.C5, P.B4, P.A4,  P.B4, P._, P.E4, P._,
-          P.C5, P.D5, P.E5, P.D5,  P.C5, P.B4, P.A4, P.F4,
-          P.E4, P.F4, P.A4, P.B4,  P.A4, P._, P._, P._
+          P.E5, P._, P.C5, P.A4,  P.A4, P.C5, P.F5, P._,
+          P.D5, P.A4, P.F4, P._,  P.B4, P._, P.G4, P.E4,
+          P.C5, P.E5, P.A4, P._,  P.D5, P.B4, P.G4, P._,
+          P.A4, P._, P.C5, P.F5,  P.E5, P.C5, P.A4, P._,
+          P.G5, P.E5, P.C5, P._,  P.D5, P.B4, P.G4, P._,
+          P.E5, P.C5, P.A4, P._,  P.A4, P.C5, P.F5, P._,
+          P.F5, P.D5, P.A4, P._,  P.B4, P.D5, P.G5, P._,
+          P.E5, P.G4, P.C5, P._,  P.A4, P._, P.C5, P.E5
         ],
         counterInst: 'oboe',
         counter: [
-          P.E4, P._, P.E4, P._,  P.C4, P._, P.D4, P._,
-          P.E4, P._, P.F4, P._,  P.E4, P._, P.C4, P._,
-          P.A4, P._, P.G4, P._,  P.F4, P._, P.D4, P._,
-          P.C4, P._, P.D4, P._,  P.C4, P._, P.A3, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.G3, P.G3, P.B3, P._,
+          P.C4, P.C4, P.E4, P._,  P.B3, P.B3, P.D4, P._,
+          P.A3, P.A3, P.C4, P._,  P.A3, P.A3, P.C4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4], [P.D3, P.F3, P.A3], [P.E3, P.G3, P.B3],
-          [P.A3, P.C4, P.E4], [P.G3, P.B3, P.D4], [P.F3, P.A3, P.C4], [P.E3, P.A3, P.C4]
+          [P.A3, P.C4, P.E4], [P.G3, P.B3, P.D4], [P.F3, P.A3, P.C4], [P.E3, P.A3, P.C4],
+          [P.C3, P.E3, P.G3], [P.G3, P.B3, P.D4], [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4],
+          [P.D3, P.F3, P.A3], [P.G3, P.B3, P.D4], [P.C3, P.E3, P.G3], [P.A3, P.C4, P.E4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.A3, P.C4, P.E4, P.A4, P.C5, P.A4, P.E4, P.C4,
           P.F3, P.A3, P.C4, P.F4, P.E4, P.C4, P.A3, P.E3
         ],
-        bass: [P.A2, P.F2, P.D2, P.E2, P.A2, P.G2, P.F2, P.E2],
+        bass: [P.A2, P.F2, P.D2, P.E2, P.A2, P.G2, P.F2, P.E2, P.C2, P.G2, P.A2, P.F2, P.D2, P.G2, P.C2, P.A2],
         drums: [
           { tsuzumi: true, taiko: false },
           { tsuzumi: false, taiko: false },
@@ -149,29 +161,35 @@ class SengokuMusicEngine {
         tempoMs: 180,
         melodyInst: 'violin',
         melody: [
-          P.D4, P.F4, P.G4, P.A4,  P.C5, P._, P.A4, P.G4,
-          P.F4, P.G4, P.A4, P.D5,  P.C5, P.A4, P.G4, P._,
-          P.A4, P.C5, P.D5, P.F5,  P.E5, P.D5, P.C5, P.A4,
-          P.G4, P.A4, P.C5, P.A4,  P.D4, P._, P._, P._
+          P.D5, P._, P.A4, P.F5,  P.E5, P.C5, P.G4, P._,
+          P.F5, P.D5, P.A4, P._,  P.D5, P.Bb4, P.F4, P._,
+          P.C5, P._, P.A4, P.F5,  P.D5, P.Bb4, P.G4, P._,
+          P.E5, P.C5, P.A4, P._,  P.F5, P.D5, P.A4, P._,
+          P.A4, P._, P.C5, P.F5,  P.G5, P.E5, P.C5, P._,
+          P.A4, P.D5, P.F5, P._,  P.D5, P.F4, P.Bb4, P._,
+          P.E5, P._, P.G4, P.C5,  P.A5, P.F5, P.C5, P._,
+          P.B4, P.D5, P.G5, P._,  P.F5, P.D5, P.A4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.D3, P._, P.F3, P._,  P.G3, P._, P.F3, P._,
-          P.D3, P._, P.A3, P._,  P.G3, P._, P.D3, P._,
-          P.F3, P._, P.A3, P._,  P.G3, P._, P.F3, P._,
-          P.E3, P._, P.F3, P._,  P.D3, P._, P.D3, P._
+          P.F3, P.F3, P.A3, P._,  P.E3, P.E3, P.G3, P._,
+          P.F3, P.F3, P.A3, P._,  P.D3, P.D3, P.F3, P._,
+          P.A3, P.A3, P.C4, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.C4, P.C4, P.E4, P._,  P.F3, P.F3, P.A3, P._
         ],
         chordInst: 'brass',
         chords: [
           [P.D3, P.F3, P.A3], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3],
-          [P.F3, P.A3, P.C4], [P.G3, P.Bb3, P.D4], [P.A3, P.C4, P.E4], [P.D3, P.F3, P.A3]
+          [P.F3, P.A3, P.C4], [P.G3, P.Bb3, P.D4], [P.A3, P.C4, P.E4], [P.D3, P.F3, P.A3],
+          [P.F3, P.A3, P.C4], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3],
+          [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4], [P.G3, P.B3, P.D4], [P.D3, P.F3, P.A3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.D4, P.F4, P.A4, P.D5, P.C5, P.A4, P.F4, P.D4,
           P.Bb3, P.D4, P.F4, P.Bb4, P.A4, P.F4, P.D4, P.A3
         ],
-        bass: [P.D2, P.C2, P.D2, P.Bb1, P.F2, P.G2, P.A2, P.D2],
+        bass: [P.D2, P.C2, P.D2, P.Bb1, P.F2, P.G2, P.A2, P.D2, P.F2, P.C2, P.D2, P.Bb1, P.C2, P.F2, P.G2, P.D2],
         drums: [
           { wadaiko: true, taiko: true },
           { wadaiko: false, taiko: false },
@@ -189,29 +207,35 @@ class SengokuMusicEngine {
         tempoMs: 230,
         melodyInst: 'oboe',
         melody: [
-          P.G4, P.Bb4, P.C5, P.D5,  P.F5, P._, P.D5, P.C5,
-          P.Bb4, P.C5, P.D5, P.G4,  P.F4, P._, P.G4, P._,
-          P.Bb4, P.D5, P.F5, P.G5,  P.F5, P.D5, P.C5, P.Bb4,
-          P.C5, P.D5, P.C5, P.Bb4,  P.G4, P._, P._, P._
+          P.D5, P._, P.Bb4, P.G4,  P.Bb4, P.G4, P.Eb5, P._,
+          P.C5, P.A4, P.F4, P._,  P.D5, P.Bb4, P.G4, P._,
+          P.F5, P.D5, P.Bb4, P._,  P.Eb5, P.C5, P.G4, P._,
+          P.A4, P.Fs4, P.D5, P._,  P.Bb4, P.G4, P.D4, P._,
+          P.D5, P._, P.F5, P.Bb4,  P.G4, P.Bb4, P.Eb5, P._,
+          P.Eb5, P.C5, P.G4, P._,  P.D5, P.Bb4, P.G4, P._,
+          P.C5, P.Ab4, P.Eb5, P._,  P.Ab4, P.C5, P.F5, P._,
+          P.D5, P.B4, P.G4, P._,  P.Bb4, P.G4, P.D5, P._
         ],
         counterInst: 'shinobue',
         counter: [
-          P.D4, P._, P.F4, P._,  P.Bb4, P._, P.G4, P._,
-          P.F4, P._, P.D4, P._,  P.C4, P._, P.D4, P._,
-          P.G4, P._, P.Bb4, P._,  P.D5, P._, P.C5, P._,
-          P.Bb4, P._, P.F4, P._,  P.D4, P._, P.G3, P._
+          P.Bb3, P.Bb3, P.D4, P._,  P.G3, P.G3, P.Bb3, P._,
+          P.A3, P.A3, P.C4, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.D4, P.D4, P.F4, P._,  P.Eb3, P.Eb3, P.G3, P._,
+          P.Fs3, P.Fs3, P.A3, P._,  P.Bb3, P.Bb3, P.D4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.G3, P.Bb3, P.D4], [P.Eb3, P.G3, P.Bb3], [P.F3, P.A3, P.C4], [P.G3, P.Bb3, P.D4],
-          [P.Bb3, P.D4, P.F4], [P.C3, P.Eb3, P.G3], [P.D3, P.Fs3, P.A3], [P.G3, P.Bb3, P.D4]
+          [P.Bb3, P.D4, P.F4], [P.C3, P.Eb3, P.G3], [P.D3, P.Fs3, P.A3], [P.G3, P.Bb3, P.D4],
+          [P.Bb2, P.D3, P.F3], [P.Eb3, P.G3, P.Bb3], [P.C3, P.Eb3, P.G3], [P.G3, P.Bb3, P.D4],
+          [P.Ab2, P.C3, P.Eb3], [P.F3, P.Ab3, P.C4], [P.G2, P.B2, P.D3], [P.G3, P.Bb3, P.D4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.G3, P.Bb3, P.D4, P.G4, P.F4, P.D4, P.Bb3, P.G3,
           P.Eb3, P.G3, P.Bb3, P.Eb4, P.D4, P.Bb3, P.G3, P.D3
         ],
-        bass: [P.G2, P.Eb2, P.F2, P.G2, P.Bb2, P.C2, P.D2, P.G2],
+        bass: [P.G2, P.Eb2, P.F2, P.G2, P.Bb2, P.C2, P.D2, P.G2, P.Bb2, P.Eb2, P.C2, P.G2, P.Ab1, P.F2, P.G2, P.G1],
         drums: [
           { hyoshigi: true, tsuzumi: false },
           { hyoshigi: false, tsuzumi: false },
@@ -229,29 +253,35 @@ class SengokuMusicEngine {
         tempoMs: 260,
         melodyInst: 'shinobue',
         melody: [
-          P.E4, P._, P.G4, P.A4,  P.B4, P._, P.A4, P._,
-          P.G4, P.E4, P.D4, P.E4,  P.G4, P._, P.E4, P._,
-          P.A4, P.B4, P.D5, P.E5,  P.D5, P.B4, P.A4, P.G4,
-          P.E4, P.G4, P.D4, P._,  P.E4, P._, P._, P._
+          P.B4, P._, P._, P.E5,  P.G4, P._, P.E4, P._,
+          P.C5, P._, P.A4, P._,  P.Fs4, P._, P._, P.B4,
+          P.E5, P._, P.G4, P._,  P.Fs4, P.A4, P._, P.D5,
+          P.Ds4, P._, P.Fs4, P._,  P.E4, P._, P._, P._,
+          P.G5, P._, P.E5, P.C5,  P.E5, P.C5, P.A4, P._,
+          P.B4, P.E5, P.G4, P._,  P.D5, P.B4, P.G4, P._,
+          P.C5, P._, P.E5, P.A4,  P.Fs4, P._, P.Ds5, P.B4,
+          P.G4, P.E5, P.B4, P._,  P.E5, P.G4, P._, P._
         ],
         counterInst: 'cello',
         counter: [
-          P.E3, P._, P.B2, P._,  P.C3, P._, P.A2, P._,
-          P.B2, P._, P.G2, P._,  P.A2, P._, P.E2, P._,
-          P.C3, P._, P.D3, P._,  P.B2, P._, P.G2, P._,
-          P.A2, P._, P.B2, P._,  P.E2, P._, P.E2, P._
+          P.G3, P.G3, P.B3, P._,  P.E3, P.E3, P.G3, P._,
+          P.C3, P.C3, P.E3, P._,  P.Ds3, P.Ds3, P.Fs3, P._,
+          P.E3, P.E3, P.G3, P._,  P.Fs3, P.Fs3, P.A3, P._,
+          P.Ds3, P.Ds3, P.Fs3, P._,  P.G3, P.G3, P.B3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3], [P.A2, P.C3, P.E3], [P.B2, P.Ds3, P.Fs3],
-          [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3]
+          [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3],
+          [P.C3, P.E3, P.G3], [P.A2, P.C3, P.E3], [P.E3, P.G3, P.B3], [P.G2, P.B2, P.D3],
+          [P.A2, P.C3, P.E3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.E4, P.G4, P.B4, P.E5, P.B4, P.G4, P.E4, P.B3,
           P.C4, P.E4, P.G4, P.C5, P.G4, P.E4, P.C4, P.G3
         ],
-        bass: [P.E2, P.C2, P.A1, P.B1, P.C2, P.D2, P.B1, P.E2],
+        bass: [P.E2, P.C2, P.A1, P.B1, P.C2, P.D2, P.B1, P.E2, P.C2, P.A1, P.E2, P.G2, P.A1, P.B1, P.E2, P.C2],
         drums: [
           { suzu: true },
           { suzu: false },
@@ -269,21 +299,27 @@ class SengokuMusicEngine {
         tempoMs: 165,
         melodyInst: 'violin',
         melody: [
-          P.D4, P.D4, P.A4, P.A4,  P.Bb4, P.A4, P.G4, P.F4,
-          P.E4, P.F4, P.G4, P.A4,  P.F4, P.E4, P.D4, P.Cs4,
-          P.D4, P.F4, P.A4, P.D5,  P.Cs5, P.D5, P.E5, P.Cs5,
-          P.D5, P.A4, P.F4, P.E4,  P.D4, P._, P._, P._
+          P.D5, P.D5, P.A4, P._,  P.Bb4, P.G4, P.D5, P._,
+          P.E5, P._, P.C5, P.G4,  P.Cs5, P.E5, P.A4, P._,
+          P.F5, P.D5, P.A4, P._,  P.D5, P.Bb4, P.F4, P._,
+          P.Bb4, P.G4, P.D4, P._,  P.E5, P.Cs5, P.A4, P._,
+          P.F5, P.C5, P.A4, P._,  P.D5, P.Bb4, P.F4, P._,
+          P.E5, P.G4, P.C5, P._,  P.Cs5, P.A4, P.E5, P._,
+          P.D5, P.F5, P.A5, P._,  P.D5, P._, P.Bb4, P.F4,
+          P.G4, P.Bb4, P.D5, P._,  P.E5, P.Cs5, P.A4, P._
         ],
         counterInst: 'trumpet',
         counter: [
-          P.D3, P._, P.F3, P._,  P.G3, P._, P.A3, P._,
-          P.Bb3, P._, P.A3, P._,  P.G3, P._, P.A3, P._,
-          P.F3, P._, P.A3, P._,  P.E3, P._, P.A3, P._,
-          P.F3, P._, P.G3, P._,  P.D3, P._, P.D3, P._
+          P.F3, P.F3, P.A3, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.E3, P.E3, P.G3, P._,  P.Cs4, P.Cs4, P.E4, P._,
+          P.F3, P.F3, P.A3, P._,  P.D3, P.D3, P.F3, P._,
+          P.Bb3, P.Bb3, P.D4, P._,  P.Cs4, P.Cs4, P.E4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.A3, P.Cs4, P.E4],
+          [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.G3, P.Bb3, P.D4], [P.A3, P.Cs4, P.E4],
+          [P.F3, P.A3, P.C4], [P.Bb2, P.D3, P.F3], [P.C3, P.E3, P.G3], [P.A3, P.Cs4, P.E4],
           [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.G3, P.Bb3, P.D4], [P.A3, P.Cs4, P.E4]
         ],
         arpInst: 'harp',
@@ -291,7 +327,7 @@ class SengokuMusicEngine {
           P.D4, P.F4, P.A4, P.D5, P.Bb4, P.G4, P.E4, P.Cs4,
           P.D4, P.F4, P.A4, P.D5, P.Cs5, P.A4, P.E4, P.A3
         ],
-        bass: [P.D2, P.G2, P.C2, P.A2, P.D2, P.Bb1, P.G1, P.A1],
+        bass: [P.D2, P.G2, P.C2, P.A2, P.D2, P.Bb1, P.G1, P.A1, P.F2, P.Bb1, P.C2, P.A1, P.D2, P.Bb1, P.G1, P.A1],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -309,29 +345,35 @@ class SengokuMusicEngine {
         tempoMs: 175,
         melodyInst: 'horn',
         melody: [
-          P.E3, P.E3, P.B3, P._,   P.C4, P.B3, P.A3, P.G3,
-          P.A3, P.B3, P.C4, P.E4,  P.B3, P._, P.G3, P._,
-          P.A3, P.C4, P.E4, P.G4,  P.Fs4, P.E4, P.D4, P.B3,
-          P.C4, P.B3, P.A3, P.G3,  P.E3, P._, P._, P._
+          P.E4, P._, P.B3, P.E4,  P.G4, P.E4, P._, P.C4,
+          P.E4, P.C4, P.A3, P._,  P.Fs4, P._, P.B3, P._,
+          P.G4, P.E4, P.C5, P._,  P.Fs4, P.A4, P.D4, P._,
+          P.Ds4, P.Fs4, P.B3, P._,  P.E4, P._, P.B3, P._,
+          P.G4, P._, P.B4, P.D5,  P.A4, P.Fs4, P.D5, P._,
+          P.E5, P.B4, P.G4, P._,  P.G4, P.E4, P.C5, P._,
+          P.E4, P.A4, P.C5, P._,  P.Fs4, P.B4, P.Ds5, P._,
+          P.E5, P._, P.B4, P.G4,  P.D5, P.B4, P.G4, P._
         ],
         counterInst: 'shinobue',
         counter: [
-          P.E4, P._, P.G4, P._,  P.A4, P._, P.B4, P._,
-          P.C5, P._, P.B4, P._,  P.G4, P._, P.E4, P._,
-          P.A4, P._, P.B4, P._,  P.D5, P._, P.B4, P._,
-          P.A4, P._, P.Fs4, P._,  P.E4, P._, P.E4, P._
+          P.G3, P.G3, P.B3, P._,  P.E3, P.E3, P.G3, P._,
+          P.C3, P.C3, P.E3, P._,  P.Ds3, P.Ds3, P.Fs3, P._,
+          P.E3, P.E3, P.G3, P._,  P.Fs3, P.Fs3, P.A3, P._,
+          P.Ds3, P.Ds3, P.Fs3, P._,  P.G3, P.G3, P.B3, P._
         ],
         chordInst: 'brass',
         chords: [
           [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3], [P.A2, P.C3, P.E3], [P.B2, P.Ds3, P.Fs3],
-          [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3]
+          [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3],
+          [P.G2, P.B2, P.D3], [P.D3, P.Fs3, P.A3], [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3],
+          [P.A2, P.C3, P.E3], [P.B2, P.Ds3, P.Fs3], [P.E3, P.G3, P.B3], [P.G2, P.B2, P.D3]
         ],
         arpInst: 'biwa',
         arpeggio: [
           P.E3, P.B3, P.E4, P.B3, P.G3, P.E3, P.B2, P.E3,
           P.C3, P.G3, P.C4, P.G3, P.E3, P.C3, P.G2, P.C3
         ],
-        bass: [P.E2, P.C2, P.A1, P.B1, P.C2, P.D2, P.B1, P.E2],
+        bass: [P.E2, P.C2, P.A1, P.B1, P.C2, P.D2, P.B1, P.E2, P.G2, P.D2, P.E2, P.C2, P.A1, P.B1, P.E2, P.G2],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -349,29 +391,35 @@ class SengokuMusicEngine {
         tempoMs: 160,
         melodyInst: 'shinobue',
         melody: [
-          P.A4, P._, P.E4, P.A4,  P.B4, P.C5, P.B4, P.A4,
-          P.F4, P.A4, P.B4, P.C5,  P.E5, P._, P.D5, P.C5,
-          P.B4, P.D5, P.C5, P.B4,  P.A4, P.F4, P.E4, P.D4,
-          P.E4, P.A4, P.B4, P.C5,  P.A4, P._, P._, P._
+          P.A4, P._, P._, P.E5,  P.C5, P.A4, P._, P.F4,
+          P.D5, P._, P.A4, P.F4,  P.B4, P.G4, P.E5, P._,
+          P.A4, P.C5, P.F5, P._,  P.D5, P._, P.B4, P.G4,
+          P.Gs4, P.B4, P.E5, P._,  P.A5, P.E5, P.C5, P._,
+          P.F5, P._, P.C5, P.A4,  P.E5, P.G4, P.C5, P._,
+          P.A4, P.D5, P.F5, P._,  P.E5, P.C5, P.A4, P._,
+          P.D5, P.F4, P.Bb4, P._,  P.B4, P.D5, P.G5, P._,
+          P.Gs4, P.E5, P.B4, P._,  P.A4, P._, P.C5, P.E5
         ],
         counterInst: 'violin',
         counter: [
-          P.A3, P._, P.C4, P._,  P.E4, P._, P.F4, P._,
-          P.D4, P._, P.F4, P._,  P.A4, P._, P.E4, P._,
-          P.F4, P._, P.D4, P._,  P.C4, P._, P.A3, P._,
-          P.B3, P._, P.E4, P._,  P.A3, P._, P.A3, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.G3, P.G3, P.B3, P._,
+          P.A3, P.A3, P.C4, P._,  P.B3, P.B3, P.D4, P._,
+          P.Gs3, P.Gs3, P.B3, P._,  P.C4, P.C4, P.E4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4], [P.D3, P.F3, P.A3], [P.E3, P.G3, P.B3],
-          [P.F3, P.A3, P.C4], [P.G3, P.B3, P.D4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4]
+          [P.F3, P.A3, P.C4], [P.G3, P.B3, P.D4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4],
+          [P.F3, P.A3, P.C4], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3], [P.A3, P.C4, P.E4],
+          [P.Bb2, P.D3, P.F3], [P.G3, P.B3, P.D4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.A3, P.E4, P.A4, P.C5, P.B4, P.A4, P.E4, P.C4,
           P.F3, P.C4, P.F4, P.A4, P.G4, P.E4, P.C4, P.A3
         ],
-        bass: [P.A2, P.F2, P.D2, P.E2, P.F2, P.G2, P.E2, P.A2],
+        bass: [P.A2, P.F2, P.D2, P.E2, P.F2, P.G2, P.E2, P.A2, P.F2, P.C2, P.D2, P.A1, P.Bb1, P.G2, P.E2, P.A2],
         drums: [
           { dora: true, hyoshigi: true },
           { taiko: false },
@@ -389,29 +437,35 @@ class SengokuMusicEngine {
         tempoMs: 155,
         melodyInst: 'trumpet',
         melody: [
-          P.D4, P.F4, P.A4, P.D5,  P.C5, P.A4, P.F4, P.A4,
-          P.G4, P.A4, P.Bb4, P.C5, P.A4, P._, P.F4, P._,
-          P.D5, P.E5, P.F5, P.E5,  P.D5, P.C5, P.Bb4, P.A4,
-          P.G4, P.Bb4, P.A4, P.F4, P.D4, P._, P._, P._
+          P.A4, P.D5, P._, P.F5,  P.E5, P._, P.G4, P.C5,
+          P.D5, P.Bb4, P.F4, P._,  P.Cs5, P.E5, P.A4, P._,
+          P.D5, P.A4, P.F5, P._,  P.Bb4, P.D5, P.G4, P._,
+          P.E5, P.C5, P.G4, P._,  P.F5, P.D5, P.A4, P._,
+          P.C5, P.A4, P.F5, P._,  P.G5, P.E5, P.C5, P._,
+          P.D5, P.F5, P.Bb4, P._,  P.A4, P.D5, P.F5, P._,
+          P.E5, P._, P.G4, P.C5,  P.A5, P.F5, P.C5, P._,
+          P.B4, P.D5, P.G4, P._,  P.F5, P.D5, P.A4, P._
         ],
         counterInst: 'violin',
         counter: [
-          P.D4, P._, P.F4, P._,  P.A4, P._, P.F4, P._,
-          P.E4, P._, P.G4, P._,  P.F4, P._, P.D4, P._,
-          P.F4, P._, P.A4, P._,  P.Bb4, P._, P.A4, P._,
-          P.E4, P._, P.F4, P._,  P.D4, P._, P.D4, P._
+          P.F3, P.F3, P.A3, P._,  P.E3, P.E3, P.G3, P._,
+          P.D3, P.D3, P.F3, P._,  P.Cs3, P.Cs3, P.E3, P._,
+          P.F3, P.F3, P.A3, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.E3, P.E3, P.G3, P._,  P.F3, P.F3, P.A3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.D3, P.F3, P.A3], [P.C3, P.E3, P.G3], [P.Bb2, P.D3, P.F3], [P.A2, P.Cs3, P.E3],
-          [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3]
+          [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.D3, P.F3, P.A3],
+          [P.F3, P.A3, P.C4], [P.C3, P.E3, P.G3], [P.Bb2, P.D3, P.F3], [P.D3, P.F3, P.A3],
+          [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4], [P.G2, P.B2, P.D3], [P.D3, P.F3, P.A3]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.D4, P.F4, P.A4, P.D5, P.C5, P.A4, P.F4, P.D4,
           P.Bb3, P.D4, P.F4, P.Bb4, P.A4, P.F4, P.D4, P.A3
         ],
-        bass: [P.D2, P.C2, P.Bb1, P.A1, P.D2, P.G2, P.C2, P.D2],
+        bass: [P.D2, P.C2, P.Bb1, P.A1, P.D2, P.G2, P.C2, P.D2, P.F2, P.C2, P.Bb1, P.D2, P.C2, P.F2, P.G2, P.D2],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -429,29 +483,35 @@ class SengokuMusicEngine {
         tempoMs: 200,
         melodyInst: 'flute',
         melody: [
-          P.D4, P.E4, P.F4, P.A4,  P.B4, P._, P.A4, P.F4,
-          P.E4, P.F4, P.A4, P.B4,  P.D5, P._, P.B4, P._,
-          P.A4, P.B4, P.D5, P.F5,  P.E5, P.D5, P.B4, P.A4,
-          P.F4, P.A4, P.B4, P.A4,  P.D4, P._, P._, P._
+          P.A4, P._, P.D5, P.F5,  P.B4, P.D5, P.G4, P._,
+          P.E5, P._, P.C5, P.A4,  P.F5, P.D5, P.A4, P._,
+          P.C5, P.A4, P.F5, P._,  P.B4, P._, P.D5, P.G5,
+          P.B4, P.G4, P.E5, P._,  P.D5, P.A4, P.F4, P._,
+          P.D5, P.B4, P.G5, P._,  P.A4, P.Fs4, P.D5, P._,
+          P.B4, P.E5, P.G4, P._,  P.G4, P.E4, P.C5, P._,
+          P.A4, P.C5, P.E5, P._,  P.B4, P.D5, P.G4, P._,
+          P.Fs4, P.A4, P.D5, P._,  P.F5, P.D5, P.A4, P._
         ],
         counterInst: 'biwa',
         counter: [
-          P.D3, P._, P.A3, P._,  P.B3, P._, P.F3, P._,
-          P.E3, P._, P.A3, P._,  P.B3, P._, P.D3, P._,
-          P.F3, P._, P.A3, P._,  P.B3, P._, P.A3, P._,
-          P.F3, P._, P.E3, P._,  P.D3, P._, P.D3, P._
+          P.F3, P.F3, P.A3, P._,  P.B3, P.B3, P.D4, P._,
+          P.C4, P.C4, P.E4, P._,  P.F3, P.F3, P.A3, P._,
+          P.A3, P.A3, P.C4, P._,  P.B3, P.B3, P.D4, P._,
+          P.G3, P.G3, P.B3, P._,  P.F3, P.F3, P.A3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.D3, P.F3, P.A3], [P.G3, P.B3, P.D4], [P.A3, P.C4, P.E4], [P.D3, P.F3, P.A3],
-          [P.F3, P.A3, P.C4], [P.G3, P.B3, P.D4], [P.E3, P.G3, P.B3], [P.D3, P.F3, P.A3]
+          [P.F3, P.A3, P.C4], [P.G3, P.B3, P.D4], [P.E3, P.G3, P.B3], [P.D3, P.F3, P.A3],
+          [P.G2, P.B2, P.D3], [P.D3, P.Fs3, P.A3], [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3],
+          [P.A2, P.C3, P.E3], [P.G3, P.B3, P.D4], [P.D3, P.Fs3, P.A3], [P.D3, P.F3, P.A3]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.D4, P.F4, P.A4, P.D5, P.B4, P.A4, P.F4, P.D4,
           P.G3, P.B3, P.D4, P.G4, P.F4, P.D4, P.B3, P.G3
         ],
-        bass: [P.D2, P.G2, P.A2, P.D2, P.F2, P.G2, P.E2, P.D2],
+        bass: [P.D2, P.G2, P.A2, P.D2, P.F2, P.G2, P.E2, P.D2, P.G2, P.D2, P.E2, P.C2, P.A1, P.G2, P.D2, P.D1],
         drums: [
           { wadaiko: true, tsuzumi: true },
           { taiko: false },
@@ -469,29 +529,35 @@ class SengokuMusicEngine {
         tempoMs: 170,
         melodyInst: 'horn',
         melody: [
-          P.C3, P.Eb3, P.F3, P.G3,  P.Bb3, P._, P.G3, P.F3,
-          P.Eb3, P.F3, P.G3, P.C4,  P.Bb3, P._, P.G3, P._,
-          P.C4, P.D4, P.Eb4, P.D4,  P.C4, P.Bb3, P.G3, P.Eb3,
-          P.F3, P.G3, P.Eb3, P.D3,  P.C3, P._, P._, P._
+          P.G3, P._, P.C4, P._,  P.Eb4, P.C4, P.Ab3, P._,
+          P.F3, P.Bb3, P.D4, P._,  P.G3, P.Eb4, P.C4, P._,
+          P.Bb3, P._, P.G4, P.Eb4, P.C4, P.Ab3, P.F4, P._,
+          P.D4, P.B3, P.G3, P._,  P.Eb4, P.C4, P.G3, P._,
+          P.Ab3, P._, P.C4, P.Eb4,  P.G3, P.Bb3, P.Eb4, P._,
+          P.D4, P.F3, P.Bb3, P._,  P.G4, P.Eb4, P.C4, P._,
+          P.C4, P._, P.Ab4, P.F4,  P.D4, P._, P.B3, P.G4,
+          P.Eb4, P.C4, P.Ab3, P._,  P.G3, P.C4, P.Eb4, P._
         ],
         counterInst: 'trumpet',
         counter: [
-          P.C4, P._, P.Eb4, P._,  P.F4, P._, P.G4, P._,
-          P.Eb4, P._, P.G4, P._,  P.F4, P._, P.C4, P._,
-          P.Eb4, P._, P.F4, P._,  P.G4, P._, P.Eb4, P._,
-          P.D4, P._, P.Eb4, P._,  P.C4, P._, P.C4, P._
+          P.Eb3, P.Eb3, P.G3, P._,  P.C3, P.C3, P.Eb3, P._,
+          P.D3, P.D3, P.F3, P._,  P.Eb3, P.Eb3, P.G3, P._,
+          P.G3, P.G3, P.Bb3, P._,  P.Ab3, P.Ab3, P.C4, P._,
+          P.B3, P.B3, P.D4, P._,  P.Eb3, P.Eb3, P.G3, P._
         ],
         chordInst: 'brass',
         chords: [
           [P.C3, P.Eb3, P.G3], [P.Ab2, P.C3, P.Eb3], [P.Bb2, P.D3, P.F3], [P.C3, P.Eb3, P.G3],
-          [P.Eb3, P.G3, P.Bb3], [P.F3, P.Ab3, P.C4], [P.G3, P.B3, P.D4], [P.C3, P.Eb3, P.G3]
+          [P.Eb3, P.G3, P.Bb3], [P.F3, P.Ab3, P.C4], [P.G3, P.B3, P.D4], [P.C3, P.Eb3, P.G3],
+          [P.Ab2, P.C3, P.Eb3], [P.Eb3, P.G3, P.Bb3], [P.Bb2, P.D3, P.F3], [P.C3, P.Eb3, P.G3],
+          [P.F3, P.Ab3, P.C4], [P.G2, P.B2, P.D3], [P.Ab2, P.C3, P.Eb3], [P.C3, P.Eb3, P.G3]
         ],
         arpInst: 'biwa',
         arpeggio: [
           P.C3, P.G3, P.C4, P.Eb4, P.C4, P.G3, P.Eb3, P.C3,
           P.Ab2, P.Eb3, P.Ab3, P.C4, P.Ab3, P.Eb3, P.C3, P.Ab2
         ],
-        bass: [P.C2, P.Ab1, P.Bb1, P.C2, P.Eb2, P.F2, P.G2, P.C2],
+        bass: [P.C2, P.Ab1, P.Bb1, P.C2, P.Eb2, P.F2, P.G2, P.C2, P.Ab1, P.Eb2, P.Bb1, P.C2, P.F2, P.G2, P.Ab1, P.C2],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -509,29 +575,35 @@ class SengokuMusicEngine {
         tempoMs: 210,
         melodyInst: 'oboe',
         melody: [
-          P.F4, P.A4, P.C5, P.D5,  P.C5, P._, P.A4, P.F4,
-          P.G4, P.A4, P.Bb4, P.C5, P.A4, P._, P.F4, P._,
-          P.Bb4, P.C5, P.D5, P.F5, P.E5, P.D5, P.C5, P.A4,
-          P.G4, P.A4, P.F4, P.G4,  P.F4, P._, P._, P._
+          P.C5, P.A4, P._, P.F4,  P.D5, P._, P.Bb4, P.F4,
+          P.E5, P.C5, P.G4, P._,  P.A4, P.C5, P.F5, P._,
+          P.F5, P.D5, P.A4, P._,  P.Bb4, P.D5, P.G4, P._,
+          P.E5, P._, P.C5, P.G4,  P.C5, P.A4, P.F4, P._,
+          P.F5, P.D5, P.Bb4, P._,  P.C5, P.A4, P.F4, P._,
+          P.D5, P.Bb4, P.G4, P._,  P.E5, P.G5, P.C5, P._,
+          P.A4, P.F5, P.D5, P._,  P.D5, P._, P.F4, P.Bb4,
+          P.E5, P.C5, P.G4, P._,  P.C5, P.A4, P.F4, P._
         ],
         counterInst: 'flute',
         counter: [
-          P.A4, P._, P.C5, P._,  P.F5, P._, P.C5, P._,
-          P.D5, P._, P.E5, P._,  P.C5, P._, P.A4, P._,
-          P.D5, P._, P.F5, P._,  P.G5, P._, P.F5, P._,
-          P.E5, P._, P.C5, P._,  P.A4, P._, P.F4, P._
+          P.A3, P.A3, P.C4, P._,  P.D3, P.D3, P.F3, P._,
+          P.E3, P.E3, P.G3, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.E3, P.E3, P.G3, P._,  P.A3, P.A3, P.C4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.F3, P.A3, P.C4], [P.Bb2, P.D3, P.F3], [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4],
-          [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4]
+          [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4],
+          [P.Bb2, P.D3, P.F3], [P.F3, P.A3, P.C4], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3],
+          [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.C3, P.E3, P.G3], [P.F3, P.A3, P.C4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.F3, P.A3, P.C4, P.F4, P.C4, P.A3, P.F3, P.C3,
           P.Bb2, P.D3, P.F3, P.Bb3, P.F3, P.D3, P.Bb2, P.F2
         ],
-        bass: [P.F2, P.Bb1, P.C2, P.F2, P.D2, P.G2, P.C2, P.F2],
+        bass: [P.F2, P.Bb1, P.C2, P.F2, P.D2, P.G2, P.C2, P.F2, P.Bb1, P.F2, P.G2, P.C2, P.D2, P.Bb1, P.C2, P.F2],
         drums: [
           { tsuzumi: true, hyoshigi: false },
           { tsuzumi: false, hyoshigi: false },
@@ -549,28 +621,35 @@ class SengokuMusicEngine {
         tempoMs: 280,
         melodyInst: 'shinobue',
         melody: [
-          P.A4, P._, P._, P.B4,  P.C5, P._, P.B4, P._,
-          P.A4, P._, P.F4, P._,  P.E4, P._, P._, P._,
-          P.F4, P._, P.A4, P._,  P.B4, P._, P.C5, P._,
-          P.B4, P.A4, P.F4, P._,  P.E4, P._, P._, P._
+          P.A4, P._, P._, P.E5,  P.D5, P._, P.A4, P._,
+          P.B4, P._, P._, P.Gs4,  P.A4, P._, P._, P._,
+          P.F4, P._, P.D5, P._,  P.C5, P._, P.A4, P._,
+          P.B4, P._, P.E4, P._,  P.A4, P._, P._, P._,
+          P.E5, P._, P.C5, P.A4,  P.D5, P.A4, P.F4, P._,
+          P.B4, P.Gs4, P._, P.E4,  P.C5, P._, P.A4, P._,
+          P.F4, P.D5, P._, P.A4,  P.B4, P.E5, P.Gs4, P._,
+          P.A4, P._, P._, P._,  P.E4, P._, P._, P._
         ],
         counterInst: 'koto',
         counter: [
-          P.E4, P._, P.A4, P._,  P.B4, P._, P.E5, P._,
-          P.C5, P._, P.B4, P._,  P.A4, P._, P.E4, P._,
-          P.D4, P._, P.F4, P._,  P.A4, P._, P.B4, P._,
-          P.C5, P._, P.B4, P._,  P.A4, P._, P.E4, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.Gs3, P.Gs3, P.B3, P._,
+          P.E4, P.E4, P.C4, P._,  P.C4, P.C4, P.A3, P._,
+          P.A3, P.A3, P.F3, P._,  P.B3, P.B3, P.Gs3, P._
         ],
         chordInst: 'strings',
         chords: [
-          [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4], [P.D3, P.F3, P.A3], [P.E3, P.Gs3, P.B3]
+          [P.A3, P.C4, P.E4], [P.D3, P.F3, P.A3], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4],
+          [P.D3, P.F3, P.A3], [P.A3, P.C4, P.E4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4],
+          [P.A3, P.C4, P.E4], [P.D3, P.F3, P.A3], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4],
+          [P.F3, P.A3, P.C4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4], [P.A2, P.C3, P.E3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.A3, P.E4, P.A4, P.C5, P.E5, P.C5, P.A4, P.E4,
           P.F3, P.C4, P.F4, P.A4, P.C5, P.A4, P.F4, P.C4
         ],
-        bass: [P.A1, P.F1, P.D1, P.E1],
+        bass: [P.A1, P.D1, P.E1, P.A1, P.D1, P.A1, P.E1, P.A1, P.A1, P.D1, P.E1, P.A1, P.F1, P.E1, P.A1, P.A1],
         drums: [
           { suzu: true },
           { suzu: false },
@@ -588,29 +667,35 @@ class SengokuMusicEngine {
         tempoMs: 210,
         melodyInst: 'oboe',
         melody: [
-          P.D4, P.F4, P.Gs4, P.A4,  P.D5, P._, P.Cs5, P.A4,
-          P.Gs4, P.F4, P.E4, P.D4,  P.F4, P._, P.D4, P._,
-          P.F4, P.A4, P.D5, P.F5,   P.E5, P.D5, P.Cs5, P.Bb4,
-          P.A4, P.Gs4, P.A4, P.F4,  P.D4, P._, P._, P._
+          P.A4, P._, P.F4, P.D5,  P.F4, P.D4, P.Bb3, P._,
+          P.D4, P.B3, P.Gs3, P._,  P.Cs4, P.E4, P.A4, P._,
+          P.D5, P._, P.A4, P.F4,  P.Bb4, P.D5, P.G4, P._,
+          P.E4, P.Cs5, P.A4, P._,  P.F4, P.D4, P.A3, P._,
+          P.D5, P._, P.Bb4, P.F4,  P.G4, P.Bb4, P.D5, P._,
+          P.E5, P.Cs5, P.A4, P._,  P.A4, P.F5, P.D5, P._,
+          P.B3, P.D4, P.Gs4, P._,  P.Cs4, P.E4, P.A4, P._,
+          P.F4, P.D5, P.Bb4, P._,  P.A4, P._, P.D4, P._
         ],
         counterInst: 'cello',
         counter: [
-          P.D3, P._, P.F3, P._,  P.Gs3, P._, P.A3, P._,
-          P.F3, P._, P.D3, P._,  P.Cs3, P._, P.A2, P._,
-          P.D3, P._, P.F3, P._,  P.G3, P._, P.Bb3, P._,
-          P.A3, P._, P.Cs3, P._,  P.D3, P._, P.D2, P._
+          P.F3, P.F3, P.A3, P._,  P.D3, P.D3, P.F3, P._,
+          P.B2, P.B2, P.D3, P._,  P.Cs3, P.Cs3, P.E3, P._,
+          P.F3, P.F3, P.A3, P._,  P.Bb2, P.Bb2, P.D3, P._,
+          P.Cs3, P.Cs3, P.E3, P._,  P.F3, P.F3, P.A3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.Gs2, P.B2, P.D3], [P.A2, P.Cs3, P.E3],
-          [P.D3, P.F3, P.A3], [P.G2, P.Bb2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3]
+          [P.D3, P.F3, P.A3], [P.G2, P.Bb2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3],
+          [P.Bb2, P.D3, P.F3], [P.G2, P.Bb2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3],
+          [P.Gs2, P.B2, P.D3], [P.A2, P.Cs3, P.E3], [P.Bb2, P.D3, P.F3], [P.D3, P.F3, P.A3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.D3, P.F3, P.A3, P.D4, P.Cs4, P.A3, P.F3, P.D3,
           P.Bb2, P.D3, P.F3, P.Bb3, P.A3, P.F3, P.D3, P.Bb2
         ],
-        bass: [P.D2, P.Bb1, P.Gs1, P.A1, P.D2, P.G1, P.A1, P.D2],
+        bass: [P.D2, P.Bb1, P.Gs1, P.A1, P.D2, P.G1, P.A1, P.D2, P.Bb1, P.G1, P.A1, P.D2, P.Gs1, P.A1, P.Bb1, P.D2],
         drums: [
           { hyoshigi: true },
           { hyoshigi: false },
@@ -628,29 +713,35 @@ class SengokuMusicEngine {
         tempoMs: 160,
         melodyInst: 'trumpet',
         melody: [
-          P.E3, P.E3, P.A3, P.B3,  P.C4, P.D4, P.E4, P._,
-          P.D4, P.C4, P.B3, P.A3,  P.B3, P.C4, P.B3, P.E3,
-          P.A3, P.B3, P.C4, P.D4,  P.E4, P.F4, P.E4, P._,
-          P.D4, P.C4, P.B3, P.C4,  P.A3, P._, P._, P._
+          P.E4, P.E4, P._, P.A4,  P.C5, P.A4, P.F4, P._,
+          P.D4, P.F4, P.A4, P._,  P.B3, P.E4, P.G4, P._,
+          P.C5, P.A4, P.E5, P._,  P.A4, P.F4, P.C5, P._,
+          P.Gs4, P.B4, P.E5, P._,  P.C5, P.A4, P.E4, P._,
+          P.F5, P.C5, P.A4, P._,  P.E5, P.G4, P.C5, P._,
+          P.D5, P.A4, P.F4, P._,  P.E5, P.C5, P.A4, P._,
+          P.D5, P.F4, P.Bb4, P._,  P.Gs4, P.B4, P.E5, P._,
+          P.A4, P.E5, P.C5, P._,  P.A4, P.C5, P.F4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.A2, P._, P.C3, P._,  P.E3, P._, P.A3, P._,
-          P.F3, P._, P.D3, P._,  P.E3, P._, P.E2, P._,
-          P.A2, P._, P.C3, P._,  P.C3, P._, P.C3, P._,
-          P.D3, P._, P.E3, P._,  P.A2, P._, P.A2, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.G3, P.G3, P.B3, P._,
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.Gs3, P.Gs3, P.B3, P._,  P.C4, P.C4, P.E4, P._
         ],
         chordInst: 'brass',
         chords: [
           [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.E2, P.G2, P.B2],
-          [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3]
+          [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3],
+          [P.F2, P.A2, P.C3], [P.C3, P.E3, P.G3], [P.D2, P.F2, P.A2], [P.A2, P.C3, P.E3],
+          [P.Bb2, P.D3, P.F3], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3]
         ],
         arpInst: 'biwa',
         arpeggio: [
           P.A3, P.C4, P.E4, P.A4, P.E4, P.C4, P.A3, P.E3,
           P.F3, P.A3, P.C4, P.F4, P.E4, P.C4, P.A3, P.F3
         ],
-        bass: [P.A1, P.F1, P.D1, P.E1, P.A1, P.F1, P.E1, P.A1],
+        bass: [P.A1, P.F1, P.D1, P.E1, P.A1, P.F1, P.E1, P.A1, P.F2, P.C2, P.D2, P.A1, P.Bb1, P.E2, P.A1, P.F1],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -668,29 +759,35 @@ class SengokuMusicEngine {
         tempoMs: 135,
         melodyInst: 'violin',
         melody: [
-          P.A4, P.C5, P.E5, P.A5,  P.G5, P.E5, P.D5, P.C5,
-          P.D5, P.E5, P.G5, P.A5,  P.E5, P._, P.C5, P._,
-          P.A5, P.G5, P.E5, P.D5,  P.C5, P.D5, P.E5, P.G5,
-          P.E5, P.D5, P.C5, P.B4,  P.A4, P._, P._, P._
+          P.E5, P._, P.C5, P.E5,  P.A4, P.C5, P.F5, P._,
+          P.D5, P.A4, P._, P.F5,  P.B4, P.E5, P.G5, P._,
+          P.A5, P.E5, P.C5, P._,  P.D5, P.B4, P.G4, P._,
+          P.A4, P.C5, P.F5, P._,  P.B4, P.Gs4, P.E5, P._,
+          P.C5, P.F5, P.A4, P._,  P.D5, P.F5, P.A4, P._,
+          P.E5, P.C5, P.A5, P._,  P.B4, P.Gs4, P.E5, P._,
+          P.D5, P._, P.B4, P.G5,  P.A4, P.C5, P.F5, P._,
+          P.Gs4, P.E5, P.B4, P._,  P.A4, P._, P.E5, P.C5
         ],
         counterInst: 'horn',
         counter: [
-          P.A3, P._, P.C4, P._,  P.E4, P._, P.C4, P._,
-          P.D4, P._, P.F4, P._,  P.E4, P._, P.B3, P._,
-          P.C4, P._, P.E4, P._,  P.A4, P._, P.G4, P._,
-          P.E4, P._, P.D4, P._,  P.A3, P._, P.A3, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.G3, P.G3, P.B3, P._,
+          P.C4, P.C4, P.E4, P._,  P.B3, P.B3, P.D4, P._,
+          P.A3, P.A3, P.C4, P._,  P.Gs3, P.Gs3, P.B3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A3, P.C4, P.E4], [P.F3, P.A3, P.C4], [P.D3, P.F3, P.A3], [P.E3, P.G3, P.B3],
-          [P.A3, P.C4, P.E4], [P.G3, P.B3, P.D4], [P.F3, P.A3, P.C4], [P.E3, P.Gs3, P.B3]
+          [P.A3, P.C4, P.E4], [P.G3, P.B3, P.D4], [P.F3, P.A3, P.C4], [P.E3, P.Gs3, P.B3],
+          [P.F3, P.A3, P.C4], [P.D3, P.F3, P.A3], [P.A3, P.C4, P.E4], [P.E3, P.Gs3, P.B3],
+          [P.G3, P.B3, P.D4], [P.F3, P.A3, P.C4], [P.E3, P.Gs3, P.B3], [P.A3, P.C4, P.E4]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.A4, P.E4, P.C4, P.E4, P.A4, P.C5, P.B4, P.E4,
           P.D4, P.F4, P.A4, P.D5, P.C5, P.A4, P.E4, P.A3
         ],
-        bass: [P.A2, P.F2, P.D2, P.E2, P.A2, P.G2, P.F2, P.E2],
+        bass: [P.A2, P.F2, P.D2, P.E2, P.A2, P.G2, P.F2, P.E2, P.F2, P.D2, P.A2, P.E2, P.G2, P.F2, P.E2, P.A2],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: true },
@@ -708,29 +805,35 @@ class SengokuMusicEngine {
         tempoMs: 120,
         melodyInst: 'trumpet',
         melody: [
-          P.D4, P.D4, P.F4, P.A4,  P.D5, P._, P.C5, P.Bb4,
-          P.A4, P.Bb4, P.C5, P.D5, P.F5, P.E5, P.D5, P.Cs5,
-          P.D5, P.F5, P.G5, P.A5,  P.Bb5, P.A5, P.G5, P.F5,
-          P.E5, P.F5, P.G5, P.E5,  P.D5, P._, P._, P._
+          P.D5, P.A4, P.D5, P._,  P.Bb4, P._, P.D5, P.G5,
+          P.E5, P.C5, P._, P.G4,  P.Cs5, P.E5, P.A5, P._,
+          P.D5, P.F5, P.A5, P._,  P.F5, P.D5, P.Bb4, P._,
+          P.D5, P.Bb4, P.G4, P._,  P.E5, P.Cs5, P.A4, P._,
+          P.F5, P.D5, P.Bb4, P._,  P.A4, P.C5, P.F5, P._,
+          P.D5, P.Bb4, P.G5, P._,  P.A4, P.D5, P.F5, P._,
+          P.E5, P.G4, P.C5, P._,  P.Cs5, P.A4, P.E5, P._,
+          P.D5, P.F5, P.A5, P._,  P.E5, P.Cs5, P.A4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.D3, P._, P.F3, P._,  P.A3, P._, P.F3, P._,
-          P.G3, P._, P.Bb3, P._,  P.A3, P._, P.E3, P._,
-          P.F3, P._, P.A3, P._,  P.G3, P._, P.D4, P._,
-          P.Cs4, P._, P.A3, P._,  P.D3, P._, P.D3, P._
+          P.F3, P.F3, P.A3, P._,  P.Bb3, P.Bb3, P.D4, P._,
+          P.E3, P.E3, P.G3, P._,  P.Cs4, P.Cs4, P.E4, P._,
+          P.F3, P.F3, P.A3, P._,  P.D3, P.D3, P.F3, P._,
+          P.Bb3, P.Bb3, P.D4, P._,  P.Cs4, P.Cs4, P.E4, P._
         ],
         chordInst: 'choir',
         chords: [
           [P.D3, P.F3, P.A3], [P.G3, P.Bb3, P.D4], [P.C3, P.E3, P.G3], [P.A3, P.Cs4, P.E4],
-          [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.G3, P.Bb3, P.D4], [P.A3, P.Cs4, P.E4]
+          [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.G3, P.Bb3, P.D4], [P.A3, P.Cs4, P.E4],
+          [P.Bb2, P.D3, P.F3], [P.F3, P.A3, P.C4], [P.G3, P.Bb3, P.D4], [P.D3, P.F3, P.A3],
+          [P.C3, P.E3, P.G3], [P.A3, P.Cs4, P.E4], [P.D3, P.F3, P.A3], [P.A2, P.Cs3, P.E3]
         ],
         arpInst: 'biwa',
         arpeggio: [
           P.D4, P.F4, P.A4, P.D5, P.C5, P.A4, P.F4, P.D4,
           P.G3, P.Bb3, P.D4, P.G4, P.F4, P.D4, P.Bb3, P.G3
         ],
-        bass: [P.D2, P.G2, P.C2, P.A2, P.D2, P.Bb1, P.G1, P.A1],
+        bass: [P.D2, P.G2, P.C2, P.A2, P.D2, P.Bb1, P.G1, P.A1, P.Bb1, P.F2, P.G2, P.D2, P.C2, P.A1, P.D2, P.A1],
         drums: [
           { wadaiko: true, timpani: true, cymbal: true },
           { taiko: true },
@@ -748,29 +851,35 @@ class SengokuMusicEngine {
         tempoMs: 175,
         melodyInst: 'oboe',
         melody: [
-          P.D3, P.F3, P.A3, P.C4,  P.D4, P._, P.C4, P.A3,
-          P.F3, P.G3, P.A3, P.D4,  P.C4, P._, P.A3, P._,
-          P.Bb3, P.D4, P.F4, P.A4, P.G4, P.F4, P.Eb4, P.D4,
-          P.Cs4, P.D4, P.E4, P.Cs4, P.D4, P._, P._, P._
+          P.A3, P._, P.D4, P._,  P.D4, P.Bb3, P.F3, P._,
+          P.Bb3, P._, P.D4, P.G3,  P.Cs4, P.E4, P.A3, P._,
+          P.D4, P.F4, P.A4, P._,  P.G4, P.Eb4, P.Bb3, P._,
+          P.E4, P.Cs4, P.A3, P._,  P.F4, P.D4, P.A3, P._,
+          P.Bb3, P._, P.D4, P.G3,  P.A3, P.D4, P.F4, P._,
+          P.Cs4, P.E4, P.A3, P._,  P.D4, P.F4, P.A4, P._,
+          P.F4, P.D4, P.Bb3, P._,  P.E4, P._, P.Cs4, P.A3,
+          P.A3, P._, P.D4, P._,  P.F4, P._, P.D4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.D2, P._, P.F2, P._,  P.A2, P._, P.D3, P._,
-          P.Bb1, P._, P.D2, P._,  P.F2, P._, P.A2, P._,
-          P.G1, P._, P.Bb1, P._,  P.D2, P._, P.G2, P._,
-          P.A1, P._, P.Cs2, P._,  P.D2, P._, P.D2, P._
+          P.F3, P.F3, P.A3, P._,  P.D3, P.D3, P.F3, P._,
+          P.Bb3, P.Bb3, P.D4, P._,  P.Cs3, P.Cs3, P.E3, P._,
+          P.F3, P.F3, P.A3, P._,  P.G3, P.G3, P.Bb3, P._,
+          P.Cs3, P.Cs3, P.E3, P._,  P.F3, P.F3, P.A3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.D3, P.F3, P.A3], [P.Bb2, P.D3, P.F3], [P.G2, P.Bb2, P.D3], [P.A2, P.Cs3, P.E3],
-          [P.D3, P.F3, P.A3], [P.Eb3, P.G3, P.Bb3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3]
+          [P.D3, P.F3, P.A3], [P.Eb3, P.G3, P.Bb3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3],
+          [P.G2, P.Bb2, P.D3], [P.D3, P.F3, P.A3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3],
+          [P.Bb2, P.D3, P.F3], [P.A2, P.Cs3, P.E3], [P.D3, P.F3, P.A3], [P.D2, P.F2, P.A2]
         ],
         arpInst: 'biwa',
         arpeggio: [
           P.D3, P.A3, P.D4, P.F4, P.D4, P.A3, P.F3, P.D3,
           P.Bb2, P.F3, P.Bb3, P.D4, P.Bb3, P.F3, P.D3, P.Bb2
         ],
-        bass: [P.D1, P.Bb0, P.G0, P.A0, P.D1, P.Eb1, P.A0, P.D1],
+        bass: [P.D1, P.Bb0, P.G0, P.A0, P.D1, P.Eb1, P.A0, P.D1, P.G1, P.D1, P.A0, P.D1, P.Bb0, P.A0, P.D1, P.D1],
         drums: [
           { wadaiko: true, dora: true },
           { taiko: false },
@@ -788,29 +897,35 @@ class SengokuMusicEngine {
         tempoMs: 230,
         melodyInst: 'violin',
         melody: [
-          P.F4, P._, P.A4, P.B4,  P.C5, P._, P.B4, P.A4,
-          P.Gs4, P.F4, P.E4, P.F4, P.A4, P._, P.Gs4, P._,
-          P.C5, P.B4, P.A4, P.Gs4, P.F4, P.E4, P.D4, P.C4,
-          P.D4, P.F4, P.Gs4, P.B4, P.A4, P._, P._, P._
+          P.C5, P._, P.B4, P.A4,  P.A4, P.F4, P.D5, P._,
+          P.B4, P._, P.Gs4, P.E4,  P.E5, P.C5, P.A4, P._,
+          P.C5, P.A4, P.F4, P._,  P.F4, P.D4, P.A4, P._,
+          P.B4, P.Gs4, P.E5, P._,  P.A4, P._, P.C5, P.E4,
+          P.D5, P._, P.Bb4, P.F4,  P.A4, P.C5, P.F4, P._,
+          P.D5, P.A4, P.F4, P._,  P.E5, P.C5, P.A4, P._,
+          P.B4, P.Gs4, P.E4, P._,  P.Gs4, P.B4, P.E5, P._,
+          P.C5, P.A4, P.E4, P._,  P.A4, P._, P._, P._
         ],
         counterInst: 'oboe',
         counter: [
-          P.A3, P._, P.C4, P._,  P.E4, P._, P.C4, P._,
-          P.B3, P._, P.D4, P._,  P.E4, P._, P.B3, P._,
-          P.A3, P._, P.C4, P._,  P.D4, P._, P.F4, P._,
-          P.E4, P._, P.B3, P._,  P.A3, P._, P.A3, P._
+          P.C4, P.C4, P.E4, P._,  P.F3, P.F3, P.A3, P._,
+          P.Gs3, P.Gs3, P.B3, P._,  P.C4, P.C4, P.E4, P._,
+          P.A3, P.A3, P.C4, P._,  P.F3, P.F3, P.A3, P._,
+          P.Gs3, P.Gs3, P.B3, P._,  P.C4, P.C4, P.E4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A2, P.C3, P.E3], [P.D2, P.F2, P.A2], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3],
-          [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3]
+          [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3],
+          [P.Bb2, P.D3, P.F3], [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.A2, P.C3, P.E3],
+          [P.E2, P.Gs2, P.B2], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3], [P.A2, P.C3, P.E3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.A3, P.C4, P.E4, P.A4, P.Gs4, P.E4, P.C4, P.A3,
           P.D3, P.F3, P.A3, P.D4, P.C4, P.A3, P.F3, P.D3
         ],
-        bass: [P.A1, P.D1, P.E1, P.A1, P.F1, P.D1, P.E1, P.A1],
+        bass: [P.A1, P.D1, P.E1, P.A1, P.F1, P.D1, P.E1, P.A1, P.Bb1, P.F1, P.D1, P.A1, P.E1, P.E1, P.A1, P.A1],
         drums: [
           { wadaiko: true, timpani: true },
           { taiko: false },
@@ -828,29 +943,35 @@ class SengokuMusicEngine {
         tempoMs: 140,
         melodyInst: 'trumpet',
         melody: [
-          P.D4, P.Fs4, P.A4, P.D5,  P.Cs5, P.B4, P.A4, P.Fs4,
-          P.G4, P.A4, P.B4, P.D5,   P.E5, P._, P.D5, P._,
-          P.Fs5, P.E5, P.D5, P.B4,  P.A4, P.B4, P.D5, P.E5,
-          P.Fs5, P.E5, P.D5, P.Cs5, P.D5, P._, P._, P._
+          P.Fs5, P.D5, P._, P.A4,  P.B4, P.D5, P.G5, P._,
+          P.E5, P.Cs5, P.A4, P._,  P.Fs5, P.A5, P.D5, P._,
+          P.D5, P.B4, P.Fs4, P._,  P.G4, P.B4, P.D5, P._,
+          P.E5, P.Cs5, P.A4, P._,  P.Fs5, P.D5, P.A4, P._,
+          P.D5, P.B4, P.G5, P._,  P.Fs5, P.A4, P.D5, P._,
+          P.E5, P.Cs5, P.A5, P._,  P.Fs4, P.B4, P.D5, P._,
+          P.B4, P.G4, P.D5, P._,  P.E5, P._, P.Cs5, P.A4,
+          P.Fs5, P.D5, P.A4, P._,  P.D5, P.A4, P.Fs4, P._
         ],
         counterInst: 'violin',
         counter: [
-          P.D4, P._, P.Fs4, P._,  P.A4, P._, P.D5, P._,
-          P.B4, P._, P.G4, P._,  P.A4, P._, P.Fs4, P._,
-          P.D5, P._, P.B4, P._,  P.Fs4, P._, P.G4, P._,
-          P.A4, P._, P.G4, P._,  P.Fs4, P._, P.D4, P._
+          P.Fs3, P.Fs3, P.A3, P._,  P.B3, P.B3, P.D4, P._,
+          P.Cs3, P.Cs3, P.E3, P._,  P.Fs3, P.Fs3, P.A3, P._,
+          P.D3, P.D3, P.Fs3, P._,  P.B3, P.B3, P.D4, P._,
+          P.Cs3, P.Cs3, P.E3, P._,  P.Fs3, P.Fs3, P.A3, P._
         ],
         chordInst: 'brass',
         chords: [
           [P.D3, P.Fs3, P.A3], [P.G2, P.B2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.Fs3, P.A3],
-          [P.B2, P.D3, P.Fs3], [P.G2, P.B2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.Fs3, P.A3]
+          [P.B2, P.D3, P.Fs3], [P.G2, P.B2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.Fs3, P.A3],
+          [P.G2, P.B2, P.D3], [P.D3, P.Fs3, P.A3], [P.A2, P.Cs3, P.E3], [P.B2, P.D3, P.Fs3],
+          [P.G2, P.B2, P.D3], [P.A2, P.Cs3, P.E3], [P.D3, P.Fs3, P.A3], [P.D3, P.Fs3, P.A3]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.D4, P.Fs4, P.A4, P.D5, P.A4, P.Fs4, P.D4, P.A3,
           P.G3, P.B3, P.D4, P.G4, P.D4, P.B3, P.G3, P.D3
         ],
-        bass: [P.D2, P.G1, P.A1, P.D2, P.B1, P.G1, P.A1, P.D2],
+        bass: [P.D2, P.G1, P.A1, P.D2, P.B1, P.G1, P.A1, P.D2, P.G2, P.D2, P.A1, P.B1, P.G1, P.A1, P.D2, P.D2],
         drums: [
           { wadaiko: true, timpani: true, cymbal: true },
           { taiko: true },
@@ -868,29 +989,35 @@ class SengokuMusicEngine {
         tempoMs: 200,
         melodyInst: 'violin',
         melody: [
-          P.C4, P.Ds4, P.Fs4, P.G4,  P.C5, P._, P.B4, P.G4,
-          P.Fs4, P.Ds4, P.D4, P.C4,  P.Ds4, P._, P.C4, P._,
-          P.Ds4, P.Fs4, P.G4, P.C5,  P.D5, P.Ds5, P.D5, P.C5,
-          P.B4, P.G4, P.Fs4, P.Ds4,  P.C4, P._, P._, P._
+          P.G4, P._, P.C5, P.Eb5,  P.C5, P.Ab4, P._, P.Eb4,
+          P.Ab4, P.C5, P.F5, P._,  P.D5, P.B4, P.G4, P._,
+          P.Eb5, P.C5, P.G4, P._,  P.C5, P.A4, P.Fs4, P._,
+          P.D5, P._, P.B4, P.G4,  P.G4, P.Eb5, P.C5, P._,
+          P.Eb5, P.C5, P.Ab4, P._,  P.G4, P.C5, P.Eb5, P._,
+          P.D5, P.B4, P.G5, P._,  P.Eb5, P.C5, P.G4, P._,
+          P.C5, P.Ab4, P.F5, P._,  P.B4, P.D5, P.G4, P._,
+          P.Eb5, P.C5, P.G4, P._,  P.C5, P._, P.G4, P.Eb4
         ],
         counterInst: 'oboe',
         counter: [
-          P.C3, P._, P.Ds3, P._,  P.G3, P._, P.C4, P._,
-          P.Ab3, P._, P.F3, P._,  P.G3, P._, P.Ds3, P._,
-          P.C3, P._, P.Ds3, P._,  P.F3, P._, P.Ab3, P._,
-          P.G3, P._, P.D3, P._,  P.C3, P._, P.C3, P._
+          P.Eb3, P.Eb3, P.G3, P._,  P.C3, P.C3, P.Eb3, P._,
+          P.Ab3, P.Ab3, P.C4, P._,  P.B3, P.B3, P.D4, P._,
+          P.Eb3, P.Eb3, P.G3, P._,  P.A3, P.A3, P.C4, P._,
+          P.B3, P.B3, P.D4, P._,  P.Eb3, P.Eb3, P.G3, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.C3, P.Ds3, P.G3], [P.Ab2, P.C3, P.Ds3], [P.F2, P.Ab2, P.C3], [P.G2, P.B2, P.D3],
-          [P.C3, P.Ds3, P.G3], [P.Fs2, P.A2, P.C3], [P.G2, P.B2, P.D3], [P.C3, P.Ds3, P.G3]
+          [P.C3, P.Ds3, P.G3], [P.Fs2, P.A2, P.C3], [P.G2, P.B2, P.D3], [P.C3, P.Ds3, P.G3],
+          [P.Ab2, P.C3, P.Eb3], [P.C3, P.Eb3, P.G3], [P.G2, P.B2, P.D3], [P.C3, P.Eb3, P.G3],
+          [P.F2, P.Ab2, P.C3], [P.G2, P.B2, P.D3], [P.C3, P.Eb3, P.G3], [P.C3, P.Eb3, P.G3]
         ],
         arpInst: 'harp',
         arpeggio: [
           P.C4, P.Ds4, P.G4, P.C5, P.B4, P.G4, P.Ds4, P.C4,
           P.Ab3, P.C4, P.Ds4, P.Ab4, P.G4, P.Ds4, P.C4, P.Ab3
         ],
-        bass: [P.C2, P.Ab1, P.F1, P.G1, P.C2, P.Fs1, P.G1, P.C2],
+        bass: [P.C2, P.Ab1, P.F1, P.G1, P.C2, P.Fs1, P.G1, P.C2, P.Ab1, P.C2, P.G1, P.C2, P.F1, P.G1, P.C2, P.C1],
         drums: [
           { dora: true, timpani: true },
           { taiko: false },
@@ -908,29 +1035,35 @@ class SengokuMusicEngine {
         tempoMs: 220,
         melodyInst: 'flute',
         melody: [
-          P.D4, P.G4, P.A4, P.D5,  P.E5, P._, P.D5, P.B4,
-          P.A4, P.B4, P.D5, P.E5,  P.G5, P._, P.E5, P._,
-          P.D5, P.E5, P.G5, P.A5,  P.B5, P.A5, P.G5, P.E5,
-          P.D5, P.E5, P.D5, P.B4,  P.G4, P._, P._, P._
+          P.D5, P.D5, P.B4, P.G4,  P.E5, P._, P.C5, P.G4,
+          P.Fs4, P.A4, P.D5, P._,  P.B4, P._, P.D5, P.G5,
+          P.B4, P.G4, P.E5, P._,  P.G4, P.E5, P.C5, P._,
+          P.A4, P.Fs4, P.D5, P._,  P.B4, P.G4, P.D4, P._,
+          P.E5, P.G4, P.C5, P._,  P.D5, P.B4, P.G4, P._,
+          P.G4, P.B4, P.E5, P._,  P.Fs4, P.A4, P.D5, P._,
+          P.A4, P.C5, P.E5, P._,  P.Fs4, P.A4, P.D5, P._,
+          P.B4, P.D5, P.G5, P._,  P.D5, P.B4, P.G4, P._
         ],
         counterInst: 'horn',
         counter: [
-          P.G3, P._, P.B3, P._,  P.D4, P._, P.G4, P._,
-          P.E4, P._, P.C4, P._,  P.D4, P._, P.B3, P._,
-          P.G4, P._, P.E4, P._,  P.D4, P._, P.C4, P._,
-          P.B3, P._, P.A3, P._,  P.G3, P._, P.G3, P._
+          P.B3, P.B3, P.D4, P._,  P.E3, P.E3, P.G3, P._,
+          P.Fs3, P.Fs3, P.A3, P._,  P.B3, P.B3, P.D4, P._,
+          P.G3, P.G3, P.B3, P._,  P.E3, P.E3, P.G3, P._,
+          P.Fs3, P.Fs3, P.A3, P._,  P.B3, P.B3, P.D4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.G3, P.B3, P.D4], [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.G3, P.B3, P.D4],
-          [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.G3, P.B3, P.D4]
+          [P.E3, P.G3, P.B3], [P.C3, P.E3, P.G3], [P.D3, P.Fs3, P.A3], [P.G3, P.B3, P.D4],
+          [P.C3, P.E3, P.G3], [P.G3, P.B3, P.D4], [P.E3, P.G3, P.B3], [P.D3, P.Fs3, P.A3],
+          [P.A2, P.C3, P.E3], [P.D3, P.Fs3, P.A3], [P.G3, P.B3, P.D4], [P.G2, P.B2, P.D3]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.G3, P.D4, P.G4, P.B4, P.D5, P.B4, P.G4, P.D4,
           P.C3, P.G3, P.C4, P.E4, P.G4, P.E4, P.C4, P.G3
         ],
-        bass: [P.G2, P.C2, P.D2, P.G2, P.E2, P.C2, P.D2, P.G2],
+        bass: [P.G2, P.C2, P.D2, P.G2, P.E2, P.C2, P.D2, P.G2, P.C2, P.G2, P.E2, P.D2, P.A1, P.D2, P.G2, P.G1],
         drums: [
           { suzu: true, tsuzumi: true },
           { tsuzumi: false },
@@ -948,27 +1081,33 @@ class SengokuMusicEngine {
         tempoMs: 190,
         melodyInst: 'violin',
         melody: [
-          P.C4, P.E4, P.G4, P.A4,  P.B4, P.C5, P.B4, P.A4,
-          P.G4, P.E4, P.D4, P.C4,  P.F4, P.A4, P.C5, P.E5,
-          P.D5, P.C5, P.B4, P.A4,  P.G4, P.A4, P.B4, P.D5,
-          P.C5, P.E5, P.G5, P.C6,  P.B5, P.A5, P.G5, P._,
-          P.A5, P.G5, P.F5, P.E5,  P.D5, P.E5, P.F5, P.G5,
-          P.E5, P.D5, P.C5, P.B4,  P.C5, P._, P._, P._
+          P.E5, P._, P.G4, P.C5,  P.E5, P.C5, P.A4, P._,
+          P.A4, P.C5, P.F5, P._,  P.D5, P.B4, P.G4, P._,
+          P.E5, P.G5, P._, P.C5,  P.A4, P._, P.C5, P.F5,
+          P.D5, P.A4, P.F4, P._,  P.B4, P.D5, P.G4, P._,
+          P.E5, P._, P.G5, P.C6,  P.A5, P.F5, P.C5, P._,
+          P.D5, P.B4, P.G4, P._,  P.E5, P.C5, P.G4, P.C5,
+          P.E5, P._, P.C5, P.A4,  P.F5, P.C5, P.A4, P._,
+          P.G5, P.E5, P.C5, P._,  P.D5, P.B4, P.G5, P._,
+          P.A5, P.F5, P.C5, P._,  P.D5, P.F5, P.A4, P._,
+          P.B4, P.D5, P.G4, P._,  P.E5, P.C5, P.G4, P.C5
         ],
         counterInst: 'horn',
         counter: [
-          P.C3, P._, P.E3, P._,  P.G3, P._, P.C4, P._,
-          P.A3, P._, P.F3, P._,  P.C3, P._, P.E3, P._,
-          P.F3, P._, P.A3, P._,  P.G3, P._, P.B3, P._,
-          P.C4, P._, P.E4, P._,  P.G4, P._, P.E4, P._,
-          P.F4, P._, P.D4, P._,  P.B3, P._, P.G3, P._,
-          P.C4, P._, P.G3, P._,  P.C3, P._, P.C3, P._
+          P.E4, P.E4, P.G4, P._,  P.C4, P.C4, P.E4, P._,
+          P.A3, P.A3, P.C4, P._,  P.B3, P.B3, P.D4, P._,
+          P.E4, P.E4, P.G4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.B3, P.B3, P.D4, P._,
+          P.E4, P.E4, P.G4, P._,  P.A3, P.A3, P.C4, P._,
+          P.B3, P.B3, P.D4, P._,  P.E4, P.E4, P.G4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.C3, P.E3, P.G3], [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.G2, P.B2, P.D3],
           [P.C3, P.E3, P.G3], [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.G2, P.B2, P.D3],
-          [P.C3, P.E3, P.G3], [P.F2, P.A2, P.C3], [P.G2, P.B2, P.D3], [P.C3, P.E3, P.G3]
+          [P.C3, P.E3, P.G3], [P.F2, P.A2, P.C3], [P.G2, P.B2, P.D3], [P.C3, P.E3, P.G3],
+          [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.C3, P.E3, P.G3], [P.G2, P.B2, P.D3],
+          [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.G2, P.B2, P.D3], [P.C3, P.E3, P.G3]
         ],
         arpInst: 'harp',
         arpeggio: [
@@ -977,7 +1116,7 @@ class SengokuMusicEngine {
           P.F3, P.A3, P.C4, P.F4, P.E4, P.C4, P.A3, P.F3,
           P.G3, P.B3, P.D4, P.G4, P.F4, P.D4, P.B3, P.G3
         ],
-        bass: [P.C2, P.A1, P.F1, P.G1, P.C2, P.F1, P.D1, P.G1, P.C2, P.F1, P.G1, P.C2],
+        bass: [P.C2, P.A1, P.F1, P.G1, P.C2, P.F1, P.D1, P.G1, P.C2, P.F1, P.G1, P.C2, P.A1, P.F1, P.C2, P.G1, P.F1, P.D1, P.G1, P.C2],
         drums: [
           { timpani: true, cymbal: true, wadaiko: true },
           { taiko: true },
@@ -995,29 +1134,35 @@ class SengokuMusicEngine {
         tempoMs: 310,
         melodyInst: 'shinobue',
         melody: [
-          P.A4, P._, P.B4, P.C5,  P.E5, P._, P.C5, P.B4,
-          P.A4, P._, P.F4, P._,  P.E4, P._, P.F4, P._,
-          P.C5, P._, P.B4, P._,  P.A4, P.F4, P.E4, P.D4,
-          P.C4, P._, P.D4, P.E4,  P.A3, P._, P._, P._
+          P.E5, P.E5, P._, P.C5,  P.A4, P._, P.C5, P._,
+          P.D5, P._, P.A4, P._,  P.B4, P._, P.Gs4, P._,
+          P.C5, P.A4, P.E4, P._,  P.F4, P._, P.A4, P.C5,
+          P.B4, P.Gs4, P._, P.E4,  P.A4, P._, P._, P._,
+          P.C5, P._, P.A4, P.F4,  P.D5, P._, P.A4, P._,
+          P.E4, P.C5, P.A4, P._,  P.Gs4, P._, P.B4, P.E4,
+          P.F4, P.D4, P.A3, P._,  P.B4, P._, P.Gs4, P._,
+          P.C5, P._, P.A4, P._,  P.A4, P._, P._, P._
         ],
         counterInst: 'cello',
         counter: [
-          P.A2, P._, P.C3, P._,  P.E3, P._, P.C3, P._,
-          P.F2, P._, P.D2, P._,  P.E2, P._, P.B1, P._,
-          P.A2, P._, P.F2, P._,  P.D2, P._, P.B1, P._,
-          P.C2, P._, P.E2, P._,  P.A1, P._, P.A1, P._
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.F3, P.F3, P.A3, P._,  P.Gs3, P.Gs3, P.B3, P._,
+          P.C4, P.C4, P.E4, P._,  P.A3, P.A3, P.C4, P._,
+          P.Gs3, P.Gs3, P.B3, P._,  P.C4, P.C4, P.E4, P._
         ],
         chordInst: 'strings',
         chords: [
           [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.E2, P.Gs2, P.B2],
-          [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3]
+          [P.A2, P.C3, P.E3], [P.F2, P.A2, P.C3], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3],
+          [P.F2, P.A2, P.C3], [P.D2, P.F2, P.A2], [P.A2, P.C3, P.E3], [P.E2, P.Gs2, P.B2],
+          [P.D2, P.F2, P.A2], [P.E2, P.Gs2, P.B2], [P.A2, P.C3, P.E3], [P.A2, P.C3, P.E3]
         ],
         arpInst: 'koto',
         arpeggio: [
           P.A3, P.E4, P.A4, P.C5, P.B4, P.A4, P.E4, P.C4,
           P.F3, P.C4, P.F4, P.A4, P.E4, P.C4, P.A3, P.E3
         ],
-        bass: [P.A1, P.F1, P.D1, P.E1, P.A1, P.F1, P.E1, P.A1],
+        bass: [P.A1, P.F1, P.D1, P.E1, P.A1, P.F1, P.E1, P.A1, P.F1, P.D1, P.A1, P.E1, P.D1, P.E1, P.A1, P.A1],
         drums: [
           { dora: true },
           { dora: false },
@@ -1066,8 +1211,8 @@ class SengokuMusicEngine {
   createConvolver() {
     if (!this.ctx) return;
     const rate = this.ctx.sampleRate;
-    const length = rate * 2.0; // 2秒の豊かな残響
-    const decay = 2.4;
+    const length = rate * 2.8; // 大ホール級の残響
+    const decay = 2.1;
     const buffer = this.ctx.createBuffer(2, length, rate);
     const left = buffer.getChannelData(0);
     const right = buffer.getChannelData(1);
@@ -1084,7 +1229,7 @@ class SengokuMusicEngine {
     this.convolver.buffer = buffer;
 
     this.convolverGain = this.ctx.createGain();
-    this.convolverGain.gain.setValueAtTime(0.38, this.ctx.currentTime);
+    this.convolverGain.gain.setValueAtTime(0.48, this.ctx.currentTime);
 
     this.convolver.connect(this.convolverGain);
     this.convolverGain.connect(this.masterGain);
@@ -1114,10 +1259,11 @@ class SengokuMusicEngine {
     }
 
     const track = this.tracks[trackKey];
+    this.stepMs = track.tempoMs;
     this.playStep();
     this.timerId = setInterval(() => {
       this.playStep();
-    }, track.tempoMs);
+    }, this.stepMs);
 
     // バッジ等のUI更新通知
     const badge = document.getElementById('bgmTitleBadge');
@@ -1133,6 +1279,74 @@ class SengokuMusicEngine {
     }
   }
 
+  // 茶会・雪・滅亡・密談だけ静かに。それ以外は出だしから前進し、後半で総奏に開く。
+  scoreMoment(track) {
+    const len = Math.max(32, track.melody?.length || 32);
+    const pos = this.stepIndex % len;
+    const phrase = Math.floor(pos / 32);
+    const loop = Math.floor(this.stepIndex / len);
+    const drums = track.drums || [];
+    const epic = drums.some(d => d && (d.timpani || d.cymbal || d.wadaiko));
+    const court = track.id === 'shogun' || track.id === 'victory';
+    const quiet = track.id === 'tea' || track.id === 'winter' || track.id === 'tragedy' || track.id === 'diplomacy';
+    const texture = quiet ? ((phrase + loop) % 2) : (phrase === 1 ? 2 : 1);
+    const phrasePos = (pos % 32) / 32;
+    let dyn = (0.58 + 0.46 * Math.sin(Math.PI * phrasePos)) * (quiet ? 0.82 : 1);
+    return { phrase, texture, dyn, epic, court, quiet };
+  }
+
+  // 同じ音高が続く間は再発音せず、ひとつの音として伸ばす
+  voicedNote(seq) {
+    if (!seq || seq.length === 0) return null;
+    const i = this.stepIndex % seq.length;
+    const note = seq[i];
+    if (!(note > 0)) return null;
+    if (i > 0 && seq[i - 1] === note) return null;
+    let dur = 1;
+    while (i + dur < seq.length && seq[i + dur] === note) dur++;
+    return { note, dur };
+  }
+
+  leadForTexture(base, texture, epic) {
+    const home = base || 'violin';
+    if (texture === 0) return home;
+    if (texture === 1) {
+      if (home === 'trumpet' || home === 'horn') return 'horn';
+      if (home === 'shinobue' || home === 'oboe') return 'flute';
+      return 'oboe';
+    }
+    if (!epic) return home === 'flute' ? 'violin' : home;
+    return home === 'horn' ? 'horn' : 'trumpet';
+  }
+
+  leadForForm(base, form, epic) {
+    const epicCycle = {
+      violin: ['violin', 'flute', 'trumpet', 'horn'],
+      flute: ['flute', 'oboe', 'violin', 'trumpet'],
+      trumpet: ['trumpet', 'horn', 'violin', 'flute'],
+      horn: ['horn', 'trumpet', 'violin', 'oboe'],
+      oboe: ['oboe', 'flute', 'violin', 'horn'],
+      shinobue: ['shinobue', 'flute', 'oboe', 'violin'],
+      cello: ['cello', 'horn', 'violin', 'oboe'],
+      koto: ['koto', 'harp', 'flute', 'violin']
+    };
+    const lyricCycle = {
+      violin: ['violin', 'flute', 'oboe', 'cello'],
+      flute: ['flute', 'oboe', 'shinobue', 'violin'],
+      trumpet: ['horn', 'flute', 'violin', 'oboe'],
+      horn: ['horn', 'oboe', 'cello', 'flute'],
+      oboe: ['oboe', 'flute', 'shinobue', 'cello'],
+      shinobue: ['shinobue', 'flute', 'oboe', 'koto'],
+      cello: ['cello', 'oboe', 'flute', 'violin'],
+      koto: ['koto', 'harp', 'flute', 'shinobue']
+    };
+    const table = epic ? epicCycle : lyricCycle;
+    const list = table[base] || (epic
+      ? ['violin', 'flute', 'trumpet', 'horn']
+      : ['flute', 'oboe', 'violin', 'cello']);
+    return list[form % 4];
+  }
+
   // 1ステップ（1拍/半拍）ごとの多声部・管弦合奏処理
   playStep() {
     if (!this.ctx || this.isBgmMuted) return;
@@ -1140,75 +1354,103 @@ class SengokuMusicEngine {
     if (!track) return;
 
     const t = this.ctx.currentTime;
-    const stepDur = track.tempoMs / 1000;
+    const stepDur = (this.stepMs || track.tempoMs) / 1000;
+    const { phrase, texture, dyn, epic, quiet } = this.scoreMoment(track);
+    const beat = this.stepIndex % 4;
+    const chord = (track.chords && track.chords.length)
+      ? track.chords[Math.floor(this.stepIndex / 4) % track.chords.length]
+      : null;
 
-    // 1. 主旋律 (Melody Lead)
-    if (track.melody && track.melody.length > 0) {
-      const note = track.melody[this.stepIndex % track.melody.length];
-      if (note > 0) {
-        this.dispatchInstrument(track.melodyInst || 'violin', note, t, stepDur * 0.95, 0.22, -0.15);
+    // 1. 主旋律 — 家の楽器のまま歌い、後半だけ遠いフルートが影のように重なる
+    const mel = this.voicedNote(track.melody);
+    if (mel) {
+      const lead = track.melodyInst || 'violin';
+      const dur = stepDur * mel.dur * 1.08;
+      this.dispatchInstrument(lead, mel.note, t, dur, 0.20 * dyn, -0.2);
+      if (!quiet && phrase === 1 && mel.note * 2 < 1200) {
+        this.dispatchInstrument('flute', mel.note * 2, t, dur * 0.9, 0.028 * dyn, 0.28);
       }
     }
 
-    // 2. 対旋律 (Counter Melody)
-    if (track.counter && track.counter.length > 0) {
-      const note = track.counter[this.stepIndex % track.counter.length];
-      if (note > 0) {
-        this.dispatchInstrument(track.counterInst || 'horn', note, t, stepDur * 0.90, 0.16, 0.25);
+    // 2. 和音の内声（三度または五度）。書かれた対旋律が和声から外れないように、今のコードから取る
+    if (beat === 0 && chord && chord.length > 0) {
+      let inner = chord[texture === 2 ? Math.min(2, chord.length - 1) : 1] || chord[0];
+      if (inner > 0) {
+        while (inner < 170) inner *= 2;
+        while (inner > 540) inner *= 0.5;
+        const innerInst = epic && phrase === 1 ? 'horn' : 'cello';
+        this.dispatchInstrument(innerInst, inner, t, stepDur * 3.6, 0.055 * dyn, 0.22);
       }
     }
 
-    // 3. 和音・オーケストラパッド (Chords / Strings / Brass / Choir)
-    if (track.chords && track.chords.length > 0 && this.stepIndex % 4 === 0) {
-      const chordIdx = Math.floor(this.stepIndex / 4) % track.chords.length;
-      const chord = track.chords[chordIdx];
-      if (chord && chord.length > 0) {
-        const chordDur = stepDur * 3.8;
-        if (track.chordInst === 'choir') {
-          this.playChoirPad(chord, t, chordDur, 0.15, 0);
-        } else if (track.chordInst === 'brass') {
-          this.playBrassHorn(chord, t, chordDur, 0.16, 0.2);
-        } else {
-          this.playStringsEnsemble(chord, t, chordDur, 0.18, 0);
-        }
+    // 3. 弦楽、笙の五度、総奏の金管と合唱
+    if (beat === 0 && chord && chord.length > 0) {
+      const chordDur = stepDur * (texture === 2 ? 4.2 : 3.8);
+      if (texture !== 0) {
+        this.playStringsEnsemble(chord, t, chordDur, (texture === 2 ? 0.15 : 0.12) * dyn, 0);
+      } else {
+        this.playStringsEnsemble(chord, t, chordDur, 0.07 * dyn, 0);
+      }
+      const fifth = chord[2] || chord[0] * 1.5;
+      this.playOpenFifth(chord[0], fifth, t, chordDur, 0.055 * dyn);
+      if (!quiet && phrase === 1) {
+        this.playBrassHorn(chord, t, chordDur, (epic ? 0.055 : 0.032) * dyn, 0.14);
+        this.playChoirPad(chord, t, chordDur * 1.1, (epic ? 0.04 : 0.025) * dyn, 0);
       }
     }
 
-    // 4. アルペジオ・装飾 (Arpeggio / Koto / Harp / Biwa)
-    if (track.arpeggio && track.arpeggio.length > 0) {
+    // 躍動は心臓の拍だけ。強拍に根音、次の強拍に五度。隙間を残す
+    if (!quiet && chord && chord.length > 0 && (beat === 0 || beat === 2)) {
+      const pulseTone = beat === 0 ? chord[0] : (chord[2] || chord[0]);
+      if (pulseTone > 0) {
+        let f = pulseTone;
+        while (f < 174) f *= 2;
+        while (f > 392) f *= 0.5;
+        this.playDrivePulse(f, t, stepDur * 0.7, (beat === 0 ? 0.045 : 0.03) * dyn);
+      }
+    }
+
+    // 4. 前半は箏・琵琶の定型、後半は今の和音をハープで分散
+    if (phrase === 0 && track.arpeggio && track.arpeggio.length > 0 && beat % 2 === 0) {
       const arpNote = track.arpeggio[this.stepIndex % track.arpeggio.length];
-      if (arpNote > 0) {
-        if (track.arpInst === 'harp') {
-          this.playHarp(arpNote, t, 0.6, 0.18, 0.25);
-        } else if (track.arpInst === 'biwa') {
-          this.playBiwa(arpNote, t, 0.45, 0.18, -0.3);
-        } else {
-          this.playKoto(arpNote, t, 0.5, 0.18, 0.3);
+      if (arpNote > 0 && (texture === 0 || beat % 2 === 0)) {
+        const arpVol = 0.11 * dyn;
+        if (track.arpInst === 'biwa') this.playBiwa(arpNote, t, 0.5, arpVol, -0.28);
+        else if (track.arpInst === 'harp') this.playHarp(arpNote, t, 0.7, arpVol, 0.3);
+        else this.playKoto(arpNote, t, 0.55, arpVol, 0.26);
+      }
+    } else if (phrase === 1 && chord && chord.length > 0 && beat % 2 === 1) {
+      let f = chord[beat === 1 ? 0 : Math.min(2, chord.length - 1)];
+      if (f > 0) {
+        while (f < 260) f *= 2;
+        while (f > 880) f *= 0.5;
+        this.playHarp(f, t, 0.65, 0.08 * dyn, 0.32);
+      }
+    }
+
+    // 5. コントラバス。総奏の強拍だけ音程のあるティンパニ
+    if (track.bass && track.bass.length > 0 && beat === 0) {
+      const bassNote = track.bass[Math.floor(this.stepIndex / 4) % track.bass.length];
+      if (bassNote > 0) {
+        this.playContrabass(bassNote, t, stepDur * 3.7, (texture === 2 ? 0.18 : 0.13) * dyn);
+        if (phrase === 1 && epic && this.stepIndex % 8 === 0) {
+          const timp = Math.max(52, Math.min(bassNote, 110));
+          this.playPitchedTimpani(timp, t, 0.08 * dyn);
         }
       }
     }
 
-    // 5. 重低音ベース (Bassline)
-    if (track.bass && track.bass.length > 0 && this.stepIndex % 4 === 0) {
-      const bassIdx = Math.floor(this.stepIndex / 4) % track.bass.length;
-      const bassNote = track.bass[bassIdx];
-      if (bassNote > 0) {
-        this.playWadaiko(bassNote, t, 0.32, 0);
-      }
-    }
-
-    // 6. ドラム・和洋パーカッション (Percussion Section)
-    if (track.drums && track.drums.length > 0) {
+    // 6. 打楽器 — 合戦は小節頭だけ、内政は二小節に一度。拍の隙間を残す
+    if (!quiet && beat === 0 && (epic || this.stepIndex % 8 === 0)) {
+      this.playWadaiko(58, t, (epic ? 0.12 : 0.055) * dyn, 0);
+      if (epic && phrase === 1 && this.stepIndex % 32 === 0) this.playCymbal(t, 0.05 * dyn, 0.28);
+    } else if (quiet && track.drums && track.drums.length > 0) {
       const drumPattern = track.drums[this.stepIndex % track.drums.length];
       if (drumPattern) {
-        if (drumPattern.wadaiko) this.playWadaiko(60, t, 0.28, 0);
-        if (drumPattern.taiko) this.playTaikoHit(t, 0.22, 0.15);
-        if (drumPattern.tsuzumi) this.playTsuzumi(t, 0.28, -0.2);
-        if (drumPattern.timpani) this.playTimpaniRoll(t, 0.45, 0.28, -0.25);
-        if (drumPattern.cymbal) this.playCymbal(t, 0.20, 0.35);
-        if (drumPattern.dora) this.playDora(t, 0.28, 0);
-        if (drumPattern.hyoshigi) this.playHyoshigiSound(t, 0.24, 0);
-        if (drumPattern.suzu) this.playSuzu(t, 0.18, 0.3);
+        if (drumPattern.tsuzumi) this.playTsuzumi(t, 0.16 * dyn, -0.2);
+        if (drumPattern.hyoshigi) this.playHyoshigiSound(t, 0.14 * dyn, 0);
+        if (drumPattern.suzu) this.playSuzu(t, 0.10 * dyn, 0.3);
+        if (drumPattern.dora && beat === 0) this.playDora(t, 0.10 * dyn, 0);
       }
     }
 
@@ -1300,27 +1542,37 @@ class SengokuMusicEngine {
       osc1.type = 'sawtooth';
       osc2.type = 'sawtooth';
       osc1.frequency.setValueAtTime(freq, time);
-      osc2.frequency.setValueAtTime(freq * 1.005, time); // デチューンによる分厚いコーラス感
+      osc2.frequency.setValueAtTime(freq * 1.007, time);
+
+      const osc3 = this.ctx.createOscillator();
+      osc3.type = 'triangle';
+      osc3.frequency.setValueAtTime(freq * 0.5, time);
+      const celloGain = this.ctx.createGain();
+      celloGain.gain.setValueAtTime(voiceVol * 0.42, time);
 
       filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(600, time);
-      filter.frequency.linearRampToValueAtTime(1800, time + dur * 0.4);
-      filter.frequency.linearRampToValueAtTime(700, time + dur);
+      filter.frequency.setValueAtTime(520, time);
+      filter.frequency.linearRampToValueAtTime(2100, time + dur * 0.35);
+      filter.frequency.linearRampToValueAtTime(780, time + dur);
 
       gain.gain.setValueAtTime(0.001, time);
-      gain.gain.linearRampToValueAtTime(voiceVol, time + dur * 0.2);
+      gain.gain.linearRampToValueAtTime(voiceVol, time + dur * 0.18);
       gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
 
       osc1.connect(filter);
       osc2.connect(filter);
+      osc3.connect(celloGain);
+      celloGain.connect(filter);
       filter.connect(gain);
 
       this.routeToOutput(gain, panner, voicePan, true);
 
       osc1.start(time);
       osc2.start(time);
+      osc3.start(time);
       osc1.stop(time + dur);
       osc2.stop(time + dur);
+      osc3.stop(time + dur);
     });
   }
 
@@ -1631,6 +1883,114 @@ class SengokuMusicEngine {
     osc2.start(time);
     osc1.stop(time + dur);
     osc2.stop(time + dur);
+  }
+
+  // スピッカートの弦。短い弓で拍を前へ蹴る
+  playDrivePulse(freq, time, dur, vol = 0.07) {
+    if (!this.ctx || !isAudibleFreq(freq)) return;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    const filter = this.ctx.createBiquadFilter();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(freq, time);
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(420, time);
+    filter.frequency.linearRampToValueAtTime(980, time + Math.min(0.08, dur * 0.45));
+    gain.gain.setValueAtTime(0.001, time);
+    gain.gain.linearRampToValueAtTime(vol, time + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.bgmGain);
+    osc.start(time);
+    osc.stop(time + dur + 0.02);
+  }
+
+  // 笙・オルガヌムの開放五度。和音の下に古代の厚みを敷く
+  playOpenFifth(root, fifth, time, dur, vol = 0.05) {
+    if (!this.ctx || !isAudibleFreq(root)) return;
+    let f = root;
+    while (f < 98) f *= 2;
+    while (f > 240) f *= 0.5;
+    let fifthF = isAudibleFreq(fifth) ? fifth : f * 1.5;
+    while (fifthF < f * 1.2) fifthF *= 2;
+    while (fifthF > f * 1.7) fifthF *= 0.5;
+    [f, fifthF].forEach((freq, idx) => {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, time);
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(700, time);
+      gain.gain.setValueAtTime(0.001, time);
+      gain.gain.linearRampToValueAtTime(vol * (idx === 0 ? 1 : 0.7), time + 0.18);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.bgmGain);
+      if (this.convolver) gain.connect(this.convolver);
+      osc.start(time);
+      osc.stop(time + dur + 0.02);
+    });
+  }
+
+  // コントラバス（弓）。低い音は聞こえる音域まで上げ、和声の土台を保つ
+  playContrabass(freq, time, dur, vol = 0.16) {
+    if (!this.ctx || !isAudibleFreq(freq)) return;
+    let f = freq;
+    while (f < 49) f *= 2;
+    while (f > 130) f *= 0.5;
+
+    const osc1 = this.ctx.createOscillator();
+    const osc2 = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    const filter = this.ctx.createBiquadFilter();
+
+    osc1.type = 'sawtooth';
+    osc2.type = 'sine';
+    osc1.frequency.setValueAtTime(f, time);
+    osc2.frequency.setValueAtTime(f, time);
+
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(180, time);
+    filter.frequency.linearRampToValueAtTime(520, time + Math.min(0.25, dur * 0.3));
+    filter.frequency.linearRampToValueAtTime(240, time + dur);
+
+    gain.gain.setValueAtTime(0.001, time);
+    gain.gain.linearRampToValueAtTime(vol, time + 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+
+    const subGain = this.ctx.createGain();
+    subGain.gain.setValueAtTime(vol * 0.55, time);
+    osc2.connect(subGain);
+
+    osc1.connect(filter);
+    subGain.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.bgmGain);
+    if (this.convolver) gain.connect(this.convolver);
+
+    osc1.start(time);
+    osc2.start(time);
+    osc1.stop(time + dur);
+    osc2.stop(time + dur);
+  }
+
+  // 音程のあるティンパニ（決戦の総奏で低音に合わせる）
+  playPitchedTimpani(freq, time, vol = 0.16) {
+    if (!this.ctx || !isAudibleFreq(freq)) return;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, time);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(40, freq * 0.72), time + 0.45);
+    gain.gain.setValueAtTime(vol, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.5);
+    osc.connect(gain);
+    gain.connect(this.bgmGain);
+    osc.start(time);
+    osc.stop(time + 0.55);
   }
 
   // 12. 大太鼓・長胴太鼓 (地を揺るがす重低音サブベース 45Hz)

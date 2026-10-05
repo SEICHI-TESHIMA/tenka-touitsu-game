@@ -169,7 +169,6 @@
         <button class="map-ctrl-btn" id="mapZoomOutBtn" title="縮小 (ホイール下)">−</button>
         <button class="map-ctrl-btn" id="mapResetBtn" title="全体表示リセット">⟲</button>
       </div>
-
       <svg id="sengokuMapSvg" viewBox="17 90 966 500" class="sengoku-svg-map">
         
 <defs>
@@ -199,6 +198,17 @@
     <circle cx="11" cy="18.9" r="3.6" fill="#ffffff"/>
     <path d="M 7.9 20.7 C 5.1 15.9 10.2 9.1 14.8 7.8 C 18.2 6.8 19.8 10.5 16 16 C 14 15.5 11.5 18 7.9 20.7 Z" fill="#ffffff"/>
     <circle cx="16" cy="16" r="1.8" fill="#881e1e"/>
+  </symbol>
+  <symbol id="kamon-anekoji" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#239b56" stroke="#ffd700" stroke-width="1.5"/>
+    <path d="M16 5.5 L19.2 12.2 L26.5 13 L21 18.1 L22.5 25.3 L16 21.7 L9.5 25.3 L11 18.1 L5.5 13 L12.8 12.2 Z" fill="#ffffff"/>
+    <circle cx="16" cy="15.2" r="3.2" fill="#239b56" stroke="#ffd700" stroke-width="0.8"/>
+  </symbol>
+  <symbol id="kamon-hatano" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#7d3c98" stroke="#ffd700" stroke-width="1.5"/>
+    <rect x="9" y="8" width="14" height="16" rx="1.5" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+    <path d="M11 12 H21 M11 16 H21 M11 20 H21" stroke="#ffd700" stroke-width="1.4"/>
+    <circle cx="16" cy="16" r="2.4" fill="#ffffff"/>
   </symbol>
   <symbol id="kamon-amago" viewBox="0 0 32 32">
     <circle cx="16" cy="16" r="15" fill="#21618c" stroke="#ffd700" stroke-width="1.5"/>
@@ -731,6 +741,11 @@
     <circle cx="16" cy="16" r="15" fill="#2c3e50" stroke="#ffd700" stroke-width="1.5"/>
     <circle cx="16" cy="16" r="11" fill="none" stroke="#ffffff" stroke-width="2.2"/><line x1="16" y1="5.5" x2="16" y2="26.5" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/><line x1="5.5" y1="16" x2="26.5" y2="16" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
   </symbol>
+  <!-- 西郷軍（薩摩士族軍）：赤地に白の丸に十字。島津の紺地と見分ける -->
+  <symbol id="kamon-saigo" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#c0392b" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="11" fill="none" stroke="#ffffff" stroke-width="2.2"/><line x1="16" y1="5.5" x2="16" y2="26.5" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/><line x1="5.5" y1="16" x2="26.5" y2="16" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
   <symbol id="kamon-shinsengumi" viewBox="0 0 32 32">
     <circle cx="16" cy="16" r="15" fill="#138d75" stroke="#ffd700" stroke-width="1.5"/>
     <text x="16" y="18" font-family="'Yu Mincho', 'Noto Serif JP', serif" font-size="15" font-weight="bold" fill="#ffd700" text-anchor="middle">誠</text>
@@ -941,12 +956,24 @@
         </g>
       </svg>
       
-      <div class="map-legend">
-        <!-- PC向けの操作説明 -->
-        <span class="legend-desktop">❖ <strong>ドラッグで移動</strong> ／ <strong>ホイールで拡大縮小</strong>可能。<br></span>
-        <!-- スマホ向けの操作説明（768px以下でのみ表示） -->
-        <span class="legend-mobile">❖ <strong>指で上下左右に移動</strong> ／ <strong>2本指または＋−で拡大</strong>。<br></span>
-        【金枠】：選択領地 ／ <strong>隣接する国にのみ出陣・侵攻</strong>できます。
+      <!-- 地図注記と表示モード切替（注記の右隣に並べる） -->
+      <div class="map-overlay-bar" id="mapOverlayBar">
+        <div class="map-legend">
+          <!-- PC向けの操作説明 -->
+          <span class="legend-desktop">❖ <strong>ドラッグで移動</strong> ／ <strong>ホイールで拡大縮小</strong>可能。<br></span>
+          <!-- スマホ向けの操作説明（768px以下でのみ表示） -->
+          <span class="legend-mobile">❖ <strong>指で上下左右に移動</strong> ／ <strong>2本指または＋−で拡大</strong>。<br></span>
+          【金枠】：選択領地 ／ <strong>隣接する国にのみ出陣・侵攻</strong>できます。
+        </div>
+        <div class="map-heat-panel" id="mapHeatPanel" title="地図表示モード">
+          <div class="map-heat-filter" id="mapHeatFilter">
+            <button type="button" class="map-heat-btn active" data-heat="owner" title="領国色">領国</button>
+            <button type="button" class="map-heat-btn" data-heat="diplomacy" title="外交関係">外交</button>
+            <button type="button" class="map-heat-btn" data-heat="troops" title="兵力ヒートマップ">兵力</button>
+            <button type="button" class="map-heat-btn" data-heat="rice" title="石高ヒートマップ">石高</button>
+          </div>
+          <div class="map-heat-legend" id="mapHeatLegend"><span class="heat-note">各大名家の領国色</span></div>
+        </div>
       </div>
     </div>
 
@@ -1202,8 +1229,8 @@
 
         <!-- 第4段: 江戸・幕末 (1651〜1868) -->
         <div style="display:flex; align-items:center; gap:6px;">
-          <span style="font-size: 12pt; color:var(--gold); width:95px; flex-shrink:0;">【江戸・幕末】</span>
-          <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(9, 1fr); gap:3px;">
+          <span style="font-size: 12pt; color:var(--gold); width:95px; flex-shrink:0;">【江戸・幕末〜明治】</span>
+          <div class="scenario-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(10, 1fr); gap:3px;">
             <button class="scenario-btn" data-scen-id="1651" style="padding:2px 3px; line-height:1.2;">
               ㉗ 1651年 <strong style="color:#ffd700; font-size: 12pt;">慶安の変</strong><br><span style="font-size: 12pt; color:#ccc;">由比正雪</span>
             </button>
@@ -1230,6 +1257,9 @@
             </button>
             <button class="scenario-btn" data-scen-id="1868" style="padding:2px 3px; line-height:1.2;">
               ㉟ 1868年 <strong style="color:#ffd700; font-size: 12pt;">戊辰戦争</strong><br><span style="font-size: 12pt; color:#ccc;">維新胎動</span>
+            </button>
+            <button class="scenario-btn" data-scen-id="1877" style="padding:2px 3px; line-height:1.2;">
+              ㊱ 1877年 <strong style="color:#ffd700; font-size: 12pt;">西南戦争</strong><br><span style="font-size: 12pt; color:#ccc;">西郷挙兵</span>
             </button>
           </div>
         </div>
@@ -1373,6 +1403,12 @@
           <button class="diff-option-btn" data-form="hoen">方円 (鉄壁防御)</button>
           <button class="diff-option-btn" data-form="ganko">雁行 (鉄砲斉射)</button>
         </div>
+        <div id="formationMatchupHint" style="margin-top:6px; font-size:11pt; color:#cde8ff; background:rgba(30,60,90,0.35); border:1px solid #3a6a9a; border-radius:4px; padding:5px 8px;">
+          三すくみ：突撃系 &gt; 包囲系 &gt; 防御系 &gt; 突撃系
+        </div>
+        <div id="formationIntelBox" style="margin-top:6px; font-size:11.5pt; color:#ffe9a8; background:rgba(80,50,10,0.4); border:1px solid #a67c2a; border-radius:4px; padding:6px 8px;">
+          軍師の読み：出陣先を選ぶと敵陣形の予測が表示されます
+        </div>
       </div>
     </div>
     <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
@@ -1423,6 +1459,9 @@
     </div>
 
     <!-- 合戦行動コマンド (一騎討ち廃止・5コマンド) -->
+    <div id="battleFormationBonus" style="margin:6px 0 8px; font-size:11.5pt; color:#ffe9a8; background:rgba(60,30,10,0.45); border:1px solid #a67c2a; border-radius:4px; padding:5px 10px; text-align:center;">
+      陣形相性・地形補正
+    </div>
     <div class="battle-actions" style="grid-template-columns: repeat(5, 1fr);">
       <button class="battle-btn" id="bCmdAssault">
         <span>🔨 突撃攻勢</span>
@@ -1979,7 +2018,7 @@
   <!-- モジュール化されたJavaScript群 (順序保証ロード) -->
   <!-- 1. 全135大名家・全21シナリオ・全76領国データベース -->
   <script src="js/data.js"></script>
-  <script src="js/historical_jodai.js"></script>
+  <script src="js/data_officers.js"></script>
   
   <!-- 2. 菅野よう子風 洗練和風交響BGMエンジン (全15曲) -->
   <script src="js/bgm.js"></script>

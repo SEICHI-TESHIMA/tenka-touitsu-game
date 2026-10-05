@@ -2441,3 +2441,158 @@
 
 
 
+
+
+/* ---- 地図ヒートマップ切替（右上） ---- */
+.map-heat-panel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  pointer-events: none;
+}
+.map-heat-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  pointer-events: auto;
+  background: rgba(18, 12, 8, 0.82);
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+.map-heat-btn {
+  background: rgba(40, 28, 18, 0.9);
+  border: 1px solid #6a5338;
+  color: #d8c8a8;
+  font-size: 10.5pt;
+  font-family: inherit;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1.3;
+}
+.map-heat-btn:hover {
+  border-color: var(--gold-bright);
+  color: #fff;
+}
+.map-heat-btn.active {
+  background: linear-gradient(180deg, #8a6a28, #5a4018);
+  border-color: var(--gold-bright);
+  color: #ffe9a0;
+  font-weight: bold;
+}
+.map-heat-legend {
+  pointer-events: none;
+  background: rgba(12, 10, 8, 0.78);
+  border: 1px solid #554433;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10pt;
+  color: #ddd0b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-width: 280px;
+  justify-content: flex-end;
+}
+.map-heat-legend .heat-sw {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.35);
+  margin-right: 2px;
+  vertical-align: -1px;
+}
+.map-heat-legend .heat-grad {
+  display: inline-block;
+  width: 72px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: linear-gradient(90deg, #ffffff, #7fd7ff, #12b5e8);
+}
+.map-heat-legend .heat-num {
+  font-variant-numeric: tabular-nums;
+  color: #cdefff;
+}
+.map-heat-legend .heat-note {
+  color: #cfc0a0;
+}
+
+/* ---- 地図注記＋表示モード切替：注記ボックスの右隣に並べる ---- */
+.map-overlay-bar {
+  position: absolute;
+  top: 10px;
+  left: 52px;
+  right: 10px;
+  z-index: 12;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  pointer-events: none;
+}
+.map-overlay-bar .map-legend {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 0 1 auto;
+  max-width: 440px;
+}
+.map-overlay-bar .map-heat-panel {
+  position: static;
+  top: auto;
+  right: auto;
+  flex: 0 0 auto;
+  align-items: flex-start;
+}
+.map-overlay-bar .map-heat-filter,
+.map-overlay-bar .map-heat-legend {
+  justify-content: flex-start;
+}
+/* 兵力：深い藍→翠→水色、石高：焦茶→金→淡金 */
+.map-heat-legend .heat-grad,
+.map-heat-legend .heat-grad-troops {
+  width: 96px;
+  height: 10px;
+  border: 1px solid rgba(127, 219, 255, 0.35);
+  background: linear-gradient(90deg, #0e2233, #135e72, #1abc9c, #7fdbff);
+  box-shadow: 0 0 6px rgba(26, 188, 156, 0.35);
+}
+.map-heat-legend .heat-grad-rice {
+  border-color: rgba(255, 233, 160, 0.35);
+  background: linear-gradient(90deg, #1c1408, #6b4e12, #c9a227, #ffe9a0);
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.35);
+}
+.map-heat-legend .heat-num-troops { color: #9fe8ff; }
+.map-heat-legend .heat-num-rice { color: #ffe39a; }
+
+@media (max-width: 768px) {
+  .map-overlay-bar {
+    top: auto;
+    bottom: 6px;
+    left: 58px;
+    right: 8px;
+    gap: 5px;
+    align-items: flex-end;
+  }
+  .map-overlay-bar .map-legend {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+  .map-heat-btn {
+    min-height: 32px;
+    padding: 4px 10px;
+  }
+}

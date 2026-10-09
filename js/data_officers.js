@@ -29930,7 +29930,8 @@ window.OFFICERS_MASTER = [
     "lore": "南朝方。根城を拠点に北畠顕家へ従い、奥州の宮方として戦った。",
     "birthYear": 1296,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_dm_nanbu_1495",
@@ -30201,7 +30202,8 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false,
     "comment": "北畠顕家に従い各地で奮戦した南朝の柱石",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_nanbu_harumasa",

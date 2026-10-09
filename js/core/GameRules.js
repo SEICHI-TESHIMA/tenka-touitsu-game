@@ -6538,6 +6538,15 @@ if (typeof window !== "undefined") window.CLAN_SERVICE_FALLBACKS = CLAN_SERVICE_
     setDaimyo: false
   },
   {
+    id: 'nanbu_moriyuki_mutsu_1336',
+    officerIds: ['off_dm_nanbu_1331'],
+    scenarioIds: ['1336'],
+    setClanId: 'nanbu',
+    setDefaultProv: 'mutsu',
+    setAssignedProv: 'mutsu',
+    setDaimyo: true
+  },
+  {
     id: 'shiba_ienaga_rikuchu_1336',
     officerIds: ['off_shiba_ienaga'],
     scenarioIds: ['1336'],

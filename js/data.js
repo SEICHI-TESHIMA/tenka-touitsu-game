@@ -9763,7 +9763,7 @@ window.SCENARIOS_DATA = [
     "recommendedClan": "ashikaga",
     "owners": {
       "ezo": "ando",
-      "mutsu": "kitabatake",
+      "mutsu": "nanbu",
       "rikuchu": "shiba",
       "ugo": "onodera",
       "rikuzen": "date",
@@ -10544,7 +10544,8 @@ window.SCENARIOS_DATA = [
       "isshiki": "tango",
       "muto": "uzen",
       "onodera": "ugo",
-      "yuki": "iwaki"
+      "yuki": "iwaki",
+      "nanbu": "mutsu"
     }
   },
   {

@@ -3384,5 +3384,31 @@
       "satsuma": "off_shimazu_proto_tadahisa",
       "higo": "off_kikuchi_takenao"
     }
+  },
+  "1359": {
+    "higo": "off_kikuchi_takemitsu",
+    "musashi": "off_dm_kamakura_fu_1350",
+    "mikawa": "off_jd_213",
+    "mino": "off_toki_yorikasu",
+    "sagami": "off_uesugi_noriaki_first"
+  },
+  "1438": {
+    "yamashiro": "off_dm_ashikaga_1438"
+  },
+  "1467": {
+    "yamashiro": "off_dm_ashikaga_1467"
+  },
+  "1495": {
+    "tsugaru": "off_dm_nanbu_1495"
+  },
+  "1555": {
+    "rikuzen": "off_date_tanemune_early"
+  },
+  "1560": {
+    "bizen": "off_dm_uragami_1546",
+    "chikuzen": "off_tachibana_dosetsu"
+  },
+  "1570": {
+    "tamba": "off_hatano_hideharu"
   }
 }

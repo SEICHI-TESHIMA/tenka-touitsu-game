@@ -7970,7 +7970,7 @@ window.SCENARIOS_DATA = [
       "matsura": "hizen",
       "date": "iwashiro",
       "ando": "tsugaru",
-      "hojo_kamakura": "ugo",
+      "hojo_kamakura": "sagami",
       "heian_court": "yamashiro",
       "yuan": "tsushima"
     },
@@ -17154,8 +17154,8 @@ window.SCENARIOS_DATA = [
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
-      "iwaki": "ashina",
-      "iwashiro": "date",
+      "iwaki": "soma",
+      "iwashiro": "ashina",
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
       "kozuke": "uesugi",
@@ -17232,7 +17232,7 @@ window.SCENARIOS_DATA = [
       "ugo": "湊城",
       "rikuzen": "青葉城",
       "uzen": "山形城",
-      "iwaki": "小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -17638,7 +17638,7 @@ window.SCENARIOS_DATA = [
       "takeda": "kai",
       "so": "tsushima",
       "nanbu": "rikuchu",
-      "ashina": "iwaki",
+      "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
       "imagawa": "suruga",
@@ -17668,7 +17668,8 @@ window.SCENARIOS_DATA = [
       "isshiki": "tango",
       "yamana": "tajima",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
     }
   },
   {
@@ -17735,7 +17736,7 @@ window.SCENARIOS_DATA = [
       "izumo": "amago",
       "iwami": "mori",
       "mimasaka": "amago",
-      "bizen": "mimura",
+      "bizen": "uragami",
       "bicchu": "mori",
       "bingo": "mori",
       "aki": "mori",
@@ -17826,7 +17827,7 @@ window.SCENARIOS_DATA = [
       "izumo": "月山富田城",
       "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
+      "bizen": "天神山城",
       "bicchu": "備中高松城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
@@ -18582,7 +18583,6 @@ window.SCENARIOS_DATA = [
       "hatakeyama": "noto",
       "takeda_wakasa": "wakasa",
       "isshiki": "tango",
-      "mimura": "bizen",
       "ashikaga": "yamashiro",
       "momochi": "iga",
       "kuki": "shima",
@@ -18603,7 +18603,8 @@ window.SCENARIOS_DATA = [
       "kono": "iyo",
       "sagara": "higo",
       "ito": "hyuga",
-      "rokkaku": "south_omi"
+      "rokkaku": "south_omi",
+      "uragami": "bizen"
     }
   },
   {
@@ -18664,7 +18665,7 @@ window.SCENARIOS_DATA = [
       "shima": "oda",
       "iga": "oda",
       "yamashiro": "ashikaga",
-      "tamba": "momochi",
+      "tamba": "hatano",
       "tango": "yamana",
       "settsu": "honganji",
       "kawachi": "miyoshi",
@@ -18760,7 +18761,7 @@ window.SCENARIOS_DATA = [
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
-      "tamba": "八上城・黒井城",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
@@ -19428,7 +19429,6 @@ window.SCENARIOS_DATA = [
       "mimura": "bicchu",
       "ashikaga": "yamashiro",
       "matsunaga": "yamato",
-      "momochi": "tamba",
       "kakizaki": "ezo",
       "ando": "ugo",
       "mogami": "uzen",
@@ -19441,7 +19441,8 @@ window.SCENARIOS_DATA = [
       "akamatsu": "harima",
       "kono": "iyo",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "hatano": "tamba"
     }
   },
   {
@@ -29480,7 +29481,7 @@ window.SCENARIOS_DATA = [
       "nabeshima": "hizen",
       "tachibana": "chikugo",
       "kumamoto_hosokawa": "higo",
-      "shimazu": "hyuga",
+      "shimazu": "satsuma",
       "so": "tsushima"
     }
   },
@@ -29618,7 +29619,7 @@ window.SCENARIOS_DATA = [
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -29629,7 +29630,7 @@ window.SCENARIOS_DATA = [
       "totomi": "浜松城",
       "mikawa": "吉田城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
       "iga": "上野城",
       "north_omi": "彦根城",
@@ -30696,7 +30697,7 @@ window.CLAN_MASTER_DATA = {
       "1542": "尼子晴久",
       "1546": "尼子晴久",
       "1555": "尼子晴久",
-      "1560": "尼子義久",
+      "1560": "尼子晴久",
       "default": "尼子晴久",
       "1531": "尼子経久",
       "1538": "尼子晴久"
@@ -30908,7 +30909,7 @@ window.CLAN_MASTER_DATA = {
       "1542": "長宗我部国親",
       "1546": "長宗我部国親",
       "1555": "長宗我部国親",
-      "1560": "長宗我部元親",
+      "1560": "長宗我部国親",
       "1570": "長宗我部元親",
       "1582": "長宗我部元親",
       "1590": "長宗我部元親",
@@ -30946,7 +30947,7 @@ window.CLAN_MASTER_DATA = {
       "1542": "伊達稙宗",
       "1546": "伊達晴宗",
       "1555": "伊達晴宗",
-      "1560": "伊達輝宗",
+      "1560": "伊達晴宗",
       "1570": "伊達輝宗",
       "1582": "伊達輝宗",
       "1590": "伊達政宗",
@@ -31752,7 +31753,7 @@ window.CLAN_MASTER_DATA = {
     "desc": "近江源氏佐々木氏の宗家。観音寺城という巨大山城に拠り、六角定頼は信長に先駆けて楽市令を布くなど先進的な領国経営を行った。",
     "leaders": {
       "1400": "六角満高",
-      "1438": "六角満高",
+      "1438": "六角満綱",
       "1331": "六角氏頼",
       "1336": "六角氏頼",
       "1467": "六角高頼",
@@ -31993,7 +31994,7 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1400": "島津元久",
       "1868": "島津忠義",
-      "1438": "島津久豊",
+      "1438": "島津忠国",
       "1336": "島津貞久",
       "1180": "惟宗忠久",
       "1467": "島津立久",
@@ -32381,7 +32382,7 @@ window.CLAN_MASTER_DATA = {
       "1555": "浦上宗景",
       "default": "浦上宗景",
       "1573": "浦上宗景",
-      "1531": "浦上宗景",
+      "1531": "浦上村宗",
       "1538": "浦上宗景",
       "1560": "浦上宗景",
       "1570": "浦上宗景"

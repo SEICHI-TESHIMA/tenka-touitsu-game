@@ -5962,7 +5962,7 @@
       "matsura": "hizen",
       "date": "iwashiro",
       "ando": "tsugaru",
-      "hojo_kamakura": "ugo",
+      "hojo_kamakura": "sagami",
       "heian_court": "yamashiro",
       "yuan": "tsushima"
     },
@@ -15146,8 +15146,8 @@
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
-      "iwaki": "ashina",
-      "iwashiro": "date",
+      "iwaki": "soma",
+      "iwashiro": "ashina",
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
       "kozuke": "uesugi",
@@ -15224,7 +15224,7 @@
       "ugo": "湊城",
       "rikuzen": "青葉城",
       "uzen": "山形城",
-      "iwaki": "小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -15630,7 +15630,7 @@
       "takeda": "kai",
       "so": "tsushima",
       "nanbu": "rikuchu",
-      "ashina": "iwaki",
+      "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
       "imagawa": "suruga",
@@ -15660,7 +15660,8 @@
       "isshiki": "tango",
       "yamana": "tajima",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
     }
   },
   {
@@ -15727,7 +15728,7 @@
       "izumo": "amago",
       "iwami": "mori",
       "mimasaka": "amago",
-      "bizen": "mimura",
+      "bizen": "uragami",
       "bicchu": "mori",
       "bingo": "mori",
       "aki": "mori",
@@ -15818,7 +15819,7 @@
       "izumo": "月山富田城",
       "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
+      "bizen": "天神山城",
       "bicchu": "備中高松城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
@@ -16574,7 +16575,6 @@
       "hatakeyama": "noto",
       "takeda_wakasa": "wakasa",
       "isshiki": "tango",
-      "mimura": "bizen",
       "ashikaga": "yamashiro",
       "momochi": "iga",
       "kuki": "shima",
@@ -16595,7 +16595,8 @@
       "kono": "iyo",
       "sagara": "higo",
       "ito": "hyuga",
-      "rokkaku": "south_omi"
+      "rokkaku": "south_omi",
+      "uragami": "bizen"
     }
   },
   {
@@ -16656,7 +16657,7 @@
       "shima": "oda",
       "iga": "oda",
       "yamashiro": "ashikaga",
-      "tamba": "momochi",
+      "tamba": "hatano",
       "tango": "yamana",
       "settsu": "honganji",
       "kawachi": "miyoshi",
@@ -16752,7 +16753,7 @@
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
-      "tamba": "八上城・黒井城",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
@@ -17420,7 +17421,6 @@
       "mimura": "bicchu",
       "ashikaga": "yamashiro",
       "matsunaga": "yamato",
-      "momochi": "tamba",
       "kakizaki": "ezo",
       "ando": "ugo",
       "mogami": "uzen",
@@ -17433,7 +17433,8 @@
       "akamatsu": "harima",
       "kono": "iyo",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "hatano": "tamba"
     }
   },
   {
@@ -27472,7 +27473,7 @@
       "nabeshima": "hizen",
       "tachibana": "chikugo",
       "kumamoto_hosokawa": "higo",
-      "shimazu": "hyuga",
+      "shimazu": "satsuma",
       "so": "tsushima"
     }
   },
@@ -27610,7 +27611,7 @@
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -27621,7 +27622,7 @@
       "totomi": "浜松城",
       "mikawa": "吉田城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
       "iga": "上野城",
       "north_omi": "彦根城",

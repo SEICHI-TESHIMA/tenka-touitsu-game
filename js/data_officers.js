@@ -26412,7 +26412,7 @@ window.OFFICERS_MASTER = [
     "lore": "島津氏第九代当主。伊東氏や肝付氏など国人衆の反乱に悩まされながらも、南九州における島津氏の宗家としての地位を保った。",
     "birthYear": 1397,
     "deathYear": 1470,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_shimazu_tadanari",
@@ -38082,7 +38082,7 @@ window.OFFICERS_MASTER = [
     "lore": "氏綱の後、満高の代まで南近江を支配した。",
     "birthYear": 1375,
     "deathYear": 1445,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_rokkaku_mitsutaka",
@@ -39412,5 +39412,22 @@ window.OFFICERS_MASTER = [
     "birthYear": 1144,
     "deathYear": 1160,
     "isDaimyo": false
+  },
+  {
+    "id": "off_uesugi_noriaki_first",
+    "name": "上杉憲顕",
+    "clanId": "uesugi",
+    "defaultProv": "sagami",
+    "military": 87,
+    "politic": 89,
+    "intel": 88,
+    "era": "nanbokucho",
+    "skill": "初代関東管領",
+    "lore": "足利基氏を補佐して初代関東管領を務め、越後・上野・伊豆などの守護を兼ねて山内上杉家の基礎を築いた重臣。",
+    "birthYear": 1306,
+    "deathYear": 1368,
+    "isDaimyo": false,
+    "isDead": false,
+    "assignedProvId": null
   }
 ];

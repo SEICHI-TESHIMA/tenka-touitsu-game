@@ -883,5 +883,18 @@
     <circle cx="16" cy="15" r="2.5" fill="#e74c3c" stroke="#ffd700" stroke-width="0.8"/>
     <circle cx="15.3" cy="14.3" r="0.7" fill="#ffffff"/>
   </symbol>
+  <symbol id="kamon-yuki" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#7d6608" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <!-- 中央の星 -->
+    <circle cx="16" cy="16" r="3.2" fill="#ffffff"/>
+    <!-- 周囲の6星 (60度刻み・半径8) -->
+    <circle cx="16" cy="8" r="2.4" fill="#ffffff"/>
+    <circle cx="22.9" cy="12" r="2.4" fill="#ffffff"/>
+    <circle cx="22.9" cy="20" r="2.4" fill="#ffffff"/>
+    <circle cx="16" cy="24" r="2.4" fill="#ffffff"/>
+    <circle cx="9.1" cy="20" r="2.4" fill="#ffffff"/>
+    <circle cx="9.1" cy="12" r="2.4" fill="#ffffff"/>
+  </symbol>
 </defs>
 </svg>

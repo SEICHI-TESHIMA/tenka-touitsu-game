@@ -459,6 +459,179 @@ export const ComputerLogicMethods = {
     }
   },
 
+  /**
+   * AI思考改善第4弾: 謀略AI（AI大名による調略・流言・扇動・防諜戦）
+   */
+  async executeAiStratagems() {
+    if (!this.provinces || this.provinces.length === 0) return;
+    const allClanIds = [...new Set(this.provinces.map(p => p.ownerId))].filter(id => id && id !== 'null' && id !== 'ronin');
+    const aiClanIds = allClanIds.filter(id => id !== this.playerClanId);
+    if (aiClanIds.length === 0) return;
+
+    // 1季あたりの最大工作件数（過度な頻発を防ぐ: 最大2件、プレイヤー向けは最大1件）
+    let stratagemCount = 0;
+    const maxStratagemsPerSeason = 2;
+    let targetPlayerCount = 0;
+
+    // 各大名の知謀スコアでソート（知将・策士タイプを優先）
+    const sortedClans = aiClanIds.map(clanId => {
+      const power = this.getClanStratagemPower ? this.getClanStratagemPower(clanId) : 55;
+      const ab = getClanAbility(clanId);
+      return { clanId, power, ability: ab };
+    }).filter(c => c.power >= 60) // 知謀60以上の勢力のみ工作を検討
+      .sort((a, b) => b.power - a.power || (Math.random() - 0.5));
+
+    for (const { clanId, power } of sortedClans) {
+      if (stratagemCount >= maxStratagemsPerSeason) break;
+      if (!this.clanHasLivingLord(clanId)) continue;
+
+      // 発令確率の判定（知謀が高いほど高確率、最大35%程度）
+      const baseProb = Math.max(0.05, (power - 55) * 0.008);
+      const threatened = this.clanFeelsThreatened(clanId);
+      const prob = threatened ? baseProb * 1.3 : baseProb;
+      if (Math.random() > prob) continue;
+
+      // 前線城の探索
+      const myProvs = this.provinces.filter(p => p.ownerId === clanId);
+      const frontierProvs = myProvs.filter(p => {
+        return (p.neighbors || []).some(nId => {
+          const n = this.provinces.find(x => x.id === nId);
+          return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
+        });
+      });
+      if (frontierProvs.length === 0) continue;
+
+      // 隣接する敵領国の候補を抽出
+      const potentialTargets = [];
+      frontierProvs.forEach(src => {
+        (src.neighbors || []).forEach(nId => {
+          const tgt = this.provinces.find(x => x.id === nId);
+          if (tgt && tgt.ownerId && tgt.ownerId !== clanId && !this.isAllied(clanId, tgt.ownerId)) {
+            potentialTargets.push({ src, target: tgt });
+          }
+        });
+      });
+      if (potentialTargets.length === 0) continue;
+
+      // ターゲット評価:
+      // 1) プレイヤー城で直轄地（城主不在＝防諜手薄！）は格好の標的
+      // 2) 治安が乱れている城
+      // 3) 次の侵攻目標候補
+      potentialTargets.sort((a, b) => {
+        const aTgt = a.target;
+        const bTgt = b.target;
+        const aIsPlayer = aTgt.ownerId === this.playerClanId ? 1 : 0;
+        const bIsPlayer = bTgt.ownerId === this.playerClanId ? 1 : 0;
+        const aEff = this.getEffectiveStats(aTgt.id);
+        const bEff = this.getEffectiveStats(bTgt.id);
+        const aDirect = aEff.isDirectRule ? 1 : 0;
+        const bDirect = bEff.isDirectRule ? 1 : 0;
+        const aScore = aIsPlayer * 20 + aDirect * 25 + (100 - (aTgt.order || 80)) * 0.5;
+        const bScore = bIsPlayer * 20 + bDirect * 25 + (100 - (bTgt.order || 80)) * 0.5;
+        return bScore - aScore + (Math.random() * 10 - 5);
+      });
+
+      const chosen = potentialTargets[0];
+      const targetProv = chosen.target;
+      const isTargetPlayer = targetProv.ownerId === this.playerClanId;
+
+      if (isTargetPlayer && targetPlayerCount >= 1) continue;
+
+      const attackerName = this.getClanFamilyName(clanId);
+      const targetName = targetProv.name;
+      const targetEff = this.getEffectiveStats(targetProv.id);
+      const targetStrat = Number(targetEff.stratagem) || 50;
+      const targetOrder = Number(targetProv.order) || 80;
+
+      // 防諜成功判定 (Counter-Intelligence)
+      // 防衛側城主の知謀 + 治安補正 vs 攻撃側の知謀
+      const diff = targetStrat - power;
+      const orderBonus = (targetOrder - 70) * 0.003;
+      const counterSuccessRate = Math.max(0.20, Math.min(0.85, 0.45 + diff * 0.007 + orderBonus));
+      const counterSuccess = Math.random() < counterSuccessRate;
+
+      stratagemCount++;
+      if (isTargetPlayer) targetPlayerCount++;
+
+      // 工作の種別（知謀に応じて決定）
+      // 1: 放火・城割（defense低下）
+      // 2: 流言・扇動（morale & order低下）
+      // 3: 内応・調略（troops引き抜き脱走：知謀75以上限定）
+      const typeRoll = Math.random();
+      let stratType = 'fire';
+      if (power >= 75 && typeRoll < 0.35) {
+        stratType = 'treason';
+      } else if (typeRoll < 0.65) {
+        stratType = 'rumor';
+      } else {
+        stratType = 'fire';
+      }
+
+      if (counterSuccess) {
+        // ===== 防諜成功（撃退） =====
+        if (isTargetPlayer) {
+          try { this.audio.playSword?.(); } catch(e) {}
+          const govLabel = targetEff.isDirectRule
+            ? `我が城代守備隊`
+            : `我が城主・${targetEff.name}`;
+
+          let extraReward = '';
+          // 城主知謀が極めて高い（85以上）場合、敵の忍びを捕縛して工作資金を押収
+          if (targetStrat >= 85 && Math.random() < 0.5) {
+            const seizedGold = Math.round(20 + Math.random() * 25);
+            this.gold += seizedGold;
+            extraReward = ` さらに潜入した敵忍びを捕縛し、工作資金【金${seizedGold}貫】を押収しました！`;
+          }
+
+          this.log(`🛡️【防諜成功】${govLabel}の鋭い警戒網により、${attackerName}が${targetName}に放った忍び衆を捕捉・撃退！工作を未然に防ぎました！(防諜知謀:${targetStrat} vs 敵知謀:${power})${extraReward}`, 'important');
+          this.showOrderResult('🛡️ 防諜成功！忍びを撃退', `${targetName}にて ${attackerName}の謀略工作を阻止しました！`, '#2ecc71');
+        } else {
+          // AI同士
+          this.log(`🛡️【防諜】${this.getClanFamilyName(targetProv.ownerId)}は${targetName}にて${attackerName}の忍びを警戒網で撃退しました。`);
+        }
+      } else {
+        // ===== 工作成功（被災） =====
+        if (stratType === 'fire') {
+          // 放火・城割
+          const defDmg = Math.round(10 + (power / 100) * 12);
+          targetProv.defense = Math.max(15, (targetProv.defense || 50) - defDmg);
+          if (isTargetPlayer) {
+            try { this.audio.playSlash?.(); } catch(e) {}
+            this.log(`🔥【敵国謀略・放火城割】${attackerName}の放った忍び衆が${targetName}の城下に潜入放火！堀と城壁が破壊されました！(城防 -${defDmg} / 防諜知謀:${targetStrat} vs 敵知謀:${power})`, 'battle');
+            this.showOrderResult('🔥 敵の謀略！城郭破壊', `${targetName}にて ${attackerName}の放火工作！城防 -${defDmg}`, '#e74c3c');
+          } else {
+            this.log(`🔥【群雄謀略】${attackerName}が${targetName}に忍びを放ち放火！城防を削ぎました。`);
+          }
+        } else if (stratType === 'rumor') {
+          // 流言・扇動
+          const morDmg = Math.round(14 + (power / 100) * 14);
+          const ordDmg = Math.round(10 + (power / 100) * 10);
+          targetProv.morale = Math.max(20, (targetProv.morale || 70) - morDmg);
+          targetProv.order = Math.max(20, (targetProv.order || 80) - ordDmg);
+          if (isTargetPlayer) {
+            try { this.audio.playHyoshigi?.(); } catch(e) {}
+            this.log(`🗣️【敵国謀略・流言扇動】${attackerName}が放った密偵の流言飛語により、${targetName}の領民と将兵が動揺！(士気 -${morDmg}, 治安 -${ordDmg} / 防諜知謀:${targetStrat} vs 敵知謀:${power})`, 'battle');
+            this.showOrderResult('🗣️ 敵の謀略！流言飛語', `${targetName}にて人心動揺！士気 -${morDmg} ｜ 治安 -${ordDmg}`, '#e67e22');
+          } else {
+            this.log(`🗣️【群雄謀略】${attackerName}が${targetName}に流言を放ち、将兵と領民を動揺させました。`);
+          }
+        } else {
+          // 内応・調略（兵員離反）
+          const betray = Math.min(Math.round((targetProv.troops || 1000) * 0.12), 650);
+          targetProv.troops = Math.max(400, (targetProv.troops || 1000) - betray);
+          targetProv.morale = Math.max(25, (targetProv.morale || 70) - 12);
+          if (isTargetPlayer) {
+            try { this.audio.playSlash?.(); } catch(e) {}
+            this.log(`🤝【敵国謀略・兵員内応】${attackerName}の調略により、${targetName}の守備隊から${betray.toLocaleString()}人が寝返り・脱走しました！(守備兵 -${betray}人, 士気 -12)`, 'battle');
+            this.showOrderResult('🤝 敵の調略！兵員離反', `${targetName}にて将兵が調略され ${betray.toLocaleString()}人が脱走！`, '#9b59b6');
+          } else {
+            this.log(`🤝【群雄謀略】${attackerName}が${targetName}の武士団を調略し、守備隊の一部を離反させました。`);
+          }
+        }
+      }
+    }
+  },
+
   aiClanSupplyRatio(clanId) {
     const provs = (this.provinces || []).filter(p => p.ownerId === clanId);
     if (provs.length === 0) return 1;
@@ -471,8 +644,254 @@ export const ComputerLogicMethods = {
     return base > 0 ? cur / base : 1;
   },
 
+  /**
+   * AI思考改善第1弾: 大局観・戦略目標・背後急襲（隙突き）・要衝評価に基づく最適侵攻計画の策定
+   * @param {string} clanId 
+   * @param {object} tune 
+   * @param {object} ability 
+   * @returns {object|null} 最適な侵攻計画 { srcProv, target, attackForce, motive, score, powerRatio }
+   */
+  findBestInvasionPlan(clanId, tune, ability) {
+    const clanProvs = (this.provinces || []).filter(p => p.ownerId === clanId);
+    if (clanProvs.length === 0) return null;
+
+    const personality = ability.personality || 'balanced';
+    const threatened = this.clanFeelsThreatened(clanId);
+    const myProvsCount = (this.provinces || []).filter(p => p.ownerId === this.playerClanId).length;
+
+    // 最低出陣兵力を満たし、非同盟かつ自領以外の領国に隣接する前線城をすべて抽出
+    const candidateFrontiers = clanProvs.filter(p => {
+      if ((p.troops || 0) < tune.minSourceTroops) return false;
+      return (p.neighbors || []).some(nId => {
+        const n = this.provinces.find(x => x.id === nId);
+        return n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
+      });
+    });
+    if (candidateFrontiers.length === 0) return null;
+
+    // 本拠地・地域情報
+    const capitalId = (window.CLAN_CAPITAL_PROVINCES && window.CLAN_CAPITAL_PROVINCES[clanId]) || clanProvs[0]?.id;
+    const capitalProv = this.provinces.find(p => p.id === capitalId) || clanProvs[0];
+    const capitalRegion = capitalProv?.region || null;
+
+    // 上洛・畿内志向（天下を睨む大名）
+    const KINAI_PROV_IDS = new Set(['yamashiro', 'south_omi', 'north_omi', 'settsu', 'kawachi', 'yamato', 'tamba', 'izumi', 'harima', 'iga', 'ise']);
+    const isKyotoAmbitionClan = [
+      'oda', 'takeda', 'uesugi', 'mori', 'hojo', 'tokugawa', 'imagawa',
+      'miyoshi', 'ashikaga', 'hosokawa', 'asai', 'asakura', 'rokukaku'
+    ].includes(clanId) || personality === 'aggressive' || this.coalitionFormed;
+
+    const candidates = [];
+
+    // 全前線城 × 隣接敵国の組み合わせを総当たりで戦略評価
+    for (const srcProv of candidateFrontiers) {
+      const attackForce = Math.round(srcProv.troops * tune.forceRatio);
+      const neighborTargets = (srcProv.neighbors || [])
+        .map(nId => this.provinces.find(x => x.id === nId))
+        .filter(n => n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
+
+      for (const target of neighborTargets) {
+        const isTargetPlayer = target.ownerId === this.playerClanId;
+        const isBlank = !target.ownerId || target.ownerId === 'null' || target.ownerId === 'undefined';
+
+        // プレイヤー直前征服保護フラグ
+        if (isTargetPlayer && target.justConquered) continue;
+
+        // 1. 戦力比（Combat Power Ratio）の精密計算
+        const targetAbility = isBlank
+          ? { military: 45, politics: 45 }
+          : getClanAbility(target.ownerId);
+
+        const atkPowerEst = attackForce * ((ability.military || 65) / 65);
+        const defDefenseFactor = Math.max(30, Number(target.defense) || 50) / 80;
+        const defMoraleFactor = Math.max(30, Number(target.morale) || 70) / 80;
+        const defMilFactor = (Number(targetAbility.military) || 60) / 65;
+        const defPowerEst = Math.max(100, (Number(target.troops) || 500) * defDefenseFactor * defMoraleFactor * defMilFactor);
+
+        const powerRatio = atkPowerEst / defPowerEst;
+        const rawTroopRatio = attackForce / Math.max(1, Number(target.troops) || 1);
+
+        // 勝算判定（必要比率を満たさない場合は無謀な突撃を自重）
+        if (powerRatio < tune.requiredRatio && rawTroopRatio < tune.requiredRatio) continue;
+
+        // 2. 戦略スコア算出 (初期値: 100)
+        let score = 100;
+        const motiveFactors = [];
+
+        // --- A. 隙突き・背後急襲（脆弱度評価） ---
+        let backstabScore = 0;
+        if (target.troops <= 800) {
+          backstabScore += 45;
+        } else if (target.troops <= 1300) {
+          backstabScore += 25;
+        }
+        if ((Number(target.defense) || 50) <= 40) {
+          backstabScore += 30;
+        } else if ((Number(target.defense) || 50) <= 55) {
+          backstabScore += 15;
+        }
+        if ((Number(target.morale) || 70) <= 55) {
+          backstabScore += 35;
+        } else if ((Number(target.morale) || 70) <= 65) {
+          backstabScore += 18;
+        }
+        if ((Number(target.order) || 80) <= 50) {
+          backstabScore += 20;
+        }
+        if (!isBlank) {
+          const friendlyNeighborsOfTarget = (target.neighbors || []).filter(nId => {
+            const nb = this.provinces.find(x => x.id === nId);
+            return nb && nb.ownerId === target.ownerId;
+          }).length;
+          if (friendlyNeighborsOfTarget === 0) {
+            backstabScore += 30; // 完全孤立城
+          } else if (friendlyNeighborsOfTarget === 1) {
+            backstabScore += 15; // 突出部
+          }
+        }
+
+        if (backstabScore > 0) {
+          score += backstabScore;
+          motiveFactors.push({
+            type: 'backstab',
+            title: '背後急襲・虚を突く電撃戦',
+            desc: `${target.name}の手薄な防備と動揺を見抜き、電撃奇襲`,
+            weight: backstabScore
+          });
+        }
+
+        // --- B. 空白地併合（内政型・小大名の手堅い領土拡張） ---
+        if (isBlank) {
+          let blankScore = 0;
+          if (personality === 'domestic') {
+            blankScore = 75;
+          } else if (personality === 'balanced') {
+            blankScore = 40;
+          } else {
+            blankScore = 20;
+          }
+          score += blankScore;
+          motiveFactors.push({
+            type: 'annex_blank',
+            title: '無主の地を併合',
+            desc: `空白地盤の${target.name}を併合し領国基盤を強化`,
+            weight: blankScore
+          });
+        }
+
+        // --- C. 大局観・戦略目標 ---
+        // 1) 上洛・畿内回廊の掌握
+        const isKinai = target.region === '近畿' || KINAI_PROV_IDS.has(target.id);
+        if (isKinai && isKyotoAmbitionClan) {
+          const kyotoScore = (target.id === 'yamashiro') ? 60 : 40;
+          score += kyotoScore;
+          motiveFactors.push({
+            type: 'capital_push',
+            title: '天下への道・上洛回廊',
+            desc: `帝都・畿内へ向かう回廊を開かんと${target.name}へ進軍`,
+            weight: kyotoScore
+          });
+        }
+
+        // 2) 地方統一（同地域平定）
+        if (capitalRegion && target.region === capitalRegion) {
+          const unifyScore = 35;
+          score += unifyScore;
+          motiveFactors.push({
+            type: 'unify_region',
+            title: `${capitalRegion}地方の覇権確立`,
+            desc: `${capitalRegion}地方一統を目指し同州の${target.name}へ出陣`,
+            weight: unifyScore
+          });
+        }
+
+        // 3) 経済・軍事要衝の争奪
+        let resourceScore = 0;
+        if (target.goldMine || target.silverMine) {
+          resourceScore += 40;
+        }
+        if (target.specialty && /港|湊|海|貿易|鉄|刀|鉄砲/.test(target.specialty)) {
+          resourceScore += 25;
+        }
+        if ((target.neighbors || []).length >= 5) {
+          resourceScore += 20;
+        }
+        if (resourceScore > 0) {
+          score += resourceScore;
+          motiveFactors.push({
+            type: 'resource_seize',
+            title: '富国強兵・戦略要衝争奪',
+            desc: `金山・湊など重要物資と交通の要衝たる${target.name}を攻略`,
+            weight: resourceScore
+          });
+        }
+
+        // --- D. プレイヤーに対する敵対心・包囲網 ---
+        if (isTargetPlayer) {
+          if (this.coalitionFormed) {
+            const coalScore = 65;
+            score += coalScore;
+            motiveFactors.push({
+              type: 'coalition_strike',
+              title: '反覇権・包囲網一斉蜂起',
+              desc: `諸侯包囲網の盟約に基づき、貴家領国・${target.name}へ総攻撃`,
+              weight: coalScore
+            });
+          } else if (myProvsCount >= 12) {
+            const containScore = 35;
+            score += containScore;
+            motiveFactors.push({
+              type: 'contain_player',
+              title: '強大勢力への牽制',
+              desc: `勢力を伸ばす貴家を抑止すべく${target.name}へ侵攻`,
+              weight: containScore
+            });
+          } else if (personality === 'aggressive') {
+            const rivalScore = 25;
+            score += rivalScore;
+            motiveFactors.push({
+              type: 'aggressive_rival',
+              title: '好敵手との雌雄決戦',
+              desc: `気鋭の武威を示さんと貴家領国・${target.name}へ出陣`,
+              weight: rivalScore
+            });
+          } else if (personality === 'domestic' && !threatened) {
+            score -= 40;
+          }
+        }
+
+        // --- E. 勝算ボーナスと揺らぎ ---
+        score += Math.min(30, Math.max(0, (powerRatio - tune.requiredRatio) * 20));
+        score += (Math.random() * 16 - 8);
+
+        motiveFactors.sort((a, b) => b.weight - a.weight);
+        const topMotive = motiveFactors[0] || {
+          type: 'standard',
+          title: '領国拡張の進軍',
+          desc: `領土拡大と武威宣揚のため${target.name}へ進軍`,
+          weight: 10
+        };
+
+        candidates.push({
+          srcProv,
+          target,
+          attackForce,
+          score,
+          powerRatio,
+          motive: topMotive
+        });
+      }
+    }
+
+    if (candidates.length === 0) return null;
+
+    candidates.sort((a, b) => b.score - a.score);
+    return candidates[0];
+  },
+
   async executeAiTurn() {
     this.executeAiDiplomacy();
+    await this.executeAiStratagems();
 
     // 1. 兵力増加のゲームバランス適正化 (複利爆発を撤廃し、石高に応じた上限と性格別成長)
     const allClanIds = [...new Set(this.provinces.map(p => p.ownerId))].filter(id => id !== this.playerClanId);
@@ -609,48 +1028,11 @@ export const ComputerLogicMethods = {
 
       if (Math.random() > attackProb) continue;
 
-      // 前線国を選定（自勢力以外かつ非同盟国の領国に隣接）
-      const frontierProvs = clanProvs.filter(p => {
-        return (p.neighbors || []).some(nId => {
-          const n = this.provinces.find(x => x.id === nId);
-          return n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
-        });
-      });
-      if (frontierProvs.length === 0) continue;
+      // AI思考改善第1弾: 大局観・戦略目標・背後急襲（隙突き）に基づく最適侵攻計画の策定
+      const plan = this.findBestInvasionPlan(clanId, tune, ability);
+      if (!plan) continue;
 
-      // 最も兵力が多い前線国から出陣（最低出陣下限: 攻勢型1400 / 均衡1600 / 内政1800人）
-      const srcProv = frontierProvs.sort((a, b) => b.troops - a.troops)[0];
-      if (srcProv.troops < tune.minSourceTroops) continue;
-
-      // 侵攻可能な隣接敵国（同盟国は除外）
-      const targets = (srcProv.neighbors || [])
-        .map(nId => this.provinces.find(x => x.id === nId))
-        .filter(n => n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
-      if (targets.length === 0) continue;
-
-      const playerTargets = targets.filter(n => n.ownerId === this.playerClanId && !n.justConquered);
-      const otherTargets = targets.filter(n => n.ownerId !== this.playerClanId);
-
-      let target;
-      if ((this.coalitionFormed || personality === 'aggressive') && playerTargets.length > 0) {
-        target = playerTargets.sort((a, b) => a.troops - b.troops)[0];
-      } else if (personality === 'domestic' && !this.coalitionFormed && !threatened) {
-        // 内政型は脅威を感じていなければプレイヤーへは手を出さず、弱い隣国（空白地優先）だけを狙う
-        target = otherTargets.sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.troops - b.troops)[0];
-      } else {
-        const allTargets = [...playerTargets, ...otherTargets];
-        target = allTargets.sort((a, b) => a.troops - b.troops)[0];
-      }
-
-      if (!target) continue;
-
-      // 出陣兵力（攻勢型75% / 均衡70% / 内政65%を出陣、残りは守備に残す）
-      const attackForce = Math.round(srcProv.troops * tune.forceRatio);
-
-      // 性格に応じた勝算基準（必要兵力比）
-      // 攻勢型: 0.98倍以上、バランス型: 1.25倍以上、内政型: 1.45倍以上で出陣
-      const requiredRatio = tune.requiredRatio;
-      if (attackForce < target.troops * requiredRatio) continue;
+      const { srcProv, target, attackForce, motive } = plan;
 
       // ===== 合戦発生！ =====
       battleCount++;
@@ -678,7 +1060,11 @@ export const ComputerLogicMethods = {
       }
 
       // 戦闘結果の計算 (各大名軍事能力反映 + 陣形三すくみ・地形)
-      const targetAbility = getClanAbility(target.ownerId);
+      const isBlankTarget = !target.ownerId || target.ownerId === 'null';
+      const targetAbility = isBlankTarget
+        ? { military: 45, politics: 45 }
+        : getClanAbility(target.ownerId);
+
       const atkForm = this.pickEnemyFormation(clanId, target, null);
       const defForm = this.pickEnemyFormation(target.ownerId, target, atkForm);
       const rps = this.getRpsMultipliers(atkForm, defForm);
@@ -701,13 +1087,29 @@ export const ComputerLogicMethods = {
 
         if (isAttackingPlayer) {
           this.audio.playHyoshigi();
-          this.log(`⚔【敵襲・領地喪失】${attackerName}軍が${target.name}に電撃侵攻！我が守備軍は敗れ城を奪われました！`, 'battle');
-          this.showOrderResult('⚔️ 敵軍侵攻！領地喪失', `${target.name} が ${attackerName}に攻略されました！`, '#e74c3c');
+          let battleTitle = '⚔️ 敵軍侵攻！領地喪失';
+          let battleLogIcon = '⚔';
+          if (motive.type === 'backstab') {
+            battleTitle = '⚡ 敵襲！手薄を衝かる';
+            battleLogIcon = '⚡';
+          } else if (motive.type === 'capital_push') {
+            battleTitle = '👑 敵襲！上洛の要衝奪取';
+            battleLogIcon = '👑';
+          } else if (motive.type === 'coalition_strike') {
+            battleTitle = '🔥 包囲網蜂起！領地喪失';
+            battleLogIcon = '🔥';
+          } else if (motive.type === 'resource_seize') {
+            battleTitle = '💎 要衝争奪！領地喪失';
+            battleLogIcon = '💎';
+          }
+
+          this.log(`${battleLogIcon}【敵襲・${motive.title}】${attackerName}軍が${motive.desc}として${target.name}に侵攻！我が守備軍は敗れ城を奪われました！`, 'battle');
+          this.showOrderResult(battleTitle, `${target.name} が ${attackerName}に攻略されました！ (${motive.title})`, '#e74c3c');
           if (this.selectedProvId === target.id) {
             this.selectedProvId = null;
           }
         } else {
-          this.log(`⚔【群雄動乱】${attackerName}が${target.name}へ進攻！激闘の末、${defenderName}軍を破り領国を奪回・併合しました。`);
+          this.log(`⚔【群雄動乱・${motive.title}】${attackerName}が${motive.desc}として${target.name}へ進攻！激闘の末、${defenderName}軍を破り領国を奪回・併合しました。`);
         }
       } else {
         // 撃退
@@ -718,10 +1120,10 @@ export const ComputerLogicMethods = {
 
         if (isAttackingPlayer) {
           this.audio.playFanfare();
-          this.log(`🛡【防衛成功】${attackerName}軍の${target.name}侵攻を我が軍が頑強に撃退しました！`, 'important');
+          this.log(`🛡【防衛成功】${attackerName}軍による${target.name}侵攻（${motive.title}）を、我が守備隊が頑強に撃退しました！`, 'important');
           this.showOrderResult('🛡️ 敵襲撃退！', `${target.name}にて ${attackerName}軍の撃退に成功しました！`, '#2ecc71');
         } else {
-          this.log(`🛡【防戦】${defenderName}軍が${target.name}にて${attackerName}軍の猛攻を退けました。`);
+          this.log(`🛡【防戦】${defenderName}軍が${target.name}にて${attackerName}軍の猛攻（${motive.title}）を退けました。`);
         }
       }
     }

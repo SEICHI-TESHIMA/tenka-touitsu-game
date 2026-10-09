@@ -748,7 +748,7 @@
     "lore": "安東氏の内紛を収拾し、日本海海運と大陸交易を主導して十三湊を国際貿易都市として栄えさせた。",
     "birthYear": 1345,
     "deathYear": 1405,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "南北朝時代の安東氏当主。湊安東氏の祖",
     "isDead": false,
     "assignedProvId": null
@@ -1132,7 +1132,8 @@
     "lore": "南朝方。霊山で北畠顕家に従い、奥州の宮方を支えた。",
     "birthYear": 1301,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "rikuzen"
   },
   {
     "id": "off_date_ujimune",
@@ -1336,10 +1337,11 @@
     "lore": "奥州伊達郡を開発し、東光寺・満勝寺などを建立して伊達氏の領国支配と文化の基礎を固めた。",
     "birthYear": 1227,
     "deathYear": 1301,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "伊達義広の子。伊達郡五山を建立",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "rikuzen"
   },
   {
     "id": "off_date_masamune",
@@ -1360,7 +1362,7 @@
     "id": "off_date_masamune_first",
     "name": "伊達政宗",
     "clanId": "date",
-    "defaultProv": "iwashiro",
+    "defaultProv": "rikuzen",
     "military": 86,
     "politic": 85,
     "intel": 86,
@@ -1369,7 +1371,7 @@
     "lore": "南北朝から室町初期の武将。伊達氏第8代当主。大膳大夫。父・宗遠とともに南奥羽に勢力を拡大し、伊達家中興の祖と称された。室町幕府3代将軍足利義満より偏諱を賜り政宗と名乗る。応永7年（1400年）の伊達政宗の乱では鎌倉府に対抗して自立性を保ち、後世の『独眼竜』政宗の名祖となった名君。",
     "birthYear": 1353,
     "deathYear": 1405,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "伊達氏八代当主。独眼竜政宗の名はこの先祖にあやかったもの",
     "isDead": false,
     "assignedProvId": null
@@ -1462,7 +1464,8 @@
     "lore": "常陸から奥州へ移り、伊達郡に伊達氏の基礎を築いた。1191年に生まれ、1246年に生涯を終えた。",
     "birthYear": 1191,
     "deathYear": 1246,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "rikuzen"
   },
   {
     "id": "off_date_sadamune",
@@ -2260,8 +2263,8 @@
   {
     "id": "off_jd_404",
     "name": "一色範光",
-    "clanId": "ashikaga",
-    "defaultProv": "mikawa",
+    "clanId": "isshiki",
+    "defaultProv": "wakasa",
     "military": 78,
     "politic": 76,
     "intel": 75,
@@ -2270,12 +2273,13 @@
     "lore": "一色氏の一門。三河国内の諸城を守り、東海道の連絡路を確保した。",
     "birthYear": 1360,
     "deathYear": 1420,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mikawa"
   },
   {
     "id": "off_isshiki_norouji",
     "name": "一色範氏",
-    "clanId": "ashikaga",
+    "clanId": "isshiki",
     "defaultProv": "tango",
     "military": 84,
     "politic": 82,
@@ -2285,13 +2289,14 @@
     "lore": "足利一門一色氏祖。若狭・三河守護、九州探題として活躍。",
     "birthYear": 1300,
     "deathYear": 1370,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "tango"
   },
   {
     "id": "off_jd_385",
     "name": "一色満範",
-    "clanId": "ashikaga",
-    "defaultProv": "wakasa",
+    "clanId": "isshiki",
+    "defaultProv": "tango",
     "military": 80,
     "politic": 82,
     "intel": 80,
@@ -2300,7 +2305,8 @@
     "lore": "一色範光の嫡男。丹後・若狭守護。応永の乱で幕府方として山名・大内軍に対抗した勇将。",
     "birthYear": 1365,
     "deathYear": 1409,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "wakasa"
   },
   {
     "id": "off_jd_080",
@@ -2807,10 +2813,11 @@
     "lore": "紀清両党を率いて天王寺合戦などで勇名を馳せ、尊氏・後醍醐天皇双方から重んじられた関東の巨頭。",
     "birthYear": 1302,
     "deathYear": 1356,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "楠木正成が「坂東一の武者」と激賞した名将",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "shimotsuke"
   },
   {
     "id": "off_utsunomiya_hirotsuna_edo",
@@ -2903,10 +2910,11 @@
     "lore": "足利尊氏を支えて観応の擾乱で武功を立て、上野・越後守護に任じられた名門当主。1326年に生まれ、1370年に没した。",
     "birthYear": 1326,
     "deathYear": 1370,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "宇都宮公綱の嫡男。薩埵山体制で尊氏を支援",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "shimotsuke"
   },
   {
     "id": "off_dm_utsunomiya_1438",
@@ -3029,7 +3037,7 @@
     "lore": "鎌倉公方足利満兼に仕え、上杉禅秀の乱を鎮圧するなど関東の有力大名として君臨した。",
     "birthYear": 1375,
     "deathYear": 1407,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "宇都宮基綱の子。鎌倉府重臣",
     "isDead": false,
     "assignedProvId": null
@@ -3225,10 +3233,11 @@
     "lore": "尊氏の命を受けて石見国内の南朝勢力を撃破し、益田氏の支配権を確立した。",
     "birthYear": 1303,
     "deathYear": 1358,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "益田氏十四代当主。足利尊氏に従って石見を統一",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "iwami"
   },
   {
     "id": "off_masuda_kaneyoshi",
@@ -3246,7 +3255,8 @@
     "isDaimyo": false,
     "comment": "益田兼見の子。石見国の秩序を守る",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "iwami"
   },
   {
     "id": "off_masuda_kaneyo",
@@ -3261,7 +3271,7 @@
     "lore": "大内氏と協調しつつ石見銀山や港湾交易を押さえ、益田氏の経済力を伸張させた。",
     "birthYear": 1365,
     "deathYear": 1425,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "室町前期の益田氏当主",
     "isDead": false,
     "assignedProvId": null
@@ -3498,7 +3508,8 @@
     "lore": "出雲守護。後醍醐天皇に仕えたが、足利直義に謀反を疑われ自害した。太平記に名が高い。",
     "birthYear": 1301,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "izumo"
   },
   {
     "id": "off_enyo_shukiyo",
@@ -4227,7 +4238,8 @@
     "lore": "通朝の後、室町初期の伊予河野氏を率いた。",
     "birthYear": 1355,
     "deathYear": 1425,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "iyo"
   },
   {
     "id": "off_kono_michifusa",
@@ -4526,10 +4538,11 @@
     "lore": "葛西清幸の子。奥州の在地武士団を率いて北条得宗家に仕え、石巻日和山城を整備した。",
     "birthYear": 1250,
     "deathYear": 1310,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "鎌倉後期の葛西氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_dm_kasai_1221",
@@ -4544,7 +4557,8 @@
     "lore": "奥州合戦で戦功を立て、陸奥南部に葛西氏の勢力を張った。1191年に生まれ、1246年に生涯を終えた。",
     "birthYear": 1191,
     "deathYear": 1246,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_dm_kasai_1331",
@@ -4559,7 +4573,8 @@
     "lore": "陸奥葛西氏。平泉の旧地に拠り、葛西氏の所領を南北朝の争乱から守った。",
     "birthYear": 1296,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_kasai_mitsusada",
@@ -4574,10 +4589,11 @@
     "lore": "足利将軍家に属して奥州管領斯波氏や大崎氏と抗争しつつ、三陸沿岸に一大勢力を築いた。",
     "birthYear": 1340,
     "deathYear": 1400,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "南北朝後期の葛西氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_kabayama_hisatomo",
@@ -5604,7 +5620,8 @@
     "lore": "菊池武政の子。九州探題・今川了俊の猛攻にさらされ本拠地を失うも、阿蘇山中などで頑強にゲリラ戦を展開し南朝の火を絶やさなかった。",
     "birthYear": 1359,
     "deathYear": 1407,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "higo"
   },
   {
     "id": "off_dm_kikuchi_1336",
@@ -6112,10 +6129,11 @@
     "lore": "明徳の乱で山名氏討伐に大功を挙げ、出雲・隠岐・飛騨・近江守護を歴任した。",
     "birthYear": 1352,
     "deathYear": 1401,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "京極高秀の嫡男。四職京極家の全盛期を築く",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "north_omi"
   },
   {
     "id": "off_kyogoku_takatomo",
@@ -6706,7 +6724,7 @@
   {
     "id": "off_yuki_munehiro",
     "name": "結城宗広",
-    "clanId": "kitabatake",
+    "clanId": "yuki",
     "defaultProv": "iwaki",
     "military": 85,
     "politic": 75,
@@ -6716,7 +6734,8 @@
     "lore": "白河結城氏の祖。建武政権下で北畠顕家に属して奥州鎮撫に貢献。後醍醐天皇への忠誠が厚く、南朝方の奥州主力として足利軍と激闘を繰り広げた。",
     "birthYear": 1266,
     "deathYear": 1339,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "iwaki"
   },
   {
     "id": "off_yuki_hideyasu",
@@ -6769,7 +6788,7 @@
   {
     "id": "off_jd_368",
     "name": "結城直光",
-    "clanId": "kamakura_fu",
+    "clanId": "yuki",
     "defaultProv": "shimousa",
     "military": 80,
     "politic": 84,
@@ -6779,7 +6798,8 @@
     "lore": "下総結城氏第7代当主。鎌倉府に仕え関東の武士団を統率。結城城を拡張し領国の基礎を固めた。",
     "birthYear": 1330,
     "deathYear": 1395,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "shimousa"
   },
   {
     "id": "off_jd_307",
@@ -8091,7 +8111,8 @@
     "isDaimyo": false,
     "comment": "伏見天皇の第一皇子。北朝初代光厳天皇の父",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "yamashiro"
   },
   {
     "id": "off_moriyoshi_shinno",
@@ -8442,7 +8463,8 @@
     "lore": "高師直の兄弟。足利尊氏の重臣として各地を転戦し、湊川の戦いや四條畷の戦いにおいて楠木軍を相手に猛威を振るった足利軍の主力。",
     "birthYear": 1302,
     "deathYear": 1351,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "yamashiro"
   },
   {
     "id": "off_ko_no_moronao",
@@ -8472,7 +8494,8 @@
     "lore": "高師直の従兄弟（または猶子）。足利尊氏の命で関東執事として下向し、関東の南朝方と戦う。観応の擾乱では尊氏方として直義派の上杉憲顕と激戦を繰り広げたが、甲斐須崎城で追い詰められ自刃した。",
     "birthYear": 1315,
     "deathYear": 1351,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "shimotsuke"
   },
   {
     "id": "off_takasugi_shinsaku",
@@ -9109,7 +9132,8 @@
     "lore": "今川氏の駿河下向を果たした当主。範氏・貞世を育て室町期今川氏の基礎を築いた。",
     "birthYear": 1304,
     "deathYear": 1384,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "suruga"
   },
   {
     "id": "off_succ_imagawa_1334_42",
@@ -9643,7 +9667,7 @@
     "lore": "義宣（初代）の後、義人の成人まで佐竹氏を守った。",
     "birthYear": 1365,
     "deathYear": 1430,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_satake_yoshiharu",
@@ -9985,7 +10009,8 @@
     "lore": "常陸佐竹氏。元弘の乱で宮方に立ち、鎌倉幕府の軍と戦った。",
     "birthYear": 1301,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "hitachi"
   },
   {
     "id": "off_sato_motoharu",
@@ -10173,7 +10198,7 @@
   {
     "id": "off_jd_383",
     "name": "最上直家",
-    "clanId": "date",
+    "clanId": "mogami",
     "defaultProv": "uzen",
     "military": 78,
     "politic": 80,
@@ -10183,7 +10208,7 @@
     "lore": "最上氏第2代当主。斯波兼頼の子。山形城主として羽前を領有し、最上家の支配を確立した名将。",
     "birthYear": 1360,
     "deathYear": 1420,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "assignedProvId": "uzen"
   },
   {
@@ -11011,7 +11036,8 @@
     "lore": "足利一門。建武の新政崩壊後、尊氏の命を受けて阿波・讃岐へと下り、四国における足利方の勢力基盤を固めた。",
     "birthYear": 1301,
     "deathYear": 1356,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "awa_shikoku"
   },
   {
     "id": "off_hosokawa_yoshikuni",
@@ -12081,7 +12107,7 @@
     "id": "off_yamana_ujikiyo",
     "name": "山名氏清",
     "clanId": "yamana",
-    "defaultProv": "tajima",
+    "defaultProv": "tamba",
     "military": 86,
     "politic": 82,
     "intel": 84,
@@ -12093,7 +12119,8 @@
     "isDaimyo": false,
     "comment": "山名時氏の四男。丹波守護。明徳の乱で将軍義満に挑む",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "tajima"
   },
   {
     "id": "off_dm_yamana_1438",
@@ -12138,11 +12165,12 @@
     "lore": "山名氏中興の祖。南北朝の動乱で巧みに勢力を伸ばし、山名十一カ国支配の礎を築いた。",
     "birthYear": 1298,
     "deathYear": 1371,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "tajima"
   },
   {
     "id": "off_yamana_tokihiro",
-    "name": "山名時熙",
+    "name": "山名時照",
     "clanId": "yamana",
     "defaultProv": "tajima",
     "military": 82,
@@ -12153,10 +12181,11 @@
     "lore": "明徳の乱で敗れるも後に許され、但馬・備後・安芸守護として山名氏を三管四職筆頭に復活させた。",
     "birthYear": 1367,
     "deathYear": 1435,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "山名師義の子。明徳の乱後に山名家を再興",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "tamba"
   },
   {
     "id": "off_yamana_sozen",
@@ -12404,7 +12433,7 @@
   {
     "id": "off_jd_224",
     "name": "姉小路家綱",
-    "clanId": "kyogoku",
+    "clanId": "anekoji",
     "defaultProv": "hida",
     "military": 74,
     "politic": 82,
@@ -12414,7 +12443,8 @@
     "lore": "公卿・飛騨国司姉小路氏の祖。建武の新政において飛騨守・国司に任ぜられ、深山幽谷の飛騨を治めて在地武士団を統率した。",
     "birthYear": 1315,
     "deathYear": 1367,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "hida"
   },
   {
     "id": "off_anekoji_yoritsuna",
@@ -12462,12 +12492,13 @@
     "lore": "足利一門。奥州探題として羽前・奥州に下向し、大崎氏・最上氏の祖となった名将。",
     "birthYear": 1308,
     "deathYear": 1356,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "uzen"
   },
   {
     "id": "off_shiba_ienaga",
     "name": "斯波家長",
-    "clanId": "ashikaga",
+    "clanId": "shiba",
     "defaultProv": "mutsu",
     "military": 85,
     "politic": 80,
@@ -12477,7 +12508,8 @@
     "lore": "斯波高経の長男。足利尊氏より奥州管領に任じられ、北畠顕家の大軍と奥州・関東で激戦を展開。鎌倉の杉本城にて顕家軍の猛攻を受け討死した。",
     "birthYear": 1311,
     "deathYear": 1338,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_shiba_yoshihiro",
@@ -12619,7 +12651,8 @@
     "lore": "足利一門。建武政権下で若狭守護に任じられる。のちに新田義貞を越前で討ち取り、室町幕府において強大な権力を握った。",
     "birthYear": 1305,
     "deathYear": 1367,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "echizen"
   },
   {
     "id": "off_kojima_takanori",
@@ -12634,7 +12667,8 @@
     "lore": "備前児島を拠点とする南朝方の忠臣。後醍醐天皇配流の際、桜の幹に漢詩を刻んで忠義を示した逸話で有名。赤松円心の白旗城を攻めるなど播磨・備前で激戦を展開した。",
     "birthYear": 1305,
     "deathYear": 1382,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "bizen"
   },
   {
     "id": "off_shinohara_nagafusa",
@@ -13276,7 +13310,8 @@
     "lore": "経茂の後、貞茂の先代。高麗との通交を担った。",
     "birthYear": 1330,
     "deathYear": 1395,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "tsushima"
   },
   {
     "id": "off_dm_so_1156",
@@ -13915,10 +13950,11 @@
     "lore": "信濃守護を務め、将軍義満の御前で小笠原流礼法・弓術を披露して天下に広めた。1335年に生まれ、1395年に没した。",
     "birthYear": 1335,
     "deathYear": 1395,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "足利義満に近侍。小笠原礼法を大成",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "south_shinano"
   },
   {
     "id": "off_edo_tokugawa_1822_31",
@@ -13979,7 +14015,8 @@
     "lore": "長基の後、政康の代まで府中の小笠原氏を率いた。1365年に生まれ、1428年に没した。",
     "birthYear": 1365,
     "deathYear": 1428,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "north_shinano"
   },
   {
     "id": "off_ogasawara_nagamasa_kama",
@@ -14110,7 +14147,7 @@
   {
     "id": "off_koyama_tomomasa",
     "name": "小山朝政",
-    "clanId": "genji_yoritomo",
+    "clanId": "hojo_kamakura",
     "defaultProv": "shimotsuke",
     "military": 85,
     "politic": 82,
@@ -14120,7 +14157,8 @@
     "lore": "下野国小山荘の武士。野木宮合戦で志田義広軍を撃破して頼朝の信任を得、鎌倉幕府草創期の有力御家人として重きをなした。",
     "birthYear": 1158,
     "deathYear": 1238,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "iwaki"
   },
   {
     "id": "off_oyamada_shigemasa",
@@ -14342,7 +14380,7 @@
   {
     "id": "off_jd_323",
     "name": "小野寺経道",
-    "clanId": "kitabatake",
+    "clanId": "onodera",
     "defaultProv": "ugo",
     "military": 72,
     "politic": 68,
@@ -14352,7 +14390,8 @@
     "lore": "羽後横手城主。南北朝の動乱において北畠顕家ら南朝軍と呼応して羽後の勢力を保った。",
     "birthYear": 1300,
     "deathYear": 1360,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "ugo"
   },
   {
     "id": "off_ono_no_michikaze_939",
@@ -14536,7 +14575,8 @@
     "lore": "少弐氏当主。大宰少弐。肥前・筑前を本拠とし、大内氏や九州探題と争いながら勢力を保った。",
     "birthYear": 1370,
     "deathYear": 1425,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "hizen"
   },
   {
     "id": "off_shoni_fuyusuke",
@@ -14634,7 +14674,8 @@
     "lore": "備中の有力領主・庄氏当主。猿掛城を本拠に赤松円心・足利尊氏に従い、備中平野の軍勢を統率した。",
     "birthYear": 1300,
     "deathYear": 1365,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "bicchu"
   },
   {
     "id": "off_jd_412",
@@ -14649,7 +14690,8 @@
     "lore": "備中猿掛城主。赤松・細川氏の間で備中平野の在地武士を統括した。",
     "birthYear": 1370,
     "deathYear": 1428,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "bicchu"
   },
   {
     "id": "off_matsura_hisa",
@@ -16597,10 +16639,11 @@
     "lore": "山内上杉家。室町前期の関東管領として鎌倉公方・足利満兼を補佐し、越後と上野を押さえた。応永7年の伊達政宗討伐では鎌倉府方の東国支配を支える。応永18年（1411年）に没し、子の憲基が跡を継いだ。",
     "birthYear": 1364,
     "deathYear": 1411,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "山内上杉家。関東管領。鎌倉公方足利満兼を補佐",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "echigo"
   },
   {
     "id": "off_uesugi_kenshin",
@@ -16717,7 +16760,8 @@
     "lore": "南北朝期の武将・公卿。山内上杉家の祖。足利尊氏の側近として仕え、初代山城守護・引付頭人を歴任して室町幕府初期の政治体制を整備した。高師直と対立し観応の擾乱の引き金となった名臣。",
     "birthYear": 1315,
     "deathYear": 1350,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "yamashiro"
   },
   {
     "id": "off_succ_uesugi_1700_207",
@@ -16972,7 +17016,8 @@
     "isDaimyo": false,
     "comment": "鎌倉後期の城氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "echigo"
   },
   {
     "id": "off_jo_sukemori",
@@ -17824,7 +17869,8 @@
     "lore": "畠山家臣。越中放生津城を拠点に越中守護代として国内の武士団を統率した。",
     "birthYear": 1370,
     "deathYear": 1430,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "etchu"
   },
   {
     "id": "off_succ_jinbo_1595_49",
@@ -18216,8 +18262,8 @@
   {
     "id": "off_succ_suwa_1365_185",
     "name": "諏訪頼満",
-    "clanId": "suwa",
-    "defaultProv": "north_shinano",
+    "clanId": "ogasawara",
+    "defaultProv": "south_shinano",
     "military": 72,
     "politic": 76,
     "intel": 74,
@@ -18226,7 +18272,8 @@
     "lore": "直頼の後、信満の先代。諏訪湖畔の惣領。",
     "birthYear": 1365,
     "deathYear": 1425,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "south_shinano"
   },
   {
     "id": "off_succ2_suwa_1460",
@@ -19354,7 +19401,8 @@
     "lore": "赤松円心の孫。足利義満に厚く信任され、侍所頭人を務めるなど室町幕府の四職として赤松家の全盛期を築いた。",
     "birthYear": 1358,
     "deathYear": 1427,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "harima"
   },
   {
     "id": "off_akamatsu_yoshimura",
@@ -21212,7 +21260,8 @@
     "lore": "足利尊氏の次男。関東を統治するため初代鎌倉公方として鎌倉へ下向。新田義興ら南朝方の激しい抵抗や、関東管領・畠山国清との対立を乗り越え、東国における足利家の基盤を固めた。",
     "birthYear": 1320,
     "deathYear": 1375,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "sagami"
   },
   {
     "id": "off_succ_ashikaga_1509_6",
@@ -21514,7 +21563,8 @@
     "isDaimyo": false,
     "comment": "足利基氏の嫡男。関東十カ国を統轄した実力者",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "musashi"
   },
   {
     "id": "off_dm_kamakura_fu_1438",
@@ -21620,7 +21670,8 @@
     "lore": "尊氏の同母弟。建武政権において相模守に任じられ、成良親王を奉じて鎌倉将軍府の事実上のトップとして関東を統治した。のちに「建武式目」を制定。",
     "birthYear": 1306,
     "deathYear": 1352,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "sagami"
   },
   {
     "id": "off_ashikaga_sadauji",
@@ -21848,7 +21899,8 @@
     "lore": "鎌倉後期の葛尾城主。軍事・外交の要衝を守備し、領国の治安維持と城郭防備を一手に担った名将。",
     "birthYear": 1260,
     "deathYear": 1325,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "north_shinano"
   },
   {
     "id": "off_succ2_murakami_1220",
@@ -24813,10 +24865,11 @@
     "lore": "重氏の子。土佐守護細川氏の被官として活躍し、岡豊城の城下町を整備した。",
     "birthYear": 1360,
     "deathYear": 1420,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "室町初期の長宗我部当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "tosa"
   },
   {
     "id": "off_dm_chosokabe_1336",
@@ -25809,7 +25862,8 @@
     "lore": "康行の後、持頼の先代。美濃守護土岐氏を継いだ。",
     "birthYear": 1375,
     "deathYear": 1440,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "mino"
   },
   {
     "id": "off_toki_yoritou",
@@ -25875,7 +25929,8 @@
     "lore": "初代美濃守護。土岐氏発展の基礎を築いた。",
     "birthYear": 1271,
     "deathYear": 1339,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "mino"
   },
   {
     "id": "off_jd_076",
@@ -29808,7 +29863,8 @@
     "lore": "甲斐源氏。奥州合戦ののち糠部に入り、南部氏の祖となった。",
     "birthYear": 1191,
     "deathYear": 1246,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_dm_nanbu_1467",
@@ -30010,13 +30066,14 @@
     "lore": "南部氏一門。津軽外浜・浪岡方面の警備を担い、奥州北部の在地統治を固めた。",
     "birthYear": 1320,
     "deathYear": 1378,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_nanbu_nobunaga",
     "name": "南部信長",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 81,
     "politic": 80,
     "intel": 79,
@@ -30025,10 +30082,11 @@
     "lore": "三戸城を拠点として北奥羽の在地領主を束ね、南部氏の戦国大名化への道を開いた。1370年に生まれ、1430年に没した。",
     "birthYear": 1370,
     "deathYear": 1430,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "室町初期の南部氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_dm_nanbu_1582",
@@ -30058,10 +30116,11 @@
     "lore": "北条得宗家に仕え、蒙古襲来期における東国の守りを固めた。",
     "birthYear": 1250,
     "deathYear": 1310,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "時長の子。鎌倉幕府御家人として活躍",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_jd_303",
@@ -30121,7 +30180,7 @@
     "lore": "政長の後、信長の成人まで三戸南部を守った。1345年に生まれ、1405年に生涯を終えた。",
     "birthYear": 1345,
     "deathYear": 1405,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_nanbu_masanaga",
@@ -31003,7 +31062,7 @@
     "id": "off_succ_hatakeyama_1300_22",
     "name": "畠山国清",
     "clanId": "hatakeyama",
-    "defaultProv": "kawachi",
+    "defaultProv": "kii",
     "military": 72,
     "politic": 76,
     "intel": 74,
@@ -31630,7 +31689,8 @@
     "lore": "加賀守護。中先代の乱で足利方として戦い、金沢で討死した。",
     "birthYear": 1303,
     "deathYear": 1358,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "kaga"
   },
   {
     "id": "off_togashi_ujiharu",
@@ -31681,7 +31741,7 @@
     "lore": "氏春の後、満春の成人まで加賀守護を務めた。1365年に生まれ、1420年に没した。",
     "birthYear": 1365,
     "deathYear": 1420,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_dm_togashi_1467",
@@ -32116,7 +32176,7 @@
   {
     "id": "off_jd_369",
     "name": "武田信長",
-    "clanId": "kamakura_fu",
+    "clanId": "takeda_kazusa",
     "defaultProv": "kazusa",
     "military": 82,
     "politic": 80,
@@ -32126,7 +32186,7 @@
     "lore": "甲斐武田氏から房総へ進出した上総武田氏の祖。庁南城・真里谷城を築き上総一帯を支配した勇将。",
     "birthYear": 1402,
     "deathYear": 1477,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_succ2_takeda_1585",
@@ -32239,7 +32299,7 @@
   {
     "id": "off_jd_320",
     "name": "武藤秋氏",
-    "clanId": "hojo_kamakura",
+    "clanId": "muto",
     "defaultProv": "uzen",
     "military": 70,
     "politic": 68,
@@ -32249,7 +32309,8 @@
     "lore": "出羽庄内の領主（大宝寺秋氏）。鎌倉幕府の御家人として羽前の守護代を務めた。",
     "birthYear": 1295,
     "deathYear": 1350,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "uzen"
   },
   {
     "id": "off_fushimi_in",
@@ -34858,10 +34919,11 @@
     "lore": "伊勢国多気城を本拠として南朝軍を支え、南北朝合一後は幕府から伊勢守護を認められた。",
     "birthYear": 1365,
     "deathYear": 1425,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "北畠顕能の子。伊勢国司として南朝を死守",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "ise"
   },
   {
     "id": "off_kitabatake_akiyoshi",
@@ -34924,7 +34986,8 @@
     "lore": "『神皇正統記』の著者。南朝の最高首脳として伊勢・常陸・吉野を拠点に戦い抜いた大政治家。",
     "birthYear": 1293,
     "deathYear": 1354,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "ise"
   },
   {
     "id": "off_kitabatake_masasato",
@@ -36242,7 +36305,8 @@
     "deathYear": 1375,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "aki"
   },
   {
     "id": "off_jd_071",
@@ -36549,7 +36613,8 @@
     "lore": "広房の死後、光房と並んで安芸毛利氏を守った。1360年に生まれ、1420年に生涯を終えた。",
     "birthYear": 1360,
     "deathYear": 1420,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "aki"
   },
   {
     "id": "off_dm_mori_1467",
@@ -37188,7 +37253,8 @@
     "deathYear": 1370,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "awa_boshu"
   },
   {
     "id": "off_satomi_yoshihiro_edo",
@@ -37250,9 +37316,9 @@
     "era": "muromachi",
     "skill": "安房里見",
     "lore": "義胤の後、安房に里見氏の基礎を置いたと伝わる当主。",
-    "birthYear": 1340,
-    "deathYear": 1410,
-    "isDaimyo": false
+    "birthYear": 1412,
+    "deathYear": 1488,
+    "isDaimyo": true
   },
   {
     "id": "off_succ_satomi_1605_155",
@@ -37297,10 +37363,11 @@
     "lore": "鎌倉公方に仕え、上野から安房へと進出する足がかりを築いた。",
     "birthYear": 1360,
     "deathYear": 1420,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "室町前期の里見氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "awa_boshu"
   },
   {
     "id": "off_jd_403",
@@ -38097,7 +38164,8 @@
     "deathYear": 1416,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "south_omi"
   },
   {
     "id": "off_wada_yoshimori",
@@ -38263,10 +38331,11 @@
     "lore": "会津の地頭職として黒川（若松）に拠点を構え、蘆名氏の奥州会津支配の礎を築いた。",
     "birthYear": 1285,
     "deathYear": 1345,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "鎌倉末期から南北朝初期の蘆名氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "iwashiro"
   },
   {
     "id": "off_succ_ashina_1585_8",
@@ -38350,7 +38419,8 @@
     "lore": "盛詮の先代にあたる黒川城主。軍事・外交の要衝を守備し、領国の治安維持と城郭防備を一手に担った名将。",
     "birthYear": 1380,
     "deathYear": 1445,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "iwashiro"
   },
   {
     "id": "off_dm_ashina_1467",
@@ -38413,10 +38483,11 @@
     "lore": "南北朝後期の蘆名氏当主。鎌倉府や奥州管領と結び、会津四郡の支配を確立した。",
     "birthYear": 1345,
     "deathYear": 1405,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "蘆名直盛の嫡男。奥州管領と協調",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "iwashiro"
   },
   {
     "id": "off_ashina_naomori",
@@ -38431,10 +38502,11 @@
     "lore": "足利尊氏に属して各地で武功を挙げ、会津黒川に堅固な城郭を築いて領国化を進めた。",
     "birthYear": 1315,
     "deathYear": 1375,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "蘆名盛宗の子。黒川城（会津若松城）を築いた名将",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "iwashiro"
   },
   {
     "id": "off_dm_kakizaki_1546",
@@ -38661,7 +38733,8 @@
     "lore": "鎌倉公方足利氏満の子で、持氏の叔父。応永23年（1416年）、上杉禅秀と結んで持氏を鎌倉から追ったが、翌年幕府方に敗れて自害した。",
     "birthYear": 1370,
     "deathYear": 1417,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "sagami"
   },
   {
     "id": "off_reizei_takatoyo",
@@ -39273,7 +39346,8 @@
     "lore": "奥州相馬氏第10代当主。父・胤頼の跡を継ぎ小高城を死守。応永2年に嫡男・胤弘へ譲状を発給し単独相続を確立、一門岡田氏への安堵状発給など家中結束に尽力した。",
     "birthYear": 1350,
     "deathYear": 1405,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "iwaki"
   },
   {
     "id": "off_okada_tanehisa",
@@ -39288,7 +39362,8 @@
     "lore": "相馬岡田氏当主。相馬一門の筆頭重臣。応永年間に相馬憲胤・胤弘父子を軍事・内政の両面で支え、小高城周辺の防備を固めた。",
     "birthYear": 1365,
     "deathYear": 1422,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "iwaki"
   },
   {
     "id": "off_dm_soma_1438",
@@ -39425,6 +39500,22 @@
     "deathYear": 1368,
     "isDaimyo": false,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "musashi"
+  },
+  {
+    "id": "off_amago_kiyosada",
+    "name": "尼子清定",
+    "clanId": "kyogoku",
+    "defaultProv": "izumo",
+    "military": 78,
+    "politic": 84,
+    "intel": 82,
+    "era": "muromachi",
+    "skill": "出雲守護代",
+    "lore": "京極持清に仕える出雲守護代。月山富田城を拠点に出雲を統治し、尼子経久の父として尼子氏発展の礎を築いた。",
+    "birthYear": 1430,
+    "deathYear": 1487,
+    "isDaimyo": false
   }
 ]

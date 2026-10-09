@@ -228,6 +228,10 @@ export const GameStateMethods = {
         p.castle = scen.castles[p.id];
         p.castleName = scen.castles[p.id];
       }
+      if (scen.provinceTroops && scen.provinceTroops[p.id]) {
+        p.troops = scen.provinceTroops[p.id];
+        p.rice = Math.max(p.rice, Math.round(p.troops * 0.5));
+      }
       if (scen.troopScale) {
         p.troops = Math.round(p.troops * scen.troopScale);
         p.rice = Math.round(p.rice * (1 + (scen.troopScale - 1) * 0.3));
@@ -391,9 +395,11 @@ export const GameStateMethods = {
     // 2-A: シナリオ固有の史実城代マッピングの適用（※本拠地以外の城かつ自勢力所属の一般武将のみ）
     if (histGovMap) {
       this.provinces.forEach(p => {
+        
         // 本拠地ではなく、かつまだ城主が未定の支城のみが対象
         if (!p.governorId && p.ownerId && !this.isCapitalProvince(p.id, p.ownerId) && histGovMap[p.id]) {
           const targetIdOrName = histGovMap[p.id];
+          
           const forcedClan = window.JODAI_CLAN_BY_SCENARIO
             && window.JODAI_CLAN_BY_SCENARIO[String(scenarioId)]
             && window.JODAI_CLAN_BY_SCENARIO[String(scenarioId)][targetIdOrName];
@@ -3456,7 +3462,8 @@ export const GameStateMethods = {
 
     const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
     if (myProvs.length > 0) {
-      this.selectProvince(myProvs[0].id);
+      const homeProv = this.getPlayerHomeProvince();
+      this.selectProvince(homeProv ? homeProv.id : myProvs[0].id);
     }
 
     this.updateUI();
@@ -3640,13 +3647,58 @@ export const GameStateMethods = {
     }
   },
 
+  getPlayerHomeProvince() {
+    const clanId = this.playerClanId;
+    if (!clanId) return null;
+    const myProvs = (this.provinces || []).filter(p => p.ownerId === clanId);
+    if (!myProvs.length) return null;
+
+    // 1. シナリオ定義の大名 startProvId (指定本拠地を最優先)
+    if (this.playerDaimyo && this.playerDaimyo.startProvId) {
+      const match = myProvs.find(p => p.id === this.playerDaimyo.startProvId);
+      if (match) return match;
+    }
+
+    // 2. シナリオ固有の勢力本拠地定義 (scen.capitals)
+    const scen = (window.SCENARIOS_DATA || SCENARIOS || []).find(s => String(s.id) === String(this.currentScenarioId));
+    if (scen && scen.capitals && scen.capitals[clanId]) {
+      const match = myProvs.find(p => p.id === scen.capitals[clanId]);
+      if (match) return match;
+    }
+
+    // 3. 大名家の本拠地判定 (isCapitalProvince: CLAN_CAPITAL_PROVINCES 等)
+    const capProv = myProvs.find(p => this.isCapitalProvince(p.id, clanId));
+    if (capProv) return capProv;
+
+    // 4. 当主武将の居城・滞在国
+    if (this.playerDaimyo && this.playerDaimyo.officerId) {
+      const dOff = (this.activeOfficers || this.officers || []).find(o => o.id === this.playerDaimyo.officerId);
+      if (dOff && dOff.assignedProvId) {
+        const match = myProvs.find(p => p.id === dOff.assignedProvId);
+        if (match) return match;
+      }
+    }
+
+    // 5. フォールバック本拠地計算 (pickFallbackCapital: 北端ではなく地理的中心・重臣投票)
+    const fallback = this.pickFallbackCapital(myProvs, clanId);
+    if (fallback) return fallback;
+
+    return myProvs[0];
+  },
+
   executeStartGameFlow() {
     const scen = SCENARIOS.find(s => String(s.id) === String(this.currentScenarioId));
     this.updateUI();
 
-    const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
-    if (myProvs.length > 0) {
-      this.selectProvince(myProvs[0].id);
+    // 一番北の国ではなく、プレイする大名の本拠地を確実に選択
+    const homeProv = this.getPlayerHomeProvince();
+    if (homeProv) {
+      this.selectProvince(homeProv.id);
+    } else {
+      const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+      if (myProvs.length > 0) {
+        this.selectProvince(myProvs[0].id);
+      }
     }
     this.updateSeasonVisuals();
     this.showSeasonNoticeBanner(this.year, this.seasonNames[this.seasonIdx], this.currentWeather);
@@ -6100,7 +6152,8 @@ export const GameStateMethods = {
 
     const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
     if (myProvs.length > 0) {
-      this.selectProvince(myProvs[0].id);
+      const homeProv = this.getPlayerHomeProvince();
+      this.selectProvince(homeProv ? homeProv.id : myProvs[0].id);
     }
 
     this.music.init();

@@ -867,6 +867,7 @@ async function bootSengokuGame() {
     // 4. SengokuGame インスタンスの生成と開始
     if (!window.game) {
       window.game = new SengokuGame(gameData);
+      window.dispatchEvent(new CustomEvent('gameReady', { detail: window.game }));
     }
   } catch (err) {
     console.error("Fatal error during SengokuGame async initialization:", err);

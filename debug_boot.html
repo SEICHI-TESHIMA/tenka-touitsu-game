@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script>
+window.__logs = [];
+window.onerror = function(msg, url, line, col, error) {
+  window.__logs.push({ type: 'error', msg: msg, url: url, line: line, col: col, stack: error ? error.stack : '' });
+};
+console.error = (function(orig) {
+  return function(...args) {
+    window.__logs.push({ type: 'console.error', args: args.map(a => String(a)) });
+    orig.apply(console, args);
+  };
+})(console.error);
+</script>
   <meta charset="UTF-8">
   <!-- スマホの幅に合わせ、ホームインジケータ分の余白（safe-area）も使えるようにする -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -2312,5 +2324,14 @@
   <script type="module" src="js/app.js"></script>
 
 
-</body>
+<div id="log-dump" style="display:none;"></div>
+<script>
+setTimeout(() => {
+  const el = document.getElementById('log-dump');
+  if (el) {
+    el.textContent = JSON.stringify(window.__logs || []);
+    el.style.display = 'block';
+  }
+}, 3000);
+</script></body>
 </html>

@@ -313,6 +313,11 @@ export const ComputerLogicMethods = {
           if (!seated) return true;
           if (this.isCapitalProvince(seated.id, seated.ownerId)) return false;
           if (o.defaultProv === seated.id) return false;
+          if (pinnedGovs[seated.id] === o.id) return false;
+          const scenGovMap = (window.SCENARIO_HISTORICAL_GOVERNORS && this.currentScenario)
+            ? (window.SCENARIO_HISTORICAL_GOVERNORS[String(this.currentScenario.id)] || {})
+            : {};
+          if (scenGovMap[seated.id] === o.id) return false;
           return true;
         });
         movable.sort((a, b) => score(b) - score(a));

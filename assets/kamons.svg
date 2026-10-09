@@ -828,7 +828,7 @@
     <circle cx="16" cy="16" r="12" fill="none" stroke="#ffd700" stroke-width="1.2"/>
   </symbol>
 
-</defs>
+
 
   <symbol id="kamon-mimura" viewBox="0 0 100 100">
     <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="7"/>
@@ -847,4 +847,41 @@
     <circle cx="50" cy="74" r="3" fill="currentColor"/>
     <path d="M50 24 L50 62" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
   </symbol>
+  <symbol id="kamon-toi" viewBox="0 0 32 32">
+    <!-- 外円（深紫・東女真の威嚇色と藤紫縁） -->
+    <circle cx="16" cy="16" r="15" fill="#3a1545" stroke="#d7bde2" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#bb8fce" stroke-width="0.8"/>
+    <!-- 荒波・玄界灘を渡る海賊船団の波頭 -->
+    <path d="M 6 23 Q 11 19 16 23 Q 21 27 26 23 L 26 26 Q 21 30 16 26 Q 11 22 6 26 Z" fill="#ebdef0"/>
+    <path d="M 9 20.5 Q 12.5 17.5 16 20.5 Q 19.5 23.5 23 20.5" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 交差する二筋の猛毒矢（北方の短弓・注連矢） -->
+    <line x1="8" y1="24" x2="24" y2="8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="24" y1="24" x2="8" y2="8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- 鋭利な返しのついた金色の毒鏃 -->
+    <polygon points="24,8 19,10 22,13" fill="#ffd700"/>
+    <polygon points="8,8 13,10 10,13" fill="#ffd700"/>
+    <!-- 矢羽（白紫） -->
+    <path d="M 7 22 L 9 25 M 6 24 L 8 27" stroke="#ebdef0" stroke-width="1.2"/>
+    <path d="M 25 22 L 23 25 M 26 24 L 24 27" stroke="#ebdef0" stroke-width="1.2"/>
+    <!-- 北方民族の反り弓弧と中央の猛毒滴珠 -->
+    <path d="M 10 13 Q 16 8 22 13 Q 16 11 10 13 Z" fill="#d7bde2"/>
+    <circle cx="16" cy="15" r="2.5" fill="#e74c3c" stroke="#ffd700" stroke-width="0.8"/>
+    <circle cx="15.3" cy="14.3" r="0.7" fill="#ffffff"/>
+  </symbol>
+  <symbol id="kamon-pirate" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#3a1545" stroke="#d7bde2" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#bb8fce" stroke-width="0.8"/>
+    <path d="M 6 23 Q 11 19 16 23 Q 21 27 26 23 L 26 26 Q 21 30 16 26 Q 11 22 6 26 Z" fill="#ebdef0"/>
+    <path d="M 9 20.5 Q 12.5 17.5 16 20.5 Q 19.5 23.5 23 20.5" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="8" y1="24" x2="24" y2="8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="24" y1="24" x2="8" y2="8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <polygon points="24,8 19,10 22,13" fill="#ffd700"/>
+    <polygon points="8,8 13,10 10,13" fill="#ffd700"/>
+    <path d="M 7 22 L 9 25 M 6 24 L 8 27" stroke="#ebdef0" stroke-width="1.2"/>
+    <path d="M 25 22 L 23 25 M 26 24 L 24 27" stroke="#ebdef0" stroke-width="1.2"/>
+    <path d="M 10 13 Q 16 8 22 13 Q 16 11 10 13 Z" fill="#d7bde2"/>
+    <circle cx="16" cy="15" r="2.5" fill="#e74c3c" stroke="#ffd700" stroke-width="0.8"/>
+    <circle cx="15.3" cy="14.3" r="0.7" fill="#ffffff"/>
+  </symbol>
+</defs>
 </svg>

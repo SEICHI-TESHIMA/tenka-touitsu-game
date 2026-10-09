@@ -4144,8 +4144,12 @@ export const UIManagerMethods = {
         if (this.autoPlayPausedForEvent || this.isAutoPlay) {
           this.log(`【天下動乱】${chosen.name}が立ち上がり、後継勢力として覇業を開始しました！`, 'important');
           this.updateUI();
-          const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
-          if (myProvs.length > 0) this.selectProvince(myProvs[0].id);
+          const homeProv = this.getPlayerHomeProvince ? this.getPlayerHomeProvince() : null;
+          if (homeProv) this.selectProvince(homeProv.id);
+          else {
+            const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+            if (myProvs.length > 0) this.selectProvince(myProvs[0].id);
+          }
           this.continueAfterHistoricalEvent();
           return;
         }
@@ -4168,9 +4172,14 @@ export const UIManagerMethods = {
         }).then(() => {
           this.log(`【天下動乱】${chosen.name}が立ち上がり、後継勢力として覇業を開始しました！`, 'important');
           this.updateUI();
-          const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
-          if (myProvs.length > 0) {
-            this.selectProvince(myProvs[0].id);
+          const homeProv = this.getPlayerHomeProvince ? this.getPlayerHomeProvince() : null;
+          if (homeProv) {
+            this.selectProvince(homeProv.id);
+          } else {
+            const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+            if (myProvs.length > 0) {
+              this.selectProvince(myProvs[0].id);
+            }
           }
           this.continueAfterHistoricalEvent();
         });

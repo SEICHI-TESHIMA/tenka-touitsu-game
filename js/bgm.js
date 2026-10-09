@@ -1177,9 +1177,33 @@ class SengokuMusicEngine {
   // オーディオ初期化＆マスターエフェクトルーティング
   // ============================================================================
   init() {
-    if (this.ctx) return;
+    if (this.ctx) {
+      if (this.ctx.state === 'suspended') {
+        this.ctx.resume().catch(() => {});
+      }
+      return;
+    }
     const AudioContext = window.AudioContext || window.webkitAudioContext;
-    this.ctx = new AudioContext();
+    if (!AudioContext) return;
+    try {
+      this.ctx = new AudioContext();
+      if (this.ctx.state === 'suspended') {
+        const unlockAudio = () => {
+          if (this.ctx && this.ctx.state === 'suspended') {
+            this.ctx.resume().catch(() => {});
+          }
+          document.removeEventListener('click', unlockAudio);
+          document.removeEventListener('keydown', unlockAudio);
+          document.removeEventListener('touchstart', unlockAudio);
+        };
+        document.addEventListener('click', unlockAudio, { once: true, passive: true });
+        document.addEventListener('keydown', unlockAudio, { once: true, passive: true });
+        document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+      }
+    } catch (e) {
+      console.warn('AudioContext creation deferred until user interaction:', e);
+      return;
+    }
 
     // 1. プロフェッショナル・マスタリング・コンプレッサー（音割れ防止と豊かなパンチ）
     this.compressor = this.ctx.createDynamicsCompressor();

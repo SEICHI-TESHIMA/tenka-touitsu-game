@@ -1,7 +1,4 @@
-// js/data_officers.js
-// マスターデータ (window.OFFICERS_MASTER)
-
-window.OFFICERS_MASTER = [
+[
   {
     "id": "off_ezo_leader_801",
     "name": "蝦夷首長",
@@ -39202,4 +39199,4 @@ window.OFFICERS_MASTER = [
     "assignedProvId": "bicchu",
     "provinceId": "bizen"
   }
-];
+]

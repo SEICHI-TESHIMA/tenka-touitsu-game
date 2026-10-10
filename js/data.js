@@ -25251,7 +25251,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "kato",
-      "hyuga": "tokugawa",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -25792,7 +25792,8 @@ window.SCENARIOS_DATA = [
       "kato": "higo",
       "so": "tsushima",
       "mito": "hitachi",
-      "fukushima": "aki"
+      "fukushima": "aki",
+      "ito": "hyuga"
     }
   },
   {
@@ -25889,7 +25890,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "tokugawa",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -26428,7 +26429,8 @@ window.SCENARIOS_DATA = [
       "amakusa": "hizen",
       "tachibana": "chikugo",
       "hosokawa": "higo",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     }
   },
   {
@@ -26528,7 +26530,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -26566,7 +26568,8 @@ window.SCENARIOS_DATA = [
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ogasawara": "buzen"
+      "ogasawara": "buzen",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -26996,7 +26999,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -27033,7 +27036,8 @@ window.SCENARIOS_DATA = [
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ako_ronin": "harima"
+      "ako_ronin": "harima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -27485,7 +27489,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -27521,7 +27525,8 @@ window.SCENARIOS_DATA = [
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -27959,7 +27964,7 @@ window.SCENARIOS_DATA = [
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -27995,7 +28000,8 @@ window.SCENARIOS_DATA = [
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -32161,7 +32167,13 @@ window.CLAN_MASTER_DATA = {
       "1577": "伊東義祐",
       "1531": "伊東義祐",
       "1538": "伊東義祐",
-      "1576": "伊東義祐"
+      "1576": "伊東義祐",
+      "1651": "伊東祐久",
+      "1614": "伊東祐慶",
+      "1637": "伊東祐久",
+      "1702": "伊東祐実",
+      "1721": "伊東祐崇",
+      "1789": "伊東祐福"
     }
   },
   "jinbo": {
@@ -33986,7 +33998,7 @@ window.CLAN_MASTER_DATA = {
       "1587": "蜂須賀家政",
       "1590": "蜂須賀家政",
       "1592": "蜂須賀家政",
-      "1614": "蜂須賀忠英",
+      "1614": "蜂須賀至鎮",
       "1637": "蜂須賀忠英",
       "1702": "蜂須賀綱矩",
       "1721": "蜂須賀綱矩",
@@ -43346,7 +43358,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "nagato": "off_mori_hidemoto",
     "iwashiro": "off_gamo_tadazato",
     "south_shinano": "off_succ_ogasawara_1569_116",
-    "ugo": "off_akita_toshisue",
+    "ugo": null,
     "buzen": "off_hosokawa_tadaoki",
     "rikuchu": "off_nanbu_toshinao",
     "kazusa": "off_honda_tadatomo",
@@ -43381,7 +43393,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ise": "off_todo_takatsugu",
     "shimotsuke": "off_honda_masazumi",
     "musashi": "off_matsudaira_nobutsuna",
-    "echigo": "off_makino_tadanari",
+    "echigo": "off_succ2_matsudaira_1592",
     "kozuke": "off_edo_tokugawa_1592_95",
     "shimousa": "off_edo_tokugawa_1609_75",
     "kazusa": "off_edo_tokugawa_1609_107",
@@ -43397,7 +43409,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tajima": "off_edo_tokugawa_1597_86",
     "hoki": "off_jd_047",
     "mimasaka": "off_edo_tokugawa_1610_87",
-    "hyuga": "off_jd_053",
+    "hyuga": null,
     "sado": "off_edo_tokugawa_1600_105",
     "awaji": "off_edo_tokugawa_1609_93",
     "nagato": "off_mori_hidemoto",
@@ -43406,7 +43418,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "aki": "off_asano_mitsuakira",
     "iwaki": "off_edo_date_1585_173",
     "iwashiro": "off_edo_aizu_1611_118",
-    "sagami": "off_hojo_ujimune",
+    "sagami": null,
     "izu": "off_matsudaira_tadanao",
     "suruga": "off_edo_tokugawa_1595_79",
     "kai": "off_takeda_nobuyuki",
@@ -43437,7 +43449,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   },
   "1866": {
     "osumi": "off_jd_070",
-    "hyuga": "off_edo_shimazu_1817_184",
+    "hyuga": null,
     "sagami": "off_okubo_tadanori_bakumatsu",
     "north_shinano": "off_sanada_yukitaka_m",
     "harima": "off_sakai_tadateru",
@@ -43500,7 +43512,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awa_boshu": "off_edo_tokugawa_1600_108",
     "sagami": "off_edo_tokugawa_1623_78",
     "kai": "off_edo_tokugawa_1632_106",
-    "echigo": "off_edo_tokugawa_1616_82",
+    "echigo": "off_succ2_matsudaira_1592",
     "wakasa": "off_edo_tokugawa_1587_73",
     "hida": "off_edo_tokugawa_1590_81",
     "mino": "off_edo_tokugawa_1576_80",
@@ -43525,7 +43537,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sanuki": "off_edo_tokugawa_1622_90",
     "iyo": "off_edo_tokugawa_1587_91",
     "bungo": "off_edo_tokugawa_1595_92",
-    "hyuga": "off_edo_shimazu_1596_185",
+    "hyuga": null,
     "sado": "off_edo_tokugawa_1600_105",
     "awaji": "off_edo_tokugawa_1609_93",
     "musashi": "off_matsudaira_nobutsuna",
@@ -43539,7 +43551,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iwami": "off_edo_tokugawa_1602_74",
     "buzen": "off_ogasawara_tadamasa_edo",
     "satsuma": "off_edo_shimazu_1621_223",
-    "osumi": "off_yamada_emonsaku",
+    "osumi": null,
     "mutsu": "off_hachinohe_naoyoshi",
     "etchu": "off_edo_maeda_1621_222",
     "nagato": "off_mori_hidenari",
@@ -43558,14 +43570,14 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iyo": "off_matsudaira_sadanori",
     "buzen": "off_jd_097",
     "totomi": "off_jd_086",
-    "ugo": "off_akita_terisue",
+    "ugo": null,
     "uzen": "off_uesugi_tsunanori",
     "higo": "off_sagara_yoritaka",
     "rikuchu": "off_succ2_nanbu_1675",
     "iwaki": "off_soma_masatane",
     "kozuke": "off_jd_079",
     "shimousa": "off_jd_081",
-    "awa_boshu": "off_satomi_yoshinao",
+    "awa_boshu": null,
     "izu": "off_jd_099",
     "suruga": "off_jd_077",
     "kai": "off_tokugawa_ienobu",
@@ -43581,11 +43593,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_shimazu_tsunataka",
     "sado": "off_succ_honma_1675_37",
     "etchu": "off_jd_100",
-    "kawachi": "off_hojo_ujitomo",
+    "kawachi": null,
     "izumi": "off_jd_090",
     "tamba": "off_jd_091",
     "hoki": "off_edo_tottori_1648_150",
-    "hyuga": "off_jd_101",
+    "hyuga": null,
     "south_omi": "off_jd_088",
     "yamato": "off_jd_089",
     "tajima": "off_jd_093",
@@ -43611,13 +43623,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sanuki": "off_matsudaira_yoritoyo",
     "iyo": "off_matsudaira_sadahide",
     "buzen": "off_ogasawara_tadamoto",
-    "ugo": "off_akita_yorisue",
+    "ugo": null,
     "uzen": "off_uesugi_yoshinori",
     "rikuchu": "off_succ2_nanbu_1675",
     "iwaki": "off_soma_masatane",
     "shimousa": "off_toda_tadatomo",
     "kazusa": "off_honda_tadayuki",
-    "sagami": "off_hojo_ujitomo",
+    "sagami": null,
     "south_shinano": "off_suwa_tadatotora",
     "echigo": "off_makino_tadanari",
     "noto": "off_hatakeyama_yoshisato",
@@ -43628,7 +43640,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "harima": "off_akamatsu_norihisa",
     "nagato": "off_mori_munehiro",
     "sado": "off_succ_honma_1675_37",
-    "shimotsuke": "off_succ2_utsunomiya_1685",
+    "shimotsuke": null,
     "etchu": "off_sassa_tsunakiyo",
     "kawachi": "off_takagi_masanobu",
     "tajima": "off_sengoku_masafusa",
@@ -43645,7 +43657,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hida": "off_jd_339",
     "yamato": "off_jd_375",
     "hoki": "off_tokugawa_yoshimune",
-    "hyuga": "off_jd_449",
+    "hyuga": null,
     "osumi": "off_jd_450"
   },
   "1789": {
@@ -45196,7 +45208,6 @@ window.OFFICER_FAMILY_ROSTERS = {
     "off_hachinohe_naoyoshi",
     "off_edo_nanbu_1600_188",
     "off_edo_nanbu_1805_189",
-    "off_hongo_tadamori",
     "off_jd_431",
     "off_kita_nobuchika",
     "off_nanbu_namioka_akiyasu"
@@ -45285,7 +45296,8 @@ window.HONNOUJI_SUCCESSION_DATA = {
     harima: 'toyotomi', settsu: 'toyotomi', kawachi: 'toyotomi', izumi: 'toyotomi',
     yamato: 'toyotomi', tajima: 'toyotomi', inaba: 'toyotomi', awaji: 'toyotomi',
     echizen: 'shibata', kaga: 'shibata', noto: 'shibata', north_omi: 'toyotomi', wakasa: 'shibata', hida: 'shibata',
-    owari: 'oda', mino: 'oda', ise: 'oda', shima: 'oda', iga: 'oda'
+    owari: 'oda', mino: 'oda', ise: 'oda', shima: 'oda', iga: 'oda',
+    kai: 'tokugawa', south_shinano: 'tokugawa', north_shinano: 'sanada', kozuke: 'hojo'
   },
   // 後継大名本人。houseHeir は旧主家を継ぐ当主（信雄）。見つからなければ旧主家の家臣から立てる
   successors: [
@@ -46910,5 +46922,402 @@ if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
       setAssignedProv: 'suo',
       setDaimyo: false
     }
+  );
+}
+
+// --- New Updates (Hongo Osumi, Gamo South Omi, 1614 Moves, Tsugawa Owari) ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 北郷忠相: すべてのシナリオで大隅・島津氏配下
+    {
+      id: 'hongo_tadamori_osumi_all',
+      officerIds: ['off_hongo_tadamori'],
+      setClanId: 'shimazu',
+      setDefaultProv: 'osumi',
+      setAssignedProv: 'osumi',
+      setDaimyo: false
+    },
+
+    // 蒲生氏: 1590年までのシナリオで南近江に配置
+    {
+      id: 'gamo_clan_south_omi_oda',
+      officerIds: ['off_gamo_ujisato', 'off_gamo_satoyasu', 'off_gamo_satonari', 'off_machino_shigenori'],
+      scenarioIds: ['1570', '1573', '1576', '1577', '1582'],
+      fromYear: 1570,
+      toYear: 1582,
+      setClanId: 'oda',
+      setDefaultProv: 'south_omi',
+      setAssignedProv: 'south_omi',
+      setDaimyo: false
+    },
+    {
+      id: 'gamo_clan_south_omi_toyotomi',
+      officerIds: ['off_gamo_ujisato', 'off_gamo_satoyasu', 'off_gamo_satonari', 'off_machino_shigenori'],
+      scenarioIds: ['1584', '1587', '1590'],
+      fromYear: 1584,
+      toYear: 1590,
+      setClanId: 'toyotomi',
+      setDefaultProv: 'south_omi',
+      setAssignedProv: 'south_omi',
+      setDaimyo: false
+    },
+
+    // 1614年大坂の陣シナリオの武将移動
+    // 奥村永福: 安芸から能登へ移動（前田家配下）
+    {
+      id: 'okumura_nagatomi_noto_1614',
+      officerIds: ['off_jd_422'],
+      scenarioIds: ['1614'],
+      setClanId: 'maeda',
+      setDefaultProv: 'noto',
+      setAssignedProv: 'noto',
+      setDaimyo: false
+    },
+    // 蜂須賀家政: 安芸から阿波へ移動（蜂須賀家配下）
+    {
+      id: 'hachisuka_iemasa_awa_1614',
+      officerIds: ['off_hachisuka_iemasa'],
+      scenarioIds: ['1614'],
+      setClanId: 'hachisuka',
+      setDefaultProv: 'awa_shikoku',
+      setAssignedProv: 'awa_shikoku',
+      setDaimyo: false
+    },
+    // 織田信包: 安芸から伊勢へ移動（徳川家配下）
+    {
+      id: 'oda_nobukane_ise_1614',
+      officerIds: ['off_jd_059'],
+      scenarioIds: ['1614'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'ise',
+      setAssignedProv: 'ise',
+      setDaimyo: false
+    },
+    // 長宗我部盛恒: 土佐から摂津へ移動（豊臣家配下）
+    {
+      id: 'chosokabe_moritsune_settsu_1614',
+      officerIds: ['off_chosokabe_moritsune'],
+      scenarioIds: ['1614'],
+      setClanId: 'toyotomi',
+      setDefaultProv: 'settsu',
+      setAssignedProv: 'settsu',
+      setDaimyo: false
+    },
+    // 津川義近: 陸中から尾張へ移動
+    {
+      id: 'tsugawa_chikayoshi_owari',
+      officerIds: ['off_tsugawa_chikayoshi'],
+      setDefaultProv: 'owari',
+      setAssignedProv: 'owari',
+      setClanId: 'owari',
+      setDaimyo: false
+    }
+  );
+}
+
+// --- 1637/1651 scenario fixes ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+  // ===== 1651年以降: 山田右衛門作・山田秀右衛門は肥前で浪人 =====
+  {
+    id: 'yamada_ronin_hizen_1651_on',
+    officerIds: ['off_yamada_emonsaku', 'off_yamada_shiyusaku'],
+    fromYear: 1651,
+    toYear: 1877,
+    setClanId: 'ronin',
+    setDefaultProv: 'hizen',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  // ===== 江戸時代: 宇喜多氏(1637年以降)は武蔵で浪人、秋田氏は常陸で浪人 =====
+  {
+    id: 'ukita_ronin_musashi_1637_on',
+    officerIds: ['off_ukita_hidetsugu', 'off_ukita_hidetaka', 'off_ukita_hidetane', 'off_ukita_hidemasa'],
+    fromYear: 1637,
+    toYear: 1868,
+    setClanId: 'ronin',
+    setDefaultProv: 'musashi',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  {
+    id: 'akita_ronin_hitachi_edo',
+    officerIds: ['off_akita_sadamisue', 'off_akita_terisue', 'off_dm_ando_1582', 'off_succ_ando_1580_5', 'off_akita_toshisue', 'off_akita_morisue', 'off_akita_yorisue'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'ronin',
+    setDefaultProv: 'hitachi',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  // ===== 江戸時代: 日向は伊東氏が独立、島津氏の武将は薩摩へ =====
+  {
+    id: 'ito_daimyo_hyuga_1614',
+    officerIds: ['off_ito_sukeyoshi'],
+    scenarioIds: ['1614'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1614',
+    officerIds: ['off_ito_sukeisa', 'off_succ2_ito_1580'],
+    scenarioIds: ['1614'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1614',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1614'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1637',
+    officerIds: ['off_ito_sukeisa'],
+    scenarioIds: ['1637'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1637',
+    officerIds: ['off_succ2_ito_1630'],
+    scenarioIds: ['1637'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1637',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1637'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1702',
+    officerIds: ['off_ito_sukezane'],
+    scenarioIds: ['1702'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1702',
+    officerIds: ['off_ito_suketaka'],
+    scenarioIds: ['1702'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1702',
+    officerIds: ['off_jd_449', 'off_jd_101'],
+    scenarioIds: ['1702'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1721',
+    officerIds: ['off_ito_suketaka'],
+    scenarioIds: ['1721'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1721',
+    officerIds: ['off_jd_449'],
+    scenarioIds: ['1721'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1789',
+    officerIds: ['off_edo_ito_sukeyoshi_1789'],
+    scenarioIds: ['1789'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'shimazu_hisamitsu_satsuma_1866',
+    officerIds: ['off_edo_shimazu_1817_184'],
+    scenarioIds: ['1866'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  // ===== 江戸時代の配置 (蘆名/北条/里見/尼子/宇都宮/龍造寺/鈴木) =====
+  {
+    id: 'ashina_satake_ugo_edo',
+    officerIds: ['off_succ_ashina_1585_8', 'off_ashina_moritoshi', 'off_ashina_sendrumaru', 'off_ashina_morinobu'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'satake',
+    setDefaultProv: 'ugo',
+    setAssignedProv: 'ugo',
+    requireOwners: ['satake'],
+    setDaimyo: false
+  },
+  {
+    id: 'hojo_tokugawa_musashi_edo',
+    officerIds: ['off_succ_hojo_1600_25', 'off_hojo_ujimune', 'off_hojo_ujiharu', 'off_succ2_hojo_1558', 'off_hojo_ujinobu', 'off_hojo_ujitomo', 'off_hojo_ujisada'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'tokugawa',
+    setDefaultProv: 'musashi',
+    setAssignedProv: 'musashi',
+    requireOwners: ['tokugawa'],
+    setDaimyo: false
+  },
+  {
+    id: 'satomi_tokugawa_musashi_edo',
+    officerIds: ['off_succ_satomi_1605_155', 'off_satomi_yoshinao', 'off_satomi_tadanao', 'off_satomi_yoshihiro_edo'],
+    fromYear: 1651,
+    toYear: 1868,
+    setClanId: 'tokugawa',
+    setDefaultProv: 'musashi',
+    setAssignedProv: 'musashi',
+    requireOwners: ['tokugawa'],
+    setDaimyo: false
+  },
+  {
+    id: 'amago_mori_nagato_edo',
+    officerIds: ['off_amago_naritomo', 'off_amago_nariyasu'],
+    fromYear: 1651,
+    toYear: 1868,
+    setClanId: 'mori',
+    setDefaultProv: 'nagato',
+    setAssignedProv: 'nagato',
+    requireOwners: ['mori'],
+    setDaimyo: false
+  },
+  {
+    id: 'utsunomiya_mito_hitachi_edo',
+    officerIds: ['off_utsunomiya_yoshitsuna', 'off_utsunomiya_takatsuna', 'off_utsunomiya_hirotsuna_edo', 'off_succ2_utsunomiya_1685'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'mito',
+    setDefaultProv: 'hitachi',
+    setAssignedProv: 'hitachi',
+    requireOwners: ['mito'],
+    setDaimyo: false
+  },
+  {
+    id: 'ryuzoji_nabeshima_hizen_edo',
+    officerIds: ['off_ryuzoji_nagamori'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'nabeshima',
+    setDefaultProv: 'hizen',
+    setAssignedProv: 'hizen',
+    requireOwners: ['nabeshima'],
+    setDaimyo: false
+  },
+  {
+    id: 'suzuki_mito_hitachi_edo',
+    officerIds: ['off_suzuki_shigetsugu', 'off_suzuki_shigenaga'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'mito',
+    setDefaultProv: 'hitachi',
+    setAssignedProv: 'hitachi',
+    requireOwners: ['mito'],
+    setDaimyo: false
+  },
+  {
+    id: 'hachisuka_yoshishige_daimyo_1614',
+    officerIds: ['off_hachisuka_yoshishige'],
+    scenarioIds: ['1614'],
+    setClanId: 'hachisuka',
+    setDefaultProv: 'awa_shikoku',
+    setAssignedProv: 'awa_shikoku',
+    setDaimyo: true
+  },
+  // ===== 1637/1651 シナリオ配置修正 =====
+  {
+    id: 'hosokawa_tadaoki_higo_1637',
+    officerIds: ['off_hosokawa_tadaoki'],
+    scenarioIds: ['1637'],
+    setClanId: 'hosokawa',
+    setDefaultProv: 'higo',
+    setAssignedProv: 'higo',
+    setDaimyo: false
+  },
+  {
+    id: 'matsudaira_tadateru_echigo_1637_1651',
+    officerIds: ['off_succ2_matsudaira_1592'],
+    scenarioIds: ['1637', '1651'],
+    setClanId: 'tokugawa',
+    setDefaultProv: 'echigo',
+    setAssignedProv: 'echigo',
+    setDaimyo: false
+  },
+  {
+    id: 'hachisuka_iemasa_tokushima_1637',
+    officerIds: ['off_hachisuka_iemasa'],
+    scenarioIds: ['1637'],
+    setClanId: 'hachisuka',
+    setDefaultProv: 'awa_shikoku',
+    setAssignedProv: 'awa_shikoku',
+    setDaimyo: false
+  },
+  {
+    id: 'kiire_tadatsugu_osumi_1651',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1651'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'osumi',
+    setAssignedProv: 'osumi',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_sukehisa_hyuga_daimyo_1651',
+    officerIds: ['off_ito_sukeisa'],
+    scenarioIds: ['1651'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1651',
+    officerIds: ['off_succ2_ito_1630', 'off_ito_sukezane'],
+    scenarioIds: ['1651'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'kitsuregawa_tokugawa_yamashiro_1651',
+    officerIds: ['off_kitsuregawa_takauji', 'off_kitsuregawa_akiuji'],
+    scenarioIds: ['1651'],
+    setClanId: 'tokugawa',
+    setDefaultProv: 'yamashiro',
+    setAssignedProv: 'yamashiro',
+    setDaimyo: false
+  }
   );
 }

@@ -23243,7 +23243,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "kato",
-      "hyuga": "tokugawa",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -23784,7 +23784,8 @@
       "kato": "higo",
       "so": "tsushima",
       "mito": "hitachi",
-      "fukushima": "aki"
+      "fukushima": "aki",
+      "ito": "hyuga"
     }
   },
   {
@@ -23881,7 +23882,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "tokugawa",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -24420,7 +24421,8 @@
       "amakusa": "hizen",
       "tachibana": "chikugo",
       "hosokawa": "higo",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     }
   },
   {
@@ -24520,7 +24522,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -24558,7 +24560,8 @@
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ogasawara": "buzen"
+      "ogasawara": "buzen",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -24988,7 +24991,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -25025,7 +25028,8 @@
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ako_ronin": "harima"
+      "ako_ronin": "harima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -25477,7 +25481,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -25513,7 +25517,8 @@
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -25951,7 +25956,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -25987,7 +25992,8 @@
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "ito": "hyuga"
     },
     "castles": {
       "ezo": "松前城（福山城）",

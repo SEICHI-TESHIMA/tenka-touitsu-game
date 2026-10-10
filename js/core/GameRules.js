@@ -5399,7 +5399,6 @@ export const OFFICER_FAMILY_ROSTERS = {
     "off_hachinohe_naoyoshi",
     "off_edo_nanbu_1600_188",
     "off_edo_nanbu_1805_189",
-    "off_hongo_tadamori",
     "off_jd_431",
     "off_kita_nobuchika",
     "off_nanbu_namioka_akiyasu"
@@ -5494,7 +5493,8 @@ export const HONNOUJI_SUCCESSION_DATA = {
     harima: 'toyotomi', settsu: 'toyotomi', kawachi: 'toyotomi', izumi: 'toyotomi',
     yamato: 'toyotomi', tajima: 'toyotomi', inaba: 'toyotomi', awaji: 'toyotomi',
     echizen: 'shibata', kaga: 'shibata', noto: 'shibata', north_omi: 'toyotomi', wakasa: 'shibata', hida: 'shibata',
-    owari: 'oda', mino: 'oda', ise: 'oda', shima: 'oda', iga: 'oda'
+    owari: 'oda', mino: 'oda', ise: 'oda', shima: 'oda', iga: 'oda',
+    kai: 'tokugawa', south_shinano: 'tokugawa', north_shinano: 'sanada', kozuke: 'hojo'
   },
   // 後継大名本人。houseHeir は旧主家を継ぐ当主（信雄）。見つからなければ旧主家の家臣から立てる
   successors: [
@@ -5708,6 +5708,7 @@ if (typeof window !== "undefined") window.CLAN_SERVICE_FALLBACKS = CLAN_SERVICE_
 
 (function () {
   const extraRules = [
+
   // --- Historical Fixes for Scenarios (1274, 1359, 1438, 1467, 1495, 1531, 1555, 1560, 1570) ---
   {
     id: 'tanemune_rikuzen_1555',
@@ -9700,6 +9701,391 @@ if (typeof window !== "undefined") window.CLAN_SERVICE_FALLBACKS = CLAN_SERVICE_
   target.push(...extraRules);
   const rules = target;
   rules.unshift(
+  // ===== 1651年以降: 山田右衛門作・山田秀右衛門は肥前で浪人 =====
+  {
+    id: 'yamada_ronin_hizen_1651_on',
+    officerIds: ['off_yamada_emonsaku', 'off_yamada_shiyusaku'],
+    fromYear: 1651,
+    toYear: 1877,
+    setClanId: 'ronin',
+    setDefaultProv: 'hizen',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  // ===== 江戸時代: 宇喜多氏(1637年以降)は武蔵で浪人、秋田氏は常陸で浪人 =====
+  {
+    id: 'ukita_ronin_musashi_1637_on',
+    officerIds: ['off_ukita_hidetsugu', 'off_ukita_hidetaka', 'off_ukita_hidetane', 'off_ukita_hidemasa'],
+    fromYear: 1637,
+    toYear: 1868,
+    setClanId: 'ronin',
+    setDefaultProv: 'musashi',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  {
+    id: 'akita_ronin_hitachi_edo',
+    officerIds: ['off_akita_sadamisue', 'off_akita_terisue', 'off_dm_ando_1582', 'off_succ_ando_1580_5', 'off_akita_toshisue', 'off_akita_morisue', 'off_akita_yorisue'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'ronin',
+    setDefaultProv: 'hitachi',
+    clearAssignment: true,
+    setDaimyo: false
+  },
+  // ===== 江戸時代: 日向は伊東氏が独立、島津氏の武将は薩摩へ =====
+  {
+    id: 'ito_daimyo_hyuga_1614',
+    officerIds: ['off_ito_sukeyoshi'],
+    scenarioIds: ['1614'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1614',
+    officerIds: ['off_ito_sukeisa', 'off_succ2_ito_1580'],
+    scenarioIds: ['1614'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1614',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1614'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1637',
+    officerIds: ['off_ito_sukeisa'],
+    scenarioIds: ['1637'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1637',
+    officerIds: ['off_succ2_ito_1630'],
+    scenarioIds: ['1637'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1637',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1637'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1702',
+    officerIds: ['off_ito_sukezane'],
+    scenarioIds: ['1702'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1702',
+    officerIds: ['off_ito_suketaka'],
+    scenarioIds: ['1702'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1702',
+    officerIds: ['off_jd_449', 'off_jd_101'],
+    scenarioIds: ['1702'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1721',
+    officerIds: ['off_ito_suketaka'],
+    scenarioIds: ['1721'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'shimazu_hyuga_to_satsuma_1721',
+    officerIds: ['off_jd_449'],
+    scenarioIds: ['1721'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_daimyo_hyuga_1789',
+    officerIds: ['off_edo_ito_sukeyoshi_1789'],
+    scenarioIds: ['1789'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'shimazu_hisamitsu_satsuma_1866',
+    officerIds: ['off_edo_shimazu_1817_184'],
+    scenarioIds: ['1866'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'satsuma',
+    setAssignedProv: 'satsuma',
+    setDaimyo: false
+  },
+  // ===== 江戸時代の配置 (蘆名/北条/里見/尼子/宇都宮/龍造寺/鈴木) =====
+  {
+    id: 'ashina_satake_ugo_edo',
+    officerIds: ['off_succ_ashina_1585_8', 'off_ashina_moritoshi', 'off_ashina_sendrumaru', 'off_ashina_morinobu'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'satake',
+    setDefaultProv: 'ugo',
+    setAssignedProv: 'ugo',
+    requireOwners: ['satake'],
+    setDaimyo: false
+  },
+  {
+    id: 'hojo_tokugawa_musashi_edo',
+    officerIds: ['off_succ_hojo_1600_25', 'off_hojo_ujimune', 'off_hojo_ujiharu', 'off_succ2_hojo_1558', 'off_hojo_ujinobu', 'off_hojo_ujitomo', 'off_hojo_ujisada'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'tokugawa',
+    setDefaultProv: 'musashi',
+    setAssignedProv: 'musashi',
+    requireOwners: ['tokugawa'],
+    setDaimyo: false
+  },
+  {
+    id: 'satomi_tokugawa_musashi_edo',
+    officerIds: ['off_succ_satomi_1605_155', 'off_satomi_yoshinao', 'off_satomi_tadanao', 'off_satomi_yoshihiro_edo'],
+    fromYear: 1651,
+    toYear: 1868,
+    setClanId: 'tokugawa',
+    setDefaultProv: 'musashi',
+    setAssignedProv: 'musashi',
+    requireOwners: ['tokugawa'],
+    setDaimyo: false
+  },
+  {
+    id: 'amago_mori_nagato_edo',
+    officerIds: ['off_amago_naritomo', 'off_amago_nariyasu'],
+    fromYear: 1651,
+    toYear: 1868,
+    setClanId: 'mori',
+    setDefaultProv: 'nagato',
+    setAssignedProv: 'nagato',
+    requireOwners: ['mori'],
+    setDaimyo: false
+  },
+  {
+    id: 'utsunomiya_mito_hitachi_edo',
+    officerIds: ['off_utsunomiya_yoshitsuna', 'off_utsunomiya_takatsuna', 'off_utsunomiya_hirotsuna_edo', 'off_succ2_utsunomiya_1685'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'mito',
+    setDefaultProv: 'hitachi',
+    setAssignedProv: 'hitachi',
+    requireOwners: ['mito'],
+    setDaimyo: false
+  },
+  {
+    id: 'ryuzoji_nabeshima_hizen_edo',
+    officerIds: ['off_ryuzoji_nagamori'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'nabeshima',
+    setDefaultProv: 'hizen',
+    setAssignedProv: 'hizen',
+    requireOwners: ['nabeshima'],
+    setDaimyo: false
+  },
+  {
+    id: 'suzuki_mito_hitachi_edo',
+    officerIds: ['off_suzuki_shigetsugu', 'off_suzuki_shigenaga'],
+    fromYear: 1603,
+    toYear: 1868,
+    setClanId: 'mito',
+    setDefaultProv: 'hitachi',
+    setAssignedProv: 'hitachi',
+    requireOwners: ['mito'],
+    setDaimyo: false
+  },
+  {
+    id: 'hachisuka_yoshishige_daimyo_1614',
+    officerIds: ['off_hachisuka_yoshishige'],
+    scenarioIds: ['1614'],
+    setClanId: 'hachisuka',
+    setDefaultProv: 'awa_shikoku',
+    setAssignedProv: 'awa_shikoku',
+    setDaimyo: true
+  },
+  // ===== 1637/1651 シナリオ配置修正 =====
+  {
+    id: 'hosokawa_tadaoki_higo_1637',
+    officerIds: ['off_hosokawa_tadaoki'],
+    scenarioIds: ['1637'],
+    setClanId: 'hosokawa',
+    setDefaultProv: 'higo',
+    setAssignedProv: 'higo',
+    setDaimyo: false
+  },
+  {
+    id: 'matsudaira_tadateru_echigo_1637_1651',
+    officerIds: ['off_succ2_matsudaira_1592'],
+    scenarioIds: ['1637', '1651'],
+    setClanId: 'tokugawa',
+    setDefaultProv: 'echigo',
+    setAssignedProv: 'echigo',
+    setDaimyo: false
+  },
+  {
+    id: 'hachisuka_iemasa_tokushima_1637',
+    officerIds: ['off_hachisuka_iemasa'],
+    scenarioIds: ['1637'],
+    setClanId: 'hachisuka',
+    setDefaultProv: 'awa_shikoku',
+    setAssignedProv: 'awa_shikoku',
+    setDaimyo: false
+  },
+  {
+    id: 'kiire_tadatsugu_osumi_1651',
+    officerIds: ['off_edo_shimazu_1596_185'],
+    scenarioIds: ['1651'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'osumi',
+    setAssignedProv: 'osumi',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_sukehisa_hyuga_daimyo_1651',
+    officerIds: ['off_ito_sukeisa'],
+    scenarioIds: ['1651'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+  {
+    id: 'ito_clan_hyuga_1651',
+    officerIds: ['off_succ2_ito_1630', 'off_ito_sukezane'],
+    scenarioIds: ['1651'],
+    setClanId: 'ito',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: false
+  },
+  {
+    id: 'kitsuregawa_tokugawa_yamashiro_1651',
+    officerIds: ['off_kitsuregawa_takauji', 'off_kitsuregawa_akiuji'],
+    scenarioIds: ['1651'],
+    setClanId: 'tokugawa',
+    setDefaultProv: 'yamashiro',
+    setAssignedProv: 'yamashiro',
+    setDaimyo: false
+  },
+  // 北郷忠相: すべてのシナリオで大隅・島津氏配下
+  {
+    id: 'hongo_tadamori_osumi_all',
+    officerIds: ['off_hongo_tadamori'],
+    setClanId: 'shimazu',
+    setDefaultProv: 'osumi',
+    setAssignedProv: 'osumi',
+    setDaimyo: false
+  },
+
+  // 蒲生氏: 1590年までのシナリオで南近江に配置
+  {
+    id: 'gamo_clan_south_omi_oda',
+    officerIds: ['off_gamo_ujisato', 'off_gamo_satoyasu', 'off_gamo_satonari', 'off_machino_shigenori'],
+    scenarioIds: ['1570', '1573', '1576', '1577', '1582'],
+    fromYear: 1570,
+    toYear: 1582,
+    setClanId: 'oda',
+    setDefaultProv: 'south_omi',
+    setAssignedProv: 'south_omi',
+    setDaimyo: false
+  },
+  {
+    id: 'gamo_clan_south_omi_toyotomi',
+    officerIds: ['off_gamo_ujisato', 'off_gamo_satoyasu', 'off_gamo_satonari', 'off_machino_shigenori'],
+    scenarioIds: ['1584', '1587', '1590'],
+    fromYear: 1584,
+    toYear: 1590,
+    setClanId: 'toyotomi',
+    setDefaultProv: 'south_omi',
+    setAssignedProv: 'south_omi',
+    setDaimyo: false
+  },
+
+  // 1614年大坂の陣シナリオの武将移動
+  // 奥村永福: 安芸から能登へ移動（前田家配下）
+  {
+    id: 'okumura_nagatomi_noto_1614',
+    officerIds: ['off_jd_422'],
+    scenarioIds: ['1614'],
+    setClanId: 'maeda',
+    setDefaultProv: 'noto',
+    setAssignedProv: 'noto',
+    setDaimyo: false
+  },
+  // 蜂須賀家政: 安芸から阿波へ移動（蜂須賀家配下）
+  {
+    id: 'hachisuka_iemasa_awa_1614',
+    officerIds: ['off_hachisuka_iemasa'],
+    scenarioIds: ['1614'],
+    setClanId: 'hachisuka',
+    setDefaultProv: 'awa_shikoku',
+    setAssignedProv: 'awa_shikoku',
+    setDaimyo: false
+  },
+  // 織田信包: 安芸から伊勢へ移動（徳川家配下）
+  {
+    id: 'oda_nobukane_ise_1614',
+    officerIds: ['off_jd_059'],
+    scenarioIds: ['1614'],
+    setClanId: 'tokugawa',
+    setDefaultProv: 'ise',
+    setAssignedProv: 'ise',
+    setDaimyo: false
+  },
+  // 長宗我部盛恒: 土佐から摂津へ移動（豊臣家配下）
+  {
+    id: 'chosokabe_moritsune_settsu_1614',
+    officerIds: ['off_chosokabe_moritsune'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  // 津川義近: 陸中から尾張へ移動
+  {
+    id: 'tsugawa_chikayoshi_owari',
+    officerIds: ['off_tsugawa_chikayoshi'],
+    setDefaultProv: 'owari',
+    setAssignedProv: 'owari',
+    setClanId: 'owari',
+    setDaimyo: false
+  },
     // 承平・天慶の乱：小野好古は朝廷の追捕使長官（平貞盛の配下ではない）
     { id: 'ono_yoshifuru_court', officerIds: ['off_ono_yoshifuru'], setClanId: 'heian_court', fromYear: 930, toYear: 968, scenarioIds: ['939'], requireOwners: ['heian_court'], setDaimyo: false },
     // 柴田勝家・佐久間盛政は本能寺まで織田家臣（柴田家が地図に立ったら柴田家）

@@ -25416,7 +25416,7 @@ window.OFFICERS_MASTER = [
     "id": "off_tsugawa_chikayoshi",
     "name": "津川義近",
     "clanId": "shiba",
-    "defaultProv": "mutsu",
+    "defaultProv": "owari",
     "military": 76,
     "politic": 78,
     "intel": 77,

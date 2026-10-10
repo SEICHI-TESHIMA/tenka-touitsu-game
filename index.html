@@ -1086,7 +1086,45 @@
     <circle cx="9.1" cy="20" r="2.4" fill="#ffffff"/>
     <circle cx="9.1" cy="12" r="2.4" fill="#ffffff"/>
   </symbol>
-</defs>
+  <symbol id="kamon-namioka" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1b4f72" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12" fill="none" stroke="#ffd700" stroke-width="1.2"/>
+    <line x1="8" y1="13" x2="24" y2="13" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="8" y1="19" x2="24" y2="19" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M16,6 L18.5,10.5 L16,9.5 L13.5,10.5 Z" fill="#ffd700"/>
+    <circle cx="16" cy="24" r="1.8" fill="#ffd700"/>
+  </symbol>
+    <symbol id="kamon-oura" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#78281f" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#ffd700" stroke-width="0.8"/>
+    <path d="M 7 13 L 25 13" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M 16 7 Q 16 16 9 25" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M 16 14 Q 18 19 23 25" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <circle cx="16" cy="4.5" r="1.3" fill="#ffd700"/>
+    <circle cx="5.5" cy="13" r="1" fill="#ffd700"/>
+    <circle cx="26.5" cy="13" r="1" fill="#ffd700"/>
+  </symbol>
+  <symbol id="kamon-gamo" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#8e44ad" stroke="#ffd700" stroke-width="1.5"/>
+    <path d="M7,16 C7,10 12,8 15,10 C14,12 12,14 13,17 C11,18 8,20 7,16 Z" fill="#ffffff"/>
+    <path d="M25,16 C25,10 20,8 17,10 C18,12 20,14 19,17 C21,18 24,20 25,16 Z" fill="#ffffff"/>
+    <circle cx="14" cy="9.5" r="1.2" fill="#ffd700"/>
+    <circle cx="18" cy="9.5" r="1.2" fill="#ffd700"/>
+    <path d="M11,18 C13,22 15,24 16,25 C17,24 19,22 21,18 C18,20 14,20 11,18 Z" fill="#ffffff"/>
+  </symbol>
+  <symbol id="kamon-gamou" viewBox="0 0 32 32">
+    <use href="#kamon-gamo"/>
+  </symbol>
+  <symbol id="kamon-fukushima" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#c0392b" stroke="#ffd700" stroke-width="1.5"/>
+    <path d="M16,6 C14,11 14,17 16,21 C18,17 18,11 16,6 Z" fill="#ffffff"/>
+    <path d="M14.5,17 C10,13 6,15 8,19 C11,19 13.5,18 14.5,17 Z" fill="#ffffff"/>
+    <path d="M17.5,17 C22,13 26,15 24,19 C21,19 18.5,18 17.5,17 Z" fill="#ffffff"/>
+    <line x1="16" y1="18" x2="16" y2="26" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="12" cy="22" r="1.2" fill="#ffd700"/>
+    <circle cx="20" cy="22" r="1.2" fill="#ffd700"/>
+  </symbol>
+  </defs>
 
         <g id="mapPanZoomLayer">
           <!-- 街道・航路接続線グループ -->
@@ -2324,6 +2362,789 @@
   <!-- 3. 戦国天下統一伝 ゲームエンジン本体 -->
   <script type="module" src="js/app.js"></script>
 
+
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(async () => {
+    try {
+      const g = window.game;
+      const log = (msg) => console.log("[TEST_LOG] " + msg);
+      
+      // ==========================================
+      // TEST SCENARIO 1221
+      // ==========================================
+      log("--- SCENARIO 1221 ---");
+      g.switchScenario('1221');
+      await new Promise(r => setTimeout(r, 400));
+
+      const yoshimura1221 = g.activeOfficers.find(o => o.id === 'off_miura_yoshimura');
+      const mitsumura1221 = g.activeOfficers.find(o => o.id === 'off_miura_mitsumura');
+      if (yoshimura1221?.defaultProv === 'sagami' && mitsumura1221?.defaultProv === 'sagami') {
+        log("PASS: 1221 Miura Yoshimura and Mitsumura moved to Sagami");
+      } else {
+        log("FAIL: 1221 Miura Yoshimura/Mitsumura: " + yoshimura1221?.defaultProv + "/" + mitsumura1221?.defaultProv);
+      }
+
+      const kazusa1221 = g.provinces.find(p => p.id === 'kazusa');
+      const awa1221 = g.provinces.find(p => p.id === 'awa_boshu');
+      if (kazusa1221?.ownerId === 'hojo_kamakura' && awa1221?.ownerId === 'hojo_kamakura') {
+        log("PASS: 1221 Kazusa and Awa owned by Hojo");
+      } else {
+        log("FAIL: 1221 Kazusa/Awa: " + kazusa1221?.ownerId + "/" + awa1221?.ownerId);
+      }
+
+      const mori1221 = g.activeOfficers.find(o => o.id === 'off_mori_suemitsu');
+      if (mori1221?.defaultProv === 'sagami') {
+        log("PASS: 1221 Mori Suemitsu moved to Sagami");
+      } else {
+        log("FAIL: 1221 Mori Suemitsu: " + mori1221?.defaultProv);
+      }
+
+      const yasutoki1221 = g.activeOfficers.find(o => o.id === 'off_hojo_yasutoki');
+      if (yasutoki1221?.defaultProv === 'sagami') {
+        log("PASS: 1221 Hojo Yasutoki moved to Sagami");
+      } else {
+        log("FAIL: 1221 Hojo Yasutoki: " + yasutoki1221?.defaultProv);
+      }
+
+      const masamura1221 = g.activeOfficers.find(o => o.id === 'off_hojo_masamura');
+      if (masamura1221?.defaultProv === 'sagami') {
+        log("PASS: 1221 Hojo Masamura moved to Sagami");
+      } else {
+        log("FAIL: 1221 Hojo Masamura: " + masamura1221?.defaultProv);
+      }
+
+      const mikawa1221 = g.provinces.find(p => p.id === 'mikawa');
+      const yoshiuji1221 = g.activeOfficers.find(o => o.id === 'off_ashikaga_yoshiuji');
+      if (mikawa1221?.governorId === 'off_ashikaga_yoshiuji' && yoshiuji1221?.defaultProv === 'mikawa') {
+        log("PASS: 1221 Ashikaga Yoshiuji governor of Mikawa");
+      } else {
+        log("FAIL: 1221 Ashikaga Yoshiuji: " + mikawa1221?.governorId + "/" + yoshiuji1221?.defaultProv);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1331
+      // ==========================================
+      log("--- SCENARIO 1331 ---");
+      g.switchScenario('1331');
+      await new Promise(r => setTimeout(r, 400));
+      
+      const shibaTakatsune1331 = g.activeOfficers.find(o => o.id === 'off_shiba_takatsune');
+      const shibaIenaga1331 = g.activeOfficers.find(o => o.id === 'off_shiba_ienaga');
+      const rikuchu1331 = g.provinces.find(p => p.id === 'rikuchu');
+      const echizen1331 = g.provinces.find(p => p.id === 'echizen');
+      if (shibaTakatsune1331?.isDaimyo && shibaTakatsune1331?.clanId === 'shiba' &&
+          !shibaIenaga1331?.isDaimyo && shibaIenaga1331?.clanId === 'shiba' &&
+          rikuchu1331?.ownerId === 'shiba' && echizen1331?.ownerId === 'shiba') {
+        log("PASS: 1331 Shiba Takatsune is daimyo of Shiba, Ienaga retainer");
+      } else {
+        log("FAIL: 1331 Shiba Takatsune / Ienaga: " + shibaTakatsune1331?.isDaimyo + "/" + shibaIenaga1331?.isDaimyo);
+      }
+
+      const shibaIekane1331 = g.activeOfficers.find(o => o.id === 'off_jd_322');
+      const uzen1331 = g.provinces.find(p => p.id === 'uzen');
+      if (shibaIekane1331?.isDaimyo && shibaIekane1331?.clanId === 'shiba_uzen' && uzen1331?.ownerId === 'shiba_uzen') {
+        log("PASS: 1331 Shiba Iekane is daimyo of shiba_uzen in Uzen");
+      } else {
+        log("FAIL: 1331 Shiba Iekane: " + shibaIekane1331?.clanId);
+      }
+
+      const kasai1331 = g.activeOfficers.find(o => o.id === 'off_dm_kasai_1331');
+      if (kasai1331?.defaultProv === 'rikuchu' && kasai1331?.clanId === 'shiba' && !kasai1331?.isDaimyo) {
+        log("PASS: 1331 Kasai Kiyosada moved to Rikuchu under Shiba");
+      } else {
+        log("FAIL: 1331 Kasai Kiyosada: " + kasai1331?.defaultProv + "/" + kasai1331?.clanId);
+      }
+
+      const sadauji1331 = g.activeOfficers.find(o => o.id === 'off_ashikaga_sadauji');
+      if (sadauji1331?.clanId === 'ashikaga' && !sadauji1331?.isDaimyo) {
+        log("PASS: 1331 Ashikaga Sadauji retainer of Ashikaga");
+      } else {
+        log("FAIL: 1331 Ashikaga Sadauji: " + sadauji1331?.clanId);
+      }
+
+      const sadamune1331 = g.activeOfficers.find(o => o.id === 'off_ogasawara_sadamune');
+      const nagauji1331 = g.activeOfficers.find(o => o.id === 'off_succ_ogasawara_1275_111');
+      const s_shinano1331 = g.provinces.find(p => p.id === 'south_shinano');
+      if (s_shinano1331?.ownerId === 'ogasawara' && sadamune1331?.isDaimyo && sadamune1331?.clanId === 'ogasawara' && sadamune1331?.defaultProv === 'south_shinano' && nagauji1331?.clanId === 'ogasawara' && nagauji1331?.defaultProv === 'south_shinano') {
+        log("PASS: 1331 Ogasawara Sadamune daimyo in South Shinano, Nagauji in South Shinano");
+      } else {
+        log("FAIL: 1331 Ogasawara in South Shinano: " + s_shinano1331?.ownerId + "/" + sadamune1331?.clanId + "/" + sadamune1331?.isDaimyo);
+      }
+
+      const kunikiyo1331 = g.activeOfficers.find(o => o.id === 'off_succ_murakami_1300_98');
+      const n_shinano1331 = g.provinces.find(p => p.id === 'north_shinano');
+      if (n_shinano1331?.ownerId === 'murakami' && kunikiyo1331?.isDaimyo && kunikiyo1331?.clanId === 'murakami' && kunikiyo1331?.defaultProv === 'north_shinano') {
+        log("PASS: 1331 Murakami Kunikiyo daimyo in North Shinano");
+      } else {
+        log("FAIL: 1331 Murakami Kunikiyo in North Shinano: " + n_shinano1331?.ownerId + "/" + kunikiyo1331?.clanId + "/" + kunikiyo1331?.isDaimyo);
+      }
+
+      const chigusa1331 = g.activeOfficers.find(o => o.id === 'off_chigusa_tadaaki');
+      const noto1331 = g.provinces.find(p => p.id === 'noto');
+      if (chigusa1331?.defaultProv === 'yamato' && noto1331?.governorId !== 'off_chigusa_tadaaki') {
+        log("PASS: 1331 Chigusa Tadaaki moved from Noto to Yamato");
+      } else {
+        log("FAIL: 1331 Chigusa Tadaaki: " + chigusa1331?.defaultProv + "/" + noto1331?.governorId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1333
+      // ==========================================
+      log("--- SCENARIO 1333 ---");
+      g.switchScenario('1333');
+      await new Promise(r => setTimeout(r, 400));
+
+      const shibaTakatsune1333 = g.activeOfficers.find(o => o.id === 'off_shiba_takatsune');
+      const shibaIenaga1333 = g.activeOfficers.find(o => o.id === 'off_shiba_ienaga');
+      if (shibaTakatsune1333?.isDaimyo && shibaTakatsune1333?.clanId === 'shiba' && !shibaIenaga1333?.isDaimyo) {
+        log("PASS: 1333 Shiba Takatsune is daimyo of Shiba");
+      } else {
+        log("FAIL: 1333 Shiba Takatsune / Ienaga: " + shibaTakatsune1333?.isDaimyo + "/" + shibaIenaga1333?.isDaimyo);
+      }
+
+      const shibaIekane1333 = g.activeOfficers.find(o => o.id === 'off_jd_322');
+      const uzen1333 = g.provinces.find(p => p.id === 'uzen');
+      if (shibaIekane1333?.isDaimyo && shibaIekane1333?.clanId === 'shiba_uzen' && uzen1333?.ownerId === 'shiba_uzen') {
+        log("PASS: 1333 Shiba Iekane is daimyo of shiba_uzen in Uzen");
+      } else {
+        log("FAIL: 1333 Shiba Iekane: " + shibaIekane1333?.clanId);
+      }
+
+      const uesugiNoriaki1333 = g.activeOfficers.find(o => o.id === 'off_uesugi_noriaki_first');
+      const musashi1333 = g.provinces.find(p => p.id === 'musashi');
+      if (uesugiNoriaki1333?.assignedProvId === 'musashi' && musashi1333?.governorId === 'off_uesugi_noriaki_first') {
+        log("PASS: 1333 Uesugi Noriaki is governor of Musashi");
+      } else {
+        log("FAIL: 1333 Uesugi Noriaki: assigned=" + uesugiNoriaki1333?.assignedProvId + ", gov=" + musashi1333?.governorId);
+      }
+
+      const miuraTokitaka1333 = g.activeOfficers.find(o => o.id === 'off_miura_tokitaka_kama');
+      const sagami1333 = g.provinces.find(p => p.id === 'sagami');
+      if (miuraTokitaka1333?.defaultProv === 'sagami' && sagami1333?.governorId !== 'off_miura_tokitaka_kama') {
+        log("PASS: 1333 Miura Tokitaka standby in Sagami");
+      } else {
+        log("FAIL: 1333 Miura Tokitaka: " + miuraTokitaka1333?.defaultProv);
+      }
+
+      const moronao1333 = g.activeOfficers.find(o => o.id === 'off_ko_no_moronao');
+      if (moronao1333?.defaultProv === 'sagami' && musashi1333?.governorId !== 'off_ko_no_moronao') {
+        log("PASS: 1333 Ko no Moronao in Sagami");
+      } else {
+        log("FAIL: 1333 Ko no Moronao: " + moronao1333?.defaultProv);
+      }
+
+      const morofuyu1333 = g.activeOfficers.find(o => o.id === 'off_ko_no_morofuyu');
+      const kazusa1333 = g.provinces.find(p => p.id === 'kazusa');
+      if (morofuyu1333?.defaultProv === 'sagami' && kazusa1333?.governorId !== 'off_ko_no_morofuyu') {
+        log("PASS: 1333 Ko no Morofuyu in Sagami");
+      } else {
+        log("FAIL: 1333 Ko no Morofuyu: " + morofuyu1333?.defaultProv);
+      }
+
+      const moroyasu1333 = g.activeOfficers.find(o => o.id === 'off_ko_no_moroyasu');
+      const totomi1333 = g.provinces.find(p => p.id === 'totomi');
+      if (moroyasu1333?.defaultProv === 'sagami' && totomi1333?.governorId !== 'off_ko_no_moroyasu') {
+        log("PASS: 1333 Ko no Moroyasu in Sagami");
+      } else {
+        log("FAIL: 1333 Ko no Moroyasu: " + moroyasu1333?.defaultProv);
+      }
+
+      const yukiChikatomo1333 = g.activeOfficers.find(o => o.id === 'off_yuki_chikatomo');
+      const izu1333 = g.provinces.find(p => p.id === 'izu');
+      if (yukiChikatomo1333?.defaultProv === 'iwaki' && izu1333?.governorId !== 'off_yuki_chikatomo') {
+        log("PASS: 1333 Yuki Chikatomo in Iwaki");
+      } else {
+        log("FAIL: 1333 Yuki Chikatomo: " + yukiChikatomo1333?.defaultProv);
+      }
+
+      const tadayoshi1333 = g.activeOfficers.find(o => o.id === 'off_ashikaga_tadayoshi');
+      const mikawa1333 = g.provinces.find(p => p.id === 'mikawa');
+      if (tadayoshi1333?.defaultProv === 'sagami' && mikawa1333?.governorId !== 'off_ashikaga_tadayoshi') {
+        log("PASS: 1333 Ashikaga Tadayoshi in Sagami");
+      } else {
+        log("FAIL: 1333 Ashikaga Tadayoshi: " + tadayoshi1333?.defaultProv);
+      }
+
+      const yoshimi1333 = g.activeOfficers.find(o => o.id === 'off_jd_213');
+      const noto1333 = g.provinces.find(p => p.id === 'noto');
+      if (yoshimi1333?.assignedProvId === 'mikawa' && mikawa1333?.governorId === 'off_jd_213' && noto1333?.governorId !== 'off_jd_213') {
+        log("PASS: 1333 Yoshimi Sadayoshi in Mikawa (governor)");
+      } else {
+        log("FAIL: 1333 Yoshimi Sadayoshi: " + yoshimi1333?.assignedProvId + ", mikawa gov=" + mikawa1333?.governorId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1336
+      // ==========================================
+      log("--- SCENARIO 1336 ---");
+      g.switchScenario('1336');
+      await new Promise(r => setTimeout(r, 400));
+
+      const nanbuMoroyuki1336 = g.activeOfficers.find(o => o.id === 'off_dm_nanbu_1331');
+      const nanbuMasanaga1336 = g.activeOfficers.find(o => o.id === 'off_nanbu_masanaga');
+      const nanbuNobumitsu1336 = g.activeOfficers.find(o => o.id === 'off_nanbu_nobumitsu');
+      const nanbuMasayuki1336 = g.activeOfficers.find(o => o.id === 'off_succ2_nanbu_1285');
+      if (nanbuMoroyuki1336?.defaultProv === 'mutsu' && nanbuMasanaga1336?.defaultProv === 'mutsu' &&
+          nanbuNobumitsu1336?.defaultProv === 'mutsu' && nanbuMasayuki1336?.defaultProv === 'mutsu') {
+        log("PASS: 1336 Nanbu officers moved from Rikuchu to Mutsu");
+      } else {
+        log("FAIL: 1336 Nanbu officers: " + [nanbuMoroyuki1336?.defaultProv, nanbuMasanaga1336?.defaultProv, nanbuNobumitsu1336?.defaultProv, nanbuMasayuki1336?.defaultProv].join(', '));
+      }
+
+      const kasai1336 = g.activeOfficers.find(o => o.id === 'off_dm_kasai_1331');
+      if (kasai1336?.clanId === 'ronin' && !kasai1336?.isDaimyo) {
+        log("PASS: 1336 Kasai Kiyosada is ronin");
+      } else {
+        log("FAIL: 1336 Kasai Kiyosada: " + kasai1336?.clanId);
+      }
+
+      const shibaIekane1336 = g.activeOfficers.find(o => o.id === 'off_jd_322');
+      const uzen1336 = g.provinces.find(p => p.id === 'uzen');
+      const rikuchu1336 = g.provinces.find(p => p.id === 'rikuchu');
+      if (shibaIekane1336?.isDaimyo && shibaIekane1336?.clanId === 'shiba_uzen' &&
+          uzen1336?.ownerId === 'shiba_uzen' && rikuchu1336?.ownerId === 'shiba_uzen') {
+        log("PASS: 1336 Shiba Iekane daimyo of shiba_uzen owns Uzen and Rikuchu");
+      } else {
+        log("FAIL: 1336 Shiba Iekane / Uzen / Rikuchu: " + shibaIekane1336?.clanId);
+      }
+
+      const moroyasu1336 = g.activeOfficers.find(o => o.id === 'off_ko_no_moroyasu');
+      if (moroyasu1336?.defaultProv === 'sagami') {
+        log("PASS: 1336 Ko no Moroyasu in Sagami");
+      } else {
+        log("FAIL: 1336 Ko no Moroyasu: " + moroyasu1336?.defaultProv);
+      }
+
+      const morofuyu1336 = g.activeOfficers.find(o => o.id === 'off_ko_no_morofuyu');
+      log("DEBUG 1336 morofuyu: default=" + morofuyu1336?.defaultProv + ", assigned=" + morofuyu1336?.assignedProvId + ", clan=" + morofuyu1336?.clanId + ", isDaimyo=" + morofuyu1336?.isDaimyo);
+      if (morofuyu1336?.defaultProv === 'sagami') {
+        log("PASS: 1336 Ko no Morofuyu in Sagami");
+      } else {
+        log("FAIL: 1336 Ko no Morofuyu: " + morofuyu1336?.defaultProv);
+      }
+
+      const utsunomiyaKintsuna1336 = g.activeOfficers.find(o => o.id === 'off_utsunomiya_kintsuna');
+      const utsunomiyaUjitsuna1336 = g.activeOfficers.find(o => o.id === 'off_utsunomiya_ujitsuna');
+      log("DEBUG 1336 kintsuna: default=" + utsunomiyaKintsuna1336?.defaultProv + ", clan=" + utsunomiyaKintsuna1336?.clanId + ", isDaimyo=" + utsunomiyaKintsuna1336?.isDaimyo);
+      log("DEBUG 1336 ujitsuna: default=" + utsunomiyaUjitsuna1336?.defaultProv + ", clan=" + utsunomiyaUjitsuna1336?.clanId + ", isDaimyo=" + utsunomiyaUjitsuna1336?.isDaimyo);
+
+      const utsunomiyaKintsuna1336 = g.activeOfficers.find(o => o.id === 'off_utsunomiya_kintsuna');
+      const utsunomiyaUjitsuna1336 = g.activeOfficers.find(o => o.id === 'off_utsunomiya_ujitsuna');
+      if (utsunomiyaKintsuna1336?.clanId === 'ashikaga' && utsunomiyaKintsuna1336?.defaultProv === 'awa_boshu' &&
+          utsunomiyaUjitsuna1336?.clanId === 'ashikaga' && utsunomiyaUjitsuna1336?.defaultProv === 'awa_boshu') {
+        log("PASS: 1336 Utsunomiya clan in Awa under Ashikaga");
+      } else {
+        log("FAIL: 1336 Utsunomiya clan in Awa: " + utsunomiyaKintsuna1336?.clanId + "/" + utsunomiyaKintsuna1336?.defaultProv);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1350
+      // ==========================================
+      log("--- SCENARIO 1350 ---");
+      g.switchScenario('1350');
+      await new Promise(r => setTimeout(r, 400));
+
+      const shibaIekane1350 = g.activeOfficers.find(o => o.id === 'off_jd_322');
+      const uzen1350 = g.provinces.find(p => p.id === 'uzen');
+      const rikuchu1350 = g.provinces.find(p => p.id === 'rikuchu');
+      if (shibaIekane1350?.isDaimyo && shibaIekane1350?.clanId === 'shiba_uzen' &&
+          uzen1350?.ownerId === 'shiba_uzen' && rikuchu1350?.ownerId === 'shiba_uzen') {
+        log("PASS: 1350 Shiba Iekane daimyo of shiba_uzen owns Uzen and Rikuchu");
+      } else {
+        log("FAIL: 1350 Shiba Iekane / Uzen / Rikuchu: " + shibaIekane1350?.clanId);
+      }
+
+      const nagai1350 = g.activeOfficers.find(o => o.id === 'off_jd_227');
+      if (nagai1350?.clanId === 'shiba_uzen' && !nagai1350?.isDaimyo) {
+        log("PASS: 1350 Nagai Hirohide retainer of shiba_uzen");
+      } else {
+        log("FAIL: 1350 Nagai Hirohide: " + nagai1350?.clanId);
+      }
+
+      const kasai1350 = g.activeOfficers.find(o => o.id === 'off_dm_kasai_1331');
+      if (kasai1350?.clanId === 'ronin' && kasai1350?.defaultProv === 'rikuchu' && !kasai1350?.isDaimyo) {
+        log("PASS: 1350 Kasai Kiyosada is ronin in Rikuchu");
+      } else {
+        log("FAIL: 1350 Kasai Kiyosada: " + kasai1350?.clanId + "/" + kasai1350?.defaultProv);
+      }
+
+      const ogasawara1350 = g.activeOfficers.find(o => o.id === 'off_ogasawara_naganori');
+      const southShinano1350 = g.provinces.find(p => p.id === 'south_shinano');
+      if (ogasawara1350?.isDaimyo && ogasawara1350?.clanId === 'ogasawara' &&
+          southShinano1350?.ownerId === 'ogasawara' && ogasawara1350?.assignedProvId === 'south_shinano') {
+        log("PASS: 1350 Ogasawara Naganori daimyo in South Shinano");
+      } else {
+        log("FAIL: 1350 Ogasawara Naganori: " + ogasawara1350?.clanId);
+      }
+
+      const tokiyuki1350 = g.activeOfficers.find(o => o.id === 'off_hojo_tokiyuki');
+      if (tokiyuki1350?.defaultProv === 'south_shinano' && southShinano1350?.governorId !== 'off_hojo_tokiyuki') {
+        log("PASS: 1350 Hojo Tokiyuki in South Shinano");
+      } else {
+        log("FAIL: 1350 Hojo Tokiyuki: " + tokiyuki1350?.defaultProv);
+      }
+
+      const murakamiNobusada1350 = g.activeOfficers.find(o => o.id === 'off_murakami_nobusada');
+      const murakamiKunikiyo1350 = g.activeOfficers.find(o => o.id === 'off_succ_murakami_1300_98');
+      const northShinano1350 = g.provinces.find(p => p.id === 'north_shinano');
+      if (murakamiNobusada1350?.isDaimyo && murakamiNobusada1350?.clanId === 'murakami' &&
+          northShinano1350?.ownerId === 'murakami' && murakamiNobusada1350?.assignedProvId === 'north_shinano' &&
+          murakamiKunikiyo1350?.clanId === 'murakami' && !murakamiKunikiyo1350?.isDaimyo) {
+        log("PASS: 1350 Murakami Nobusada daimyo in North Shinano, Kunikiyo retainer");
+      } else {
+        log("FAIL: 1350 Murakami: " + murakamiNobusada1350?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1359
+      // ==========================================
+      log("--- SCENARIO 1359 ---");
+      g.switchScenario('1359');
+      await new Promise(r => setTimeout(r, 400));
+
+      const kasai1359 = g.activeOfficers.find(o => o.id === 'off_dm_kasai_1331');
+      const mitsusada1359 = g.activeOfficers.find(o => o.id === 'off_kasai_mitsusada');
+      const rikuchu1359 = g.provinces.find(p => p.id === 'rikuchu');
+      if (kasai1359?.isDaimyo && kasai1359?.clanId === 'kasai' && rikuchu1359?.ownerId === 'kasai' &&
+          mitsusada1359?.clanId === 'kasai' && !mitsusada1359?.isDaimyo) {
+        log("PASS: 1359 Kasai Kiyosada daimyo in Rikuchu, Mitsusada retainer");
+      } else {
+        log("FAIL: 1359 Kasai: Kiyosada=" + kasai1359?.clanId + "/" + kasai1359?.isDaimyo + "/" + rikuchu1359?.ownerId + ", Mitsusada=" + mitsusada1359?.clanId + "/" + mitsusada1359?.isDaimyo);
+      }
+
+      const miuraTakatsugu1359 = g.activeOfficers.find(o => o.id === 'off_miura_takatsugu');
+      const miuraTokitaka1359 = g.activeOfficers.find(o => o.id === 'off_miura_tokitaka_kama');
+      const sagami1359 = g.provinces.find(p => p.id === 'sagami');
+      if (miuraTakatsugu1359?.defaultProv === 'sagami' && miuraTokitaka1359?.defaultProv === 'sagami' &&
+          sagami1359?.governorId !== 'off_miura_takatsugu' && sagami1359?.governorId !== 'off_miura_tokitaka_kama') {
+        log("PASS: 1359 Miura clan standby in Sagami");
+      } else {
+        log("FAIL: 1359 Miura: Takatsugu=" + miuraTakatsugu1359?.defaultProv + ", Tokitaka=" + miuraTokitaka1359?.defaultProv + ", sagami gov=" + sagami1359?.governorId);
+      }
+
+      const etchu1359 = g.provinces.find(p => p.id === 'etchu');
+      if (etchu1359?.ownerId === 'hatakeyama') {
+        log("PASS: 1359 Etchu is owned by Hatakeyama");
+      } else {
+        log("FAIL: 1359 Etchu: " + etchu1359?.ownerId);
+      }
+
+      const wakasa1359 = g.provinces.find(p => p.id === 'wakasa');
+      const shiba1359 = g.activeOfficers.find(o => o.id === 'off_shiba_takatsune');
+      if (wakasa1359?.ownerId === 'shiba' && shiba1359?.isDaimyo) {
+        log("PASS: 1359 Wakasa is owned by Shiba (Takatsune daimyo)");
+      } else {
+        log("FAIL: 1359 Wakasa: " + wakasa1359?.ownerId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1391
+      // ==========================================
+      log("--- SCENARIO 1391 ---");
+      g.switchScenario('1391');
+      await new Promise(r => setTimeout(r, 400));
+
+      const takeda1391 = g.activeOfficers.find(o => o.id === 'off_takeda_nobuharu');
+      const kai1391 = g.provinces.find(p => p.id === 'kai');
+      if (takeda1391?.isDaimyo && takeda1391?.clanId === 'takeda' && kai1391?.ownerId === 'takeda' && kai1391?.governorId === 'off_takeda_nobuharu') {
+        log("PASS: 1391 Takeda Nobuharu daimyo in Kai");
+      } else {
+        log("FAIL: 1391 Takeda Nobuharu: " + takeda1391?.clanId + "/" + takeda1391?.isDaimyo + "/" + kai1391?.ownerId + ", gov=" + kai1391?.governorId);
+      }
+
+      const nagahide1391 = g.activeOfficers.find(o => o.id === 'off_succ_ogasawara_1365_112');
+      const northShinano1391 = g.provinces.find(p => p.id === 'north_shinano');
+      if (nagahide1391?.defaultProv === 'south_shinano' && northShinano1391?.governorId !== 'off_succ_ogasawara_1365_112') {
+        log("PASS: 1391 Ogasawara Nagahide in South Shinano");
+      } else {
+        log("FAIL: 1391 Ogasawara Nagahide: " + nagahide1391?.defaultProv + ", north gov=" + northShinano1391?.governorId);
+      }
+
+      const masanaga1391 = g.activeOfficers.find(o => o.id === 'off_nanbu_masanaga');
+      if (masanaga1391?.defaultProv === 'rikuchu') {
+        log("PASS: 1391 Nanbu Masanaga in Rikuchu");
+      } else {
+        log("FAIL: 1391 Nanbu Masanaga: " + masanaga1391?.defaultProv);
+      }
+
+      const ujimitsu1391 = g.activeOfficers.find(o => o.id === 'off_ashikaga_ujimitsu');
+      const sagami1391 = g.provinces.find(p => p.id === 'sagami');
+      if (ujimitsu1391?.defaultProv === 'sagami' && ujimitsu1391?.isDaimyo && sagami1391?.governorId === 'off_ashikaga_ujimitsu') {
+        log("PASS: 1391 Ashikaga Ujimitsu in Sagami (daimyo)");
+      } else {
+        log("FAIL: 1391 Ashikaga Ujimitsu: " + ujimitsu1391?.defaultProv + "/" + ujimitsu1391?.isDaimyo + ", sagami gov=" + sagami1391?.governorId);
+      }
+
+      const yoshinaga1391 = g.activeOfficers.find(o => o.id === 'off_jd_403');
+      if (yoshinaga1391?.defaultProv === 'awa_boshu' && yoshinaga1391?.clanId === 'satomi') {
+        log("PASS: 1391 Satomi Yoshinaga in Awa");
+      } else {
+        log("FAIL: 1391 Satomi Yoshinaga: " + yoshinaga1391?.defaultProv + "/" + yoshinaga1391?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1400
+      // ==========================================
+      log("--- SCENARIO 1400 ---");
+      g.switchScenario('1400');
+      await new Promise(r => setTimeout(r, 400));
+
+      const suwa1400 = g.activeOfficers.find(o => o.id === 'off_succ_suwa_1365_185');
+      if (suwa1400?.defaultProv === 'south_shinano') {
+        log("PASS: 1400 Suwa Yorimitsu in South Shinano");
+      } else {
+        log("FAIL: 1400 Suwa Yorimitsu: " + suwa1400?.defaultProv);
+      }
+
+      const northShinano1400 = g.provinces.find(p => p.id === 'north_shinano');
+      if (northShinano1400?.ownerId === 'ogasawara') {
+        log("PASS: 1400 North Shinano owned by Ogasawara");
+      } else {
+        log("FAIL: 1400 North Shinano: " + northShinano1400?.ownerId);
+      }
+
+      const southShinano1400 = g.provinces.find(p => p.id === 'south_shinano');
+      if (southShinano1400?.ownerId === 'ogasawara') {
+        log("PASS: 1400 South Shinano owned by Ogasawara");
+      } else {
+        log("FAIL: 1400 South Shinano: " + southShinano1400?.ownerId);
+      }
+
+      const hyuga1400 = g.provinces.find(p => p.id === 'hyuga');
+      if (hyuga1400?.ownerId === 'ashikaga') {
+        log("PASS: 1400 Hyuga owned by Ashikaga");
+      } else {
+        log("FAIL: 1400 Hyuga: " + hyuga1400?.ownerId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1467
+      // ==========================================
+      log("--- SCENARIO 1467 ---");
+      g.switchScenario('1467');
+      await new Promise(r => setTimeout(r, 400));
+
+      const fusasada1467 = g.activeOfficers.find(o => o.id === 'off_uesugi_fusasada');
+      const echigo1467 = g.provinces.find(p => p.id === 'echigo');
+      const musashi1467 = g.provinces.find(p => p.id === 'musashi');
+      if (fusasada1467?.defaultProv === 'echigo' && fusasada1467?.clanId === 'uesugi' && musashi1467?.governorId !== 'off_uesugi_fusasada') {
+        log("PASS: 1467 Uesugi Fusasada in Echigo under Uesugi");
+      } else {
+        log("FAIL: 1467 Uesugi Fusasada: " + fusasada1467?.defaultProv + "/" + fusasada1467?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1495
+      // ==========================================
+      log("--- SCENARIO 1495 ---");
+      g.switchScenario('1495');
+      await new Promise(r => setTimeout(r, 400));
+
+      // 1. 扇ガ谷上杉氏を武蔵に大名として独立
+      const tomoyoshi1495 = g.activeOfficers.find(o => o.id === 'off_uesugi_tomoyoshi_1495');
+      const musashi1495 = g.provinces.find(p => p.id === 'musashi');
+      if (tomoyoshi1495?.isDaimyo && tomoyoshi1495?.clanId === 'ogigayatsu' && musashi1495?.ownerId === 'ogigayatsu' && musashi1495?.governorId === 'off_uesugi_tomoyoshi_1495') {
+        log("PASS: 1495 Ogigayatsu Uesugi (Tomoyoshi) daimyo in Musashi");
+      } else {
+        log("FAIL: 1495 Ogigayatsu Uesugi: " + tomoyoshi1495?.clanId + "/" + tomoyoshi1495?.isDaimyo + "/" + musashi1495?.ownerId);
+      }
+
+      // 2. 扇ガ谷上杉氏配下に太田資康を配置
+      const sukeyasu1495 = g.activeOfficers.find(o => o.id === 'off_ota_sukeyasu');
+      if (sukeyasu1495?.clanId === 'ogigayatsu' && sukeyasu1495?.defaultProv === 'musashi' && !sukeyasu1495?.isDaimyo) {
+        log("PASS: 1495 Ota Sukeyasu retainer of Ogigayatsu Uesugi");
+      } else {
+        log("FAIL: 1495 Ota Sukeyasu: " + sukeyasu1495?.clanId + "/" + sukeyasu1495?.defaultProv + "/" + sukeyasu1495?.isDaimyo);
+      }
+
+      // 3. 陸中に葛西氏を武将として追加して、葛西氏を大名として独立
+      const kasai1495 = g.activeOfficers.find(o => o.id === 'off_kasai_hisanobu');
+      const rikuchu1495 = g.provinces.find(p => p.id === 'rikuchu');
+      if (kasai1495?.isDaimyo && kasai1495?.clanId === 'kasai' && rikuchu1495?.ownerId === 'kasai' && rikuchu1495?.governorId === 'off_kasai_hisanobu') {
+        log("PASS: 1495 Kasai Hisanobu daimyo in Rikuchu");
+      } else {
+        log("FAIL: 1495 Kasai Hisanobu: " + kasai1495?.clanId + "/" + kasai1495?.isDaimyo + "/" + rikuchu1495?.ownerId);
+      }
+
+      // 4. 大崎氏も浪人として陸中に登場
+      const osaki1495 = g.activeOfficers.find(o => o.id === 'off_osaki_yoshikane_1495');
+      if (osaki1495?.clanId === 'ronin' && osaki1495?.defaultProv === 'rikuchu') {
+        log("PASS: 1495 Osaki Yoshikane ronin in Rikuchu");
+      } else {
+        log("FAIL: 1495 Osaki Yoshikane: " + osaki1495?.clanId + "/" + osaki1495?.defaultProv);
+      }
+
+      // 5. 斯波氏も浪人として陸中に登場
+      const shiba1495 = g.activeOfficers.find(o => o.id === 'off_shiba_akitaka_1495');
+      if (shiba1495?.clanId === 'ronin' && shiba1495?.defaultProv === 'rikuchu') {
+        log("PASS: 1495 Shiba Akitaka ronin in Rikuchu");
+      } else {
+        log("FAIL: 1495 Shiba Akitaka: " + shiba1495?.clanId + "/" + shiba1495?.defaultProv);
+      }
+
+      // 6. 陶氏久は石見から周防に移動
+      const sue1495 = g.activeOfficers.find(o => o.id === 'off_sue_ujihisa');
+      if (sue1495?.defaultProv === 'suo' && sue1495?.clanId === 'ouchi') {
+        log("PASS: 1495 Sue Ujihisa moved to Suo under Ouchi");
+      } else {
+        log("FAIL: 1495 Sue Ujihisa: " + sue1495?.defaultProv + "/" + sue1495?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1531
+      // ==========================================
+      log("--- SCENARIO 1531 ---");
+      g.switchScenario('1531');
+      await new Promise(r => setTimeout(r, 400));
+
+      const kasai1531 = g.activeOfficers.find(o => o.id === 'off_kasai_harushige_1531');
+      const rikuchu1531 = g.provinces.find(p => p.id === 'rikuchu');
+      if (kasai1531?.isDaimyo && kasai1531?.clanId === 'kasai' && rikuchu1531?.ownerId === 'kasai') {
+        log("PASS: 1531 Kasai Harushige daimyo in Rikuchu");
+      } else {
+        log("FAIL: 1531 Kasai Harushige: " + kasai1531?.clanId + "/" + kasai1531?.isDaimyo);
+      }
+
+      const chiba1531 = g.activeOfficers.find(o => o.id === 'off_chiba_masatane');
+      if (chiba1531?.defaultProv === 'shimousa' && chiba1531?.clanId === 'kamakura_fu') {
+        log("PASS: 1531 Chiba Masatane moved to Shimousa under Haruuji");
+      } else {
+        log("FAIL: 1531 Chiba Masatane: " + chiba1531?.defaultProv + "/" + chiba1531?.clanId);
+      }
+
+      const kazusa1531 = g.provinces.find(p => p.id === 'kazusa');
+      const yoshiaki1531 = g.activeOfficers.find(o => o.id === 'off_ashikaga_yoshiaki_oyumi');
+      if (kazusa1531?.ownerId === 'ashikaga_oyumi' && yoshiaki1531?.isDaimyo && yoshiaki1531?.clanId === 'ashikaga_oyumi') {
+        log("PASS: 1531 Ashikaga Yoshiaki daimyo of Oyumi in Kazusa");
+      } else {
+        log("FAIL: 1531 Ashikaga Yoshiaki: " + kazusa1531?.ownerId + "/" + yoshiaki1531?.clanId);
+      }
+
+      const shimousa1531 = g.provinces.find(p => p.id === 'shimousa');
+      const haruuji1531 = g.activeOfficers.find(o => o.id === 'off_ashikaga_haruuji');
+      const takamoto1531 = g.activeOfficers.find(o => o.id === 'off_ashikaga_takamoto');
+      const masauji1531 = g.activeOfficers.find(o => o.id === 'off_ashikaga_masauji');
+      if (shimousa1531?.ownerId === 'kamakura_fu' && haruuji1531?.isDaimyo && haruuji1531?.clanId === 'kamakura_fu') {
+        log("PASS: 1531 Ashikaga Haruuji daimyo in Shimousa");
+      } else {
+        log("FAIL: 1531 Ashikaga Haruuji: " + shimousa1531?.ownerId + "/" + haruuji1531?.clanId);
+      }
+      if (takamoto1531 && takamoto1531.clanId === 'kamakura_fu' && !takamoto1531.isDaimyo && masauji1531 && masauji1531.clanId === 'kamakura_fu' && !masauji1531.isDaimyo) {
+        log("PASS: 1531 Takamoto and Masauji retainers under Haruuji");
+      } else {
+        log("FAIL: 1531 Takamoto/Masauji retainers: " + takamoto1531?.clanId + "/" + masauji1531?.clanId);
+      }
+
+      const kozuke1531 = g.provinces.find(p => p.id === 'kozuke');
+      const norimasa1531 = g.activeOfficers.find(o => o.id === 'off_dm_uesugi_1546');
+      if (kozuke1531?.ownerId === 'uesugi' && norimasa1531 && (norimasa1531.defaultProv === 'kozuke' || norimasa1531.assignedProvId === 'kozuke')) {
+        log("PASS: 1531 Uesugi Norimasa moved to Kozuke");
+      } else {
+        log("FAIL: 1531 Uesugi Norimasa: " + kozuke1531?.ownerId + "/" + norimasa1531?.defaultProv);
+      }
+
+      const musashi1531 = g.provinces.find(p => p.id === 'musashi');
+      const tomooki1531 = g.activeOfficers.find(o => o.id === 'off_uesugi_tomooki');
+      if (musashi1531?.ownerId === 'ogigayatsu' && tomooki1531?.isDaimyo && tomooki1531?.clanId === 'ogigayatsu') {
+        log("PASS: 1531 Ogigayatsu Uesugi (Tomooki) daimyo in Musashi");
+      } else {
+        log("FAIL: 1531 Ogigayatsu Uesugi: " + musashi1531?.ownerId + "/" + tomooki1531?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1538
+      // ==========================================
+      log("--- SCENARIO 1538 ---");
+      g.switchScenario('1538');
+      await new Promise(r => setTimeout(r, 400));
+
+      const mutsu1538 = g.provinces.find(p => p.id === 'mutsu');
+      const harumasa1538 = g.activeOfficers.find(o => o.id === 'off_nanbu_harumasa');
+      const takanobu1538 = g.activeOfficers.find(o => o.id === 'off_succ2_nanbu_1495');
+      const nobuchika1538 = g.activeOfficers.find(o => o.id === 'off_kita_nobuchika');
+      if (mutsu1538?.ownerId === 'nanbu' && harumasa1538?.isDaimyo && harumasa1538?.clanId === 'nanbu') {
+        log("PASS: 1538 Nanbu Harumasa daimyo owns Mutsu");
+      } else {
+        log("FAIL: 1538 Nanbu Harumasa: " + mutsu1538?.ownerId + "/" + harumasa1538?.clanId);
+      }
+      if (takanobu1538?.defaultProv === 'mutsu' && nobuchika1538?.defaultProv === 'mutsu') {
+        log("PASS: 1538 Nanbu Takanobu and Kita Nobuchika in Mutsu");
+      } else {
+        log("FAIL: 1538 Takanobu/Nobuchika: " + takanobu1538?.defaultProv + "/" + nobuchika1538?.defaultProv);
+      }
+
+      const rikuchu1538 = g.provinces.find(p => p.id === 'rikuchu');
+      const kasai1538 = g.activeOfficers.find(o => o.id === 'off_kasai_harushige_1531');
+      if (rikuchu1538?.ownerId === 'kasai' && kasai1538?.isDaimyo && kasai1538?.clanId === 'kasai') {
+        log("PASS: 1538 Kasai Harushige daimyo in Rikuchu");
+      } else {
+        log("FAIL: 1538 Kasai Harushige: " + rikuchu1538?.ownerId + "/" + kasai1538?.clanId);
+      }
+
+      const osaki1538 = g.activeOfficers.find(o => o.id === 'off_osaki_yoshinao_1538');
+      const shiba1538 = g.activeOfficers.find(o => o.id === 'off_shiba_akitaka_1495');
+      if (osaki1538?.clanId === 'ronin' && osaki1538?.defaultProv === 'rikuchu' && shiba1538?.clanId === 'ronin' && shiba1538?.defaultProv === 'rikuchu') {
+        log("PASS: 1538 Osaki Yoshinao and Shiba Akitaka ronin in Rikuchu");
+      } else {
+        log("FAIL: 1538 Osaki/Shiba ronin: " + osaki1538?.clanId + "/" + shiba1538?.clanId);
+      }
+
+      const shimousa1538 = g.provinces.find(p => p.id === 'shimousa');
+      const haruuji1538 = g.activeOfficers.find(o => o.id === 'off_ashikaga_haruuji');
+      const takamoto1538 = g.activeOfficers.find(o => o.id === 'off_ashikaga_takamoto');
+      if (shimousa1538?.ownerId === 'kamakura_fu' && haruuji1538?.isDaimyo && haruuji1538?.clanId === 'kamakura_fu' && takamoto1538?.clanId === 'kamakura_fu' && !takamoto1538?.isDaimyo) {
+        log("PASS: 1538 Ashikaga Haruuji daimyo in Shimousa, Takamoto retainer");
+      } else {
+        log("FAIL: 1538 Haruuji/Takamoto: " + shimousa1538?.ownerId + "/" + haruuji1538?.clanId);
+      }
+
+      const kazusa1538 = g.provinces.find(p => p.id === 'kazusa');
+      const yoshiaki1538 = g.activeOfficers.find(o => o.id === 'off_ashikaga_yoshiaki_oyumi');
+      if (kazusa1538?.ownerId === 'ashikaga_oyumi' && yoshiaki1538?.isDaimyo && yoshiaki1538?.clanId === 'ashikaga_oyumi') {
+        log("PASS: 1538 Ashikaga Yoshiaki daimyo of Oyumi in Kazusa");
+      } else {
+        log("FAIL: 1538 Ashikaga Yoshiaki: " + kazusa1538?.ownerId + "/" + yoshiaki1538?.clanId);
+      }
+
+      const masaki1538 = g.activeOfficers.find(o => o.id === 'off_masaki_tokishige');
+      if (masaki1538?.defaultProv === 'awa_boshu' && masaki1538?.clanId === 'satomi') {
+        log("PASS: 1538 Masaki Tokishige moved to Awa under Satomi");
+      } else {
+        log("FAIL: 1538 Masaki Tokishige: " + masaki1538?.defaultProv + "/" + masaki1538?.clanId);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1546
+      // ==========================================
+      log("--- SCENARIO 1546 ---");
+      g.switchScenario('1546');
+      await new Promise(r => setTimeout(r, 400));
+
+      const mutsu1546 = g.provinces.find(p => p.id === 'mutsu');
+      const harumasa1546 = g.activeOfficers.find(o => o.id === 'off_nanbu_harumasa');
+      const takanobu1546 = g.activeOfficers.find(o => o.id === 'off_succ2_nanbu_1495');
+      if (mutsu1546?.ownerId === 'nanbu' && harumasa1546?.isDaimyo && harumasa1546?.clanId === 'nanbu' && takanobu1546?.defaultProv === 'mutsu') {
+        log("PASS: 1546 Nanbu Harumasa daimyo in Mutsu, Takanobu retainer in Mutsu");
+      } else {
+        log("FAIL: 1546 Nanbu Harumasa: " + mutsu1546?.ownerId + "/" + harumasa1546?.clanId);
+      }
+
+      const rikuchu1546 = g.provinces.find(p => p.id === 'rikuchu');
+      const kasai1546 = g.activeOfficers.find(o => o.id === 'off_kasai_harushige_1531');
+      if (rikuchu1546?.ownerId === 'kasai' && kasai1546?.isDaimyo && kasai1546?.clanId === 'kasai') {
+        log("PASS: 1546 Kasai Harushige daimyo in Rikuchu");
+      } else {
+        log("FAIL: 1546 Kasai Harushige: " + rikuchu1546?.ownerId + "/" + kasai1546?.clanId);
+      }
+
+      const osaki1546 = g.activeOfficers.find(o => o.id === 'off_osaki_yoshinao_1538');
+      const shiba1546 = g.activeOfficers.find(o => o.id === 'off_shiba_akitaka_1495');
+      if (osaki1546?.clanId === 'ronin' && osaki1546?.defaultProv === 'rikuchu' && shiba1546?.clanId === 'ronin' && shiba1546?.defaultProv === 'rikuchu') {
+        log("PASS: 1546 Osaki Yoshinao and Shiba Akitaka ronin in Rikuchu");
+      } else {
+        log("FAIL: 1546 Osaki/Shiba ronin: " + osaki1546?.clanId + "/" + shiba1546?.clanId);
+      }
+
+      const hara1546 = g.activeOfficers.find(o => o.id === 'off_hara_tanesada_1546');
+      if (hara1546?.defaultProv === 'shimousa') {
+        log("PASS: 1546 Hara Tanesada moved to Shimousa");
+      } else {
+        log("FAIL: 1546 Hara Tanesada: " + hara1546?.defaultProv);
+      }
+
+      const shimousa1546 = g.provinces.find(p => p.id === 'shimousa');
+      const toshitane1546 = g.activeOfficers.find(o => o.id === 'off_chiba_toshitane');
+      const masatane1546 = g.activeOfficers.find(o => o.id === 'off_chiba_masatane');
+      if (shimousa1546?.ownerId === 'chiba' && toshitane1546?.isDaimyo && toshitane1546?.clanId === 'chiba' && masatane1546?.clanId === 'chiba' && hara1546?.clanId === 'chiba') {
+        log("PASS: 1546 Chiba Toshitane daimyo in Shimousa, Masatane and Hara retainers");
+      } else {
+        log("FAIL: 1546 Chiba Toshitane: " + shimousa1546?.ownerId + "/" + toshitane1546?.clanId);
+      }
+
+      const haruuji1546 = g.activeOfficers.find(o => o.id === 'off_ashikaga_haruuji');
+      if (haruuji1546?.clanId === 'ronin') {
+        log("PASS: 1546 Ashikaga Haruuji is ronin");
+      } else {
+        log("FAIL: 1546 Ashikaga Haruuji: " + haruuji1546?.clanId);
+      }
+
+      const kozuke1546 = g.provinces.find(p => p.id === 'kozuke');
+      const norimasa1546 = g.activeOfficers.find(o => o.id === 'off_dm_uesugi_1546');
+      const nagano1546 = g.activeOfficers.find(o => o.id === 'off_nagano_narimasa');
+      if (kozuke1546?.ownerId === 'yamanouchi' && norimasa1546?.isDaimyo && norimasa1546?.clanId === 'yamanouchi' && nagano1546?.clanId === 'yamanouchi' && !nagano1546?.isDaimyo) {
+        log("PASS: 1546 Uesugi Norimasa daimyo in Kozuke, Nagano Narimasa retainer");
+      } else {
+        log("FAIL: 1546 Uesugi Norimasa in Kozuke: " + kozuke1546?.ownerId + "/" + norimasa1546?.clanId + "/" + norimasa1546?.isDaimyo);
+      }
+
+      const tomosada1546 = g.activeOfficers.find(o => o.id === 'off_uesugi_tomosada');
+      if (tomosada1546?.clanId === 'ronin' && tomosada1546?.defaultProv === 'musashi') {
+        log("PASS: 1546 Uesugi Tomosada ronin in Musashi");
+      } else {
+        log("FAIL: 1546 Uesugi Tomosada: " + tomosada1546?.clanId + "/" + tomosada1546?.defaultProv);
+      }
+
+      // ==========================================
+      // TEST SCENARIO 1555
+      // ==========================================
+      log("--- SCENARIO 1555 ---");
+      g.switchScenario('1555');
+      await new Promise(r => setTimeout(r, 400));
+
+      const toshitane1555 = g.activeOfficers.find(o => o.id === 'off_chiba_toshitane');
+      if (toshitane1555?.clanId === 'hojo' && toshitane1555?.defaultProv === 'shimousa') {
+        log("PASS: 1555 Chiba Toshitane in Shimousa under Hojo");
+      } else {
+        log("FAIL: 1555 Chiba Toshitane: " + toshitane1555?.clanId + "/" + toshitane1555?.defaultProv);
+      }
+
+      const harumasa1555 = g.activeOfficers.find(o => o.id === 'off_nanbu_harumasa');
+      const takanobu1555 = g.activeOfficers.find(o => o.id === 'off_succ2_nanbu_1495');
+      if (harumasa1555?.defaultProv === 'mutsu' && takanobu1555?.defaultProv === 'mutsu') {
+        log("PASS: 1555 Nanbu Harumasa and Takanobu in Mutsu");
+      } else {
+        log("FAIL: 1555 Harumasa/Takanobu: " + harumasa1555?.defaultProv + "/" + takanobu1555?.defaultProv);
+      }
+
+      const yoshikane1555 = g.activeOfficers.find(o => o.id === 'off_shiba_yoshikane');
+      if (yoshikane1555?.defaultProv === 'rikuchu') {
+        log("PASS: 1555 Shiba Yoshikane in Rikuchu");
+      } else {
+        log("FAIL: 1555 Shiba Yoshikane: " + yoshikane1555?.defaultProv);
+      }
+
+      const rikuchu1555 = g.provinces.find(p => p.id === 'rikuchu');
+      if (rikuchu1555?.ownerId === 'nanbu') {
+        log("PASS: 1555 Rikuchu still owned by Nanbu");
+      } else {
+        log("FAIL: 1555 Rikuchu owner: " + rikuchu1555?.ownerId);
+      }
+
+      const kozuke1555 = g.provinces.find(p => p.id === 'kozuke');
+      const norimasa1555 = g.activeOfficers.find(o => o.id === 'off_dm_uesugi_1546');
+      if (kozuke1555?.governorId === 'off_dm_uesugi_1546' && norimasa1555?.defaultProv === 'kozuke') {
+        log("PASS: 1555 Uesugi Norimasa moved to Kozuke and is governor");
+      } else {
+        log("FAIL: 1555 Uesugi Norimasa: " + kozuke1555?.governorId + "/" + norimasa1555?.defaultProv);
+      }
+
+      const shima1555 = g.provinces.find(p => p.id === 'shima');
+      const kuki1555 = g.activeOfficers.find(o => o.id === 'off_kuki_kiyotaka_1555');
+      if (kuki1555?.clanId === 'kuki' && kuki1555?.defaultProv === 'shima' && shima1555?.governorId === 'off_kuki_kiyotaka_1555') {
+        log("PASS: 1555 Kuki Kiyotaka active in Shima as daimyo/governor");
+      } else {
+        log("FAIL: 1555 Kuki Kiyotaka: " + kuki1555?.clanId + "/" + shima1555?.governorId);
+      }
+
+      log("ALL_TESTS_COMPLETED");
+    } catch (e) {
+      console.error("[TEST_ERROR] " + e.stack);
+    }
+  }, 1000);
+});
+</script>
 
 </body>
 </html>

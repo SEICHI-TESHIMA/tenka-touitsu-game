@@ -161,6 +161,8 @@ export const GameStateMethods = {
   // 再開案内用。セーブ時点の当主名を日本語で返す（英語IDには落とさない）,
 
   switchScenario(scenarioId) {
+    this._isSwitchingScenario = true;
+    this.playerClanId = null;
     this.activeOfficers = null;
     this.currentScenarioId = scenarioId;
     const scens = (window.SCENARIOS_DATA && window.SCENARIOS_DATA.length > 0) ? window.SCENARIOS_DATA : (SCENARIOS || []);
@@ -470,6 +472,7 @@ export const GameStateMethods = {
     // ここで領主データが反映された正確な位置・家紋でSVGマップを再構築する
     this.initSvgMap();
     this.updateMapDisplay();
+    this._isSwitchingScenario = false;
   },
 
   ensureAllPlayables(scen) {
@@ -522,13 +525,16 @@ export const GameStateMethods = {
           leaderName = master.family || clanId;
         }
         // シナリオ原本の当主名は残す（再訪時に前回の表示名で当主を選ばない）
-        item.scenarioLeaderName = existing.scenarioLeaderName || existing.name || existing.leaderName || leaderName;
-        // 当主名の最新化（生存中の大名武将を反映）
-        const currentLeader = this.getClanDaimyoOfficer(clanId);
-        if (currentLeader && currentLeader.name) {
-          item.name = currentLeader.name;
+        // 当主名の最新化（シナリオ指定のofficerIdを最優先、なければ生存中の大名武将を反映）
+        if (leaderOfficer && leaderOfficer.name) {
+          item.name = leaderOfficer.name;
         } else {
-          item.name = leaderName;
+          const currentLeader = this.getClanDaimyoOfficer(clanId);
+          if (currentLeader && currentLeader.name) {
+            item.name = currentLeader.name;
+          } else {
+            item.name = leaderName;
+          }
         }
 
         // 家名
@@ -804,7 +810,7 @@ export const GameStateMethods = {
 
     this.activeOfficers.forEach(off => {
       // プレイヤー配下に仕官済みの武将は、年が変わってもシナリオ補正で引き抜かない
-      if (off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
+      if (!this._isSwitchingScenario && off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
       // 領地を持つ家の現当主は、年次の再判定で家臣に戻さない（CPU大名が毎年入れ替わるのを防ぐ）
       if (off.isDaimyo && !off.isDead && ownersSet.has(off.clanId)) return;
 
@@ -821,6 +827,8 @@ export const GameStateMethods = {
           if (this.isNamedLandedLeader(off)) return;
           off.clanId = provOwner;
           off.isDaimyo = false;
+          off.defaultProv = myGovProv;
+          off.assignedProvId = myGovProv;
           return;
         }
       }
@@ -1033,7 +1041,10 @@ export const GameStateMethods = {
       if (rule.setDaimyo === true) off.isDaimyo = true;
       if (rule.setDefaultProv) off.defaultProv = rule.setDefaultProv;
       if (rule.setAssignedProv) off.assignedProvId = rule.setAssignedProv;
-      if (rule.clearAssignment) off.assignedProvId = null;
+      if (rule.clearAssignment) {
+        off.assignedProvId = null;
+        off.isStandby = true;
+      }
       return true;
     }
     return false;
@@ -1435,7 +1446,8 @@ export const GameStateMethods = {
         !o.assignedProvId && 
         !o.isDaimyo && 
         !o.isDead &&
-        !this.isCourtFigure(o)
+        !this.isCourtFigure(o) &&
+        !o.isStandby
       );
       if (waitingOfficers.length === 0) continue;
 

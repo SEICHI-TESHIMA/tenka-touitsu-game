@@ -27,6 +27,8 @@ if (typeof window !== 'undefined') {
 
 // 重複武将統合IDエイリアスマップ (後方互換・セーブデータ・動的参照対応)
 window.OFFICER_ID_ALIASES = {
+  "off_dm_ando_1438": "off_ando_morisue",
+  "off_dm_saika_1570": "off_saika_magoichi",
   "off_ononoyoshifuru": "off_ono_yoshifuru",
   "off_sadamori_kiyomori": "off_taira_kiyomori",
   "off_masakado_succ_5": "off_chiba_tsunetane",

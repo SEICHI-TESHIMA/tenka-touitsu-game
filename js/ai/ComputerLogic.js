@@ -287,7 +287,7 @@ export const ComputerLogicMethods = {
       });
 
       const pool = this.activeOfficers.filter(o =>
-        o.clanId === clanId && !o.isDead && !o.isDaimyo && !this.isCourtFigure(o) && !isUnlistedJodai(o)
+        o.clanId === clanId && !o.isDead && !o.isDaimyo && !this.isCourtFigure(o) && !isUnlistedJodai(o) && !o.isStandby
       );
 
       const homes = new Map();
@@ -346,6 +346,56 @@ export const ComputerLogicMethods = {
     }
   },
 
+  /**
+   * オート進行時の大名・軍師自動政務
+   * オート進行中、プレイヤーのAPが残っている場合に大名と軍師が本拠・直轄地を自動統治
+   */
+  executeAutoDaimyoGovernance() {
+    if (this.ap <= 0) return;
+    const myProvs = (this.provinces || []).filter(p => p.ownerId === this.playerClanId);
+    if (myProvs.length === 0) return;
+
+    const capitalId = (window.CLAN_CAPITAL_PROVINCES && window.CLAN_CAPITAL_PROVINCES[this.playerClanId]) || myProvs[0].id;
+    const capital = this.provinces.find(p => p.id === capitalId) || myProvs[0];
+
+    while (this.ap > 0) {
+      // 1. 治安危機領国（治安65以下）があれば治安向上を最優先
+      const endangeredOrder = myProvs.find(p => (Number(p.order) || 80) <= 65 && this.gold >= 30);
+      if (endangeredOrder) {
+        this.ap -= 1;
+        this.gold -= 30;
+        endangeredOrder.order = Math.min(100, (Number(endangeredOrder.order) || 80) + 15);
+        this.log(`📜【オート政務・徳政施策】軍師の進言により、治安の低下した${endangeredOrder.name}へ施策を行い治安を回復しました。(治安+15)`);
+        continue;
+      }
+
+      // 2. 本拠地兵力が少なければ募兵（兵糧・金に余裕がある場合）
+      const maxCapitalTroops = (Number(capital.rice) || 100) * 10 + 2000;
+      if ((capital.troops || 0) < maxCapitalTroops * 0.75 && this.gold >= 50 && this.rice >= 50) {
+        this.ap -= 1;
+        this.gold -= 50;
+        this.rice -= 50;
+        const recruitCount = Math.round(350 + Math.random() * 200);
+        capital.troops = (capital.troops || 0) + recruitCount;
+        this.log(`🚩【オート政務・兵員徴募】本拠・${capital.name}にて兵員${recruitCount}人を徴募・訓練しました。`);
+        continue;
+      }
+
+      // 3. 資金に余裕があれば本拠地を開墾・商業開発
+      if (this.gold >= 60) {
+        this.ap -= 1;
+        this.gold -= 40;
+        capital.rice = (Number(capital.rice) || 50) + 2;
+        capital.commerce = (Number(capital.commerce) || 50) + 2;
+        capital.defense = Math.min(100, (Number(capital.defense) || 50) + 2);
+        this.log(`🌾【オート政務・本拠開発】本拠・${capital.name}にて開墾・治水と城壁修築を実施しました。(石高+2, 城防+2)`);
+        continue;
+      }
+
+      break;
+    }
+  },
+
   runAutoStep() {
     if (!this.isAutoPlay) return;
 
@@ -379,6 +429,9 @@ export const ComputerLogicMethods = {
           nextBtn.classList.remove('auto-trigger-pulse');
         }, Math.min(80, Math.round(this.autoPlaySpeed * 1000 / 2)));
       }
+
+      // オート進行時の大名・軍師による自動政務（APを無駄にせず有効活用）
+      this.executeAutoDaimyoGovernance();
 
       // 季節進行
       this.nextSeason();
@@ -642,6 +695,58 @@ export const ComputerLogicMethods = {
       base += Math.max(20, Math.round((Number(init?.kokudaka) || 50000) / 1000));
     });
     return base > 0 ? cur / base : 1;
+  },
+
+  /**
+   * 敵AI思考改善: 前線危機の検知と「後詰め（防衛救援）」システム
+   * プレイヤーや強敵に隣接する前線城が劣勢な場合、後方城から救援兵力を前線へ急行させる
+   */
+  executeAiDefenseReinforcements() {
+    if (!this.provinces || this.provinces.length === 0) return;
+    const allClanIds = [...new Set(this.provinces.map(p => p.ownerId))].filter(id => id && id !== this.playerClanId && id !== 'null' && id !== 'ronin');
+    
+    for (const clanId of allClanIds) {
+      const clanProvs = this.provinces.filter(p => p.ownerId === clanId);
+      if (clanProvs.length <= 1) continue;
+
+      const isFront = (q) => (q.neighbors || []).some(nId => {
+        const n = this.provinces.find(x => x.id === nId);
+        return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
+      });
+
+      // 危機にある前線城を特定（敵兵力に対して劣勢、または兵力1500未満）
+      const endangeredFronts = clanProvs.filter(p => isFront(p)).map(p => {
+        const enemyNeighbors = (p.neighbors || [])
+          .map(nId => this.provinces.find(x => x.id === nId))
+          .filter(n => n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
+        const maxEnemyTroop = Math.max(0, ...enemyNeighbors.map(n => n.troops || 0));
+        const deficit = maxEnemyTroop - (p.troops || 0);
+        const isPlayerBorder = enemyNeighbors.some(n => n.ownerId === this.playerClanId);
+        return { prov: p, deficit, isPlayerBorder, currentTroops: p.troops || 0 };
+      }).filter(f => f.deficit > 200 || f.currentTroops < 1500)
+        .sort((a, b) => (b.isPlayerBorder ? 5000 : 0) + b.deficit - ((a.isPlayerBorder ? 5000 : 0) + a.deficit));
+
+      for (const { prov: frontProv, isPlayerBorder } of endangeredFronts) {
+        // 隣接する後方城（安全な城、または兵力1800以上の城）から増援を探索
+        const rearSupporters = (frontProv.neighbors || [])
+          .map(nId => this.provinces.find(x => x.id === nId))
+          .filter(n => n && n.ownerId === clanId && (n.troops || 0) > 1800)
+          .sort((a, b) => (b.troops || 0) - (a.troops || 0));
+
+        if (rearSupporters.length > 0) {
+          const rear = rearSupporters[0];
+          const shiftAmount = Math.min(800, Math.round(((rear.troops || 0) - 1400) * 0.45));
+          if (shiftAmount >= 150) {
+            rear.troops -= shiftAmount;
+            frontProv.troops = (frontProv.troops || 0) + shiftAmount;
+            if (isPlayerBorder && (!this.isAutoPlay || this.autoPlaySpeed >= 0.3)) {
+              this.log(`🏯【後詰め迎撃】${this.getClanFamilyName(clanId)}は我が軍の脅威に備え、後方・${rear.name}より前線【${frontProv.name}】へ援軍${shiftAmount.toLocaleString()}人を急行させました！`);
+            }
+            break; // 1勢力1季あたり最も危険な前線1箇所に重点配分
+          }
+        }
+      }
+    }
   },
 
   /**
@@ -982,7 +1087,10 @@ export const ComputerLogicMethods = {
       await new Promise(resolve => setTimeout(resolve, 0));
     }
 
-    // 2. AI侵攻判断（「適宜バランスよく攻め込む」：1ターン最大3戦線に制御）
+    // 2. 敵AI防衛後詰め（劣勢・危機前線への救援増援）
+    this.executeAiDefenseReinforcements();
+
+    // 3. AI侵攻判断（「適宜バランスよく攻め込む」：1ターン最大3戦線に制御）
     let battleCount = 0;
     const maxBattlesPerTurn = 3;
 
@@ -1130,7 +1238,7 @@ export const ComputerLogicMethods = {
   },
 
   executeGovernanceTurn() {
-    const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+    const myProvs = (this.provinces || []).filter(p => p.ownerId === this.playerClanId);
     let domesticCount = 0;
     let militaryCount = 0;
     let logisticsCount = 0;
@@ -1145,33 +1253,58 @@ export const ComputerLogicMethods = {
       const milBonus = (effStats.military || 50) / 70;
 
       if (p.governance === 'domestic') {
-        const dRice = Math.round(20 * mult * polBonus);
-        const dComm = Math.round(20 * mult * polBonus);
-        p.rice += dRice;
-        p.commerce += dComm;
-        this.gold += Math.round(30 * mult * polBonus);
-        this.rice += Math.round(40 * mult * polBonus);
+        // 内政委任の知能化: 治安が危険（65以下）な場合は、一揆防止のため治安回復・徳政を最優先！
+        if ((Number(p.order) || 80) <= 65) {
+          p.order = Math.min(100, (Number(p.order) || 80) + Math.round(14 * mult * polBonus));
+          p.defense = Math.min(100, (Number(p.defense) || 50) + Math.round(3 * mult));
+        } else {
+          const dRice = Math.round(20 * mult * polBonus);
+          const dComm = Math.round(20 * mult * polBonus);
+          p.rice = (Number(p.rice) || 50) + dRice;
+          p.commerce = (Number(p.commerce) || 50) + dComm;
+          this.gold += Math.round(30 * mult * polBonus);
+          this.rice += Math.round(40 * mult * polBonus);
+        }
         domesticCount++;
       } else if (p.governance === 'military') {
-        p.troops += Math.round(300 * mult * milBonus);
-        p.defense = Math.min(100, p.defense + Math.round(6 * mult));
-        p.morale = Math.min(100, p.morale + Math.round(4 * mult));
+        p.troops = (Number(p.troops) || 0) + Math.round(300 * mult * milBonus);
+        p.defense = Math.min(100, (Number(p.defense) || 50) + Math.round(6 * mult));
+        p.morale = Math.min(100, (Number(p.morale) || 70) + Math.round(4 * mult));
         militaryCount++;
       } else if (p.governance === 'balanced') {
-        p.troops += Math.round(150 * mult * milBonus);
-        p.rice += Math.round(8 * mult * polBonus);
-        p.commerce += Math.round(8 * mult * polBonus);
-        p.defense = Math.min(100, p.defense + Math.round(3 * mult));
+        if ((Number(p.order) || 80) <= 60) {
+          p.order = Math.min(100, (Number(p.order) || 80) + Math.round(10 * mult));
+        }
+        p.troops = (Number(p.troops) || 0) + Math.round(150 * mult * milBonus);
+        p.rice = (Number(p.rice) || 50) + Math.round(8 * mult * polBonus);
+        p.commerce = (Number(p.commerce) || 50) + Math.round(8 * mult * polBonus);
+        p.defense = Math.min(100, (Number(p.defense) || 50) + Math.round(3 * mult));
       } else if (p.governance === 'logistics') {
-        if (p.troops > 2000) {
-          const surplus = Math.min(1500, p.troops - 2000);
-          const frontierTarget = (p.neighbors || [])
+        // 兵站委任の知能化: 最も支援を必要としている危機前線へ重点ピストン輸送！
+        if ((p.troops || 0) > 1800) {
+          const surplus = Math.min(1500, (p.troops || 0) - 1500);
+          const frontierCandidates = (p.neighbors || [])
             .map(nId => this.provinces.find(x => x.id === nId))
-            .find(x => x && x.ownerId === this.playerClanId && this.isProvinceFrontier(x));
+            .filter(x => x && x.ownerId === this.playerClanId && this.isProvinceFrontier(x));
 
-          if (frontierTarget) {
+          if (frontierCandidates.length > 0) {
+            frontierCandidates.sort((a, b) => {
+              const aEnemyTroops = (a.neighbors || [])
+                .map(nId => this.provinces.find(x => x.id === nId))
+                .filter(x => x && x.ownerId !== this.playerClanId)
+                .reduce((sum, x) => sum + (x.troops || 0), 0);
+              const bEnemyTroops = (b.neighbors || [])
+                .map(nId => this.provinces.find(x => x.id === nId))
+                .filter(x => x && x.ownerId !== this.playerClanId)
+                .reduce((sum, x) => sum + (x.troops || 0), 0);
+              const aNeed = aEnemyTroops * 0.6 - (a.troops || 0);
+              const bNeed = bEnemyTroops * 0.6 - (b.troops || 0);
+              return bNeed - aNeed;
+            });
+
+            const bestFrontier = frontierCandidates[0];
             p.troops -= surplus;
-            frontierTarget.troops += surplus;
+            bestFrontier.troops = (bestFrontier.troops || 0) + surplus;
             totalMovedTroops += surplus;
             logisticsCount++;
           }
@@ -1179,98 +1312,132 @@ export const ComputerLogicMethods = {
       }
     });
 
-    // 2. 軍事委任領国による自律進攻（勝手に攻め込んで領土拡大！）
-    const militaryFrontiers = myProvs.filter(p => p.governance === 'military' && this.isProvinceFrontier(p))
-      .sort((a, b) => b.troops - a.troops);
-
+    // 2. 軍事委任領国による「戦略的自律進攻」（勝算と大局観に基づき確実に領土拡大）
+    const militaryFrontiers = myProvs.filter(p => p.governance === 'military' && this.isProvinceFrontier(p));
     const attackedProvIds = new Set();
     let attackActions = 0;
-    const maxAutonomousAttacks = 3; // 1ターン最大3戦線で自律進攻
+    const maxAutonomousAttacks = 3;
 
+    // 全ての軍事委任前線城 × 隣接敵国の組み合わせを戦略スコアリング評価
+    const autonomousCandidates = [];
     for (const srcProv of militaryFrontiers) {
-      if (attackActions >= maxAutonomousAttacks) break;
-      if (srcProv.troops < 1500) continue; // 最低1500人以上の軍勢が必要
-      if (this.rice < 60) break; // 兵糧枯渇時は自重
-
-      // 隣接する敵国（今ターン未攻撃の国）
+      if ((srcProv.troops || 0) < 1500) continue;
+      const attackForce = Math.round((srcProv.troops || 0) * 0.72);
       const enemyNeighbors = (srcProv.neighbors || [])
         .map(nId => this.provinces.find(x => x.id === nId))
-        .filter(n => n && n.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, n.ownerId) && !attackedProvIds.has(n.id));
+        .filter(n => n && n.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, n.ownerId));
 
-      if (enemyNeighbors.length === 0) continue;
+      for (const target of enemyNeighbors) {
+        const isBlank = !target.ownerId || target.ownerId === 'null';
+        const srcEff = this.getEffectiveStats(srcProv.id);
+        const targetEff = isBlank ? { military: 40 } : this.getEffectiveStats(target.id);
 
-      // 出陣兵力：70%（守備30%は本拠に残す）
-      const attackForce = Math.round(srcProv.troops * 0.7);
+        const atkPowerEst = attackForce * ((Number(srcEff.military) || 60) / 60);
+        const defDefenseFactor = Math.max(30, Number(target.defense) || 50) / 80;
+        const defMoraleFactor = Math.max(30, Number(target.morale) || 70) / 80;
+        const defMilFactor = (Number(targetEff.military) || 60) / 60;
+        const defPowerEst = Math.max(100, (Number(target.troops) || 500) * defDefenseFactor * defMoraleFactor * defMilFactor);
 
-      // 勝算のある敵国を選定（出陣兵力が敵の0.8倍以上、または自軍兵力が敵を上回る）
-      const viableTargets = enemyNeighbors
-        .filter(target => attackForce >= target.troops * 0.8 || srcProv.troops > target.troops)
-        .sort((a, b) => (a.troops * a.defense) - (b.troops * b.defense));
+        const powerRatio = atkPowerEst / defPowerEst;
+        const troopRatio = attackForce / Math.max(1, Number(target.troops) || 1);
 
-      if (viableTargets.length === 0) continue;
+        // 勝算判定: 勝算が足りない場合は無謀な自爆特攻を自重！
+        if (powerRatio < 1.05 && troopRatio < 1.15) continue;
 
-      const target = viableTargets[0];
+        let score = 100;
+        let motiveTitle = '領土拡大';
+
+        if (isBlank) {
+          score += 70; // 空白地は無血開城できる最優先目標！
+          motiveTitle = '空白地の無血併合';
+        } else {
+          if ((target.troops || 0) <= 1000) { score += 35; motiveTitle = '手薄な守備への急襲'; }
+          if ((Number(target.defense) || 50) <= 45) { score += 25; motiveTitle = '城防脆弱地の強襲'; }
+          if ((Number(target.morale) || 70) <= 60) { score += 25; motiveTitle = '敵士気動揺への急襲'; }
+          if (target.goldMine || target.silverMine) { score += 30; motiveTitle = '金山要衝の奪取'; }
+        }
+        score += Math.min(30, (powerRatio - 1.0) * 20);
+
+        autonomousCandidates.push({
+          srcProv,
+          target,
+          attackForce,
+          score,
+          powerRatio,
+          motiveTitle,
+          srcEff,
+          targetEff
+        });
+      }
+    }
+
+    autonomousCandidates.sort((a, b) => b.score - a.score);
+
+    for (const plan of autonomousCandidates) {
+      if (attackActions >= maxAutonomousAttacks) break;
+      if (this.rice < 60) break;
+      if (attackedProvIds.has(plan.target.id)) continue;
+      if ((plan.srcProv.troops || 0) < plan.attackForce + 500) continue;
+
+      const { srcProv, target, attackForce, motiveTitle, srcEff, targetEff } = plan;
       attackedProvIds.add(target.id);
       attackActions++;
 
-      // 兵糧消費（出陣兵力の10%程度、最低50）
+      const isBlank = !target.ownerId || target.ownerId === 'null';
       const riceCost = Math.min(this.rice, Math.max(50, Math.round(attackForce * 0.1)));
       this.rice = Math.max(0, this.rice - riceCost);
 
-      // 戦闘力判定（城主能力・直轄ペナルティを反映）
-      const srcEff = this.getEffectiveStats(srcProv.id);
-      const targetEff = this.getEffectiveStats(target.id);
-      const attackPower = attackForce * (srcEff.military / 60) * (0.9 + Math.random() * 0.35);
-      const defensePower = target.troops * (target.defense / 80) * (targetEff.military / 60) * (0.8 + Math.random() * 0.4);
+      const attackPower = attackForce * ((Number(srcEff.military) || 60) / 60) * (0.9 + Math.random() * 0.35);
+      const defensePower = (Number(target.troops) || 500) * ((Number(target.defense) || 50) / 80) * ((Number(targetEff.military) || 60) / 60) * (0.8 + Math.random() * 0.4);
       const won = attackPower > defensePower;
 
       const enemyClanId = target.ownerId;
-      const enemyClanName = this.getClanFamilyName(enemyClanId);
+      const enemyClanName = isBlank ? '無主' : this.getClanFamilyName(enemyClanId);
 
       if (won) {
-        // 攻略成功！
         const remainTroops = Math.max(1200, Math.round(attackForce * 0.75));
-        srcProv.troops = Math.max(600, srcProv.troops - attackForce);
+        srcProv.troops = Math.max(600, (srcProv.troops || 0) - attackForce);
 
         this.handleProvinceLoss(target, enemyClanId);
         target.ownerId = this.playerClanId;
         target.troops = remainTroops;
-        target.defense = Math.max(50, target.defense);
+        target.defense = Math.max(50, target.defense || 50);
         target.morale = 80;
-        target.governance = 'military'; // 新規攻略地も軍事進攻型を付与して前線基地化
-        target.justConquered = true; // 今ターンの攻略直後保護フラグ（敵AI即時奪還防止）
+        target.governance = 'military';
+        target.justConquered = true;
 
         conqueredProvinces.push({
           srcName: srcProv.name,
           targetName: target.name,
-          enemyClanName: enemyClanName
+          enemyClanName: enemyClanName,
+          motiveTitle
         });
 
-        this.log(`🎌【委任軍快進撃！】${srcProv.name}の委任軍が敵領【${target.name}】（${enemyClanName}領）へ電撃進攻！見事攻略し我が領土に組み入れました！`, 'important');
+        this.log(`🎌【委任軍快進撃・${motiveTitle}】${srcProv.name}の委任軍（城主:${srcEff.name}）が敵領【${target.name}】（${enemyClanName}）へ電撃進攻！見事攻略し我が領土に組み入れました！`, 'important');
 
-        // 敵大名滅亡チェック
-        const remainingEnemyProvs = this.provinces.filter(p => p.ownerId === enemyClanId);
-        if (remainingEnemyProvs.length === 0) {
-          this.log(`💀【御家滅亡】${enemyClanName}は全領国を失い、完全に滅亡しました！`, 'battle');
+        if (enemyClanId && enemyClanId !== 'null') {
+          const remainingEnemyProvs = this.provinces.filter(p => p.ownerId === enemyClanId);
+          if (remainingEnemyProvs.length === 0) {
+            this.log(`💀【御家滅亡】${enemyClanName}は全領国を失い、完全に滅亡しました！`, 'battle');
+          }
         }
       } else {
-        // 攻略失敗（撤退）
-        srcProv.troops = Math.max(500, srcProv.troops - Math.round(attackForce * 0.35));
-        target.troops = Math.max(300, Math.round(target.troops * 0.75));
-        this.log(`⚔【委任軍合戦】${srcProv.name}の委任軍が【${target.name}】（${enemyClanName}領）へ進攻するも、敵の堅い守りに阻まれ撤退しました。`);
+        srcProv.troops = Math.max(500, (srcProv.troops || 0) - Math.round(attackForce * 0.35));
+        target.troops = Math.max(300, Math.round((target.troops || 500) * 0.75));
+        this.log(`⚔【委任軍合戦】${srcProv.name}の委任軍が【${target.name}】（${enemyClanName}）へ進攻するも、敵の堅い守りに阻まれ撤退しました。`);
       }
     }
 
     // 委任進攻結果の演出
     if (conqueredProvinces.length > 0) {
-      this.audio.playFanfare();
-      const conqueredNames = conqueredProvinces.map(c => `${c.targetName} (${c.enemyClanName}領)`).join('・');
+      try { this.audio.playFanfare?.(); } catch(e) {}
+      const conqueredNames = conqueredProvinces.map(c => `${c.targetName} (${c.enemyClanName})`).join('・');
       this.showOrderResult('🎌 委任軍 領土攻略！', `${conqueredNames} を電撃攻略！`, '#2ecc71');
     }
 
     if (domesticCount > 0 || militaryCount > 0 || logisticsCount > 0 || conqueredProvinces.length > 0) {
       const conqueredMsg = conqueredProvinces.length > 0 ? `、前線委任軍が【${conqueredProvinces.length}カ国】を攻略領有` : '';
-      this.log(`【委任統治報告】内政型${domesticCount}国で開発、軍事進攻型${militaryCount}国で増強${conqueredMsg}、兵站型から前線へ兵${totalMovedTroops.toLocaleString()}人を輸送完了。`);
+      this.log(`【委任統治報告】内政型${domesticCount}国で開発・治安維持、軍事進攻型${militaryCount}国で増強${conqueredMsg}、兵站型から前線へ兵${totalMovedTroops.toLocaleString()}人を輸送完了。`);
     }
   },
 

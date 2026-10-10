@@ -2106,8 +2106,8 @@ window.SCENARIOS_DATA = [
     "castles": {
       "ezo": "蝦夷地渡島営所",
       "tsugaru": "津軽平野館・柵",
-      "mutsu": "志波城・胆沢城",
-      "rikuchu": "厨川柵・胆沢城",
+      "mutsu": "大墓公営所",
+      "rikuchu": "胆沢柵・巣伏",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
       "uzen": "城輪柵（出羽国府）",
@@ -2191,7 +2191,7 @@ window.SCENARIOS_DATA = [
         "id": "heian_court",
         "difficulty": "初級",
         "winRate": 90,
-        "startProvId": "rikuzen",
+        "startProvId": "yamashiro",
         "provCount": 72,
         "myProvinces": [
           "ugo",
@@ -2270,8 +2270,9 @@ window.SCENARIOS_DATA = [
         "gold": 4000,
         "rice": 6000,
         "personality": "balanced",
-        "officerId": "off_sakanoue_tamuramaro",
-        "desc": "征夷大将軍・坂上田村麻呂。桓武天皇の信任を受け、武勇と信義で蝦夷の平定と民の慰撫に尽力する。"
+        "officerId": "off_kanmu_tenno",
+        "desc": "第五十代天皇・桓武天皇。平安京へ遷都し、坂上田村麻呂を征夷大将軍に任じて蝦夷征討を断行した英主。",
+        "name": "桓武天皇"
       },
       {
         "id": "aterui",
@@ -2377,7 +2378,7 @@ window.SCENARIOS_DATA = [
       "kii": "heian_court",
       "buzen": "heian_court",
       "bungo": "heian_court",
-      "chikuzen": "fujiwara_sumitomo",
+      "chikuzen": "heian_court",
       "chikugo": "heian_court",
       "hizen": "heian_court",
       "higo": "heian_court",
@@ -2486,49 +2487,50 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "yamashiro",
-        "provCount": 41,
+        "provCount": 42,
         "myProvinces": [
-          "etchu",
-          "noto",
-          "kaga",
+          "bungo",
+          "buzen",
+          "chikugo",
+          "chikuzen",
           "echizen",
-          "wakasa",
+          "etchu",
+          "harima",
           "hida",
-          "owari",
-          "mikawa",
-          "totomi",
-          "suruga",
-          "izu",
-          "north_omi",
-          "south_omi",
-          "ise",
-          "shima",
+          "higo",
+          "hizen",
+          "hoki",
+          "hyuga",
           "iga",
-          "yamashiro",
-          "yamato",
-          "kawachi",
+          "inaba",
+          "ise",
+          "iwami",
+          "izu",
           "izumi",
+          "izumo",
+          "kaga",
+          "kawachi",
+          "kii",
+          "mikawa",
+          "mimasaka",
+          "north_omi",
+          "noto",
+          "oki",
+          "osumi",
+          "owari",
+          "sado",
           "settsu",
+          "shima",
+          "south_omi",
+          "suruga",
+          "tajima",
           "tamba",
           "tango",
-          "tajima",
-          "harima",
-          "inaba",
-          "hoki",
-          "izumo",
-          "iwami",
-          "mimasaka",
-          "kii",
-          "buzen",
-          "bungo",
-          "chikugo",
-          "hizen",
-          "higo",
-          "hyuga",
-          "osumi",
+          "totomi",
           "tsushima",
-          "sado",
-          "oki"
+          "wakasa",
+          "yamashiro",
+          "yamato"
         ],
         "gold": 8400,
         "rice": 10100,
@@ -2541,7 +2543,7 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "iyo",
-        "provCount": 12,
+        "provCount": 11,
         "myProvinces": [
           "bizen",
           "bicchu",
@@ -2553,7 +2555,6 @@ window.SCENARIOS_DATA = [
           "awa_shikoku",
           "iyo",
           "tosa",
-          "chikuzen",
           "awaji"
         ],
         "gold": 3400,
@@ -3147,20 +3148,20 @@ window.SCENARIOS_DATA = [
     "title": "平忠常の乱",
     "subtitle": "房総の平忠常、朝廷の追討を退ける",
     "gengo": "長元元年",
-    "recommendedClan": "taira_masakado",
+    "recommendedClan": "taira_tadatsune",
     "desc": "長元元年六月、上総・下総の平忠常が安房の国府を襲い、朝廷の最初の追討使を退けた。数年後、甲斐守源頼信が向かうと忠常は戦わずに降り、坂東の武士は河内源氏の家人となっていく。",
     "lore": "摂関家の藤原頼通が朝政を預かり、房総平氏と河内源氏が東国の覇を争う。忠常の降伏は、源氏が坂東に根を張る出発点になった。",
     "lore_background": "長元元年（1028年）、平忠常は上総介として勢威を振るい、安房国府を焼いた。平直方らの追討は実らず、長元三年に源頼信が甲斐から向かうと、忠常は翌年戦わずして降った。上洛の途中で病死し、子の常将は赦される。シナリオは蜂起の夏、忠常が房総三国を押さえた局面である。朝廷の国は国司が京にあり、現地に武士の城代は置かない。",
     "lore_factions": "【房総平氏】平忠常、平常将。上総・下総・安房。\n【河内源氏】源頼信、源頼義。河内と甲斐・美濃・信濃。\n【朝廷】関白藤原頼通。伊勢平氏の平正度、下野の藤原兼光が追討側。\n【北奥】安倍頼時、出羽の清原武則。",
     "lore_focus": "忠常として房総を守り抜くか、頼信として戦わず降らせ坂東の武士を家人にするか。朝廷は官符で両者を動かす。",
     "owners": {
-      "shimousa": "taira_masakado",
+      "shimousa": "taira_tadatsune",
       "hitachi": "taira_sadamori",
       "kozuke": "fujiwara_hidesato",
       "shimotsuke": "fujiwara_hidesato",
       "musashi": "heian_court",
-      "kazusa": "taira_masakado",
-      "awa_boshu": "taira_masakado",
+      "kazusa": "taira_tadatsune",
+      "awa_boshu": "taira_tadatsune",
       "sagami": "heian_court",
       "iwaki": "heian_court",
       "iwashiro": "heian_court",
@@ -3233,14 +3234,14 @@ window.SCENARIOS_DATA = [
     },
     "capitals": {
       "heian_court": "yamashiro",
-      "taira_masakado": "kazusa",
       "minamoto_tsunemoto": "kawachi",
       "fujiwara_hidesato": "shimotsuke",
       "abe": "mutsu",
       "kiyohara": "ugo",
       "taira_sadamori": "ise",
       "ezo_native": "ezo",
-      "shimazu_proto": "satsuma"
+      "shimazu_proto": "satsuma",
+      "taira_tadatsune": "kazusa"
     },
     "clanDescs": {
       "heian_court": "関白藤原頼通。父道長の死の年に摂関の座を預かり、房総の平忠常追討を諸国の武士へ命じる。",
@@ -3408,21 +3409,21 @@ window.SCENARIOS_DATA = [
         "desc": "関白藤原頼通。父道長の死の年に摂関の座を預かり、房総の平忠常追討を諸国の武士へ命じる。"
       },
       {
-        "id": "taira_masakado",
-        "difficulty": "上級",
-        "winRate": 46,
+        "id": "taira_tadatsune",
+        "name": "平忠常",
+        "leaderName": "平忠常",
+        "officerId": "off_taira_tadanetsune",
         "startProvId": "kazusa",
-        "provCount": 3,
         "myProvinces": [
-          "shimousa",
           "kazusa",
+          "shimousa",
           "awa_boshu"
         ],
-        "gold": 1150,
-        "rice": 1400,
+        "provCount": 3,
+        "difficulty": "中級",
+        "winRate": 65,
         "personality": "aggressive",
-        "officerId": "off_taira_tadanetsune",
-        "desc": "上総・下総の平良文流。長元元年、安房国府を襲って朝廷の追討軍を退け、坂東に強大な武力を誇る。"
+        "desc": "房総三カ国に覇を唱え、朝廷に対して反旗を翻した坂東平氏の巨頭。五カ年にわたり官軍を翻弄した猛将。"
       },
       {
         "id": "minamoto_tsunemoto",
@@ -3566,7 +3567,7 @@ window.SCENARIOS_DATA = [
       "heian_court": "yamashiro",
       "abe": "mutsu",
       "kiyohara": "ugo",
-      "minamoto_tsunemoto": "kawachi",
+      "minamoto_tsunemoto": "rikuzen",
       "ezo_native": "ezo",
       "kikuchi": "higo",
       "shimazu_proto": "satsuma",
@@ -3594,7 +3595,7 @@ window.SCENARIOS_DATA = [
       "iwashiro": "heian_court",
       "mutsu": "abe",
       "rikuchu": "abe",
-      "rikuzen": "abe",
+      "rikuzen": "minamoto_tsunemoto",
       "ugo": "kiyohara",
       "uzen": "kiyohara",
       "ezo": "ezo_native",
@@ -3995,7 +3996,7 @@ window.SCENARIOS_DATA = [
       "iwashiro": "heian_court",
       "mutsu": "heian_court",
       "rikuchu": "kiyohara",
-      "rikuzen": "kiyohara_iehira",
+      "rikuzen": "minamoto_tsunemoto",
       "ugo": "kiyohara_iehira",
       "uzen": "kiyohara_iehira",
       "ezo": "ezo_native",
@@ -4064,7 +4065,7 @@ window.SCENARIOS_DATA = [
       "heian_court": "yamashiro",
       "kiyohara": "rikuchu",
       "kiyohara_iehira": "uzen",
-      "minamoto_tsunemoto": "kawachi",
+      "minamoto_tsunemoto": "rikuzen",
       "ezo_native": "ezo",
       "kikuchi": "higo",
       "shimazu_proto": "satsuma",
@@ -4389,7 +4390,8 @@ window.SCENARIOS_DATA = [
     "alliances": [
       [
         "goshirakawa_in",
-        "taira_kiyomori"
+        "taira",
+        "minamoto_yoshitomo"
       ]
     ],
     "year": 1156,
@@ -4817,7 +4819,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -4852,7 +4854,7 @@ window.SCENARIOS_DATA = [
       "iga": "上野城",
       "north_omi": "京極館・伊香砦",
       "south_omi": "観音寺城",
-      "yamashiro": "六波羅探題",
+      "yamashiro": "三条東殿・大内裏",
       "yamato": "多聞山城",
       "kii": "和歌山城",
       "kawachi": "高屋城",
@@ -5013,8 +5015,20 @@ window.SCENARIOS_DATA = [
     "alliances": [
       [
         "genji_yoritomo",
+        "kiso"
+      ],
+      [
+        "genji_yoritomo",
+        "satake"
+      ],
+      [
+        "genji_yoritomo",
         "chiba",
         "kazusa_nosuke"
+      ],
+      [
+        "taira",
+        "jo"
       ]
     ],
     "year": 1180,
@@ -5311,8 +5325,9 @@ window.SCENARIOS_DATA = [
         "gold": 1400,
         "rice": 1700,
         "personality": "balanced",
-        "officerId": "off_dm_kiso_1180",
-        "desc": "「朝日将軍」木曽義仲。信濃木曽谷で挙兵し、倶利伽羅峠の戦いで平家十万を壊滅させて頼朝に先んじて京洛へ一番乗りを果たす。"
+        "officerId": "off_kiso_yoshinaka",
+        "desc": "「旭将軍」木曽義仲。信濃木曽谷から挙兵し、倶利伽羅峠の戦いで平家の大軍を撃破して入京を果たした猛将。",
+        "name": "木曽義仲"
       },
       {
         "id": "takeda",
@@ -5457,7 +5472,16 @@ window.SCENARIOS_DATA = [
   },
   {
     "id": "1183",
-    "alliances": [],
+    "alliances": [
+      [
+        "genji_yoritomo",
+        "satake"
+      ],
+      [
+        "genji_yoritomo",
+        "takeda"
+      ]
+    ],
     "year": 1183,
     "season": "夏",
     "title": "義仲入京",
@@ -5556,7 +5580,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "長井城",
@@ -5978,7 +6002,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "長井城",
@@ -6361,7 +6385,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "長井城",
@@ -6476,7 +6500,9 @@ window.SCENARIOS_DATA = [
         "rice": 3000,
         "personality": "aggressive",
         "officerId": "off_minamoto_yoshitsune",
-        "desc": "鎌倉殿（頼朝）の代官として平家討伐の軍を率いる天才戦術家。暴風雨を突いての屋島急襲など、常識を覆す用兵でついに平家を長門まで追い詰めた。"
+        "desc": "鎌倉殿（頼朝）の代官として平家討伐の軍を率いる天才戦術家。暴風雨を突いての屋島急襲など、常識を覆す用兵でついに平家を長門まで追い詰めた。",
+        "name": "源義経",
+        "leaderName": "源義経"
       },
       {
         "id": "taira",
@@ -6660,7 +6686,7 @@ window.SCENARIOS_DATA = [
     "title": "義経追討",
     "subtitle": "奥州合戦と平泉の落日",
     "desc": "文治5年（1189年）、平家を滅ぼし実質的な天下人となった源頼朝は、唯一の脅威である弟「源義経」を匿う奥州藤原氏に義経追討の圧力をかけた。三代秀衡の死後、藤原泰衡は鎌倉の恫喝に屈して義経を討つか、それとも不世出の天才・義経を総大将に据えて頼朝の超大軍に抗戦するかの決断を迫られる。",
-    "recommendedClan": "fujiwara_yasuhira",
+    "recommendedClan": "fujiwara_hiraizumi",
     "owners": {
       "ezo": "ezo_native",
       "tsugaru": "fujiwara_hiraizumi",
@@ -7023,10 +7049,10 @@ window.SCENARIOS_DATA = [
       "owari": "hojo_kamakura",
       "kozuke": "hojo_kamakura",
       "shimotsuke": "hojo_kamakura",
-      "hitachi": "hojo_kamakura",
+      "hitachi": "satake",
       "shimousa": "chiba",
-      "kazusa": "miura",
-      "awa_boshu": "miura",
+      "kazusa": "hojo_kamakura",
+      "awa_boshu": "hojo_kamakura",
       "kai": "takeda",
       "south_shinano": "ogasawara",
       "north_shinano": "murakami",
@@ -7107,7 +7133,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "霊山城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -7233,28 +7259,30 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "sagami",
-        "provCount": 20,
+        "provCount": 22,
         "myProvinces": [
-          "sagami",
-          "musashi",
+          "awa_boshu",
+          "echigo",
+          "echizen",
+          "etchu",
+          "hida",
+          "hitachi",
+          "iwaki",
+          "iwashiro",
           "izu",
+          "kaga",
+          "kazusa",
+          "kozuke",
+          "mikawa",
+          "mino",
+          "musashi",
+          "noto",
+          "owari",
+          "sagami",
+          "shimotsuke",
           "suruga",
           "totomi",
-          "mikawa",
-          "owari",
-          "kozuke",
-          "shimotsuke",
-          "hitachi",
-          "echigo",
-          "etchu",
-          "noto",
-          "kaga",
-          "echizen",
-          "mino",
-          "hida",
-          "uzen",
-          "iwashiro",
-          "iwaki"
+          "uzen"
         ],
         "gold": 4900,
         "rice": 5900,
@@ -7294,22 +7322,6 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_shimazu_proto_tadahisa",
         "desc": "南九州に確固たる基盤を築いた島津忠久。幕府方として九州の朝廷方を牽制し、島津氏の覇権を揺るぎないものとする。"
-      },
-      {
-        "id": "miura",
-        "difficulty": "上級",
-        "winRate": 50,
-        "startProvId": "kazusa",
-        "provCount": 2,
-        "myProvinces": [
-          "kazusa",
-          "awa_boshu"
-        ],
-        "gold": 900,
-        "rice": 1100,
-        "personality": "aggressive",
-        "officerId": "off_miura_yoshimura",
-        "desc": "相模屈指の豪族・三浦義村。上皇方の誘いを退け義時への忠誠を貫き、幕府軍の中核として軍功を重ねる。"
       },
       {
         "id": "kasai",
@@ -7461,7 +7473,7 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "balanced",
-        "officerId": "off_dm_ando_1495",
+        "officerId": "off_dm_ando_1221",
         "desc": "津軽・秋田の日本海港津を握り、蝦夷地との北方交易で莫大な富を築いた檜山安東氏。安東愛季が家中を統合した。"
       },
       {
@@ -7476,7 +7488,7 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "aggressive",
-        "officerId": "off_ezo_leader_1331",
+        "officerId": "off_ezo_leader_1221",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
       },
       {
@@ -7523,6 +7535,22 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_dm_honma_1221",
         "desc": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      },
+      {
+        "id": "satake",
+        "difficulty": "中級",
+        "winRate": 35,
+        "startProvId": "hitachi",
+        "provCount": 1,
+        "myProvinces": [
+          "hitachi"
+        ],
+        "gold": 650,
+        "rice": 750,
+        "personality": "balanced",
+        "officerId": "off_succ2_satake_1185",
+        "kamonSvgId": "kamon-satake",
+        "desc": "常陸の名族・佐竹氏。源氏の流れを汲み、太田城を拠点に関東に確固たる勢力を誇る。"
       }
     ],
     "recommendedClan": "gotoba_in",
@@ -7535,7 +7563,6 @@ window.SCENARIOS_DATA = [
       "kono": "iyo",
       "hojo_kamakura": "sagami",
       "chiba": "shimousa",
-      "miura": "kazusa",
       "takeda": "kai",
       "ogasawara": "south_shinano",
       "murakami": "north_shinano",
@@ -7545,7 +7572,8 @@ window.SCENARIOS_DATA = [
       "ando": "ugo",
       "otomo": "buzen",
       "shoni": "chikuzen",
-      "shimazu": "hyuga"
+      "shimazu": "hyuga",
+      "satake": "hitachi"
     }
   },
   {
@@ -7579,7 +7607,7 @@ window.SCENARIOS_DATA = [
       "rikuzen": "date",
       "uzen": "hojo_kamakura",
       "iwaki": "hojo_kamakura",
-      "iwashiro": "date",
+      "iwashiro": "hojo_kamakura",
       "hitachi": "satake",
       "shimotsuke": "ashikaga",
       "kozuke": "hojo_kamakura",
@@ -7591,7 +7619,7 @@ window.SCENARIOS_DATA = [
       "izu": "hojo_kamakura",
       "suruga": "hojo_kamakura",
       "kai": "takeda",
-      "north_shinano": "hojo_kamakura",
+      "north_shinano": "murakami",
       "south_shinano": "ogasawara",
       "echigo": "hojo_kamakura",
       "etchu": "hojo_kamakura",
@@ -7609,7 +7637,7 @@ window.SCENARIOS_DATA = [
       "iga": "hojo_kamakura",
       "north_omi": "hojo_kamakura",
       "south_omi": "hojo_kamakura",
-      "yamashiro": "heian_court",
+      "yamashiro": "hojo_kamakura",
       "yamato": "hojo_kamakura",
       "kii": "hojo_kamakura",
       "kawachi": "hojo_kamakura",
@@ -7739,7 +7767,7 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 85,
         "startProvId": "sagami",
-        "provCount": 56,
+        "provCount": 57,
         "myProvinces": [
           "aki",
           "awa_boshu",
@@ -7796,6 +7824,7 @@ window.SCENARIOS_DATA = [
           "ugo",
           "uzen",
           "wakasa",
+          "yamashiro",
           "yamato"
         ],
         "gold": 3000,
@@ -8000,10 +8029,10 @@ window.SCENARIOS_DATA = [
       "date": "rikuzen",
       "ando": "tsugaru",
       "hojo_kamakura": "sagami",
-      "heian_court": "yamashiro",
       "yuan": "tsushima",
       "nanbu": "mutsu",
-      "kasai": "rikuchu"
+      "kasai": "rikuchu",
+      "murakami": "north_shinano"
     },
     "provinceTroops": {
       "tsushima": 5000
@@ -8039,8 +8068,8 @@ window.SCENARIOS_DATA = [
       "kazusa": "hojo_kamakura",
       "awa_boshu": "satomi",
       "kai": "takeda",
-      "south_shinano": "suwa",
-      "north_shinano": "ogasawara",
+      "south_shinano": "ogasawara",
+      "north_shinano": "murakami",
       "echigo": "nitta",
       "etchu": "hojo_kamakura",
       "noto": "hojo_kamakura",
@@ -8053,7 +8082,7 @@ window.SCENARIOS_DATA = [
       "yamashiro": "hojo_kamakura",
       "tamba": "ashikaga",
       "tango": "isshiki",
-      "wakasa": "hojo_kamakura",
+      "wakasa": "shiba",
       "settsu": "kusunoki",
       "kawachi": "kusunoki",
       "izumi": "kusunoki",
@@ -8070,7 +8099,7 @@ window.SCENARIOS_DATA = [
       "iwami": "masuda",
       "mimasaka": "akamatsu",
       "bizen": "akamatsu",
-      "bicchu": "hojo_kamakura",
+      "bicchu": "akamatsu",
       "bingo": "hojo_kamakura",
       "aki": "mori",
       "suo": "ouchi",
@@ -8079,9 +8108,9 @@ window.SCENARIOS_DATA = [
       "awa_shikoku": "hosokawa",
       "iyo": "kono",
       "tosa": "godaiho",
-      "buzen": "otomo",
+      "buzen": "utsunomiya",
       "bungo": "otomo",
-      "chikuzen": "shoni",
+      "chikuzen": "hojo_kamakura",
       "hizen": "shoni",
       "chikugo": "kikuchi",
       "higo": "kikuchi",
@@ -8091,10 +8120,10 @@ window.SCENARIOS_DATA = [
       "iwaki": "yuki",
       "iwashiro": "ashina",
       "rikuzen": "date",
-      "rikuchu": "kasai",
-      "mutsu": "shiba",
+      "rikuchu": "shiba",
+      "mutsu": "kitabatake",
       "ugo": "ando",
-      "uzen": "muto",
+      "uzen": "shiba_uzen",
       "ezo": "ezo_native",
       "tsushima": "so",
       "sado": "honma",
@@ -8118,7 +8147,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "霊山城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -8526,7 +8555,8 @@ window.SCENARIOS_DATA = [
         "rice": 800,
         "personality": "domestic",
         "leaderName": "諏訪祝貞高",
-        "desc": "信濃諏訪大社の大祝（神職）と領主を兼ねた神族名門。諏訪頼重の代に武田信玄と争い敗れるも、その血筋は信玄の子・勝頼へと受け継がれた。"
+        "desc": "信濃諏訪大社の大祝（神職）と領主を兼ねた神族名門。諏訪頼重の代に武田信玄と争い敗れるも、その血筋は信玄の子・勝頼へと受け継がれた。",
+        "officerId": "off_suwa_yorishige_kama"
       },
       {
         "id": "ogasawara",
@@ -8548,9 +8578,10 @@ window.SCENARIOS_DATA = [
         "difficulty": "超上級",
         "winRate": 30,
         "startProvId": "echizen",
-        "provCount": 1,
+        "provCount": 2,
         "myProvinces": [
-          "echizen"
+          "echizen",
+          "rikuchu"
         ],
         "gold": 650,
         "rice": 800,
@@ -8842,6 +8873,22 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_masuda_kanemi",
         "desc": "石見国の名族益田氏。山吹城を拠点に中国地方西部に確固たる基盤を築く。"
+      },
+      {
+        "id": "shiba_uzen",
+        "clanId": "shiba_uzen",
+        "difficulty": "中級",
+        "winRate": 45,
+        "startProvId": "uzen",
+        "provCount": 1,
+        "myProvinces": [
+          "uzen"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_jd_322",
+        "desc": "斯波家兼が奥州管領として下向し興した羽前斯波氏（最上氏祖）。奥羽に勢力を伸ばす。"
       }
     ],
     "recommendedClan": "hojo_kamakura",
@@ -8856,7 +8903,7 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "takeda": "kai",
       "suwa": "south_shinano",
-      "ogasawara": "north_shinano",
+      "ogasawara": "south_shinano",
       "shiba": "echizen",
       "toki": "mino",
       "kyogoku": "north_omi",
@@ -8869,25 +8916,25 @@ window.SCENARIOS_DATA = [
       "ouchi": "suo",
       "hosokawa": "sanuki",
       "kono": "iyo",
-      "otomo": "buzen",
-      "shoni": "chikuzen",
+      "otomo": "bungo",
+      "shoni": "hizen",
       "kikuchi": "chikugo",
       "shimazu": "hyuga",
-      "kasai": "rikuchu",
       "date": "rikuzen",
-      "nanbu": "rikuchu",
       "ando": "ugo",
       "ezo_native": "ezo",
       "so": "tsushima",
       "honma": "sado",
       "ashina": "iwashiro",
       "anekoji": "hida",
-      "muto": "uzen",
       "imagawa": "suruga",
       "isshiki": "tango",
       "yamana": "tajima",
       "masuda": "iwami",
-      "yuki": "iwaki"
+      "yuki": "iwaki",
+      "utsunomiya": "buzen",
+      "shiba_uzen": "uzen",
+      "murakami": "north_shinano"
     }
   },
   {
@@ -8926,7 +8973,7 @@ window.SCENARIOS_DATA = [
       "mikawa": "ashikaga",
       "kazusa": "ashikaga",
       "totomi": "ashikaga",
-      "suruga": "ashikaga",
+      "suruga": "imagawa",
       "izu": "ashikaga",
       "kozuke": "nitta",
       "echigo": "nitta",
@@ -8937,18 +8984,18 @@ window.SCENARIOS_DATA = [
       "hoki": "nawa",
       "inaba": "nawa",
       "mutsu": "kitabatake",
-      "rikuchu": "kasai",
+      "rikuchu": "shiba",
       "rikuzen": "date",
       "iwashiro": "ashina",
       "iwaki": "yuki",
       "ugo": "ando",
-      "uzen": "shiba",
+      "uzen": "shiba_uzen",
       "hitachi": "satake",
       "shimousa": "chiba",
       "awa_boshu": "satomi",
       "kai": "takeda",
-      "north_shinano": "ogasawara",
-      "south_shinano": "hojo_tokiyuki",
+      "north_shinano": "murakami",
+      "south_shinano": "ogasawara",
       "hida": "anekoji",
       "mino": "toki",
       "owari": "shiba",
@@ -9000,7 +9047,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "霊山城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -9274,10 +9321,9 @@ window.SCENARIOS_DATA = [
         "id": "shiba",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "uzen",
-        "provCount": 2,
+        "startProvId": "echizen",
+        "provCount": 1,
         "myProvinces": [
-          "uzen",
           "owari"
         ],
         "gold": 900,
@@ -9475,7 +9521,7 @@ window.SCENARIOS_DATA = [
         "id": "ogasawara",
         "difficulty": "超上級",
         "winRate": 30,
-        "startProvId": "north_shinano",
+        "startProvId": "south_shinano",
         "provCount": 1,
         "myProvinces": [
           "north_shinano"
@@ -9484,22 +9530,8 @@ window.SCENARIOS_DATA = [
         "rice": 800,
         "personality": "balanced",
         "officerId": "off_ogasawara_sadamune",
-        "desc": "甲斐源氏の流れを汲み、信濃国守護職を務めた名門。武家礼法・弓馬故実の「小笠原流」の宗家として全国の武家に尊崇された。"
-      },
-      {
-        "id": "hojo_tokiyuki",
-        "difficulty": "超上級",
-        "winRate": 30,
-        "startProvId": "south_shinano",
-        "provCount": 1,
-        "myProvinces": [
-          "south_shinano"
-        ],
-        "gold": 650,
-        "rice": 800,
-        "personality": "aggressive",
-        "officerId": "off_hojo_tokiyuki",
-        "desc": "北条高時の遺児・北条時行。信濃諏訪頼重の庇護のもと、中先代の乱を起こして鎌倉を一時奪還し幕府再興を狙う。"
+        "desc": "甲斐源氏の流れを汲み、信濃国守護職を務めた名門。武家礼法・弓馬故実の「小笠原流」の宗家として全国の武家に尊崇された。",
+        "name": "小笠原貞宗"
       },
       {
         "id": "toki",
@@ -9696,6 +9728,38 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_jd_224",
         "desc": "飛騨国司として名高い公家大名姉小路氏。険峻な飛騨山地を本拠に独自勢力を築く。"
+      },
+      {
+        "id": "shiba_uzen",
+        "clanId": "shiba_uzen",
+        "difficulty": "中級",
+        "winRate": 45,
+        "startProvId": "uzen",
+        "provCount": 1,
+        "myProvinces": [
+          "uzen"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_jd_322",
+        "desc": "斯波家兼が興した羽前斯波氏。出羽・奥州を拠点とする。"
+      },
+      {
+        "id": "murakami",
+        "name": "村上国清",
+        "difficulty": "中級",
+        "winRate": 55,
+        "startProvId": "north_shinano",
+        "provCount": 1,
+        "myProvinces": [
+          "north_shinano"
+        ],
+        "gold": 2000,
+        "rice": 2500,
+        "personality": "balanced",
+        "officerId": "off_succ_murakami_1300_98",
+        "desc": "信濃の名門村上氏当主。北信濃葛尾城を本拠として勢力を誇る。"
       }
     ],
     "recommendedClan": "ashikaga",
@@ -9712,7 +9776,7 @@ window.SCENARIOS_DATA = [
       "date": "rikuzen",
       "kasai": "rikuchu",
       "ando": "ugo",
-      "shiba": "uzen",
+      "shiba": "echizen",
       "satake": "hitachi",
       "chiba": "shimousa",
       "satomi": "awa_boshu",
@@ -9739,7 +9803,9 @@ window.SCENARIOS_DATA = [
       "utsunomiya": "shimotsuke",
       "yuki": "iwaki",
       "anekoji": "hida",
-      "ashina": "iwashiro"
+      "ashina": "iwashiro",
+      "imagawa": "suruga",
+      "shiba_uzen": "uzen"
     }
   },
   {
@@ -9763,21 +9829,21 @@ window.SCENARIOS_DATA = [
     "recommendedClan": "ashikaga",
     "owners": {
       "ezo": "ando",
-      "mutsu": "nanbu",
-      "rikuchu": "shiba",
+      "mutsu": "kitabatake",
+      "rikuchu": "shiba_oshu",
       "ugo": "onodera",
       "rikuzen": "date",
-      "uzen": "muto",
+      "uzen": "shiba_uzen",
       "iwaki": "yuki",
       "iwashiro": "ashina",
       "echigo": "nitta",
       "noto": "togashi",
-      "etchu": "togashi",
+      "etchu": "ashikaga",
       "kaga": "togashi",
       "echizen": "shiba",
       "wakasa": "isshiki",
       "kozuke": "nitta",
-      "shimotsuke": "utsunomiya",
+      "shimotsuke": "ashikaga",
       "hitachi": "satake",
       "shimousa": "chiba",
       "kazusa": "ashikaga",
@@ -9785,7 +9851,7 @@ window.SCENARIOS_DATA = [
       "musashi": "ashikaga",
       "sagami": "ashikaga",
       "kai": "takeda",
-      "hida": "toki",
+      "hida": "anekoji",
       "mino": "toki",
       "suruga": "imagawa",
       "totomi": "imagawa",
@@ -9801,7 +9867,7 @@ window.SCENARIOS_DATA = [
       "settsu": "ashikaga",
       "kawachi": "kusunoki",
       "izumi": "kusunoki",
-      "yamato": "kitabatake",
+      "yamato": "godaiho",
       "kii": "hatakeyama",
       "harima": "akamatsu",
       "tajima": "yamana",
@@ -9829,8 +9895,8 @@ window.SCENARIOS_DATA = [
       "hyuga": "ashikaga",
       "satsuma": "shimazu",
       "osumi": "shimazu",
-      "north_shinano": "ogasawara",
-      "south_shinano": "hojo_tokiyuki",
+      "north_shinano": "murakami",
+      "south_shinano": "ogasawara",
       "north_omi": "kyogoku",
       "south_omi": "rokkaku",
       "tsugaru": "kitabatake",
@@ -9851,7 +9917,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "霊山城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -9957,13 +10023,11 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "yamato",
-        "provCount": 6,
+        "provCount": 4,
         "myProvinces": [
           "mutsu",
-          "rikuchu",
           "ise",
           "shima",
-          "yamato",
           "tsugaru"
         ],
         "gold": 2150,
@@ -10389,21 +10453,6 @@ window.SCENARIOS_DATA = [
         "id": "ogasawara",
         "difficulty": "超上級",
         "winRate": 30,
-        "startProvId": "north_shinano",
-        "provCount": 1,
-        "myProvinces": [
-          "north_shinano"
-        ],
-        "gold": 650,
-        "rice": 800,
-        "personality": "balanced",
-        "officerId": "off_ogasawara_sadamune",
-        "desc": "甲斐源氏の流れを汲み、信濃国守護職を務めた名門。武家礼法・弓馬故実の「小笠原流」の宗家として全国の武家に尊崇された。"
-      },
-      {
-        "id": "hojo_tokiyuki",
-        "difficulty": "超上級",
-        "winRate": 30,
         "startProvId": "south_shinano",
         "provCount": 1,
         "myProvinces": [
@@ -10411,9 +10460,10 @@ window.SCENARIOS_DATA = [
         ],
         "gold": 650,
         "rice": 800,
-        "personality": "aggressive",
-        "officerId": "off_hojo_tokiyuki",
-        "desc": "北条高時の遺児。諏訪頼重とともに信濃で挙兵（中先代の乱）し、足利直義を破って一時鎌倉を奪還した。"
+        "personality": "balanced",
+        "officerId": "off_ogasawara_sadamune",
+        "desc": "甲斐源氏の流れを汲み、信濃国守護職を務めた名門。武家礼法・弓馬故実の「小笠原流」の宗家として全国の武家に尊崇された。",
+        "name": "小笠原貞宗"
       },
       {
         "id": "rokkaku",
@@ -10505,6 +10555,71 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_jd_323",
         "desc": "出羽仙北の豪族小野寺氏。湊城を本拠に雄物川流域に確固たる勢力を誇る。"
+      },
+      {
+        "id": "shiba_uzen",
+        "clanId": "shiba_uzen",
+        "difficulty": "中級",
+        "winRate": 45,
+        "startProvId": "uzen",
+        "provCount": 2,
+        "myProvinces": [
+          "uzen",
+          "rikuchu"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_jd_322",
+        "desc": "斯波家兼が興した羽前斯波氏。羽前と陸中を領有し奥羽に勢力を伸ばす。"
+      },
+      {
+        "id": "godaiho",
+        "clanId": "godaiho",
+        "difficulty": "上級",
+        "winRate": 35,
+        "startProvId": "yamato",
+        "provCount": 1,
+        "myProvinces": [
+          "yamato"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "aggressive",
+        "officerId": "off_godaiho_tenno",
+        "desc": "吉野に逃れ南朝を樹立した後醍醐天皇。楠木正儀・北畠親房らを擁し、武家政権に対抗して建武中興の大義を掲げる。"
+      },
+      {
+        "id": "murakami",
+        "name": "村上国清",
+        "difficulty": "中級",
+        "winRate": 55,
+        "startProvId": "north_shinano",
+        "provCount": 1,
+        "myProvinces": [
+          "north_shinano"
+        ],
+        "gold": 2000,
+        "rice": 2500,
+        "personality": "balanced",
+        "officerId": "off_succ_murakami_1300_98",
+        "desc": "信濃の名門村上氏当主。北信濃葛尾城を本拠として足利方に属し、信濃で南朝勢力や他氏と渡り合う。"
+      },
+      {
+        "id": "shiba_oshu",
+        "name": "斯波家長",
+        "difficulty": "中級",
+        "winRate": 55,
+        "startProvId": "rikuchu",
+        "provCount": 1,
+        "myProvinces": [
+          "rikuchu"
+        ],
+        "gold": 2500,
+        "rice": 3000,
+        "personality": "balanced",
+        "officerId": "off_shiba_ienaga",
+        "desc": "斯波高経の長男。足利尊氏より奥州管領に任ぜられ、陸中を本拠として南朝の北畠顕家らと激戦を繰り広げた若き智勇の将。"
       }
     ],
     "capitals": {
@@ -10518,7 +10633,6 @@ window.SCENARIOS_DATA = [
       "ashina": "iwashiro",
       "togashi": "kaga",
       "shiba": "echizen",
-      "utsunomiya": "shimotsuke",
       "satake": "hitachi",
       "chiba": "shimousa",
       "takeda": "kai",
@@ -10545,7 +10659,8 @@ window.SCENARIOS_DATA = [
       "muto": "uzen",
       "onodera": "ugo",
       "yuki": "iwaki",
-      "nanbu": "mutsu"
+      "anekoji": "hida",
+      "shiba_uzen": "uzen"
     }
   },
   {
@@ -10566,11 +10681,11 @@ window.SCENARIOS_DATA = [
     "recommendedClan": "ashikaga",
     "owners": {
       "ezo": "ando",
-      "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "mutsu": "kitabatake",
+      "rikuchu": "shiba_uzen",
       "ugo": "ando",
       "rikuzen": "date",
-      "uzen": "date",
+      "uzen": "shiba_uzen",
       "iwaki": "ashina",
       "iwashiro": "ashina",
       "echigo": "nitta",
@@ -10588,7 +10703,7 @@ window.SCENARIOS_DATA = [
       "musashi": "kamakura_fu",
       "sagami": "kamakura_fu",
       "kai": "takeda",
-      "hida": "ashikaga",
+      "hida": "anekoji",
       "mino": "toki",
       "suruga": "imagawa",
       "totomi": "imagawa",
@@ -10609,7 +10724,7 @@ window.SCENARIOS_DATA = [
       "harima": "akamatsu",
       "tajima": "yamana",
       "inaba": "yamana",
-      "hoki": "yamana",
+      "hoki": "nawa",
       "izumo": "kyogoku",
       "iwami": "masuda",
       "mimasaka": "akamatsu",
@@ -10623,20 +10738,20 @@ window.SCENARIOS_DATA = [
       "awa_shikoku": "hosokawa",
       "iyo": "kono",
       "tosa": "chosokabe",
-      "buzen": "shoni",
+      "buzen": "utsunomiya",
       "bungo": "otomo",
-      "chikuzen": "kikuchi",
+      "chikuzen": "shoni",
       "chikugo": "kikuchi",
       "hizen": "shoni",
       "higo": "kikuchi",
       "hyuga": "shimazu",
       "satsuma": "shimazu",
       "osumi": "shimazu",
-      "north_shinano": "ogasawara",
-      "south_shinano": "suwa",
+      "north_shinano": "murakami",
+      "south_shinano": "ogasawara",
       "north_omi": "kyogoku",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "kitabatake",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
@@ -10654,7 +10769,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -11100,7 +11215,7 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "balanced",
-        "officerId": "off_utsunomiya_ujitsuna",
+        "officerId": "off_utsunomiya_kintsuna",
         "desc": "鎌倉以来の下野国名門。宇都宮広綱・国綱らは佐竹氏と同盟を結び、後北条氏の北関東侵攻に粘り強く立ち向かった。"
       },
       {
@@ -11167,16 +11282,16 @@ window.SCENARIOS_DATA = [
         "id": "ogasawara",
         "difficulty": "超上級",
         "winRate": 30,
-        "startProvId": "north_shinano",
+        "startProvId": "south_shinano",
         "provCount": 1,
         "myProvinces": [
-          "north_shinano"
+          "south_shinano"
         ],
         "gold": 650,
         "rice": 800,
         "personality": "balanced",
         "officerId": "off_ogasawara_naganori",
-        "desc": "信濃守護。小笠原貞宗の嫡男。足利尊氏の北朝方として信濃各地の戦乱を平定し幕府を支えた。"
+        "desc": "南信濃に拠る小笠原政長。信濃守護として武威を振るう。"
       },
       {
         "id": "suwa",
@@ -11190,7 +11305,7 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "domestic",
-        "officerId": "off_suwa_yorishige_kama",
+        "officerId": "off_suwa_naoyori",
         "desc": "信濃諏訪大社の大祝（神職）と領主を兼ねた神族名門。諏訪頼重の代に武田信玄と争い敗れるも、その血筋は信玄の子・勝頼へと受け継がれた。"
       },
       {
@@ -11252,22 +11367,54 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_toki_yorikasu",
         "desc": "美濃源氏の棟梁・土岐氏。当主・土岐頼康は足利尊氏を堅く支え、美濃・尾張・伊勢三ヶ国の守護を兼ねて幕府随一の有力大名となった。"
+      },
+      {
+        "id": "shiba_uzen",
+        "clanId": "shiba_uzen",
+        "difficulty": "中級",
+        "winRate": 45,
+        "startProvId": "uzen",
+        "provCount": 2,
+        "myProvinces": [
+          "uzen",
+          "rikuchu"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_jd_322",
+        "desc": "斯波家兼が興した羽前斯波氏。羽前・陸中を領有し奥州に覇を唱える。"
+      },
+      {
+        "id": "murakami",
+        "clanId": "murakami",
+        "difficulty": "超上級",
+        "winRate": 30,
+        "startProvId": "north_shinano",
+        "provCount": 1,
+        "myProvinces": [
+          "north_shinano"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_murakami_nobusada",
+        "desc": "北信濃の有力国人・村上信貞。葛尾城を本拠に信濃に勢力を張る。"
       }
     ],
     "capitals": {
       "ashikaga": "yamashiro",
       "kikuchi": "higo",
       "shiba": "echizen",
-      "hosokawa": "sanuki",
+      "hosokawa": "awa_shikoku",
       "hatakeyama": "noto",
       "toki": "mino",
       "ando": "ezo",
-      "nanbu": "mutsu",
       "date": "rikuzen",
       "ashina": "iwashiro",
       "nitta": "echigo",
       "togashi": "kaga",
-      "utsunomiya": "shimotsuke",
+      "utsunomiya": "buzen",
       "kamakura_fu": "sagami",
       "takeda": "kai",
       "imagawa": "suruga",
@@ -11279,10 +11426,10 @@ window.SCENARIOS_DATA = [
       "ouchi": "iwami",
       "kono": "iyo",
       "chosokabe": "tosa",
-      "shoni": "buzen",
+      "shoni": "chikuzen",
       "otomo": "bungo",
-      "shimazu": "hyuga",
-      "ogasawara": "north_shinano",
+      "shimazu": "satsuma",
+      "ogasawara": "south_shinano",
       "suwa": "south_shinano",
       "rokkaku": "south_omi",
       "honma": "sado",
@@ -11291,7 +11438,12 @@ window.SCENARIOS_DATA = [
       "satake": "hitachi",
       "isshiki": "tango",
       "masuda": "iwami",
-      "mori": "aki"
+      "mori": "aki",
+      "anekoji": "hida",
+      "kasai": "rikuchu",
+      "nawa": "hoki",
+      "shiba_uzen": "uzen",
+      "murakami": "north_shinano"
     }
   },
   {
@@ -11319,7 +11471,7 @@ window.SCENARIOS_DATA = [
       "ezo": "ezo_native",
       "tsugaru": "nanbu",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "shiba",
@@ -11327,11 +11479,11 @@ window.SCENARIOS_DATA = [
       "iwashiro": "ashina",
       "echigo": "uesugi",
       "noto": "hatakeyama",
-      "etchu": "shiba",
+      "etchu": "ashikaga",
       "kaga": "togashi",
       "echizen": "shiba",
-      "wakasa": "isshiki",
-      "kozuke": "kamakura_fu",
+      "wakasa": "shiba",
+      "kozuke": "uesugi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
       "shimousa": "chiba",
@@ -11361,7 +11513,7 @@ window.SCENARIOS_DATA = [
       "harima": "akamatsu",
       "tajima": "yamana",
       "inaba": "yamana",
-      "hoki": "yamana",
+      "hoki": "nawa",
       "izumo": "kyogoku",
       "iwami": "ouchi",
       "mimasaka": "akamatsu",
@@ -11407,7 +11559,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "長井城",
@@ -11489,7 +11641,7 @@ window.SCENARIOS_DATA = [
       "date": "rikuzen",
       "shiba": "echizen",
       "ashina": "iwashiro",
-      "uesugi": "echigo",
+      "uesugi": "kozuke",
       "hatakeyama": "noto",
       "togashi": "kaga",
       "kamakura_fu": "sagami",
@@ -11521,7 +11673,9 @@ window.SCENARIOS_DATA = [
       "honma": "sado",
       "so": "tsushima",
       "isshiki": "tango",
-      "anekoji": "hida"
+      "anekoji": "hida",
+      "nawa": "hoki",
+      "kasai": "rikuchu"
     },
     "playables": [
       {
@@ -11604,7 +11758,8 @@ window.SCENARIOS_DATA = [
         "rice": 2200,
         "personality": "domestic",
         "leaderName": "後村上天皇",
-        "desc": "後醍醐天皇の遺志を継ぐ南朝の主。吉野に逃れながらも、楠木・菊池ら忠臣を動かし京都奪還の機を窺う。"
+        "desc": "後醍醐天皇の遺志を継ぐ南朝の主。吉野に逃れながらも、楠木・菊池ら忠臣を動かし京都奪還の機を窺う。",
+        "officerId": "off_gomurakami_tenno"
       },
       {
         "id": "kamakura_fu",
@@ -11655,7 +11810,7 @@ window.SCENARIOS_DATA = [
         "gold": 1600,
         "rice": 2000,
         "personality": "aggressive",
-        "officerId": "off_kitabatake_akiyasu",
+        "officerId": "off_kitabatake_akiyoshi",
         "desc": "伊勢国司として南朝を支える名門。南朝の衰退期にあっても伊勢に確固たる地盤を築き、戦国時代まで国司としての権威を保った。"
       },
       {
@@ -11753,9 +11908,9 @@ window.SCENARIOS_DATA = [
         "provCount": 4,
         "myProvinces": [
           "uzen",
-          "etchu",
           "echizen",
-          "owari"
+          "owari",
+          "wakasa"
         ],
         "gold": 1600,
         "rice": 2000,
@@ -11791,7 +11946,8 @@ window.SCENARIOS_DATA = [
         "rice": 2000,
         "personality": "balanced",
         "leaderName": "上杉憲顕",
-        "desc": "足利尊氏の母方の従兄弟。観応の擾乱では直義方として活躍し、のちに関東管領として復帰し、上杉氏の関東支配の基礎を築いた。"
+        "desc": "足利尊氏の母方の従兄弟。観応の擾乱では直義方として活躍し、のちに関東管領として復帰し、上杉氏の関東支配の基礎を築いた。",
+        "officerId": "off_uesugi_noriaki_first"
       },
       {
         "id": "ashina",
@@ -11837,7 +11993,8 @@ window.SCENARIOS_DATA = [
         "rice": 1100,
         "personality": "aggressive",
         "leaderName": "長宗我部信能",
-        "desc": "土佐国岡豊の国人領主。南北朝の動乱では細川氏に従い北朝方として土佐国内で戦い、後の四国制覇の礎となる領地を守った。"
+        "desc": "土佐国岡豊の国人領主。南北朝の動乱では細川氏に従い北朝方として土佐国内で戦い、後の四国制覇の礎となる領地を守った。",
+        "officerId": "off_dm_chosokabe_1336"
       },
       {
         "id": "honma",
@@ -11851,7 +12008,7 @@ window.SCENARIOS_DATA = [
         "gold": 900,
         "rice": 1100,
         "personality": "domestic",
-        "officerId": "off_dm_honma_1331",
+        "officerId": "off_dm_honma_1350",
         "desc": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城を拠点に日本海交易と鉱山資源を背景に孤島の覇者として君臨した。"
       },
       {
@@ -11888,16 +12045,16 @@ window.SCENARIOS_DATA = [
         "id": "nanbu",
         "difficulty": "上級",
         "winRate": 46,
-        "startProvId": "rikuchu",
+        "startProvId": "mutsu",
         "provCount": 2,
         "myProvinces": [
-          "tsugaru",
-          "rikuchu"
+          "mutsu",
+          "tsugaru"
         ],
         "gold": 900,
         "rice": 1100,
         "personality": "aggressive",
-        "officerId": "off_nanbu_nobunaga",
+        "officerId": "off_succ2_nanbu_1345",
         "desc": "北奥羽を支配する南部氏。北朝方として足利尊氏に従い、名馬の産地を背景に広大な領国を治めた。"
       },
       {
@@ -11942,7 +12099,7 @@ window.SCENARIOS_DATA = [
         "gold": 900,
         "rice": 1100,
         "personality": "aggressive",
-        "officerId": "off_satake_yoshisato_kama",
+        "officerId": "off_satake_moriyoshi",
         "desc": "常陸の清和源氏名門。足利尊氏に従い常陸守護を獲得し、太田城を拠点に関東の北条（中先代）や南朝方と戦った。"
       },
       {
@@ -12051,6 +12208,22 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_shimazu_ujihisa",
         "desc": "薩摩島津氏。九州探題今川了俊と対立し、九州南部の自立を懸けて幕府軍や南朝の菊池氏と複雑な抗争を繰り広げた。"
+      },
+      {
+        "id": "kasai",
+        "clanId": "kasai",
+        "difficulty": "中級",
+        "winRate": 45,
+        "startProvId": "rikuchu",
+        "provCount": 1,
+        "myProvinces": [
+          "rikuchu"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_dm_kasai_1331",
+        "desc": "奥州の名族・葛西氏。葛西清貞が陸中を領有して独立勢力を築く。"
       }
     ]
   },
@@ -12098,7 +12271,7 @@ window.SCENARIOS_DATA = [
       "sagami": "kamakura_fu",
       "izu": "kamakura_fu",
       "suruga": "imagawa",
-      "kai": "uesugi",
+      "kai": "takeda",
       "north_shinano": "ogasawara",
       "south_shinano": "ogasawara",
       "echigo": "uesugi",
@@ -12128,7 +12301,7 @@ window.SCENARIOS_DATA = [
       "tajima": "yamana",
       "harima": "akamatsu",
       "inaba": "yamana",
-      "hoki": "yamana",
+      "hoki": "nawa",
       "izumo": "kyogoku",
       "iwami": "masuda",
       "mimasaka": "yamana",
@@ -12316,7 +12489,7 @@ window.SCENARIOS_DATA = [
         "gold": 700,
         "rice": 850,
         "personality": "balanced",
-        "officerId": "off_dm_shiba_1391",
+        "officerId": "off_shiba_yoshimasa",
         "desc": "足利一門の筆頭管領家。尾張・越前・遠江・陸奥に広大な知行地を有したが、応仁の乱の家督争いから次第に下克上に呑まれていった。"
       },
       {
@@ -12341,10 +12514,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "普通",
         "winRate": 60,
         "startProvId": "kozuke",
-        "provCount": 3,
+        "provCount": 2,
         "myProvinces": [
           "echigo",
-          "kai",
           "kozuke"
         ],
         "gold": 1500,
@@ -12463,6 +12635,37 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_ashina_akemori",
         "desc": "会津盆地を支配する蘆名氏。黒川城を本拠に奥羽に覇を唱える。"
+      },
+      {
+        "id": "nawa",
+        "difficulty": "上級",
+        "winRate": 25,
+        "startProvId": "hoki",
+        "provCount": 1,
+        "myProvinces": [
+          "hoki"
+        ],
+        "gold": 600,
+        "rice": 700,
+        "personality": "balanced",
+        "officerId": "off_nawa_yoshitaka",
+        "desc": "伯耆の名和氏。後醍醐天皇を支え、南北朝の荒波を生き抜いた名族。"
+      },
+      {
+        "id": "takeda",
+        "clanId": "takeda",
+        "difficulty": "普通",
+        "winRate": 55,
+        "startProvId": "kai",
+        "provCount": 1,
+        "myProvinces": [
+          "kai"
+        ],
+        "gold": 900,
+        "rice": 1200,
+        "personality": "balanced",
+        "officerId": "off_takeda_nobuharu",
+        "desc": "甲斐守護・武田信春。躑躅ヶ崎館を拠点に甲斐一国を治める。"
       }
     ],
     "capitals": {
@@ -12503,7 +12706,9 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "soma": "iwaki",
       "ashina": "iwashiro",
-      "kasai": "rikuchu"
+      "kasai": "rikuchu",
+      "nawa": "hoki",
+      "takeda": "kai"
     }
   },
   {
@@ -12529,7 +12734,7 @@ window.SCENARIOS_DATA = [
       "ezo": "ando",
       "tsugaru": "nanbu",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "date",
@@ -12540,7 +12745,7 @@ window.SCENARIOS_DATA = [
       "etchu": "hatakeyama",
       "kaga": "togashi",
       "echizen": "shiba",
-      "wakasa": "ashikaga",
+      "wakasa": "isshiki",
       "kozuke": "uesugi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
@@ -12562,7 +12767,7 @@ window.SCENARIOS_DATA = [
       "iga": "ashikaga",
       "yamashiro": "ashikaga",
       "tamba": "ashikaga",
-      "tango": "ashikaga",
+      "tango": "isshiki",
       "settsu": "hosokawa",
       "kawachi": "hatakeyama",
       "izumi": "hosokawa",
@@ -12585,16 +12790,16 @@ window.SCENARIOS_DATA = [
       "awa_shikoku": "hosokawa",
       "iyo": "kono",
       "tosa": "chosokabe",
-      "buzen": "shoni",
+      "buzen": "ashikaga",
       "bungo": "otomo",
-      "chikuzen": "shoni",
-      "chikugo": "otomo",
+      "chikuzen": "ashikaga",
+      "chikugo": "ashikaga",
       "hizen": "shoni",
       "higo": "kikuchi",
-      "hyuga": "shimazu",
+      "hyuga": "ashikaga",
       "satsuma": "shimazu",
       "osumi": "shimazu",
-      "north_shinano": "suwa",
+      "north_shinano": "ogasawara",
       "south_shinano": "ogasawara",
       "north_omi": "kyogoku",
       "south_omi": "rokkaku",
@@ -12617,7 +12822,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "長井城",
@@ -12719,7 +12924,7 @@ window.SCENARIOS_DATA = [
       "kono": "iyo",
       "chosokabe": "tosa",
       "otomo": "bungo",
-      "shoni": "chikuzen",
+      "shoni": "hizen",
       "kikuchi": "higo",
       "shimazu": "satsuma",
       "suwa": "north_shinano",
@@ -12728,7 +12933,9 @@ window.SCENARIOS_DATA = [
       "honma": "sado",
       "so": "tsushima",
       "mogami": "uzen",
-      "soma": "iwaki"
+      "soma": "iwaki",
+      "isshiki": "tango",
+      "kasai": "rikuchu"
     },
     "playables": [
       {
@@ -12752,14 +12959,15 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 84,
         "startProvId": "yamashiro",
-        "provCount": 6,
+        "provCount": 7,
         "myProvinces": [
           "wakasa",
           "mikawa",
           "iga",
           "yamashiro",
           "tamba",
-          "tango"
+          "tango",
+          "hyuga"
         ],
         "gold": 1900,
         "rice": 2300,
@@ -12899,9 +13107,8 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 3,
+        "provCount": 2,
         "myProvinces": [
-          "hyuga",
           "satsuma",
           "osumi"
         ],
@@ -13181,8 +13388,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "上級",
         "winRate": 46,
         "startProvId": "south_shinano",
-        "provCount": 1,
+        "provCount": 2,
         "myProvinces": [
+          "north_shinano",
           "south_shinano"
         ],
         "gold": 650,
@@ -13235,21 +13443,6 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_succ_so_1370_174",
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
-      },
-      {
-        "id": "suwa",
-        "difficulty": "上級",
-        "winRate": 46,
-        "startProvId": "north_shinano",
-        "provCount": 1,
-        "myProvinces": [
-          "north_shinano"
-        ],
-        "gold": 650,
-        "rice": 800,
-        "personality": "domestic",
-        "officerId": "off_succ_suwa_1365_185",
-        "desc": "信濃諏訪大社の大祝（神職）と領主を兼ねた神族名門。諏訪頼重の代に武田信玄と争い敗れるも、その血筋は信玄の子・勝頼へと受け継がれた。"
       },
       {
         "id": "takeda",
@@ -13310,6 +13503,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_soma_1400",
         "desc": "平将門の後裔を称する奥州の名門。相馬胤弘らは小高城を本拠に陸奥国行方郡を治め、一門の結束と単独相続制を確立して動乱の奥州で自立を守り抜いた。"
+      },
+      {
+        "id": "kasai",
+        "difficulty": "上級",
+        "winRate": 25,
+        "startProvId": "rikuchu",
+        "provCount": 1,
+        "myProvinces": [
+          "rikuchu"
+        ],
+        "gold": 600,
+        "rice": 700,
+        "personality": "balanced",
+        "officerId": "off_kasai_mitsusada",
+        "desc": "陸中の葛西氏。平泉の旧領を抑え、奥州に君臨する名族。"
       }
     ]
   },
@@ -13318,7 +13526,7 @@ window.SCENARIOS_DATA = [
     "alliances": [
       [
         "ashikaga",
-        "uesugi_yamanouchi"
+        "uesugi"
       ]
     ],
     "year": 1438,
@@ -13328,9 +13536,9 @@ window.SCENARIOS_DATA = [
     "desc": "永享十年、室町幕府六代将軍・足利義教は、幕府打倒を企む鎌倉公方・足利持氏の討伐を下令。関東管領・上杉憲実は将軍と主君の間で苦悩しつつ兵を挙げる。やがて義教自身も嘉吉の乱で非業の最期を遂げる。",
     "recommendedClan": "ashikaga",
     "owners": {
-      "ezo": "ando",
+      "ezo": "ezo_native",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -13339,13 +13547,13 @@ window.SCENARIOS_DATA = [
       "echigo": "uesugi",
       "noto": "hatakeyama",
       "etchu": "hatakeyama",
-      "kaga": "hatakeyama",
+      "kaga": "togashi",
       "echizen": "shiba",
       "wakasa": "ashikaga",
       "kozuke": "uesugi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
-      "shimousa": "chiba",
+      "shimousa": "yuki",
       "kazusa": "takeda_kazusa",
       "awa_boshu": "satomi",
       "musashi": "kamakura_fu",
@@ -13354,7 +13562,7 @@ window.SCENARIOS_DATA = [
       "hida": "toki",
       "mino": "toki",
       "suruga": "imagawa",
-      "totomi": "shiba",
+      "totomi": "ashikaga",
       "mikawa": "ashikaga",
       "owari": "shiba",
       "izu": "kamakura_fu",
@@ -13399,7 +13607,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "ogasawara",
       "north_omi": "kyogoku",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "ando",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
@@ -13417,7 +13625,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -13680,17 +13888,18 @@ window.SCENARIOS_DATA = [
         "id": "ando",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "ezo",
+        "startProvId": "ugo",
         "provCount": 2,
         "myProvinces": [
-          "ezo",
-          "ugo"
+          "ugo",
+          "tsugaru"
         ],
         "gold": 900,
         "rice": 1100,
         "personality": "balanced",
-        "officerId": "off_dm_ando_1438",
-        "desc": "津軽・秋田の日本海港津を握り、蝦夷地との北方交易で莫大な富を築いた檜山安東氏。安東愛季が家中を統合した。"
+        "officerId": "off_ando_morisue",
+        "desc": "出羽・津軽を領有する北方の大名。十三湊の交易を巡り南部氏と激しく対立する。",
+        "name": "安東盛季"
       },
       {
         "id": "ashina",
@@ -13800,7 +14009,7 @@ window.SCENARIOS_DATA = [
         "gold": 900,
         "rice": 1100,
         "personality": "aggressive",
-        "officerId": "off_shimazu_hisatoyo",
+        "officerId": "off_shimazu_tadakuni",
         "desc": "薩摩・大隅・日向の三州から勃興し、義久・義弘・歳久・家久の四兄弟が結束して九州ほぼ全土を席巻した戦国屈指の精強武士団。"
       },
       {
@@ -13862,21 +14071,6 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_satake_yoshijin",
         "desc": "清和源氏の名門。「坂東太郎」「鬼佐竹」と恐れられた佐竹義重の代に関東に覇を唱え、北条氏や伊達氏と激しく覇権を争った。"
-      },
-      {
-        "id": "chiba",
-        "difficulty": "超上級",
-        "winRate": 30,
-        "startProvId": "shimousa",
-        "provCount": 1,
-        "myProvinces": [
-          "shimousa"
-        ],
-        "gold": 650,
-        "rice": 800,
-        "personality": "domestic",
-        "officerId": "off_dm_chiba_1438",
-        "desc": "平安時代からの名族で坂東平氏の重鎮。本佐倉城を拠点に下総一帯に深く根を張り、北条氏や里見氏と対峙した。"
       },
       {
         "id": "imagawa",
@@ -14010,7 +14204,7 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "domestic",
-        "officerId": "off_rokkaku_mitsutaka",
+        "officerId": "off_rokkaku_mitsutsuna",
         "desc": "近江源氏佐々木氏の宗家。観音寺城という巨大山城に拠り、六角定頼は信長に先駆けて楽市令を布くなど先進的な領国経営を行った。"
       },
       {
@@ -14057,6 +14251,54 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_soma_1438",
         "desc": "平将門の後裔を称する奥州の名門。相馬義胤らは伊達政宗の度重なる侵攻を跳ね返し、近世大名として中村藩の礎を守り抜いた。"
+      },
+      {
+        "id": "kasai",
+        "difficulty": "上級",
+        "winRate": 25,
+        "startProvId": "rikuchu",
+        "provCount": 1,
+        "myProvinces": [
+          "rikuchu"
+        ],
+        "gold": 600,
+        "rice": 700,
+        "personality": "balanced",
+        "officerId": "off_kasai_munekiyo",
+        "kamonSvgId": "kamon-kasai",
+        "desc": "陸中の葛西氏。葛西宗清のもと、奥州の地に拠る名門。"
+      },
+      {
+        "id": "yuki",
+        "difficulty": "上級",
+        "winRate": 30,
+        "startProvId": "shimousa",
+        "provCount": 1,
+        "myProvinces": [
+          "shimousa"
+        ],
+        "gold": 650,
+        "rice": 750,
+        "personality": "balanced",
+        "officerId": "off_yuki_ujiitomo",
+        "kamonSvgId": "kamon-yuki",
+        "desc": "下総の名門・結城氏。結城氏朝が立ち上がり、関東に名を馳せる。"
+      },
+      {
+        "id": "ezo_native",
+        "name": "コシャマイン",
+        "difficulty": "上級",
+        "winRate": 40,
+        "startProvId": "ezo",
+        "provCount": 1,
+        "myProvinces": [
+          "ezo"
+        ],
+        "gold": 1500,
+        "rice": 2000,
+        "personality": "defensive",
+        "officerId": "off_ezo_koshamain",
+        "desc": "蝦夷地のアイヌ民族の首長。和人の進出に対して一族・部族を結集し、コシャマインの戦いを指導した英雄。"
       }
     ],
     "capitals": {
@@ -14096,7 +14338,10 @@ window.SCENARIOS_DATA = [
       "honma": "sado",
       "so": "tsushima",
       "satomi": "awa_boshu",
-      "takeda_kazusa": "kazusa"
+      "takeda_kazusa": "kazusa",
+      "togashi": "kaga",
+      "kasai": "rikuchu",
+      "yuki": "shimousa"
     }
   },
   {
@@ -14118,9 +14363,9 @@ window.SCENARIOS_DATA = [
     "desc": "応仁元年、将軍継嗣問題と畠山・斯波両家の家督争いが連動し、東軍・細川勝元と西軍・山名宗全が京都で激突。都は焦土と化し、戦乱は全国へと波及。室町幕府の権威は地に堕ち、戦国時代の下剋上が開幕する。",
     "recommendedClan": "hosokawa",
     "owners": {
-      "ezo": "ando",
+      "ezo": "ezo_native",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -14135,19 +14380,19 @@ window.SCENARIOS_DATA = [
       "kozuke": "uesugi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
-      "shimousa": "chiba",
-      "kazusa": "chiba",
+      "shimousa": "kamakura_fu",
+      "kazusa": "takeda_kazusa",
       "awa_boshu": "satomi",
-      "musashi": "uesugi",
-      "sagami": "uesugi",
+      "musashi": "ogigayatsu",
+      "sagami": "ogigayatsu",
       "kai": "takeda",
       "hida": "toki",
       "mino": "toki",
       "suruga": "imagawa",
-      "totomi": "shiba",
+      "totomi": "imagawa",
       "mikawa": "matsudaira",
       "owari": "shiba",
-      "izu": "uesugi",
+      "izu": "ogigayatsu",
       "ise": "kitabatake",
       "shima": "kitabatake",
       "iga": "ashikaga",
@@ -14164,7 +14409,7 @@ window.SCENARIOS_DATA = [
       "inaba": "yamana",
       "hoki": "yamana",
       "izumo": "kyogoku",
-      "iwami": "yamana",
+      "iwami": "ouchi",
       "mimasaka": "akamatsu",
       "bizen": "akamatsu",
       "bicchu": "hosokawa",
@@ -14189,7 +14434,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "ogasawara",
       "north_omi": "kyogoku",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "namioka",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
@@ -14207,7 +14452,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -14308,13 +14553,12 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "tango",
-        "provCount": 6,
+        "provCount": 5,
         "myProvinces": [
           "tango",
           "tajima",
           "inaba",
           "hoki",
-          "iwami",
           "bingo"
         ],
         "gold": 1900,
@@ -14365,12 +14609,13 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "suo",
-        "provCount": 4,
+        "provCount": 5,
         "myProvinces": [
           "suo",
           "nagato",
           "buzen",
-          "chikuzen"
+          "chikuzen",
+          "iwami"
         ],
         "gold": 1400,
         "rice": 1700,
@@ -14413,23 +14658,6 @@ window.SCENARIOS_DATA = [
         "desc": "足利尊氏が開いた室町幕府の征夷大将軍家。権威の失墜にあらがい、剣豪将軍足利義輝らが武家秩序の再建を志した。"
       },
       {
-        "id": "chiba",
-        "difficulty": "中級",
-        "winRate": 70,
-        "startProvId": "shimousa",
-        "provCount": 3,
-        "myProvinces": [
-          "shimousa",
-          "kazusa",
-          "awa_boshu"
-        ],
-        "gold": 1150,
-        "rice": 1400,
-        "personality": "domestic",
-        "officerId": "off_dm_chiba_1467",
-        "desc": "平安時代からの名族で坂東平氏の重鎮。本佐倉城を拠点に下総一帯に深く根を張り、北条氏や里見氏と対峙した。"
-      },
-      {
         "id": "akamatsu",
         "difficulty": "中級",
         "winRate": 70,
@@ -14467,17 +14695,17 @@ window.SCENARIOS_DATA = [
         "id": "ando",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "ezo",
+        "startProvId": "ugo",
         "provCount": 2,
         "myProvinces": [
-          "ezo",
           "ugo"
         ],
         "gold": 900,
         "rice": 1100,
         "personality": "balanced",
         "officerId": "off_dm_ando_1467",
-        "desc": "津軽・秋田の日本海港津を握り、蝦夷地との北方交易で莫大な富を築いた檜山安東氏。安東愛季が家中を統合した。"
+        "desc": "出羽秋田湊を拠点とする北方の大名。湊安東氏と合流し、出羽での勢力拡大を図る。",
+        "name": "安東政季"
       },
       {
         "id": "ashina",
@@ -14514,10 +14742,9 @@ window.SCENARIOS_DATA = [
         "id": "shiba",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "totomi",
-        "provCount": 2,
+        "startProvId": "owari",
+        "provCount": 1,
         "myProvinces": [
-          "totomi",
           "owari"
         ],
         "gold": 900,
@@ -14699,9 +14926,10 @@ window.SCENARIOS_DATA = [
         "difficulty": "超上級",
         "winRate": 30,
         "startProvId": "suruga",
-        "provCount": 1,
+        "provCount": 2,
         "myProvinces": [
-          "suruga"
+          "suruga",
+          "totomi"
         ],
         "gold": 650,
         "rice": 800,
@@ -14903,6 +15131,72 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_soma_1467",
         "desc": "平将門の後裔を称する奥州の名門。相馬義胤らは伊達政宗の度重なる侵攻を跳ね返し、近世大名として中村藩の礎を守り抜いた。"
+      },
+      {
+        "id": "ogigayatsu",
+        "difficulty": "中級",
+        "winRate": 40,
+        "startProvId": "musashi",
+        "provCount": 3,
+        "myProvinces": [
+          "musashi",
+          "sagami",
+          "izu"
+        ],
+        "gold": 900,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_uesugi_mochitomo",
+        "kamonSvgId": "kamon-uesugi",
+        "desc": "扇谷上杉家。上杉持朝のもと、河越城や江戸城を擁して相模・武蔵・伊豆に覇を唱える。"
+      },
+      {
+        "id": "takeda_kazusa",
+        "difficulty": "上級",
+        "winRate": 25,
+        "startProvId": "kazusa",
+        "provCount": 1,
+        "myProvinces": [
+          "kazusa"
+        ],
+        "gold": 600,
+        "rice": 700,
+        "personality": "balanced",
+        "officerId": "off_jd_369",
+        "kamonSvgId": "kamon-takeda",
+        "desc": "上総武田家。武田信長が庁南城・真里谷城を拠点に関東南部に確固たる勢力を築く。"
+      },
+      {
+        "id": "ezo_native",
+        "name": "タニコシャ",
+        "difficulty": "上級",
+        "winRate": 40,
+        "startProvId": "ezo",
+        "provCount": 1,
+        "myProvinces": [
+          "ezo"
+        ],
+        "gold": 1500,
+        "rice": 2000,
+        "personality": "defensive",
+        "officerId": "off_ezo_tani",
+        "desc": "蝦夷地のアイヌ民族の首長。コシャマインの蜂起を支え、東部蝦夷の部族を率いて和人勢力に対抗した。"
+      },
+      {
+        "id": "kamakura_fu",
+        "name": "足利成氏",
+        "difficulty": "初級",
+        "winRate": 65,
+        "startProvId": "shimousa",
+        "provCount": 1,
+        "myProvinces": [
+          "shimousa"
+        ],
+        "gold": 2500,
+        "rice": 3000,
+        "personality": "aggressive",
+        "officerId": "off_ashikaga_shigeuji",
+        "desc": "第5代鎌倉公方にして初代古河公方。関東管領上杉氏と激しく対立（享徳の乱）し、古河城を拠点に関東を二分する戦いを繰り広げた名将。"
       }
     ],
     "capitals": {
@@ -14915,7 +15209,7 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "ouchi": "suo",
@@ -14931,7 +15225,7 @@ window.SCENARIOS_DATA = [
       "utsunomiya": "shimotsuke",
       "chiba": "shimousa",
       "toki": "mino",
-      "shiba": "totomi",
+      "shiba": "owari",
       "matsudaira": "mikawa",
       "kitabatake": "ise",
       "hosokawa": "settsu",
@@ -14947,15 +15241,19 @@ window.SCENARIOS_DATA = [
       "rokkaku": "south_omi",
       "isshiki": "tango",
       "takeda_wakasa": "wakasa",
-      "satomi": "awa_boshu"
+      "satomi": "awa_boshu",
+      "kasai": "rikuchu",
+      "ogigayatsu": "musashi",
+      "takeda_kazusa": "kazusa",
+      "namioka": "tsugaru"
     }
   },
   {
     "id": "1495",
     "alliances": [
       [
-        "uesugi_yamanouchi",
-        "uesugi_ogigayatsu"
+        "hojo",
+        "ogigayatsu"
       ]
     ],
     "year": 1495,
@@ -14967,7 +15265,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -14985,7 +15283,7 @@ window.SCENARIOS_DATA = [
       "shimousa": "kamakura_fu",
       "kazusa": "satomi",
       "awa_boshu": "satomi",
-      "musashi": "uesugi",
+      "musashi": "ogigayatsu",
       "sagami": "hojo",
       "kai": "takeda",
       "hida": "anekoji",
@@ -15000,7 +15298,7 @@ window.SCENARIOS_DATA = [
       "iga": "rokkaku",
       "yamashiro": "ashikaga",
       "tamba": "hosokawa",
-      "tango": "yamana",
+      "tango": "ashikaga",
       "settsu": "hosokawa",
       "kawachi": "hatakeyama",
       "izumi": "hosokawa",
@@ -15009,13 +15307,13 @@ window.SCENARIOS_DATA = [
       "harima": "akamatsu",
       "tajima": "yamana",
       "inaba": "yamana",
-      "hoki": "amago",
+      "hoki": "yamana",
       "izumo": "amago",
       "iwami": "ouchi",
       "mimasaka": "akamatsu",
       "bizen": "uragami",
-      "bicchu": "amago",
-      "bingo": "amago",
+      "bicchu": "hosokawa",
+      "bingo": "yamana",
       "aki": "mori",
       "suo": "ouchi",
       "nagato": "ouchi",
@@ -15036,7 +15334,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "ogasawara",
       "north_omi": "azai",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "namioka",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
@@ -15054,7 +15352,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -15134,14 +15432,15 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "tamba",
-        "provCount": 6,
+        "provCount": 7,
         "myProvinces": [
           "tamba",
           "settsu",
           "izumi",
           "sanuki",
           "awa_shikoku",
-          "awaji"
+          "awaji",
+          "bicchu"
         ],
         "gold": 2150,
         "rice": 2600,
@@ -15154,12 +15453,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "hoki",
-        "provCount": 5,
+        "provCount": 2,
         "myProvinces": [
-          "hoki",
           "izumo",
-          "bicchu",
-          "bingo",
           "oki"
         ],
         "gold": 1650,
@@ -15192,10 +15488,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "mutsu",
-        "provCount": 3,
+        "provCount": 2,
         "myProvinces": [
           "mutsu",
-          "rikuchu",
           "tsugaru"
         ],
         "gold": 1150,
@@ -15209,10 +15504,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "kozuke",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "kozuke",
-          "musashi"
+          "kozuke"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -15241,12 +15535,13 @@ window.SCENARIOS_DATA = [
         "id": "yamana",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "tango",
-        "provCount": 3,
+        "startProvId": "tajima",
+        "provCount": 4,
         "myProvinces": [
-          "tango",
           "tajima",
-          "inaba"
+          "inaba",
+          "bingo",
+          "hoki"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -15274,9 +15569,10 @@ window.SCENARIOS_DATA = [
         "difficulty": "上級",
         "winRate": 50,
         "startProvId": "yamashiro",
-        "provCount": 1,
+        "provCount": 2,
         "myProvinces": [
-          "yamashiro"
+          "yamashiro",
+          "tango"
         ],
         "gold": 900,
         "rice": 1100,
@@ -15732,8 +16028,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_omi",
         "provCount": 2,
         "myProvinces": [
-          "iga",
-          "south_omi"
+          "south_omi",
+          "iga"
         ],
         "gold": 650,
         "rice": 800,
@@ -15861,6 +16157,38 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_soma_1495",
         "desc": "平将門の後裔を称する奥州の名門。相馬義胤らは伊達政宗の度重なる侵攻を跳ね返し、近世大名として中村藩の礎を守り抜いた。"
+      },
+      {
+        "id": "ogigayatsu",
+        "clanId": "ogigayatsu",
+        "difficulty": "中級",
+        "winRate": 55,
+        "startProvId": "musashi",
+        "provCount": 1,
+        "myProvinces": [
+          "musashi"
+        ],
+        "gold": 900,
+        "rice": 1200,
+        "personality": "balanced",
+        "officerId": "off_uesugi_tomoyoshi_1495",
+        "desc": "扇谷上杉家当主・上杉朝良。河越城・江戸城を擁し、山内上杉家や新興の伊勢宗瑞（北条早雲）と抗争する。"
+      },
+      {
+        "id": "kasai",
+        "clanId": "kasai",
+        "difficulty": "上級",
+        "winRate": 40,
+        "startProvId": "rikuchu",
+        "provCount": 1,
+        "myProvinces": [
+          "rikuchu"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_kasai_hisanobu",
+        "desc": "陸中の名族葛西氏。葛西尚信が陸中を領し、奥州の諸勢力と対峙する。"
       }
     ],
     "capitals": {
@@ -15877,7 +16205,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "ouchi": "suo",
@@ -15900,9 +16228,9 @@ window.SCENARIOS_DATA = [
       "anekoji": "hida",
       "matsudaira": "mikawa",
       "kitabatake": "ise",
-      "rokkaku": "iga",
+      "rokkaku": "south_omi",
       "hosokawa": "settsu",
-      "yamana": "tango",
+      "yamana": "tajima",
       "tsutsui": "yamato",
       "akamatsu": "harima",
       "uragami": "bizen",
@@ -15911,7 +16239,10 @@ window.SCENARIOS_DATA = [
       "kikuchi": "higo",
       "ito": "hyuga",
       "murakami": "north_shinano",
-      "ogasawara": "south_shinano"
+      "ogasawara": "south_shinano",
+      "namioka": "tsugaru",
+      "ogigayatsu": "musashi",
+      "kasai": "rikuchu"
     }
   },
   {
@@ -15937,7 +16268,7 @@ window.SCENARIOS_DATA = [
       "ezo": "kakizaki",
       "tsugaru": "nanbu",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -15946,9 +16277,9 @@ window.SCENARIOS_DATA = [
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
       "kozuke": "uesugi",
-      "musashi": "uesugi",
-      "shimousa": "ashikaga_oyumi",
-      "kazusa": "chiba",
+      "musashi": "ogigayatsu",
+      "shimousa": "kamakura_fu",
+      "kazusa": "ashikaga_oyumi",
       "awa_boshu": "satomi",
       "sagami": "hojo",
       "izu": "hojo",
@@ -15956,7 +16287,7 @@ window.SCENARIOS_DATA = [
       "kai": "takeda",
       "north_shinano": "murakami",
       "south_shinano": "ogasawara",
-      "echigo": "uesugi",
+      "echigo": "nagao",
       "etchu": "jinbo",
       "noto": "hatakeyama",
       "kaga": "honganji",
@@ -16182,7 +16513,7 @@ window.SCENARIOS_DATA = [
       }
     ],
     "capitals": {
-      "uesugi": "musashi",
+      "uesugi": "kozuke",
       "hojo": "sagami",
       "ryuzoji": "hizen",
       "honganji": "kaga",
@@ -16197,7 +16528,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "ouchi": "suo",
@@ -16219,8 +16550,7 @@ window.SCENARIOS_DATA = [
       "ando": "ugo",
       "mogami": "uzen",
       "utsunomiya": "shimotsuke",
-      "ashikaga_oyumi": "shimousa",
-      "chiba": "kazusa",
+      "ashikaga_oyumi": "kazusa",
       "jinbo": "etchu",
       "hatakeyama": "noto",
       "anekoji": "hida",
@@ -16234,7 +16564,11 @@ window.SCENARIOS_DATA = [
       "isshiki": "tango",
       "kono": "iyo",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "nagao": "echigo",
+      "kasai": "rikuchu",
+      "kamakura_fu": "shimousa",
+      "ogigayatsu": "musashi"
     }
   },
   {
@@ -16261,9 +16595,9 @@ window.SCENARIOS_DATA = [
     "lore_focus": "小弓公方軍は国府台を死守し北条軍を撃退できるか。北条軍は足利義明を討ち取り関東南部の覇権を握れるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "nanbu",
+      "tsugaru": "oura",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -16273,8 +16607,8 @@ window.SCENARIOS_DATA = [
       "shimotsuke": "utsunomiya",
       "kozuke": "uesugi",
       "musashi": "hojo",
-      "shimousa": "ashikaga_oyumi",
-      "kazusa": "satomi",
+      "shimousa": "kamakura_fu",
+      "kazusa": "ashikaga_oyumi",
       "awa_boshu": "satomi",
       "sagami": "hojo",
       "izu": "hojo",
@@ -16517,7 +16851,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "ouchi": "suo",
@@ -16535,7 +16869,7 @@ window.SCENARIOS_DATA = [
       "ashikaga": "yamashiro",
       "takeda_wakasa": "wakasa",
       "chosokabe": "tosa",
-      "ashikaga_oyumi": "shimousa",
+      "ashikaga_oyumi": "kazusa",
       "nagao": "echigo",
       "kakizaki": "ezo",
       "ando": "ugo",
@@ -16554,7 +16888,10 @@ window.SCENARIOS_DATA = [
       "isshiki": "tango",
       "kono": "iyo",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "oura": "tsugaru",
+      "kasai": "rikuchu",
+      "kamakura_fu": "shimousa"
     }
   },
   {
@@ -16575,7 +16912,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -16587,10 +16924,10 @@ window.SCENARIOS_DATA = [
       "kaga": "honganji",
       "echizen": "asakura",
       "wakasa": "takeda_wakasa",
-      "kozuke": "uesugi",
+      "kozuke": "yamanouchi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
-      "shimousa": "kamakura_fu",
+      "shimousa": "chiba",
       "kazusa": "satomi",
       "awa_boshu": "satomi",
       "musashi": "hojo",
@@ -16644,7 +16981,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "takeda",
       "north_omi": "azai",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "oura",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
@@ -16662,7 +16999,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -17459,13 +17796,12 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "ouchi": "suo",
       "otomo": "bungo",
       "imagawa": "suruga",
-      "kamakura_fu": "shimousa",
       "mimura": "bicchu",
       "kakizaki": "ezo",
       "ando": "ugo",
@@ -17491,7 +17827,11 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "murakami": "north_shinano",
       "isshiki": "tango",
-      "takeda_wakasa": "wakasa"
+      "takeda_wakasa": "wakasa",
+      "oura": "tsugaru",
+      "kasai": "rikuchu",
+      "chiba": "shimousa",
+      "yamanouchi": "kozuke"
     }
   },
   {
@@ -17520,7 +17860,7 @@ window.SCENARIOS_DATA = [
     "lore_focus": "毛利軍は寡兵で陶の大軍を宮島で包囲殲滅できるか。陶晴賢は毛利の計略を破り安芸を平定できるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "nanbu",
+      "tsugaru": "oura",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "ugo": "ando",
@@ -17530,7 +17870,7 @@ window.SCENARIOS_DATA = [
       "iwashiro": "ashina",
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
-      "kozuke": "uesugi",
+      "kozuke": "yamanouchi",
       "musashi": "hojo",
       "shimousa": "hojo",
       "kazusa": "satomi",
@@ -18009,7 +18349,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -18041,7 +18381,9 @@ window.SCENARIOS_DATA = [
       "yamana": "tajima",
       "sagara": "higo",
       "ito": "hyuga",
-      "soma": "iwaki"
+      "soma": "iwaki",
+      "oura": "tsugaru",
+      "yamanouchi": "kozuke"
     }
   },
   {
@@ -18131,7 +18473,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "takeda",
       "north_omi": "azai",
       "south_omi": "rokkaku",
-      "tsugaru": "nanbu",
+      "tsugaru": "oura",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
@@ -18149,7 +18491,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -18947,7 +19289,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -18976,7 +19318,8 @@ window.SCENARIOS_DATA = [
       "sagara": "higo",
       "ito": "hyuga",
       "rokkaku": "south_omi",
-      "uragami": "bizen"
+      "uragami": "bizen",
+      "oura": "tsugaru"
     }
   },
   {
@@ -19074,7 +19417,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "takeda",
       "north_omi": "azai",
       "south_omi": "oda",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
@@ -19092,7 +19435,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -19561,8 +19904,9 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "aggressive",
-        "officerId": "off_dm_saika_1570",
-        "desc": "紀伊国の地侍・土豪による最強の鉄砲傭兵軍団。頭領・鈴木孫市（重秀）は信長包囲網で本願寺と結び、織田軍を散々に打ち破った。"
+        "officerId": "off_dm_saika_1546",
+        "desc": "紀伊国の地侍・土豪による最強の鉄砲傭兵軍団。頭領・鈴木孫市（重秀）は信長包囲網で本願寺と結び、織田軍を散々に打ち破った。",
+        "name": "鈴木佐大夫"
       },
       {
         "id": "akamatsu",
@@ -19793,7 +20137,7 @@ window.SCENARIOS_DATA = [
       "azai": "north_omi",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -19814,7 +20158,8 @@ window.SCENARIOS_DATA = [
       "kono": "iyo",
       "sagara": "higo",
       "ito": "hyuga",
-      "hatano": "tamba"
+      "hatano": "tamba",
+      "tsugaru": "tsugaru"
     }
   },
   {
@@ -19845,7 +20190,7 @@ window.SCENARIOS_DATA = [
     "lore_focus": "武田信玄は徳川・織田を粉砕し上洛を完遂できるか。織田・徳川連合は信玄の猛攻を耐え抜けるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "ugo": "ando",
@@ -20187,7 +20532,8 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "suzuki": "kii"
+      "suzuki": "kii",
+      "tsugaru": "tsugaru"
     }
   },
   {
@@ -20215,7 +20561,7 @@ window.SCENARIOS_DATA = [
     "lore_focus": "毛利・本願寺連合は信長包囲網を完成させ畿内を奪回できるか。織田家は反信長の諸大名を各個撃破できるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "ugo": "ando",
@@ -20604,7 +20950,7 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "takeda": "kai",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -20626,7 +20972,8 @@ window.SCENARIOS_DATA = [
       "utsunomiya": "shimotsuke",
       "hatakeyama": "noto",
       "sagara": "higo",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "tsugaru": "tsugaru"
     },
     "recommendedClan": "oda"
   },
@@ -20657,7 +21004,7 @@ window.SCENARIOS_DATA = [
     "lore_focus": "上杉謙信は手取川の勝勢を駆り上洛の軍を進められるか。織田家は松永久秀を鎮定し謙信の南下を阻止できるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "ugo": "ando",
@@ -21002,7 +21349,8 @@ window.SCENARIOS_DATA = [
       "sagara": "higo",
       "ito": "hyuga",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "tsugaru": "tsugaru"
     }
   },
   {
@@ -21091,7 +21439,7 @@ window.SCENARIOS_DATA = [
       "south_shinano": "oda",
       "north_omi": "oda",
       "south_omi": "oda",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "awaji": "oda",
       "sado": "honma",
       "tsushima": "so",
@@ -21111,7 +21459,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -21551,8 +21899,9 @@ window.SCENARIOS_DATA = [
         "gold": 650,
         "rice": 800,
         "personality": "aggressive",
-        "officerId": "off_dm_saika_1570",
-        "desc": "紀伊国の地侍・土豪による最強の鉄砲傭兵軍団。頭領・鈴木孫市（重秀）は信長包囲網で本願寺と結び、織田軍を散々に打ち破った。"
+        "officerId": "off_saika_magoichi",
+        "desc": "紀伊国の地侍・土豪による最強の鉄砲傭兵軍団。頭領・鈴木孫市（重秀）は信長包囲網で本願寺と結び、織田軍を散々に打ち破った。",
+        "name": "鈴木重秀"
       },
       {
         "id": "honma",
@@ -21598,7 +21947,7 @@ window.SCENARIOS_DATA = [
       "honma": "sado",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -21608,7 +21957,8 @@ window.SCENARIOS_DATA = [
       "soma": "iwaki",
       "utsunomiya": "shimotsuke",
       "saika": "kii",
-      "ukita": "mimasaka"
+      "ukita": "mimasaka",
+      "tsugaru": "tsugaru"
     }
   },
   {
@@ -21648,7 +21998,7 @@ window.SCENARIOS_DATA = [
       "date": "rikuzen",
       "mogami": "uzen",
       "ando": "ugo",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "tsugaru": "tsugaru",
       "kakizaki": "ezo",
       "honma": "sado",
@@ -21763,7 +22113,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -22078,7 +22428,8 @@ window.SCENARIOS_DATA = [
         "rice": 1200,
         "personality": "aggressive",
         "officerId": "off_saika_magoichi",
-        "desc": "紀州雑賀衆の頭領。鉄砲隊を率いて家康に呼応し、秀吉の背後を脅かす。"
+        "desc": "紀州雑賀衆の頭領。鉄砲隊を率いて家康に呼応し、秀吉の背後を脅かす。",
+        "name": "鈴木重秀"
       },
       {
         "id": "satomi",
@@ -22328,7 +22679,7 @@ window.SCENARIOS_DATA = [
       "soma": "iwaki",
       "mogami": "uzen",
       "ando": "ugo",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "satomi": "awa_boshu",
       "kakizaki": "ezo",
       "honma": "sado",
@@ -22434,7 +22785,7 @@ window.SCENARIOS_DATA = [
       "ugo": "ando",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
-      "tsugaru": "nanbu",
+      "tsugaru": "tsugaru",
       "ezo": "kakizaki",
       "sado": "honma",
       "tsushima": "so"
@@ -22443,7 +22794,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -22844,11 +23195,10 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "mutsu",
-        "provCount": 3,
+        "provCount": 2,
         "myProvinces": [
           "mutsu",
-          "rikuchu",
-          "tsugaru"
+          "rikuchu"
         ],
         "gold": 1500,
         "rice": 1700,
@@ -22915,6 +23265,22 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々統治する名門島主・宗家。日本と朝鮮半島を結ぶ海運・通商・外交の結節点を一手に扼し、幾多の外患や乱世を不屈の誇りと巧みな外交力で乗り越えた独立水軍大名。"
+      },
+      {
+        "id": "tsugaru",
+        "difficulty": "上級",
+        "winRate": 40,
+        "startProvId": "tsugaru",
+        "provCount": 1,
+        "myProvinces": [
+          "tsugaru"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "aggressive",
+        "officerId": "off_tsugaru_tamenobu",
+        "name": "津軽為信",
+        "desc": "北奥の英傑・津軽為信。南部氏の支配を脱し、津軽一統を成し遂げて独立大名となった。"
       }
     ]
   },
@@ -23025,12 +23391,12 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
       "iwaki": "白河小峰城",
-      "iwashiro": "会津若松城",
+      "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
@@ -23214,7 +23580,7 @@ window.SCENARIOS_DATA = [
         "id": "date",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "rikuzen",
+        "startProvId": "iwashiro",
         "provCount": 3,
         "myProvinces": [
           "rikuzen",
@@ -23225,7 +23591,8 @@ window.SCENARIOS_DATA = [
         "rice": 1400,
         "personality": "aggressive",
         "officerId": "off_date_masamune",
-        "desc": "奥州屈指の名門。十七代政宗に至って摺上原の戦いで南奥州を制圧し、奥羽に一大勢力圏を築いた「独眼竜」。"
+        "desc": "奥州屈指の名門。十七代政宗に至って摺上原の戦いで南奥州を制圧し、奥羽に一大勢力圏を築いた「独眼竜」。",
+        "name": "伊達政宗"
       },
       {
         "id": "tachibana",
@@ -23446,7 +23813,7 @@ window.SCENARIOS_DATA = [
       "toyotomi": "settsu",
       "hojo": "sagami",
       "tokugawa": "mikawa",
-      "date": "rikuzen",
+      "date": "iwashiro",
       "shimazu": "satsuma",
       "uesugi": "echigo",
       "mori": "aki",
@@ -23493,7 +23860,7 @@ window.SCENARIOS_DATA = [
       "utsunomiya": "shimotsuke",
       "sanada": "north_shinano",
       "mogami": "uzen",
-      "nanbu": "rikuchu",
+      "nanbu": "mutsu",
       "tsugaru": "tsugaru",
       "ando": "ugo",
       "kakizaki": "ezo",
@@ -23502,7 +23869,10 @@ window.SCENARIOS_DATA = [
       "kuroda": "buzen",
       "tachibana": "chikugo",
       "ryuzoji": "hizen",
-      "satomi": "awa_boshu"
+      "satomi": "awa_boshu",
+      "gamo": "iwashiro",
+      "soma": "iwaki",
+      "kobayakawa": "chikuzen"
     },
     "alliances": [
       [
@@ -23552,8 +23922,8 @@ window.SCENARIOS_DATA = [
       "sado": "uesugi",
       "north_shinano": "sanada",
       "rikuzen": "date",
-      "iwaki": "date",
-      "iwashiro": "date",
+      "iwaki": "soma",
+      "iwashiro": "gamo",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "tsugaru": "tsugaru",
@@ -23576,7 +23946,7 @@ window.SCENARIOS_DATA = [
       "hyuga": "shimazu",
       "tsushima": "so",
       "hizen": "ryuzoji",
-      "chikuzen": "toyotomi",
+      "chikuzen": "kobayakawa",
       "higo": "kato",
       "buzen": "kuroda",
       "bungo": "toyotomi",
@@ -23618,7 +23988,7 @@ window.SCENARIOS_DATA = [
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "九戸城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -23820,11 +24190,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 3,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki",
-          "iwashiro"
+          "rikuzen"
         ],
         "gold": 1800,
         "rice": 2000,
@@ -24090,6 +24458,54 @@ window.SCENARIOS_DATA = [
         "personality": "defensive",
         "officerId": "off_succ2_satomi_1573",
         "desc": "安房一国を死守する里見家当主。北条滅亡後も水軍の精鋭を率いて房総を維持する。"
+      },
+      {
+        "id": "gamo",
+        "difficulty": "中級",
+        "winRate": 74,
+        "startProvId": "iwashiro",
+        "provCount": 1,
+        "myProvinces": [
+          "iwashiro"
+        ],
+        "gold": 2500,
+        "rice": 3000,
+        "personality": "aggressive",
+        "officerId": "off_gamo_ujisato",
+        "name": "蒲生氏郷",
+        "desc": "会津九十二万石を領する大大名・蒲生氏郷。利休七哲の筆頭であり、名将の器量を誇る。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "中級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 1200,
+        "rice": 1400,
+        "personality": "aggressive",
+        "officerId": "off_dm_soma_1546",
+        "name": "相馬盛胤",
+        "desc": "平将門の後裔を称する奥州の名門。相馬盛胤・義胤父子は伊達政宗の猛攻を跳ね返し、近世大名として独立を保った。"
+      },
+      {
+        "id": "kobayakawa",
+        "difficulty": "中級",
+        "winRate": 72,
+        "startProvId": "chikuzen",
+        "provCount": 1,
+        "myProvinces": [
+          "chikuzen"
+        ],
+        "gold": 2200,
+        "rice": 2500,
+        "personality": "balanced",
+        "officerId": "off_kobayakawa_takakage",
+        "name": "小早川隆景",
+        "desc": "筑前名島を領する毛利両川の智将。豊臣政権五大老の一人として絶大な信望を集める。"
       }
     ]
   },
@@ -24104,16 +24520,28 @@ window.SCENARIOS_DATA = [
         "maeda",
         "mogami",
         "hachisuka",
-        "asano"
+        "asano",
+        "hosokawa",
+        "kyogoku",
+        "nanbu",
+        "tsugaru",
+        "ando",
+        "kakizaki"
       ],
       [
+        "toyotomi",
         "ishida",
         "mori",
         "ukita",
         "uesugi",
         "shimazu",
         "tachibana",
-        "nakagawa"
+        "nakagawa",
+        "satake",
+        "sanada",
+        "chosokabe",
+        "nabeshima",
+        "so"
       ]
     ],
     "year": 1600,
@@ -24158,7 +24586,7 @@ window.SCENARIOS_DATA = [
       "iga": "ishida",
       "yamashiro": "ishida",
       "tamba": "toyotomi",
-      "tango": "tokugawa",
+      "tango": "hosokawa",
       "settsu": "toyotomi",
       "kawachi": "toyotomi",
       "izumi": "toyotomi",
@@ -24193,11 +24621,11 @@ window.SCENARIOS_DATA = [
       "north_shinano": "sanada",
       "south_shinano": "tokugawa",
       "north_omi": "ishida",
-      "south_omi": "tokugawa",
+      "south_omi": "kyogoku",
       "tsugaru": "tsugaru",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "hachisuka",
+      "awaji": "toyotomi",
       "oki": "tokugawa"
     },
     "gengo": "慶長5年",
@@ -24295,7 +24723,7 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "echigo",
-        "provCount": 20,
+        "provCount": 18,
         "myProvinces": [
           "echigo",
           "kozuke",
@@ -24310,11 +24738,9 @@ window.SCENARIOS_DATA = [
           "totomi",
           "mikawa",
           "izu",
-          "tango",
           "sanuki",
           "iyo",
           "south_shinano",
-          "south_omi",
           "sado",
           "oki"
         ],
@@ -24377,7 +24803,7 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "tamba",
-        "provCount": 7,
+        "provCount": 8,
         "myProvinces": [
           "tamba",
           "settsu",
@@ -24385,7 +24811,8 @@ window.SCENARIOS_DATA = [
           "izumi",
           "yamato",
           "kii",
-          "harima"
+          "harima",
+          "awaji"
         ],
         "gold": 1650,
         "rice": 2000,
@@ -24431,7 +24858,7 @@ window.SCENARIOS_DATA = [
         "id": "nanbu",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "mutsu",
+        "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
           "mutsu",
@@ -24478,11 +24905,11 @@ window.SCENARIOS_DATA = [
         "id": "ukita",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "mimasaka",
+        "startProvId": "bizen",
         "provCount": 2,
         "myProvinces": [
-          "mimasaka",
-          "bizen"
+          "bizen",
+          "mimasaka"
         ],
         "gold": 900,
         "rice": 1100,
@@ -24669,6 +25096,36 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
+      },
+      {
+        "id": "hosokawa",
+        "difficulty": "超上級",
+        "winRate": 30,
+        "startProvId": "tango",
+        "provCount": 1,
+        "myProvinces": [
+          "tango"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_hosokawa_tadaoki",
+        "desc": "細川幽斎・忠興父子の家。丹後田辺城籠城戦で西軍の大軍を釘付けにし、東軍の勝利に大きく貢献した。"
+      },
+      {
+        "id": "kyogoku",
+        "difficulty": "超上級",
+        "winRate": 30,
+        "startProvId": "south_omi",
+        "provCount": 1,
+        "myProvinces": [
+          "south_omi"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "balanced",
+        "officerId": "off_kyogoku_takatsugu",
+        "desc": "近江源氏の名門・京極家。京極高次は大津城に籠城し、西軍一万五千の精鋭を関ヶ原本戦から引き離す大功を挙げた。"
       }
     ],
     "capitals": {
@@ -24684,11 +25141,11 @@ window.SCENARIOS_DATA = [
       "chosokabe": "tosa",
       "nabeshima": "hizen",
       "kakizaki": "ezo",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "ando": "ugo",
       "mogami": "uzen",
       "asano": "kai",
-      "ukita": "mimasaka",
+      "ukita": "bizen",
       "hachisuka": "awa_shikoku",
       "kuroda": "buzen",
       "nakagawa": "bungo",
@@ -24696,7 +25153,9 @@ window.SCENARIOS_DATA = [
       "kato": "higo",
       "sanada": "north_shinano",
       "tsugaru": "tsugaru",
-      "so": "tsushima"
+      "so": "tsushima",
+      "hosokawa": "tango",
+      "kyogoku": "south_omi"
     }
   },
   {
@@ -24732,7 +25191,7 @@ window.SCENARIOS_DATA = [
       "uzen": "uesugi",
       "iwaki": "date",
       "iwashiro": "gamou",
-      "hitachi": "tokugawa",
+      "hitachi": "mito",
       "shimotsuke": "tokugawa",
       "kozuke": "tokugawa",
       "musashi": "tokugawa",
@@ -24741,7 +25200,7 @@ window.SCENARIOS_DATA = [
       "awa_boshu": "tokugawa",
       "sagami": "tokugawa",
       "izu": "tokugawa",
-      "suruga": "kishu",
+      "suruga": "tokugawa",
       "kai": "tokugawa",
       "north_shinano": "sanada",
       "south_shinano": "ogasawara",
@@ -24760,7 +25219,7 @@ window.SCENARIOS_DATA = [
       "shima": "tokugawa",
       "iga": "tokugawa",
       "north_omi": "ii",
-      "south_omi": "ii",
+      "south_omi": "tokugawa",
       "yamashiro": "tokugawa",
       "yamato": "tokugawa",
       "kii": "asano",
@@ -24776,10 +25235,10 @@ window.SCENARIOS_DATA = [
       "izumo": "tokugawa",
       "iwami": "tokugawa",
       "mimasaka": "tokugawa",
-      "bizen": "okayama",
+      "bizen": "tokugawa",
       "bicchu": "tokugawa",
       "bingo": "tokugawa",
-      "aki": "tokugawa",
+      "aki": "fukushima",
       "suo": "mori",
       "nagato": "mori",
       "sanuki": "tokugawa",
@@ -24900,50 +25359,51 @@ window.SCENARIOS_DATA = [
         "id": "tokugawa",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "hitachi",
-        "provCount": 41,
+        "startProvId": "musashi",
+        "provCount": 42,
         "myProvinces": [
-          "hitachi",
-          "shimotsuke",
-          "kozuke",
-          "musashi",
-          "shimousa",
-          "kazusa",
           "awa_boshu",
-          "sagami",
-          "izu",
-          "kai",
-          "echigo",
-          "echizen",
-          "wakasa",
-          "hida",
-          "mino",
-          "totomi",
-          "mikawa",
-          "ise",
-          "shima",
-          "iga",
-          "yamashiro",
-          "yamato",
-          "tamba",
-          "tango",
-          "tajima",
-          "harima",
-          "inaba",
-          "hoki",
-          "izumo",
-          "iwami",
-          "mimasaka",
+          "awaji",
           "bicchu",
           "bingo",
-          "sanuki",
-          "iyo",
+          "bizen",
           "bungo",
+          "echigo",
+          "echizen",
+          "harima",
+          "hida",
+          "hoki",
           "hyuga",
+          "iga",
+          "inaba",
+          "ise",
+          "iwami",
+          "iyo",
+          "izu",
+          "izumo",
+          "kai",
+          "kazusa",
+          "kozuke",
+          "mikawa",
+          "mimasaka",
+          "mino",
+          "musashi",
           "oki",
           "sado",
-          "awaji",
-          "aki"
+          "sagami",
+          "sanuki",
+          "shima",
+          "shimotsuke",
+          "shimousa",
+          "south_omi",
+          "suruga",
+          "tajima",
+          "tamba",
+          "tango",
+          "totomi",
+          "wakasa",
+          "yamashiro",
+          "yamato"
         ],
         "gold": 7500,
         "rice": 8500,
@@ -25027,7 +25487,8 @@ window.SCENARIOS_DATA = [
         "rice": 2200,
         "personality": "domestic",
         "officerId": "off_gamo_tadazato",
-        "desc": "会津藩第二代藩主。父・秀行の跡を継ぎ若松城を治める。幼少のため家臣団が藩政を支えるが、会津六十万石の名門として奥羽に威を示す。"
+        "desc": "会津藩第二代藩主。父・秀行の跡を継ぎ若松城を治める。幼少のため家臣団が藩政を支えるが、会津六十万石の名門として奥羽に威を示す。",
+        "name": "蒲生忠郷"
       },
       {
         "id": "mori",
@@ -25155,10 +25616,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "north_omi",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "north_omi",
-          "south_omi"
+          "north_omi"
         ],
         "gold": 1500,
         "rice": 1700,
@@ -25185,7 +25645,7 @@ window.SCENARIOS_DATA = [
         "id": "nanbu",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "mutsu",
+        "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
           "mutsu",
@@ -25196,21 +25656,6 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_nanbu_toshinao",
         "desc": "「三日月の丸くなるまで南部領」と謳われた北奥の大名。南部晴政の代に全盛を誇り、名馬と豊富な鉄資源を背景に君臨した。"
-      },
-      {
-        "id": "okayama",
-        "difficulty": "中級",
-        "winRate": 70,
-        "startProvId": "bizen",
-        "provCount": 1,
-        "myProvinces": [
-          "bizen"
-        ],
-        "gold": 1200,
-        "rice": 1400,
-        "personality": "domestic",
-        "officerId": "off_ikeda_tadatsugu",
-        "desc": "備前岡山藩主・池田茂政。徳川斉昭の九男で徳川慶喜の弟。戊辰戦争では朝廷に恭順し東征軍の先鋒として奮戦した。"
       },
       {
         "id": "owari",
@@ -25286,6 +25731,38 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々統治する名門島主・宗家。日本と朝鮮半島を結ぶ海運・通商・外交の結節点を一手に扼し、幾多の外患や乱世を不屈の誇りと巧みな外交力で乗り越えた独立水軍大名。"
+      },
+      {
+        "id": "mito",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "hitachi",
+        "provCount": 1,
+        "myProvinces": [
+          "hitachi"
+        ],
+        "gold": 900,
+        "rice": 1100,
+        "personality": "domestic",
+        "officerId": "off_tokugawa_yorifusa",
+        "name": "徳川頼房",
+        "desc": "徳川家康の十一男・徳川頼房を祖とする徳川御三家の一角。水戸城を本拠に常陸国を治め、後に「副将軍」として幕府を支えた。"
+      },
+      {
+        "id": "fukushima",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "aki",
+        "provCount": 1,
+        "myProvinces": [
+          "aki"
+        ],
+        "gold": 900,
+        "rice": 1100,
+        "personality": "aggressive",
+        "officerId": "off_fukushima_masanori",
+        "name": "福島正則",
+        "desc": "賤ヶ岳の七本槍筆頭・福島正則。関ヶ原の戦功により安芸・備後四十九万八千石を領し広島城に入った武勇の名将。"
       }
     ],
     "capitals": {
@@ -25297,17 +25774,15 @@ window.SCENARIOS_DATA = [
       "mori": "suo",
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "uesugi": "uzen",
       "gamou": "iwashiro",
-      "kishu": "suruga",
       "sanada": "north_shinano",
       "ogasawara": "south_shinano",
       "owari": "owari",
       "ii": "north_omi",
       "asano": "kii",
-      "okayama": "bizen",
       "hachisuka": "awa_shikoku",
       "tosa": "tosa",
       "hosokawa": "buzen",
@@ -25315,7 +25790,9 @@ window.SCENARIOS_DATA = [
       "nabeshima": "hizen",
       "tachibana": "chikugo",
       "kato": "higo",
-      "so": "tsushima"
+      "so": "tsushima",
+      "mito": "hitachi",
+      "fukushima": "aki"
     }
   },
   {
@@ -25853,7 +26330,7 @@ window.SCENARIOS_DATA = [
         "id": "nanbu",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "mutsu",
+        "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
           "mutsu",
@@ -25934,7 +26411,7 @@ window.SCENARIOS_DATA = [
       "mori": "suo",
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "uesugi": "uzen",
       "aizu": "iwashiro",
@@ -26062,7 +26539,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -26530,7 +27007,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -26704,7 +27181,8 @@ window.SCENARIOS_DATA = [
         "rice": 10000,
         "personality": "domestic",
         "officerId": "off_tokugawa_tsunayoshi",
-        "desc": "五代将軍。元禄の江戸を文治で治める。高家吉良義央は幕臣で、本貫は三河吉良にある。"
+        "desc": "五代将軍。元禄の江戸を文治で治める。高家吉良義央は幕臣で、本貫は三河吉良にある。",
+        "name": "徳川綱吉"
       },
       {
         "id": "owari",
@@ -26891,6 +27369,22 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_asano_tsunanaga",
         "desc": "広島藩主。赤穂浅野家の宗家として、内匠頭長矩の一件に対処し浅野宗家を守る。"
+      },
+      {
+        "id": "uesugi",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "uzen",
+        "provCount": 1,
+        "myProvinces": [
+          "uzen"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "domestic",
+        "officerId": "off_uesugi_tsunanori",
+        "name": "上杉綱憲",
+        "desc": "米沢藩第四代藩主・上杉綱憲。吉良義央の実子で上杉家に入嗣。学問を奨励し、能書家としても知られた。"
       }
     ]
   },
@@ -27002,7 +27496,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -27161,7 +27655,8 @@ window.SCENARIOS_DATA = [
         "rice": 10000,
         "personality": "domestic",
         "officerId": "off_tokugawa_yoshimune",
-        "desc": "八代将軍。紀州から宗家を継ぎ、質素倹約と目安箱、新田開発で幕府財政を立て直す。世に米将軍と称される。"
+        "desc": "八代将軍。紀州から宗家を継ぎ、質素倹約と目安箱、新田開発で幕府財政を立て直す。世に米将軍と称される。",
+        "name": "徳川吉宗"
       },
       {
         "id": "owari",
@@ -27348,6 +27843,22 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_asano_yoshinaga_edo",
         "desc": "広島藩主。芸州にあって享保の藩政改革を進める。"
+      },
+      {
+        "id": "uesugi",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "uzen",
+        "provCount": 1,
+        "myProvinces": [
+          "uzen"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "domestic",
+        "officerId": "off_uesugi_yoshinori",
+        "name": "上杉吉憲",
+        "desc": "米沢藩第五代藩主・上杉吉憲。享保の改革の時代に米沢藩の治世にあたった。"
       }
     ]
   },
@@ -27618,7 +28129,8 @@ window.SCENARIOS_DATA = [
         "rice": 10000,
         "personality": "domestic",
         "officerId": "off_tokugawa_ienari",
-        "desc": "十一代将軍。天明の飢饉のあと、老中首座の松平定信が質素倹約と棄捐令で寛政の改革を進める。"
+        "desc": "十一代将軍。天明の飢饉のあと、老中首座の松平定信が質素倹約と棄捐令で寛政の改革を進める。",
+        "name": "徳川家斉"
       },
       {
         "id": "owari",
@@ -27805,6 +28317,22 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_edo_asano_1743_206",
         "desc": "広島藩主。芸州を治め、学問を奨めて藩政を固める。"
+      },
+      {
+        "id": "uesugi",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "uzen",
+        "provCount": 1,
+        "myProvinces": [
+          "uzen"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "domestic",
+        "officerId": "off_uesugi_yozan",
+        "name": "上杉鷹山",
+        "desc": "「為せば成る」の名言で知られる米沢藩第九代藩主・名君上杉鷹山。破綻寸前の藩財政を殖産興業と大改革で劇的に立て直した。"
       }
     ]
   },
@@ -27915,7 +28443,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -28388,7 +28916,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -28846,7 +29374,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -29675,7 +30203,7 @@ window.SCENARIOS_DATA = [
         "id": "nanbu",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "mutsu",
+        "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
           "mutsu",
@@ -29828,7 +30356,7 @@ window.SCENARIOS_DATA = [
       "aizu": "iwashiro",
       "kakizaki": "ezo",
       "tsugaru": "tsugaru",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -29864,17 +30392,35 @@ window.SCENARIOS_DATA = [
         "meiji",
         "shimazu",
         "mori",
-        "tosa"
+        "tosa",
+        "fukui_matsudaira",
+        "tottori",
+        "okayama",
+        "asano",
+        "fukuoka_kuroda",
+        "kumamoto_hosokawa",
+        "nabeshima",
+        "hachisuka",
+        "owari",
+        "satake",
+        "tsugaru",
+        "kakizaki",
+        "so"
+      ],
+      [
+        "date",
+        "aizu",
+        "uesugi",
+        "nanbu",
+        "makino"
       ],
       [
         "tokugawa",
-        "aizu",
         "kuwana",
-        "makino",
-        "date",
-        "uesugi",
         "kishu",
-        "mito"
+        "matsue",
+        "mito",
+        "aizu"
       ]
     ],
     "year": 1868,
@@ -30503,7 +31049,7 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "meiji": "yamashiro",
       "kakizaki": "ezo",
-      "nanbu": "mutsu",
+      "nanbu": "rikuchu",
       "satake": "ugo",
       "date": "rikuzen",
       "uesugi": "uzen",
@@ -30973,7 +31519,21 @@ window.CLAN_MASTER_DATA = {
       "default": "宗義智",
       "1573": "宗義調",
       "1577": "宗義調",
-      "1391": "宗澄茂"
+      "1391": "宗澄茂",
+      "1531": "宗将盛",
+      "1538": "宗将盛",
+      "1555": "宗義調",
+      "1576": "宗義調",
+      "1587": "宗義智",
+      "1592": "宗義智",
+      "1637": "宗義成",
+      "1702": "宗義真",
+      "1721": "宗義如",
+      "1789": "宗義質",
+      "1837": "宗義達",
+      "1853": "宗義達",
+      "1860": "宗義達",
+      "1866": "宗義達"
     }
   },
   "honma": {
@@ -30999,7 +31559,13 @@ window.CLAN_MASTER_DATA = {
       "default": "本間高統",
       "1573": "本間高統",
       "1577": "本間高統",
-      "1019": "本間忠明"
+      "1019": "本間忠明",
+      "1531": "本間高統",
+      "1538": "本間高統",
+      "1555": "本間高統",
+      "1576": "本間高統",
+      "1584": "本間高統",
+      "1587": "本間高統"
     }
   },
   "tsugaru": {
@@ -31018,7 +31584,23 @@ window.CLAN_MASTER_DATA = {
       "1590": "津軽為信",
       "1600": "津軽為信",
       "default": "津軽為信",
-      "1651": "津軽信義"
+      "1651": "津軽信義",
+      "1570": "津軽為信",
+      "1573": "津軽為信",
+      "1576": "津軽為信",
+      "1577": "津軽為信",
+      "1587": "津軽為信",
+      "1592": "津軽為信",
+      "1614": "津軽信枚",
+      "1637": "津軽信義",
+      "1868": "津軽承昭",
+      "1702": "津軽信政",
+      "1721": "津軽信寿",
+      "1789": "津軽寧親",
+      "1837": "津軽信順",
+      "1853": "津軽承昭",
+      "1860": "津軽承昭",
+      "1866": "津軽承昭"
     }
   },
   "akamatsu": {
@@ -31104,14 +31686,20 @@ window.CLAN_MASTER_DATA = {
       "1180": "安藤高重",
       "1336": "安藤師季",
       "1350": "安藤師季",
-      "1438": "安藤盛季",
+      "1438": "安東盛季",
       "1600": "秋田実季",
       "1221": "安東忠季",
       "1331": "安東貞季",
       "1333": "安東貞季",
       "1573": "安東愛季",
       "1577": "安東愛季",
-      "1391": "安東法季"
+      "1391": "安東法季",
+      "1531": "安東尋季",
+      "1538": "安東愛季",
+      "1576": "安東愛季",
+      "1584": "秋田実季",
+      "1587": "秋田実季",
+      "1592": "秋田実季"
     }
   },
   "arima": {
@@ -31148,13 +31736,15 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1495": "朝倉貞景",
       "1542": "朝倉孝景",
-      "1546": "朝倉孝景",
+      "1546": "朝倉義景",
       "1555": "朝倉義景",
       "1560": "朝倉義景",
       "1570": "朝倉義景",
       "default": "朝倉義景",
       "1467": "朝倉孝景",
-      "1573": "朝倉義景"
+      "1573": "朝倉義景",
+      "1531": "朝倉宗滴",
+      "1538": "朝倉義景"
     }
   },
   "ashikaga": {
@@ -31218,7 +31808,9 @@ window.CLAN_MASTER_DATA = {
       "1538": "蘆名盛舜",
       "1391": "蘆名詮盛",
       "1331": "蘆名盛宗",
-      "1333": "蘆名盛宗"
+      "1333": "蘆名盛宗",
+      "1584": "蘆名盛隆",
+      "1587": "蘆名盛隆"
     }
   },
   "azai": {
@@ -31239,7 +31831,9 @@ window.CLAN_MASTER_DATA = {
       "1560": "浅井長政",
       "1570": "浅井長政",
       "default": "浅井長政",
-      "1573": "浅井長政"
+      "1573": "浅井長政",
+      "1531": "浅井亮政",
+      "1538": "浅井久政"
     }
   },
   "chiba": {
@@ -31264,7 +31858,8 @@ window.CLAN_MASTER_DATA = {
       "1221": "千葉胤綱",
       "1331": "千葉貞胤",
       "1333": "千葉貞胤",
-      "1573": "千葉邦胤"
+      "1573": "千葉邦胤",
+      "1546": "千葉利胤"
     }
   },
   "chosokabe": {
@@ -31302,7 +31897,10 @@ window.CLAN_MASTER_DATA = {
       "1577": "長宗我部元親",
       "1531": "長宗我部国親",
       "1538": "長宗我部国親",
-      "1391": "長宗我部信兼"
+      "1391": "長宗我部信兼",
+      "1584": "長宗我部盛親",
+      "1587": "長宗我部盛親",
+      "1592": "長宗我部盛親"
     }
   },
   "date": {
@@ -31347,7 +31945,16 @@ window.CLAN_MASTER_DATA = {
       "1531": "伊達稙宗",
       "1538": "伊達稙宗",
       "1391": "伊達政宗",
-      "1274": "伊達政依"
+      "1274": "伊達政依",
+      "1584": "伊達政宗",
+      "1587": "伊達政宗",
+      "1592": "伊達政宗",
+      "1614": "伊達政宗",
+      "1637": "伊達忠宗",
+      "1702": "伊達綱村",
+      "1721": "伊達吉村",
+      "1789": "石川宗光",
+      "1866": "伊達慶邦"
     }
   },
   "hatakeyama": {
@@ -31371,14 +31978,17 @@ window.CLAN_MASTER_DATA = {
       "1495": "畠山尚順",
       "1542": "畠山稙長",
       "1546": "畠山義続",
-      "1555": "畠山義綱",
+      "1555": "畠山義続",
       "1560": "畠山義続",
-      "default": "畠山政長",
+      "default": "畠山義続",
       "1350": "畠山国清",
       "1570": "畠山昭高",
       "1573": "畠山昭高",
       "1391": "畠山基国",
-      "1359": "畠山国清"
+      "1359": "畠山義深",
+      "1531": "畠山義続",
+      "1538": "畠山義続",
+      "1576": "畠山昭高"
     }
   },
   "hojo": {
@@ -31405,7 +32015,11 @@ window.CLAN_MASTER_DATA = {
       "default": "北条氏康",
       "1573": "北条氏政",
       "1577": "北条氏政",
-      "1538": "北条氏綱"
+      "1538": "北条氏綱",
+      "1531": "北条氏綱",
+      "1576": "北条氏政",
+      "1584": "北条氏直",
+      "1587": "北条氏直"
     }
   },
   "honganji": {
@@ -31425,7 +32039,11 @@ window.CLAN_MASTER_DATA = {
       "1546": "本願寺証如",
       "1560": "本願寺顕如",
       "1573": "本願寺顕如",
-      "1577": "本願寺顕如"
+      "1577": "本願寺顕如",
+      "1531": "本願寺顕如",
+      "1538": "本願寺顕如",
+      "1555": "本願寺顕如",
+      "1576": "本願寺顕如"
     }
   },
   "hosokawa": {
@@ -31450,13 +32068,24 @@ window.CLAN_MASTER_DATA = {
       "1495": "細川政元",
       "1542": "細川晴元",
       "1546": "細川晴元",
-      "default": "細川勝元",
+      "default": "細川晴元",
       "1331": "細川和氏",
       "1333": "細川和氏",
       "1651": "細川綱利",
       "1531": "細川晴元",
       "1538": "細川晴元",
-      "1391": "細川頼元"
+      "1391": "細川頼元",
+      "1600": "細川忠興",
+      "1614": "細川忠興",
+      "1637": "細川忠利",
+      "1702": "細川綱利",
+      "1721": "細川宣紀",
+      "1789": "細川斉茲",
+      "1837": "細川斉護",
+      "1853": "細川護久",
+      "1860": "細川護久",
+      "1866": "細川護久",
+      "1868": "細川護久"
     }
   },
   "imagawa": {
@@ -31485,7 +32114,8 @@ window.CLAN_MASTER_DATA = {
       "1350": "今川範国",
       "1531": "今川氏輝",
       "1538": "今川義元",
-      "1331": "今川範国"
+      "1331": "今川範国",
+      "1333": "今川範国"
     }
   },
   "ishida": {
@@ -31528,7 +32158,10 @@ window.CLAN_MASTER_DATA = {
       "1180": "伊東祐親",
       "1438": "伊東祐尭",
       "1573": "伊東義祐",
-      "1577": "伊東義祐"
+      "1577": "伊東義祐",
+      "1531": "伊東義祐",
+      "1538": "伊東義祐",
+      "1576": "伊東義祐"
     }
   },
   "jinbo": {
@@ -31548,7 +32181,9 @@ window.CLAN_MASTER_DATA = {
       "1546": "神保長職",
       "1555": "神保長職",
       "1560": "神保長職",
-      "default": "神保長職"
+      "default": "神保長職",
+      "1531": "神保長職",
+      "1538": "神保長職"
     }
   },
   "kakizaki": {
@@ -31583,9 +32218,15 @@ window.CLAN_MASTER_DATA = {
       "1860": "松前徳広",
       "1866": "松前徳広",
       "1868": "松前徳広",
-      "default": "松前道広",
+      "default": "蠣崎季広",
       "1573": "蠣崎季広",
-      "1577": "蠣崎季広"
+      "1577": "蠣崎季広",
+      "1531": "蠣崎季広",
+      "1538": "蠣崎季広",
+      "1576": "蠣崎季広",
+      "1584": "蠣崎季広",
+      "1587": "蠣崎季広",
+      "1592": "松前慶広"
     }
   },
   "kato": {
@@ -31602,7 +32243,8 @@ window.CLAN_MASTER_DATA = {
       "1590": "加藤清正",
       "1592": "加藤清正",
       "1600": "加藤清正",
-      "default": "加藤清正"
+      "default": "加藤清正",
+      "1614": "加藤忠広"
     }
   },
   "kikuchi": {
@@ -31659,7 +32301,9 @@ window.CLAN_MASTER_DATA = {
       "1333": "北畠親房",
       "1573": "北畠具教",
       "1391": "北畠顕泰",
-      "1359": "北畠顕能"
+      "1359": "北畠顕能",
+      "1531": "北畠具教",
+      "1538": "北畠具教"
     }
   },
   "kono": {
@@ -31693,7 +32337,9 @@ window.CLAN_MASTER_DATA = {
       "1576": "河野通直",
       "1573": "河野通直",
       "1577": "河野通直",
-      "1391": "河野通之"
+      "1391": "河野通之",
+      "1531": "河野通宣",
+      "1538": "河野通宣"
     }
   },
   "kuroda": {
@@ -31711,7 +32357,18 @@ window.CLAN_MASTER_DATA = {
       "1592": "黒田長政",
       "1600": "黒田長政",
       "default": "黒田官兵衛",
-      "1651": "黒田忠之"
+      "1651": "黒田忠之",
+      "1587": "黒田官兵衛",
+      "1614": "黒田長政",
+      "1637": "黒田忠之",
+      "1702": "黒田綱政",
+      "1721": "黒田継高",
+      "1789": "黒田清定",
+      "1837": "黒田長溥",
+      "1853": "黒田長溥",
+      "1860": "黒田長溥",
+      "1866": "黒田長知",
+      "1868": "黒田長知"
     }
   },
   "kyogoku": {
@@ -31735,7 +32392,8 @@ window.CLAN_MASTER_DATA = {
       "default": "京極持清",
       "1180": "佐々木定綱",
       "1333": "京極導誉",
-      "1391": "京極高詮"
+      "1391": "京極高詮",
+      "1600": "京極高次"
     }
   },
   "maeda": {
@@ -31757,7 +32415,17 @@ window.CLAN_MASTER_DATA = {
       "1651": "前田利常",
       "1837": "前田斉泰",
       "1853": "前田斉泰",
-      "1860": "前田斉泰"
+      "1860": "前田斉泰",
+      "1582": "前田利家",
+      "1584": "前田利家",
+      "1587": "前田利家",
+      "1592": "前田利家",
+      "1614": "前田利常",
+      "1637": "前田利常",
+      "1702": "前田綱紀",
+      "1721": "前田綱紀",
+      "1789": "前田治脩",
+      "1866": "前田慶寧"
     }
   },
   "matsudaira": {
@@ -31777,7 +32445,9 @@ window.CLAN_MASTER_DATA = {
       "1546": "松平広忠",
       "default": "松平広忠",
       "1560": "松平元康",
-      "1555": "松平信定"
+      "1555": "松平信定",
+      "1531": "松平広忠",
+      "1538": "松平広忠"
     }
   },
   "miyoshi": {
@@ -31799,7 +32469,8 @@ window.CLAN_MASTER_DATA = {
       "1570": "三好長治",
       "default": "三好長慶",
       "1573": "三好長治",
-      "1577": "三好長治"
+      "1577": "三好長治",
+      "1576": "三好長治"
     }
   },
   "mogami": {
@@ -31830,7 +32501,14 @@ window.CLAN_MASTER_DATA = {
       "1573": "最上義光",
       "1577": "最上義光",
       "1400": "最上直家",
-      "1391": "最上直家"
+      "1391": "最上直家",
+      "1531": "最上義守",
+      "1538": "最上義守",
+      "1576": "最上義光",
+      "1584": "最上義光",
+      "1587": "最上義光",
+      "1592": "最上義光",
+      "1614": "最上家親"
     }
   },
   "mori": {
@@ -31869,7 +32547,19 @@ window.CLAN_MASTER_DATA = {
       "1573": "毛利輝元",
       "1577": "毛利輝元",
       "1391": "毛利貞親",
-      "1350": "毛利元春"
+      "1350": "毛利元春",
+      "1531": "毛利元就",
+      "1538": "毛利元就",
+      "1576": "毛利輝元",
+      "1584": "毛利輝元",
+      "1587": "毛利輝元",
+      "1592": "毛利輝元",
+      "1614": "毛利秀就",
+      "1637": "毛利秀就",
+      "1702": "毛利吉広",
+      "1721": "毛利吉元",
+      "1789": "毛利重就",
+      "1866": "毛利敬親"
     }
   },
   "murakami": {
@@ -31891,7 +32581,12 @@ window.CLAN_MASTER_DATA = {
       "default": "村上義清",
       "1221": "村上為国",
       "1531": "村上義清",
-      "1538": "村上義清"
+      "1538": "村上義清",
+      "1274": "村上頼衡",
+      "1350": "村上信貞",
+      "1331": "村上国清",
+      "1333": "村上国清",
+      "1336": "村上国清"
     }
   },
   "nabeshima": {
@@ -31909,7 +32604,19 @@ window.CLAN_MASTER_DATA = {
       "1600": "鍋島直茂",
       "default": "鍋島直茂",
       "1651": "鍋島勝茂",
-      "1837": "鍋島直正"
+      "1837": "鍋島直正",
+      "1584": "鍋島直茂",
+      "1587": "鍋島直茂",
+      "1590": "鍋島直茂",
+      "1592": "鍋島直茂",
+      "1614": "鍋島直茂",
+      "1637": "鍋島勝茂",
+      "1853": "鍋島直正",
+      "1860": "鍋島直正",
+      "1866": "鍋島直正",
+      "1702": "鍋島綱茂",
+      "1721": "鍋島宗茂",
+      "1789": "鍋島治茂"
     }
   },
   "nagano": {
@@ -31945,7 +32652,8 @@ window.CLAN_MASTER_DATA = {
       "1542": "長尾為景",
       "1546": "長尾晴景",
       "default": "長尾為景",
-      "1538": "長尾為景"
+      "1538": "長尾為景",
+      "1531": "長尾為景"
     }
   },
   "nanbu": {
@@ -31972,7 +32680,7 @@ window.CLAN_MASTER_DATA = {
       "1555": "南部晴政",
       "1560": "南部晴政",
       "1570": "南部晴政",
-      "1582": "南部信直",
+      "1582": "南部晴政",
       "1590": "南部信直",
       "1600": "南部利直",
       "default": "南部晴政",
@@ -31986,7 +32694,21 @@ window.CLAN_MASTER_DATA = {
       "1577": "南部晴政",
       "1391": "南部信長",
       "1274": "南部政光",
-      "1359": "南部信政"
+      "1359": "南部信政",
+      "1538": "南部晴政",
+      "1531": "南部晴政",
+      "1576": "南部晴政",
+      "1584": "南部信直",
+      "1587": "南部信直",
+      "1592": "南部信直",
+      "1614": "南部利直",
+      "1637": "南部重直",
+      "1837": "南部信順",
+      "1853": "南部利剛",
+      "1860": "南部利剛",
+      "1866": "南部利剛",
+      "1702": "南部行信",
+      "1721": "南部利幹"
     }
   },
   "oda": {
@@ -32014,7 +32736,9 @@ window.CLAN_MASTER_DATA = {
       "default": "織田信長",
       "1573": "織田信長",
       "1577": "織田信長",
-      "1538": "織田信秀"
+      "1538": "織田信秀",
+      "1531": "織田信秀",
+      "1576": "織田信長"
     }
   },
   "ogasawara": {
@@ -32029,17 +32753,22 @@ window.CLAN_MASTER_DATA = {
     "desc": "甲斐源氏の流れを汲み、信濃国守護職を務めた名門。武家礼法・弓馬故実の「小笠原流」の宗家として全国の武家に尊崇された。",
     "leaders": {
       "1400": "小笠原長秀",
-      "1438": "小笠原政康",
+      "1438": "小笠原政秀",
       "1336": "小笠原貞宗",
       "1180": "小笠原長清",
       "1467": "小笠原政秀",
-      "default": "小笠原政秀",
+      "default": "小笠原長時",
       "1221": "小笠原長清",
       "1331": "小笠原貞宗",
       "1333": "小笠原貞宗",
       "1531": "小笠原長時",
       "1538": "小笠原長時",
-      "1391": "小笠原長基"
+      "1391": "小笠原長基",
+      "1350": "小笠原政長",
+      "1546": "小笠原長時",
+      "1614": "小笠原忠真",
+      "1637": "小笠原忠真",
+      "1651": "小笠原忠真"
     }
   },
   "omura": {
@@ -32111,7 +32840,13 @@ window.CLAN_MASTER_DATA = {
       "default": "大友宗麟",
       "1573": "大友宗麟",
       "1577": "大友宗麟",
-      "1019": "大蔵春種"
+      "1019": "大蔵春種",
+      "1531": "大友宗麟",
+      "1538": "大友宗麟",
+      "1576": "大友宗麟",
+      "1584": "大友宗麟",
+      "1587": "大友宗麟",
+      "1590": "大友義統"
     }
   },
   "ouchi": {
@@ -32136,7 +32871,9 @@ window.CLAN_MASTER_DATA = {
       "default": "大内義隆",
       "1350": "大内弘世",
       "1331": "大内弘幸",
-      "1333": "大内弘幸"
+      "1333": "大内弘幸",
+      "1531": "大内義隆",
+      "1538": "大内義隆"
     }
   },
   "rokkaku": {
@@ -32158,10 +32895,12 @@ window.CLAN_MASTER_DATA = {
       "1495": "六角高頼",
       "1542": "六角定頼",
       "1546": "六角定頼",
-      "1555": "六角定頼",
+      "1555": "六角義賢",
       "1560": "六角義賢",
       "default": "六角定頼",
-      "1391": "六角満高"
+      "1391": "六角満高",
+      "1531": "六角定頼",
+      "1538": "六角定頼"
     }
   },
   "ryuzoji": {
@@ -32187,7 +32926,11 @@ window.CLAN_MASTER_DATA = {
       "1592": "龍造寺政家",
       "default": "龍造寺隆信",
       "1573": "龍造寺隆信",
-      "1577": "龍造寺隆信"
+      "1577": "龍造寺隆信",
+      "1531": "龍造寺胤栄",
+      "1538": "龍造寺胤栄",
+      "1576": "龍造寺隆信",
+      "1584": "龍造寺隆信"
     }
   },
   "sagara": {
@@ -32208,7 +32951,10 @@ window.CLAN_MASTER_DATA = {
       "1570": "相良義陽",
       "default": "相良義陽",
       "1573": "相良義陽",
-      "1577": "相良義陽"
+      "1577": "相良義陽",
+      "1531": "相良義陽",
+      "1538": "相良義陽",
+      "1576": "相良義陽"
     }
   },
   "saika": {
@@ -32226,11 +32972,12 @@ window.CLAN_MASTER_DATA = {
       "1546": "鈴木佐大夫",
       "1555": "鈴木佐大夫",
       "1560": "鈴木佐大夫",
-      "1570": "雑賀孫市",
-      "1582": "雑賀孫市",
+      "1570": "鈴木佐大夫",
+      "1582": "鈴木重秀",
       "1600": "鈴木重朝",
-      "default": "雑賀孫市",
-      "1576": "鈴木重秀"
+      "default": "鈴木重秀",
+      "1576": "鈴木重秀",
+      "1584": "鈴木重秀"
     }
   },
   "saito": {
@@ -32250,7 +32997,9 @@ window.CLAN_MASTER_DATA = {
       "1555": "斎藤道三",
       "1560": "斎藤義龍",
       "default": "斎藤道三",
-      "1495": "斎藤妙純"
+      "1495": "斎藤妙純",
+      "1531": "斎藤義龍",
+      "1538": "斎藤義龍"
     }
   },
   "sanada": {
@@ -32270,7 +33019,16 @@ window.CLAN_MASTER_DATA = {
       "1590": "真田昌幸",
       "1600": "真田昌幸",
       "default": "真田昌幸",
-      "1651": "真田信之"
+      "1651": "真田信之",
+      "1584": "真田昌幸",
+      "1587": "真田昌幸",
+      "1592": "真田昌幸",
+      "1614": "真田信之",
+      "1637": "真田信之",
+      "1702": "真田幸道",
+      "1721": "真田幸道",
+      "1789": "真田幸弘",
+      "1866": "真田幸民"
     }
   },
   "satake": {
@@ -32308,7 +33066,23 @@ window.CLAN_MASTER_DATA = {
       "1573": "佐竹義重",
       "1577": "佐竹義重",
       "1391": "佐竹義俊",
-      "1350": "佐竹貞義"
+      "1350": "佐竹貞義",
+      "1221": "佐竹義盛",
+      "1531": "佐竹義昭",
+      "1538": "佐竹義昭",
+      "1576": "佐竹義重",
+      "1584": "佐竹義重",
+      "1587": "佐竹義重",
+      "1592": "佐竹義重",
+      "1614": "佐竹義宣",
+      "1637": "佐竹義隆",
+      "1702": "佐竹義処",
+      "1721": "佐竹義峯",
+      "1789": "今宮義透",
+      "1837": "佐竹義堯",
+      "1853": "佐竹義堯",
+      "1860": "佐竹義堯",
+      "1866": "佐竹義堯"
     }
   },
   "satomi": {
@@ -32338,7 +33112,14 @@ window.CLAN_MASTER_DATA = {
       "1438": "里見義実",
       "1467": "里見義実",
       "1391": "里見義則",
-      "1350": "里見義胤"
+      "1350": "里見義胤",
+      "1531": "里見義堯",
+      "1576": "里見義弘",
+      "1584": "里見義頼",
+      "1587": "里見義頼",
+      "1590": "里見義康",
+      "1592": "里見義康",
+      "1600": "里見義康"
     }
   },
   "shiba": {
@@ -32364,7 +33145,8 @@ window.CLAN_MASTER_DATA = {
       "1582": "斯波詮直",
       "default": "斯波義廉",
       "1331": "斯波高経",
-      "1333": "斯波家兼"
+      "1333": "斯波高経",
+      "1359": "斯波高経"
     }
   },
   "shibata": {
@@ -32422,7 +33204,19 @@ window.CLAN_MASTER_DATA = {
       "1853": "島津斉彬",
       "1860": "島津久光",
       "1573": "島津義久",
-      "1577": "島津義久"
+      "1577": "島津義久",
+      "1531": "島津貴久",
+      "1538": "島津貴久",
+      "1576": "島津義久",
+      "1584": "島津義久",
+      "1587": "島津義久",
+      "1592": "島津義久",
+      "1614": "島津義弘",
+      "1637": "島津光久",
+      "1702": "島津綱貴",
+      "1721": "島津継豊",
+      "1789": "島津重豪",
+      "1866": "島津忠義"
     }
   },
   "shoni": {
@@ -32503,7 +33297,10 @@ window.CLAN_MASTER_DATA = {
       "1577": "相馬義胤",
       "1531": "相馬盛胤",
       "1538": "相馬盛胤",
-      "1391": "相馬憲胤"
+      "1391": "相馬憲胤",
+      "1592": "相馬盛胤",
+      "1584": "相馬義胤",
+      "1587": "相馬義胤"
     }
   },
   "sue": {
@@ -32559,9 +33356,18 @@ window.CLAN_MASTER_DATA = {
       "1592": "立花宗茂",
       "1600": "立花宗茂",
       "1614": "立花宗茂",
-      "default": "立花道雪",
+      "default": "立花宗茂",
       "1651": "立花忠茂",
-      "1837": "立花鑑寛"
+      "1837": "立花鑑寛",
+      "1584": "立花道雪",
+      "1853": "立花鑑寛",
+      "1860": "立花鑑寛",
+      "1866": "立花鑑寛",
+      "1868": "立花鑑寛",
+      "1637": "立花宗茂",
+      "1702": "立花鑑虎",
+      "1721": "立花貞俶",
+      "1789": "立花鑑通"
     }
   },
   "takeda": {
@@ -32600,7 +33406,9 @@ window.CLAN_MASTER_DATA = {
       "1582": "武田勝頼",
       "1573": "武田信玄",
       "1577": "武田勝頼",
-      "1538": "武田信虎"
+      "1538": "武田信虎",
+      "1391": "武田信春",
+      "1531": "武田信虎"
     }
   },
   "togashi": {
@@ -32621,7 +33429,8 @@ window.CLAN_MASTER_DATA = {
       "1350": "富樫高家",
       "1495": "富樫泰高",
       "1333": "富樫高家",
-      "1391": "富樫昌家"
+      "1391": "富樫昌家",
+      "1438": "富樫持春"
     }
   },
   "toki": {
@@ -32637,7 +33446,7 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1400": "土岐頼益",
       "1438": "土岐持頼",
-      "1336": "土岐頼康",
+      "1336": "土岐頼貞",
       "1180": "土岐光衡",
       "1467": "土岐成頼",
       "1495": "土岐政房",
@@ -32671,9 +33480,20 @@ window.CLAN_MASTER_DATA = {
       "1651": "徳川家光",
       "1837": "徳川家慶",
       "1853": "徳川家慶",
-      "1860": "徳川慶喜",
+      "1860": "徳川家茂",
       "1573": "徳川家康",
-      "1577": "徳川家康"
+      "1577": "徳川家康",
+      "1560": "徳川家康",
+      "1576": "徳川家康",
+      "1584": "徳川家康",
+      "1587": "徳川家康",
+      "1592": "徳川家康",
+      "1614": "徳川家康",
+      "1637": "徳川家光",
+      "1702": "徳川綱吉",
+      "1721": "徳川吉宗",
+      "1789": "徳川家斉",
+      "1866": "徳川慶喜"
     }
   },
   "toyotomi": {
@@ -32689,10 +33509,15 @@ window.CLAN_MASTER_DATA = {
     "tacticDesc": "天下人の圧倒的財力と大返しで、戦場を一気に制圧する。",
     "desc": "足軽から関白・太閤にまで上り詰めた天下人・豊臣秀吉。大坂城を築城し、太閤検地と刀狩りで兵農分離を断行、天下統一を達成した。",
     "leaders": {
-      "1582": "羽柴秀吉",
+      "1582": "豊臣秀吉",
       "1590": "豊臣秀吉",
       "1599": "豊臣秀頼",
-      "default": "羽柴秀吉"
+      "default": "豊臣秀吉",
+      "1584": "豊臣秀吉",
+      "1587": "豊臣秀吉",
+      "1592": "豊臣秀吉",
+      "1600": "豊臣秀頼",
+      "1614": "豊臣秀頼"
     }
   },
   "tsutsui": {
@@ -32714,7 +33539,12 @@ window.CLAN_MASTER_DATA = {
       "1560": "筒井順慶",
       "1570": "筒井順慶",
       "default": "筒井順慶",
-      "1438": "筒井順弘"
+      "1438": "筒井順弘",
+      "1531": "筒井順昭",
+      "1538": "筒井順昭",
+      "1573": "筒井順慶",
+      "1576": "筒井順慶",
+      "1582": "筒井順慶"
     }
   },
   "uesugi": {
@@ -32751,7 +33581,18 @@ window.CLAN_MASTER_DATA = {
       "1573": "上杉謙信",
       "1577": "上杉謙信",
       "1538": "上杉憲政",
-      "1391": "上杉憲定"
+      "1391": "上杉憲定",
+      "1531": "上杉憲政",
+      "1576": "上杉謙信",
+      "1584": "上杉景勝",
+      "1587": "上杉景勝",
+      "1592": "上杉景勝",
+      "1614": "上杉景勝",
+      "1637": "上杉定勝",
+      "1702": "上杉綱憲",
+      "1721": "上杉吉憲",
+      "1789": "上杉鷹山",
+      "1866": "上杉斉憲"
     }
   },
   "ukita": {
@@ -32772,7 +33613,10 @@ window.CLAN_MASTER_DATA = {
       "default": "宇喜多直家",
       "1582": "宇喜多秀家",
       "1576": "宇喜多直家",
-      "1577": "宇喜多直家"
+      "1577": "宇喜多直家",
+      "1584": "宇喜多秀家",
+      "1587": "宇喜多秀家",
+      "1592": "宇喜多秀家"
     }
   },
   "uragami": {
@@ -32823,11 +33667,18 @@ window.CLAN_MASTER_DATA = {
       "1582": "宇都宮国綱",
       "1590": "宇都宮国綱",
       "default": "宇都宮広綱",
-      "1350": "宇都宮氏綱",
+      "1350": "宇都宮冬綱",
       "1573": "宇都宮広綱",
       "1577": "宇都宮広綱",
       "1391": "宇都宮満綱",
-      "1333": "宇都宮公綱"
+      "1333": "宇都宮公綱",
+      "1331": "宇都宮冬綱",
+      "1531": "宇都宮広綱",
+      "1538": "宇都宮広綱",
+      "1576": "宇都宮広綱",
+      "1584": "宇都宮国綱",
+      "1587": "宇都宮国綱",
+      "1592": "宇都宮国綱"
     }
   },
   "yamana": {
@@ -32854,15 +33705,16 @@ window.CLAN_MASTER_DATA = {
       "1555": "山名祐豊",
       "1560": "山名祐豊",
       "1570": "山名祐豊",
-      "default": "山名宗全",
+      "default": "山名祐豊",
       "1333": "山名時氏",
       "1573": "山名祐豊",
       "1577": "山名祐豊",
       "1531": "山名致豊",
-      "1538": "山名致豊",
+      "1538": "山名祐豊",
       "1391": "山名時照",
       "1331": "山名時氏",
-      "1359": "山名時氏"
+      "1359": "山名時氏",
+      "1576": "山名祐豊"
     }
   },
   "heishi": {
@@ -32991,7 +33843,10 @@ window.CLAN_MASTER_DATA = {
       "1336": "足利直義",
       "1546": "足利晴氏",
       "1495": "足利成氏",
-      "1391": "足利満隆"
+      "1391": "足利氏満",
+      "1531": "足利晴氏",
+      "1538": "足利晴氏",
+      "1467": "足利成氏"
     }
   },
   "aizu": {
@@ -33010,7 +33865,12 @@ window.CLAN_MASTER_DATA = {
       "1651": "保科正之",
       "1837": "松平容敬",
       "1853": "松平容保",
-      "1860": "松平容保"
+      "1860": "松平容保",
+      "1637": "保科正之",
+      "1866": "松平容保",
+      "1702": "松平正容",
+      "1721": "松平正容",
+      "1789": "松平容頌"
     }
   },
   "okayama": {
@@ -33025,8 +33885,17 @@ window.CLAN_MASTER_DATA = {
     "desc": "備前岡山藩主・池田茂政。徳川斉昭の九男で徳川慶喜の弟。戊辰戦争では朝廷に恭順し東征軍の先鋒として奮戦した。",
     "leaders": {
       "1868": "池田茂政",
-      "default": "池田茂政",
-      "1651": "池田光政"
+      "default": "池田光政",
+      "1651": "池田光政",
+      "1614": "池田忠継",
+      "1837": "池田茂政",
+      "1853": "池田茂政",
+      "1860": "池田茂政",
+      "1866": "池田茂政",
+      "1637": "池田光政",
+      "1702": "池田綱政",
+      "1721": "池田継政",
+      "1789": "池田斉政"
     }
   },
   "mito": {
@@ -33045,7 +33914,13 @@ window.CLAN_MASTER_DATA = {
       "1651": "徳川頼房",
       "1837": "徳川斉昭",
       "1853": "徳川斉昭",
-      "1860": "徳川斉昭"
+      "1860": "徳川斉昭",
+      "1637": "徳川頼房",
+      "1866": "徳川昭武",
+      "1702": "徳川綱條",
+      "1721": "松平頼章",
+      "1789": "徳川治保",
+      "1614": "徳川頼房"
     }
   },
   "makino": {
@@ -33060,7 +33935,8 @@ window.CLAN_MASTER_DATA = {
     "desc": "越後長岡藩牧野家。七万四千石。家老・河井継之助の卓越した指導のもと、武装中立を目指して北越の激戦を戦った。",
     "leaders": {
       "1868": "河井継之助",
-      "default": "河井継之助"
+      "default": "河井継之助",
+      "1866": "河井継之助"
     }
   },
   "kishu": {
@@ -33075,10 +33951,17 @@ window.CLAN_MASTER_DATA = {
     "desc": "紀州徳川家。徳川御三家の一つ・五十五万石。第八代吉宗、第十四代家茂を輩出した名門。幕末には先進的軍制改革を行った。",
     "leaders": {
       "1868": "徳川茂承",
-      "default": "徳川茂承",
+      "default": "徳川頼宣",
       "1651": "徳川頼宣",
       "1837": "徳川治宝",
-      "1853": "徳川治宝"
+      "1853": "徳川治宝",
+      "1614": "浅野幸長",
+      "1860": "徳川茂承",
+      "1866": "徳川茂承",
+      "1637": "徳川頼宣",
+      "1702": "徳川光貞",
+      "1721": "徳川宗直",
+      "1789": "徳川治宝"
     }
   },
   "hachisuka": {
@@ -33097,8 +33980,21 @@ window.CLAN_MASTER_DATA = {
       "1585": "蜂須賀正勝",
       "1600": "蜂須賀家政",
       "1868": "蜂須賀茂韶",
-      "default": "蜂須賀正勝",
-      "1651": "蜂須賀忠英"
+      "default": "蜂須賀家政",
+      "1651": "蜂須賀忠英",
+      "1584": "蜂須賀正勝",
+      "1587": "蜂須賀家政",
+      "1590": "蜂須賀家政",
+      "1592": "蜂須賀家政",
+      "1614": "蜂須賀忠英",
+      "1637": "蜂須賀忠英",
+      "1702": "蜂須賀綱矩",
+      "1721": "蜂須賀綱矩",
+      "1789": "蜂須賀重喜",
+      "1837": "蜂須賀治昭",
+      "1853": "蜂須賀茂韶",
+      "1860": "蜂須賀茂韶",
+      "1866": "蜂須賀茂韶"
     }
   },
   "goryokaku": {
@@ -33148,7 +34044,13 @@ window.CLAN_MASTER_DATA = {
       "1651": "山内忠義",
       "1837": "山内豊熈",
       "1853": "山内容堂",
-      "1860": "山内容堂"
+      "1860": "山内容堂",
+      "1614": "山内忠義",
+      "1637": "山内忠義",
+      "1866": "山内容堂",
+      "1702": "山内豊隆",
+      "1721": "山内豊敷",
+      "1789": "山内豊雍"
     }
   },
   "owari": {
@@ -33167,7 +34069,13 @@ window.CLAN_MASTER_DATA = {
       "1651": "徳川光友",
       "1837": "徳川斉朝",
       "1853": "徳川慶勝",
-      "1860": "徳川慶勝"
+      "1860": "徳川慶勝",
+      "1614": "徳川義直",
+      "1866": "徳川慶勝",
+      "1637": "徳川義直",
+      "1702": "徳川吉通",
+      "1721": "徳川宗勝",
+      "1789": "成瀬正典"
     }
   },
   "ii": {
@@ -33191,7 +34099,10 @@ window.CLAN_MASTER_DATA = {
       "1837": "井伊直亮",
       "1853": "井伊直弼",
       "1860": "井伊直弼",
-      "1866": "井伊直憲"
+      "1866": "井伊直憲",
+      "1702": "井伊直該",
+      "1721": "井伊直該",
+      "1789": "井伊直幸"
     }
   },
   "kuwana": {
@@ -33206,7 +34117,8 @@ window.CLAN_MASTER_DATA = {
     "desc": "会津藩主・松平容保の実弟・松平定敬が率いる桑名藩。旧幕府軍の主戦力として各地を転戦した。",
     "leaders": {
       "1868": "松平定敬",
-      "default": "松平定敬"
+      "default": "松平定敬",
+      "1866": "松平定敬"
     }
   },
   "fukui_matsudaira": {
@@ -33221,11 +34133,15 @@ window.CLAN_MASTER_DATA = {
     "desc": "越前福井城主。名君・松平春嶽のもと近代化を進め、政局収拾に大きな影響力を持った。",
     "leaders": {
       "1868": "松平茂昭",
-      "default": "松平春嶽",
+      "default": "松平慶永",
       "1651": "松平光通",
       "1837": "松平斉善",
       "1853": "松平慶永",
-      "1860": "松平慶永"
+      "1860": "松平慶永",
+      "1866": "松平慶永",
+      "1702": "松平昌親",
+      "1721": "松平重昌",
+      "1789": "松平重富"
     }
   },
   "toyama_maeda": {
@@ -33256,8 +34172,14 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1868": "松平定安",
       "1789": "松平治郷",
-      "default": "松平定安",
-      "1651": "松平直政"
+      "default": "松平直政",
+      "1651": "松平直政",
+      "1853": "松平定安",
+      "1860": "松平定安",
+      "1866": "松平定安",
+      "1702": "松平綱近",
+      "1721": "乙部左内",
+      "1837": "松平斉貴"
     }
   },
   "tottori": {
@@ -33272,11 +34194,15 @@ window.CLAN_MASTER_DATA = {
     "desc": "因幡鳥取城主・池田慶徳が率いる大藩。尊皇派として新政府に味方した。",
     "leaders": {
       "1868": "池田慶徳",
-      "default": "池田慶徳",
+      "default": "池田光仲",
       "1651": "池田光仲",
       "1837": "池田斉稷",
       "1853": "池田慶行",
-      "1860": "池田慶徳"
+      "1860": "池田慶徳",
+      "1866": "池田慶徳",
+      "1702": "池田綱清",
+      "1721": "池田宗泰",
+      "1789": "荒尾成緒"
     }
   },
   "fukuoka_kuroda": {
@@ -33291,10 +34217,11 @@ window.CLAN_MASTER_DATA = {
     "desc": "筑前福岡城の主・黒田家。幕末には新政府軍として出兵した。",
     "leaders": {
       "1868": "黒田長知",
-      "default": "黒田長知",
+      "default": "黒田長溥",
       "1837": "黒田長溥",
       "1853": "黒田長溥",
-      "1860": "黒田長溥"
+      "1860": "黒田長溥",
+      "1866": "黒田長知"
     }
   },
   "kumamoto_hosokawa": {
@@ -33310,7 +34237,10 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1868": "細川護久",
       "default": "細川護久",
-      "1837": "細川斉護"
+      "1837": "細川斉護",
+      "1853": "細川護久",
+      "1860": "細川護久",
+      "1866": "細川護久"
     }
   },
   "kobayakawa": {
@@ -33320,7 +34250,8 @@ window.CLAN_MASTER_DATA = {
       "1587": "小早川隆景",
       "1590": "小早川隆景",
       "1600": "小早川秀秋",
-      "default": "小早川秀秋"
+      "default": "小早川秀秋",
+      "1592": "小早川隆景"
     },
     "color": "#3a6073",
     "crest": "小早川三ツ星紋",
@@ -33364,9 +34295,17 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1600": "浅野幸長",
       "1868": "浅野長勲",
-      "default": "浅野幸長",
+      "default": "浅野長勲",
       "1651": "浅野光晟",
-      "1837": "浅野斉粛"
+      "1837": "浅野斉粛",
+      "1614": "浅野幸長",
+      "1853": "浅野長勲",
+      "1860": "浅野長勲",
+      "1866": "浅野長勲",
+      "1637": "浅野光晟",
+      "1702": "浅野吉長",
+      "1721": "浅野吉長",
+      "1789": "浅野重晟"
     },
     "color": "#2d98da",
     "crest": "浅野鷹の羽紋",
@@ -33496,7 +34435,9 @@ window.CLAN_MASTER_DATA = {
       "1028": "藤原頼通",
       "1087": "藤原師実",
       "default": "藤原忠平",
-      "1019": "藤原道長"
+      "1019": "藤原道長",
+      "801": "桓武天皇",
+      "811": "桓武天皇"
     }
   },
   "abe": {
@@ -33558,7 +34499,9 @@ window.CLAN_MASTER_DATA = {
       "1331": "安東貞季",
       "1333": "安東貞季",
       "default": "安東貞季",
-      "1019": "安東太"
+      "1019": "安東太",
+      "1438": "コシャマイン",
+      "1467": "タニコシャ"
     }
   },
   "shimazu_proto": {
@@ -33744,7 +34687,7 @@ window.CLAN_MASTER_DATA = {
     "tacticDesc": "倶利伽羅峠の奇襲の如く、敵の陣形を大混乱に陥れる。",
     "desc": "「朝日将軍」木曽義仲。信濃木曽谷で挙兵し、倶利伽羅峠で平家の大軍を撃破して頼朝に先んじて京へ入った。",
     "leaders": {
-      "1180": "源義仲",
+      "1180": "木曽義仲",
       "default": "源義仲",
       "1156": "中原兼遠"
     }
@@ -33779,7 +34722,8 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1221": "北条義時",
       "1331": "北条高時",
-      "default": "北条義時"
+      "default": "北条義時",
+      "1274": "北条時宗"
     }
   },
   "miura": {
@@ -33832,7 +34776,16 @@ window.CLAN_MASTER_DATA = {
       "1331": "葛西清貞",
       "1333": "葛西清貞",
       "1274": "葛西清宗",
-      "1391": "葛西満貞"
+      "1391": "葛西満貞",
+      "1467": "葛西政信",
+      "1350": "葛西清貞",
+      "1400": "葛西満貞",
+      "1438": "葛西宗清",
+      "1359": "葛西清貞",
+      "1495": "葛西尚信",
+      "1531": "葛西晴重",
+      "1538": "葛西晴重",
+      "1546": "葛西晴重"
     }
   },
   "godaiho": {
@@ -33883,7 +34836,10 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1331": "名和長年",
       "1333": "名和長年",
-      "default": "名和長年"
+      "default": "名和長年",
+      "1350": "名和義高",
+      "1359": "名和義高",
+      "1391": "名和義高"
     }
   },
   "sasaki": {
@@ -33964,8 +34920,8 @@ window.CLAN_MASTER_DATA = {
     "tacticDesc": "信徒の信仰心と不退転の結束により、敵軍の侵攻を跳ね返し自軍防御力を極限まで高める。",
     "desc": "天草四郎時貞（益田時貞）を総大将とし、過酷な年貢と過酷な弾圧に立ち向かった島原・天草のキリシタン・牢人一揆勢。廃城・原城に籠城し幕府の大軍を揺るがした。",
     "leaders": {
-      "1637": "天草四郎",
-      "default": "天草四郎"
+      "1637": "天草四郎時貞",
+      "default": "天草四郎時貞"
     }
   },
   "yamashiro_ikki": {
@@ -34070,7 +35026,8 @@ window.CLAN_MASTER_DATA = {
     "desc": "織田信長配下の黒母衣衆筆頭・佐々成政を祖とする。本能寺の変後は越中富山城を拠点に秀吉と対立。家康との連携を期して冬の立山連峰を越えた「さらさら越え」で知られる。",
     "leaders": {
       "1582": "佐々成政",
-      "default": "佐々成政"
+      "default": "佐々成政",
+      "1584": "佐々成政"
     }
   },
   "kunohe": {
@@ -34256,7 +35213,8 @@ window.CLAN_MASTER_DATA = {
       "1391": "結城直光",
       "1333": "結城宗広",
       "1336": "結城宗広",
-      "1331": "結城宗広"
+      "1331": "結城宗広",
+      "1438": "結城氏朝"
     }
   },
   "ogigayatsu": {
@@ -34273,7 +35231,8 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "default": "上杉定正",
       "1467": "上杉持朝",
-      "1495": "上杉定正"
+      "1495": "上杉朝良",
+      "1531": "上杉朝興"
     }
   },
   "yamanouchi": {
@@ -34289,7 +35248,8 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "default": "上杉憲政",
       "1467": "上杉顕定",
-      "1546": "上杉憲政"
+      "1546": "上杉憲政",
+      "1555": "上杉憲政"
     }
   },
   "shiina": {
@@ -34364,7 +35324,11 @@ window.CLAN_MASTER_DATA = {
       "1333": "一色範氏",
       "1336": "一色範氏",
       "1331": "一色範氏",
-      "1350": "一色範氏"
+      "1350": "一色範氏",
+      "1400": "一色満範",
+      "1531": "一色義道",
+      "1538": "一色義道",
+      "1555": "一色義道"
     }
   },
   "tokugawa_bakufu": {
@@ -34472,7 +35436,12 @@ window.CLAN_MASTER_DATA = {
       "1577": "姉小路頼綱",
       "1359": "姉小路家綱",
       "1333": "姉小路家綱",
-      "1331": "姉小路家綱"
+      "1331": "姉小路家綱",
+      "1336": "姉小路家綱",
+      "1350": "姉小路家綱",
+      "1531": "三木直頼",
+      "1538": "三木直頼",
+      "1555": "姉小路頼綱"
     }
   },
   "hatano": {
@@ -34685,7 +35654,11 @@ window.CLAN_MASTER_DATA = {
       "1600": "九鬼守隆",
       "default": "九鬼嘉隆",
       "1573": "九鬼嘉隆",
-      "1560": "九鬼嘉隆"
+      "1560": "九鬼嘉隆",
+      "1555": "九鬼浄隆",
+      "1531": "九鬼定隆",
+      "1538": "九鬼定隆",
+      "1570": "九鬼嘉隆"
     }
   },
   "anesanokoji": {
@@ -34787,7 +35760,8 @@ window.CLAN_MASTER_DATA = {
       "1560": "武田元明",
       "1495": "武田元信",
       "1546": "武田元明",
-      "1467": "武田信賢"
+      "1467": "武田信賢",
+      "1555": "武田元明"
     }
   },
   "genji_yoshitsune": {
@@ -34835,7 +35809,8 @@ window.CLAN_MASTER_DATA = {
     "desc": "甲斐武田氏から房総へ進出した名門。武田信長が庁南城・真里谷城を築いて上総に勢力を扶植した。",
     "leaders": {
       "1438": "武田信長",
-      "default": "武田信長"
+      "default": "武田信長",
+      "1467": "武田信長"
     }
   },
   "muto": {
@@ -34867,6 +35842,129 @@ window.CLAN_MASTER_DATA = {
     "leaders": {
       "1336": "小野寺経道",
       "default": "小野寺経道"
+    }
+  },
+  "namioka": {
+    "family": "浪岡北畠家",
+    "color": "#1b4f72",
+    "kamon": "kamon-namioka",
+    "capital_pref": [
+      "tsugaru"
+    ],
+    "tactic": "浪岡御所の威風",
+    "tacticDesc": "名門北畠一族の権威と津軽の地勢を活かし、自軍の士気と防衛力を強化する。",
+    "desc": "南朝の忠臣・北畠顕家の末裔と伝わる津軽の名門。浪岡城を本拠として津軽一円に勢力を誇った。",
+    "leaders": {
+      "1495": "浪岡顕保",
+      "default": "浪岡顕保"
+    }
+  },
+  "oura": {
+    "family": "大浦家",
+    "color": "#78281f",
+    "kamon": "kamon-oura",
+    "capital_pref": [
+      "tsugaru"
+    ],
+    "tactic": "津軽の覇気",
+    "tacticDesc": "津軽平野に根付く勇壮果敢な気風で自軍を鼓舞し、城郭防衛と反撃力を高める。",
+    "desc": "陸奥国津軽郡大浦郷を本拠とした一族。南部氏の支配下から次第に自立を強め、のちに津軽為信を輩出して津軽統一・弘前藩の礎を築いた。",
+    "leaders": {
+      "1538": "大浦為則",
+      "1546": "大浦為則",
+      "1555": "大浦為則",
+      "1560": "大浦為則",
+      "default": "大浦為則"
+    }
+  },
+  "shiba_uzen": {
+    "family": "羽前斯波家",
+    "color": "#6a5acd",
+    "kamon": "kamon-shiba",
+    "capital_pref": [
+      "yamagata"
+    ],
+    "tactic": "奥州管領の威勢",
+    "tacticDesc": "斯波一門の奥州管領としての武威により、兵の士気が向上する。",
+    "desc": "斯波家兼が奥州管領として下向し興した羽前斯波氏（最上氏祖）。奥羽に勢力を伸ばす。",
+    "leaders": {
+      "1331": "斯波家兼",
+      "1333": "斯波家兼",
+      "1336": "斯波家兼",
+      "1350": "斯波家兼",
+      "default": "斯波家兼"
+    }
+  },
+  "gamo": {
+    "family": "蒲生家",
+    "color": "#c0392b",
+    "kamon": "kamon-gamo",
+    "capital_pref": [
+      "fukushima_w"
+    ],
+    "tactic": "鯰尾兜の疾風",
+    "tacticDesc": "蒲生氏郷自ら銀の鯰尾兜を戴き先鋒を疾走、敵陣を電光石火の勢いで粉砕する。",
+    "desc": "近江の名門・蒲生氏。信長に器量を認められ、会津九十二万石を領した智勇兼備の英主・蒲生氏郷。利休七哲の筆頭としても名高い。",
+    "leaders": {
+      "1592": "蒲生氏郷",
+      "default": "蒲生氏郷"
+    }
+  },
+  "sakai": {
+    "family": "酒井家",
+    "color": "#b03a2e",
+    "kamon": "kamon-sakai",
+    "leaders": {
+      "1853": "酒井忠惇",
+      "1860": "酒井忠惇",
+      "1866": "酒井忠惇",
+      "1868": "酒井忠邦",
+      "default": "酒井忠顕"
+    }
+  },
+  "gamou": {
+    "family": "蒲生家",
+    "color": "#8e44ad",
+    "kamon": "kamon-gamo",
+    "capital_pref": [
+      "fukushima_w"
+    ],
+    "tactic": "鯰尾兜の疾風",
+    "tacticDesc": "蒲生氏郷自ら銀の鯰尾兜を戴き先鋒を疾走、敵陣を電光石火の勢いで粉砕する。",
+    "desc": "会津藩第二代藩主・蒲生忠郷。母は家康の三女・振姫。若松城を治め奥羽に威を示した。",
+    "leaders": {
+      "1614": "蒲生忠郷",
+      "default": "蒲生忠郷"
+    }
+  },
+  "fukushima": {
+    "family": "福島家",
+    "color": "#c0392b",
+    "kamon": "kamon-fukushima",
+    "capital_pref": [
+      "hiroshima"
+    ],
+    "tactic": "市松の一番槍",
+    "tacticDesc": "賤ヶ岳の七本槍筆頭・福島正則の剛勇が先陣を切り、敵前衛を圧倒的武力で粉砕する。",
+    "desc": "豊臣子飼いの猛将・福島正則。賤ヶ岳の戦いで一番槍の武名を挙げ、関ヶ原では東軍の先鋒として奮戦。安芸・備後四十九万八千石を領した。",
+    "leaders": {
+      "1614": "福島正則",
+      "default": "福島正則"
+    }
+  },
+  "shiba_oshu": {
+    "family": "奥州斯波家",
+    "color": "#2471a3",
+    "kamon": "kamon-shiba",
+    "capital_pref": [
+      "iwate"
+    ],
+    "tactic": "奥州管領の武威",
+    "tacticDesc:": "斯波家長が奥州管領として奥州統治を進める。",
+    "desc": "斯波高経の長男斯波家長を祖とする奥州斯波家（高水寺斯波氏）。足利尊氏より奥州管領に任ぜられ陸中を治める。",
+    "leaders": {
+      "1336": "斯波家長",
+      "default": "斯波家長"
     }
   }
 };
@@ -36185,6 +37283,26 @@ window.CLAN_ABILITIES = {
     "personality": "aggressive",
     "title": "上総武田氏",
     "note": "武田信長・庁南城・真里谷城"
+  },
+  "gamo": {
+    "politics": 86,
+    "military": 88,
+    "stratagem": 85,
+    "personality": "aggressive"
+  },
+  "gamou": {
+    "military": 75,
+    "politics": 78,
+    "stratagem": 74,
+    "personality": "domestic",
+    "title": "会津藩主・蒲生家",
+    "note": "奥羽鎮撫の名門"
+  },
+  "shiba_oshu": {
+    "military": 78,
+    "politics": 75,
+    "stratagem": 74,
+    "personality": "balanced"
   }
 };
 
@@ -41115,11 +42233,16 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tsugaru": "off_jd_113",
     "oki": "off_jd_112",
     "hizen": "off_jd_111",
-    "iwaki": "off_jd_200",
-    "chikuzen": "off_minamoto_satoru_939"
+    "iwaki": "off_taira_sadamori",
+    "chikuzen": "off_minamoto_satoru_939",
+    "shimousa": "off_taira_masakado",
+    "iyo": "off_fujiwara_sumitomo",
+    "shimotsuke": "off_fujiwara_hidesato",
+    "kai": "off_minamoto_tsunemoto",
+    "yamashiro": "off_heian_tadahira"
   },
   "1028": {
-    "kazusa": "off_taira_tsuneharu",
+    "kazusa": "off_taira_tadanetsune",
     "shimotsuke": "off_fujiwara_norimichi",
     "sagami": "off_taira_naokata",
     "iwaki": "off_fujiwara_yoshinobu",
@@ -41136,7 +42259,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ugo": "off_kiyohara_takenori",
     "kozuke": "off_fujiwara_kanemitsu",
     "musashi": "off_minamoto_yoriyoshi",
-    "awa_boshu": "off_taira_tadanetsune",
+    "awa_boshu": "off_taira_tsuneharu",
     "rikuzen": "off_jd_172",
     "uzen": "off_kiyohara_yorito",
     "noto": "off_fujiwara_sukehira",
@@ -41181,10 +42304,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "yamashiro": "off_fujiwara_yorimichi_1028",
     "mino": "off_minamoto_yorikuni",
     "higo": "off_kikuchi_tsunemichi_1028",
-    "kawachi": "off_minamoto_yorichika",
+    "kawachi": "off_minamoto_yorinobu_1028",
     "south_shinano": "off_minamoto_yorikiyo_1028",
     "tajima": "off_fujiwara_sukehira",
-    "harima": "off_tanabe_maro_1028"
+    "harima": "off_tanabe_maro_1028",
+    "shimousa": "off_taira_tsunemasa"
   },
   "1087": {
     "kazusa": "off_taira_tsunehira",
@@ -41238,7 +42362,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_tomo_kanekiyo_1087",
     "awaji": "off_minamoto_akinaka_heian",
     "oki": "off_taira_taketsune_1087",
-    "kai": "off_minamoto_yoshimitsu",
+    "kai": "off_jd_115",
     "ise": "off_taira_masamori",
     "mikawa": "off_minamoto_nakamasa",
     "iwaki": "off_jd_115",
@@ -41247,10 +42371,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "suruga": "off_taira_masamori",
     "north_omi": "off_minamoto_tsunenari_1087_north_omi",
     "south_omi": "off_fujiwara_munezane_heian",
-    "mutsu": "off_minamoto_yoshimitsu",
+    "mutsu": "off_jd_352",
     "uzen": "off_kiyohara_takehira",
     "tsugaru": "off_abe_masato",
-    "ugo": "off_kiyohara_iehira"
+    "ugo": "off_kiyohara_iehira",
+    "rikuzen": "off_minamoto_yoshiie"
   },
   "1156": {
     "harima": "off_taira_kiyomori",
@@ -41258,7 +42383,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "aki": "off_taira_motomori",
     "sagami": "off_minamoto_yoshitomo",
     "shimotsuke": "off_ashikaga_yoshiyasu",
-    "yamato": "off_fujiwara_yorinaga",
+    "yamato": "off_sutoku_in",
     "kawachi": "off_minamoto_tameyoshi",
     "yamashiro": "off_goshirakawa_in",
     "south_omi": "off_minamoto_yorimasa",
@@ -41307,34 +42432,37 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_shimazu_proto_tadahisa",
     "osumi": "off_shimazu_proto_succ4",
     "noto": "off_sadamori_tokitada",
-    "sagami": "off_minamoto_yoshitsune",
+    "sagami": "off_minamoto_yoritomo",
     "etchu": "off_jd_004",
     "rikuchu": "off_fujiwara_hidehira",
     "bicchu": "off_senoo_kaneyasu",
     "north_omi": "off_jd_005",
     "mino": "off_jd_360",
     "tsugaru": "off_jd_317",
-    "settsu": "off_ito_tadakiyo",
+    "settsu": "off_taira_kiyomori",
     "iwaki": "off_terui_takaharu",
     "ugo": "off_jd_316",
-    "south_shinano": "off_imai_kanehira"
+    "south_shinano": "off_kiso_yoshinaka",
+    "kai": "off_dm_takeda_1180",
+    "echigo": "off_dm_jo_1180",
+    "hitachi": "off_satake_hideyoshi"
   },
   "1221": {
     "echizen": "off_sasaki_nobutsuna",
     "yamato": "off_miura_taneyoshi_1221",
     "tamba": "off_fujiwara_hideyasu",
     "south_omi": "off_sasaki_hirotsuna",
-    "musashi": "off_ashikaga_yoshiuji",
+    "musashi": null,
     "izu": "off_hojo_tokifusa",
     "shimotsuke": "off_utsunomiya_yoritsuna",
     "harima": "off_kasuya_hisasue",
     "kazusa": "off_indo_tsuneshige",
-    "hizen": "off_shunten_ryukyu",
-    "suruga": "off_hojo_yasutoki",
-    "totomi": "off_hojo_masamura",
+    "hizen": "off_matsura_hisa",
+    "suruga": null,
+    "totomi": null,
     "kozuke": "off_nitta_masayoshi",
     "hitachi": "off_succ2_satake_1185",
-    "awa_boshu": "off_miura_yasumura",
+    "awa_boshu": null,
     "echigo": "off_jo_hangaku",
     "noto": "off_sadamori_succ_5",
     "izumi": "off_succ_gotoba_in_1195_16",
@@ -41343,11 +42471,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sanuki": "off_sanuki_takato",
     "bungo": "off_otomo_yoshinao_early_bridge",
     "satsuma": "off_shimazu_proto_tadahisa",
-    "mikawa": "off_tomoe_gozen",
-    "etchu": "off_hojo_masako",
-    "kaga": "off_oe_no_hiromoto",
-    "hida": "off_yuki_tomomitsu",
-    "iwaki": "off_koyama_tomomasa",
+    "mikawa": "off_ashikaga_yoshiuji",
+    "etchu": null,
+    "kaga": null,
+    "hida": null,
+    "iwaki": null,
     "tango": "off_sanuki_chikasada",
     "wakasa": "off_shunbajunki",
     "ise": "off_taira_rokudai",
@@ -41370,7 +42498,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "north_omi": "off_sasaki_munetsuna",
     "bingo": "off_miura_taneyoshi_1221",
     "suo": "off_ouchi_korehira_1221",
-    "tosa": "off_sasaki_tsunetaka_early",
+    "tosa": "off_sasaki_tsunetaka",
     "chikugo": "off_kikuchi_yoshinao_1221",
     "hyuga": "off_jd_212",
     "mutsu": "off_dm_nanbu_1221",
@@ -41378,23 +42506,24 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "nagato": "off_sasaki_shigekiyo",
     "rikuchu": "off_dm_kasai_1221",
     "rikuzen": "off_dm_date_1221",
-    "iwashiro": "off_nagasaki_enki"
+    "iwashiro": "off_dm_date_1221",
+    "sagami": "off_dm_hojo_1221"
   },
   "1331": {
     "musashi": "off_kanazawa_sadamasa",
-    "kaga": "off_jd_214",
-    "yamashiro": "off_uesugi_shigenori",
+    "kaga": "off_dm_togashi_1333",
+    "yamashiro": null,
     "izumi": "off_wada_masato",
     "tajima": "off_yamana_tokiuji",
     "tosa": "off_jd_218",
     "izu": "off_nagasaki_enki",
-    "totomi": "off_hojo_hidetoki",
+    "totomi": null,
     "echigo": "off_wakiya_yoshisuke",
     "tamba": "off_ashikaga_tadayoshi",
     "settsu": "off_kusunoki_masasue",
     "shima": "off_kitabatake_akiyoshi",
     "mimasaka": "off_jd_216",
-    "hizen": "off_dm_shoni_1336",
+    "hizen": "off_dm_shoni_1331",
     "chikugo": "off_dm_kikuchi_1336",
     "bizen": "off_akamatsu_sadanori",
     "hida": "off_jd_224",
@@ -41402,103 +42531,111 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "suruga": "off_succ_imagawa_1304_41",
     "shimotsuke": "off_ko_no_morofuyu",
     "etchu": "off_momoi_tadatsune",
-    "kawachi": "off_ko_no_moroyasu",
+    "kawachi": "off_kusunoki_masasue",
     "kii": "off_kumano_tankai",
     "hoki": "off_nawa_yoshitaka",
     "iwami": "off_masuda_kanemi",
-    "bungo": "off_succ_otomo_1285_123",
+    "bungo": "off_otomo_sadamune",
     "higo": "off_kikuchi_takeshige",
-    "mutsu": "off_shiba_ienaga",
-    "owari": "off_ko_no_moronao",
+    "mutsu": "off_kitabatake_akiie",
+    "owari": null,
     "kazusa": "off_hojo_harutoki",
-    "noto": "off_chigusa_tadaaki",
-    "wakasa": "off_doi_michimasu",
+    "noto": null,
+    "wakasa": null,
     "iga": "off_nitta_yoshiaki",
     "inaba": "off_kojima_takanori",
     "bicchu": "off_jd_418",
-    "bingo": "off_uesugi_shigenori",
+    "bingo": null,
     "nagato": "off_hojo_tokinao_nagato",
     "awa_shikoku": "off_dm_hosokawa_1336",
     "hyuga": "off_shimazu_sadahisa",
     "osumi": "off_shimazu_sadahisa",
     "tsugaru": "off_jd_363",
-    "awaji": "off_gofushimi_in",
-    "oki": "off_kogen_tenno",
-    "rikuchu": "off_dm_kasai_1331",
+    "awaji": "off_dm_hosokawa_1336",
+    "oki": "off_jd_399",
+    "rikuchu": "off_shiba_ienaga",
     "rikuzen": "off_dm_date_1331",
     "iwashiro": "off_ashina_morimune",
     "mikawa": "off_ashikaga_tadayoshi",
     "sanuki": "off_dm_hosokawa_1336",
-    "buzen": "off_jd_219",
+    "buzen": "off_jd_233",
     "iwaki": "off_dm_kasai_1331",
-    "uzen": "off_jd_320",
-    "yamato": "off_moriyoshi_shinno"
+    "uzen": "off_jd_322",
+    "yamato": "off_moriyoshi_shinno",
+    "iyo": "off_doi_michimasu",
+    "ise": "off_taira_morimune",
+    "chikuzen": "off_hojo_hidetoki",
+    "echizen": "off_shiba_takatsune",
+    "south_shinano": "off_ogasawara_sadamune",
+    "north_shinano": "off_succ_murakami_1300_98"
   },
   "1333": {
-    "musashi": "off_ko_no_moronao",
+    "musashi": "off_uesugi_noriaki_first",
     "mutsu": "off_kitabatake_akiie",
-    "rikuchu": "off_dm_kasai_1331",
+    "rikuchu": "off_shiba_ienaga",
     "higo": "off_dm_kikuchi_1336",
     "izumi": "off_wada_masato",
-    "echizen": "off_nitta_yoshiaki",
+    "echizen": "off_shiba_takatsune",
     "tosa": "off_jd_218",
     "yamato": "off_moriyoshi_shinno",
     "tango": "off_chigusa_tadaaki",
-    "wakasa": "off_isshiki_norouji",
+    "wakasa": "off_shiba_takatsune",
     "shima": "off_kitabatake_akiyoshi",
-    "mikawa": "off_ashikaga_tadayoshi",
-    "kazusa": "off_ko_no_morofuyu",
-    "totomi": "off_ko_no_moroyasu",
-    "suruga": "off_shiba_ienaga",
+    "mikawa": "off_jd_213",
+    "kazusa": null,
+    "totomi": null,
+    "suruga": "off_succ_imagawa_1304_41",
     "echigo": "off_wakiya_yoshisuke",
-    "bizen": "off_kojima_takanori",
+    "bizen": "off_akamatsu_sadanori",
     "hida": "off_jd_224",
     "hizen": "off_dm_shoni_1336",
     "chikugo": "off_jd_226",
     "mimasaka": "off_akamatsu_sadanori",
-    "south_shinano": "off_kiso_yoshimoto",
+    "south_shinano": "off_ogasawara_sadamune",
     "kawachi": "off_kusunoki_masasue",
     "tamba": "off_niki_yoriaki",
-    "sagami": "off_ko_no_moronao",
+    "sagami": "off_ashikaga_tadayoshi",
     "shimotsuke": "off_utsunomiya_kintsuna",
-    "izu": "off_yuki_chikatomo",
+    "izu": null,
     "inaba": "off_nawa_yoshitaka",
     "iwashiro": "off_ashina_morimune",
     "owari": "off_toki_yorisada",
     "etchu": "off_momoi_tadatsune",
-    "noto": "off_jd_213",
+    "noto": null,
     "bungo": "off_succ_otomo_1285_123",
     "settsu": "off_hojo_nakatoki",
     "iga": "off_hojo_hidetoki",
     "kii": "off_nagasaki_enki",
-    "rikuzen": "off_date_yukitomo",
+    "rikuzen": "off_dm_date_1331",
     "sanuki": "off_dm_hosokawa_1336",
     "awa_shikoku": "off_dm_hosokawa_1331",
     "hyuga": "off_shimazu_sadahisa",
     "osumi": "off_shimazu_sadahisa",
     "tsugaru": "off_jd_363",
-    "awaji": "off_gofushimi_in",
+    "awaji": "off_dm_hosokawa_1331",
     "oki": "off_kogen_tenno",
-    "buzen": "off_ashina_naomori",
+    "buzen": "off_jd_233",
     "nagato": "off_ouchi_nagahiro",
     "bingo": "off_yamana_ujiie",
     "uzen": "off_jd_322",
     "bicchu": "off_jd_418",
-    "yamashiro": "off_uesugi_shigenori",
+    "yamashiro": "off_gofushimi_in",
     "ise": "off_kitabatake_chikafusa",
-    "iwaki": "off_yuki_munehiro"
+    "iwaki": "off_yuki_munehiro",
+    "mino": "off_toki_yorisada",
+    "north_shinano": "off_succ_murakami_1300_98"
   },
   "1336": {
     "mutsu": "off_kitabatake_akiie",
-    "musashi": "off_ko_no_morofuyu",
+    "musashi": "off_uesugi_noriaki_first",
     "izumi": "off_wada_masato",
     "ezo": "off_dm_ando_1336",
     "ugo": "off_jd_323",
-    "uzen": "off_jd_320",
+    "uzen": "off_jd_322",
     "echigo": "off_wakiya_yoshisuke",
-    "kazusa": "off_ashikaga_tadayoshi",
-    "awa_boshu": "off_ko_no_moronao",
-    "izu": "off_ko_no_moroyasu",
+    "kazusa": null,
+    "awa_boshu": "off_satomi_yoshitane",
+    "izu": null,
     "iga": "off_jd_364",
     "izumo": "off_dm_enyo_1331",
     "mimasaka": "off_jd_216",
@@ -41510,31 +42647,31 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tango": "off_isshiki_norouji",
     "tsugaru": "off_kitabatake_akinobu",
     "bicchu": "off_jd_418",
-    "rikuchu": "off_nanbu_masanaga",
+    "rikuchu": "off_shiba_ienaga",
     "iwashiro": "off_ashina_naomori",
     "etchu": "off_momoi_tadatsune",
     "kozuke": "off_wakiya_yoshisuke",
-    "sagami": "off_shiba_ienaga",
+    "sagami": "off_ashikaga_tadayoshi",
     "mino": "off_toki_yorikasu",
     "ise": "off_chigusa_tadaaki",
-    "yamashiro": "off_uesugi_shigenori",
-    "settsu": "off_yuki_chikatomo",
+    "yamashiro": "off_ko_no_moronao",
+    "settsu": null,
     "hoki": "off_nawa_yoshitaka",
     "iwami": "off_masuda_kanemi",
     "iwaki": "off_ashina_morimune",
-    "noto": "off_doi_michimasu",
+    "noto": null,
     "wakasa": "off_isshiki_norouji",
     "hida": "off_jd_224",
     "totomi": "off_succ_imagawa_1304_41",
     "mikawa": "off_ashikaga_tadayoshi",
     "shima": "off_kitabatake_akiyoshi",
-    "yamato": "off_kitabatake_chikafusa",
-    "inaba": "off_kiso_yoshimoto",
+    "yamato": "off_godaiho_tenno",
+    "inaba": "off_yamana_moriyoshi",
     "bingo": "off_yamana_ujiie",
     "chikuzen": "off_jd_365",
     "chikugo": "off_dm_otomo_1336",
     "osumi": "off_shimazu_sadahisa",
-    "awaji": "off_satake_yoshisato_kama",
+    "awaji": "off_dm_hosokawa_1331",
     "awa_shikoku": "off_dm_hosokawa_1331",
     "hyuga": "off_shimazu_sadahisa",
     "nagato": "off_ouchi_nagahiro",
@@ -41542,24 +42679,26 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "buzen": "off_jd_233",
     "oki": "off_jd_399",
     "kaga": "off_dm_togashi_1333",
-    "shimousa": "off_yuki_munehiro"
+    "shimousa": "off_dm_chiba_1331",
+    "north_shinano": "off_succ_murakami_1300_98",
+    "south_shinano": "off_ogasawara_sadamune"
   },
   "1350": {
     "ezo": "off_dm_ando_1336",
-    "uzen": "off_jd_227",
+    "uzen": "off_jd_322",
     "echigo": "off_nitta_yoshimune",
-    "hitachi": "off_hosokawa_yoriyuki",
+    "hitachi": "off_satake_moriyoshi",
     "mino": "off_toki_yorikasu",
-    "mikawa": "off_ko_no_moronao",
-    "owari": "off_ashikaga_tadayoshi",
+    "mikawa": null,
+    "owari": null,
     "shima": "off_kitabatake_akiyoshi",
-    "settsu": "off_ko_no_morofuyu",
+    "settsu": null,
     "izumo": "off_dm_enyo_1331",
     "iwami": "off_masuda_kanemi",
     "mimasaka": "off_jd_216",
     "bizen": "off_akamatsu_sadanori",
     "sanuki": "off_hosokawa_yoriyuki",
-    "chikuzen": "off_kikuchi_takemitsu",
+    "chikuzen": "off_dm_shoni_1336",
     "hizen": "off_dm_shoni_1336",
     "hyuga": "off_shimazu_ujihisa",
     "tamba": "off_yamana_morouji",
@@ -41567,60 +42706,63 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "bicchu": "off_jd_418",
     "mutsu": "off_kitabatake_akinobu",
     "tajima": "off_yamana_moriyoshi",
-    "rikuchu": "off_nanbu_masanaga",
+    "rikuchu": null,
     "etchu": "off_momoi_tadatsune",
-    "awa_boshu": "off_jd_236",
-    "sagami": "off_uesugi_noriaki",
-    "hida": "off_ko_no_moroyasu",
+    "awa_boshu": "off_satomi_yoshitane",
+    "sagami": "off_ashikaga_tadayoshi",
+    "hida": "off_jd_224",
     "totomi": "off_succ_imagawa_1304_41",
     "iga": "off_hosokawa_kiyouji",
-    "yamashiro": "off_kogen_tenno",
+    "yamashiro": "off_ko_no_moronao",
     "tango": "off_isshiki_norouji",
     "hoki": "off_nawa_yoshitaka",
     "wakasa": "off_shiba_takatsune",
-    "kazusa": "off_miura_takatsugu",
-    "musashi": "off_ashikaga_tadayoshi",
+    "kazusa": null,
+    "musashi": "off_uesugi_noriaki_first",
     "izu": "off_succ_hatakeyama_1300_22",
-    "yamato": "off_enyo_sadakiyo",
-    "kii": "off_wada_masato",
+    "yamato": null,
+    "kii": "off_kusunoki_masanori",
     "bingo": "off_yamana_ujiie",
-    "nagato": "off_suwa_naoyori",
-    "chikugo": "off_togashi_ujiharu",
-    "osumi": "off_shimazu_ujihisa",
-    "awaji": "off_ogasawara_nagamoto",
-    "oki": "off_shoni_fuyusuke",
+    "nagato": "off_ouchi_hiroyo",
+    "chikugo": "off_kikuchi_takemitsu",
+    "osumi": null,
+    "awaji": "off_dm_hosokawa_1350",
+    "oki": "off_jd_399",
     "aki": "off_dm_hosokawa_1331",
-    "awa_shikoku": "off_dm_hosokawa_1336",
+    "awa_shikoku": "off_dm_hosokawa_1350",
     "buzen": "off_jd_233",
     "shimousa": "off_jd_368",
-    "tsugaru": "off_jd_241",
-    "iwaki": "off_ashina_morimune",
+    "tsugaru": "off_jd_363",
+    "iwaki": "off_ashina_naomori",
     "izumi": "off_kusunoki_masanori",
-    "iwashiro": "off_ashina_naomori"
+    "iwashiro": "off_ashina_naomori",
+    "satsuma": "off_shimazu_sadahisa",
+    "north_shinano": "off_murakami_nobusada",
+    "south_shinano": "off_ogasawara_naganori"
   },
   "1400": {
-    "buzen": "off_succ_shoni_1360_164",
+    "buzen": null,
     "ezo": "off_succ_ando_1375_3",
-    "hida": "off_toki_yasuyuki",
-    "hyuga": "off_shimazu_motohisa",
+    "hida": null,
+    "hyuga": null,
     "izumo": "off_kyogoku_takamitsu",
-    "kazusa": "off_succ2_kamakura_fu_1380",
+    "kazusa": null,
     "noto": "off_succ_hatakeyama_1378_23",
     "oki": "off_succ_kyogoku_1385_79",
     "osumi": "off_succ2_shimazu_1385",
     "rikuzen": "off_date_ujimune",
-    "totomi": "off_imagawa_sadayo",
-    "tsugaru": "off_nanbu_nobunaga",
+    "totomi": null,
+    "tsugaru": null,
     "uzen": "off_jd_383",
     "echizen": "off_shiba_yoshimasa",
     "etchu": "off_jd_402",
-    "wakasa": "off_jd_385",
-    "tango": "off_jd_407",
+    "wakasa": "off_jd_404",
+    "tango": "off_jd_385",
     "iga": "off_jd_406",
     "mikawa": "off_jd_404",
     "kozuke": "off_uesugi_norisada",
     "izu": "off_jd_405",
-    "awa_boshu": "off_jd_403",
+    "awa_boshu": "off_satomi_yoshinori",
     "tamba": "off_hosokawa_mitsumoto",
     "izumi": "off_jd_408",
     "sanuki": "off_jd_414",
@@ -41636,69 +42778,76 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "bicchu": "off_jd_412",
     "nagato": "off_ouchi_morimi",
     "hizen": "off_jd_392",
-    "chikugo": "off_otomo_chikayo",
+    "chikugo": null,
     "shima": "off_succ_kitabatake_1390_69",
     "mutsu": "off_dm_nanbu_1438",
-    "iwaki": "off_dm_soma_1400"
+    "iwaki": "off_dm_soma_1400",
+    "rikuchu": "off_kasai_mitsusada",
+    "chikuzen": "off_imagawa_sadayo",
+    "north_shinano": null,
+    "south_shinano": "off_succ_ogasawara_1365_112"
   },
   "1438": {
     "north_omi": "off_dm_kyogoku_1438",
     "echizen": "off_kai_tsuneharu",
     "kozuke": "off_nagao_kagenaka",
     "awa_boshu": "off_succ_satomi_1340_151",
-    "hida": "off_saito_myochin",
+    "hida": null,
     "inaba": "off_jd_244",
     "nagato": "off_ouchi_norihiro",
     "osumi": "off_shimazu_tadakuni",
-    "ezo": "off_ando_morisue",
+    "ezo": "off_ezo_koshamain",
     "tsugaru": "off_succ_ando_1375_3",
     "iwashiro": "off_succ_ashina_1380_7",
     "kaga": "off_togashi_mochiharu",
     "mino": "off_dm_toki_1438",
-    "totomi": "off_succ_shiba_1390_156",
+    "totomi": null,
     "shima": "off_succ_kitabatake_1390_69",
     "yamashiro": "off_dm_ashikaga_1438",
     "kawachi": "off_kusunoki_masashige_2",
     "hoki": "off_nawa_akitada",
     "iwami": "off_masuda_kanetaka",
     "aki": "off_mori_hiromoto_early",
-    "chikugo": "off_succ2_otomo_1390",
+    "chikugo": null,
     "oki": "off_succ_kyogoku_1385_79",
     "mutsu": "off_jd_326",
-    "etchu": "off_nagao_kagenobu",
+    "etchu": null,
     "wakasa": "off_jd_007",
-    "musashi": "off_succ2_kamakura_fu_1380",
-    "buzen": "off_ouchi_sugi_shigeaki",
+    "musashi": null,
+    "buzen": null,
     "chikuzen": "off_ouchi_noriyuki",
     "awaji": "off_hosokawa_mochikata",
     "awa_shikoku": "off_hosokawa_mochiharu",
     "kazusa": "off_jd_369",
     "iwaki": "off_dm_soma_1438",
     "shimousa": "off_yuki_ujiitomo",
-    "izumo": "off_amago_mochihisa"
+    "izumo": "off_amago_mochihisa",
+    "echigo": "off_nagao_kagenobu",
+    "rikuchu": "off_kasai_munekiyo",
+    "ugo": "off_ando_morisue"
   },
   "1467": {
-    "kozuke": "off_nagao_kagenobu",
-    "hida": "off_saito_myochin",
-    "totomi": "off_oda_toshihiro",
+    "kozuke": null,
+    "hida": null,
+    "totomi": null,
     "izumi": "off_honetsugi_doken",
     "osumi": "off_shimazu_tadakuni",
     "tango": "off_isshiki_yoshinori",
-    "iwami": "off_yamana_koretoyo",
+    "iwami": "off_masuda_sadakane",
     "awa_shikoku": "off_hosokawa_shigeyuki",
-    "ugo": "off_dm_ando_1495",
+    "ugo": "off_dm_ando_1467",
     "awa_boshu": "off_succ_satomi_1340_151",
     "shima": "off_kitabatake_masasato",
     "yamashiro": "off_dm_ashikaga_1467",
     "settsu": "off_hosokawa_katsumoto",
     "kawachi": "off_kusunoki_masamitsu",
     "tajima": "off_yamana_sozen",
-    "hoki": "off_nawa_shigeyuki",
+    "hoki": null,
     "mimasaka": "off_succ_akamatsu_1440_0",
     "nagato": "off_naito_hiromori",
     "ezo": "off_ezo_tani",
     "mutsu": "off_jd_370",
-    "musashi": "off_ota_dokan",
+    "musashi": "off_uesugi_mochitomo",
     "buzen": "off_kurokawa_harunari",
     "chikuzen": "off_aso_ieharu",
     "chikugo": "off_monchujo_yasusumi",
@@ -41706,44 +42855,49 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awaji": "off_hosokawa_shigeharu",
     "oki": "off_kyogoku_oki_kiyomasa",
     "sanuki": "off_hosokawa_mochikata",
-    "kazusa": "off_jd_006",
+    "kazusa": "off_jd_369",
     "wakasa": "off_jd_007",
     "tamba": "off_jd_401",
     "bicchu": "off_jd_246",
     "iwaki": "off_dm_soma_1467",
     "mino": "off_dm_toki_1467",
     "north_omi": "off_dm_kyogoku_1331",
-    "izumo": "off_amago_kiyosada"
+    "izumo": "off_amago_kiyosada",
+    "rikuchu": "off_kasai_masanobu",
+    "owari": "off_dm_shiba_1467",
+    "bingo": "off_yamana_koretoyo",
+    "echigo": "off_uesugi_fusasada",
+    "sagami": "off_hojo_tokikane",
+    "shimousa": "off_ashikaga_shigeuji"
   },
   "1495": {
-    "musashi": "off_ota_sukeyasu",
+    "musashi": "off_uesugi_tomoyoshi_1495",
     "izu": "off_daidoji_shigetoki",
     "bizen": "off_ukita_yoshiie",
     "kozuke": "off_iwamatsu_iezumi",
-    "tango": "off_yamana_nobutoyo",
-    "iwami": "off_sue_okifusa",
+    "tango": null,
     "awa_shikoku": "off_hosokawa_shigeyuki",
     "kawachi": "off_hatakeyama_yoshitoyo",
     "nagato": "off_naito_hiromori",
     "chikuzen": "off_sugi_shigeyoshi",
-    "mutsu": "off_jd_303",
+    "mutsu": "off_dm_nanbu_1495",
     "awa_boshu": "off_succ_satomi_1445_153",
     "mino": "off_toki_masafusa",
     "shima": "off_kitabatake_masasato",
     "settsu": "off_hosokawa_masamoto",
-    "tajima": "off_succ2_yamana_1455",
+    "tajima": "off_yamana_masatoyo",
     "mimasaka": "off_akamatsu_yoshimura",
-    "hida": "off_ando_hirosue",
+    "hida": "off_jd_248",
     "yamashiro": "off_ashikaga_yoshitane",
     "izumi": "off_jd_247",
-    "kii": "off_kusunoki_masamori",
+    "kii": "off_hatakeyama_yoshitoyo",
     "hoki": "off_nawa_shigeyuki",
-    "bicchu": "off_kyogoku_masatsune",
-    "sanuki": "off_oda_nobusada",
+    "bicchu": null,
+    "sanuki": "off_hosokawa_masamoto",
     "chikugo": "off_succ_otomo_1490_124",
-    "osumi": "off_succ_nitta_1465_109",
-    "tsugaru": "off_dm_nanbu_1495",
-    "awaji": "off_succ2_suwa_1460",
+    "osumi": "off_dm_shimazu_1495",
+    "tsugaru": "off_nanbu_namioka_akiyasu",
+    "awaji": "off_hosokawa_shigeyuki",
     "inaba": "off_yamana_toyoshige",
     "oki": "off_oki_kiyomune_1495",
     "wakasa": "off_jd_008",
@@ -41753,7 +42907,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "echigo": "off_nagao_yoshikage",
     "shimousa": "off_ashikaga_shigeuji",
     "north_omi": "off_succ_kyogoku_1480_80",
-    "harima": "off_succ_akamatsu_1440_0"
+    "harima": "off_succ_akamatsu_1440_0",
+    "iga": null,
+    "south_omi": "off_rokkaku_takayori",
+    "rikuchu": "off_kasai_hisanobu",
+    "suo": "off_sue_okifusa"
   },
   "1546": {
     "owari": "off_shibata_katsuie",
@@ -41761,8 +42919,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mikawa": "off_matsudaira_hirotada",
     "settsu": "off_miyoshi_nagayoshi",
     "rikuzen": "off_dm_date_1560",
-    "kozuke": "off_nagano_narimasa",
-    "shimousa": "off_ashikaga_haruuji",
+    "kozuke": "off_dm_uesugi_1546",
+    "shimousa": "off_chiba_toshitane",
     "musashi": "off_hojo_genan",
     "izu": "off_hojo_tsunashige",
     "kawachi": "off_jd_249",
@@ -41778,10 +42936,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awaji": "off_atagi_fuyuyasu",
     "buzen": "off_aso_hiroyasu",
     "chikuzen": "off_aso_hiroyasu",
-    "mutsu": "off_kita_nobuchika",
+    "mutsu": "off_nanbu_harumasa",
     "tango": "off_isshiki_yoshimichi",
     "south_shinano": "off_takeda_nobushige",
-    "rikuchu": "off_succ2_nanbu_1495",
+    "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
     "yamashiro": "off_ashikaga_yoshiteru",
     "chikugo": "off_otomo_yoshiaki_early",
@@ -41825,7 +42983,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_shimazu_tadayoshi",
     "awaji": "off_atagi_fuyuyasu",
     "mutsu": "off_kita_nobuchika",
-    "rikuchu": "off_succ2_nanbu_1495",
+    "rikuchu": "off_kita_nobuchika",
     "sagami": "off_hojo_ujimasa",
     "inaba": "off_jd_010",
     "bizen": "off_dm_uragami_1546",
@@ -41965,7 +43123,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikuzen": "off_succ2_shoni_1550",
     "totomi": "off_ii_naomasa",
     "bicchu": "off_shimizu_muneharu",
-    "mimasaka": "off_jd_419"
+    "mimasaka": "off_jd_419",
+    "kii": "off_saika_magoichi"
   },
   "1590": {
     "owari": "off_nakamura_kazuuji",
@@ -42014,7 +43173,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikugo": "off_tachibana_muneshige",
     "awaji": "off_wakisaka_yasuharu",
     "kazusa": "off_hojo_ujikuni",
-    "iwashiro": "off_date_shigezane",
+    "iwashiro": "off_date_masamune",
     "shimousa": "off_sakai_tadayo",
     "suruga": "off_okubo_tadayo",
     "mikawa": "off_honda_tadakatsu",
@@ -42070,7 +43229,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sanuki": "off_ikoma_chikamasa",
     "south_shinano": "off_jd_264",
     "sado": "off_okubo_nagayasu",
-    "awaji": "off_hachisuka_yoshishige",
+    "awaji": "off_wakisaka_yasuharu",
     "ise": "off_jd_059",
     "shima": "off_kuki_yoshitaka",
     "iga": "off_tsutsui_sadatsugu",
@@ -42189,11 +43348,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_shinano": "off_succ_ogasawara_1569_116",
     "ugo": "off_akita_toshisue",
     "buzen": "off_hosokawa_tadaoki",
-    "rikuchu": "off_hachinohe_naoyoshi",
+    "rikuchu": "off_nanbu_toshinao",
     "kazusa": "off_honda_tadatomo",
     "awa_boshu": "off_succ_satomi_1594_154",
     "izu": "off_jd_427",
-    "suruga": "off_tokugawa_yorinobu",
+    "suruga": "off_tokugawa_ieyasu",
     "echigo": "off_succ2_matsudaira_1592",
     "kaga": "off_maeda_toshitsune",
     "wakasa": "off_succ_kyogoku_1590_81",
@@ -42201,7 +43360,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mikawa": "off_itakura_shigemasa",
     "shima": "off_jd_041",
     "iga": "off_jd_042",
-    "south_omi": "off_ii_naotaka",
+    "south_omi": "off_honda_masazumi",
     "settsu": "off_dm_toyotomi_1600",
     "tamba": "off_edo_tokugawa_1598_84",
     "tajima": "off_edo_tokugawa_1597_86",
@@ -42211,9 +43370,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "suo": "off_mori_hidenari",
     "sado": "off_succ_honma_1575_35",
     "awaji": "off_wakisaka_yasuharu",
-    "hitachi": "off_arima_toyo-uji",
+    "hitachi": "off_tokugawa_yorifusa",
     "etchu": "off_edo_maeda_1580_180",
-    "oki": "off_jd_373"
+    "oki": "off_jd_373",
+    "bizen": "off_ikeda_tadatsugu"
   },
   "1637": {
     "bingo": "off_mizuno_katsunari",
@@ -42388,7 +43548,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   },
   "1702": {
     "mikawa": "off_kira_yoshihisa",
-    "musashi": "off_yanagisawa_yoshiyasu",
+    "musashi": "off_tokugawa_tsunayoshi",
     "sagami": "off_jd_078",
     "kazusa": "off_jd_082",
     "shimotsuke": "off_jd_080",
@@ -42443,7 +43603,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_jd_451"
   },
   "1721": {
-    "musashi": "off_ooka_tadasuke",
+    "musashi": "off_tokugawa_yoshimune",
     "suruga": "off_mizuno_tadayuki",
     "kai": "off_ooka_tadatane",
     "kozuke": "off_matsudaira_norisato_toba",
@@ -42459,7 +43619,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kazusa": "off_honda_tadayuki",
     "sagami": "off_hojo_ujitomo",
     "south_shinano": "off_suwa_tadatotora",
-    "echigo": "off_succ_uesugi_1700_207",
+    "echigo": "off_makino_tadanari",
     "noto": "off_hatakeyama_yoshisato",
     "kaga": "off_maeda_yoshinori",
     "ise": "off_kitabatake_tomenaga",
@@ -42500,8 +43660,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ugo": "off_edo_satake_1765_191",
     "iwaki": "off_edo_date_1760_172",
     "kozuke": "off_tokugawa_harusada",
-    "musashi": "off_edo_tokugawa_1759_16",
-    "echigo": "off_uesugi_shigesada",
+    "musashi": "off_tokugawa_ienari",
+    "echigo": "off_edo_tokugawa_1759_16",
     "noto": "off_edo_maeda_1771_181",
     "nagato": "off_edo_mori_1754_176",
     "sado": "off_honma_mitsuoka",
@@ -42539,7 +43699,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iga": "off_jd_444",
     "south_omi": "off_jd_445",
     "yamashiro": "off_edo_ota_sukeyoshi",
-    "yamato": "off_jd_447"
+    "yamato": "off_jd_447",
+    "uzen": "off_uesugi_yozan"
   },
   "1837": {
     "rikuchu": "off_edo_nanbu_1805_189",
@@ -42707,7 +43868,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   },
   "1056": {
     "iwashiro": "off_jd_349",
-    "rikuzen": "off_jd_314",
+    "rikuzen": "off_minamoto_yoriyoshi",
     "echigo": "off_minamoto_akifusa",
     "etchu": "off_minamoto_toshifusa",
     "hida": "off_minamoto_yoritsuna",
@@ -42721,7 +43882,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hyuga": "off_tomo_no_kanezada",
     "tsugaru": "off_abe_masato",
     "kazusa": "off_taira_tsuneharu",
-    "iwaki": "off_fujiwara_tsunekiyo",
+    "iwaki": "off_jd_349",
     "rikuchu": "off_abe_sadato",
     "ugo": "off_kiyohara_takenori",
     "kozuke": "off_fujiwara_yoriyuki",
@@ -42819,7 +43980,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mimasaka": "off_jd_419",
     "tango": "off_hosokawa_tadaoki",
     "musashi": "off_hojo_ujiteru",
-    "bungo": "off_tachibana_dosetsu"
+    "bungo": "off_tachibana_dosetsu",
+    "kii": "off_saika_magoichi"
   },
   "1587": {
     "yamashiro": "off_toyotomi_hidetsugu",
@@ -42840,7 +44002,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_kita_nobuchika",
     "kozuke": "off_hojo_ujikuni",
-    "kazusa": "off_jd_307",
+    "kazusa": "off_masaki_yoritada",
     "south_shinano": "off_okubo_tadayo",
     "etchu": "off_dm_maeda_1600",
     "noto": "off_cho_tsuratatsu",
@@ -42894,8 +44056,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "noto": "off_cho_tsuratatsu",
     "hitachi": "off_dm_satake_1590",
     "osumi": "off_shimazu_yoshihiro",
-    "mutsu": "off_kita_nobuchika",
-    "iwaki": "off_jd_336",
+    "mutsu": "off_dm_nanbu_1582",
+    "iwaki": "off_dm_soma_1546",
     "awa_boshu": "off_succ2_satomi_1573",
     "suruga": "off_nakamura_kazuuji",
     "kai": "off_asano_nagamasa",
@@ -42923,23 +44085,23 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hida": "off_kanamori_nagachika",
     "izumo": "off_kikkawa_hiroie",
     "sado": "off_succ_honma_1575_35",
-    "iwashiro": "off_date_shigezane",
+    "iwashiro": "off_gamo_ujisato",
     "mimasaka": "off_mori_tadamasa",
     "suo": "off_ouchi_takehide",
-    "bingo": "off_mizuno_katsunari",
+    "bingo": "off_jd_035",
     "mino": "off_saito_toshimune",
     "kii": "off_dm_asano_1600",
     "izu": "off_torii_mototada",
     "kazusa": "off_jd_335",
-    "rikuchu": "off_nanbu_toshinao",
+    "rikuchu": "off_kita_nobuchika",
     "chikuzen": "off_kobayakawa_takakage",
-    "wakasa": "off_dm_toyotomi_1600",
+    "wakasa": "off_jd_038",
     "settsu": "off_akashi_teruzumi",
     "izumi": "off_goto_matabei",
     "hoki": "off_sengoku_hidehisa",
     "iwami": "off_masuda_motoyoshi",
     "oki": "off_oki_kiyomasa_sengoku",
-    "bicchu": "off_shima_sakon",
+    "bicchu": "off_jd_034",
     "rikuzen": "off_katakura_kagenori",
     "nagato": "off_naito_motosori"
   },
@@ -43033,75 +44195,32 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_tomo_kanechika_1028"
   },
   "1274": {
-    "echizen": "off_sasaki_nobutsuna",
-    "yamato": "off_miura_taneyoshi_1221",
-    "tamba": "off_fujiwara_hideyasu",
-    "south_omi": "off_sasaki_hirotsuna",
+    "tsushima": "off_so_sukekuni",
+    "sagami": "off_hojo_tokimune",
     "musashi": "off_adachi_yasumori",
-    "izu": "off_hojo_tokifusa",
-    "shimotsuke": "off_ashikaga_ietoki",
-    "harima": "off_kasuya_hisasue",
-    "kazusa": "off_indo_tsuneshige",
-    "hizen": "off_matsura_tota",
-    "suruga": "off_hojo_yasutoki",
-    "totomi": "off_hojo_masamura",
-    "kozuke": "off_nitta_masayoshi",
-    "hitachi": "off_satake_yoshishige_kama",
-    "awa_boshu": "off_miura_yasumura",
-    "echigo": "off_jo_sukemasa",
-    "noto": "off_sadamori_succ_5",
-    "izumi": "off_succ_gotoba_in_1195_16",
-    "settsu": "off_succ_gotoba_in_1197_17",
-    "kii": "off_kumano_tanshuku",
-    "sanuki": "off_sanuki_takato",
-    "bungo": "off_otomo_yoriyasu",
-    "satsuma": "off_shimazu_ujihisa",
-    "mikawa": "off_tomoe_gozen",
-    "etchu": "off_hojo_masako",
-    "kaga": "off_oe_no_hiromoto",
-    "hida": "off_yuki_tomomitsu",
-    "iwaki": "off_koyama_tomomasa",
-    "tango": "off_sanuki_chikasada",
-    "wakasa": "off_shunbajunki",
-    "ise": "off_taira_rokudai",
-    "shima": "off_taira_moritsuna",
-    "iga": "off_fujiwara_hiderae",
-    "tajima": "off_jo_sukemori",
-    "inaba": "off_kiso_yoshishige",
-    "hoki": "off_matsura_hisa",
-    "izumo": "off_matsura_naoshi",
-    "iwami": "off_kumano_tangen",
-    "mimasaka": "off_succ2_kono_1200",
-    "bicchu": "off_sasaki_hirotsuna",
-    "awa_shikoku": "off_tsunemoto_succ_7",
-    "buzen": "off_shoni_tsunesuke",
-    "osumi": "off_abe_muneyuki",
-    "tsugaru": "off_jd_318",
-    "awaji": "off_sasaki_tsunetaka",
-    "oki": "off_sasaki_shigekiyo",
-    "kawachi": "off_ooe_chikahiro",
-    "north_omi": "off_sasaki_munetsuna",
-    "bingo": "off_miura_taneyoshi_1221",
-    "suo": "off_ouchi_korehira_1221",
-    "tosa": "off_hidesato_succ_4",
-    "chikugo": "off_kikuchi_yoshinao_1221",
-    "hyuga": "off_jd_212",
-    "mutsu": "off_nanbu_masamitsu",
-    "uzen": "off_hojo_tomatoki_1221",
     "nagato": "off_hojo_muneyori",
+    "buzen": "off_shoni_tsunesuke",
+    "chikuzen": "off_shoni_kagesuke",
+    "chikugo": "off_kikuchi_takefusa",
+    "bungo": "off_otomo_yoriyasu",
+    "higo": "off_takezaki_suenaga",
+    "hizen": "off_matsura_tota",
+    "iyo": "off_kono_michiari",
+    "yamashiro": "off_hojo_munemasa",
+    "kai": "off_succ_takeda_1240_188",
+    "shimotsuke": "off_ashikaga_ietoki",
+    "shimousa": "off_chiba_yoritane",
+    "hitachi": "off_satake_yoshishige_kama",
+    "satsuma": "off_shimazu_hisaune",
+    "sado": "off_succ_honma_1220_31",
+    "mino": "off_toki_yorisada",
+    "south_shinano": "off_ogasawara_nagamasa_kama",
+    "north_shinano": "off_succ_murakami_1260_97",
+    "mutsu": "off_nanbu_masamitsu",
     "rikuchu": "off_kasai_kiyomune",
     "rikuzen": "off_date_masayori",
-    "iwashiro": "off_date_munetsuna",
-    "sagami": "off_hojo_tokimune",
-    "tsushima": "off_hindu_yuan",
-    "chikuzen": "off_shoni_kagesuke",
-    "higo": "off_takezaki_suenaga",
-    "yamashiro": "off_hojo_noritoki_kama",
-    "shimousa": "off_chiba_yoritane",
-    "kai": "off_succ_takeda_1240_188",
-    "south_shinano": "off_ogasawara_nagamasa_kama",
-    "iyo": "off_kono_michiari",
-    "north_shinano": "off_succ_murakami_1260_97"
+    "echigo": "off_jo_sukemasa",
+    "kazusa": "off_inami_tsunenaga"
   },
   "1391": {
     "ezo": "off_ashikaga_yoshimitsu",
@@ -43111,7 +44230,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mino": "off_succ_toki_1375_198",
     "mikawa": "off_ashikaga_yoshimitsu",
     "owari": "off_shiba_yoshimasa",
-    "shima": "off_kitabatake_akiyoshi",
+    "shima": "off_kitabatake_akiyasu",
     "settsu": "off_hosokawa_yorimoto",
     "izumo": "off_jd_325",
     "iwami": "off_masuda_kaneyo",
@@ -43135,9 +44254,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iga": "off_rokkaku_mitsutaka",
     "yamashiro": "off_ashikaga_yoshimitsu",
     "tango": "off_jd_385",
-    "hoki": "off_yamana_mitsuyuki",
+    "hoki": "off_nawa_yoshitaka",
     "wakasa": "off_jd_404",
-    "kazusa": "off_miura_takatsugu",
+    "kazusa": null,
     "musashi": "off_ashikaga_mitsutaka",
     "izu": "off_jd_405",
     "yamato": "off_ashikaga_yoshimitsu",
@@ -43149,7 +44268,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awaji": "off_jd_416",
     "oki": "off_kyogoku_takamitsu",
     "aki": "off_succ2_mori_1360",
-    "awa_shikoku": "off_dm_hosokawa_1336",
+    "awa_shikoku": "off_hosokawa_yoriyuki",
     "buzen": "off_ashikaga_yoshimitsu",
     "shimousa": "off_jd_368",
     "tsugaru": "off_succ_ando_1375_3",
@@ -43161,7 +44280,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_omi": "off_rokkaku_mitsutaka",
     "north_omi": "off_kyogoku_takakiyo_1",
     "suruga": "off_imagawa_sadayo",
-    "north_shinano": "off_succ_ogasawara_1365_112",
+    "north_shinano": null,
     "iyo": "off_succ_kono_1355_72",
     "tosa": "off_chosokabe_nobukane",
     "ugo": "off_ando_norisue",
@@ -43182,9 +44301,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mikawa": "off_matsudaira_hirotada",
     "settsu": "off_hosokawa_harumoto",
     "rikuzen": "off_date_tanemune_early",
-    "kozuke": "off_nagano_narimasa",
-    "shimousa": "off_satomi_yoshihiro",
-    "musashi": "off_dm_uesugi_1546",
+    "kozuke": "off_dm_uesugi_1546",
+    "shimousa": "off_ashikaga_haruuji",
+    "musashi": "off_uesugi_tomooki",
     "izu": "off_hojo_tsunashige",
     "kawachi": "off_jd_249",
     "izumi": "off_hosokawa_takakuni",
@@ -43199,15 +44318,15 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awaji": "off_hosokawa_takakuni",
     "buzen": "off_aso_hiroyasu",
     "chikuzen": "off_aso_hiroyasu",
-    "mutsu": "off_kita_nobuchika",
+    "mutsu": "off_nanbu_harumasa",
     "tango": "off_jd_014",
     "south_shinano": "off_succ_ogasawara_1514_114",
-    "rikuchu": "off_succ2_nanbu_1495",
+    "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
     "yamashiro": "off_ashikaga_yoshiharu",
     "chikugo": "off_otomo_yoshiaki_early",
-    "tsugaru": "off_jd_013",
-    "kazusa": "off_masaki_tokishige",
+    "tsugaru": "off_succ2_nanbu_1495",
+    "kazusa": "off_ashikaga_yoshiaki_oyumi",
     "oki": "off_oki_tamekiyo",
     "wakasa": "off_jd_008",
     "tamba": "off_hatano_hidetada",
@@ -43229,7 +44348,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "north_shinano": "off_dm_murakami_1546",
     "iwashiro": "off_ashina_morishun",
     "iwaki": "off_dm_soma_1531",
-    "tosa": "off_dm_chosokabe_1546"
+    "tosa": "off_dm_chosokabe_1546",
+    "ugo": "off_dm_ando_1546"
   },
   "1538": {
     "owari": "off_dm_oda_1546",
@@ -43238,31 +44358,31 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "settsu": "off_hosokawa_harumoto",
     "rikuzen": "off_date_tanemune_early",
     "kozuke": "off_nagano_narimasa",
-    "shimousa": "off_ashikaga_yoshiaki_oyumi",
+    "shimousa": "off_ashikaga_haruuji",
     "musashi": "off_hojo_ujiyasu",
     "izu": "off_hojo_tsunashige",
     "kawachi": "off_matsunaga_hisahide",
-    "izumi": "off_miyoshi_nagayoshi",
+    "izumi": "off_hosokawa_harumoto",
     "hoki": "off_jd_250",
     "nagato": "off_sue_harukata",
     "osumi": "off_shimazu_tadayoshi",
     "iwami": "off_honjo_tsunemitsu",
-    "mimasaka": "off_amago_kunihisa",
+    "mimasaka": "off_jd_055",
     "bicchu": "off_mimura_iechika",
     "bingo": "off_yamauchi_takadouri",
     "sanuki": "off_shinohara_nagafusa",
     "awaji": "off_hosokawa_harumoto",
     "buzen": "off_aso_hiroyasu",
     "chikuzen": "off_aso_hiroyasu",
-    "mutsu": "off_kita_nobuchika",
+    "mutsu": "off_nanbu_harumasa",
     "tango": "off_jd_014",
     "south_shinano": "off_succ_ogasawara_1514_114",
-    "rikuchu": "off_succ2_nanbu_1495",
+    "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
     "yamashiro": "off_ashikaga_yoshiharu",
     "chikugo": "off_otomo_yoshiaki_early",
     "tsugaru": "off_jd_013",
-    "kazusa": "off_masaki_tokishige",
+    "kazusa": "off_ashikaga_yoshiaki_oyumi",
     "oki": "off_oki_tamekiyo",
     "wakasa": "off_jd_008",
     "tamba": "off_hatano_hidetada",
@@ -43293,7 +44413,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_shinano": "off_akiyama_nobutomo",
     "musashi": "off_hojo_tsunashige",
     "izu": "off_hojo_ujinori",
-    "kozuke": "off_nagano_narimasa",
+    "kozuke": "off_dm_uesugi_1546",
     "hida": "off_anekoji_yoritsuna",
     "north_omi": "off_azai_nagamasa",
     "kaga": "off_shimotsuma_rairen",
@@ -43313,8 +44433,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izumi": "off_jd_255",
     "osumi": "off_shimazu_tadayoshi",
     "awaji": "off_atagi_fuyuyasu",
-    "mutsu": "off_kita_nobuchika",
-    "rikuchu": "off_succ2_nanbu_1495",
+    "mutsu": "off_nanbu_harumasa",
+    "rikuchu": "off_kita_nobuchika",
     "sagami": "off_hojo_ujiyasu",
     "inaba": "off_jd_010",
     "bizen": "off_dm_uragami_1546",
@@ -43340,7 +44460,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "settsu": "off_miyoshi_nagayoshi",
     "harima": "off_dm_akamatsu_1546",
     "mikawa": "off_succ2_matsudaira_1510",
-    "rikuzen": "off_date_tanemune_early"
+    "rikuzen": "off_date_tanemune_early",
+    "shima": "off_kuki_kiyotaka_1555"
   },
   "1573": {
     "ezo": "off_dm_kakizaki_1546",
@@ -43470,7 +44591,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awaji": "off_jd_012",
     "iwami": "off_masuda_fujikane",
     "bingo": "off_kobayakawa_takakage",
-    "oki": "off_kikkawa_motoharu",
+    "oki": "off_oki_kiyomasa_sengoku",
     "tango": "off_isshiki_yoshimichi",
     "mino": "off_takigawa_kazumasu",
     "totomi": "off_tokugawa_ieyasu",
@@ -43504,7 +44625,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sagami": "off_hojo_ujimasa",
     "izu": "off_matsuda_yasunaga",
     "kazusa": "off_dm_satomi_1582",
-    "awa_boshu": "off_satomi_yoshihiro",
+    "awa_boshu": "off_dm_satomi_1582",
     "shimousa": "off_hojo_ujinori",
     "kai": "off_takeda_katsuyori",
     "north_shinano": "off_kosaka_masanobu",
@@ -43548,7 +44669,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hoki": "off_kikkawa_tsuneie",
     "izumo": "off_kikkawa_motoharu",
     "iwami": "off_masuda_fujikane",
-    "oki": "off_kikkawa_motoharu",
+    "oki": "off_oki_kiyomasa_sengoku",
     "awaji": "off_jd_012",
     "sanuki": "off_sogo_ariyasu",
     "awa_shikoku": "off_dm_miyoshi_1570",
@@ -43586,7 +44707,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "harima": "off_taira_shigehira",
     "bizen": "off_namba_tsuneto",
     "nagato": "off_taira_tomomori",
-    "sanuki": "off_taira_munemori",
+    "sanuki": "off_taira_noritsune",
     "izu": "off_dohi_sanehira",
     "kozuke": "off_nitta_yoshishige",
     "shimotsuke": "off_ashikaga_yoshikane",
@@ -43594,7 +44715,6 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "yamato": "off_jd_359",
     "owari": "off_taira_yorimori_1156",
     "tamba": "off_jd_208",
-    "tango": "off_taira_norimori",
     "tajima": "off_taira_koremori",
     "hoki": "off_taira_kagekiyo",
     "kazusa": "off_kazusa_hirotsune",
@@ -43608,8 +44728,6 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikuzen": "off_harada_tanenao",
     "chikugo": "off_taira_sadanou",
     "ise": "off_taira_iesada_1156",
-    "kaga": "off_taira_sukemori",
-    "echizen": "off_jd_003",
     "totomi": "off_ichijo_tadayori",
     "uzen": "off_hizume_kiyohira",
     "inaba": "off_senoo_kaneyasu",
@@ -43617,15 +44735,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "higo": "off_kikuchi_takenao",
     "satsuma": "off_shimazu_proto_tadahisa",
     "osumi": "off_shimazu_proto_succ4",
-    "noto": "off_sadamori_tokitada",
-    "sagami": "off_hojo_tokimasa",
+    "sagami": "off_minamoto_yoritomo",
     "etchu": "off_imai_kanehira",
     "rikuchu": "off_fujiwara_hidehira",
     "bicchu": "off_jd_004",
     "north_omi": "off_nenoi_yukichika",
-    "mino": "off_jd_360",
     "tsugaru": "off_jd_317",
-    "settsu": "off_ito_tadakiyo",
+    "settsu": "off_taira_munemori",
     "iwaki": "off_terui_takaharu",
     "ugo": "off_jd_316",
     "yamashiro": "off_kiso_yoshinaka",
@@ -43650,11 +44766,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kozuke": "off_nitta_yoshishige",
     "shimotsuke": "off_ashikaga_yoshikane",
     "iwashiro": "off_sato_motoharu",
-    "yamato": "off_jd_359",
-    "owari": "off_taira_yorimori_1156",
     "tamba": "off_minamoto_yoshitsune",
-    "tango": "off_taira_norimori",
-    "tajima": "off_taira_koremori",
+    "tajima": "off_taira_norimori",
     "hoki": "off_taira_kagekiyo",
     "kazusa": "off_chiba_tsunetane",
     "awa_boshu": "off_jd_207",
@@ -43666,9 +44779,6 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "buzen": "off_yamaga_hidetou",
     "chikuzen": "off_harada_tanenao",
     "chikugo": "off_harada_tanenao",
-    "ise": "off_taira_iesada_1156",
-    "kaga": "off_taira_sukemori",
-    "echizen": "off_jd_003",
     "totomi": "off_ichijo_tadayori",
     "uzen": "off_hizume_kiyohira",
     "inaba": "off_taira_tadanori",
@@ -43676,15 +44786,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "higo": "off_kikuchi_takenao",
     "satsuma": "off_shimazu_proto_tadahisa",
     "osumi": "off_shimazu_proto_succ4",
-    "noto": "off_sadamori_tokitada",
-    "sagami": "off_hojo_tokimasa",
+    "sagami": "off_minamoto_yoritomo",
     "etchu": "off_imai_kanehira",
     "rikuchu": "off_fujiwara_hidehira",
     "bicchu": "off_jd_004",
     "north_omi": "off_nenoi_yukichika",
-    "mino": "off_jd_360",
     "tsugaru": "off_jd_317",
-    "settsu": "off_taira_tomomori",
+    "settsu": "off_taira_munemori",
     "iwaki": "off_terui_takaharu",
     "ugo": "off_jd_316",
     "yamashiro": "off_minamoto_noriyori",
@@ -43710,23 +44818,16 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shimotsuke": "off_ashikaga_yoshikane",
     "iwashiro": "off_sato_motoharu",
     "yamato": "off_kajiwara_kagetoki",
-    "owari": "off_taira_yorimori_1156",
     "tamba": "off_nasu_no_yoichi",
-    "tango": "off_taira_norimori",
     "tajima": "off_adachi_morinaga",
-    "hoki": "off_taira_kagekiyo",
     "kazusa": "off_chiba_tsunetane",
     "awa_boshu": "off_jd_207",
     "hida": "off_adachi_morinaga",
     "rikuzen": "off_fujiwara_hiderae",
     "mutsu": "off_fujiwara_kunihiro",
-    "bingo": "off_taira_noritsune",
-    "awa_shikoku": "off_taguchi_shigeyoshi",
-    "buzen": "off_taguchi_shigeyoshi",
+    "buzen": "off_yamaga_hidetou",
     "chikuzen": "off_harada_tanenao",
     "chikugo": "off_taira_sadanou",
-    "ise": "off_taira_iesada_1156",
-    "kaga": "off_taira_sukemori",
     "echizen": "off_adachi_morinaga",
     "totomi": "off_adachi_morinaga",
     "uzen": "off_hizume_kiyohira",
@@ -43735,8 +44836,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "higo": "off_kikuchi_takenao",
     "satsuma": "off_shimazu_proto_tadahisa",
     "osumi": "off_shimazu_proto_succ4",
-    "noto": "off_sadamori_tokitada",
-    "sagami": "off_hojo_tokimasa",
+    "sagami": "off_minamoto_yoritomo",
     "etchu": "off_hiki_yoshikazu",
     "rikuchu": "off_fujiwara_hidehira",
     "bicchu": "off_adachi_morinaga",
@@ -43752,7 +44852,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "echigo": "off_dm_jo_1180",
     "hitachi": "off_satake_hideyoshi",
     "kai": "off_dm_takeda_1180",
-    "suo": "off_taira_norimori",
+    "suo": "off_taira_munemori",
     "bungo": "off_otomo_yoshinao_early_bridge",
     "aki": "off_minamoto_yoshitsune",
     "iwami": "off_minamoto_yoshitsune",
@@ -43770,7 +44870,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izu": "off_dohi_sanehira",
     "kozuke": "off_nitta_yoshishige",
     "shimotsuke": "off_ashikaga_yoshikane",
-    "iwashiro": "off_sato_motoharu",
+    "iwashiro": "off_fujiwara_kunihiro",
     "yamato": "off_kajiwara_kagetoki",
     "owari": "off_adachi_morinaga",
     "tamba": "off_nasu_no_yoichi",
@@ -43798,7 +44898,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_shimazu_proto_tadahisa",
     "osumi": "off_shimazu_proto_tadahisa",
     "noto": "off_sadamori_tokitada",
-    "sagami": "off_hojo_tokimasa",
+    "sagami": "off_minamoto_yoritomo",
     "etchu": "off_hiki_yoshikazu",
     "rikuchu": "off_fujiwara_yasuhira",
     "bicchu": "off_adachi_morinaga",
@@ -43811,7 +44911,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "yamashiro": "off_kajiwara_kagetoki",
     "south_omi": "off_sasaki_sadatsuna",
     "south_shinano": "off_tomoe_gozen",
-    "echigo": "off_dm_jo_1180",
+    "echigo": "off_sasaki_moritsuna",
     "hitachi": "off_satake_hideyoshi",
     "kai": "off_dm_takeda_1180",
     "suo": "off_adachi_morinaga",
@@ -43824,16 +44924,16 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "echigo": "off_nitta_yoshimune",
     "hitachi": "off_hosokawa_yoriyuki",
     "mino": "off_toki_yorikasu",
-    "mikawa": "off_jd_213",
+    "mikawa": "off_ashikaga_yoshiakira",
     "owari": "off_toki_yorikasu",
     "shima": "off_kitabatake_akiyoshi",
     "settsu": "off_kusunoki_masanori",
     "izumo": "off_jd_325",
-    "iwami": "off_masuda_kanemi",
-    "mimasaka": "off_jd_216",
+    "iwami": "off_masuda_kaneyoshi",
+    "mimasaka": "off_akamatsu_sadanori",
     "bizen": "off_akamatsu_sadanori",
     "sanuki": "off_hosokawa_yoriyuki",
-    "chikuzen": "off_shoni_yorihisa",
+    "chikuzen": "off_dm_shoni_1336",
     "hizen": "off_dm_shoni_1336",
     "hyuga": "off_shimazu_ujihisa",
     "tamba": "off_yamana_morouji",
@@ -43841,19 +44941,19 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "bicchu": "off_jd_418",
     "mutsu": "off_kitabatake_akinobu",
     "tajima": "off_yamana_moriyoshi",
-    "rikuchu": "off_nanbu_masanaga",
+    "rikuchu": "off_dm_kasai_1331",
     "etchu": "off_momoi_tadatsune",
     "awa_boshu": "off_jd_236",
-    "sagami": "off_uesugi_noriaki_first",
+    "sagami": "off_dm_kamakura_fu_1350",
     "hida": "off_jd_224",
     "totomi": "off_succ_imagawa_1304_41",
     "iga": "off_hosokawa_kiyouji",
     "yamashiro": "off_ashikaga_yoshiakira",
     "tango": "off_isshiki_norouji",
     "hoki": "off_nawa_yoshitaka",
-    "wakasa": "off_isshiki_norouji",
-    "kazusa": "off_miura_takatsugu",
-    "musashi": "off_dm_kamakura_fu_1350",
+    "wakasa": "off_shiba_takatsune",
+    "kazusa": null,
+    "musashi": null,
     "izu": "off_succ_hatakeyama_1300_22",
     "yamato": "off_kitabatake_akiyoshi",
     "kii": "off_succ_hatakeyama_1300_22",
@@ -43862,21 +44962,23 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikugo": "off_kikuchi_takemitsu",
     "osumi": "off_shimazu_ujihisa",
     "awaji": "off_ogasawara_nagamoto",
-    "oki": "off_shoni_fuyusuke",
-    "aki": "off_dm_hosokawa_1331",
+    "oki": null,
+    "aki": "off_mori_motoharu",
     "awa_shikoku": "off_dm_hosokawa_1336",
     "buzen": "off_isshiki_norouji",
     "shimousa": "off_jd_368",
     "tsugaru": "off_jd_241",
-    "iwaki": "off_ashina_morimune",
+    "iwaki": "off_ashina_naomori",
     "izumi": "off_kusunoki_masanori",
     "higo": "off_kikuchi_takemitsu",
-    "bungo": "off_otomo_ujitoki",
-    "kawachi": "off_kusunoki_masayoshi",
-    "harima": "off_akamatsu_norisuke",
+    "bungo": "off_dm_otomo_1350",
+    "kawachi": "off_kusunoki_masanori",
+    "harima": "off_dm_akamatsu_1350",
     "suo": "off_ouchi_hiroyo",
     "echizen": "off_shiba_takatsune",
-    "south_omi": "off_sasaki_douyo"
+    "south_omi": "off_sasaki_doyo",
+    "noto": "off_hatakeyama_yoshinori",
+    "kozuke": "off_uesugi_noriaki_first"
   }
 };
 
@@ -43885,7 +44987,7 @@ window.CLAN_CAPITAL_PROVINCES = {
   "tokugawa": "musashi",
   "toyotomi": "settsu",
   "takeda": "kai",
-  "uesugi": "echigo",
+  "uesugi": "uzen",
   "mori": "aki",
   "hojo": "sagami",
   "date": "rikuzen",
@@ -43899,7 +45001,7 @@ window.CLAN_CAPITAL_PROVINCES = {
   "otomo": "bungo",
   "ryuzoji": "hizen",
   "satake": "hitachi",
-  "nanbu": "rikuchu",
+  "nanbu": "mutsu",
   "mogami": "uzen",
   "ashikaga": "yamashiro",
   "so": "tsushima",
@@ -44024,7 +45126,11 @@ window.CLAN_CAPITAL_PROVINCES = {
   "anesanokoji": "hida",
   "anesakoji": "hida",
   "suzuki": "kii",
-  "takeda_kazusa": "kazusa"
+  "takeda_kazusa": "kazusa",
+  "gamo": "iwashiro",
+  "fukushima": "aki",
+  "gamou": "iwashiro",
+  "shiba_oshu": "rikuchu"
 };
 
 window.OFFICER_FAMILY_ROSTERS = {
@@ -44276,7 +45382,8 @@ window.CLAN_CAPITAL_ERAS = {
   godaiho: [[1331, 'yamato']],
   oda: [[1555, 'owari'], [1567, 'mino'], [1576, 'south_omi'], [1583, 'owari']],
   tokugawa: [[1560, 'mikawa'], [1570, 'totomi'], [1586, 'suruga'], [1590, 'musashi']],
-  date: [[1560, 'rikuzen'], [1591, 'rikuzen']],
+  date: [[1560, 'rikuzen'], [1589, 'iwashiro'], [1591, 'rikuzen']],
+  nanbu: [[1180, 'mutsu'], [1598, 'rikuchu']],
   uesugi: [[1598, 'iwashiro'], [1601, 'uzen']],
   mori: [[1601, 'nagato']]
 };
@@ -44362,6 +45469,268 @@ window.CLAN_SERVICE_FALLBACKS = [
 (function () {
   const rules = window.OFFICER_AFFILIATION_RULES = window.OFFICER_AFFILIATION_RULES || [];
   rules.unshift(
+
+  // =========================================================================
+  // 古代・平安・源平シナリオ（12世紀以前）史実武将配属ルール
+  // =========================================================================
+
+  // --- 1028 長元元年 平忠常の乱 ---
+  {
+    id: 'tadatsune_1028',
+    officerIds: ['off_taira_tadanetsune'],
+    scenarioIds: ['1028'],
+    setClanId: 'taira_tadatsune',
+    setDefaultProv: 'kazusa',
+    setAssignedProv: 'kazusa',
+    setDaimyo: true
+  },
+  {
+    id: 'tsunemasa_1028',
+    officerIds: ['off_taira_tsunemasa'],
+    scenarioIds: ['1028'],
+    setClanId: 'taira_tadatsune',
+    setDefaultProv: 'shimousa',
+    setAssignedProv: 'shimousa',
+    setDaimyo: false
+  },
+  {
+    id: 'tsuneharu_1028',
+    officerIds: ['off_taira_tsuneharu'],
+    scenarioIds: ['1028'],
+    setClanId: 'taira_tadatsune',
+    setDefaultProv: 'awa_boshu',
+    setAssignedProv: 'awa_boshu',
+    setDaimyo: false
+  },
+  {
+    id: 'yorinobu_1028',
+    officerIds: ['off_minamoto_yorinobu_1028'],
+    scenarioIds: ['1028'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'kawachi',
+    setAssignedProv: 'kawachi',
+    setDaimyo: true
+  },
+
+  // --- 1056 天喜4年 前九年の役 ---
+  {
+    id: 'tsunekiyo_abe_1056',
+    officerIds: ['off_fujiwara_tsunekiyo'],
+    scenarioIds: ['1056'],
+    setClanId: 'abe',
+    setDefaultProv: 'rikuchu',
+    setAssignedProv: 'rikuchu',
+    setDaimyo: false
+  },
+  {
+    id: 'hidetake_kiyohara_1056',
+    officerIds: ['off_yohiko_hidetake'],
+    scenarioIds: ['1056'],
+    setClanId: 'kiyohara',
+    setDefaultProv: 'ugo',
+    setAssignedProv: 'ugo',
+    setDaimyo: false
+  },
+  {
+    id: 'yoriyoshi_tagajo_1056',
+    officerIds: ['off_minamoto_yoriyoshi'],
+    scenarioIds: ['1056'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'rikuzen',
+    setAssignedProv: 'rikuzen',
+    setDaimyo: true
+  },
+  {
+    id: 'yoshiie_tagajo_1056',
+    officerIds: ['off_minamoto_yoshiie'],
+    scenarioIds: ['1056'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'rikuzen',
+    setAssignedProv: 'rikuzen',
+    setDaimyo: false
+  },
+
+  // --- 1087 寛治元年 後三年の役 ---
+  {
+    id: 'hidetake_kiyohara_1087',
+    officerIds: ['off_yohiko_hidetake'],
+    scenarioIds: ['1087'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'ugo',
+    setAssignedProv: 'ugo',
+    setDaimyo: false
+  },
+  {
+    id: 'yoshiie_tagajo_1087',
+    officerIds: ['off_minamoto_yoshiie'],
+    scenarioIds: ['1087'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'rikuzen',
+    setAssignedProv: 'rikuzen',
+    setDaimyo: true
+  },
+  {
+    id: 'yoshimitsu_tagajo_1087',
+    officerIds: ['off_minamoto_yoshimitsu'],
+    scenarioIds: ['1087'],
+    setClanId: 'minamoto_tsunemoto',
+    setDefaultProv: 'rikuzen',
+    setAssignedProv: 'rikuzen',
+    setDaimyo: false
+  },
+
+  // --- 1156 保元の乱 ---
+  {
+    id: 'tametomo_sutoku_fixed_1156',
+    officerIds: ['off_minamoto_tametomo'],
+    scenarioIds: ['1156'],
+    setClanId: 'sutoku_in',
+    setDefaultProv: 'yamato',
+    setAssignedProv: 'yamato',
+    setDaimyo: false
+  },
+
+  // --- 1180〜1189 源平合戦 鎌倉幕府重臣 ---
+  {
+    id: 'kanto_vassals_yoritomo_all',
+    officerIds: ['off_hojo_tokimasa', 'off_kajiwara_kagetoki', 'off_koyama_tomomasa', 'off_adachi_morinaga'],
+    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
+    setClanId: 'genji_yoritomo',
+    setDefaultProv: 'sagami',
+    setAssignedProv: 'sagami',
+    setDaimyo: false
+  },
+  {
+    id: 'kumagai_naozane_yoritomo',
+    officerIds: ['off_kumagai_naozane'],
+    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
+    setClanId: 'genji_yoritomo',
+    setDefaultProv: 'musashi',
+    setAssignedProv: 'musashi',
+    setDaimyo: false
+  },
+  {
+    id: 'oba_kagechika_taira_1180',
+    officerIds: ['off_oba_kagechika'],
+    scenarioIds: ['1180'],
+    setClanId: 'taira',
+    setDefaultProv: 'sagami',
+    setAssignedProv: 'sagami',
+    setDaimyo: false
+  },
+  {
+    id: 'ito_sukekiyo_taira_1180',
+    officerIds: ['off_ito_sukekiyo'],
+    scenarioIds: ['1180', '1183'],
+    setClanId: 'taira',
+    setDefaultProv: 'izu',
+    setAssignedProv: 'izu',
+    setDaimyo: false
+  },
+  {
+    id: 'fujiwara_kunihiro_hiraizumi',
+    officerIds: ['off_fujiwara_kunihiro'],
+    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
+    setClanId: 'fujiwara_hiraizumi',
+    setDefaultProv: 'rikuzen',
+    setAssignedProv: 'rikuzen',
+    setDaimyo: false
+  },
+  {
+    id: 'fujiwara_tadahira_hiraizumi',
+    officerIds: ['off_fujiwara_tadahira_ou'],
+    scenarioIds: ['1183', '1184', '1185', '1189'],
+    setClanId: 'fujiwara_hiraizumi',
+    setDefaultProv: 'mutsu',
+    setAssignedProv: 'mutsu',
+    setDaimyo: false
+  },
+  {
+    id: 'nasu_yoichi_yoritomo_1184',
+    officerIds: ['off_nasu_no_yoichi'],
+    scenarioIds: ['1184', '1189'],
+    setClanId: 'genji_yoritomo',
+    setDefaultProv: 'shimotsuke',
+    setAssignedProv: 'shimotsuke',
+    setDaimyo: false
+  },
+
+  // --- 1185 壇ノ浦の戦い（源義経勢力への配属） ---
+  {
+    id: 'yoshitsune_dan_no_ura_1185',
+    officerIds: ['off_minamoto_yoshitsune'],
+    scenarioIds: ['1185'],
+    setClanId: 'genji_yoshitsune',
+    setDefaultProv: 'aki',
+    setAssignedProv: 'aki',
+    setDaimyo: true
+  },
+  {
+    id: 'benkei_dan_no_ura_1185',
+    officerIds: ['off_musashibo_benkei'],
+    scenarioIds: ['1185'],
+    setClanId: 'genji_yoshitsune',
+    setDefaultProv: 'aki',
+    setAssignedProv: 'aki',
+    setDaimyo: false
+  },
+  {
+    id: 'sato_tadanobu_1185',
+    officerIds: ['off_sato_tadanobu'],
+    scenarioIds: ['1185'],
+    setClanId: 'genji_yoshitsune',
+    setDefaultProv: 'sanuki',
+    setAssignedProv: 'sanuki',
+    setDaimyo: false
+  },
+  {
+    id: 'sato_tsugunobu_1185',
+    officerIds: ['off_sato_tsugunobu'],
+    scenarioIds: ['1185'],
+    setClanId: 'genji_yoshitsune',
+    setDefaultProv: 'sanuki',
+    setAssignedProv: 'sanuki',
+    setDaimyo: false
+  },
+  {
+    id: 'nasu_yoichi_1185',
+    officerIds: ['off_nasu_no_yoichi'],
+    scenarioIds: ['1185'],
+    setClanId: 'genji_yoshitsune',
+    setDefaultProv: 'sanuki',
+    setAssignedProv: 'sanuki',
+    setDaimyo: false
+  },
+
+  // --- 1189 奥州合戦（義経・弁慶の平泉在陣） ---
+  {
+    id: 'yoshitsune_hiraizumi_1189',
+    officerIds: ['off_minamoto_yoshitsune'],
+    scenarioIds: ['1189'],
+    setClanId: 'fujiwara_hiraizumi',
+    setDefaultProv: 'rikuchu',
+    setAssignedProv: 'rikuchu',
+    setDaimyo: false
+  },
+  {
+    id: 'benkei_hiraizumi_1189',
+    officerIds: ['off_musashibo_benkei'],
+    scenarioIds: ['1189'],
+    setClanId: 'fujiwara_hiraizumi',
+    setDefaultProv: 'rikuchu',
+    setAssignedProv: 'rikuchu',
+    setDaimyo: false
+  },
+  {
+    id: 'kunihiro_azukashi_1189',
+    officerIds: ['off_fujiwara_kunihiro'],
+    scenarioIds: ['1189'],
+    setClanId: 'fujiwara_hiraizumi',
+    setDefaultProv: 'iwashiro',
+    setAssignedProv: 'iwashiro',
+    setDaimyo: false
+  },
+
     // 承平・天慶の乱：小野好古は朝廷の追捕使長官（平貞盛の配下ではない）
     { id: 'ono_yoshifuru_court', officerIds: ['off_ono_yoshifuru'], setClanId: 'heian_court', fromYear: 930, toYear: 968, scenarioIds: ['939'], requireOwners: ['heian_court'], setDaimyo: false },
     // 柴田勝家・佐久間盛政は本能寺まで織田家臣（柴田家が地図に立ったら柴田家）
@@ -44387,7 +45756,7 @@ window.CLAN_SERVICE_FALLBACKS.push(
   { clanIds: ['minamoto_yoshitomo', 'chiba', 'kazusa_nosuke'], setClanId: 'genji_yoritomo', fromYear: 1180, toYear: 1199 }
 );
 window.OFFICER_AFFILIATION_RULES.unshift(
-  { id: 'yohiko_kiyohara', officerIds: ['off_yohiko_hidetake'], setClanId: 'kiyohara', fromYear: 1050, toYear: 1089, requireOwners: ['kiyohara'], setDaimyo: false },
+  { id: 'yohiko_kiyohara', officerIds: ['off_yohiko_hidetake'], setClanId: 'kiyohara', fromYear: 1050, toYear: 1086, requireOwners: ['kiyohara'], setDaimyo: false },
   { id: 'munetada_court_1087', officerIds: ['off_fujiwara_munetada'], setClanId: 'heian_court', fromYear: 1080, toYear: 1141, requireOwners: ['heian_court'], setDaimyo: false },
   { id: 'oba_hogen_1156', officerIds: ['off_oba_kagechika'], setClanId: 'minamoto_yoshitomo', fromYear: 1150, toYear: 1160, requireOwners: ['minamoto_yoshitomo'], setDaimyo: false },
   { id: 'nobuyori_goshirakawa_1156', officerIds: ['off_fujiwara_nobuyori'], setClanId: 'goshirakawa_in', fromYear: 1150, toYear: 1160, requireOwners: ['goshirakawa_in'], setDaimyo: false },
@@ -44577,7 +45946,8 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "chikugo": "off_tachibana_muneshige",
     "chikuzen": "off_kuroda_nagamasa",
     "hizen": "off_ryuzoji_masaie",
-    "etchu": "off_dm_maeda_1600"
+    "etchu": "off_dm_maeda_1600",
+    "rikuchu": "off_kita_nobuchika"
   },
   "1600": {
     "kai": "off_dm_asano_1600",
@@ -44661,7 +46031,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "chikuzen": "off_tachibana_dosetsu",
     "iwami": "off_masuda_fujikane",
     "izumo": "off_kikkawa_motoharu",
-    "oki": "off_oki_tamekiyo",
+    "oki": "off_oki_kiyomasa_sengoku",
     "north_omi": "off_toyotomi_hideyoshi",
     "harima": "off_dm_akamatsu_1570",
     "tamba": "off_hatano_hideharu",
@@ -44768,11 +46138,11 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "sagami": "off_hojo_ujimasa",
     "izu": "off_matsuda_yasunaga",
     "kazusa": "off_dm_satomi_1582",
-    "awa_boshu": "off_dm_satomi_1546",
+    "awa_boshu": "off_dm_satomi_1582",
     "shimousa": "off_hojo_ujinori",
     "kai": "off_takeda_katsuyori",
     "north_shinano": "off_kosaka_masanobu",
-    "south_shinano": "off_akiyama_nobutomo",
+    "south_shinano": "off_kiso_yoshimasa",
     "suruga": "off_anayama_baisetsu",
     "totomi": "off_tokugawa_ieyasu",
     "mikawa": "off_honda_tadakatsu",
@@ -44794,7 +46164,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "yamashiro": "off_jd_016",
     "yamato": "off_matsunaga_hisahide",
     "kawachi": "off_jd_019",
-    "izumi": "off_miyoshi_nagayasu",
+    "izumi": "off_sakuma_nobumori",
     "settsu": "off_dm_honganji_1560",
     "kii": "off_saika_magoichi",
     "tamba": "off_hatano_hideharu",
@@ -44812,7 +46182,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "hoki": "off_kikkawa_tsuneie",
     "izumo": "off_kikkawa_motoharu",
     "iwami": "off_masuda_fujikane",
-    "oki": "off_oki_tamekiyo",
+    "oki": "off_oki_kiyomasa_sengoku",
     "awaji": "off_jd_012",
     "sanuki": "off_sogo_ariyasu",
     "awa_shikoku": "off_dm_miyoshi_1570",
@@ -44862,13 +46232,13 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "bizen": "off_dm_uragami_1546",
     "mimasaka": "off_amago_kunihisa",
     "harima": "off_dm_akamatsu_1546",
-    "tajima": "off_yamana_munetoyo",
+    "tajima": "off_dm_yamana_1546",
     "inaba": "off_jd_010",
     "bingo": "off_yamauchi_takadouri",
     "south_shinano": "off_succ_ogasawara_1514_114",
     "north_shinano": "off_dm_murakami_1546",
     "kawachi": "off_matsunaga_hisahide",
-    "izumi": "off_hosokawa_takakuni",
+    "izumi": "off_hosokawa_harumoto",
     "awa_shikoku": "off_succ_ashikaga_1509_6",
     "sanuki": "off_shinohara_nagafusa",
     "settsu": "off_hosokawa_harumoto",
@@ -44879,7 +46249,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "rikuzen": "off_date_tanemune_early",
     "tamba": "off_hatano_hidetada",
     "yamashiro": "off_ashikaga_yoshiharu",
-    "awaji": "off_hosokawa_takakuni",
+    "awaji": "off_hosokawa_harumoto",
     "wakasa": "off_jd_008",
     "suruga": "off_imagawa_yoshimoto",
     "echigo": "off_nagao_tamekage",
@@ -44921,7 +46291,8 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "mimasaka": "off_jd_055",
     "harima": "off_dm_akamatsu_1546",
     "mikawa": "off_succ2_matsudaira_1510",
-    "yamashiro": "off_ashikaga_yoshiteru"
+    "yamashiro": "off_ashikaga_yoshiteru",
+    "rikuchu": "off_kita_nobuchika"
   },
   "1560": {
     "noto": "off_dm_hatakeyama_1546",
@@ -44938,7 +46309,8 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "iga": "off_jd_456",
     "shima": "off_kuki_yoshitaka",
     "bicchu": "off_jd_015",
-    "bingo": "off_shimizu_muneharu"
+    "bingo": "off_shimizu_muneharu",
+    "rikuchu": "off_kita_nobuchika"
   },
   "1570": {
     "bizen": "off_dm_uragami_1546",
@@ -45190,5 +46562,353 @@ window.OFFICER_AFFILIATION_RULES.unshift(
   { id: 'okubo_musashi_1877', officerIds: ['off_okubo_toshimichi'], setClanId: 'meiji', fromYear: 1877, toYear: 1877, requireOwners: ['meiji'], scenarioIds: ['1877'], setDaimyo: false, setDefaultProv: 'musashi', setAssignedProv: 'musashi' },
   { id: 'kuroda_chikuzen_1877', officerIds: ['off_kuroda_kiyotaka'], setClanId: 'meiji', fromYear: 1877, toYear: 1877, requireOwners: ['meiji'], scenarioIds: ['1877'], setDaimyo: false, setDefaultProv: 'chikuzen', setAssignedProv: 'chikuzen' },
   { id: 'goto_settsu_1877', officerIds: ['off_goto_shojiro'], setClanId: 'meiji', fromYear: 1877, toYear: 1877, requireOwners: ['meiji'], scenarioIds: ['1877'], setDaimyo: false, setDefaultProv: 'settsu', setAssignedProv: 'settsu' },
-  { id: 'kido_suo_1877', officerIds: ['off_kido_takayoshi'], setClanId: 'meiji', fromYear: 1877, toYear: 1877, requireOwners: ['meiji'], scenarioIds: ['1877'], setDaimyo: false, setDefaultProv: 'suo', setAssignedProv: 'suo' }
+  { id: 'kido_suo_1877', officerIds: ['off_kido_takayoshi'], setClanId: 'meiji', fromYear: 1877, toYear: 1877, requireOwners: ['meiji'], scenarioIds: ['1877'], setDaimyo: false, setDefaultProv: 'suo', setAssignedProv: 'suo' },
+  { id: 'togashi_hojo_1331', officerIds: ['off_dm_togashi_1333', 'off_togashi_ujiharu'], setClanId: 'hojo_kamakura', scenarioIds: ['1331'], setDaimyo: false, setDefaultProv: 'kaga', setAssignedProv: 'kaga' },
+  { id: 'jo_nitta_1331', officerIds: ['off_jo_sukemitsu'], setClanId: 'nitta', scenarioIds: ['1331'], setDaimyo: false, setDefaultProv: 'echigo', setAssignedProv: 'echigo' }
 );
+
+// --- Gempei War Updates (1180, 1183, 1184, 1185, 1189) ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1180 木曽義仲（南信濃本拠・木曽氏当主）
+    {
+      id: 'kiso_yoshinaka_daimyo_1180',
+      officerIds: ['off_kiso_yoshinaka'],
+      scenarioIds: ['1180'],
+      setClanId: 'kiso',
+      setDefaultProv: 'south_shinano',
+      setAssignedProv: 'south_shinano',
+      setDaimyo: true
+    },
+    // 1183 平宗盛（平氏当主・摂津配置）
+    {
+      id: 'taira_munemori_settsu_1183',
+      officerIds: ['off_taira_munemori'],
+      scenarioIds: ['1183'],
+      setClanId: 'taira',
+      setDefaultProv: 'settsu',
+      setAssignedProv: 'settsu',
+      setDaimyo: true
+    },
+    // 1183 木曽領からの平氏退去（摂津配置）
+    {
+      id: 'taira_evacuate_settsu_1183',
+      officerIds: [
+        'off_jd_360',
+        'off_taira_norimori',
+        'off_taira_kagekiyo',
+        'off_jd_005',
+        'off_taira_tsunemori',
+        'off_taira_sukemori',
+        'off_sadamori_tokitada',
+        'off_taira_moritsuna',
+        'off_taira_morikuni',
+        'off_jd_003',
+        'off_taira_yorimori_1156',
+        'off_taira_rokudai'
+      ],
+      scenarioIds: ['1183'],
+      setClanId: 'taira',
+      setDefaultProv: 'settsu',
+      setAssignedProv: 'settsu',
+      setDaimyo: false
+    },
+    // 1184 平宗盛（平氏当主・摂津配置）
+    {
+      id: 'taira_munemori_settsu_1184',
+      officerIds: ['off_taira_munemori'],
+      scenarioIds: ['1184'],
+      setClanId: 'taira',
+      setDefaultProv: 'settsu',
+      setAssignedProv: 'settsu',
+      setDaimyo: true
+    },
+    // 1184 鎌倉源氏領からの平氏退去（摂津配置）
+    {
+      id: 'taira_evacuate_settsu_1184',
+      officerIds: [
+        'off_jd_360',
+        'off_jd_359',
+        'off_taira_koremori',
+        'off_taira_norimori',
+        'off_taira_kagekiyo',
+        'off_jd_005',
+        'off_taira_tsunemori',
+        'off_taira_sukemori',
+        'off_sadamori_tokitada',
+        'off_taira_shigehira',
+        'off_taira_moritsuna',
+        'off_taira_morikuni',
+        'off_jd_003',
+        'off_taira_yorimori_1156',
+        'off_taira_rokudai'
+      ],
+      scenarioIds: ['1184'],
+      setClanId: 'taira',
+      setDefaultProv: 'settsu',
+      setAssignedProv: 'settsu',
+      setDaimyo: false
+    },
+    // 1185 鎌倉源氏・源義経領からの平氏退去（周防配置）
+    {
+      id: 'taira_evacuate_suo_1185',
+      officerIds: [
+        'off_taguchi_noriyoshi_1156',
+        'off_taguchi_shigeyoshi',
+        'off_taira_noritsune',
+        'off_taira_norimori',
+        'off_taira_kagekiyo',
+        'off_taira_tsunemori',
+        'off_taira_sukemori',
+        'off_sadamori_tokitada',
+        'off_taira_munemori',
+        'off_taira_shigehira',
+        'off_taira_moritsuna',
+        'off_taira_morikuni',
+        'off_taira_yorimori_1156',
+        'off_taira_rokudai'
+      ],
+      scenarioIds: ['1185'],
+      setClanId: 'taira',
+      setDefaultProv: 'suo',
+      setAssignedProv: 'suo',
+      setDaimyo: false
+    },
+    // 1189 三浦義村（相模配置・鎌倉源氏配下）
+    {
+      id: 'miura_yoshimura_genji_1189',
+      officerIds: ['off_miura_yoshimura'],
+      scenarioIds: ['1189'],
+      setClanId: 'genji_yoritomo',
+      setDefaultProv: 'sagami',
+      setAssignedProv: 'sagami',
+      setDaimyo: false
+    }
+  );
+}
+
+// --- 1331 & 1333 updates ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1331 富樫氏（加賀・北条氏配下）
+    {
+      id: 'togashi_hojo_1331',
+      officerIds: ['off_dm_togashi_1333', 'off_togashi_ujiharu'],
+      scenarioIds: ['1331'],
+      setClanId: 'hojo_kamakura',
+      setDefaultProv: 'kaga',
+      setAssignedProv: 'kaga',
+      setDaimyo: false
+    },
+    // 1333 小笠原貞宗・小笠原長氏（南信濃配置・小笠原氏）
+    {
+      id: 'ogasawara_sadamune_nagauji_1333',
+      officerIds: ['off_ogasawara_sadamune', 'off_succ_ogasawara_1275_111'],
+      scenarioIds: ['1333'],
+      setClanId: 'ogasawara',
+      setDefaultProv: 'south_shinano',
+      setAssignedProv: 'south_shinano',
+      setDaimyo: false
+    },
+    // 1333 小笠原貞宗（南信濃当主）
+    {
+      id: 'ogasawara_sadamune_daimyo_1333',
+      officerIds: ['off_ogasawara_sadamune'],
+      scenarioIds: ['1333'],
+      setClanId: 'ogasawara',
+      setDefaultProv: 'south_shinano',
+      setAssignedProv: 'south_shinano',
+      setDaimyo: true
+    },
+    // 1333 村上国清（北信濃独立大名）
+    {
+      id: 'murakami_kunikiyo_daimyo_1333',
+      officerIds: ['off_succ_murakami_1300_98'],
+      scenarioIds: ['1333'],
+      setClanId: 'murakami',
+      setDefaultProv: 'north_shinano',
+      setAssignedProv: 'north_shinano',
+      setDaimyo: true
+    }
+  );
+}
+
+// --- 1336 updates ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1336 小笠原貞宗・小笠原政長（南信濃配置・小笠原氏）
+    {
+      id: 'ogasawara_sadamune_masanaga_1336',
+      officerIds: ['off_ogasawara_sadamune', 'off_ogasawara_naganori'],
+      scenarioIds: ['1336'],
+      setClanId: 'ogasawara',
+      setDefaultProv: 'south_shinano',
+      setAssignedProv: 'south_shinano',
+      setDaimyo: false
+    },
+    // 1336 小笠原貞宗（南信濃当主）
+    {
+      id: 'ogasawara_sadamune_daimyo_1336',
+      officerIds: ['off_ogasawara_sadamune'],
+      scenarioIds: ['1336'],
+      setClanId: 'ogasawara',
+      setDefaultProv: 'south_shinano',
+      setAssignedProv: 'south_shinano',
+      setDaimyo: true
+    },
+    // 1336 村上国清（北信濃独立大名）
+    {
+      id: 'murakami_kunikiyo_daimyo_1336',
+      officerIds: ['off_succ_murakami_1300_98'],
+      scenarioIds: ['1336'],
+      setClanId: 'murakami',
+      setDefaultProv: 'north_shinano',
+      setAssignedProv: 'north_shinano',
+      setDaimyo: true
+    },
+    // 1336 村上信貞（北信濃・村上氏配下）
+    {
+      id: 'murakami_nobusada_vassal_1336',
+      officerIds: ['off_murakami_nobusada'],
+      scenarioIds: ['1336'],
+      setClanId: 'murakami',
+      setDefaultProv: 'north_shinano',
+      setAssignedProv: 'north_shinano',
+      setDaimyo: false
+    },
+    // 1336 斯波家長（陸中・奥州斯波家当主として独立）
+    {
+      id: 'shiba_ienaga_oshu_1336',
+      officerIds: ['off_shiba_ienaga'],
+      scenarioIds: ['1336'],
+      setClanId: 'shiba_oshu',
+      setDefaultProv: 'rikuchu',
+      setAssignedProv: 'rikuchu',
+      setDaimyo: true
+    }
+  );
+}
+
+// --- 1400 Satomi Yoshinori update ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1400 里見義則（安房・鎌倉公方足利氏配下）
+    {
+      id: 'satomi_yoshinori_kamakura_fu_1400',
+      officerIds: ['off_satomi_yoshinori'],
+      scenarioIds: ['1400'],
+      setClanId: 'kamakura_fu',
+      setDefaultProv: 'awa_boshu',
+      setAssignedProv: 'awa_boshu',
+      setDaimyo: false
+    }
+  );
+}
+
+// --- 1438 updates ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1438 安東盛季（羽後配置・安東氏当主）
+    {
+      id: 'ando_morisue_ugo_1438',
+      officerIds: ['off_ando_morisue'],
+      scenarioIds: ['1438'],
+      setClanId: 'ando',
+      setDefaultProv: 'ugo',
+      setAssignedProv: 'ugo',
+      setDaimyo: true
+    },
+    // 1438 コシャマイン（蝦夷独立大名）
+    {
+      id: 'koshamain_ezo_daimyo_1438',
+      officerIds: ['off_ezo_koshamain'],
+      scenarioIds: ['1438'],
+      setClanId: 'ezo_native',
+      setDefaultProv: 'ezo',
+      setAssignedProv: 'ezo',
+      setDaimyo: true
+    },
+    // 1438 タニコシャ（蝦夷・コシャマイン配下）
+    {
+      id: 'tanikosha_ezo_vassal_1438',
+      officerIds: ['off_ezo_tani'],
+      scenarioIds: ['1438'],
+      setClanId: 'ezo_native',
+      setDefaultProv: 'ezo',
+      setAssignedProv: 'ezo',
+      setDaimyo: false
+    }
+  );
+}
+
+// --- 1467 updates ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1467 南部政盛（陸奥配置・南部氏配下）
+    {
+      id: 'nanbu_masamori_mutsu_1467',
+      officerIds: ['off_jd_370'],
+      scenarioIds: ['1467'],
+      setClanId: 'nanbu',
+      setDefaultProv: 'mutsu',
+      setAssignedProv: 'mutsu',
+      setDaimyo: false
+    },
+    // 1467 安東政季（羽後配置・安東氏当主）
+    {
+      id: 'ando_masasue_ugo_1467',
+      officerIds: ['off_dm_ando_1467'],
+      scenarioIds: ['1467'],
+      setClanId: 'ando',
+      setDefaultProv: 'ugo',
+      setAssignedProv: 'ugo',
+      setDaimyo: true
+    },
+    // 1467 タニコシャ（蝦夷独立大名）
+    {
+      id: 'tanikosha_ezo_daimyo_1467',
+      officerIds: ['off_ezo_tani'],
+      scenarioIds: ['1467'],
+      setClanId: 'ezo_native',
+      setDefaultProv: 'ezo',
+      setAssignedProv: 'ezo',
+      setDaimyo: true
+    },
+    // 1467 足利成氏（下総・古河公方大名）
+    {
+      id: 'ashikaga_shigeuji_shimousa_1467',
+      officerIds: ['off_ashikaga_shigeuji'],
+      scenarioIds: ['1467'],
+      setClanId: 'kamakura_fu',
+      setDefaultProv: 'shimousa',
+      setAssignedProv: 'shimousa',
+      setDaimyo: true
+    },
+    // 1467 千葉氏・原胤房（下総・足利成氏配下）
+    {
+      id: 'chiba_hara_kamakura_fu_1467',
+      officerIds: ['off_dm_chiba_1467', 'off_jd_006'],
+      scenarioIds: ['1467'],
+      setClanId: 'kamakura_fu',
+      setDefaultProv: 'shimousa',
+      setAssignedProv: 'shimousa',
+      setDaimyo: false
+    }
+  );
+}
+
+// --- 1495 update ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1495 陶興房（周防配置・大内氏配下）
+    {
+      id: 'sue_okifusa_suo_1495',
+      officerIds: ['off_sue_okifusa'],
+      scenarioIds: ['1495'],
+      setClanId: 'ouchi',
+      setDefaultProv: 'suo',
+      setAssignedProv: 'suo',
+      setDaimyo: false
+    }
+  );
+}

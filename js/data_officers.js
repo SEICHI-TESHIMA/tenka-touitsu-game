@@ -395,7 +395,7 @@ window.OFFICERS_MASTER = [
     "era": "sengoku",
     "skill": "安東家の誇り",
     "lore": "檜山・湊の両安東をまとめ、秋田氏の基礎を築いた。1530年に生まれ、1585年に生涯を終えた。",
-    "birthYear": 1530,
+    "birthYear": 1515,
     "deathYear": 1585,
     "isDaimyo": true
   },
@@ -421,7 +421,7 @@ window.OFFICERS_MASTER = [
     "id": "off_succ_ando_1495_4",
     "name": "安東舜季",
     "clanId": "ando",
-    "defaultProv": "tsugaru",
+    "defaultProv": "ugo",
     "military": 72,
     "politic": 76,
     "intel": 74,
@@ -466,16 +466,16 @@ window.OFFICERS_MASTER = [
     "id": "off_ando_morisue",
     "name": "安東盛季",
     "clanId": "ando",
-    "defaultProv": "ezo",
-    "military": 82,
-    "politic": 80,
-    "intel": 82,
-    "era": "nanboku",
-    "skill": "津軽安東氏",
-    "lore": "津軽十三湊の豪族。南部氏との戦いに敗れ蝦夷へ渡り松前・渡島半島の基礎を築いた。",
+    "defaultProv": "ugo",
+    "military": 92,
+    "politic": 91,
+    "intel": 83,
+    "era": "muromachi",
+    "skill": "安東家の誇り",
+    "lore": "津軽十三湊の豪族。出羽・津軽・蝦夷にまたがる北方交易と所領を守り、南部氏の圧迫に対抗した。",
     "birthYear": 1400,
     "deathYear": 1460,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_ezo_ando_ta",
@@ -677,21 +677,6 @@ window.OFFICERS_MASTER = [
     "birthYear": 1671,
     "deathYear": 1732,
     "isDaimyo": false
-  },
-  {
-    "id": "off_dm_ando_1438",
-    "name": "安藤盛季",
-    "clanId": "ando",
-    "defaultProv": "ugo",
-    "military": 92,
-    "politic": 91,
-    "intel": 83,
-    "era": "muromachi",
-    "skill": "安東家の誇り",
-    "lore": "出羽・津軽の安東氏。北方の交易と所領を守った。",
-    "birthYear": 1408,
-    "deathYear": 1463,
-    "isDaimyo": true
   },
   {
     "id": "off_jd_363",
@@ -1223,7 +1208,7 @@ window.OFFICERS_MASTER = [
     "id": "off_date_munetsuna",
     "name": "伊達宗綱",
     "clanId": "date",
-    "defaultProv": "iwashiro",
+    "defaultProv": "rikuzen",
     "military": 80,
     "politic": 82,
     "intel": 80,
@@ -1235,7 +1220,8 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false,
     "comment": "政依の嫡男。鎌倉幕府得宗家に仕える",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "rikuzen"
   },
   {
     "id": "off_date_munemura",
@@ -1456,7 +1442,7 @@ window.OFFICERS_MASTER = [
   },
   {
     "id": "off_dm_date_1221",
-    "name": "伊達朝宗",
+    "name": "伊達宗村",
     "clanId": "date",
     "defaultProv": "iwashiro",
     "military": 92,
@@ -1465,8 +1451,8 @@ window.OFFICERS_MASTER = [
     "era": "kamakura",
     "skill": "伊達家の誇り",
     "lore": "常陸から奥州へ移り、伊達郡に伊達氏の基礎を築いた。1191年に生まれ、1246年に生涯を終えた。",
-    "birthYear": 1191,
-    "deathYear": 1246,
+    "birthYear": 1180,
+    "deathYear": 1251,
     "isDaimyo": true,
     "homeProvince": "rikuzen"
   },
@@ -1734,7 +1720,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_ito_sukekiyo",
     "name": "伊東祐清",
-    "clanId": "heike",
+    "clanId": "taira",
     "defaultProv": "izu",
     "military": 80,
     "politic": 72,
@@ -2309,7 +2295,7 @@ window.OFFICERS_MASTER = [
     "birthYear": 1365,
     "deathYear": 1409,
     "isDaimyo": true,
-    "homeProvince": "wakasa"
+    "homeProvince": "tango"
   },
   {
     "id": "off_jd_080",
@@ -2911,9 +2897,9 @@ window.OFFICERS_MASTER = [
     "era": "nanbokucho",
     "skill": "上野・越後守護",
     "lore": "足利尊氏を支えて観応の擾乱で武功を立て、上野・越後守護に任じられた名門当主。1326年に生まれ、1370年に没した。",
-    "birthYear": 1326,
-    "deathYear": 1370,
-    "isDaimyo": true,
+    "birthYear": 1320,
+    "deathYear": 1395,
+    "isDaimyo": false,
     "comment": "宇都宮公綱の嫡男。薩埵山体制で尊氏を支援",
     "isDead": false,
     "assignedProvId": null,
@@ -3015,7 +3001,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_jd_233",
     "name": "宇都宮冬綱",
-    "clanId": "shoni",
+    "clanId": "utsunomiya",
     "defaultProv": "buzen",
     "military": 80,
     "politic": 74,
@@ -3025,7 +3011,8 @@ window.OFFICERS_MASTER = [
     "lore": "下野宇都宮氏一門、豊前城井氏の祖。豊前守護代として城井谷城を本拠に豊前の武士団を統率した。",
     "birthYear": 1315,
     "deathYear": 1365,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "buzen"
   },
   {
     "id": "off_utsunomiya_mitsutsuna",
@@ -3345,7 +3332,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_masuda_sadakane",
     "name": "益田貞兼",
-    "clanId": "masuda",
+    "clanId": "ouchi",
     "defaultProv": "iwami",
     "military": 80,
     "politic": 80,
@@ -3358,7 +3345,7 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false,
     "comment": "益田兼堯の子。大内義興の東征に従軍",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": "iwami"
   },
   {
     "id": "off_masuda_fujikane",
@@ -3441,7 +3428,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_jd_407",
     "name": "延永信重",
-    "clanId": "ashikaga",
+    "clanId": "isshiki",
     "defaultProv": "tango",
     "military": 76,
     "politic": 75,
@@ -3451,7 +3438,8 @@ window.OFFICERS_MASTER = [
     "lore": "一色家臣。丹後守護代。加悦城などを拠点に若狭・丹後の境目を守った。",
     "birthYear": 1370,
     "deathYear": 1430,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "tango"
   },
   {
     "id": "off_sarutobi_sasuke",
@@ -3517,7 +3505,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_enyo_shukiyo",
     "name": "塩冶周清",
-    "clanId": "enyo",
+    "clanId": "kyogoku",
     "defaultProv": "izumo",
     "military": 77,
     "politic": 76,
@@ -3535,7 +3523,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_enyo_kiyotsuna",
     "name": "塩冶清綱",
-    "clanId": "enyo",
+    "clanId": "kyogoku",
     "defaultProv": "izumo",
     "military": 79,
     "politic": 77,
@@ -3571,7 +3559,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_enyo_sadakiyo",
     "name": "塩冶貞清",
-    "clanId": "enyo",
+    "clanId": "kyogoku",
     "defaultProv": "izumo",
     "military": 79,
     "politic": 76,
@@ -4496,7 +4484,7 @@ window.OFFICERS_MASTER = [
     "id": "off_kasai_masanobu",
     "name": "葛西政信",
     "clanId": "kasai",
-    "defaultProv": "rikuzen",
+    "defaultProv": "rikuchu",
     "military": 80,
     "politic": 79,
     "intel": 78,
@@ -4505,10 +4493,11 @@ window.OFFICERS_MASTER = [
     "lore": "葛西持重の子。大崎氏と奥羽の覇権を争い、葛西十七騎と呼ばれる精強な家臣団を育成した。",
     "birthYear": 1420,
     "deathYear": 1485,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "室町中期の葛西氏当主。大崎氏と激しく抗争",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_kasai_kiyoyuki",
@@ -4567,7 +4556,7 @@ window.OFFICERS_MASTER = [
     "id": "off_dm_kasai_1331",
     "name": "葛西清貞",
     "clanId": "kasai",
-    "defaultProv": "rikuzen",
+    "defaultProv": "rikuchu",
     "military": 88,
     "politic": 89,
     "intel": 94,
@@ -4575,7 +4564,7 @@ window.OFFICERS_MASTER = [
     "skill": "葛西家の誇り",
     "lore": "陸奥葛西氏。平泉の旧地に拠り、葛西氏の所領を南北朝の争乱から守った。",
     "birthYear": 1296,
-    "deathYear": 1356,
+    "deathYear": 1365,
     "isDaimyo": true,
     "homeProvince": "rikuchu"
   },
@@ -4583,7 +4572,7 @@ window.OFFICERS_MASTER = [
     "id": "off_kasai_mitsusada",
     "name": "葛西満貞",
     "clanId": "kasai",
-    "defaultProv": "rikuzen",
+    "defaultProv": "rikuchu",
     "military": 80,
     "politic": 77,
     "intel": 76,
@@ -4591,8 +4580,8 @@ window.OFFICERS_MASTER = [
     "skill": "奥州の大豪族",
     "lore": "足利将軍家に属して奥州管領斯波氏や大崎氏と抗争しつつ、三陸沿岸に一大勢力を築いた。",
     "birthYear": 1340,
-    "deathYear": 1400,
-    "isDaimyo": true,
+    "deathYear": 1425,
+    "isDaimyo": false,
     "comment": "南北朝後期の葛西氏当主",
     "isDead": false,
     "assignedProvId": null,
@@ -5645,7 +5634,7 @@ window.OFFICERS_MASTER = [
     "id": "off_kikuchi_takefusa",
     "name": "菊池武房",
     "clanId": "kikuchi",
-    "defaultProv": "higo",
+    "defaultProv": "chikugo",
     "military": 88,
     "politic": 75,
     "intel": 78,
@@ -5654,14 +5643,15 @@ window.OFFICERS_MASTER = [
     "lore": "肥後菊池氏第10代当主。文永の役において一族郎党を率いて赤坂の元軍を奇襲強襲し、元軍に痛撃を与えて陣を後退させた。",
     "birthYear": 1245,
     "deathYear": 1285,
-    "isDaimyo": true,
-    "comment": "赤坂で奮戦した菊池当主"
+    "isDaimyo": false,
+    "comment": "赤坂で奮戦した菊池当主",
+    "homeProvince": "chikugo"
   },
   {
     "id": "off_succ2_kikuchi_1220",
     "name": "菊池武本",
     "clanId": "kikuchi",
-    "defaultProv": "higo",
+    "defaultProv": "chikugo",
     "military": 72,
     "politic": 74,
     "intel": 73,
@@ -5670,7 +5660,8 @@ window.OFFICERS_MASTER = [
     "lore": "隆泰の後、武房の成人まで菊池氏を守った。1220年に生まれ、1280年に生涯を終えた。",
     "birthYear": 1220,
     "deathYear": 1280,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "chikugo"
   },
   {
     "id": "off_succ2_kikuchi_1160",
@@ -6217,7 +6208,7 @@ window.OFFICERS_MASTER = [
     "id": "off_kyogoku_masatsune",
     "name": "京極政経",
     "clanId": "kyogoku",
-    "defaultProv": "north_omi",
+    "defaultProv": "izumo",
     "military": 81,
     "politic": 80,
     "intel": 82,
@@ -6712,7 +6703,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_yuki_ujiitomo",
     "name": "結城氏朝",
-    "clanId": "kamakura_fu",
+    "clanId": "yuki",
     "defaultProv": "shimousa",
     "military": 84,
     "politic": 75,
@@ -6722,7 +6713,7 @@ window.OFFICERS_MASTER = [
     "lore": "下総結城城主。永享の乱で自刃した鎌倉公方・足利持氏の遺児（春王丸・安王丸）を匿い、幕府に対して反旗を翻した（結城合戦）。幕府の大軍を相手に城に籠り、最期は壮絶な討死を遂げた。",
     "birthYear": 1395,
     "deathYear": 1441,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_yuki_munehiro",
@@ -6761,7 +6752,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_yuki_chikatomo",
     "name": "結城親朝",
-    "clanId": "ashikaga",
+    "clanId": "yuki",
     "defaultProv": "iwaki",
     "military": 83,
     "politic": 80,
@@ -6771,13 +6762,14 @@ window.OFFICERS_MASTER = [
     "lore": "白河結城宗広の長男。当初は南朝方だったが、北畠親房の度重なる書状を退けて北朝方に転じ、奥州の要衝を守備した。",
     "birthYear": 1300,
     "deathYear": 1347,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "iwaki"
   },
   {
     "id": "off_yuki_tomomitsu",
     "name": "結城朝光",
     "clanId": "genji_yoritomo",
-    "defaultProv": "shimousa",
+    "defaultProv": "sagami",
     "military": 85,
     "politic": 92,
     "intel": 90,
@@ -6808,7 +6800,7 @@ window.OFFICERS_MASTER = [
     "id": "off_jd_307",
     "name": "原胤栄",
     "clanId": "hojo",
-    "defaultProv": "kazusa",
+    "defaultProv": "shimousa",
     "military": 78,
     "politic": 76,
     "intel": 74,
@@ -6823,7 +6815,7 @@ window.OFFICERS_MASTER = [
     "id": "off_jd_006",
     "name": "原胤房",
     "clanId": "chiba",
-    "defaultProv": "kazusa",
+    "defaultProv": "shimousa",
     "military": 78,
     "politic": 70,
     "intel": 74,
@@ -7013,21 +7005,6 @@ window.OFFICERS_MASTER = [
     "birthYear": 1042,
     "deathYear": 1134,
     "isDaimyo": false
-  },
-  {
-    "id": "off_dm_kiso_1180",
-    "name": "源義仲",
-    "clanId": "kiso",
-    "defaultProv": "south_shinano",
-    "military": 80,
-    "politic": 87,
-    "intel": 80,
-    "era": "gempei",
-    "skill": "木曽源氏の誇り",
-    "lore": "以仁王の令旨に応じて挙兵し、倶利伽羅峠で平氏を破って入京した。のち粟津で討たれた。",
-    "birthYear": 1150,
-    "deathYear": 1205,
-    "isDaimyo": true
   },
   {
     "id": "off_minamoto_yoshitomo",
@@ -8457,7 +8434,7 @@ window.OFFICERS_MASTER = [
     "id": "off_ko_no_moroyasu",
     "name": "高師泰",
     "clanId": "ashikaga",
-    "defaultProv": "kawachi",
+    "defaultProv": "sagami",
     "military": 92,
     "politic": 75,
     "intel": 78,
@@ -8482,7 +8459,8 @@ window.OFFICERS_MASTER = [
     "lore": "足利家筆頭執事。楠木正行や北畠顕家を討ち破った屈指の名将。旧弊打破を推し進めた。",
     "birthYear": 1300,
     "deathYear": 1351,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "yamashiro"
   },
   {
     "id": "off_ko_no_morofuyu",
@@ -8971,7 +8949,7 @@ window.OFFICERS_MASTER = [
     "skill": "今川家の誇り",
     "lore": "遠江へ兵を進め、塩買坂で横死した。今川氏親の父。",
     "birthYear": 1437,
-    "deathYear": 1492,
+    "deathYear": 1476,
     "isDaimyo": true
   },
   {
@@ -9787,7 +9765,7 @@ window.OFFICERS_MASTER = [
     "lore": "秀義の後、義重の成人まで常陸北部の佐竹氏を率いた。",
     "birthYear": 1185,
     "deathYear": 1250,
-    "isDaimyo": false
+    "isDaimyo": true
   },
   {
     "id": "off_dm_satake_1590",
@@ -10332,7 +10310,8 @@ window.OFFICERS_MASTER = [
     "lore": "美濃守護代・斎藤氏の一族。守護の土岐成頼を凌ぐ絶大な権力を握り、事実上の美濃国主として君臨した。応仁の乱では西軍の主力として東軍を圧倒し、文化人としても名高かった稀代の梟雄。",
     "birthYear": 1411,
     "deathYear": 1480,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mino"
   },
   {
     "id": "off_saito_toshioki",
@@ -10424,7 +10403,7 @@ window.OFFICERS_MASTER = [
     "id": "off_dm_hosokawa_1350",
     "name": "細川顕氏",
     "clanId": "hosokawa",
-    "defaultProv": "settsu",
+    "defaultProv": "awa_shikoku",
     "military": 89,
     "politic": 95,
     "intel": 87,
@@ -10432,7 +10411,7 @@ window.OFFICERS_MASTER = [
     "skill": "細川家の誇り",
     "lore": "観応の擾乱で転じ、阿波・讃岐の細川氏を率いて幕府の政局に関わった。1320年に生まれ、1375年に生涯を終えた。",
     "birthYear": 1320,
-    "deathYear": 1375,
+    "deathYear": 1395,
     "isDaimyo": true
   },
   {
@@ -10628,7 +10607,7 @@ window.OFFICERS_MASTER = [
     "skill": "細川家の誇り",
     "lore": "室町幕府の管領。畠山氏との政争のなかで細川氏の管領職を守った。",
     "birthYear": 1408,
-    "deathYear": 1463,
+    "deathYear": 1442,
     "isDaimyo": true
   },
   {
@@ -11136,23 +11115,6 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false
   },
   {
-    "id": "off_dm_saika_1570",
-    "name": "雑賀孫一",
-    "clanId": "suzuki",
-    "defaultProv": "kii",
-    "military": 93,
-    "politic": 91,
-    "intel": 84,
-    "era": "sengoku",
-    "skill": "雑賀衆の誇り",
-    "lore": "紀伊雑賀の鉄砲衆を率い、織田信長と戦った傭兵大将。1540年に生まれ、1595年に生涯を終えた。",
-    "birthYear": 1540,
-    "deathYear": 1595,
-    "isDaimyo": false,
-    "assignedProvId": "kii",
-    "provinceId": "kii"
-  },
-  {
     "id": "off_miura_taneyoshi_1221",
     "name": "三浦胤義",
     "clanId": "gotoba_in",
@@ -11227,7 +11189,7 @@ window.OFFICERS_MASTER = [
     "skill": "三浦一門の柱",
     "lore": "三浦時高の子。鎌倉公方に仕えて関東の戦乱を転戦し、室町期の相模三浦氏隆盛の土台を築いた。",
     "birthYear": 1332,
-    "deathYear": 1392,
+    "deathYear": 1395,
     "isDaimyo": false,
     "comment": "南北朝後期の三浦氏惣領",
     "isDead": false,
@@ -11511,7 +11473,7 @@ window.OFFICERS_MASTER = [
   },
   {
     "id": "off_jd_415",
-    "name": "三好之長祖",
+    "name": "三好之長",
     "clanId": "hosokawa",
     "defaultProv": "awa_shikoku",
     "military": 82,
@@ -11569,9 +11531,10 @@ window.OFFICERS_MASTER = [
     "era": "muromachi",
     "skill": "桜洞城主",
     "lore": "飛騨益田郡の領主。桜洞城を築いて飛騨南部に確固たる勢力を築き、姉小路氏の基礎を築いた名将。",
-    "birthYear": 1497,
+    "birthYear": 1475,
     "deathYear": 1554,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "hida"
   },
   {
     "id": "off_succ_murakami_1555_100",
@@ -11586,21 +11549,6 @@ window.OFFICERS_MASTER = [
     "lore": "義清の子・国清の後。上杉景勝に仕え村上氏の血筋を米沢に伝えた。",
     "birthYear": 1555,
     "deathYear": 1620,
-    "isDaimyo": false
-  },
-  {
-    "id": "off_yamaga_hidetou_1156",
-    "name": "山賀秀遠",
-    "clanId": "taira",
-    "defaultProv": "yamashiro",
-    "military": 86,
-    "politic": 88,
-    "intel": 88,
-    "era": "ancient",
-    "skill": "豊前水軍の将",
-    "lore": "豊前国の有力武士。山賀城主。関門海峡を押さえる強大な水軍を率い、平知盛に従って壇ノ浦まで平家軍の船団を護衛した。激戦の末に敗れるも、九州武士の誇りと海戦の技術を後世に伝えた猛者。",
-    "birthYear": 1135,
-    "deathYear": 1190,
     "isDaimyo": false
   },
   {
@@ -12209,7 +12157,7 @@ window.OFFICERS_MASTER = [
     "id": "off_yamana_koretoyo",
     "name": "山名是豊",
     "clanId": "yamana",
-    "defaultProv": "iwami",
+    "defaultProv": "bingo",
     "military": 85,
     "politic": 80,
     "intel": 82,
@@ -12218,7 +12166,8 @@ window.OFFICERS_MASTER = [
     "lore": "宗全の次男。父と袂を分かち東軍として備後・安芸を転戦した。",
     "birthYear": 1435,
     "deathYear": 1485,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "assignedProvId": "bingo"
   },
   {
     "id": "off_succ2_yamana_1455",
@@ -12251,7 +12200,7 @@ window.OFFICERS_MASTER = [
     "deathYear": 1499,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": "tajima"
   },
   {
     "id": "off_yamana_nobutoyo",
@@ -12485,7 +12434,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_jd_322",
     "name": "斯波家兼",
-    "clanId": "shiba",
+    "clanId": "shiba_uzen",
     "defaultProv": "uzen",
     "military": 82,
     "politic": 84,
@@ -12502,7 +12451,7 @@ window.OFFICERS_MASTER = [
     "id": "off_shiba_ienaga",
     "name": "斯波家長",
     "clanId": "shiba",
-    "defaultProv": "mutsu",
+    "defaultProv": "rikuchu",
     "military": 85,
     "politic": 80,
     "intel": 79,
@@ -12511,14 +12460,14 @@ window.OFFICERS_MASTER = [
     "lore": "斯波高経の長男。足利尊氏より奥州管領に任じられ、北畠顕家の大軍と奥州・関東で激戦を展開。鎌倉の杉本城にて顕家軍の猛攻を受け討死した。",
     "birthYear": 1311,
     "deathYear": 1338,
-    "isDaimyo": true,
-    "homeProvince": "mutsu"
+    "isDaimyo": false,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_shiba_yoshihiro",
     "name": "斯波義寛",
     "clanId": "shiba",
-    "defaultProv": "mutsu",
+    "defaultProv": "owari",
     "military": 82,
     "politic": 84,
     "intel": 83,
@@ -12535,8 +12484,8 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_shiba_yoshikane",
     "name": "斯波義銀",
-    "clanId": "shiba",
-    "defaultProv": "mutsu",
+    "clanId": "ronin",
+    "defaultProv": "owari",
     "military": 78,
     "politic": 80,
     "intel": 79,
@@ -12615,7 +12564,7 @@ window.OFFICERS_MASTER = [
     "id": "off_succ_shiba_1390_156",
     "name": "斯波義敏",
     "clanId": "shiba",
-    "defaultProv": "echizen",
+    "defaultProv": "owari",
     "military": 72,
     "politic": 76,
     "intel": 74,
@@ -12639,7 +12588,8 @@ window.OFFICERS_MASTER = [
     "lore": "応仁の乱の西軍。斯波氏の家督を義敏と争い、尾張・越前の支配は乱れた。",
     "birthYear": 1437,
     "deathYear": 1492,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "assignedProvId": "owari"
   },
   {
     "id": "off_shiba_takatsune",
@@ -12654,7 +12604,7 @@ window.OFFICERS_MASTER = [
     "lore": "足利一門。建武政権下で若狭守護に任じられる。のちに新田義貞を越前で討ち取り、室町幕府において強大な権力を握った。",
     "birthYear": 1305,
     "deathYear": 1367,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "homeProvince": "echizen"
   },
   {
@@ -13185,7 +13135,7 @@ window.OFFICERS_MASTER = [
     "skill": "対馬海運防衛",
     "lore": "建武・南北朝期の対馬島主。少弐氏・足利氏と連携し対馬海峡の通商路を守護した。",
     "birthYear": 1300,
-    "deathYear": 1355,
+    "deathYear": 1365,
     "isDaimyo": true
   },
   {
@@ -13358,7 +13308,7 @@ window.OFFICERS_MASTER = [
     "skill": "宗像大宮司",
     "lore": "筑前宗像大社の大宮司。多々良浜の戦いで足利尊氏を援助し、筑前沿岸の海上警備に武功を挙げた。",
     "birthYear": 1315,
-    "deathYear": 1375,
+    "deathYear": 1395,
     "isDaimyo": false
   },
   {
@@ -13715,24 +13665,6 @@ window.OFFICERS_MASTER = [
     "deathYear": 1237,
     "isDaimyo": false,
     "comment": "源為朝の遺児伝説を持つ琉球舜天王統の祖",
-    "isDead": false,
-    "assignedProvId": null
-  },
-  {
-    "id": "off_shunten_king_bridge",
-    "name": "舜天王",
-    "clanId": "minamoto_tametomo",
-    "defaultProv": "satsuma",
-    "military": 82,
-    "politic": 85,
-    "intel": 80,
-    "era": "kamakura",
-    "skill": "琉球初代王",
-    "comment": "源為朝の落胤伝説を持つ初代琉球国王",
-    "lore": "源為朝が琉球に逃れて成した子と伝えられ、舜天王統を開いた英主。",
-    "birthYear": 1155,
-    "deathYear": 1237,
-    "isDaimyo": false,
     "isDead": false,
     "assignedProvId": null
   },
@@ -14554,7 +14486,7 @@ window.OFFICERS_MASTER = [
     "id": "off_dm_shoni_1331",
     "name": "少弐貞経",
     "clanId": "shoni",
-    "defaultProv": "chikuzen",
+    "defaultProv": "hizen",
     "military": 87,
     "politic": 94,
     "intel": 83,
@@ -14563,7 +14495,8 @@ window.OFFICERS_MASTER = [
     "lore": "元寇の防衛に功があり、建武期に足利尊氏を迎えたが、菊池武時の挙兵で敗死した。1301年に生まれ、1356年に生涯を終えた。",
     "birthYear": 1301,
     "deathYear": 1356,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "hizen"
   },
   {
     "id": "off_jd_392",
@@ -14593,7 +14526,7 @@ window.OFFICERS_MASTER = [
     "skill": "筑前守護",
     "lore": "今川了俊の九州探題下向に際して水島の陣で討たれたが、少弐氏の武勇を天下に示した。1335年に生まれ、1375年に没した。",
     "birthYear": 1335,
-    "deathYear": 1375,
+    "deathYear": 1395,
     "isDaimyo": false,
     "comment": "少弐頼尚の子。大宰府を守備",
     "isDead": false,
@@ -15613,8 +15546,8 @@ window.OFFICERS_MASTER = [
     "era": "muromachi",
     "skill": "松平家の誇り",
     "lore": "安祥城を拠点に三河を切り取り、松平氏隆盛の基を開いた。1437年に生まれ、1492年に生涯を終えた。",
-    "birthYear": 1437,
-    "deathYear": 1492,
+    "birthYear": 1404,
+    "deathYear": 1488,
     "isDaimyo": true
   },
   {
@@ -16552,7 +16485,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_yoshinori",
     "name": "上杉吉憲",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 75,
     "politic": 84,
     "intel": 82,
@@ -16682,7 +16615,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_tsunanori",
     "name": "上杉綱憲",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 78,
     "politic": 86,
     "intel": 84,
@@ -16718,7 +16651,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_munefusa",
     "name": "上杉宗房",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 76,
     "politic": 85,
     "intel": 83,
@@ -16736,7 +16669,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_shigesada",
     "name": "上杉重定",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 77,
     "politic": 86,
     "intel": 84,
@@ -16770,7 +16703,7 @@ window.OFFICERS_MASTER = [
     "id": "off_succ_uesugi_1700_207",
     "name": "上杉勝周",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 72,
     "politic": 76,
     "intel": 74,
@@ -16830,7 +16763,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_yozan",
     "name": "上杉鷹山",
     "clanId": "uesugi",
-    "defaultProv": "echigo",
+    "defaultProv": "uzen",
     "military": 80,
     "politic": 98,
     "intel": 96,
@@ -18576,7 +18509,7 @@ window.OFFICERS_MASTER = [
     "id": "off_ouchi_sugi_shigeaki",
     "name": "杉重明",
     "clanId": "ouchi",
-    "defaultProv": "buzen",
+    "defaultProv": "chikuzen",
     "military": 75,
     "politic": 72,
     "intel": 70,
@@ -21563,7 +21496,7 @@ window.OFFICERS_MASTER = [
     "lore": "小山氏の乱を鎮圧し、新田氏残党を討伐して鎌倉府の権力を大いに拡張した。",
     "birthYear": 1359,
     "deathYear": 1398,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "足利基氏の嫡男。関東十カ国を統轄した実力者",
     "isDead": false,
     "assignedProvId": null,
@@ -21664,7 +21597,7 @@ window.OFFICERS_MASTER = [
     "id": "off_ashikaga_tadayoshi",
     "name": "足利直義",
     "clanId": "ashikaga",
-    "defaultProv": "yamashiro",
+    "defaultProv": "sagami",
     "military": 80,
     "politic": 96,
     "intel": 92,
@@ -21679,7 +21612,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_ashikaga_sadauji",
     "name": "足利貞氏",
-    "clanId": "genji_yoritomo",
+    "clanId": "ashikaga",
     "defaultProv": "shimotsuke",
     "military": 80,
     "politic": 86,
@@ -22046,7 +21979,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_ota_sukeyasu",
     "name": "太田資康",
-    "clanId": "uesugi",
+    "clanId": "ogigayatsu",
     "defaultProv": "musashi",
     "military": 83,
     "politic": 80,
@@ -22121,7 +22054,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_jd_013",
     "name": "大浦為則",
-    "clanId": "nanbu",
+    "clanId": "oura",
     "defaultProv": "tsugaru",
     "military": 72,
     "politic": 70,
@@ -22131,7 +22064,8 @@ window.OFFICERS_MASTER = [
     "lore": "南部氏傘下の大浦氏。津軽を地盤とし、のち為信が独立する直前の当主。",
     "birthYear": 1520,
     "deathYear": 1567,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "tsugaru"
   },
   {
     "id": "off_edo_oshio_1817_9",
@@ -22663,21 +22597,6 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false
   },
   {
-    "id": "off_jd_201",
-    "name": "大蔵種材",
-    "clanId": "heian_court",
-    "defaultProv": "chikugo",
-    "military": 84,
-    "politic": 72,
-    "intel": 78,
-    "era": "ancient",
-    "skill": "刀伊追討",
-    "lore": "大宰府の武官。大蔵春実の後裔。寛仁3年（1019年）の刀伊の入寇において、大宰権帥藤原隆家のもと壱岐・博多で賊船を撃退・追撃した勇将。",
-    "birthYear": 980,
-    "deathYear": 1045,
-    "isDaimyo": false
-  },
-  {
     "id": "off_okura_tanenari_1056",
     "name": "大蔵種成",
     "clanId": "otomo",
@@ -22772,7 +22691,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_oba_kagechika",
     "name": "大庭景親",
-    "clanId": "heike",
+    "clanId": "taira",
     "defaultProv": "sagami",
     "military": 85,
     "politic": 74,
@@ -23371,7 +23290,7 @@ window.OFFICERS_MASTER = [
     "id": "off_jd_219",
     "name": "大友貞載",
     "clanId": "otomo",
-    "defaultProv": "buzen",
+    "defaultProv": "bungo",
     "military": 82,
     "politic": 76,
     "intel": 78,
@@ -23380,7 +23299,8 @@ window.OFFICERS_MASTER = [
     "lore": "豊後大友氏一族。立花氏の祖。豊前・筑前に割拠し、元弘・建武の動乱で九州における足利方の先鋒として少弐氏・菊池氏と競り合った。",
     "birthYear": 1300,
     "deathYear": 1356,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "bungo"
   },
   {
     "id": "off_otomo_sadamune",
@@ -23398,7 +23318,8 @@ window.OFFICERS_MASTER = [
     "deathYear": 1334,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "bungo"
   },
   {
     "id": "off_succ_otomo_1285_123",
@@ -23457,7 +23378,7 @@ window.OFFICERS_MASTER = [
     "skill": "豊後守護",
     "comment": "大友氏初代。源頼朝の近習として登用",
     "lore": "頼朝の側近として活躍し、豊後国守護に任じられ、九州における大友家400年の基礎を築いた。1135年に生まれ、1223年に没した。",
-    "birthYear": 1135,
+    "birthYear": 1172,
     "deathYear": 1223,
     "isDaimyo": true,
     "isDead": false,
@@ -25035,7 +24956,8 @@ window.OFFICERS_MASTER = [
     "birthYear": 1489,
     "deathYear": 1543,
     "isDaimyo": true,
-    "assignedProvId": "echigo"
+    "assignedProvId": "echigo",
+    "homeProvince": "echigo"
   },
   {
     "id": "off_nagao_kagehiro",
@@ -25059,7 +24981,7 @@ window.OFFICERS_MASTER = [
     "id": "off_nagao_kagenobu",
     "name": "長尾景信",
     "clanId": "uesugi",
-    "defaultProv": "kozuke",
+    "defaultProv": "echigo",
     "military": 86,
     "politic": 88,
     "intel": 85,
@@ -25068,7 +24990,8 @@ window.OFFICERS_MASTER = [
     "lore": "長尾景仲の嫡男。関東管領・上杉房顕や上杉顕定を支え、五十子の陣を本拠として古河公方・足利成氏と対峙した。彼の死後、家督を巡る争いから長尾景春の乱が勃発する。",
     "birthYear": 1413,
     "deathYear": 1473,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "echigo"
   },
   {
     "id": "off_nagao_kagenaka",
@@ -25140,7 +25063,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_nagao_yoshikage",
     "name": "長尾能景",
-    "clanId": "nagao",
+    "clanId": "uesugi",
     "defaultProv": "echigo",
     "military": 86,
     "politic": 85,
@@ -25261,7 +25184,8 @@ window.OFFICERS_MASTER = [
     "lore": "南部氏から独立して電撃的に津軽地方を統一、弘前藩十万石の礎を築いた風雲児。",
     "birthYear": 1550,
     "deathYear": 1607,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "tsugaru"
   },
   {
     "id": "off_tsugaru_hidetsumaru",
@@ -25923,7 +25847,7 @@ window.OFFICERS_MASTER = [
     "id": "off_toki_yorisada",
     "name": "土岐頼貞",
     "clanId": "toki",
-    "defaultProv": "owari",
+    "defaultProv": "mino",
     "military": 82,
     "politic": 82,
     "intel": 80,
@@ -25963,7 +25887,8 @@ window.OFFICERS_MASTER = [
     "lore": "伊予国の豪族・河野氏の一族。護良親王の令旨に応じ、得能通綱らとともに四国における倒幕の兵を挙げ、幕府方の長門探題軍を撃破した。",
     "birthYear": 1295,
     "deathYear": 1336,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "iyo"
   },
   {
     "id": "off_succ_gotoba_in_1195_16",
@@ -26459,13 +26384,13 @@ window.OFFICERS_MASTER = [
     "name": "島津忠国",
     "clanId": "shimazu",
     "defaultProv": "satsuma",
-    "military": 82,
-    "politic": 85,
-    "intel": 80,
+    "military": 83,
+    "politic": 80,
+    "intel": 81,
     "era": "muromachi",
-    "skill": "三州一統の苦難",
-    "lore": "島津氏第九代当主。伊東氏や肝付氏など国人衆の反乱に悩まされながらも、南九州における島津氏の宗家としての地位を保った。",
-    "birthYear": 1397,
+    "skill": "三州総追捕",
+    "lore": "室町時代中期の島津氏第9代当主。薩摩・大隅・日向の守護職を兼ね、南九州の国人領主の反乱を鎮圧して島津宗家の勢力を固めた。",
+    "birthYear": 1403,
     "deathYear": 1470,
     "isDaimyo": true
   },
@@ -26877,7 +26802,7 @@ window.OFFICERS_MASTER = [
     "era": "ancient",
     "skill": "九条太政大臣",
     "lore": "平安後期の公卿。太政大臣。白河・鳥羽・後白河の三院に仕え、剛直な言動で宮中の規律を正した。平清盛の急激な昇進にも苦言を呈するなど朝廷の重鎮として筋を通し、国家秩序の回復に力を尽くした。",
-    "birthYear": 1038,
+    "birthYear": 1093,
     "deathYear": 1165,
     "isDaimyo": false
   },
@@ -27268,7 +27193,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_fujiwara_kunihiro",
     "name": "藤原国衡",
-    "clanId": "fujiwara_ou",
+    "clanId": "fujiwara_hiraizumi",
     "defaultProv": "rikuzen",
     "military": 86,
     "politic": 72,
@@ -27844,7 +27769,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_fujiwara_tadahira_ou",
     "name": "藤原忠衡",
-    "clanId": "fujiwara_ou",
+    "clanId": "fujiwara_hiraizumi",
     "defaultProv": "mutsu",
     "military": 82,
     "politic": 75,
@@ -28128,21 +28053,6 @@ window.OFFICERS_MASTER = [
     "lore": "平安中期の公卿。関白・太政大臣。藤原道長の嫡男。半世紀にわたり朝廷の最高権力者として君臨し、摂関政治の黄金期を謳歌した。平等院鳳凰堂を建立し末法思想の極楽浄土を現出させるなど、王朝文化の頂点を築いた。",
     "birthYear": 992,
     "deathYear": 1074,
-    "isDaimyo": false
-  },
-  {
-    "id": "off_jd_117",
-    "name": "藤原隆家",
-    "clanId": "heian_court",
-    "defaultProv": "hizen",
-    "military": 80,
-    "politic": 84,
-    "intel": 86,
-    "era": "ancient",
-    "skill": "刀伊の入寇",
-    "lore": "藤原道長の甥。大宰権帥。寛仁3年（1019年）、刀伊（女真とみられる賊徒）が高麗・対馬・壱岐を経て博多へ押し寄せたとき、大宰府の武士を率いて撃退した。その後も西海の防備と府庁の再建にあたった。",
-    "birthYear": 979,
-    "deathYear": 1044,
     "isDaimyo": false
   },
   {
@@ -29333,7 +29243,7 @@ window.OFFICERS_MASTER = [
     "era": "sengoku",
     "skill": "水野威公・水野光圀の父",
     "lore": "徳川頼房は水野威公・水野光圀の父の当主である。1603年に生まれ、1661年に没するまで家督を預かり、領国の軍役と民政を担った。",
-    "birthYear": 1603,
+    "birthYear": 1599,
     "deathYear": 1661,
     "isDaimyo": true
   },
@@ -29882,7 +29792,8 @@ window.OFFICERS_MASTER = [
     "lore": "陸奥南部氏。三戸を拠点に奥州北部の所領を守った。",
     "birthYear": 1437,
     "deathYear": 1492,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "rikuchu"
   },
   {
     "id": "off_nanbu_yukinobu",
@@ -29906,7 +29817,7 @@ window.OFFICERS_MASTER = [
     "id": "off_succ2_nanbu_1495",
     "name": "南部高信",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 72,
     "politic": 74,
     "intel": 73,
@@ -29915,13 +29826,14 @@ window.OFFICERS_MASTER = [
     "lore": "時政の後、晴政の成人まで南部氏の一門をまとめた。",
     "birthYear": 1495,
     "deathYear": 1560,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_dm_nanbu_1331",
     "name": "南部師行",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 91,
     "politic": 90,
     "intel": 88,
@@ -29937,7 +29849,7 @@ window.OFFICERS_MASTER = [
     "id": "off_dm_nanbu_1495",
     "name": "南部時政",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 80,
     "politic": 87,
     "intel": 86,
@@ -29946,7 +29858,8 @@ window.OFFICERS_MASTER = [
     "lore": "陸奥南部氏。三戸南部の一族として奥州北部に勢力を保った。",
     "birthYear": 1465,
     "deathYear": 1520,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_nanbu_tokinaga",
@@ -30007,7 +29920,7 @@ window.OFFICERS_MASTER = [
     "era": "muromachi",
     "skill": "南部家の誇り",
     "lore": "陸奥南部氏。三戸を拠点に奥州北部の所領を守った。",
-    "birthYear": 1408,
+    "birthYear": 1370,
     "deathYear": 1463,
     "isDaimyo": true
   },
@@ -30111,7 +30024,7 @@ window.OFFICERS_MASTER = [
     "id": "off_nanbu_masamitsu",
     "name": "南部政光",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 82,
     "politic": 80,
     "intel": 81,
@@ -30145,7 +30058,7 @@ window.OFFICERS_MASTER = [
     "id": "off_succ2_nanbu_1285",
     "name": "南部政行",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 72,
     "politic": 74,
     "intel": 73,
@@ -30154,7 +30067,8 @@ window.OFFICERS_MASTER = [
     "lore": "政光の後、師行の成人まで南部氏を率いた。",
     "birthYear": 1285,
     "deathYear": 1345,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_jd_370",
@@ -30198,7 +30112,7 @@ window.OFFICERS_MASTER = [
     "skill": "南朝の勇将",
     "lore": "足利方と激しく戦い、南朝後村上天皇より忠節を賞された南部氏の名将。",
     "birthYear": 1310,
-    "deathYear": 1370,
+    "deathYear": 1395,
     "isDaimyo": false,
     "comment": "北畠顕家に従い各地で奮戦した南朝の柱石",
     "isDead": false,
@@ -30209,7 +30123,7 @@ window.OFFICERS_MASTER = [
     "id": "off_nanbu_harumasa",
     "name": "南部晴政",
     "clanId": "nanbu",
-    "defaultProv": "rikuchu",
+    "defaultProv": "mutsu",
     "military": 84,
     "politic": 82,
     "intel": 80,
@@ -30218,7 +30132,8 @@ window.OFFICERS_MASTER = [
     "lore": "「三日月の丸くなるまで南部領」と謳われた広大な領国を築いた南部氏中興の祖。",
     "birthYear": 1506,
     "deathYear": 1582,
-    "isDaimyo": true
+    "isDaimyo": true,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_nanbu_toshihide",
@@ -30643,7 +30558,7 @@ window.OFFICERS_MASTER = [
     "id": "off_amago_kunihisa",
     "name": "尼子国久",
     "clanId": "amago",
-    "defaultProv": "mimasaka",
+    "defaultProv": "izumo",
     "military": 88,
     "politic": 70,
     "intel": 75,
@@ -30653,7 +30568,8 @@ window.OFFICERS_MASTER = [
     "birthYear": 1492,
     "deathYear": 1554,
     "isDaimyo": false,
-    "assignedProvId": "mimasaka"
+    "assignedProvId": "mimasaka",
+    "homeProvince": "izumo"
   },
   {
     "id": "off_amago_mochihisa",
@@ -31280,21 +31196,6 @@ window.OFFICERS_MASTER = [
     "isDaimyo": true
   },
   {
-    "id": "off_tomo_no_kaneyuki_hyuga",
-    "name": "伴兼行",
-    "clanId": "shimazu_proto",
-    "defaultProv": "hyuga",
-    "military": 76,
-    "politic": 79,
-    "intel": 75,
-    "era": "ancient",
-    "skill": "日向開山の大宮司",
-    "lore": "平安中期の豪族・受領。日向守・大隅正八幡宮初代大宮司。薩摩・大隅・日向の広大な荒野を開拓し、島津荘の母体となる在地支配体制を築き上げた。南九州の武士団を束ね、中世島津氏・伴氏の繁栄を拓いた始祖。",
-    "birthYear": 900,
-    "deathYear": 965,
-    "isDaimyo": false
-  },
-  {
     "id": "off_tomo_kanesuke_1156",
     "name": "伴兼資",
     "clanId": "minamoto_tametomo",
@@ -31728,10 +31629,11 @@ window.OFFICERS_MASTER = [
     "lore": "永享の乱期において幕府の忠臣として加賀を守備し、富樫政親へと繋がる全盛期を作った。",
     "birthYear": 1400,
     "deathYear": 1455,
-    "isDaimyo": false,
+    "isDaimyo": true,
     "comment": "満春の嫡男。足利義持より偏諱を受ける",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "kaga"
   },
   {
     "id": "off_succ2_togashi_1365",
@@ -32751,8 +32653,8 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_sadamori_tokitada",
     "name": "平時忠",
-    "clanId": "taira_sadamori",
-    "defaultProv": "noto",
+    "clanId": "taira",
+    "defaultProv": "yamashiro",
     "military": 50,
     "politic": 78,
     "intel": 80,
@@ -33109,7 +33011,7 @@ window.OFFICERS_MASTER = [
     "id": "off_taira_morimune",
     "name": "平盛宗",
     "clanId": "taira",
-    "defaultProv": "yamashiro",
+    "defaultProv": "ise",
     "military": 79,
     "politic": 80,
     "intel": 81,
@@ -33121,7 +33023,8 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false,
     "comment": "鎌倉末期の伊勢平氏当主",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "ise"
   },
   {
     "id": "off_jd_004",
@@ -33201,7 +33104,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_taira_tadanetsune",
     "name": "平忠常",
-    "clanId": "taira_masakado",
+    "clanId": "taira_tadatsune",
     "defaultProv": "kazusa",
     "military": 86,
     "politic": 65,
@@ -33212,21 +33115,6 @@ window.OFFICERS_MASTER = [
     "birthYear": 975,
     "deathYear": 1031,
     "isDaimyo": true
-  },
-  {
-    "id": "off_ito_tadakiyo_1156",
-    "name": "平忠清",
-    "clanId": "taira",
-    "defaultProv": "yamashiro",
-    "military": 82,
-    "politic": 84,
-    "intel": 84,
-    "era": "ancient",
-    "skill": "伊勢平氏の重鎮",
-    "lore": "平安末期の武将。伊藤忠清。平清盛・重盛の側近として侍所別当を務め、平家一門の軍事指揮の中核を担った。伊勢・志摩・伊賀の在地基盤を掌握し、源氏との諸合戦で活躍した伊勢平氏屈指の宿老。",
-    "birthYear": 1115,
-    "deathYear": 1185,
-    "isDaimyo": false
   },
   {
     "id": "off_taira_tadamori",
@@ -34054,7 +33942,8 @@ window.OFFICERS_MASTER = [
     "lore": "鎌倉幕府最後の鎮西探題。博多を拠点に九州を統括したが、倒幕に寝返った少弐・大友・島津軍の急襲を受け博多で討死。",
     "birthYear": 1298,
     "deathYear": 1333,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "chikuzen"
   },
   {
     "id": "off_hojo_yoshitoki",
@@ -34641,8 +34530,8 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_hojo_munemasa",
     "name": "北条宗政",
-    "clanId": "genji_yoritomo",
-    "defaultProv": "sagami",
+    "clanId": "hojo_kamakura",
+    "defaultProv": "yamashiro",
     "military": 82,
     "politic": 80,
     "intel": 83,
@@ -34654,7 +34543,8 @@ window.OFFICERS_MASTER = [
     "isDaimyo": false,
     "comment": "北条時頼の三男で時宗の同母弟。連署として幕政を補佐",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "yamashiro"
   },
   {
     "id": "off_hojo_masako",
@@ -34894,7 +34784,8 @@ window.OFFICERS_MASTER = [
     "lore": "建武政権にて陸奥守・鎮守府大将軍に任命される。多賀城・霊山城を拠点に奥州を平定し、のちに足利尊氏を追討するため奥州から京まで神速の進撃を見せた若き天才。",
     "birthYear": 1318,
     "deathYear": 1338,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "mutsu"
   },
   {
     "id": "off_kitabatake_akinobu",
@@ -35397,7 +35288,8 @@ window.OFFICERS_MASTER = [
     "lore": "忠綱の後、鎌倉期の佐渡を支配した本間氏。",
     "birthYear": 1220,
     "deathYear": 1285,
-    "isDaimyo": false
+    "isDaimyo": false,
+    "homeProvince": "sado"
   },
   {
     "id": "off_honma_succ_1080",
@@ -35999,11 +35891,12 @@ window.OFFICERS_MASTER = [
     "skill": "伯耆守",
     "lore": "父とともに湊川の戦いや京都攻防戦で奮戦し、名和一族の武勇を天下に轟かせた。",
     "birthYear": 1315,
-    "deathYear": 1375,
-    "isDaimyo": false,
+    "deathYear": 1405,
+    "isDaimyo": true,
     "comment": "名和長年の長男。後醍醐天皇の忠臣",
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": null,
+    "homeProvince": "hoki"
   },
   {
     "id": "off_nawa_norinaga",
@@ -36044,8 +35937,8 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_nawa_akitada",
     "name": "名和顕忠",
-    "clanId": "nawa",
-    "defaultProv": "hoki",
+    "clanId": "kikuchi",
+    "defaultProv": "higo",
     "military": 81,
     "politic": 78,
     "intel": 79,
@@ -36062,8 +35955,8 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_nawa_shigeyuki",
     "name": "名和重行",
-    "clanId": "nawa",
-    "defaultProv": "hoki",
+    "clanId": "kikuchi",
+    "defaultProv": "higo",
     "military": 79,
     "politic": 77,
     "intel": 78,
@@ -36633,7 +36526,7 @@ window.OFFICERS_MASTER = [
     "skill": "毛利家の誇り",
     "lore": "安芸の国人毛利氏。吉田郡山を拠点に、元就の祖父として家を残した。",
     "birthYear": 1437,
-    "deathYear": 1492,
+    "deathYear": 1476,
     "isDaimyo": true
   },
   {
@@ -37961,7 +37854,7 @@ window.OFFICERS_MASTER = [
   {
     "id": "off_nanbu_namioka_akiyasu",
     "name": "浪岡顕保",
-    "clanId": "nanbu",
+    "clanId": "namioka",
     "defaultProv": "tsugaru",
     "military": 72,
     "politic": 78,
@@ -37971,7 +37864,8 @@ window.OFFICERS_MASTER = [
     "lore": "津軽浪岡城主。軍事・外交の要衝を守備し、領国の治安維持と城郭防備を一手に担った名将。",
     "birthYear": 1435,
     "deathYear": 1504,
-    "isDaimyo": false
+    "isDaimyo": true,
+    "homeProvince": "tsugaru"
   },
   {
     "id": "off_dm_rokkaku_1560",
@@ -38037,7 +37931,7 @@ window.OFFICERS_MASTER = [
     "deathYear": 1520,
     "isDaimyo": true,
     "isDead": false,
-    "assignedProvId": null
+    "assignedProvId": "south_omi"
   },
   {
     "id": "off_succ_rokkaku_1340_133",
@@ -38729,7 +38623,7 @@ window.OFFICERS_MASTER = [
     "id": "off_ashikaga_mitsutaka",
     "name": "足利満隆",
     "clanId": "kamakura_fu",
-    "defaultProv": "sagami",
+    "defaultProv": "musashi",
     "military": 62,
     "politic": 60,
     "intel": 58,
@@ -38738,7 +38632,7 @@ window.OFFICERS_MASTER = [
     "lore": "鎌倉公方足利氏満の子で、持氏の叔父。応永23年（1416年）、上杉禅秀と結んで持氏を鎌倉から追ったが、翌年幕府方に敗れて自害した。",
     "birthYear": 1370,
     "deathYear": 1417,
-    "isDaimyo": true,
+    "isDaimyo": false,
     "homeProvince": "sagami"
   },
   {
@@ -38933,7 +38827,7 @@ window.OFFICERS_MASTER = [
     "era": "edo",
     "skill": "会津六十万石",
     "lore": "蒲生秀行の嫡男・会津藩第二代藩主。慶長十七年に家督を継ぎ若松城主となる。大坂の陣では幕府方として出陣し、会津六十余万石を領した。嗣子なく寛永四年に没し、蒲生家は伊予松山へ転封された。",
-    "birthYear": 1604,
+    "birthYear": 1599,
     "deathYear": 1627,
     "isDaimyo": true,
     "comment": "会津藩第二代・蒲生忠郷"
@@ -39494,7 +39388,7 @@ window.OFFICERS_MASTER = [
     "id": "off_uesugi_noriaki_first",
     "name": "上杉憲顕",
     "clanId": "uesugi",
-    "defaultProv": "sagami",
+    "defaultProv": "kozuke",
     "military": 87,
     "politic": 89,
     "intel": 88,
@@ -39522,5 +39416,501 @@ window.OFFICERS_MASTER = [
     "birthYear": 1430,
     "deathYear": 1487,
     "isDaimyo": false
+  },
+  {
+    "id": "off_nanbu_nobumitsu",
+    "name": "南部信光",
+    "clanId": "nanbu",
+    "defaultProv": "mutsu",
+    "military": 83,
+    "politic": 80,
+    "intel": 78,
+    "era": "nanbokucho",
+    "skill": "白糸威褄取鎧",
+    "lore": "根城南部氏第7代当主。政長の孫（信政の子）。南朝方として八戸根城を拠点に奮戦し、甲斐波木井郷で武功を挙げ後村上天皇より国宝の甲冑を賜った。",
+    "birthYear": 1320,
+    "deathYear": 1376,
+    "isDaimyo": false,
+    "homeProvince": "mutsu"
+  },
+  {
+    "id": "off_kasai_munekiyo",
+    "name": "葛西宗清",
+    "clanId": "kasai",
+    "defaultProv": "rikuchu",
+    "military": 76,
+    "politic": 72,
+    "intel": 70,
+    "era": "muromachi",
+    "skill": "葛西一門",
+    "lore": "陸奥葛西氏の一族。奥州の戦乱において葛西宗家を支えた。",
+    "birthYear": 1360,
+    "deathYear": 1445,
+    "isDaimyo": true,
+    "comment": "葛西一門武将"
+  },
+  {
+    "id": "off_uesugi_mochitomo",
+    "name": "上杉持朝",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 78,
+    "politic": 84,
+    "intel": 82,
+    "era": "muromachi",
+    "skill": "扇谷の総帥",
+    "lore": "扇谷上杉家当主。太田道灌を重用して河越城や江戸城を築城させ、古河公方足利成氏と対抗して南関東に強大な勢力を築いた。",
+    "birthYear": 1416,
+    "deathYear": 1485,
+    "isDaimyo": true,
+    "comment": "扇谷上杉家当主"
+  },
+  {
+    "id": "off_uesugi_masakage_1467",
+    "name": "上杉政景",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 75,
+    "politic": 73,
+    "intel": 72,
+    "era": "muromachi",
+    "skill": "上杉一門",
+    "lore": "上杉氏一門。関東管領体制の動乱において一族の結束を支えた。",
+    "birthYear": 1435,
+    "deathYear": 1495,
+    "isDaimyo": false,
+    "comment": "上杉一門武将"
+  },
+  {
+    "id": "off_uesugi_fusasada",
+    "name": "上杉房定",
+    "clanId": "uesugi",
+    "defaultProv": "echigo",
+    "military": 83,
+    "politic": 86,
+    "intel": 85,
+    "era": "muromachi",
+    "skill": "越後守護の威名",
+    "lore": "越後守護。享徳の乱において関東管領家を助けて古河公方と戦い、越後と関東にわたって絶大な影響力を持った名将。",
+    "birthYear": 1431,
+    "deathYear": 1494,
+    "isDaimyo": false,
+    "comment": "越後守護・上杉房定"
+  },
+  {
+    "id": "off_uesugi_tomoyoshi_1495",
+    "name": "上杉朝良",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 76,
+    "politic": 82,
+    "intel": 80,
+    "era": "sengoku",
+    "skill": "扇谷の陣",
+    "lore": "扇谷上杉家当主。養父・定正の死後に家督を継ぎ、山内上杉顕定と激闘（長享の乱）を繰り広げ、後北条氏の北条早雲とも争った。",
+    "birthYear": 1473,
+    "deathYear": 1518,
+    "isDaimyo": true,
+    "homeProvince": "musashi"
+  },
+  {
+    "id": "off_kasai_hisanobu",
+    "name": "葛西尚信",
+    "clanId": "kasai",
+    "defaultProv": "rikuchu",
+    "military": 75,
+    "politic": 74,
+    "intel": 70,
+    "era": "sengoku",
+    "skill": "奥州名族",
+    "lore": "奥州の名門葛西氏当主。政信の後を継ぎ、陸中から陸前にかけて勢力を維持し、伊達氏や大崎氏と抗争した。",
+    "birthYear": 1465,
+    "deathYear": 1510,
+    "isDaimyo": true,
+    "homeProvince": "rikuchu"
+  },
+  {
+    "id": "off_osaki_yoshikane_1495",
+    "name": "大崎義兼",
+    "clanId": "ronin",
+    "defaultProv": "rikuchu",
+    "military": 74,
+    "politic": 76,
+    "intel": 72,
+    "era": "sengoku",
+    "skill": "奥州探題",
+    "lore": "奥州探題大崎氏第9代当主。教兼の子。陸奥・陸中において葛西氏や伊達氏と勢力を争い、大崎氏の威信を保った。",
+    "birthYear": 1460,
+    "deathYear": 1514,
+    "isDaimyo": false,
+    "homeProvince": "rikuchu"
+  },
+  {
+    "id": "off_shiba_akitaka_1495",
+    "name": "斯波詮高",
+    "clanId": "ronin",
+    "defaultProv": "rikuchu",
+    "military": 80,
+    "politic": 75,
+    "intel": 76,
+    "era": "sengoku",
+    "skill": "高水寺館",
+    "lore": "奥州斯波氏（高水寺斯波氏）の祖。陸中斯波郡高水寺城を本拠とし、南部氏らと抗争しながら斯波氏の版図を拡大させた名将。",
+    "birthYear": 1476,
+    "deathYear": 1549,
+    "isDaimyo": false,
+    "homeProvince": "rikuchu"
+  },
+  {
+    "id": "off_sue_ujihisa",
+    "name": "陶氏久",
+    "clanId": "ouchi",
+    "defaultProv": "suo",
+    "military": 73,
+    "politic": 75,
+    "intel": 72,
+    "era": "sengoku",
+    "skill": "守護代一門",
+    "lore": "周防大内氏の重臣・陶氏一門。石見国支配に関与したのち、本拠周防にて大内義興に従い軍政両面を支えた。",
+    "birthYear": 1460,
+    "deathYear": 1512,
+    "isDaimyo": false,
+    "homeProvince": "suo"
+  },
+  {
+    "id": "off_kasai_harushige_1531",
+    "name": "葛西晴重",
+    "yomi": "かさい はるしげ",
+    "clanId": "kasai",
+    "defaultProv": "rikuchu",
+    "military": 68,
+    "politic": 66,
+    "intel": 65,
+    "leadership": 70,
+    "charm": 68,
+    "aptitude": {
+      "spear": "B",
+      "cavalry": "B",
+      "archery": "A",
+      "gun": "D",
+      "navy": "C"
+    },
+    "era": "sengoku",
+    "skill": "奥州総奉行の威令",
+    "lore": "葛西家第15代当主。伊達稙宗から偏諱を受け晴重と名乗る。寺池城を拠点に陸前・陸中南部を治め、葛西氏の戦国大名化を推進した。",
+    "birthYear": 1500,
+    "deathYear": 1546,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_uesugi_tomooki",
+    "name": "上杉朝興",
+    "yomi": "うえすぎ ともおき",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 74,
+    "politic": 76,
+    "intel": 78,
+    "leadership": 79,
+    "charm": 75,
+    "aptitude": {
+      "spear": "A",
+      "cavalry": "A",
+      "archery": "B",
+      "gun": "D",
+      "navy": "C"
+    },
+    "era": "sengoku",
+    "skill": "扇谷の陣頭指揮",
+    "lore": "扇谷上杉家当主。上杉朝良の甥。河越城・江戸城を拠点とし、武蔵の支配を巡って北条氏綱と幾度も激戦を繰り広げた武勇と知略の名将。",
+    "birthYear": 1488,
+    "deathYear": 1537,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_osaki_yoshinao_1538",
+    "name": "大崎義直",
+    "yomi": "おおさき よしなお",
+    "clanId": "ronin",
+    "defaultProv": "rikuchu",
+    "military": 66,
+    "politic": 64,
+    "intel": 62,
+    "leadership": 68,
+    "charm": 65,
+    "aptitude": {
+      "spear": "B",
+      "cavalry": "B",
+      "archery": "B",
+      "gun": "D",
+      "navy": "D"
+    },
+    "era": "sengoku",
+    "skill": "奥州探題の気概",
+    "lore": "大崎家第12代当主。家臣の内紛（大崎の乱）に苦しみ、伊達稙宗の支援を得て領国を平定するも、伊達氏の影響下に置かれた。",
+    "birthYear": 1514,
+    "deathYear": 1577,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_hara_tanesada_1546",
+    "name": "原胤貞",
+    "yomi": "はら たねさだ",
+    "clanId": "chiba",
+    "defaultProv": "shimousa",
+    "military": 78,
+    "politic": 75,
+    "intel": 80,
+    "leadership": 82,
+    "charm": 76,
+    "aptitude": {
+      "spear": "A",
+      "cavalry": "B",
+      "archery": "A",
+      "gun": "C",
+      "navy": "C"
+    },
+    "era": "sengoku",
+    "skill": "臼井城の堅防",
+    "lore": "千葉氏筆頭家老。下総生実城主、臼井城主。上杉謙信による臼井城総攻撃を白井胤治の軍配とともに激戦の末に撃退した歴戦の宿将。",
+    "birthYear": 1507,
+    "deathYear": 1575,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_kuki_kiyotaka_1555",
+    "name": "九鬼浄隆",
+    "yomi": "くき きよたか",
+    "clanId": "kuki",
+    "defaultProv": "shima",
+    "military": 75,
+    "politic": 68,
+    "intel": 70,
+    "leadership": 76,
+    "charm": 72,
+    "aptitude": {
+      "spear": "B",
+      "cavalry": "C",
+      "archery": "B",
+      "gun": "B",
+      "navy": "S"
+    },
+    "era": "sengoku",
+    "skill": "鳥羽水軍の指揮",
+    "lore": "九鬼定隆の長男で九鬼嘉隆の兄。波切城主・田代城主として志摩九鬼水軍を率い、伊勢湾の制海権を握って志摩国人衆と激闘を繰り広げた。",
+    "birthYear": 1536,
+    "deathYear": 1569,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_ota_sukeyori",
+    "name": "太田資頼",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 82,
+    "politic": 75,
+    "intel": 80,
+    "era": "sengoku",
+    "skill": "岩付城の鉄壁",
+    "lore": "扇谷上杉家の宿老。太田道灌の甥または養子。武蔵岩付城主として北条氏綱の侵攻に頑強に抵抗し、幾度も城を奪回した名将。",
+    "birthYear": 1484,
+    "deathYear": 1536,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_ota_suketaka",
+    "name": "太田資高",
+    "clanId": "ogigayatsu",
+    "defaultProv": "musashi",
+    "military": 74,
+    "politic": 72,
+    "intel": 70,
+    "era": "sengoku",
+    "skill": "江戸城代の意気",
+    "lore": "太田資康の子。扇谷上杉朝興に仕え武蔵江戸城代を務めたが、のちに北条氏綱に寝返ったとも伝わる。",
+    "birthYear": 1498,
+    "deathYear": 1544,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_adachi_yasumori",
+    "name": "安達泰盛",
+    "clanId": "hojo_kamakura",
+    "defaultProv": "musashi",
+    "military": 84,
+    "politic": 92,
+    "intel": 89,
+    "era": "kamakura",
+    "skill": "弘安の徳政",
+    "lore": "鎌倉時代中期の有力御家人・秋田城介。執権北条時宗を補佐して文永・弘安の役（元寇）の軍事総指揮を執り、幕政改革を推進した幕府の重鎮。霜月騒動で平頼綱に敗れ自害。",
+    "birthYear": 1231,
+    "deathYear": 1285,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_shoni_tsunesuke",
+    "name": "少弐経資",
+    "clanId": "shoni",
+    "defaultProv": "buzen",
+    "military": 89,
+    "politic": 83,
+    "intel": 85,
+    "era": "kamakura",
+    "skill": "鎮西の防壁",
+    "lore": "鎌倉時代中期の武将。大宰少弐・鎮西奉行。弟の景資とともに文永・弘安の役で日本側総大将格として蒙古軍を迎え撃ち、赤坂・鳥飼潟で奮戦して元軍を撃退した英雄。",
+    "birthYear": 1229,
+    "deathYear": 1292,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_hojo_muneyori",
+    "name": "北条宗頼",
+    "clanId": "hojo_kamakura",
+    "defaultProv": "nagato",
+    "military": 83,
+    "politic": 81,
+    "intel": 84,
+    "era": "kamakura",
+    "skill": "長門の警固",
+    "lore": "北条時頼の三男で時宗の同母弟。蒙古襲来の危機に際し、長門国守護・長門警固使として西国に下向。本州西端の防衛体制を一手に構築した。",
+    "birthYear": 1247,
+    "deathYear": 1279,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_rokkaku_mitsutsuna",
+    "name": "六角満綱",
+    "clanId": "rokkaku",
+    "defaultProv": "south_omi",
+    "military": 79,
+    "politic": 82,
+    "intel": 80,
+    "era": "muromachi",
+    "skill": "観音寺の守り",
+    "lore": "室町時代中期の近江源氏六角氏当主・近江守護。幕府の命に従い永享の乱や結城合戦で軍功を挙げたが、後に配下の国人一揆に攻められ自害した。",
+    "birthYear": 1401,
+    "deathYear": 1445,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_satake_moriyoshi",
+    "name": "佐竹師義",
+    "clanId": "satake",
+    "defaultProv": "hitachi",
+    "military": 82,
+    "politic": 84,
+    "intel": 83,
+    "era": "muromachi",
+    "skill": "常陸の雄",
+    "lore": "常陸守護代・佐竹氏第9代当主。足利尊氏に従って各地を転戦し、常陸国内の南朝勢力を制圧して佐竹氏の勢力を確立した。",
+    "birthYear": 1319,
+    "deathYear": 1389,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_gomurakami_tenno",
+    "name": "後村上天皇",
+    "clanId": "godaiho",
+    "defaultProv": "yamato",
+    "military": 75,
+    "politic": 86,
+    "intel": 88,
+    "era": "muromachi",
+    "skill": "南朝の正統",
+    "lore": "第97代天皇・南朝第2代天皇。後醍醐天皇の第7皇子。父の遺志を継ぎ吉野・賀名生・住吉を行宮として楠木正儀・北畠顕能らとともに南朝を指導した。",
+    "birthYear": 1328,
+    "deathYear": 1368,
+    "isDaimyo": true
+  },
+  {
+    "id": "off_gamo_satoyasu",
+    "name": "蒲生郷安",
+    "yomi": "がもう さとやす",
+    "clanId": "gamo",
+    "defaultProv": "iwashiro",
+    "military": 82,
+    "politic": 78,
+    "intel": 76,
+    "leadership": 80,
+    "charm": 74,
+    "aptitude": {
+      "spear": "A",
+      "cavalry": "B",
+      "archery": "B",
+      "gun": "B",
+      "navy": "C"
+    },
+    "era": "azuchi",
+    "skill": "蒲生四天王筆頭",
+    "lore": "蒲生家筆頭家老。会津白河城主。蒲生四天王の筆頭として氏郷を軍政両面で支えた歴戦の宿将。九戸政実の乱でも武功を挙げた。",
+    "birthYear": 1548,
+    "deathYear": 1595,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_gamo_satonari",
+    "name": "蒲生郷成",
+    "yomi": "がもう さとなり",
+    "clanId": "gamo",
+    "defaultProv": "iwashiro",
+    "military": 80,
+    "politic": 74,
+    "intel": 75,
+    "leadership": 78,
+    "charm": 72,
+    "aptitude": {
+      "spear": "A",
+      "cavalry": "A",
+      "archery": "C",
+      "gun": "B",
+      "navy": "C"
+    },
+    "era": "azuchi",
+    "skill": "三春城の防備",
+    "lore": "蒲生四天王の一人。会津三春城主。柴田勝家旧臣から氏郷に仕え、葛西大崎一揆や九戸政実の乱で先鋒を務め勇名を馳せた。",
+    "birthYear": 1556,
+    "deathYear": 1614,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_machino_shigenori",
+    "name": "町野繁仍",
+    "yomi": "まちの しげのり",
+    "clanId": "gamo",
+    "defaultProv": "iwashiro",
+    "military": 74,
+    "politic": 82,
+    "intel": 80,
+    "leadership": 75,
+    "charm": 78,
+    "aptitude": {
+      "spear": "B",
+      "cavalry": "B",
+      "archery": "B",
+      "gun": "C",
+      "navy": "C"
+    },
+    "era": "azuchi",
+    "skill": "猪苗代城代",
+    "lore": "蒲生氏郷の側近・家老。会津猪苗代城主。内政と外交に優れ、会津領国の統治と若松城の城下町建設に尽力した。",
+    "birthYear": 1565,
+    "deathYear": 1638,
+    "isDaimyo": false
+  },
+  {
+    "id": "off_taira_munekiyo",
+    "name": "平宗清",
+    "clanId": "hojo_kamakura",
+    "defaultProv": "yamashiro",
+    "military": 68,
+    "politic": 75,
+    "intel": 72,
+    "era": "kamakura",
+    "skill": "六波羅探題",
+    "lore": "鎌倉時代の武将。北条得宗家被官。山城六波羅探題で北条氏に仕え京の治安維持と幕府権力の伸長に努めた。",
+    "birthYear": 1220,
+    "deathYear": 1280,
+    "isDaimyo": false,
+    "comment": "得宗被官"
   }
 ];

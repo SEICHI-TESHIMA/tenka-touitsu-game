@@ -601,6 +601,7 @@ export const UIManagerMethods = {
   },
 
   showOfficerDetailModal(offOrId) {
+    this.pauseAutoPlayForScreen?.('武将詳細の表示');
     if (!offOrId) return;
     const targetId = typeof offOrId === 'string' ? ((window.OFFICER_ID_ALIASES && window.OFFICER_ID_ALIASES[offOrId]) || offOrId) : null;
     const off = typeof offOrId === 'string'
@@ -728,6 +729,7 @@ export const UIManagerMethods = {
   // 城主任命モーダル（表形式・ソート対応・幅広ダイアログ・文字サイズ12pt以上）,
 
   openAppointGovernorModal(provId) {
+    this.pauseAutoPlayForScreen?.('城主任命画面の表示');
     const p = this.provinces.find(x => x.id === provId);
     if (!p || p.ownerId !== this.playerClanId) return;
 
@@ -826,7 +828,7 @@ export const UIManagerMethods = {
             <div style="display:flex; align-items:center; gap:14px;">
               <div>
                 <span style="color:#aaa; font-size:12pt;">現在の統治: </span>
-                ${currentGov ? (currentGov.isDaimyo ? `<strong style="color:var(--gold-bright); font-size:13pt;">👑 本拠親政: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">(武${currentGov.military} 内${currentGov.politic} 謀${currentGov.intel})</span>` : `<strong style="color:#2ecc71; font-size:13pt;">🏯 城主: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">(武${currentGov.military} 内${currentGov.politic} 謀${currentGov.intel})</span>`) : `<strong style="color:#e67e22; font-size:13pt;">🏯 ${this.getEffectiveStats(p.id).vacantBadge || '城代統治'}</strong>`}
+                ${currentGov ? (currentGov.isDaimyo ? `<strong style="color:var(--gold-bright); font-size:13pt;">👑 本拠親政: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>` : `<strong style="color:#2ecc71; font-size:13pt;">🏯 城主: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>`) : `<strong style="color:#e67e22; font-size:13pt;">🏯 ${this.getEffectiveStats(p.id).vacantBadge || '城代統治'}</strong>`}
               </div>
               ${currentGov ? `<button id="btnDismissGov" style="background:#78281f; color:#fff; border:1px solid #c0392b; padding:5px 14px; border-radius:4px; cursor:pointer; font-size:12pt; transition:0.2s;">城代に戻す (城主解任)</button>` : ''}
             </div>
@@ -1036,6 +1038,7 @@ export const UIManagerMethods = {
   // 城主一人を任命する。silent のときはログと音を出さない（一括任命用）,
 
   openBatchGovernorModal() {
+    this.pauseAutoPlayForScreen?.('一括城主任命画面の表示');
     const mine = (this.provinces || []).filter(p => p.ownerId === this.playerClanId);
     if (mine.length === 0) {
       this.showOrderResult('⚠ 領国なし', '城主を任命できる自領がありません。', '#e67e22');
@@ -1219,6 +1222,7 @@ export const UIManagerMethods = {
   // 武将一覧モーダル（表形式・ソート対応・幅広ダイアログ・文字サイズ12pt以上）,
 
   openOfficerListModal() {
+    this.pauseAutoPlayForScreen?.('武将一覧の表示');
     this.reconcileDaimyoWithMap();
     let modal = document.getElementById('officerListModal');
     if (!modal) {
@@ -1528,6 +1532,7 @@ export const UIManagerMethods = {
   // 領国一覧モーダル（武将一覧と同じ表形式・ソート・検索）,
 
   openProvinceListModal() {
+    this.pauseAutoPlayForScreen?.('領国一覧の表示');
     if (this.isAutoPlay) this.stopAutoPlay('領国一覧表示のため');
 
     let modal = document.getElementById('provinceListModal');
@@ -1717,9 +1722,9 @@ export const UIManagerMethods = {
                     const badge = esc(badgeText);
                     roleBadge = `<span style="background:#d35400; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt; font-weight:bold;">${badge}</span>`;
                   }
-                  const statCell = (value, color) => value == null
+                  const statCell = (value, color, mark = '') => value == null
                     ? '<td style="padding:10px 8px; text-align:center; white-space:nowrap; color:#777;">—</td>'
-                    : `<td style="padding:10px 8px; text-align:center; white-space:nowrap;"><b style="color:${color}; font-size:12.5pt;">${value}</b></td>`;
+                    : `<td style="padding:10px 8px; text-align:center; white-space:nowrap;"><b style="color:${color}; font-size:12.5pt;">${value}</b>${mark}</td>`;
                   const isSelected = r.p.id === this.selectedProvId;
                   const rowBg = isSelected
                     ? 'rgba(215, 175, 100, 0.22)'
@@ -1743,9 +1748,9 @@ export const UIManagerMethods = {
                         <span style="${ownerStyle} padding:3px 8px; border-radius:3px; font-size:12pt;">${esc(r.ownerName)}</span>
                       </td>
                       ${governorCell(r, roleBadge)}
-                      ${statCell(r.military, '#ff6b6b')}
-                      ${statCell(r.politics, '#5dade2')}
-                      ${statCell(r.stratagem, '#a3e4d7')}
+                      ${statCell(r.military, '#ff6b6b', this.lordAideMark(r.eff, 'military'))}
+                      ${statCell(r.politics, '#5dade2', this.lordAideMark(r.eff, 'politics'))}
+                      ${statCell(r.stratagem, '#a3e4d7', this.lordAideMark(r.eff, 'stratagem'))}
                       <td style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.troops.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 人</span></td>
                       <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.defense}</td>
                       <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.morale}</td>
@@ -1839,6 +1844,7 @@ export const UIManagerMethods = {
   // ============================================================================,
 
   openFactionListModal() {
+    this.pauseAutoPlayForScreen?.('勢力一覧の表示');
     let modal = document.getElementById('factionListModal');
     if (!modal) {
       modal = document.createElement('div');
@@ -2024,6 +2030,10 @@ export const UIManagerMethods = {
                       return `<span style="display:inline-block; margin:2px 3px; padding:2px 7px; border-radius:3px; font-size:11pt; background:${isMy ? 'rgba(212,175,55,0.25)' : 'rgba(46,204,113,0.2)'}; border:1px solid ${isMy ? 'var(--gold)' : '#27ae60'}; color:${isMy ? 'var(--gold-bright)' : '#2ecc71'}; font-weight:${isMy ? 'bold' : 'normal'};" title="同盟の残り期間">🤝 ${aName}${remain}</span>`;
                     }).join('');
                   }
+
+                  // 家中分裂の停戦タグ（2026-10-11 cf）
+                  const truceTagsHtml = this.breakawayTruceTags ? this.breakawayTruceTags(f.clanId) : '';
+                  if (truceTagsHtml) alliesTagsHtml = ((f.allies && f.allies.length > 0) ? alliesTagsHtml : '') + truceTagsHtml;
 
                   // 外交行動ボタン
                   let actionHtml = '';
@@ -2336,6 +2346,7 @@ export const UIManagerMethods = {
   // ============================================================================,
 
   openRecruitRoninModal(targetRoninId = null) {
+    this.pauseAutoPlayForScreen?.('浪人登用画面の表示');
     if (this.isAutoPlay) this.stopAutoPlay('登用画面表示のため');
     if (targetRoninId) {
       this.recruitRonin(targetRoninId);
@@ -2585,6 +2596,7 @@ export const UIManagerMethods = {
   // 氏名から苗字を取る（豊臣・羽柴・長宗我部など複数文字を優先）,
 
   openProvinceOfficersModal(provId) {
+    this.pauseAutoPlayForScreen?.('領国詳細の表示');
     if (this.isAutoPlay) this.stopAutoPlay('武将一覧表示のため');
 
     const p = (this.provinces || []).find(x => x.id === provId);
@@ -2912,7 +2924,7 @@ export const UIManagerMethods = {
           <div style="margin:2px 0; background:rgba(212,175,55,0.12); border:1px solid #b7950b; border-radius:3px; padding:2px 6px; display:flex; justify-content:space-between; align-items:center; font-size:12pt; white-space:nowrap; overflow:hidden;">
             <div style="display:flex; align-items:center; gap:5px; overflow:hidden;">
               <span style="color:var(--gold-bright); font-weight:bold;">👑 本拠親政: ${effStats.name}</span>
-              <span style="color:#f5eedc; font-size:12pt;">武<b style="color:#ff6b6b;">${effStats.military}</b> 内<b style="color:#5dade2;">${effStats.politics}</b> 謀<b style="color:#a3e4d7;">${effStats.stratagem}</b></span>
+              <span style="color:#f5eedc; font-size:12pt;" title="${this.describeLordAides(effStats)}">武<b style="color:#ff6b6b;">${effStats.military}</b>${this.lordAideMark(effStats, 'military')} 内<b style="color:#5dade2;">${effStats.politics}</b>${this.lordAideMark(effStats, 'politics')} 謀<b style="color:#a3e4d7;">${effStats.stratagem}</b>${this.lordAideMark(effStats, 'stratagem')}</span>
             </div>
             ${isMine ? `<button id="btnAppointGovernor" style="background:#b7950b; color:#fff; border:none; padding:1px 6px; border-radius:2px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">交代</button>` : ''}
           </div>
@@ -2923,7 +2935,7 @@ export const UIManagerMethods = {
             <div style="display:flex; align-items:center; gap:5px; overflow:hidden;">
               <span style="color:#2ecc71; font-weight:bold;">🏯 城主: ${effStats.name}</span>
               
-              <span style="color:#d5dbdb; font-size:12pt;">武<b style="color:#ff6b6b;">${effStats.military}</b> 内<b style="color:#5dade2;">${effStats.politics}</b> 謀<b style="color:#a3e4d7;">${effStats.stratagem}</b></span>
+              <span style="color:#d5dbdb; font-size:12pt;" title="${this.describeLordAides(effStats)}">武<b style="color:#ff6b6b;">${effStats.military}</b>${this.lordAideMark(effStats, 'military')} 内<b style="color:#5dade2;">${effStats.politics}</b>${this.lordAideMark(effStats, 'politics')} 謀<b style="color:#a3e4d7;">${effStats.stratagem}</b>${this.lordAideMark(effStats, 'stratagem')}</span>
             </div>
             ${isMine ? `<button id="btnAppointGovernor" style="background:#34495e; color:#fff; border:1px solid #7f8c8d; padding:1px 6px; border-radius:2px; cursor:pointer; font-size:12pt; white-space:nowrap;">交代</button>` : ''}
           </div>
@@ -2940,6 +2952,7 @@ export const UIManagerMethods = {
         `;
       }
 
+      try { this.clampProvinceRice?.(p); this.clampProvinceCommerce?.(p); } catch (e) {} // 表示前に上限へ（2026-10-11 bk, bl）
       detailBox.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px; flex-wrap:wrap; gap:2px 6px;">
           <div style="display:flex; align-items:baseline; gap:5px; flex-wrap:wrap;">
@@ -3051,6 +3064,7 @@ export const UIManagerMethods = {
   // ============================================================================,
 
   openGovernModal() {
+    this.pauseAutoPlayForScreen?.('統治方針画面の表示');
     const modal = document.getElementById('governModal');
     if (!modal) return;
     this.renderGovernTable();
@@ -3095,6 +3109,7 @@ export const UIManagerMethods = {
   },
 
   openTransferModal() {
+    this.pauseAutoPlayForScreen?.('兵輸送画面の表示');
     const p = this.provinces.find(x => x.id === this.selectedProvId);
     if (!p) return;
 
@@ -3141,6 +3156,7 @@ export const UIManagerMethods = {
   },
 
   openDeployModal() {
+    this.pauseAutoPlayForScreen?.('出陣画面の表示');
     let p = this.provinces.find(x => x.id === this.selectedProvId);
     let target = null;
 
@@ -3148,6 +3164,11 @@ export const UIManagerMethods = {
       // 同盟国への攻撃を禁止
       if (this.isAllied(this.playerClanId, p.ownerId)) {
         this.showOrderResult('⚠ 同盟関係', `${p.name}を領有する${this.getClanFamilyName(p.ownerId)}とは同盟関係にあります。同盟国を攻撃することはできません。`, '#e67e22');
+        return;
+      }
+      // 家中分裂の停戦中は独立した家を攻められない（2026-10-11 cf）
+      if (this.isTruceBlocked?.(this.playerClanId, p.ownerId)) {
+        this.showOrderResult('⚠ 停戦中', `${this.getClanFamilyName(p.ownerId)}とは家中分裂の停戦中です（残り${this.breakawayTruceLeft(this.playerClanId, p.ownerId)}季）。まだ攻めることはできません。`, '#e67e22');
         return;
       }
       // 敵国を選択中に出陣を押した場合：その敵国に隣接する自国領土（兵力1000以上）を探索
@@ -3193,7 +3214,7 @@ export const UIManagerMethods = {
     (p.neighbors || []).forEach(nId => {
       const neighbor = this.provinces.find(x => x.id === nId);
       // 同盟国を攻撃対象から除外
-      if (neighbor && neighbor.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, neighbor.ownerId)) {
+      if (neighbor && neighbor.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, neighbor.ownerId) && !this.isTruceBlocked?.(this.playerClanId, neighbor.ownerId)) { // 停戦も除外（2026-10-11 cf）
         const isTargetBlank = !neighbor.ownerId;
         const opt = document.createElement('option');
         opt.value = neighbor.id;
@@ -3225,6 +3246,7 @@ export const UIManagerMethods = {
       countLabel.textContent = val.toLocaleString();
       remainLabel.textContent = (p.troops - val).toLocaleString();
       riceCostLabel.textContent = riceCost.toLocaleString();
+      this.refreshDeploySiegeOdds(p, val);
     };
 
     range.oninput = updateLabels;
@@ -3237,10 +3259,30 @@ export const UIManagerMethods = {
       this._deployPredictedEnemyForm = null;
       this._deployPredictedFor = null;
       this.refreshDeployFormationIntel();
+      this.refreshDeploySiegeOdds(p, parseInt(range.value, 10) || 500);
     };
 
     modal.classList.remove('hidden');
     try { this.audio.playHoragai?.(); } catch(e) {}
+  },
+
+  // 項目27（2026-10-11 az）出陣画面：攻城の推定落城率（野戦後の目安。兵は野戦で約15%減る想定、城兵は国の兵換算）
+  refreshDeploySiegeOdds(src, troopCount) {
+    const dstSelect = document.getElementById('deployDstSelect');
+    const target = (this.provinces || []).find(x => x.id === dstSelect?.value);
+    let box = document.getElementById('deploySiegeOdds');
+    const anchor = document.getElementById('formationIntelBox');
+    if (!box && anchor && anchor.parentNode && typeof document.createElement === 'function') {
+      box = document.createElement('div');
+      box.id = 'deploySiegeOdds';
+      box.style.cssText = 'margin-top:6px; font-size:11.5pt; color:#ffe9a8; background:rgba(90,30,20,0.35); border:1px solid #a64b2a; border-radius:4px; padding:6px 8px;';
+      anchor.parentNode.insertBefore(box, anchor.nextSibling);
+    }
+    if (!box) return;
+    if (!src || !target || !target.ownerId) { box.innerHTML = target && !target.ownerId ? '🏕️ 空白地：攻城なしで進駐できます。' : ''; return; }
+    const odds = this.computeSiegeOdds({ attackerClanId: this.playerClanId, srcProv: src, dstProv: target, attackTroops: Math.round((Number(troopCount) || 0) * 0.85), defenders: Number(target.troops) || 0, atkMorale: 90 });
+    const col = odds.pct >= 70 ? '#2ecc71' : (odds.pct >= 45 ? '#f1c40f' : '#e74c3c');
+    box.innerHTML = `🏯 攻城の推定落城率（野戦勝利後の目安）: <strong style="color:${col}; font-size:12.5pt;">${odds.pct}%</strong><br><span style="font-size:10.5pt; color:#e8d9b0;">${this.describeSiegeOdds(odds, 5)}</span>`;
   },
 
   startEndingRoll(isShogunRoute = false) {
@@ -3259,7 +3301,7 @@ export const UIManagerMethods = {
     if (kamonContainer && this.playerClanId) {
       kamonContainer.innerHTML = `
         <svg viewBox="0 0 100 100" style="width:100%; height:100%; filter: drop-shadow(0 0 20px rgba(255,215,0,0.4));">
-          <use href="#kamon-${this.playerClanId}"></use>
+          <use href="#${this.getClanKamonId ? this.getClanKamonId(this.playerClanId) : `kamon-${this.playerClanId}`}"></use>
         </svg>
       `;
     }
@@ -3615,8 +3657,9 @@ export const UIManagerMethods = {
   // 大名家・家紋に即した鮮明なハイライト輪郭カラーの取得,
 
   log(msg, type = '') {
+    // type 'quiet'：画面下の最新ログ欄は書き換えず、戦況年代記の一覧にだけ記録する
     const logBox = document.getElementById('gameLog');
-    if (logBox) {
+    if (logBox && type !== 'quiet') {
       logBox.innerHTML = '';
       const div = document.createElement('div');
       div.className = `log-entry ${type}`;
@@ -3629,6 +3672,9 @@ export const UIManagerMethods = {
       div.className = `log-entry ${type}`;
       div.textContent = `${this.year}年 ${this.seasonNames[this.seasonIdx]}: ${msg}`;
       fullList.insertBefore(div, fullList.firstChild);
+      // 新しい3000件だけ残す（長いオート進行でページが重くなるのを防ぐ。2026-10-11 cl）
+      const maxEntries = Number(window.CHRONICLE_MAX_ENTRIES) || 3000;
+      while (fullList.childElementCount > maxEntries && fullList.lastElementChild) fullList.removeChild(fullList.lastElementChild);
     }
   },
 
@@ -3639,6 +3685,7 @@ export const UIManagerMethods = {
   initUI() {
     // 戦況年代記モーダル開閉
     const openChronicle = () => {
+      this.pauseAutoPlayForScreen?.('戦況年代記の表示');
       document.getElementById('chronicleModal')?.classList.remove('hidden');
       this.audio.playHyoshigi();
     };
@@ -3771,6 +3818,7 @@ export const UIManagerMethods = {
         color: '#ffd700'
       });
       this.updateUI();
+      this.resumeAutoPlayAfterEvent?.(); // 宣下で一時停止したオート進行を再開（2026-10-11 cc）
     });
 
     // 天下統一・エンドロール再鑑賞ボタン
@@ -3830,6 +3878,7 @@ export const UIManagerMethods = {
     });
 
     document.getElementById('loadGameBtn')?.addEventListener('click', () => {
+      this.pauseAutoPlayForScreen?.('記録の読み込み');
       const raw = localStorage.getItem('sengoku_save_data');
       if (!raw) {
         Swal.fire({ icon: 'info', title: '記録なし', text: '保存された戦況データがありません。', background: '#241710', color: '#fff' });
@@ -3858,6 +3907,7 @@ export const UIManagerMethods = {
 
     // 開く関数
     const openJukebox = () => {
+      this.pauseAutoPlayForScreen?.('音楽・音量設定の表示');
       this.music.init();
       modal.classList.remove('hidden');
       this.updateJukeboxDisplay();
@@ -3910,6 +3960,27 @@ export const UIManagerMethods = {
       const val = parseFloat(e.target.value);
       this.music.setSeVolume(val);
     });
+
+    // 効果音 ON/OFF（BGM とは別。localStorage に保存、既定 ON）
+    const seCheck = document.getElementById('jbSeEnabledCheck');
+    const syncSeControls = () => {
+      const on = !this.music.isSeMuted;
+      if (seCheck) seCheck.checked = on;
+      const lbl = document.getElementById('jbSeEnabledLabel');
+      if (lbl) lbl.textContent = on ? '効果音 ON' : '効果音 OFF';
+      const seVol = document.getElementById('jbSeVol');
+      if (seVol) {
+        seVol.value = this.music.seVolume;
+        seVol.disabled = !on;
+      }
+    };
+    seCheck?.addEventListener('change', (e) => {
+      this.music.setSeEnabled(e.target.checked);
+      if (this.audio && this.audio !== this.music && this.audio.setSeEnabled) this.audio.setSeEnabled(e.target.checked);
+      syncSeControls();
+      if (e.target.checked) { try { this.audio.playDecision?.(); } catch (err) {} }
+    });
+    syncSeControls();
 
     // 大名専用曲優先チェックボックス
     const daimyoCb = document.getElementById('jbDaimyoModeCheck');
@@ -4020,7 +4091,7 @@ export const UIManagerMethods = {
       { label: '🎌 勝鬨・全軍凱歌', action: () => this.audio.playKachi?.() },
       { label: '🏆 官位昇叙ハープ', action: () => this.audio.playRankUp?.() },
       { label: '🪵 拍子木', action: () => this.audio.playHyoshigi?.() },
-      { label: '⛩️ 神楽鈴', action: () => this.audio.playSuzu?.() }
+      { label: '⛩️ 神楽鈴', action: () => this.audio.playSuzuSound?.() }
     ];
 
     seItems.forEach(item => {
@@ -4139,7 +4210,7 @@ export const UIManagerMethods = {
         this.executeHonnoujiSuccession(clanId);
         this.audio.playTaiko();
         this.audio.playFanfare();
-        this.music.playTrack(this.getSeasonTrackKey());
+        this.music.playTrack(this.getSeasonTrackKey(), false, { seasonReturn: true });
 
         if (this.autoPlayPausedForEvent || this.isAutoPlay) {
           this.log(`【天下動乱】${chosen.name}が立ち上がり、後継勢力として覇業を開始しました！`, 'important');

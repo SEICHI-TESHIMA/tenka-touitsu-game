@@ -337,59 +337,74 @@ export const MapRendererMethods = {
   getClanHighlightColor(clanId) {
     if (!clanId) return '#ffd700';
 
-    const CLAN_THEME_COLORS = {
-      oda: '#ff4444',        // 織田: 鮮紅
-      toyotomi: '#ffd700',   // 豊臣: 黄金
-      tokugawa: '#2ecc71',   // 徳川: 葵緑
-      takeda: '#e74c3c',     // 武田: 茜紅
-      uesugi: '#3498db',     // 上杉: 毘沙門天の蒼天
-      hojo: '#f39c12',       // 北条: 黄金山吹
-      mori: '#1abc9c',       // 毛利: 厳島翡翠
-      date: '#a569bd',       // 伊達: 雅紫
-      shimazu: '#5dade2',    // 島津: 薩摩碧
-      chosokabe: '#27ae60',  // 長宗我部: 土佐若竹
-      sanada: '#ff3333',     // 真田: 六文銭赤備え
-      imagawa: '#3498db',    // 今川: 駿河碧
-      azai: '#58d68d',       // 浅井: 近江若草
-      rokkaku: '#bb8fce',    // 六角: 近江源氏藤紫
-      kyogoku: '#48c9b0',    // 京極: 水浅葱
-      asakura: '#af7ac5',    // 朝倉: 一乗谷紫
-      miyoshi: '#16a085',    // 三好: 阿波碧海
-      otomo: '#e74c3c',      // 大友: 豊後紅
-      ryuzoji: '#2980b9',    // 龍造寺: 肥前群青
-      amago: '#f39c12',      // 尼子: 出雲月白金
-      saito: '#f1c40f',      // 斎藤: 美濃金
-      satake: '#27ae60',     // 佐竹: 常陸常盤緑
-      nanbu: '#9b59b6',      // 南部: 南部紫
-      ashikaga: '#f1c40f',   // 足利将軍家: 室町黄金
-      minamoto: '#3498db',   // 源氏: 白藍
-      taira: '#e74c3c',      // 平家: 赤旗紅
-      chotei: '#ffd700',     // 朝廷・公家: 平安雅金
-      masakado: '#ff4500',   // 平将門: 新皇の猛火
-      sumitomo: '#00bcd4',   // 藤原純友: 瀬戸内碧青
-      satsuma: '#5dade2',    // 薩摩藩: 薩摩碧
-      choshu: '#1abc9c',     // 長州藩: 萩碧
-      aizu: '#e74c3c',       // 会津藩: 赤誠紅
-      bakufu: '#f1c40f'      // 幕府: 徳川葵金
+    // 個別に指定する輪郭色（現在なし。徳川も 2026-10-11 bg から一般則）
+    const HIGHLIGHT_OVERRIDES = {
     };
+    if (HIGHLIGHT_OVERRIDES[clanId]) return HIGHLIGHT_OVERRIDES[clanId];
 
-    if (CLAN_THEME_COLORS[clanId]) {
-      return CLAN_THEME_COLORS[clanId];
-    }
-
-    // シナリオまたはCLAN_HISTORICAL_PROFILESの色
-    const scen = SCENARIOS.find(s => String(s.id) === String(this.currentScenarioId) || String(s.year) === String(this.currentScenarioId));
-    const playable = scen?.playables?.find(x => x.id === clanId);
-    let c = playable?.color;
-    if (!c) {
+    // 塗りと同じ「今の領国色」から実行時に導出（色の変更に自動で追従。2026-10-11 bd）
+    const base = this.getRegisteredProvinceColor
+      ? this.getRegisteredProvinceColor({ ownerId: clanId })
+      : null;
+    if (!base || base === '#5a4638') {
       const master = (window.CLAN_MASTER_DATA || {})[clanId];
-      if (master && master.color) c = master.color;
+      if (master && master.color) return this.deriveClanHighlightColor(master.color);
+      return '#ffd700';
     }
+    return this.deriveClanHighlightColor(base);
+  },
 
-    if (c) {
-      return this.brightenHexColor(c, 35);
+  // 自国領の輪郭色：大名家の現在の領国色を CIELAB の明度だけ少し上げて求める（2026-10-11 bd）
+  // 色相はそのまま、彩度は保ちつつ表示範囲に収める。塗りとの最低コントラスト比を確保する
+  deriveClanHighlightColor(baseHex, opts = {}) {
+    const lift = opts.lift ?? 16;         // 明度の引き上げ幅（L*）
+    const minContrast = opts.minContrast ?? 1.9; // 塗り色との最低コントラスト比（WCAG 方式）
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(baseHex || '').trim());
+    if (!m) return '#ffd700';
+    const n = parseInt(m[1], 16);
+    const rgb0 = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(v => v / 255);
+    const lin = u => (u <= 0.04045 ? u / 12.92 : Math.pow((u + 0.055) / 1.055, 2.4));
+    const gam = u => (u <= 0.0031308 ? 12.92 * u : 1.055 * Math.pow(u, 1 / 2.4) - 0.055);
+    const lum = c => 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]);
+    const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+    const [R, G, B] = rgb0.map(lin);
+    const X = (0.4124 * R + 0.3576 * G + 0.1805 * B) / 0.95047;
+    const Y = 0.2126 * R + 0.7152 * G + 0.0722 * B;
+    const Z = (0.0193 * R + 0.1192 * G + 0.9505 * B) / 1.08883;
+    const f = t => (t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116);
+    const L0 = 116 * f(Y) - 16, A0 = 500 * (f(X) - f(Y)), B0 = 200 * (f(Y) - f(Z));
+    const C0 = Math.hypot(A0, B0), H0 = Math.atan2(B0, A0);
+    const finv = t => (t * t * t > 0.008856 ? t * t * t : (t - 16 / 116) / 7.787);
+    const toRgb = (L, C) => {
+      const fy = (L + 16) / 116, fx = fy + C * Math.cos(H0) / 500, fz = fy - C * Math.sin(H0) / 200;
+      const x = 0.95047 * finv(fx), y = finv(fy), z = 1.08883 * finv(fz);
+      const r = 3.2406 * x - 1.5372 * y - 0.4986 * z;
+      const g = -0.9689 * x + 1.8758 * y + 0.0415 * z;
+      const b = 0.0557 * x - 0.2040 * y + 1.0570 * z;
+      return [r, g, b].map(gam);
+    };
+    // 表示範囲（sRGB）に入るまで彩度を少しずつ下げる
+    const fit = L => {
+      for (let C = C0; C >= 0; C -= 1) {
+        const c = toRgb(L, C);
+        if (c.every(u => u >= -0.001 && u <= 1.001)) return c.map(u => Math.min(1, Math.max(0, u)));
+      }
+      return toRgb(L, 0).map(u => Math.min(1, Math.max(0, u)));
+    };
+    let best = null;
+    for (let L = L0 + lift; L <= 97; L += 1) {
+      best = fit(L);
+      if (contrast(best, rgb0) >= minContrast) break;
     }
-    return '#ffd700';
+    // 元々かなり明るい色で、明るくしても差が付かない場合は少し暗くする
+    if (!best || contrast(best, rgb0) < minContrast) {
+      for (let L = Math.min(L0 - lift, 90); L >= 5; L -= 1) {
+        best = fit(L);
+        if (contrast(best, rgb0) >= minContrast) break;
+      }
+    }
+    const hx = v => Math.round(v * 255).toString(16).padStart(2, '0');
+    return `#${hx(best[0])}${hx(best[1])}${hx(best[2])}`;
   },
 
   // カラーの明度引き上げヘルパー,

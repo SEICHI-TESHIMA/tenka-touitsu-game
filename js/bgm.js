@@ -45,6 +45,8 @@ class SengokuMusicEngine {
     this.masterVolume = 0.75;
     this.bgmVolume = 0.60;
     this.seVolume = 0.85;
+    // 効果音（SE）の ON/OFF・音量は BGM とは別に localStorage へ保存（既定 ON）
+    this.loadSeSettings();
 
     this.currentTrack = 'op';
     this.stepIndex = 0;
@@ -53,6 +55,8 @@ class SengokuMusicEngine {
 
     // 全24曲：菅野よう子風 和洋折衷フルオーケストラ楽曲ライブラリ
     this.tracks = this.createTracks();
+    // 効果音の入口はすべて効果音スイッチを通す（OFF なら鳴らさない・鳴らす音は効果音音量のバスへ）
+    this.wrapSeMethods();
   }
 
   // ============================================================================
@@ -1257,12 +1261,29 @@ class SengokuMusicEngine {
 
     this.convolver.connect(this.convolverGain);
     this.convolverGain.connect(this.masterGain);
+
+    // 効果音の残響送り：効果音の ON/OFF・音量に連動（2026-10-11 bj）
+    this.seWet = this.ctx.createGain();
+    this.seWet.gain.setValueAtTime(this.isSeMuted ? 0 : this.seVolume, this.ctx.currentTime);
+    this.seWet.connect(this.convolver);
+  }
+
+  // 効果音バス（直接音・残響送り）の音量を設定に合わせる
+  applySeGains() {
+    if (!this.ctx) return;
+    const v = this.isSeMuted ? 0 : this.seVolume;
+    const t = this.ctx.currentTime;
+    [this.seGain, this.seWet].forEach(g => {
+      if (!g) return;
+      try { g.gain.cancelScheduledValues(t); } catch (e) {}
+      g.gain.setValueAtTime(v, t);
+    });
   }
 
   // ============================================================================
   // 再生制御・シーケンサー
   // ============================================================================
-  playTrack(trackKey, force = false) {
+  playTrack(trackKey, force = false, opts = null) {
     if (!this.tracks[trackKey]) {
       if (trackKey === 'ending') trackKey = 'victory';
       else if (trackKey === 'defeat') trackKey = 'tragedy';
@@ -1275,19 +1296,39 @@ class SengokuMusicEngine {
 
     if (!force && this.currentTrack === trackKey && this.timerId) return;
 
+    // 効果音 OFF・BGM ON：自動の曲替え（季節替わり・画面の stinger・画面を閉じた後の戻り）で新しい音の立ち上がりを出さない（2026-10-11 bx）
+    let softStart = false;
+    if (!force && opts && (opts.seasonRestart || opts.stinger || opts.seasonReturn)
+        && this.autoAdvanceQuiet() && !this.isBgmMuted && this.timerId && this.currentTrack && this.tracks[this.currentTrack]) { // オート進行中のみ（2026-10-11 cb）
+      if (opts.stinger) return;                                                   // 画面の曲替えはしない（今の曲を続ける）
+      if (SengokuMusicEngine.HOME_TRACKS.includes(this.currentTrack)) return;     // 季節曲・大名曲はそのまま流し続ける
+      softStart = true;                                                           // 場面曲からは静かにクロスフェード
+    }
+
     this.currentTrack = trackKey;
     this.stepIndex = 0;
+    this._softStartSteps = softStart ? SengokuMusicEngine.SOFT_START_STEPS : 0;
+    // 季節替わりで曲を頭から始めるときだけ、最初の拍の打楽器を鳴らさない（2026-10-11 bq）
+    this._skipFirstPercussion = !!(opts && opts.seasonRestart);
+    // 画面に合わせた曲替え（イベント・当主逝去・包囲網）は、効果音 OFF なら曲頭の打楽器を鳴らさない（2026-10-11 br）
+    if (opts && opts.stinger && this.isSeMuted) this._skipFirstPercussion = true;
     if (this.timerId) {
       clearInterval(this.timerId);
       this.timerId = null;
     }
-
+    // 先読みで予約済みの前の曲を短くフェードアウトし、新しい曲用のバスを用意
     const track = this.tracks[trackKey];
+    const softSec = softStart ? Math.max(0.5, SengokuMusicEngine.SOFT_START_STEPS * (track.tempoMs || 250) / 1000) : 0;
+    this.retireTrackBus(softStart ? softSec : 0.12);
+    this.createTrackBus(softSec);
+
     this.stepMs = track.tempoMs;
-    this.playStep();
+    // 先読みスケジューラ：拍は AudioContext の時刻で数え、少し先までまとめて予約する（画面処理で止まらない）
+    this.nextStepTime = this.ctx.currentTime + 0.03;
+    this.scheduleAhead();
     this.timerId = setInterval(() => {
-      this.playStep();
-    }, this.stepMs);
+      this.scheduleAhead();
+    }, SengokuMusicEngine.SCHEDULER_TICK_MS);
 
     // バッジ等のUI更新通知
     const badge = document.getElementById('bgmTitleBadge');
@@ -1301,6 +1342,72 @@ class SengokuMusicEngine {
       clearInterval(this.timerId);
       this.timerId = null;
     }
+    // 先読みで予約済みの音も止める
+    this.retireTrackBus();
+  }
+
+  // ---- BGM 先読みスケジューラ（2026-10-11 aq） ----
+  // 今から LOOKAHEAD 秒先までの拍を予約する。メインスレッドが一時的に塞がっても、予約済みの音は鳴り続ける。
+  scheduleAhead() {
+    if (!this.ctx) return;
+    const now = this.ctx.currentTime;
+    const stepSec = Math.max(0.05, (this.stepMs || 250) / 1000);
+    if (!(this.nextStepTime > 0)) this.nextStepTime = now + 0.03;
+    // 先読みを超えて止まっていた（タブが裏に回った等）ときは、溜まった拍をまとめて鳴らさず今から再開
+    if (this.nextStepTime < now - 0.1) {
+      const missed = Math.floor((now - this.nextStepTime) / stepSec);
+      this.stepIndex += Math.max(0, missed);
+      this.nextStepTime = now + 0.03;
+    }
+    let guard = 0;
+    while (this.nextStepTime < now + SengokuMusicEngine.LOOKAHEAD_SEC && guard++ < 64) {
+      this.playStep(this.nextStepTime);
+      this.nextStepTime += stepSec;
+    }
+  }
+
+  // 曲ごとの出力バス（BGM バスの手前）。曲替え・停止で先読み分をまとめて消せるようにする
+  createTrackBus(fadeInSec = 0) {
+    if (!this.ctx || !this.bgmGain) { this.trackBus = null; this.trackWet = null; return; }
+    const t0 = this.ctx.currentTime;
+    const setLevel = (g) => {
+      if (fadeInSec > 0) { g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(1, t0 + fadeInSec); } // 静かなクロスフェード（2026-10-11 bx）
+      else g.gain.setValueAtTime(1, t0);
+    };
+    this.trackBus = this.ctx.createGain();
+    setLevel(this.trackBus);
+    this.trackBus.connect(this.bgmGain);
+    this.trackWet = null;
+    if (this.convolver) {
+      this.trackWet = this.ctx.createGain();
+      setLevel(this.trackWet);
+      this.trackWet.connect(this.convolver);
+    }
+  }
+
+  retireTrackBus(fadeSec = 0.12) {
+    const buses = [this.trackBus, this.trackWet].filter(Boolean);
+    this.trackBus = null;
+    this.trackWet = null;
+    if (!buses.length || !this.ctx) return;
+    const t = this.ctx.currentTime;
+    buses.forEach(b => {
+      try {
+        b.gain.cancelScheduledValues(t);
+        b.gain.setValueAtTime(b.gain.value, t);
+        b.gain.linearRampToValueAtTime(0, t + fadeSec);
+      } catch (e) {}
+    });
+    setTimeout(() => { buses.forEach(b => { try { b.disconnect(); } catch (e) {} }); }, Math.round(fadeSec * 1000) + 300);
+  }
+
+  // 残響の送り先：BGM の音は曲ごとのバス経由（曲替えで一緒に消える）、効果音は今までどおり直接
+  reverbSend() {
+    if (this.dropUntaggedVoice()) return this.silentSink();
+    if (!(this._seDepth > 0) && this.trackWet) return this.trackWet;
+    // 効果音の残響は効果音の残響送り経由（OFF・音量 0 で残響も消える）
+    if (this._seDepth > 0 && this.seWet) return this.seWet;
+    return this.convolver;
   }
 
   // 茶会・雪・滅亡・密談だけ静かに。それ以外は出だしから前進し、後半で総奏に開く。
@@ -1372,15 +1479,24 @@ class SengokuMusicEngine {
   }
 
   // 1ステップ（1拍/半拍）ごとの多声部・管弦合奏処理
-  playStep() {
+  playStep(when) {
     if (!this.ctx || this.isBgmMuted) return;
     const track = this.tracks[this.currentTrack];
     if (!track) return;
+    // この中で鳴る音は BGM として扱う（効果音 OFF の低層ガードの目印。2026-10-11 bx）
+    this._bgmDepth = (this._bgmDepth || 0) + 1;
+    try { this.playStepBody(when, track); } finally { this._bgmDepth -= 1; }
+  }
 
-    const t = this.ctx.currentTime;
+  playStepBody(when, track) {
+
+    // 先読みスケジューラから予約時刻が渡される（無ければ今）
+    const t = (typeof when === 'number' && when > 0) ? when : this.ctx.currentTime;
     const stepDur = (this.stepMs || track.tempoMs) / 1000;
     const { phrase, texture, dyn, epic, quiet } = this.scoreMoment(track);
     const beat = this.stepIndex % 4;
+    // 静かなクロスフェードの最初の2小節は打楽器・ティンパニなし（2026-10-11 bx）
+    const softNow = this._softStartSteps > 0 && this.stepIndex < this._softStartSteps;
     const chord = (track.chords && track.chords.length)
       ? track.chords[Math.floor(this.stepIndex / 4) % track.chords.length]
       : null;
@@ -1457,7 +1573,7 @@ class SengokuMusicEngine {
       const bassNote = track.bass[Math.floor(this.stepIndex / 4) % track.bass.length];
       if (bassNote > 0) {
         this.playContrabass(bassNote, t, stepDur * 3.7, (texture === 2 ? 0.18 : 0.13) * dyn);
-        if (phrase === 1 && epic && this.stepIndex % 8 === 0) {
+        if (phrase === 1 && epic && this.stepIndex % 8 === 0 && !softNow) {
           const timp = Math.max(52, Math.min(bassNote, 110));
           this.playPitchedTimpani(timp, t, 0.08 * dyn);
         }
@@ -1465,7 +1581,12 @@ class SengokuMusicEngine {
     }
 
     // 6. 打楽器 — 合戦は小節頭だけ、内政は二小節に一度。拍の隙間を残す
-    if (!quiet && beat === 0 && (epic || this.stepIndex % 8 === 0)) {
+    // 季節替わりの再開直後の最初の拍は打楽器なし（次の拍・小節から通常どおり。2026-10-11 bq）
+    const skipPerc = (!!this._skipFirstPercussion && this.stepIndex === 0) || softNow;
+    if (this._skipFirstPercussion && this.stepIndex > 0) this._skipFirstPercussion = false;
+    if (skipPerc) {
+      // 打楽器なし
+    } else if (!quiet && beat === 0 && (epic || this.stepIndex % 8 === 0)) {
       this.playWadaiko(58, t, (epic ? 0.12 : 0.055) * dyn, 0);
       if (epic && phrase === 1 && this.stepIndex % 32 === 0) this.playCymbal(t, 0.05 * dyn, 0.28);
     } else if (quiet && track.drums && track.drums.length > 0) {
@@ -1925,7 +2046,7 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
     osc.connect(filter);
     filter.connect(gain);
-    gain.connect(this.bgmGain);
+    gain.connect(this.outputBus());
     osc.start(time);
     osc.stop(time + dur + 0.02);
   }
@@ -1952,8 +2073,8 @@ class SengokuMusicEngine {
       gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
       osc.connect(filter);
       filter.connect(gain);
-      gain.connect(this.bgmGain);
-      if (this.convolver) gain.connect(this.convolver);
+      gain.connect(this.outputBus());
+      if (this.convolver) gain.connect(this.reverbSend());
       osc.start(time);
       osc.stop(time + dur + 0.02);
     });
@@ -1992,8 +2113,8 @@ class SengokuMusicEngine {
     osc1.connect(filter);
     subGain.connect(filter);
     filter.connect(gain);
-    gain.connect(this.bgmGain);
-    if (this.convolver) gain.connect(this.convolver);
+    gain.connect(this.outputBus());
+    if (this.convolver) gain.connect(this.reverbSend());
 
     osc1.start(time);
     osc2.start(time);
@@ -2012,7 +2133,7 @@ class SengokuMusicEngine {
     gain.gain.setValueAtTime(vol, time);
     gain.gain.exponentialRampToValueAtTime(0.001, time + 0.5);
     osc.connect(gain);
-    gain.connect(this.bgmGain);
+    gain.connect(this.outputBus());
     osc.start(time);
     osc.stop(time + 0.55);
   }
@@ -2032,7 +2153,7 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + 0.45);
 
     osc.connect(gain);
-    gain.connect(this.bgmGain);
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + 0.5);
@@ -2053,7 +2174,7 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
 
     osc.connect(gain);
-    gain.connect(this.bgmGain);
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + 0.16);
@@ -2074,8 +2195,8 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
 
     osc.connect(gain);
-    if (this.convolver) gain.connect(this.convolver);
-    gain.connect(this.bgmGain);
+    if (this.convolver) gain.connect(this.reverbSend());
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + 0.25);
@@ -2096,8 +2217,8 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
 
     osc.connect(gain);
-    if (this.convolver) gain.connect(this.convolver);
-    gain.connect(this.bgmGain);
+    if (this.convolver) gain.connect(this.reverbSend());
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + dur + 0.05);
@@ -2125,8 +2246,8 @@ class SengokuMusicEngine {
 
       noise.connect(filter);
       filter.connect(gain);
-      gain.connect(this.bgmGain);
-      if (this.convolver) gain.connect(this.convolver);
+      gain.connect(this.outputBus());
+      if (this.convolver) gain.connect(this.reverbSend());
       noise.start(t);
     } catch(e) {}
   }
@@ -2146,8 +2267,8 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + 2.0);
 
     osc.connect(gain);
-    if (this.convolver) gain.connect(this.convolver);
-    gain.connect(this.bgmGain);
+    if (this.convolver) gain.connect(this.reverbSend());
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + 2.1);
@@ -2174,7 +2295,7 @@ class SengokuMusicEngine {
 
     osc.connect(filter);
     filter.connect(gain);
-    gain.connect(this.bgmGain);
+    gain.connect(this.outputBus());
 
     osc.start(t);
     osc.stop(t + 0.13);
@@ -2192,8 +2313,8 @@ class SengokuMusicEngine {
       gain.gain.setValueAtTime(vol * 0.4, t + idx * 0.03);
       gain.gain.exponentialRampToValueAtTime(0.001, t + idx * 0.03 + 0.25);
       osc.connect(gain);
-      gain.connect(this.bgmGain);
-      if (this.convolver) gain.connect(this.convolver);
+      gain.connect(this.outputBus());
+      if (this.convolver) gain.connect(this.reverbSend());
       osc.start(t + idx * 0.03);
       osc.stop(t + idx * 0.03 + 0.28);
     });
@@ -2204,14 +2325,14 @@ class SengokuMusicEngine {
     if (pannerNode && this.ctx.createStereoPanner) {
       pannerNode.pan.setValueAtTime(Math.max(-1, Math.min(1, panValue)), this.ctx.currentTime);
       gainNode.connect(pannerNode);
-      pannerNode.connect(this.bgmGain);
+      pannerNode.connect(this.outputBus());
       if (sendReverb && this.convolver) {
-        pannerNode.connect(this.convolver);
+        pannerNode.connect(this.reverbSend());
       }
     } else {
-      gainNode.connect(this.bgmGain);
+      gainNode.connect(this.outputBus());
       if (sendReverb && this.convolver) {
-        gainNode.connect(this.convolver);
+        gainNode.connect(this.reverbSend());
       }
     }
   }
@@ -2253,7 +2374,7 @@ class SengokuMusicEngine {
     osc2.connect(filter);
     filter.connect(gain);
     gain.connect(this.seGain);
-    if (this.convolver) gain.connect(this.convolver);
+    if (this.convolver) gain.connect(this.reverbSend());
 
     osc1.start(t);
     osc2.start(t);
@@ -2304,7 +2425,7 @@ class SengokuMusicEngine {
       gain.gain.exponentialRampToValueAtTime(0.001, t + i * 0.08 + 0.6);
       osc.connect(gain);
       gain.connect(this.seGain);
-      if (this.convolver) gain.connect(this.convolver);
+      if (this.convolver) gain.connect(this.reverbSend());
       osc.start(t + i * 0.08);
       osc.stop(t + i * 0.08 + 0.65);
     });
@@ -2317,12 +2438,10 @@ class SengokuMusicEngine {
     this.init();
     if (this.isSeMuted || !this.ctx) return;
     this.playFanfare();
-    setTimeout(() => {
-      if (!this.isSeMuted && this.ctx) {
-        this.playHoragai(1.1);
-        this.playDora(this.ctx.currentTime, 0.4);
-      }
-    }, 450);
+    setTimeout(() => this.asSe(() => {
+      this.playHoragai(1.1);
+      this.playDora(this.ctx.currentTime, 0.4);
+    }), 450);
   }
 
   // 7. 刀撃・抜刀・白刃の火花
@@ -2421,8 +2540,8 @@ class SengokuMusicEngine {
     if (this.isSeMuted || !this.ctx) return;
     const t = this.ctx.currentTime;
     this.playWadaiko(65, t, 0.4);
-    setTimeout(() => this.playWadaiko(70, null, 0.4), 100);
-    setTimeout(() => this.playWadaiko(60, null, 0.45), 200);
+    setTimeout(() => this.asSe(() => this.playWadaiko(70, null, 0.4)), 100);
+    setTimeout(() => this.asSe(() => this.playWadaiko(60, null, 0.45)), 200);
   }
 
   // 11. 小判チャリン (内政・金銭獲得)
@@ -2439,7 +2558,7 @@ class SengokuMusicEngine {
       gain.gain.exponentialRampToValueAtTime(0.001, t + i * 0.04 + 0.18);
       osc.connect(gain);
       gain.connect(this.seGain);
-      if (this.convolver) gain.connect(this.convolver);
+      if (this.convolver) gain.connect(this.reverbSend());
       osc.start(t + i * 0.04);
       osc.stop(t + i * 0.04 + 0.20);
     });
@@ -2469,9 +2588,9 @@ class SengokuMusicEngine {
     if (this.isSeMuted || !this.ctx) return;
     this.playHoragai(1.0);
     const t = this.ctx.currentTime;
-    setTimeout(() => { if (!this.isSeMuted && this.ctx) this.playTaikoHit(this.ctx.currentTime, 0.4); }, 140);
-    setTimeout(() => { if (!this.isSeMuted && this.ctx) this.playTaikoHit(this.ctx.currentTime, 0.45); }, 360);
-    setTimeout(() => { if (!this.isSeMuted && this.ctx) this.playTaikoHit(this.ctx.currentTime, 0.5); }, 580);
+    setTimeout(() => { this.asSe(() => this.playTaikoHit(this.ctx.currentTime, 0.4)); }, 140);
+    setTimeout(() => { this.asSe(() => this.playTaikoHit(this.ctx.currentTime, 0.45)); }, 360);
+    setTimeout(() => { this.asSe(() => this.playTaikoHit(this.ctx.currentTime, 0.5)); }, 580);
     setTimeout(() => { if (!this.isSeMuted && this.ctx) this.playFanfare(); }, 800);
   }
 
@@ -2527,7 +2646,7 @@ class SengokuMusicEngine {
       gain.gain.exponentialRampToValueAtTime(0.001, t + 0.6);
       osc.connect(gain);
       gain.connect(this.seGain);
-      if (this.convolver) gain.connect(this.convolver);
+      if (this.convolver) gain.connect(this.reverbSend());
       osc.start(t);
       osc.stop(t + 0.65);
     });
@@ -2549,7 +2668,7 @@ class SengokuMusicEngine {
     gain.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
     osc.connect(gain);
     gain.connect(this.seGain);
-    if (this.convolver) gain.connect(this.convolver);
+    if (this.convolver) gain.connect(this.reverbSend());
     osc.start(t);
     osc.stop(t + 0.38);
   }
@@ -2564,6 +2683,111 @@ class SengokuMusicEngine {
     this.init();
     if (this.isSeMuted || !this.ctx) return;
     this.playCymbal(this.ctx.currentTime, 0.35);
+  }
+
+  // 神楽鈴（効果音として単発で鳴らす。BGM の鈴は playSuzu を直接使う）
+  playSuzuSound(vol = 1.0) {
+    this.init();
+    if (this.isSeMuted || !this.ctx) return;
+    this.playSuzu(null, 0.18 * vol, 0.3);
+  }
+
+  // ============================================================================
+  // 効果音スイッチ（ON/OFF・音量・保存）
+  // ============================================================================
+  // 効果音の入口メソッド。ここに挙げたものは効果音 OFF のとき何も鳴らさない
+  static get SE_METHODS() {
+    return ['playHoragai', 'playHyoshigi', 'playTsuzumiSound', 'playTaiko', 'playWadaikoSound', 'playFanfare',
+      'playGrandFanfare', 'playSword', 'playGachaGacha', 'playTeppo', 'playArrow', 'playCavalry', 'playCoin',
+      'playSlash', 'playKachi', 'playDefeat', 'playRankUp', 'playLevelUp', 'playDecision', 'playCancel',
+      'playEventNotice', 'playTea', 'playDoraSound', 'playCymbalSound', 'playSuzuSound', 'playSe'];
+  }
+
+  wrapSeMethods() {
+    SengokuMusicEngine.SE_METHODS.forEach(name => {
+      const orig = SengokuMusicEngine.prototype[name];
+      if (typeof orig !== 'function') return;
+      this[name] = (...args) => this.asSe(() => orig.apply(this, args));
+    });
+  }
+
+  // 効果音として鳴らす（OFF なら何もしない。中で鳴る楽器音も効果音バスへ）
+  asSe(fn) {
+    if (this.isSeMuted) return undefined;
+    this._seDepth = (this._seDepth || 0) + 1;
+    try {
+      return fn();
+    } finally {
+      this._seDepth -= 1;
+    }
+  }
+
+  // 楽器音の出力先：効果音の最中は効果音バス、それ以外は BGM バス
+  outputBus() {
+    if (this.dropUntaggedVoice()) return this.silentSink();
+    if (this._seDepth > 0 && this.seGain) return this.seGain;
+    return this.trackBus || this.bgmGain;
+  }
+
+  // 季節オート進行中か（app.js が isAutoAdvanceActive を渡す。2026-10-11 bz）
+  autoAdvanceQuiet() {
+    try { return typeof this.isAutoAdvanceActive === 'function' && !!this.isAutoAdvanceActive(); } catch (e) { return false; }
+  }
+
+  // 低層ガード：効果音 OFF のとき、BGM の拍の中でも効果音の中でもない音は無音の出口へ（2026-10-11 bx）
+  dropUntaggedVoice() {
+    if (!this.isSeMuted) return false;
+    if (this._seDepth > 0) return true;           // 効果音（OFF なら asSe で既に止まるが念のため）
+    return !(this._bgmDepth > 0);                 // BGM の拍の外で鳴ろうとした音
+  }
+
+  silentSink() {
+    if (!this._silentSink && this.ctx) {
+      this._silentSink = this.ctx.createGain();
+      this._silentSink.gain.setValueAtTime(0, this.ctx.currentTime); // どこにもつながない
+    }
+    return this._silentSink;
+  }
+
+  loadSeSettings() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const muted = localStorage.getItem('sengoku_se_muted');
+      if (muted !== null) this.isSeMuted = (muted === '1');
+      const vol = parseFloat(localStorage.getItem('sengoku_se_volume'));
+      if (!isNaN(vol)) this.seVolume = Math.max(0, Math.min(1, vol));
+    } catch (e) { /* 保存領域が使えないときは既定値（ON） */ }
+  }
+
+  saveSeSettings() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      localStorage.setItem('sengoku_se_muted', this.isSeMuted ? '1' : '0');
+      localStorage.setItem('sengoku_se_volume', String(this.seVolume));
+    } catch (e) { /* 保存できなくても再生は続ける */ }
+  }
+
+  isSeEnabled() {
+    return !this.isSeMuted;
+  }
+
+  setSeEnabled(enabled) {
+    this.isSeMuted = !enabled;
+    this.applySeGains();
+    this.saveSeSettings();
+    return !this.isSeMuted;
+  }
+
+  toggleSe() {
+    return this.setSeEnabled(this.isSeMuted);
+  }
+
+  // 効果音の中央の入口：OFF なら何もしない（2026-10-11 bj）
+  playSfx(name, ...args) {
+    if (this.isSeMuted) return undefined;
+    const fn = this[name];
+    if (typeof fn !== 'function') return undefined;
+    return this.asSe(() => fn.apply(this, args));
   }
 
   // 汎用SEディスパッチ
@@ -2609,10 +2833,8 @@ class SengokuMusicEngine {
   setSeVolume(val) {
     this.init();
     this.seVolume = Math.max(0, Math.min(1, val));
-    if (this.seGain) {
-      const target = this.isSeMuted ? 0 : this.seVolume;
-      this.seGain.gain.setValueAtTime(target, this.ctx.currentTime);
-    }
+    this.applySeGains();
+    this.saveSeSettings();
   }
 
   toggleMute() {
@@ -2675,6 +2897,12 @@ class SengokuMusicEngine {
     return keys[prevIdx];
   }
 }
+// BGM 先読みスケジューラの設定（2026-10-11 aq）
+SengokuMusicEngine.LOOKAHEAD_SEC = 1.5;
+// 効果音 OFF のとき季節替わり・画面の曲替えで鳴らし続ける「いつもの曲」と、静かなクロスフェードの長さ（2小節 = 8拍。2026-10-11 bx）
+SengokuMusicEngine.HOME_TRACKS = ['spring', 'summer', 'autumn', 'winter', 'oda', 'takeda', 'uesugi', 'date', 'mori_choso', 'shimazu', 'hojo'];
+SengokuMusicEngine.SOFT_START_STEPS = 8;
+SengokuMusicEngine.SCHEDULER_TICK_MS = 50;
 
 // 未定義メソッド呼び出し時の安全フォールバック（例外クラッシュ完全防止Proxy）
 const _rawSengokuMusic = new SengokuMusicEngine();

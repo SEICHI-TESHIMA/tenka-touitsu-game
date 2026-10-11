@@ -77,8 +77,8 @@ export const ComputerLogicMethods = {
       prov.governance = 'direct';
       const koku = Number(prov.kokudaka) || 50000;
       prov.troops = Math.max(prov.troops || 0, Math.round((koku / 1000) * 10 + 1200));
-      prov.rice = Math.max(prov.rice || 0, Math.round(koku / 1000 * 1.5 + 40));
-      prov.commerce = Math.max(prov.commerce || 0, Math.round(koku / 2000 * 1.5 + 30));
+      prov.rice = Math.min(this.getProvinceRiceCap(prov), Math.max(prov.rice || 0, Math.round(koku / 1000 * 1.5 + 40))); // 上限（2026-10-11 bh）
+      prov.commerce = Math.min(this.getProvinceCommerceCap(prov), Math.max(prov.commerce || 0, Math.round((this.getProvinceBaseCommerce ? this.getProvinceBaseCommerce(prov) : koku / 2000) * 1.5 + 30))); // 国ごとの商業係数（2026-10-11 cd）・上限（2026-10-11 bl）
       prov.defense = Math.max(prov.defense || 0, 50);
       prov.morale = 85;
       prov.order = 85;
@@ -350,6 +350,64 @@ export const ComputerLogicMethods = {
    * オート進行時の大名・軍師自動政務
    * オート進行中、プレイヤーのAPが残っている場合に大名と軍師が本拠・直轄地を自動統治
    */
+  /** オート統治：境の国の脅威（隣接する敵の最大兵力）と不足（2026-10-11 cj） */
+  autoBorderNeeds() {
+    const B = this.aiBalance();
+    const me = this.playerClanId;
+    const mine = (this.provinces || []).filter(p => p.ownerId === me);
+    const hostileOf = (p) => (p.neighbors || []).map(id => this.aiProvById(id))
+      .filter(n => n && n.ownerId && n.ownerId !== me && n.ownerId !== 'null' && !this.isAllied(me, n.ownerId) && !(this.isTruceBlocked?.(n.ownerId, me)));
+    return mine.map(p => {
+      const foes = hostileOf(p);
+      const threat = foes.length ? Math.max(...foes.map(n => Number(n.troops) || 0)) : 0;
+      const target = Math.round(threat * B.autoBorderThreatRatio);
+      return { p, border: foes.length > 0, threat, target, deficit: Math.max(0, target - (Number(p.troops) || 0)) };
+    });
+  },
+
+  /** オート統治：内地と余裕のある境から、手薄な境へ兵を回す。移した兵数を返す（兵は増えない。2026-10-11 cj） */
+  autoReinforceBorders() {
+    const B = this.aiBalance();
+    const me = this.playerClanId;
+    const needs = this.autoBorderNeeds();
+    const byId = new Map(needs.map(x => [x.p.id, x]));
+    const short = needs.filter(x => x.deficit > 0).sort((a, b) => b.deficit - a.deficit);
+    if (!short.length) return { moved: 0, to: [] };
+    const capId = this.aiCapitalOf ? this.aiCapitalOf(me)?.id : null;
+    // 自領伝いの距離
+    const distFrom = (srcId) => {
+      const d = new Map([[srcId, 0]]); const q = [srcId];
+      while (q.length) { const id = q.shift(); const p = this.aiProvById(id);
+        (p?.neighbors || []).forEach(n => { if (d.has(n)) return; const np = this.aiProvById(n); if (!np || np.ownerId !== me) return; d.set(n, d.get(id) + 1); q.push(n); }); }
+      return d;
+    };
+    const spare = (x) => {
+      const t = Number(x.p.troops) || 0;
+      if (!x.border) {
+        const keepRatio = x.p.id === capId ? Math.max(0.5, B.autoInteriorKeepRatio) : B.autoInteriorKeepRatio;
+        return Math.max(0, Math.floor((t - Math.max(B.autoInteriorKeep, t * keepRatio)) * B.autoBorderMoveShare));
+      }
+      return Math.max(0, Math.floor((t - Math.max(B.autoInteriorKeep, x.target * 1.5)) * 0.5));
+    };
+    const donors = needs.filter(x => spare(x) >= 200).map(x => ({ x, left: spare(x), dist: distFrom(x.p.id) }));
+    let moved = 0; const to = [];
+    for (const s of short) {
+      let need = s.deficit;
+      const cands = donors.filter(d => d.left >= 200 && d.x.p.id !== s.p.id && d.dist.has(s.p.id) && (!d.x.border || d.dist.get(s.p.id) === 1))
+        .sort((a, b) => (a.dist.get(s.p.id) - b.dist.get(s.p.id)) || (b.left - a.left));
+      let got = 0;
+      for (const d of cands) {
+        if (need < 100) break;
+        const n = Math.min(d.left, need);
+        d.left -= n; need -= n; got += n;
+        d.x.p.troops = (Number(d.x.p.troops) || 0) - n;
+        s.p.troops = (Number(s.p.troops) || 0) + n;
+      }
+      if (got > 0) { moved += got; to.push(`${s.p.name}+${got.toLocaleString()}`); s.deficit = Math.max(0, s.deficit - got); }
+    }
+    return { moved, to };
+  },
+
   executeAutoDaimyoGovernance() {
     if (this.ap <= 0) return;
     const myProvs = (this.provinces || []).filter(p => p.ownerId === this.playerClanId);
@@ -358,7 +416,29 @@ export const ComputerLogicMethods = {
     const capitalId = (window.CLAN_CAPITAL_PROVINCES && window.CLAN_CAPITAL_PROVINCES[this.playerClanId]) || myProvs[0].id;
     const capital = this.provinces.find(p => p.id === capitalId) || myProvs[0];
 
+    // 0. 手薄な境の国へ、内地と余裕のある境から兵を回す（行動力1。2026-10-11 cj）
+    try {
+      const r = this.autoReinforceBorders();
+      if (r.moved > 0) {
+        this.ap -= 1;
+        this.log(`🛡【オート政務・国境後詰め】隣国の兵力に備え、内地から境へ兵${r.moved.toLocaleString()}人を回しました（${r.to.slice(0, 4).join('・')}${r.to.length > 4 ? ' ほか' : ''}）。`);
+      }
+    } catch (e) { console.warn('[オート政務・国境後詰め]', e); }
+
     while (this.ap > 0) {
+      // 0b. 最も手薄な境の国で募兵（本拠より先。2026-10-11 cj）
+      {
+        const weak = this.autoBorderNeeds().filter(x => x.border && x.deficit > 0).sort((a, b) => b.deficit - a.deficit)[0];
+        if (weak && this.gold >= 50 && this.rice >= 50) {
+          this.ap -= 1;
+          this.gold -= 50;
+          this.rice -= 50;
+          const recruitCount = Math.round(350 + Math.random() * 200);
+          weak.p.troops = (Number(weak.p.troops) || 0) + recruitCount;
+          this.log(`🚩【オート政務・境の徴募】隣国の兵に備え、${weak.p.name}にて兵員${recruitCount}人を徴募しました。`);
+          continue;
+        }
+      }
       // 1. 治安危機領国（治安65以下）があれば治安向上を最優先
       const endangeredOrder = myProvs.find(p => (Number(p.order) || 80) <= 65 && this.gold >= 30);
       if (endangeredOrder) {
@@ -382,13 +462,15 @@ export const ComputerLogicMethods = {
       }
 
       // 3. 資金に余裕があれば本拠地を開墾・商業開発
-      if (this.gold >= 60) {
+      if (this.gold >= 60 && ((Number(capital.rice) || 0) < this.getProvinceRiceCap(capital) || (Number(capital.commerce) || 0) < this.getProvinceCommerceCap(capital))) {
         this.ap -= 1;
         this.gold -= 40;
-        capital.rice = (Number(capital.rice) || 50) + 2;
-        capital.commerce = (Number(capital.commerce) || 50) + 2;
+        const capRiceBefore = Number(capital.rice) || 0;
+        capital.rice = Math.min(this.getProvinceRiceCap(capital), (Number(capital.rice) || 50) + 2);
+        capital.commerce = Math.min(this.getProvinceCommerceCap(capital), (Number(capital.commerce) || 50) + 2); // 上限（2026-10-11 bl）
         capital.defense = Math.min(100, (Number(capital.defense) || 50) + 2);
-        this.log(`🌾【オート政務・本拠開発】本拠・${capital.name}にて開墾・治水と城壁修築を実施しました。(石高+2, 城防+2)`);
+        const capRiceGain = capital.rice - capRiceBefore; // 実際の増分で記録（2026-10-11 bk）
+        this.log(`🌾【オート政務・本拠開発】本拠・${capital.name}にて開墾・治水と城壁修築を実施しました。(${capRiceGain > 0 ? `石高+${capRiceGain}` : '石高は上限'}, 城防+2)`);
         continue;
       }
 
@@ -398,6 +480,11 @@ export const ComputerLogicMethods = {
 
   runAutoStep() {
     if (!this.isAutoPlay) return;
+    // 前の期の処理中は次の期を始めず、終わるのを待つ
+    if (this._seasonProcessing) {
+      this.scheduleNextAutoSeason();
+      return;
+    }
 
     try {
       if (this.inBattle) {
@@ -454,6 +541,8 @@ export const ComputerLogicMethods = {
   // ============================================================================,
 
   executeAiDiplomacy() {
+    // 共通の強敵への対抗同盟・劣勢時の和睦/臣従・強国の同盟破棄（毎季。史実同盟は従来どおり春のみ）
+    try { this.executeAiDynamicDiplomacy(); } catch (e) { console.warn('[AI外交]', e); }
     if (this.seasonIdx !== 0) return;
     const alive = new Set((this.provinces || []).map(p => p.ownerId).filter(Boolean));
     const bonds = HISTORICAL_ALLIANCE_BONDS.filter(bond =>
@@ -521,22 +610,29 @@ export const ComputerLogicMethods = {
     const aiClanIds = allClanIds.filter(id => id !== this.playerClanId);
     if (aiClanIds.length === 0) return;
 
-    // 1季あたりの最大工作件数（過度な頻発を防ぐ: 最大2件、プレイヤー向けは最大1件）
+    // 1季あたりの最大工作件数（勢力数に応じて増やす。プレイヤー向けは最大1件、包囲網結成中は2件）
+    const B = this.aiBalance();
     let stratagemCount = 0;
-    const maxStratagemsPerSeason = 2;
+    const maxStratagemsPerSeason = Math.max(B.plotCapBase, Math.min(B.plotCapMax, B.plotCapBase + Math.floor(aiClanIds.length / B.plotCapPerClans)));
+    const maxVsPlayer = this.coalitionFormed ? 2 : 1;
     let targetPlayerCount = 0;
+    let playerHome = null;
+    try { playerHome = this.playerClanId ? this.getPlayerHomeProvince() : null; } catch (e) { playerHome = null; }
 
-    // 各大名の知謀スコアでソート（知将・策士タイプを優先）
+    // 各大名の知謀スコアでソート（知将・策士タイプを優先。同点は季ごとに決まる揺らぎ → ID の安定した比較）
     const sortedClans = aiClanIds.map(clanId => {
       const power = this.getClanStratagemPower ? this.getClanStratagemPower(clanId) : 55;
       const ab = getClanAbility(clanId);
-      return { clanId, power, ability: ab };
-    }).filter(c => c.power >= 60) // 知謀60以上の勢力のみ工作を検討
-      .sort((a, b) => b.power - a.power || (Math.random() - 0.5));
+      return { clanId, power, ability: ab, jitter: this.aiJitter('plot:' + clanId, 1) };
+    }).filter(c => c.power >= B.plotMinPower) // 知謀が一定以上の勢力が工作を検討
+      .sort((a, b) => (b.power - a.power) || (a.jitter - b.jitter) || String(a.clanId).localeCompare(String(b.clanId)));
 
-    for (const { clanId, power } of sortedClans) {
+    for (const { clanId, power, ability } of sortedClans) {
       if (stratagemCount >= maxStratagemsPerSeason) break;
       if (!this.clanHasLivingLord(clanId)) continue;
+      // 工作資金（金）が無ければ見送る
+      const econ = this.aiEcon(clanId);
+      if (econ && econ.gold < B.plotGoldCost) continue;
 
       // 発令確率の判定（知謀が高いほど高確率、最大35%程度）
       const baseProb = Math.max(0.05, (power - 55) * 0.008);
@@ -548,7 +644,7 @@ export const ComputerLogicMethods = {
       const myProvs = this.provinces.filter(p => p.ownerId === clanId);
       const frontierProvs = myProvs.filter(p => {
         return (p.neighbors || []).some(nId => {
-          const n = this.provinces.find(x => x.id === nId);
+          const n = this.aiProvById(nId);
           return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
         });
       });
@@ -558,37 +654,43 @@ export const ComputerLogicMethods = {
       const potentialTargets = [];
       frontierProvs.forEach(src => {
         (src.neighbors || []).forEach(nId => {
-          const tgt = this.provinces.find(x => x.id === nId);
-          if (tgt && tgt.ownerId && tgt.ownerId !== clanId && !this.isAllied(clanId, tgt.ownerId)) {
+          const tgt = this.aiProvById(nId);
+          if (tgt && tgt.ownerId && tgt.ownerId !== clanId && !this.isAllied(clanId, tgt.ownerId) && !this.isTruceBlocked?.(clanId, tgt.ownerId)) {
             potentialTargets.push({ src, target: tgt });
           }
         });
       });
       if (potentialTargets.length === 0) continue;
 
-      // ターゲット評価:
-      // 1) プレイヤー城で直轄地（城主不在＝防諜手薄！）は格好の標的
-      // 2) 治安が乱れている城
-      // 3) 次の侵攻目標候補
-      potentialTargets.sort((a, b) => {
-        const aTgt = a.target;
-        const bTgt = b.target;
-        const aIsPlayer = aTgt.ownerId === this.playerClanId ? 1 : 0;
-        const bIsPlayer = bTgt.ownerId === this.playerClanId ? 1 : 0;
-        const aEff = this.getEffectiveStats(aTgt.id);
-        const bEff = this.getEffectiveStats(bTgt.id);
-        const aDirect = aEff.isDirectRule ? 1 : 0;
-        const bDirect = bEff.isDirectRule ? 1 : 0;
-        const aScore = aIsPlayer * 20 + aDirect * 25 + (100 - (aTgt.order || 80)) * 0.5;
-        const bScore = bIsPlayer * 20 + bDirect * 25 + (100 - (bTgt.order || 80)) * 0.5;
-        return bScore - aScore + (Math.random() * 10 - 5);
-      });
+      // 次の侵攻目標（侵攻計画と同じ評価で選ぶ）
+      const tunePlot = AI_PERSONALITY_TUNING[ability.personality] || AI_PERSONALITY_TUNING.balanced;
+      let plan = null;
+      try { plan = this.findBestInvasionPlan(clanId, tunePlot, ability); } catch (e) { plan = null; }
+      const planTargetId = plan && plan.target ? plan.target.id : null;
 
-      const chosen = potentialTargets[0];
+      // ターゲット評価（一度だけ点数を付けてから安定ソート）:
+      // 1) 次の侵攻目標は最優先（城防を削り、守兵を減らしておく）
+      // 2) プレイヤー城で直轄地（城主不在＝防諜手薄）、本拠や大きな国（流言の的）
+      // 3) 治安が乱れている城
+      const scored = potentialTargets.map(c => {
+        const t = c.target;
+        const isPl = t.ownerId === this.playerClanId;
+        const eff = this.getEffectiveStats(t.id);
+        let s = (isPl ? 20 : 0) + (eff.isDirectRule ? 25 : 0) + (100 - (t.order || 80)) * 0.5;
+        if (t.id === planTargetId) s += 40;
+        if (isPl) {
+          if (playerHome && t.id === playerHome.id) s += 15;
+          s += Math.min(20, (Number(t.rice) || 0) / 20);
+        }
+        return { src: c.src, target: t, score: s + this.aiJitter('plotT:' + clanId + ':' + t.id, 10) };
+      }).sort((a, b) => (b.score - a.score) || String(a.target.id).localeCompare(String(b.target.id)) || String(a.src.id).localeCompare(String(b.src.id)));
+
+      const chosen = scored[0];
       const targetProv = chosen.target;
       const isTargetPlayer = targetProv.ownerId === this.playerClanId;
+      const isPlanTarget = targetProv.id === planTargetId;
 
-      if (isTargetPlayer && targetPlayerCount >= 1) continue;
+      if (isTargetPlayer && targetPlayerCount >= maxVsPlayer) continue;
 
       const attackerName = this.getClanFamilyName(clanId);
       const targetName = targetProv.name;
@@ -605,6 +707,7 @@ export const ComputerLogicMethods = {
 
       stratagemCount++;
       if (isTargetPlayer) targetPlayerCount++;
+      if (econ) econ.gold -= B.plotGoldCost; // 工作資金
 
       // 工作の種別（知謀に応じて決定）
       // 1: 放火・城割（defense低下）
@@ -612,7 +715,13 @@ export const ComputerLogicMethods = {
       // 3: 内応・調略（troops引き抜き脱走：知謀75以上限定）
       const typeRoll = Math.random();
       let stratType = 'fire';
-      if (power >= 75 && typeRoll < 0.35) {
+      if (isPlanTarget) {
+        // 次に攻める城：放火・城割で城防を削る（知将は内応で守兵も減らす）
+        stratType = (power >= 75 && typeRoll < 0.35) ? 'treason' : 'fire';
+      } else if (isTargetPlayer) {
+        // プレイヤーの本拠・大国：流言で士気と治安を揺さぶる
+        stratType = (power >= 75 && typeRoll < 0.2) ? 'treason' : (typeRoll < 0.8 ? 'rumor' : 'fire');
+      } else if (power >= 75 && typeRoll < 0.35) {
         stratType = 'treason';
       } else if (typeRoll < 0.65) {
         stratType = 'rumor';
@@ -623,7 +732,7 @@ export const ComputerLogicMethods = {
       if (counterSuccess) {
         // ===== 防諜成功（撃退） =====
         if (isTargetPlayer) {
-          try { this.audio.playSword?.(); } catch(e) {}
+          // 撃退した敵謀略は通知（トースト・効果音）を出さず、年代記にだけ静かに記録する
           const govLabel = targetEff.isDirectRule
             ? `我が城代守備隊`
             : `我が城主・${targetEff.name}`;
@@ -636,11 +745,10 @@ export const ComputerLogicMethods = {
             extraReward = ` さらに潜入した敵忍びを捕縛し、工作資金【金${seizedGold}貫】を押収しました！`;
           }
 
-          this.log(`🛡️【防諜成功】${govLabel}の鋭い警戒網により、${attackerName}が${targetName}に放った忍び衆を捕捉・撃退！工作を未然に防ぎました！(防諜知謀:${targetStrat} vs 敵知謀:${power})${extraReward}`, 'important');
-          this.showOrderResult('🛡️ 防諜成功！忍びを撃退', `${targetName}にて ${attackerName}の謀略工作を阻止しました！`, '#2ecc71');
+          this.log(`🛡️【防諜成功】${govLabel}の鋭い警戒網により、${attackerName}が${targetName}に放った忍び衆を捕捉・撃退！工作を未然に防ぎました！(防諜知謀:${targetStrat} vs 敵知謀:${power})${extraReward}`, 'quiet');
         } else {
           // AI同士
-          this.log(`🛡️【防諜】${this.getClanFamilyName(targetProv.ownerId)}は${targetName}にて${attackerName}の忍びを警戒網で撃退しました。`);
+          this.log(`🛡️【防諜】${this.getClanFamilyName(targetProv.ownerId)}は${targetName}にて${attackerName}の忍びを警戒網で撃退しました。`, 'quiet');
         }
       } else {
         // ===== 工作成功（被災） =====
@@ -653,7 +761,7 @@ export const ComputerLogicMethods = {
             this.log(`🔥【敵国謀略・放火城割】${attackerName}の放った忍び衆が${targetName}の城下に潜入放火！堀と城壁が破壊されました！(城防 -${defDmg} / 防諜知謀:${targetStrat} vs 敵知謀:${power})`, 'battle');
             this.showOrderResult('🔥 敵の謀略！城郭破壊', `${targetName}にて ${attackerName}の放火工作！城防 -${defDmg}`, '#e74c3c');
           } else {
-            this.log(`🔥【群雄謀略】${attackerName}が${targetName}に忍びを放ち放火！城防を削ぎました。`);
+            this.log(`🔥【群雄謀略】${attackerName}が${targetName}に忍びを放ち放火！城防を削ぎました。`, 'quiet');
           }
         } else if (stratType === 'rumor') {
           // 流言・扇動
@@ -666,7 +774,7 @@ export const ComputerLogicMethods = {
             this.log(`🗣️【敵国謀略・流言扇動】${attackerName}が放った密偵の流言飛語により、${targetName}の領民と将兵が動揺！(士気 -${morDmg}, 治安 -${ordDmg} / 防諜知謀:${targetStrat} vs 敵知謀:${power})`, 'battle');
             this.showOrderResult('🗣️ 敵の謀略！流言飛語', `${targetName}にて人心動揺！士気 -${morDmg} ｜ 治安 -${ordDmg}`, '#e67e22');
           } else {
-            this.log(`🗣️【群雄謀略】${attackerName}が${targetName}に流言を放ち、将兵と領民を動揺させました。`);
+            this.log(`🗣️【群雄謀略】${attackerName}が${targetName}に流言を放ち、将兵と領民を動揺させました。`, 'quiet');
           }
         } else {
           // 内応・調略（兵員離反）
@@ -678,7 +786,7 @@ export const ComputerLogicMethods = {
             this.log(`🤝【敵国謀略・兵員内応】${attackerName}の調略により、${targetName}の守備隊から${betray.toLocaleString()}人が寝返り・脱走しました！(守備兵 -${betray}人, 士気 -12)`, 'battle');
             this.showOrderResult('🤝 敵の調略！兵員離反', `${targetName}にて将兵が調略され ${betray.toLocaleString()}人が脱走！`, '#9b59b6');
           } else {
-            this.log(`🤝【群雄謀略】${attackerName}が${targetName}の武士団を調略し、守備隊の一部を離反させました。`);
+            this.log(`🤝【群雄謀略】${attackerName}が${targetName}の武士団を調略し、守備隊の一部を離反させました。`, 'quiet');
           }
         }
       }
@@ -697,57 +805,745 @@ export const ComputerLogicMethods = {
     return base > 0 ? cur / base : 1;
   },
 
+  // ============================================================================
+  // 家督相続時の離反独立（2026-10-11 am）
+  // 当主が死去・不在となり一門（同族）が継がなかったとき、他で大名として登録されている家臣が
+  // ゆかりの地で独立する（1回の相続につき最大5家）。
+  // ============================================================================,
+
+  /** 全シナリオの大名（playables の officerId）と clans.json の歴代当主名から「大名として登録された武将」を引く表 */
+  breakawayDaimyoIndex() {
+    if (this._breakawayIndex) return this._breakawayIndex;
+    const byOfficerId = new Map(); // officerId -> [clanId...]
+    const byName = new Map();      // 当主名 -> [clanId...]
+    const push = (map, k, v) => { if (!k || !v) return; const a = map.get(k) || []; if (!a.includes(v)) a.push(v); map.set(k, a); };
+    (window.SCENARIOS_DATA || (typeof SCENARIOS !== 'undefined' ? SCENARIOS : []) || []).forEach(s => {
+      (s.playables || []).forEach(pl => push(byOfficerId, pl.officerId, pl.id));
+    });
+    Object.entries(window.CLAN_MASTER_DATA || {}).forEach(([cid, c]) => {
+      Object.values((c && c.leaders) || {}).forEach(n => push(byName, String(n || ''), cid));
+      if (c && c.leader) push(byName, String(c.leader), cid);
+    });
+    this._breakawayIndex = { byOfficerId, byName };
+    return this._breakawayIndex;
+  },
+
+  officerMasterRecord(off) {
+    if (!off) return null;
+    return (window.OFFICERS_MASTER || []).find(o => o.id === off.id) || null;
+  },
+
+  /** 新当主が大名として登録された別の家（シナリオの大名・歴代当主）。見た目を借りられないときは理由付きで返す（2026-10-11 bp） */
+  heirRegisteredClanFor(heir, clanId) {
+    if (!heir || !clanId) return null;
+    const idx = this.breakawayDaimyoIndex();
+    const found = [];
+    for (const cid of (idx.byOfficerId.get(heir.id) || [])) found.push(cid);
+    for (const [name, cids] of idx.byName) {
+      if (this.leaderNamesMatch(heir.name, name)) cids.forEach(c => found.push(c));
+    }
+    const clans = window.CLAN_MASTER_DATA || {};
+    const uniq = [...new Set(found)].filter(c => c && c !== 'ronin' && c !== 'null' && clans[c]);
+    if (!uniq.length) return null;
+    if (uniq.includes(clanId)) return { clanId, self: true };      // 新当主の登録家が継いだ家そのもの
+    const lineage = (window.EVENT_CLAN_LINEAGE || (typeof EVENT_CLAN_LINEAGE !== 'undefined' ? EVENT_CLAN_LINEAGE : [])).find(g => g.includes(clanId)) || [];
+    const borrowedBy = (cid) => Object.entries(this.clanLookOverrides || {}).find(([k, v]) => k !== clanId && v && v.fromClanId === cid)?.[0] || null;
+    let skip = null;
+    for (const cid of uniq) {
+      if (lineage.includes(cid)) { skip = skip || { clanId: cid, skip: 'lineage' }; continue; }
+      if ((this.provinces || []).some(p => p.ownerId === cid)) { skip = skip || { clanId: cid, skip: 'exists' }; continue; }
+      if (borrowedBy(cid)) { skip = skip || { clanId: cid, skip: 'borrowed' }; continue; }
+      return { clanId: cid };
+    }
+    return skip;
+  },
+
+  /** 一門以外の新当主が他家の大名として登録されていれば、継いだ家の家紋・領国色をその家のものにする（2026-10-11 bp） */
+  applyHeirClanLook(clanId, newHead) {
+    if (!clanId || !newHead || clanId === 'ronin' || clanId === 'null') return null;
+    const reg = this.heirRegisteredClanFor(newHead, clanId);
+    if (!reg) return null;
+    this.clanLookOverrides = this.clanLookOverrides || {};
+    if (reg.self) {
+      if (this.clanLookOverrides[clanId]) {
+        delete this.clanLookOverrides[clanId];
+        this.log(`🎌【家紋・旗色】${this.getClanFamilyName(clanId)}は新当主・${newHead.name}のもとで本来の家紋と旗色に戻しました。`);
+      }
+      return null;
+    }
+    if (reg.skip) return reg;
+    const kamon = this.getClanKamonId(reg.clanId, true);
+    const color = this.getRegisteredProvinceColor({ ownerId: reg.clanId }, true);
+    // 登録家の家紋が実際に描けるときだけ切り替える（無ければ未登録扱いで今の見た目のまま。2026-10-11 bt）
+    if (!kamon || kamon === 'kamon-default' || (this.kamonSymbolDefined && !this.kamonSymbolDefined(kamon)) || !color || color === '#5a4638') return null;
+    this.clanLookOverrides[clanId] = { kamon, color, fromClanId: reg.clanId, heirId: newHead.id, heirName: newHead.name, year: this.year, seasonIdx: this.seasonIdx };
+    const fromName = (window.CLAN_MASTER_DATA || {})[reg.clanId]?.family || this.getClanDisplayName?.(reg.clanId) || reg.clanId;
+    const msg = `🎌【家紋・旗色】${this.getClanFamilyName(clanId)}は新当主・${newHead.name}に倣い、家紋と旗色を${fromName}（${newHead.name}の家）のものに改めました。`;
+    if (clanId === this.playerClanId) this.log(msg, 'important'); else this.log(msg);
+    return this.clanLookOverrides[clanId];
+  },
+
+  /** 家臣が独立するときの家 ID（無ければ null）と、その根拠 */
+  breakawayClanFor(off, dyingClanId) {
+    const idx = this.breakawayDaimyoIndex();
+    const master = this.officerMasterRecord(off) || {};
+    const clans = window.CLAN_MASTER_DATA || {};
+    const lineage = (window.EVENT_CLAN_LINEAGE || (typeof EVENT_CLAN_LINEAGE !== 'undefined' ? EVENT_CLAN_LINEAGE : [])).find(g => g.includes(dyingClanId)) || [];
+    const dyingStem = this.familyStemOf ? this.familyStemOf(this.getClanFamilyName(dyingClanId)) : '';
+    const ok = (cid) => {
+      if (!cid || cid === dyingClanId || cid === 'ronin' || cid === 'null' || cid === this.playerClanId) return false;
+      if (!clans[cid]) return false;                 // 色・家紋の無い ID は作らない
+      if (lineage.includes(cid)) return false;       // 同じ家系（表記揺れ・家督継承）の別 ID
+      if (dyingStem && this.familyStemOf && this.familyStemOf(this.getClanFamilyName(cid)) === dyingStem) return false;
+      if ((this.provinces || []).some(p => p.ownerId === cid)) return false; // 現存する家には合流させない
+      if (Object.values(this.clanLookOverrides || {}).some(v => v && v.fromClanId === cid)) return false; // 見た目を他家が借りている（2026-10-11 bp）
+      return true;
+    };
+    // 1) どこかのシナリオでその家の大名（playables の officerId）
+    for (const cid of (idx.byOfficerId.get(off.id) || [])) if (ok(cid)) return { clanId: cid, why: 'シナリオの大名' };
+    // 2) clans.json の歴代当主
+    for (const [name, cids] of idx.byName) {
+      if (!this.leaderNamesMatch(off.name, name)) continue;
+      for (const cid of cids) if (ok(cid)) return { clanId: cid, why: '歴代当主' };
+    }
+    // 3) 武将データ上の自家 ID が今の家と違い、その家の苗字を名乗る一族
+    const own = master.clanId;
+    if (own && own !== dyingClanId && ok(own)) {
+      const ownStem = this.familyStemOf ? this.familyStemOf(this.getClanFamilyName(own)) : '';
+      const sur = this.extractPersonSurname ? this.extractPersonSurname(off.name) : '';
+      if (ownStem && sur && this.surnameGroup(sur).includes(ownStem)) return { clanId: own, why: '自家の当主筋' };
+    }
+    return null;
+  },
+
+  /** ゆかりの地：その家の本拠（シナリオ→時代別→史実→clans.json の候補）→ 出身国（homeProvince）→ 既定の所在 → 今の所在 */
+  breakawayHomeProvince(off, clanId) {
+    const scenCap = this.currentScenario?.capitals?.[clanId];
+    if (scenCap) return { provId: scenCap, why: 'シナリオの本拠' };
+    const era = this.eraCapitalCandidates ? this.eraCapitalCandidates(clanId)[0] : null;
+    if (era) return { provId: era, why: '時代別の本拠' };
+    const baseCap = (window.CLAN_CAPITAL_PROVINCES_BASE || {})[clanId] || (window.CLAN_CAPITAL_PROVINCES || {})[clanId];
+    if (baseCap) return { provId: baseCap, why: '史実の本拠' };
+    const pref = (window.CLAN_MASTER_DATA || {})[clanId]?.capital_pref;
+    if (Array.isArray(pref) && pref[0]) return { provId: pref[0], why: '家の本拠候補' };
+    const master = this.officerMasterRecord(off) || {};
+    if (master.homeProvince || off.homeProvince) return { provId: master.homeProvince || off.homeProvince, why: '出身国' };
+    if (master.defaultProv) return { provId: master.defaultProv, why: '既定の所在' };
+    return { provId: this.officerBaseProvinceId(off), why: '今の所在' };
+  },
+
   /**
-   * 敵AI思考改善: 前線危機の検知と「後詰め（防衛救援）」システム
-   * プレイヤーや強敵に隣接する前線城が劣勢な場合、後方城から救援兵力を前線へ急行させる
+   * 一門が継がなかった相続の後、他で大名として登録されている家臣がゆかりの地で独立する。
+   * 対象：その家の家臣（新当主・一門・元服前・没年超えは除く）。選ぶ順：忠誠の低い順 → 能力合計の高い順。上限なし（2026-10-11 bm：10家の上限を撤廃）。
+   * ゆかりの地が死去した家の領国で、本拠ではなく、同じ相続で他の家臣がまだ取っていない場合のみ。
+   * dryRun なら変更せず候補の一覧だけ返す。
    */
+  applySuccessionBreakaways(clanId, newHead, deceasedName, dryRun = false) {
+    if (!clanId) return [];
+    // 一門以外の新当主が他家の大名なら、家紋・領国色をその家のものに（2026-10-11 bp）
+    if (!dryRun) { try { this.applyHeirClanLook(clanId, newHead); } catch (e) {} }
+    // 1回の相続での独立の上限は無し（2026-10-11 bm）
+    const pool = (this.activeOfficers || []).filter(o => o && o.clanId === clanId && !o.isDead && !o.isDaimyo
+      && (!newHead || o.id !== newHead.id) && this.officerCanInherit(o)
+      && !this.isIchimonOfficer(o, clanId, deceasedName));
+    const stat = o => (Number(o.military) || 0) + (Number(o.politic ?? o.politics) || 0) + (Number(o.intel ?? o.intelligence) || 0);
+    const loy = o => Number.isFinite(Number(o.loyalty)) ? Number(o.loyalty) : 70;
+    pool.sort((a, b) => (loy(a) - loy(b)) || (stat(b) - stat(a)) || String(a.id).localeCompare(String(b.id)));
+    const taken = new Set(), usedClans = new Set(), plan = [];
+    for (const off of pool) {
+      const bc = this.breakawayClanFor(off, clanId);
+      if (!bc || usedClans.has(bc.clanId)) continue;
+      const home = this.breakawayHomeProvince(off, bc.clanId);
+      const prov = (this.provinces || []).find(p => p.id === home.provId);
+      if (!prov || prov.ownerId !== clanId || taken.has(prov.id)) continue;
+      if (this.isCapitalProvince(prov.id, clanId)) continue;
+      taken.add(prov.id); usedClans.add(bc.clanId);
+      plan.push({ off, clanId: bc.clanId, why: bc.why, prov, provWhy: home.why });
+    }
+    if (dryRun || !plan.length) return plan;
+
+    // 随従者：独立した当主の一門・独立した家の本来の家臣（親家の新当主・親家の一門は除く。近い縁を優先。2026-10-11 bw）
+    const followersOf = new Map(plan.map(x => [x.clanId, []]));
+    const leaderIds = new Set(plan.map(x => x.off.id));
+    (this.activeOfficers || []).forEach(o => {
+      if (!o || o.clanId !== clanId || o.isDead || o.isDaimyo || leaderIds.has(o.id)) return;
+      if (newHead && o.id === newHead.id) return;
+      if (this.isIchimonOfficer(o, clanId, deceasedName)) return;
+      if (newHead && newHead.name && this.isIchimonOfficer(o, clanId, newHead.name)) return;
+      const ownClan = (this.officerMasterRecord(o) || {}).clanId;
+      let best = null;
+      plan.forEach((x, i) => {
+        const rank = this.isIchimonOfficer(o, x.clanId, x.off.name) ? 0 : (ownClan && ownClan === x.clanId ? 1 : -1);
+        if (rank < 0) return;
+        if (!best || rank < best.rank) best = { rank, clanId: x.clanId };
+      });
+      if (best) followersOf.get(best.clanId).push(o);
+    });
+
+    const isPlayer = clanId === this.playerClanId;
+    // 相続前の家名（先代の苗字）で書く。家名は新当主の苗字に変わっていることがある
+    const deadSur = deceasedName && this.extractPersonSurname ? this.extractPersonSurname(deceasedName) : '';
+    const oldName = deadSur ? `${deadSur}家` : this.getClanFamilyName(clanId);
+    const headLabel = newHead && newHead.name ? `（${newHead.name}）` : '';
+    const borders = (prov) => (prov.neighbors || []).some(id => (this.provinces.find(p => p.id === id) || {}).ownerId === this.playerClanId);
+    const rows = [];
+    // 初期資金：分裂前の親家の金庫 ÷ 分裂前の国数（下限 金300・兵糧600）を親家から移す（2026-10-11 bv）
+    const TB = this.aiBalance ? this.aiBalance() : {};
+    const useTreasury = TB.breakawayTreasury !== false;
+    const parentEcon = isPlayer ? null : (this.aiEcon ? this.aiEcon(clanId) : null);
+    const parentFunds = (k) => Math.max(0, Number(isPlayer ? this[k] : parentEcon?.[k]) || 0);
+    const parentProvCount = Math.max(1, (this.provinces || []).filter(p => p.ownerId === clanId).length);
+    const shareOf = {
+      gold: Math.max(Number(TB.breakawayGoldFloor ?? 300) || 0, Math.floor(parentFunds('gold') / parentProvCount)),
+      rice: Math.max(Number(TB.breakawayRiceFloor ?? 600) || 0, Math.floor(parentFunds('rice') / parentProvCount))
+    };
+    // 兵の移籍：分裂前の本家の総兵力 × 割合 ÷ 独立した家の数を、本家に残る国から比例して集める（2026-10-11 ca）
+    const planProvIds = new Set(plan.map(x => x.prov.id));
+    const parentTroopsBefore = (this.provinces || []).filter(p => p.ownerId === clanId).reduce((s, p) => s + (Number(p.troops) || 0), 0);
+    const troopShare = Math.max(0, Number(TB.breakawayTroopShare ?? 0.10) || 0);
+    const minGarrison = Math.max(0, Number(TB.breakawayMinGarrison ?? 300) || 0);
+    const troopsPerBreakaway = plan.length ? Math.floor(parentTroopsBefore * troopShare / plan.length) : 0;
+    const takeTroopsFromParent = (want) => {
+      if (!(want > 0)) return 0;
+      const src = (this.provinces || []).filter(p => p.ownerId === clanId && !planProvIds.has(p.id));
+      const spare = src.map(p => Math.max(0, Math.floor((Number(p.troops) || 0) - minGarrison)));
+      const total = spare.reduce((s, v) => s + v, 0);
+      if (total <= 0) return 0;
+      const goal = Math.min(want, total);
+      let taken = 0;
+      src.forEach((p, i) => {
+        const v = Math.min(spare[i], Math.floor(goal * spare[i] / total));
+        p.troops = (Number(p.troops) || 0) - v; taken += v;
+      });
+      // 端数は余裕の大きい国から
+      for (let i = 0; taken < goal && i < src.length; i++) {
+        const j = spare.indexOf(Math.max(...spare)); if (j < 0) break;
+        const room = Math.max(0, Math.floor((Number(src[j].troops) || 0) - minGarrison));
+        const v = Math.min(room, goal - taken); src[j].troops -= v; taken += v; spare[j] = -1;
+      }
+      return taken;
+    };
+    const takeFromParent = (k) => {
+      const v = Math.max(0, Math.min(shareOf[k], Math.floor(parentFunds(k))));
+      if (isPlayer) this[k] = (Number(this[k]) || 0) - v;
+      else if (parentEcon) parentEcon[k] = (Number(parentEcon[k]) || 0) - v;
+      return v;
+    };
+    plan.forEach(({ off, clanId: newClan, prov }) => {
+      this.handleProvinceLoss(prov, clanId);
+      prov.ownerId = newClan;
+      prov.justConquered = false;
+      off.clanId = newClan;
+      off.isDaimyo = true;
+      off.isStandby = false;
+      off.assignedProvId = prov.id;
+      off.defaultProv = prov.id;
+      prov.governorId = off.id;
+      prov.jodaiId = off.id;
+      if (window.CLAN_CAPITAL_PROVINCES) window.CLAN_CAPITAL_PROVINCES[newClan] = prov.id;
+      this.lastDaimyoNames = this.lastDaimyoNames || {};
+      this.lastDaimyoNames[newClan] = off.name;
+      if (this.foundingLeaderNames && !this.foundingLeaderNames[newClan]) this.foundingLeaderNames[newClan] = off.name;
+      if (this.aiEconomy) delete this.aiEconomy[newClan];
+      let fund = null;
+      if (useTreasury && this.aiEcon) {
+        const base0 = TB.breakawayKeepProvinceStart !== false ? (this.aiEcon(newClan) || { gold: 0, rice: 0 }) : { gold: 0, rice: 0 }; // 従来の初期資金（その国から）
+        const g = takeFromParent('gold'), r = takeFromParent('rice');
+        fund = { gold: Math.round(Number(base0.gold) || 0) + g, rice: Math.round(Number(base0.rice) || 0) + r, paidGold: g, paidRice: r };
+        this.aiEconomy[newClan] = { gold: fund.gold, rice: fund.rice };
+      }
+      const movedTroops = takeTroopsFromParent(troopsPerBreakaway);
+      if (movedTroops > 0) prov.troops = (Number(prov.troops) || 0) + movedTroops;
+      const followers = followersOf.get(newClan) || [];
+      followers.forEach(f => {
+        (this.provinces || []).forEach(p => {
+          if (p.id === prov.id) return;
+          if (p.governorId === f.id) p.governorId = null;
+          if (p.jodaiId === f.id) p.jodaiId = null;
+        });
+        f.clanId = newClan;
+        f.isStandby = false;
+        f.assignedProvId = prov.id;
+        f.defaultProv = prov.id;
+      });
+      const newName = this.getClanFamilyName(newClan);
+      const fundText = fund && (fund.paidGold || fund.paidRice) ? `、軍資金${fund.paidGold.toLocaleString()}・兵糧${fund.paidRice.toLocaleString()}を持ち出し` : '';
+      const msg = `⚡【家中分裂・独立】${oldName}の家督が一門以外${headLabel}に移ったのを機に、${off.name}が${prov.name}（兵${(Number(prov.troops) || 0).toLocaleString()}${fundText}）を率いて${newName}として独立しました。${movedTroops > 0 ? `本家より兵${movedTroops.toLocaleString()}が移りました。` : ''}`;
+      // 通知はトーストではなく、相続1回につき確認ダイアログ1枚にまとめる（2026-10-11 bc）
+      const truceN = this.addBreakawayTruce ? this.addBreakawayTruce(clanId, newClan) : 0; // 停戦（2026-10-11 cf）
+      const fmsg0 = followers.length ? `${msg}随従：${followers.map(f => f.name).join('・')}（${followers.length}名）。` : msg;
+      const fmsg = truceN > 0 ? `${fmsg0}本家は${truceN}季のあいだ${newName}を攻められません（停戦）。` : fmsg0;
+      if (isPlayer || borders(prov)) this.log(fmsg, 'important');
+      else this.log(fmsg);
+      rows.push({ name: off.name, clanName: newName, provName: prov.name, troops: Number(prov.troops) || 0, movedTroops, gold: fund ? fund.gold : null, rice: fund ? fund.rice : null, followers: followers.map(f => f.name), truce: truceN });
+    });
+    try { this.resyncOfficerPlacements(); } catch (e) {}
+    try { this.ensureClanCapitalsMatchMap(); } catch (e) {}
+    this.queueSuccessionBreakawayDialog?.({ isPlayer, oldName, newHeadName: newHead?.name || '', rows });
+    return plan;
+  },
+
+  /**
+   * 家中分裂・独立の確認ダイアログ（1回の相続につき1枚。2026-10-11 bc）
+   * 浪人の願い出と同じ待ち行列（enqueueRoninRequest）に入れ、他のポップアップと重ねない。
+   * オート進行中は既存の慣例どおり tryAutoAcknowledgeDialogs が次の一手で自動的に閉じる。
+   */
+  queueSuccessionBreakawayDialog(info) {
+    if (!info || !Array.isArray(info.rows) || !info.rows.length) return;
+    this.breakawayDialogsQueued = (this.breakawayDialogsQueued || 0) + 1;
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const show = async () => {
+      if (!window.Swal) return;
+      try { this.audio.playHyoshigi?.(); } catch (e) {}
+      const hasFunds = info.rows.some(r => r.gold != null); // 初期資金の列（2026-10-11 bv）
+      const rows = info.rows.map(r => `
+        <tr>
+          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; color:var(--gold-bright); font-weight:bold;">${esc(r.name)}</td>
+          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.clanName)}</td>
+          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.provName)}</td>
+          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right;">${esc((Number(r.troops) || 0).toLocaleString())}${r.movedTroops > 0 ? `<span style="font-size:10pt; color:#bbb;">（本家より+${esc(Number(r.movedTroops).toLocaleString())}）</span>` : ''}</td>
+          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; font-size:10.5pt;">${(r.followers && r.followers.length) ? `${r.followers.length}名<span style="color:#bbb;">（${esc(r.followers.slice(0, 3).join('・'))}${r.followers.length > 3 ? ` 他${r.followers.length - 3}名` : ''}）</span>` : '—'}</td>
+          ${hasFunds ? `<td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right; white-space:nowrap;">${r.gold == null ? '—' : `金${esc(Math.round(Number(r.gold) || 0).toLocaleString())}・糧${esc(Math.round(Number(r.rice) || 0).toLocaleString())}`}</td>` : ''}
+        </tr>`).join('');
+      const who = info.isPlayer ? '我が家' : esc(info.oldName);
+      const head = info.newHeadName ? `（新当主：${esc(info.newHeadName)}）` : '';
+      await Swal.fire({
+        title: info.isPlayer ? '⚡ 家中分裂・独立 ⚡' : `⚡ ${esc(info.oldName)}で家中分裂 ⚡`,
+        html: `
+          <div style="text-align:left; font-size:12pt; color:#f5eedc; font-family:'Noto Serif JP',serif; line-height:1.6;">
+            <p style="margin:0 0 10px 0;">${who}の家督が一門以外${head}に移ったのを機に、次の家臣が所領を率いて独立しました。</p>
+            <div style="max-height:52vh; overflow-y:auto; border:1px solid #3d2f25; border-radius:3px;">
+            <table style="width:100%; border-collapse:collapse; font-size:11.5pt;">
+              <thead style="position:sticky; top:0; background:#1e140d; z-index:1;"><tr style="color:#d4b483; border-bottom:1px solid #5a4638;">
+                <th style="padding:4px 8px; text-align:left;">新大名</th><th style="padding:4px 8px; text-align:left;">家名</th>
+                <th style="padding:4px 8px; text-align:left;">領国</th><th style="padding:4px 8px; text-align:right;">兵力</th><th style="padding:4px 8px; text-align:left;">随従</th>${hasFunds ? '<th style="padding:4px 8px; text-align:right;">資金</th>' : ''}
+              </tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+            </div>
+            <p style="margin:10px 0 0 0; font-size:10.5pt; color:#bbb;">独立 ${info.rows.length} 家${(info.rows[0] && info.rows[0].truce > 0) ? `　🕊 停戦：本家は ${esc(info.rows[0].truce)} 季のあいだ独立した家を攻められません` : ''}</p>
+          </div>`,
+        confirmButtonText: '承知した',
+        confirmButtonColor: '#8e44ad',
+        background: '#1c130d',
+        color: '#f5eedc',
+        width: 820
+      });
+    };
+    if (typeof this.enqueueRoninRequest === 'function') this.enqueueRoninRequest(show);
+    else void show();
+  },
+
+
+  // ============================================================================
+  // AI改善（2026-10-11 ag）: 経済・防衛・侵攻先評価・外交・謀略の共通ヘルパー
+  // ============================================================================,
+
+  /** AI 調整値（window.AI_BALANCE で上書き可） */
+  aiBalance() {
+    const d = {
+      recruitGoldPerTroop: 0.10, recruitRicePerTroop: 0.10, // 徴兵費（兵1人あたり。プレイヤーのオート徴募とほぼ同じ）
+      domesticGoldPerProv: 3,       // 内政型の城防・治安維持費（1国1季）
+      devGoldCost: 40, devGain: 3, devReserveBase: 400, devReservePerProv: 60, // 余剰資金での開発（石高・商業+3、基準の1.5倍まで）
+      plotGoldCost: 40,             // 謀略1件の費用（プレイヤーと同じ）
+      attackRiceRate: 0.10, attackRiceMin: 50, // 出陣時の兵糧（プレイヤーと同じ計算）
+      startFundsMult: 3,            // 開始資金（シナリオ指定が無い勢力）= 商業・石高合計 × 倍率
+      battleCapBase: 2, battleCapPerClans: 12, battleCapMin: 3, battleCapMax: 6, // 1季の合戦上限 = 基数 + 勢力数/割数
+      plotCapBase: 2, plotCapPerClans: 10, plotCapMax: 5, plotMinPower: 55,      // 1季の謀略上限
+      defenseMaxMovesPerClan: 4, defenseMoveMax: 900, // 後詰め：1勢力1季の移動回数・1回の上限
+      counterAllianceChance: 0.15, counterAllianceChanceVsPlayer: 0.25, counterAllianceSeasons: 8, maxCounterAlliances: 3, // 対抗同盟：1季1件・同時に最大3件
+      truceChance: 0.15, truceSeasons: 4, vassalChance: 0.20, vassalSeasons: 16, maxPeacePacts: 3, // 和睦・臣従：同時に最大3件
+      breakChance: 0.06, breakChanceAggressive: 0.10,
+      autoBorderThreatRatio: 1.5, autoInteriorKeep: 800, autoInteriorKeepRatio: 0.2, autoBorderMoveShare: 0.9, // オート統治：境の目標兵力＝隣の敵の最大兵力×割合、内地の残し方（2026-10-11 cj）
+      coalitionThresholdProvs: 15, coalitionGraceSeasons: 4, coalitionGrowthProvs: 3, // 反覇道包囲網：開始時から大きい家は猶予と実際の拡大が要る（2026-10-11 ck）
+      troopUpkeepGoldPerTroop: 0.01, // 兵の維持費（毎季・兵1人あたりの金。プレイヤー・AI 共通。0.02 ではオート統治の大家の金が尽きたため 0.01。2026-10-11 ci）
+      surplusReserveBase: 800, surplusReservePerProv: 150, surplusSpendShare: 0.5, // AI：予備費を超えた金の一部を開発・城普請・徴兵へ（2026-10-11 ci）
+      breakawayTruceSeasons: 2, // 家中分裂：本家は独立した家をこの季数攻められない（2026-10-11 cf）
+      breakawayTroopShare: 0.10, breakawayMinGarrison: 300, // 家中分裂：本家の総兵力の1割を独立した家で等分し、本家の残る国から比例して移す（2026-10-11 ca）
+      breakawayTreasury: true, breakawayGoldFloor: 300, breakawayRiceFloor: 600, breakawayKeepProvinceStart: true // 家中分裂で独立した家の初期資金：親家の金庫 ÷ 分裂前の国数（下限あり・親家から移す）。KeepProvinceStart=true なら従来の初期資金に上乗せ（2026-10-11 bv）
+    };
+    const o = (typeof window !== 'undefined' && window.AI_BALANCE) || {};
+    return Object.assign(d, o);
+  },
+
+  aiProvById(id) {
+    if (!this._aiProvIndex || this._aiProvIndex.list !== this.provinces) {
+      this._aiProvIndex = { list: this.provinces, map: new Map((this.provinces || []).map(p => [p.id, p])) };
+    }
+    return this._aiProvIndex.map.get(id);
+  },
+
+  aiBaseKoku(prov) {
+    const init = (window.PROVINCES_DATA || []).find(item => item.id === prov.id);
+    return Number(init?.kokudaka) || 50000;
+  },
+
+  /** AI 勢力の金・兵糧（無ければ初期化） */
+  aiEcon(clanId) {
+    if (!clanId || clanId === this.playerClanId || clanId === 'null' || clanId === 'undefined' || clanId === 'ronin') return null;
+    if (!this.aiEconomy) this.aiEconomy = {};
+    let e = this.aiEconomy[clanId];
+    if (!e || !Number.isFinite(Number(e.gold)) || !Number.isFinite(Number(e.rice))) {
+      const B = this.aiBalance();
+      const pl = (this.currentScenario?.playables || []).find(x => x.id === clanId);
+      const owned = (this.provinces || []).filter(p => p.ownerId === clanId);
+      const comm = owned.reduce((s, p) => s + (Number(p.commerce) || 0), 0);
+      const rice = owned.reduce((s, p) => s + (Number(p.rice) || 0), 0);
+      e = {
+        gold: Number.isFinite(Number(pl?.gold)) ? Number(pl.gold) : Math.round(comm * B.startFundsMult),
+        rice: Number.isFinite(Number(pl?.rice)) ? Number(pl.rice) : Math.round(rice * B.startFundsMult)
+      };
+      this.aiEconomy[clanId] = e;
+    }
+    return e;
+  },
+
+  /** 支払えれば支払って true */
+  aiSpend(clanId, gold = 0, rice = 0) {
+    const e = this.aiEcon(clanId);
+    if (!e) return true;
+    if (e.gold < gold || e.rice < rice) return false;
+    e.gold -= gold; e.rice -= rice;
+    return true;
+  },
+
+  /** 徴兵：払える分だけ兵を増やし、実際の増分を返す */
+  aiPayTroops(clanId, want) {
+    if (want <= 0) return 0;
+    const e = this.aiEcon(clanId);
+    if (!e) return want;
+    const B = this.aiBalance();
+    const afford = Math.floor(Math.min(want, e.gold / B.recruitGoldPerTroop, e.rice / B.recruitRicePerTroop));
+    const n = Math.max(0, afford);
+    e.gold -= n * B.recruitGoldPerTroop;
+    e.rice -= n * B.recruitRicePerTroop;
+    return n;
+  },
+
+  /** プレイヤーと同じ規則の収入（夏・冬に商業×0.8 の金、秋に石高×1.2 の兵糧。一揆中の国は無収入） */
+  aiCollectIncome() {
+    const ikki = window.IKKI_ORDER_THRESHOLD || 50;
+    const clans = [...new Set((this.provinces || []).map(p => p.ownerId))].filter(id => id && id !== this.playerClanId && id !== 'null' && id !== 'undefined' && id !== 'ronin');
+    clans.forEach(clanId => {
+      const e = this.aiEcon(clanId);
+      if (!e) return;
+      this.provinces.forEach(p => {
+        if (p.ownerId !== clanId) return;
+        if (Number.isFinite(Number(p.order)) && Number(p.order) <= ikki) return;
+        if (this.seasonIdx === 2) e.rice += Math.round((Number(p.rice) || 0) * 1.2);
+        if (this.seasonIdx === 1 || this.seasonIdx === 3) e.gold += this.provinceCommerceIncome ? this.provinceCommerceIncome(p) : Math.round((Number(p.commerce) || 0) * 0.8); // 開発分の上乗せ（2026-10-11 ce）
+      });
+    });
+    // 兵の維持費（毎季。払えない分は払わない。2026-10-11 ci）
+    const upkeep = this.troopUpkeepRate ? this.troopUpkeepRate() : 0;
+    if (upkeep > 0) {
+      const troopsBy = {};
+      this.provinces.forEach(p => { if (p.ownerId) troopsBy[p.ownerId] = (troopsBy[p.ownerId] || 0) + (Number(p.troops) || 0); });
+      clans.forEach(clanId => {
+        const e = this.aiEcon(clanId);
+        if (!e) return;
+        e.gold = Math.max(0, e.gold - Math.round((troopsBy[clanId] || 0) * upkeep));
+      });
+    }
+    // 滅亡した勢力の財布は片付ける
+    Object.keys(this.aiEconomy || {}).forEach(id => { if (!clans.includes(id)) delete this.aiEconomy[id]; });
+  },
+
+  /** 余剰資金で開墾・商業開発（基準石高の1.5倍まで） */
+  aiDevelop(clanId, personality) {
+    const e = this.aiEcon(clanId);
+    if (!e) return;
+    const B = this.aiBalance();
+    const owned = this.provinces.filter(p => p.ownerId === clanId);
+    const times = personality === 'domestic' ? 2 : 1;
+    for (let i = 0; i < times; i++) {
+      if (e.gold < B.devReserveBase + B.devReservePerProv * owned.length) return;
+      const cands = owned.map(p => {
+        const base = Math.max(20, Math.round(this.aiBaseKoku(p) / 1000));
+        return { p, cap: Math.round(base * 1.5), capC: Math.round(Math.max(10, base / 2) * 1.5), ratio: (Number(p.rice) || 0) / base };
+      }).filter(c => (Number(c.p.rice) || 0) < c.cap || (Number(c.p.commerce) || 0) < c.capC)
+        .sort((a, b) => (a.ratio - b.ratio) || String(a.p.id).localeCompare(String(b.p.id)));
+      if (!cands.length) return;
+      const c = cands[0];
+      e.gold -= B.devGoldCost;
+      c.p.rice = Math.min(c.cap, (Number(c.p.rice) || 0) + B.devGain);
+      c.p.commerce = Math.min(c.capC, (Number(c.p.commerce) || 0) + B.devGain);
+    }
+  },
+
+  /** 予備費を超えた金の一部を、開発・境の城普請・治安に順に回す（2026-10-11 ci） */
+  aiSpendSurplus(clanId) {
+    const e = this.aiEcon(clanId);
+    if (!e) return 0;
+    const B = this.aiBalance();
+    const owned = this.provinces.filter(p => p.ownerId === clanId);
+    if (!owned.length) return 0;
+    const reserve = B.surplusReserveBase + B.surplusReservePerProv * owned.length;
+    let budget = Math.floor((e.gold - reserve) * B.surplusSpendShare);
+    if (budget < 40) return 0;
+    const start = e.gold;
+    const hostile = (p) => (p.neighbors || []).some(id => { const n = this.aiProvById(id); return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId); });
+    const border = owned.filter(hostile);
+    // 石高は通常の AI 開発と同じ基準の1.5倍まで（兵の上限＝石高×10 を膨らませない）。商業は土地の上限まで
+    const riceCap = (p) => Math.min(this.getProvinceRiceCap ? this.getProvinceRiceCap(p) : Infinity, Math.round(Math.max(20, this.aiBaseKoku(p) / 1000) * 1.5));
+    const commCap = (p) => this.getProvinceCommerceCap ? this.getProvinceCommerceCap(p) : Math.round(this.aiBaseKoku(p) / 2000 * 1.5);
+    let idle = 0;
+    for (let k = 0; k < 60 && budget >= 20 && idle < 3; k++) {
+      const kind = k % 3; // 0: 開発 1: 境の城普請 2: 治安
+      let spent = 0;
+      if (kind === 0) {
+        const p = owned.filter(q => (Number(q.rice) || 0) < riceCap(q) || (Number(q.commerce) || 0) < commCap(q))
+          .sort((a, b) => ((Number(a.commerce) || 0) / Math.max(1, commCap(a))) - ((Number(b.commerce) || 0) / Math.max(1, commCap(b))) || String(a.id).localeCompare(String(b.id)))[0];
+        if (p && e.gold >= B.devGoldCost && budget >= B.devGoldCost) {
+          e.gold -= B.devGoldCost; spent = B.devGoldCost;
+          p.rice = Math.min(riceCap(p), (Number(p.rice) || 0) + B.devGain);
+          p.commerce = Math.min(commCap(p), (Number(p.commerce) || 0) + B.devGain);
+        }
+      } else if (kind === 1) {
+        const p = border.filter(q => (Number(q.defense) || 0) < 100).sort((a, b) => (Number(a.defense) || 0) - (Number(b.defense) || 0))[0];
+        if (p && e.gold >= 20) { e.gold -= 20; spent = 20; p.defense = Math.min(100, (Number(p.defense) || 0) + 3); }
+      } else {
+        // 徴兵には回さない（兵の上限まで双方が積み増して膨らむため）。代わりに治安を整える
+        const p = owned.filter(q => (Number(q.order) || 0) < 95).sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0))[0];
+        if (p && e.gold >= 20) { e.gold -= 20; spent = 20; p.order = Math.min(100, (Number(p.order) || 0) + 3); }
+      }
+      if (spent > 0) { budget -= spent; idle = 0; } else idle++;
+    }
+    return start - e.gold;
+  },
+
+  aiCapitalOf(clanId) {
+    const owned = (this.provinces || []).filter(p => p.ownerId === clanId);
+    if (!owned.length) return null;
+    const scenCap = this.currentScenario?.capitals?.[clanId];
+    const reg = (window.CLAN_CAPITAL_PROVINCES || {})[clanId];
+    const hit = owned.find(p => p.id === scenCap) || owned.find(p => p.id === reg);
+    if (hit) return hit;
+    try { return this.pickFallbackCapital(owned, clanId) || owned[0]; } catch (e) { return owned[0]; }
+  },
+
+  aiBattleCap(nClans) {
+    const B = this.aiBalance();
+    return Math.max(B.battleCapMin, Math.min(B.battleCapMax, B.battleCapBase + Math.floor(nClans / B.battleCapPerClans)));
+  },
+
+  /** 安定した比較用の揺らぎ（同じ季・同じキーなら同じ値） */
+  aiJitter(key, span = 10) {
+    let h = 2166136261 ^ (this.year * 4 + (this.seasonIdx || 0));
+    const s = String(key);
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return ((h >>> 0) % 10000) / 10000 * span - span / 2;
+  },
+
+  // ----------------------------------------------------------------------------
+  // 防衛：後方からの段階輸送・本拠優先・プレイヤー大軍正面への事前集結
+  // ----------------------------------------------------------------------------,
+
   executeAiDefenseReinforcements() {
     if (!this.provinces || this.provinces.length === 0) return;
+    const B = this.aiBalance();
     const allClanIds = [...new Set(this.provinces.map(p => p.ownerId))].filter(id => id && id !== this.playerClanId && id !== 'null' && id !== 'ronin');
-    
     for (const clanId of allClanIds) {
-      const clanProvs = this.provinces.filter(p => p.ownerId === clanId);
-      if (clanProvs.length <= 1) continue;
-
-      const isFront = (q) => (q.neighbors || []).some(nId => {
-        const n = this.provinces.find(x => x.id === nId);
-        return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
+      const own = this.provinces.filter(p => p.ownerId === clanId);
+      if (own.length <= 1) continue;
+      const ownIds = new Set(own.map(p => p.id));
+      const capital = this.aiCapitalOf(clanId);
+      const hostileNbrs = (p) => (p.neighbors || []).map(id => this.aiProvById(id))
+        .filter(n => n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
+      // 各国の必要兵力
+      const info = new Map();
+      own.forEach(p => {
+        const enemies = hostileNbrs(p);
+        const isFront = enemies.length > 0;
+        let threat = 0, playerBig = false;
+        enemies.forEach(n => {
+          const t = (Number(n.troops) || 0) * (n.ownerId === this.playerClanId ? 1.25 : 1);
+          if (t > threat) threat = t;
+          if (n.ownerId === this.playerClanId && (Number(n.troops) || 0) >= Math.max(3000, (Number(p.troops) || 0) * 1.2)) playerBig = true;
+        });
+        const isCap = capital && capital.id === p.id;
+        let need = isFront ? threat * (playerBig ? 1.1 : 0.9) - (Number(p.troops) || 0) : 0;
+        if (isCap) need = Math.max(need, (isFront ? 3000 : 2200) - (Number(p.troops) || 0));
+        const weight = (playerBig ? 1.6 : 1) * (isCap ? 1.5 : 1) * (enemies.some(n => n.ownerId === this.playerClanId) ? 1.2 : 1);
+        const reserve = isCap ? Math.max(2200, isFront ? threat * 0.9 : 0) : (isFront ? Math.max(1500, threat * 0.9) : 1200);
+        info.set(p.id, { p, isFront, need, weight, reserve, playerBig, isCap, playerBorder: enemies.some(n => n.ownerId === this.playerClanId) });
       });
+      const needy = [...info.values()].filter(x => x.need > 150)
+        .sort((a, b) => (b.need * b.weight - a.need * a.weight) || String(a.p.id).localeCompare(String(b.p.id)))
+        .slice(0, 3);
+      if (!needy.length) continue;
+      // 必要国からの距離（自領内の幅優先探索）
+      const dist = new Map(); const queue = [];
+      needy.forEach(x => { dist.set(x.p.id, 0); queue.push(x.p.id); });
+      while (queue.length) {
+        const id = queue.shift();
+        const p = this.aiProvById(id);
+        (p?.neighbors || []).forEach(nId => {
+          if (!ownIds.has(nId) || dist.has(nId)) return;
+          dist.set(nId, dist.get(id) + 1); queue.push(nId);
+        });
+      }
+      const needySet = new Set(needy.map(x => x.p.id));
+      const received = new Set();
+      let moves = 0; const notes = [];
+      const movers = [...info.values()].filter(x => !needySet.has(x.p.id) && dist.has(x.p.id))
+        .sort((a, b) => (dist.get(a.p.id) - dist.get(b.p.id)) || ((Number(b.p.troops) || 0) - (Number(a.p.troops) || 0)));
+      for (const m of movers) {
+        if (moves >= B.defenseMaxMovesPerClan) break;
+        if (received.has(m.p.id)) continue; // 今季受け取った兵は次の季に送る（段階輸送）
+        const surplus = (Number(m.p.troops) || 0) - m.reserve;
+        if (surplus < 150) continue;
+        const d = dist.get(m.p.id);
+        const next = (m.p.neighbors || []).filter(id => ownIds.has(id) && dist.get(id) === d - 1)
+          .map(id => info.get(id))
+          .sort((a, b) => ((needySet.has(b.p.id) ? 1 : 0) - (needySet.has(a.p.id) ? 1 : 0)) || (b.need * b.weight - a.need * a.weight) || String(a.p.id).localeCompare(String(b.p.id)))[0];
+        if (!next) continue;
+        const amount = Math.min(B.defenseMoveMax, Math.round(surplus * 0.5));
+        if (amount < 150) continue;
+        m.p.troops -= amount;
+        next.p.troops = (Number(next.p.troops) || 0) + amount;
+        next.need -= amount;
+        received.add(next.p.id);
+        moves++;
+        if (next.playerBorder || needy.some(x => x.playerBorder && dist.get(next.p.id) <= 1)) notes.push(`${m.p.name}→${next.p.name} ${amount.toLocaleString()}人`);
+      }
+      if (notes.length && (!this.isAutoPlay || this.autoPlaySpeed >= 0.3)) {
+        this.log(`🏯【後詰め・兵站】${this.getClanFamilyName(clanId)}は我が軍に備え、兵を前線へ送っています（${notes.slice(0, 3).join('、')}）。`);
+      }
+    }
+  },
 
-      // 危機にある前線城を特定（敵兵力に対して劣勢、または兵力1500未満）
-      const endangeredFronts = clanProvs.filter(p => isFront(p)).map(p => {
-        const enemyNeighbors = (p.neighbors || [])
-          .map(nId => this.provinces.find(x => x.id === nId))
-          .filter(n => n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
-        const maxEnemyTroop = Math.max(0, ...enemyNeighbors.map(n => n.troops || 0));
-        const deficit = maxEnemyTroop - (p.troops || 0);
-        const isPlayerBorder = enemyNeighbors.some(n => n.ownerId === this.playerClanId);
-        return { prov: p, deficit, isPlayerBorder, currentTroops: p.troops || 0 };
-      }).filter(f => f.deficit > 200 || f.currentTroops < 1500)
-        .sort((a, b) => (b.isPlayerBorder ? 5000 : 0) + b.deficit - ((a.isPlayerBorder ? 5000 : 0) + a.deficit));
+  // ----------------------------------------------------------------------------
+  // 外交：対抗同盟・和睦・臣従・同盟破棄（史実同盟と包囲網はそのまま）
+  // ----------------------------------------------------------------------------,
 
-      for (const { prov: frontProv, isPlayerBorder } of endangeredFronts) {
-        // 隣接する後方城（安全な城、または兵力1800以上の城）から増援を探索
-        const rearSupporters = (frontProv.neighbors || [])
-          .map(nId => this.provinces.find(x => x.id === nId))
-          .filter(n => n && n.ownerId === clanId && (n.troops || 0) > 1800)
-          .sort((a, b) => (b.troops || 0) - (a.troops || 0));
+  aiClanStats() {
+    const st = {};
+    (this.provinces || []).forEach(p => {
+      if (!p.ownerId || p.ownerId === 'null' || p.ownerId === 'ronin') return;
+      const s = st[p.ownerId] ||= { provs: 0, troops: 0 };
+      s.provs++; s.troops += Number(p.troops) || 0;
+    });
+    return st;
+  },
 
-        if (rearSupporters.length > 0) {
-          const rear = rearSupporters[0];
-          const shiftAmount = Math.min(800, Math.round(((rear.troops || 0) - 1400) * 0.45));
-          if (shiftAmount >= 150) {
-            rear.troops -= shiftAmount;
-            frontProv.troops = (frontProv.troops || 0) + shiftAmount;
-            if (isPlayerBorder && (!this.isAutoPlay || this.autoPlaySpeed >= 0.3)) {
-              this.log(`🏯【後詰め迎撃】${this.getClanFamilyName(clanId)}は我が軍の脅威に備え、後方・${rear.name}より前線【${frontProv.name}】へ援軍${shiftAmount.toLocaleString()}人を急行させました！`);
-            }
-            break; // 1勢力1季あたり最も危険な前線1箇所に重点配分
+  aiAddAlliance(members, kind, label, durationSeasons) {
+    if (!this.alliances) this.alliances = [];
+    this.alliances.push({ members: [...members], formedYear: this.year, formedSeason: this.seasonIdx, durationSeasons, kind, label });
+  },
+
+  aiCooledDown(a, b) {
+    const key = [a, b].sort().join('|');
+    const at = this.allianceCooldown ? this.allianceCooldown[key] : null;
+    return at != null && (this.year * 4 + this.seasonIdx) - at < 4;
+  },
+
+  aiNotifyPlayer(title, message, color = '#e67e22') {
+    try { this.showOrderResult(title, message, color); } catch (e) {}
+  },
+
+  executeAiDynamicDiplomacy() {
+    const B = this.aiBalance();
+    const st = this.aiClanStats();
+    const player = this.playerClanId;
+    const aiIds = Object.keys(st).filter(id => id !== player && this.clanHasLivingLord(id)).sort();
+    if (aiIds.length < 2) return;
+    // 直近4季の領国数の記録（劣勢判定用）
+    this.aiDiploMemory = this.aiDiploMemory || {};
+    const hist = this.aiDiploMemory.provHistory = this.aiDiploMemory.provHistory || {};
+    Object.keys(st).forEach(id => { const h = hist[id] = hist[id] || []; h.push(st[id].provs); if (h.length > 5) h.shift(); });
+    Object.keys(hist).forEach(id => { if (!st[id]) delete hist[id]; });
+
+    const provsSorted = aiIds.map(id => st[id].provs).sort((a, b) => a - b);
+    const median = provsSorted[Math.floor(provsSorted.length / 2)] || 1;
+    const borders = (a, b) => this.clansShareBorder(a, b);
+
+    // 1) 共通の強敵に対する臨時同盟（包囲網が結成済みならプレイヤー向けは包囲網に任せる）
+    const strong = [];
+    if (player && st[player] && !this.coalitionFormed && st[player].provs >= Math.max(10, median * 2.5)) strong.push(player);
+    const topAi = aiIds.slice().sort((a, b) => (st[b].provs - st[a].provs) || a.localeCompare(b))[0];
+    if (topAi && st[topAi].provs >= Math.max(8, median * 3)) strong.push(topAi);
+    let formed = 0;
+    const countKind = (...kinds) => (this.alliances || []).filter(g => !Array.isArray(g) && kinds.includes(g.kind)).length;
+    if (countKind('counter') >= B.maxCounterAlliances) strong.length = 0;
+    for (const S of strong) {
+      const around = aiIds.filter(id => id !== S && borders(id, S) && !this.isAllied(id, S));
+      for (let i = 0; i < around.length && formed < 1; i++) {
+        for (let j = i + 1; j < around.length && formed < 1; j++) {
+          const a = around[i], b = around[j];
+          if (this.isAllied(a, b) || this.aiCooledDown(a, b)) continue;
+          const chance = S === player ? B.counterAllianceChanceVsPlayer : B.counterAllianceChance;
+          if (Math.random() > chance) continue;
+          const sName = this.getClanFamilyName(S);
+          this.aiAddAlliance([a, b], 'counter', `対${sName}同盟`, B.counterAllianceSeasons);
+          formed++;
+          const msg = `🤝【対抗同盟】${this.allianceClanLabel(a)}と${this.allianceClanLabel(b)}が、強大な${S === player ? '貴家' : sName}に対抗するため同盟を結びました（二年）。`;
+          if (S === player) {
+            this.log(msg, 'important');
+            this.aiNotifyPlayer('⚠ 対抗同盟 結成', `${this.allianceClanLabel(a)}・${this.allianceClanLabel(b)}が貴家に対抗して同盟`, '#e67e22');
+          } else {
+            this.log(msg);
           }
         }
       }
     }
+
+    // 2) 大きく劣勢な勢力の和睦・臣従（AI 同士のみ）
+    let truces = 0, vassals = 0;
+    const peaceRoom = countKind('truce', 'vassal') < B.maxPeacePacts;
+    for (const W of (peaceRoom ? aiIds : [])) {
+      if (truces >= 1 || vassals >= 1) break;
+      const w = st[W]; if (!w || w.provs > 2) continue;
+      const h = hist[W] || [];
+      const lost = h.length >= 2 && Math.max(...h) > w.provs;
+      const foes = aiIds.filter(X => X !== W && !this.isAllied(X, W) && borders(X, W))
+        .filter(X => st[X].provs >= 3 * w.provs && st[X].troops >= 2.5 * w.troops)
+        .sort((a, b) => (st[b].troops - st[a].troops) || a.localeCompare(b));
+      // 直近に領国を失った、または兵力が強敵の2割未満のときだけ
+      if (!foes.length || (!lost && w.troops >= 0.2 * st[foes[0]].troops)) continue;
+      const X = foes[0];
+      if (this.aiCooledDown(X, W)) continue;
+      if (vassals < 1 && w.provs === 1 && st[X].provs >= 6 && Math.random() < B.vassalChance) {
+        this.aiAddAlliance([X, W], 'vassal', '臣従', B.vassalSeasons);
+        vassals++;
+        this.log(`🙇【臣従】${this.allianceClanLabel(W)}は${this.allianceClanLabel(X)}の大軍を前に臣従し、その傘下に入りました。`);
+      } else if (truces < 1 && Math.random() < B.truceChance) {
+        this.aiAddAlliance([X, W], 'truce', '和睦', B.truceSeasons);
+        truces++;
+        this.log(`🕊️【和睦】${this.allianceClanLabel(W)}は劣勢のため、${this.allianceClanLabel(X)}と一年間の和睦を結びました。`);
+      }
+    }
+
+    // 3) 強い勢力による同盟破棄（臣従・和睦・包囲網は対象外）
+    const keep = [];
+    let broken = 0;
+    (this.alliances || []).forEach(g => {
+      const members = this.allianceMembers(g);
+      if (broken >= 1 || Array.isArray(g) || members.length !== 2 || ['vassal', 'truce', 'coalition'].includes(g.kind)) { keep.push(g); return; }
+      if (this.allianceTurnsElapsed(g) < 4) { keep.push(g); return; }
+      const [a, b] = members;
+      const A = [a, b].filter(id => id !== player && st[id] && st[id].provs >= 6)
+        .find(id => { const o = id === a ? b : a; return st[o] && st[id].provs >= 2.5 * st[o].provs && borders(id, o); });
+      if (!A) { keep.push(g); return; }
+      const partner = A === a ? b : a;
+      if (this.coalitionFormed && partner !== player && borders(A, player) && borders(partner, player)) { keep.push(g); return; }
+      const pers = getClanAbility(A).personality;
+      if (pers === 'domestic') { keep.push(g); return; }
+      const chance = pers === 'aggressive' ? B.breakChanceAggressive : B.breakChance;
+      if (Math.random() > chance) { keep.push(g); return; }
+      broken++;
+      this.rememberAllianceBreak(members);
+      const msg = `💔【同盟破棄】${this.allianceClanLabel(A)}は${partner === player ? '貴家' : this.allianceClanLabel(partner)}との同盟を一方的に破棄しました。`;
+      if (partner === player) {
+        this.log(msg, 'important');
+        this.aiNotifyPlayer('💔 同盟破棄', `${this.allianceClanLabel(A)}が貴家との同盟を破棄しました！`, '#e74c3c');
+      } else {
+        this.log(msg);
+      }
+    });
+    this.alliances = keep;
   },
+
 
   /**
    * AI思考改善第1弾: 大局観・戦略目標・背後急襲（隙突き）・要衝評価に基づく最適侵攻計画の策定
@@ -787,13 +1583,16 @@ export const ComputerLogicMethods = {
     ].includes(clanId) || personality === 'aggressive' || this.coalitionFormed;
 
     const candidates = [];
+    // 同盟国（攻略先の評価で使う）
+    const myAllies = this.getAllies ? this.getAllies(clanId) : [];
+    const allyRel = new Map();
 
     // 全前線城 × 隣接敵国の組み合わせを総当たりで戦略評価
     for (const srcProv of candidateFrontiers) {
       const attackForce = Math.round(srcProv.troops * tune.forceRatio);
       const neighborTargets = (srcProv.neighbors || [])
         .map(nId => this.provinces.find(x => x.id === nId))
-        .filter(n => n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId));
+        .filter(n => n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId) && !this.isTruceBlocked?.(clanId, n.ownerId));
 
       for (const target of neighborTargets) {
         const isTargetPlayer = target.ownerId === this.playerClanId;
@@ -965,6 +1764,56 @@ export const ComputerLogicMethods = {
           }
         }
 
+        // --- F. 攻略後の前線の長さ・二正面リスク・同盟国への配慮 ---
+        {
+          let newFront = 0, shielded = 0;
+          const otherHostile = new Map();
+          (target.neighbors || []).forEach(nId => {
+            if (nId === srcProv.id) return;
+            const n = this.aiProvById(nId);
+            if (!n) return;
+            if (n.ownerId === clanId) { shielded++; return; }
+            if (!n.ownerId || n.ownerId === 'null') { newFront += 0.5; return; }
+            if (this.isAllied(clanId, n.ownerId)) return;
+            newFront++;
+            if (n.ownerId !== target.ownerId) otherHostile.set(n.ownerId, (otherHostile.get(n.ownerId) || 0) + (Number(n.troops) || 0));
+          });
+          // 取った後に国境が縮む（自領に囲まれる）ほど加点、新たに接する敵国が多いほど減点
+          const frontierScore = Math.max(-40, Math.min(30, Math.round(shielded * 8 - newFront * 7)));
+          score += frontierScore;
+          if (frontierScore >= 16) {
+            motiveFactors.push({ type: 'consolidate', title: '国境の整理・領国一円化', desc: `${target.name}を取り込み国境線を縮める`, weight: frontierScore });
+          }
+          // 二正面：攻略先の周囲に別の強敵がいる／出陣後の留守城が別の敵に狙われる
+          let twoFront = 0;
+          otherHostile.forEach(troops => { if (troops >= attackForce * 0.6) twoFront += 15; });
+          const srcRemain = (Number(srcProv.troops) || 0) - attackForce;
+          let srcThreat = 0;
+          (srcProv.neighbors || []).forEach(id => {
+            const n = this.aiProvById(id);
+            if (!n || n.id === target.id || !n.ownerId || n.ownerId === 'null' || n.ownerId === clanId || this.isAllied(clanId, n.ownerId)) return;
+            srcThreat = Math.max(srcThreat, Number(n.troops) || 0);
+          });
+          if (srcThreat > srcRemain * 2) twoFront += 25;
+          score -= Math.min(50, twoFront);
+          // 同盟国への配慮：同盟国と国境を接して敵対する相手は共同戦線で加点、同盟国の盟友は減点
+          if (!isBlank && myAllies.length) {
+            let allyScore = 0;
+            if (!allyRel.has(target.ownerId)) {
+              let help = false, friend = false;
+              myAllies.forEach(a => {
+                if (a === target.ownerId) return;
+                if (this.isAllied(a, target.ownerId)) friend = true;
+                else if (this.clansShareBorder(a, target.ownerId)) help = true;
+              });
+              allyRel.set(target.ownerId, (help ? 12 : 0) - (friend ? 15 : 0));
+            }
+            allyScore = allyRel.get(target.ownerId);
+            score += allyScore;
+            if (allyScore > 0) motiveFactors.push({ type: 'ally_front', title: '同盟国との共同戦線', desc: `同盟国を脅かす${this.getClanFamilyName(target.ownerId)}の${target.name}を叩く`, weight: allyScore });
+          }
+        }
+
         // --- E. 勝算ボーナスと揺らぎ ---
         score += Math.min(30, Math.max(0, (powerRatio - tune.requiredRatio) * 20));
         score += (Math.random() * 16 - 8);
@@ -995,6 +1844,9 @@ export const ComputerLogicMethods = {
   },
 
   async executeAiTurn() {
+    // AI 勢力の収入（プレイヤーと同じ規則）
+    this.aiCollectIncome();
+    const B = this.aiBalance();
     this.executeAiDiplomacy();
     await this.executeAiStratagems();
 
@@ -1031,8 +1883,13 @@ export const ComputerLogicMethods = {
             const n = this.provinces.find(x => x.id === nId);
             return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId);
           });
-          p.defense = Math.min(100, p.defense + (isBorder ? 4 : 3));
-          p.order = Math.min(100, (p.order || 80) + 4);
+          // 城普請・治安維持は費用がかかる（払えない季は治安維持を小さく）
+          if (this.aiSpend(clanId, B.domesticGoldPerProv, 0)) {
+            p.defense = Math.min(100, p.defense + (isBorder ? 4 : 3));
+            p.order = Math.min(100, (p.order || 80) + 4);
+          } else {
+            p.order = Math.min(100, (p.order || 80) + 1);
+          }
           p.morale = Math.min(100, (Number(p.morale) || 70) + 1);
           // 開墾：ときどき石高が伸びる（基準石高の1.5倍まで）
           if (Math.random() < 0.2) {
@@ -1041,13 +1898,13 @@ export const ComputerLogicMethods = {
             if (p.rice < cap) p.rice += 1;
           }
           if (p.troops < maxTroops) {
-            p.troops = Math.min(maxTroops, p.troops + Math.round(40 + polRatio * 40));
+            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(40 + polRatio * 40)));
           }
         } else if (personality === 'balanced') {
           // バランス型：攻守の均衡
           p.defense = Math.min(100, p.defense + 1);
           if (p.troops < maxTroops) {
-            p.troops = Math.min(maxTroops, p.troops + Math.round(50 + milRatio * 50));
+            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(50 + milRatio * 50)));
           }
         } else {
           // 攻勢型：前線に兵員を集中補充
@@ -1057,12 +1914,16 @@ export const ComputerLogicMethods = {
           });
           const gain = isFrontier ? Math.round(70 + milRatio * 70) : Math.round(40 + milRatio * 30);
           if (p.troops < maxTroops) {
-            p.troops = Math.min(maxTroops, p.troops + gain);
+            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, gain));
           }
           // 攻勢型は治安より軍備：後方の治安は緩む
           if (!isFrontier && (p.order || 80) > 60 && Math.random() < 0.3) p.order = (p.order || 80) - 1;
         }
       });
+
+      // 余剰資金で開墾・商業開発
+      this.aiDevelop(clanId, personality);
+      this.aiSpendSurplus(clanId); // 予備費を超えた金の使い道（2026-10-11 ci）
 
       // 攻勢型：後方の余剰兵を隣接する自軍前線へ集中（兵站を顧みない前線集中）
       if (personality === 'aggressive') {
@@ -1090,9 +1951,9 @@ export const ComputerLogicMethods = {
     // 2. 敵AI防衛後詰め（劣勢・危機前線への救援増援）
     this.executeAiDefenseReinforcements();
 
-    // 3. AI侵攻判断（「適宜バランスよく攻め込む」：1ターン最大3戦線に制御）
+    // 3. AI侵攻判断（「適宜バランスよく攻め込む」：1季の合戦上限は勢力数に応じて 3〜6）
     let battleCount = 0;
-    const maxBattlesPerTurn = 3;
+    const maxBattlesPerTurn = this.aiBattleCap(allClanIds.filter(id => id && id !== 'null' && id !== 'undefined' && id !== 'ronin' && this.clanHasLivingLord(id)).length);
 
     // 行動順をシャッフル（大名の攻勢型優先）
     const sortedClanIds = allClanIds.sort((a, b) => {
@@ -1100,7 +1961,7 @@ export const ComputerLogicMethods = {
       const bAb = getClanAbility(b);
       const aScore = aAb.personality === 'aggressive' ? 2 : aAb.personality === 'balanced' ? 1 : 0;
       const bScore = bAb.personality === 'aggressive' ? 2 : bAb.personality === 'balanced' ? 1 : 0;
-      return (bScore - aScore) || (Math.random() - 0.5);
+      return (bScore - aScore) || (this.aiJitter('turn:' + a, 1) - this.aiJitter('turn:' + b, 1)) || String(a).localeCompare(String(b));
     });
 
     for (const clanId of sortedClanIds) {
@@ -1142,6 +2003,19 @@ export const ComputerLogicMethods = {
 
       const { srcProv, target, attackForce, motive } = plan;
 
+      // 出陣の兵糧（プレイヤーと同じ計算）。足りなければ出陣を見送る（兵糧を顧みない攻勢型は半分あれば強行）
+      const riceCost = Math.max(B.attackRiceMin, Math.round(attackForce * B.attackRiceRate));
+      const econA = this.aiEcon(clanId);
+      if (econA) {
+        if (econA.rice >= riceCost) {
+          econA.rice -= riceCost;
+        } else if (tune.ignoreRice && econA.rice >= riceCost / 2) {
+          econA.rice = 0;
+        } else {
+          continue;
+        }
+      }
+
       // ===== 合戦発生！ =====
       battleCount++;
       const isAttackingPlayer = target.ownerId === this.playerClanId;
@@ -1178,23 +2052,30 @@ export const ComputerLogicMethods = {
       const rps = this.getRpsMultipliers(atkForm, defForm);
       const atkTerrain = this.getTerrainDealtBonus(atkForm, target);
       const defTerrain = this.getTerrainDealtBonus(defForm, target);
-      const attackPower = attackForce * (ability.military / 65) * (0.85 + Math.random() * 0.35) * rps.dealt * atkTerrain;
-      const defensePower = target.troops * (target.defense / 80) * (targetAbility.military / 65) * (0.85 + Math.random() * 0.35) * rps.taken * defTerrain;
-      const attackerWins = attackPower > defensePower;
+      // 項目27（2026-10-11 az）攻城の落城率で判定（プレイヤー攻城・委任軍と同じ computeSiegeOdds。基準70%、守将は配下補佐込みの実効能力）
+      const siegeOdds = this.computeSiegeOdds({
+        attackerClanId: clanId, srcProv, dstProv: target, attackTroops: attackForce, defenders: Number(target.troops) || 0,
+        formation: { dealt: rps.dealt, taken: rps.taken, atkTerrain, defTerrain }
+      });
+      const attackerWins = Math.random() < siegeOdds.p;
 
-      srcProv.troops -= Math.round(attackForce * 0.25);
+      // 出陣兵は全数を出陣元から差し引き、合戦後の生存兵だけが攻略先へ移る（敗退時は生存兵が帰還）
+      srcProv.troops = Math.max(0, (Number(srcProv.troops) || 0) - attackForce);
 
       if (attackerWins) {
-        const remainTroops = Math.max(500, Math.round(attackForce * 0.65));
+        const remainTroops = Math.max(Math.min(500, attackForce), Math.round(attackForce * 0.65)); // 項目27 az：出陣兵を超えて増えない
         const oldOwner = target.ownerId;
         this.handleProvinceLoss(target, oldOwner);
         target.ownerId = clanId;
         target.troops = remainTroops;
         target.defense = Math.max(35, target.defense - 25);
         target.morale = 75;
+        // 余勢の制圧（大大名のみ。プレイヤー領でも同じ規則、本拠は取らない。2026-10-11 bo）
+        try { this.applyMomentumCaptures(clanId, oldOwner, target, { isPlayer: false }); } catch (e) {}
 
         if (isAttackingPlayer) {
-          this.audio.playHyoshigi();
+          // 領地喪失は年代記にだけ静かに記録（2026-10-11 bn）
+          if (window.SHOW_CONQUEST_ALERTS) this.audio.playHyoshigi();
           let battleTitle = '⚔️ 敵軍侵攻！領地喪失';
           let battleLogIcon = '⚔';
           if (motive.type === 'backstab') {
@@ -1211,20 +2092,20 @@ export const ComputerLogicMethods = {
             battleLogIcon = '💎';
           }
 
-          this.log(`${battleLogIcon}【敵襲・${motive.title}】${attackerName}軍が${motive.desc}として${target.name}に侵攻！我が守備軍は敗れ城を奪われました！`, 'battle');
-          this.showOrderResult(battleTitle, `${target.name} が ${attackerName}に攻略されました！ (${motive.title})`, '#e74c3c');
+          this.log(`${battleLogIcon}【敵襲・${motive.title}】${attackerName}軍が${motive.desc}として${target.name}に侵攻！我が守備軍は敗れ城を奪われました！`, 'quiet');
+          if (window.SHOW_CONQUEST_ALERTS) this.showOrderResult(battleTitle, `${target.name} が ${attackerName}に攻略されました！ (${motive.title})`, '#e74c3c');
           if (this.selectedProvId === target.id) {
             this.selectedProvId = null;
           }
         } else {
-          this.log(`⚔【群雄動乱・${motive.title}】${attackerName}が${motive.desc}として${target.name}へ進攻！激闘の末、${defenderName}軍を破り領国を奪回・併合しました。`);
+          this.log(`⚔【群雄動乱・${motive.title}】${attackerName}が${motive.desc}として${target.name}へ進攻！激闘の末、${defenderName}軍を破り領国を奪回・併合しました。`, 'quiet');
         }
       } else {
         // 撃退
         const defRemain = Math.max(300, Math.round(target.troops * 0.75));
         target.troops = defRemain;
         target.defense = Math.max(20, target.defense - 15);
-        srcProv.troops -= Math.round(attackForce * 0.35);
+        srcProv.troops += Math.round(attackForce * 0.40); // 生存兵の帰還（損耗六割は従来どおり）
 
         if (isAttackingPlayer) {
           this.audio.playFanfare();
@@ -1260,8 +2141,8 @@ export const ComputerLogicMethods = {
         } else {
           const dRice = Math.round(20 * mult * polBonus);
           const dComm = Math.round(20 * mult * polBonus);
-          p.rice = (Number(p.rice) || 50) + dRice;
-          p.commerce = (Number(p.commerce) || 50) + dComm;
+          p.rice = Math.min(this.getProvinceRiceCap(p), (Number(p.rice) || 50) + dRice); // 上限（2026-10-11 bh）
+          p.commerce = Math.min(this.getProvinceCommerceCap(p), (Number(p.commerce) || 50) + dComm); // 上限（2026-10-11 bl）
           this.gold += Math.round(30 * mult * polBonus);
           this.rice += Math.round(40 * mult * polBonus);
         }
@@ -1276,8 +2157,8 @@ export const ComputerLogicMethods = {
           p.order = Math.min(100, (Number(p.order) || 80) + Math.round(10 * mult));
         }
         p.troops = (Number(p.troops) || 0) + Math.round(150 * mult * milBonus);
-        p.rice = (Number(p.rice) || 50) + Math.round(8 * mult * polBonus);
-        p.commerce = (Number(p.commerce) || 50) + Math.round(8 * mult * polBonus);
+        p.rice = Math.min(this.getProvinceRiceCap(p), (Number(p.rice) || 50) + Math.round(8 * mult * polBonus)); // 上限（2026-10-11 bh）
+        p.commerce = Math.min(this.getProvinceCommerceCap(p), (Number(p.commerce) || 50) + Math.round(8 * mult * polBonus)); // 上限（2026-10-11 bl）
         p.defense = Math.min(100, (Number(p.defense) || 50) + Math.round(3 * mult));
       } else if (p.governance === 'logistics') {
         // 兵站委任の知能化: 最も支援を必要としている危機前線へ重点ピストン輸送！
@@ -1325,7 +2206,7 @@ export const ComputerLogicMethods = {
       const attackForce = Math.round((srcProv.troops || 0) * 0.72);
       const enemyNeighbors = (srcProv.neighbors || [])
         .map(nId => this.provinces.find(x => x.id === nId))
-        .filter(n => n && n.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, n.ownerId));
+        .filter(n => n && n.ownerId !== this.playerClanId && !this.isAllied(this.playerClanId, n.ownerId) && !this.isTruceBlocked?.(this.playerClanId, n.ownerId));
 
       for (const target of enemyNeighbors) {
         const isBlank = !target.ownerId || target.ownerId === 'null';
@@ -1387,15 +2268,15 @@ export const ComputerLogicMethods = {
       const riceCost = Math.min(this.rice, Math.max(50, Math.round(attackForce * 0.1)));
       this.rice = Math.max(0, this.rice - riceCost);
 
-      const attackPower = attackForce * ((Number(srcEff.military) || 60) / 60) * (0.9 + Math.random() * 0.35);
-      const defensePower = (Number(target.troops) || 500) * ((Number(target.defense) || 50) / 80) * ((Number(targetEff.military) || 60) / 60) * (0.8 + Math.random() * 0.4);
-      const won = attackPower > defensePower;
+      // 項目27（2026-10-11 az）委任軍も同じ落城率で判定
+      const siegeOdds = this.computeSiegeOdds({ attackerClanId: this.playerClanId, srcProv, dstProv: target, attackTroops: attackForce, defenders: Number(target.troops) || 0 });
+      const won = Math.random() < siegeOdds.p;
 
       const enemyClanId = target.ownerId;
       const enemyClanName = isBlank ? '無主' : this.getClanFamilyName(enemyClanId);
 
       if (won) {
-        const remainTroops = Math.max(1200, Math.round(attackForce * 0.75));
+        const remainTroops = Math.max(Math.min(1200, attackForce), Math.round(attackForce * 0.75)); // 項目27 az：出陣兵を超えて増えない
         srcProv.troops = Math.max(600, (srcProv.troops || 0) - attackForce);
 
         this.handleProvinceLoss(target, enemyClanId);
@@ -1413,7 +2294,7 @@ export const ComputerLogicMethods = {
           motiveTitle
         });
 
-        this.log(`🎌【委任軍快進撃・${motiveTitle}】${srcProv.name}の委任軍（城主:${srcEff.name}）が敵領【${target.name}】（${enemyClanName}）へ電撃進攻！見事攻略し我が領土に組み入れました！`, 'important');
+        this.log(`🎌【委任軍快進撃・${motiveTitle}】${srcProv.name}の委任軍（城主:${srcEff.name}）が敵領【${target.name}】（${enemyClanName}）へ電撃進攻！見事攻略し我が領土に組み入れました！`, 'quiet');
 
         if (enemyClanId && enemyClanId !== 'null') {
           const remainingEnemyProvs = this.provinces.filter(p => p.ownerId === enemyClanId);
@@ -1429,7 +2310,7 @@ export const ComputerLogicMethods = {
     }
 
     // 委任進攻結果の演出
-    if (conqueredProvinces.length > 0) {
+    if (conqueredProvinces.length > 0 && window.SHOW_CONQUEST_ALERTS) { // 既定は通知なし（年代記のみ。2026-10-11 bn）
       try { this.audio.playFanfare?.(); } catch(e) {}
       const conqueredNames = conqueredProvinces.map(c => `${c.targetName} (${c.enemyClanName})`).join('・');
       this.showOrderResult('🎌 委任軍 領土攻略！', `${conqueredNames} を電撃攻略！`, '#2ecc71');

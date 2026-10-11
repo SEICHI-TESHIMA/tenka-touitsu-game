@@ -9,12 +9,12 @@
  * @typedef {import('./types.js').GameSaveData} GameSaveData
  */
 
-import { GameState, GameStateMethods } from './core/GameState.js';
-import { UIManager, UIManagerMethods } from './ui/UIManager.js';
-import { MapRenderer, MapRendererMethods } from './render/MapRenderer.js';
-import { ComputerLogic, ComputerLogicMethods } from './ai/ComputerLogic.js';
-import { DataLoader } from './core/DataLoader.js';
-import * as GameRules from './core/GameRules.js';
+import { GameState, GameStateMethods } from './core/GameState.js?v=20261011cl';
+import { UIManager, UIManagerMethods } from './ui/UIManager.js?v=20261011cl';
+import { MapRenderer, MapRendererMethods } from './render/MapRenderer.js?v=20261011cl';
+import { ComputerLogic, ComputerLogicMethods } from './ai/ComputerLogic.js?v=20261011cl';
+import { DataLoader } from './core/DataLoader.js?v=20261011cl';
+import * as GameRules from './core/GameRules.js?v=20261011cl';
 
 // 早期初期化: モジュール評価時点で即座に window.getClanAbility を配備
 if (typeof window !== 'undefined') {
@@ -735,6 +735,8 @@ export class SengokuGame {
 
     this.music = new SengokuMusicEngine();
     this.audio = this.music;
+    // 季節オート進行中は季節替わりで曲を替えない（音楽エンジンが問い合わせる。2026-10-11 bz）
+    this.music.isAutoAdvanceActive = () => !!this.isAutoPlay;
 
     // ゲーム進行状態
     this.currentScenarioId = '1560';

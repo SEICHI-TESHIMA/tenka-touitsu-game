@@ -3394,7 +3394,7 @@
         "gold": 650,
         "rice": 800,
         "personality": "balanced",
-        "officerId": "off_otomo_yoshinao_early_bridge",
+        "officerId": "off_otomo_succ_1085",
         "desc": "豊後府内を拠点に九州六国を治めた名門。大友宗麟はキリシタン大名として南蛮貿易を推進し、島津・龍造寺と九州三国志を争った。"
       },
       {
@@ -6728,7 +6728,7 @@
         "gold": 650,
         "rice": 800,
         "personality": "aggressive",
-        "officerId": "off_ezo_leader_1331",
+        "officerId": "off_succ_ando_1265_2",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
       },
       {
@@ -7628,7 +7628,7 @@
         "gold": 650,
         "rice": 800,
         "personality": "aggressive",
-        "officerId": "off_ezo_leader_1331",
+        "officerId": "off_succ_ando_1265_2",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
       },
       {
@@ -14587,7 +14587,7 @@
     "lore_focus": "小弓公方軍は国府台を死守し北条軍を撃退できるか。北条軍は足利義明を討ち取り関東南部の覇権を握れるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "oura",
+      "tsugaru": "tsugaru",
       "mutsu": "nanbu",
       "rikuchu": "kasai",
       "ugo": "ando",
@@ -14881,7 +14881,7 @@
       "kono": "iyo",
       "sagara": "higo",
       "ito": "hyuga",
-      "oura": "tsugaru",
+      "tsugaru": "tsugaru",
       "kasai": "rikuchu",
       "kamakura_fu": "shimousa"
     }
@@ -14973,7 +14973,7 @@
       "south_shinano": "takeda",
       "north_omi": "azai",
       "south_omi": "rokkaku",
-      "tsugaru": "oura",
+      "tsugaru": "tsugaru",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
@@ -15820,7 +15820,7 @@
       "murakami": "north_shinano",
       "isshiki": "tango",
       "takeda_wakasa": "wakasa",
-      "oura": "tsugaru",
+      "tsugaru": "tsugaru",
       "kasai": "rikuchu",
       "chiba": "shimousa",
       "yamanouchi": "kozuke"
@@ -15852,7 +15852,7 @@
     "lore_focus": "毛利軍は寡兵で陶の大軍を宮島で包囲殲滅できるか。陶晴賢は毛利の計略を破り安芸を平定できるか。",
     "owners": {
       "ezo": "kakizaki",
-      "tsugaru": "oura",
+      "tsugaru": "tsugaru",
       "mutsu": "nanbu",
       "rikuchu": "nanbu",
       "ugo": "ando",
@@ -16374,7 +16374,7 @@
       "sagara": "higo",
       "ito": "hyuga",
       "soma": "iwaki",
-      "oura": "tsugaru",
+      "tsugaru": "tsugaru",
       "yamanouchi": "kozuke"
     }
   },
@@ -16465,7 +16465,7 @@
       "south_shinano": "takeda",
       "north_omi": "azai",
       "south_omi": "rokkaku",
-      "tsugaru": "oura",
+      "tsugaru": "tsugaru",
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
@@ -17311,7 +17311,7 @@
       "ito": "hyuga",
       "rokkaku": "south_omi",
       "uragami": "bizen",
-      "oura": "tsugaru"
+      "tsugaru": "tsugaru"
     }
   },
   {
@@ -17352,7 +17352,7 @@
       "kaga": "honganji",
       "echizen": "asakura",
       "wakasa": "asakura",
-      "kozuke": "hojo",
+      "kozuke": "uesugi",
       "shimotsuke": "utsunomiya",
       "hitachi": "satake",
       "shimousa": "hojo",
@@ -18563,7 +18563,7 @@
       "iwashiro": "ashina",
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
-      "kozuke": "hojo",
+      "kozuke": "uesugi",
       "musashi": "hojo",
       "shimousa": "hojo",
       "kazusa": "hojo",
@@ -19006,7 +19006,7 @@
       "iwaki": "soma",
       "hitachi": "satake",
       "shimotsuke": "utsunomiya",
-      "kozuke": "hojo",
+      "kozuke": "uesugi",
       "musashi": "hojo",
       "sagami": "hojo",
       "izu": "hojo",
@@ -20541,7 +20541,9 @@
         "rice": 800,
         "personality": "aggressive",
         "officerId": "off_tsugaru_tamenobu",
-        "desc": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏から独立し津軽一統を成し遂げた風雲児。"
+        "desc": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏から独立し津軽一統を成し遂げた風雲児。",
+        "name": "大浦為信",
+        "clan": "大浦家"
       },
       {
         "id": "nanbu",
@@ -21271,8 +21273,9 @@
         "rice": 1000,
         "personality": "aggressive",
         "officerId": "off_tsugaru_tamenobu",
-        "name": "津軽為信",
-        "desc": "北奥の英傑・津軽為信。南部氏の支配を脱し、津軽一統を成し遂げて独立大名となった。"
+        "name": "大浦為信",
+        "desc": "北奥の英傑・津軽為信。南部氏の支配を脱し、津軽一統を成し遂げて独立大名となった。",
+        "clan": "大浦家"
       }
     ]
   },
@@ -22571,7 +22574,7 @@
       "suruga": "tokugawa",
       "totomi": "tokugawa",
       "mikawa": "tokugawa",
-      "owari": "ishida",
+      "owari": "tokugawa",
       "izu": "tokugawa",
       "ise": "ishida",
       "shima": "ishida",
@@ -22597,8 +22600,8 @@
       "aki": "mori",
       "suo": "mori",
       "nagato": "mori",
-      "sanuki": "tokugawa",
-      "awa_shikoku": "hachisuka",
+      "sanuki": "toyotomi",
+      "awa_shikoku": "toyotomi",
       "iyo": "tokugawa",
       "tosa": "chosokabe",
       "buzen": "kuroda",
@@ -22607,7 +22610,7 @@
       "chikugo": "tachibana",
       "hizen": "nabeshima",
       "higo": "kato",
-      "hyuga": "shimazu",
+      "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "north_shinano": "sanada",
@@ -22730,11 +22733,11 @@
           "totomi",
           "mikawa",
           "izu",
-          "sanuki",
           "iyo",
           "south_shinano",
           "sado",
-          "oki"
+          "oki",
+          "owari"
         ],
         "gold": 6150,
         "rice": 7400,
@@ -22746,13 +22749,12 @@
         "id": "ishida",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "echizen",
-        "provCount": 10,
+        "startProvId": "north_omi",
+        "provCount": 9,
         "myProvinces": [
           "echizen",
           "wakasa",
           "mino",
-          "owari",
           "ise",
           "shima",
           "iga",
@@ -22795,7 +22797,7 @@
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "tamba",
-        "provCount": 8,
+        "provCount": 10,
         "myProvinces": [
           "tamba",
           "settsu",
@@ -22804,7 +22806,9 @@
           "yamato",
           "kii",
           "harima",
-          "awaji"
+          "awaji",
+          "sanuki",
+          "awa_shikoku"
         ],
         "gold": 1650,
         "rice": 2000,
@@ -22833,10 +22837,9 @@
         "id": "shimazu",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "hyuga",
-        "provCount": 3,
+        "startProvId": "satsuma",
+        "provCount": 2,
         "myProvinces": [
-          "hyuga",
           "satsuma",
           "osumi"
         ],
@@ -22845,6 +22848,21 @@
         "personality": "aggressive",
         "officerId": "off_shimazu_yoshihiro",
         "desc": "薩摩・大隅・日向の三州から勃興し、義久・義弘・歳久・家久の四兄弟が結束して九州ほぼ全土を席巻した戦国屈指の精強武士団。"
+      },
+      {
+        "id": "ito",
+        "difficulty": "超上級",
+        "winRate": 30,
+        "startProvId": "hyuga",
+        "provCount": 1,
+        "myProvinces": [
+          "hyuga"
+        ],
+        "gold": 650,
+        "rice": 800,
+        "personality": "domestic",
+        "officerId": "off_succ_ito_1550_45",
+        "desc": "伊東義祐の子・伊東祐兵。豊臣秀吉に飫肥を与えられて日向伊東氏を再興した。関ヶ原の動乱に際し、宿敵島津と境を接する日向で家名の存続を図る。"
       },
       {
         "id": "nanbu",
@@ -23122,7 +23140,7 @@
     ],
     "capitals": {
       "tokugawa": "musashi",
-      "ishida": "echizen",
+      "ishida": "north_omi",
       "toyotomi": "settsu",
       "mori": "suo",
       "uesugi": "iwashiro",
@@ -23147,7 +23165,8 @@
       "tsugaru": "tsugaru",
       "so": "tsushima",
       "hosokawa": "tango",
-      "kyogoku": "south_omi"
+      "kyogoku": "south_omi",
+      "ito": "hyuga"
     }
   },
   {
@@ -23882,7 +23901,7 @@
       "chikugo": "tachibana",
       "bungo": "tokugawa",
       "higo": "hosokawa",
-      "hyuga": "ito",
+      "hyuga": "arima",
       "satsuma": "shimazu",
       "osumi": "shimazu",
       "oki": "tokugawa",
@@ -23960,7 +23979,7 @@
       "chikugo": "柳川城",
       "bungo": "岡城",
       "higo": "熊本城",
-      "hyuga": "飫肥城",
+      "hyuga": "延岡城",
       "satsuma": "一宇治城・内城",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
@@ -24422,7 +24441,7 @@
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "so": "tsushima",
-      "ito": "hyuga"
+      "arima": "hyuga"
     }
   },
   {
@@ -24898,6 +24917,7 @@
       ]
     ],
     "fieldLandedOnly": true,
+    "keepRonin": ["off_sakakibara_masakuni"],
     "noAutoCastellan": true,
     "daikanProvinces": [
       "hida",
@@ -25445,9 +25465,9 @@
       "totomi": "tokugawa",
       "mikawa": "tokugawa",
       "owari": "owari",
-      "ise": "tokugawa",
+      "ise": "todo",
       "shima": "tokugawa",
-      "iga": "tokugawa",
+      "iga": "todo",
       "north_omi": "ii",
       "south_omi": "tokugawa",
       "yamashiro": "tokugawa",
@@ -25518,7 +25538,8 @@
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "todo": "ise"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -25856,6 +25877,22 @@
         "officerId": "off_uesugi_yoshinori",
         "name": "上杉吉憲",
         "desc": "米沢藩第五代藩主・上杉吉憲。享保の改革の時代に米沢藩の治世にあたった。"
+      },
+      {
+        "id": "todo",
+        "difficulty": "上級",
+        "winRate": 50,
+        "startProvId": "ise",
+        "provCount": 2,
+        "myProvinces": [
+          "ise",
+          "iga"
+        ],
+        "gold": 2100,
+        "rice": 2400,
+        "personality": "balanced",
+        "officerId": "off_jd_272",
+        "desc": "津藩主・藤堂高敏。伊勢・伊賀を領し、築城の名手藤堂高虎以来の名家として伊勢路を押さえる。"
       }
     ]
   },
@@ -26157,8 +26194,8 @@
         "gold": 2100,
         "rice": 2400,
         "personality": "domestic",
-        "officerId": "off_edo_kishu_1771_112",
-        "desc": "紀州藩主。治貞の後を受けて紀伊を継ぎ、和歌山を治める。"
+        "officerId": "off_succ_kishu_1728_68",
+        "desc": "紀州藩主。重倫の隠居後に藩主となり、幼い治宝を後見しつつ和歌山を治める。"
       },
       {
         "id": "mito",
@@ -26236,8 +26273,8 @@
         "gold": 3500,
         "rice": 4000,
         "personality": "aggressive",
-        "officerId": "off_shimazu_shigehide",
-        "desc": "薩摩藩の当主。蘭学を奨め、薩摩・大隅・日向の実権を握る。"
+        "officerId": "off_shimazu_narinobu",
+        "desc": "薩摩藩主。父・重豪の隠居で家督を継ぐが、なお重豪が実権を握る薩摩・大隅・日向を預かる。"
       },
       {
         "id": "mori",
@@ -26298,8 +26335,8 @@
         "gold": 2100,
         "rice": 2400,
         "personality": "balanced",
-        "officerId": "off_edo_tosa_1773_197",
-        "desc": "土佐藩主。豊雍の後を継ぎ、高知を預かる。"
+        "officerId": "off_yamauchi_toyochika",
+        "desc": "土佐藩主。天明の改革で藩財政を立て直し、高知を預かる。"
       },
       {
         "id": "asano",
@@ -26328,9 +26365,9 @@
         "gold": 800,
         "rice": 1000,
         "personality": "domestic",
-        "officerId": "off_uesugi_yozan",
-        "name": "上杉鷹山",
-        "desc": "「為せば成る」の名言で知られる米沢藩第九代藩主・名君上杉鷹山。破綻寸前の藩財政を殖産興業と大改革で劇的に立て直した。"
+        "officerId": "off_uesugi_haruhiro",
+        "name": "上杉治広",
+        "desc": "米沢藩第十代藩主。養父・上杉鷹山の改革を受け継ぎ、米沢の藩政再建を進める。"
       }
     ]
   },
@@ -27950,7 +27987,7 @@
         "id": "tokugawa",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "shimotsuke",
+        "startProvId": "musashi",
         "provCount": 37,
         "myProvinces": [
           "shimotsuke",
@@ -28138,7 +28175,7 @@
         "id": "maeda",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "etchu",
+        "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
           "etchu",
@@ -28359,10 +28396,10 @@
       "date": "rikuzen",
       "uesugi": "uzen",
       "mito": "hitachi",
-      "tokugawa": "shimotsuke",
+      "tokugawa": "musashi",
       "sanada": "north_shinano",
       "makino": "echigo",
-      "maeda": "etchu",
+      "maeda": "kaga",
       "fukui_matsudaira": "echizen",
       "owari": "owari",
       "kuwana": "ise",
@@ -29089,7 +29126,7 @@
     "desc": "明治十年、私学校党に擁された西郷隆盛が鹿児島で挙兵。熊本城を囲み田原坂で官軍と激突する、最後の士族反乱。",
     "lore": "西南の役。西郷隆盛・桐野利秋ら私学校党対明治政府の決戦。",
     "lore_background": "廃藩置県と徴兵令の後、士族の不満が鹿児島に渦巻いた。明治十年二月、西郷隆盛を盟主に仰いだ私学校生徒らは銃を取り、鹿児島を発って熊本城を包囲した。山縣有朋・黒田清隆らが率いる政府軍は田原坂で薩軍を破り、九月、西郷は城山で自刃した。",
-    "lore_factions": "【私学校党・薩軍】西郷隆盛・桐野利秋・村田新八・篠原国幹・別府晋介\n【明治政府軍】有栖川宮熾仁親王（征討総督）・山縣有朋・黒田清隆",
+    "lore_factions": "【私学校党・薩軍】西郷隆盛・桐野利秋・村田新八・篠原国幹・別府晋介\n【明治政府軍】明治天皇・有栖川宮熾仁親王（征討総督）・山縣有朋・黒田清隆",
     "lore_focus": "士族の誇りを貫いて鹿児島から京へ進むか、徴兵の兵と新式銃で反乱を鎮めるか。西南の決戦が明治国家の命運を決する。",
     "owners": {
       "ezo": "meiji",
@@ -29271,7 +29308,7 @@
         "id": "meiji",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "yamashiro",
+        "startProvId": "musashi",
         "provCount": 71,
         "myProvinces": [
           "ezo",
@@ -29349,13 +29386,13 @@
         "gold": 9000,
         "rice": 10000,
         "personality": "aggressive",
-        "officerId": "off_dm_meiji_1868",
-        "desc": "征討総督・有栖川宮熾仁親王。山縣有朋・黒田清隆らが率いる徴兵の兵で西郷軍を迎え撃つ。京・小倉方面から九州の乱を鎮める。"
+        "officerId": "off_meiji_tenno",
+        "desc": "明治天皇を戴く明治新政府。征討総督・有栖川宮熾仁親王、山縣有朋・黒田清隆らが率いる徴兵の兵で西郷軍を迎え撃つ。東京（武蔵）を本拠に、京・小倉方面から九州の乱を鎮める。"
       }
     ],
     "clanDescs": {
       "saigo_gun": "私学校党の西郷軍。薩隅日向に加え肥後・豊後・土佐立志社・長門と気脈を通じ官軍と激突する。",
-      "meiji": "明治新政府。征討総督・有栖川宮熾仁親王のもと、山縣・黒田らが西郷軍を迎え撃つ。"
+      "meiji": "明治新政府。明治天皇のもと、征討総督・有栖川宮熾仁親王、山縣・黒田らが西郷軍を迎え撃つ。"
     },
     "capitals": {
       "meiji": "musashi",

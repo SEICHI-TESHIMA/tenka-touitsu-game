@@ -5539,6 +5539,7 @@ export const LEADER_NAME_ALIASES = [
   ['羽柴秀頼', '豊臣秀頼'],
   ['清原清衡', '藤原清衡', '清原清衝', '藤原清衝'],
   ['徳川家康', '松平元康'],
+  ['津軽為信', '大浦為信'],
   ['由比正雪', '由井正雪'],
   ['天草四郎', '天草四郎時貞'],
   ['安倍頼時', '安倍頼良']
@@ -5546,6 +5547,18 @@ export const LEADER_NAME_ALIASES = [
 
 // 羽柴⇔豊臣の改姓対象（ID → 名）。苗字の前方一致では選ばない;
 if (typeof window !== "undefined") window.LEADER_NAME_ALIASES = LEADER_NAME_ALIASES;
+
+// 改姓で家名が変わる家（勢力IDは同じまま、年代で家名・当主名を切り替える。GameState.updateClanNameEras）
+export const CLAN_NAME_ERAS = {
+  // 大浦為信は近衛前久の猶子となって姓を大浦から津軽に改めた（ja.wikipedia「津軽為信」。弘前藩主 1590年〜）
+  tsugaru: {
+    switchYear: 1590,
+    before: { family: '大浦家', officers: { 'off_tsugaru_tamenobu': '大浦為信' } },
+    after: { family: '津軽家', officers: { 'off_tsugaru_tamenobu': '津軽為信' } },
+    log: '📜【改姓】大浦為信公は近衛前久の猶子となり、姓を大浦から「津軽」に改めました。大浦家はこれより「津軽家」を称します。'
+  }
+};
+if (typeof window !== "undefined") window.CLAN_NAME_ERAS = CLAN_NAME_ERAS;
 
 export const TOYOTOMI_SURNAME_OFFICERS = {
   'off_toyotomi_hideyoshi': '秀吉',
@@ -6699,7 +6712,7 @@ if (typeof window !== "undefined") window.CLAN_SERVICE_FALLBACKS = CLAN_SERVICE_
     id: 'oura_tamenori_tsugaru_1538_1560',
     officerIds: ['off_jd_013'],
     scenarioIds: ['1538', '1546', '1555', '1560'],
-    setClanId: 'oura',
+    setClanId: 'tsugaru',
     setDefaultProv: 'tsugaru',
     setAssignedProv: 'tsugaru',
     setDaimyo: true
@@ -10183,3 +10196,287 @@ window.OFFICER_AFFILIATION_RULES.unshift(
 // ゆかりの家臣で上書きしない史実城代（シナリオID → 領国 → 武将ID）;
 if (typeof window !== "undefined") window.CLAN_SERVICE_FALLBACKS = CLAN_SERVICE_FALLBACKS;
 
+// --- sekigahara_1600_user_updates_20261011b: 1600 関ヶ原シナリオの武将配置（ユーザー指定）。1614年以降ルールより後ろに置く ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 長尾景広・長尾景利：会津（岩代）の上杉家臣
+    { id: 'nagao_kagehiro_kagetoshi_uesugi_iwashiro_1600', officerIds: ['off_nagao_kagehiro', 'off_nagao_kagetoshi'], scenarioIds: ['1600'], setClanId: 'uesugi', requireOwners: ['uesugi'], setDefaultProv: 'iwashiro', setDaimyo: false },
+    // 島左近：佐和山（北近江）の石田家臣
+    { id: 'shima_sakon_ishida_north_omi_1600', officerIds: ['off_shima_sakon'], scenarioIds: ['1600'], setClanId: 'ishida', requireOwners: ['ishida'], setDefaultProv: 'north_omi', setDaimyo: false },
+    // 丹羽長重：越前（石田領）の石田家臣
+    { id: 'niwa_nagashige_ishida_echizen_1600', officerIds: ['off_niwa_nagashige'], scenarioIds: ['1600'], setClanId: 'ishida', requireOwners: ['ishida'], setDefaultProv: 'echizen', setDaimyo: false },
+    // 石川貞清：美濃の石田家臣
+    { id: 'ishikawa_sadakiyo_ishida_mino_1600', officerIds: ['off_jd_058'], scenarioIds: ['1600'], setClanId: 'ishida', requireOwners: ['ishida'], setDefaultProv: 'mino', setDaimyo: false }
+  );
+}
+
+// --- sekigahara_1600_part2_20261011c: 1600 関ヶ原シナリオ追加配置（ユーザー指定・その2）。1614年以降ルールより後ろに置く ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 日向伊東家：当主 伊東祐兵
+    { id: 'ito_sukemasu_daimyo_hyuga_1600', officerIds: ['off_succ_ito_1550_45'], scenarioIds: ['1600'], requireOwners: ['ito'], setClanId: 'ito', setDefaultProv: 'hyuga', setAssignedProv: 'hyuga', setDaimyo: true },
+    // 日向伊東家：一門・家臣
+    { id: 'ito_clan_hyuga_1600', officerIds: ['off_succ2_ito_1580', 'off_ito_sukeyoshi'], scenarioIds: ['1600'], requireOwners: ['ito'], setClanId: 'ito', setDefaultProv: 'hyuga', setDaimyo: false },
+    // 島津忠恒・島津以久：薩摩の島津家臣
+    { id: 'shimazu_tadatsune_tohisahisa_satsuma_1600', officerIds: ['off_shimazu_tadatsune', 'off_shimazu_tohisahisa'], scenarioIds: ['1600'], requireOwners: ['shimazu'], setClanId: 'shimazu', setDefaultProv: 'satsuma', setDaimyo: false },
+    // 蜂須賀至鎮：阿波は豊臣領のため豊臣家臣（蜂須賀家は地図にない）
+    { id: 'hachisuka_yoshishige_toyotomi_1600', officerIds: ['off_hachisuka_yoshishige'], scenarioIds: ['1600'], requireOwners: ['toyotomi'], unlessOwner: 'hachisuka', setClanId: 'toyotomi', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    // 蒲生郷成・町野繁仍（蒲生家中）：下野の徳川家臣
+    { id: 'gamo_machino_tokugawa_shimotsuke_1600', officerIds: ['off_gamo_satonari', 'off_machino_shigenori'], scenarioIds: ['1600'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'shimotsuke', setDaimyo: false }
+  );
+}
+
+// --- edo_1614_1637_part2_20261011d: 1614・1637 追加配置（ユーザー指定・その2） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 有馬直純：日向の浪人
+    { id: 'arima_naozumi_ronin_hyuga_1614_1637', officerIds: ['off_jd_053'], scenarioIds: ['1614', '1637'], setClanId: 'ronin', setDefaultProv: 'hyuga', clearAssignment: true, setDaimyo: false },
+    // 喜連川尊氏：山城の徳川家臣
+    { id: 'kitsuregawa_takauji_tokugawa_yamashiro_1637', officerIds: ['off_kitsuregawa_takauji'], scenarioIds: ['1637'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'yamashiro', setDaimyo: false },
+    // 町野繁仍：下野の徳川家臣（1600 と同様）。1614 は岩代の蒲生家臣（gamo_retainers_iwashiro_1614）とするため 1637 のみ
+    { id: 'machino_tokugawa_shimotsuke_1637', officerIds: ['off_machino_shigenori'], scenarioIds: ['1637'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'shimotsuke', setDaimyo: false }
+  );
+}
+
+// --- officer_moves_part3_20261011e: 武将移動（ユーザー指定・その3）。移動元に居る 1637・1651 のみ ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 木下俊治：豊後の浪人
+    { id: 'kinoshita_toshiharu_ronin_bungo_1637_1651', officerIds: ['off_kinoshita_toshiharu'], scenarioIds: ['1637', '1651'], setClanId: 'ronin', setDefaultProv: 'bungo', clearAssignment: true, setDaimyo: false },
+    // 加藤重正：羽前の浪人
+    { id: 'kato_shigemasa_ronin_uzen_1637_1651', officerIds: ['off_kato_shigemasa'], scenarioIds: ['1637', '1651'], setClanId: 'ronin', setDefaultProv: 'uzen', clearAssignment: true, setDaimyo: false },
+    // 今川直房：下野の徳川家臣
+    { id: 'imagawa_naofusa_tokugawa_shimotsuke_1637_1651', officerIds: ['off_imagawa_naofusa'], scenarioIds: ['1637', '1651'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'shimotsuke', setDaimyo: false },
+    // 杉山吉成：津軽家臣
+    { id: 'sugiyama_yoshinari_tsugaru_1637_1651', officerIds: ['off_ishida_yoshinari'], scenarioIds: ['1637', '1651'], requireOwners: ['tsugaru'], setClanId: 'tsugaru', setDefaultProv: 'tsugaru', setDaimyo: false },
+    // 河野通房：長門の毛利家臣
+    { id: 'kono_michifusa_mori_nagato_1637_1651', officerIds: ['off_kono_michifusa'], scenarioIds: ['1637', '1651'], requireOwners: ['mori'], setClanId: 'mori', setDefaultProv: 'nagato', setDaimyo: false },
+    // 織田長政：大和の徳川家臣
+    { id: 'oda_nagamasa_tokugawa_yamato_1651', officerIds: ['off_oda_nagamasa_uda'], scenarioIds: ['1651'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'yamato', setDaimyo: false }
+  );
+}
+
+// --- edo_1702_updates_20261011f: 1702 武将配置（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 大岡忠相：武蔵（江戸）の徳川家臣
+    { id: 'ooka_tadasuke_tokugawa_musashi_1702', officerIds: ['off_ooka_tadasuke'], scenarioIds: ['1702'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false }
+  );
+}
+
+// --- edo_1721_updates_20261011g: 1721 武将配置（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 藤堂高敏：独立した藤堂家の当主（伊勢・津）
+    { id: 'todo_takatoshi_daimyo_ise_1721', officerIds: ['off_jd_272'], scenarioIds: ['1721'], requireOwners: ['todo'], setClanId: 'todo', setDefaultProv: 'ise', setAssignedProv: 'ise', setDaimyo: true },
+    // 榊原政邦：播磨姫路の徳川家臣
+    { id: 'sakakibara_masakuni_tokugawa_harima_1721', officerIds: ['off_sakakibara_masakuni'], scenarioIds: ['1721'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'harima', setDaimyo: false },
+    // 赤松則弘（前播磨城主）：徳川家臣のまま播磨に待機
+    { id: 'akamatsu_norihisa_tokugawa_harima_1721', officerIds: ['off_akamatsu_norihisa'], scenarioIds: ['1721'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'harima', setDaimyo: false },
+    // 北畠具長（前伊勢城主）：徳川家臣のまま（伊勢が藤堂領となったため徳川本拠に所在）
+    { id: 'kitabatake_tomonaga_tokugawa_1721', officerIds: ['off_kitabatake_tomenaga'], scenarioIds: ['1721'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDaimyo: false }
+  );
+}
+
+// --- edo_1789_updates_20261011h: 1789 当主（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 徳川宗睦：尾張徳川家当主（名古屋）
+    { id: 'owari_munechika_daimyo_1789', officerIds: ['off_succ_owari_1733_132'], scenarioIds: ['1789'], requireOwners: ['owari'], setClanId: 'owari', setDefaultProv: 'owari', setAssignedProv: 'owari', setDaimyo: true },
+    // 佐竹義和：佐竹家（久保田藩）当主（羽後）
+    { id: 'satake_yoshimasa_daimyo_ugo_1789', officerIds: ['off_succ_satake_1775_150'], scenarioIds: ['1789'], requireOwners: ['satake'], setClanId: 'satake', setDefaultProv: 'ugo', setAssignedProv: 'ugo', setDaimyo: true },
+    // 成瀬正典・今宮義透：家老として各国に残す
+    { id: 'owari_naruse_karo_1789', officerIds: ['off_edo_owari_1744_114'], scenarioIds: ['1789'], requireOwners: ['owari'], setClanId: 'owari', setDefaultProv: 'owari', setDaimyo: false },
+    { id: 'satake_imamiya_karo_ugo_1789', officerIds: ['off_edo_satake_1765_191'], scenarioIds: ['1789'], requireOwners: ['satake'], setClanId: 'satake', setDefaultProv: 'ugo', setDaimyo: false }
+  );
+}
+
+// --- edo_1789_leaders_all_20261011i: 1789 史実当主（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // tsugaru：津軽信明 が当主、津軽寧親 は家臣として残す
+    { id: 'tsugaru_daimyo_1789_hist', officerIds: ['off_tsugaru_nobuaki'], scenarioIds: ['1789'], requireOwners: ['tsugaru'], setClanId: 'tsugaru', setDefaultProv: 'tsugaru', setAssignedProv: 'tsugaru', setDaimyo: true },
+    { id: 'tsugaru_former_leader_1789_hist', officerIds: ['off_succ_tsugaru_1765_205'], scenarioIds: ['1789'], requireOwners: ['tsugaru'], setClanId: 'tsugaru', setDefaultProv: 'tsugaru', setDaimyo: false },
+    // date：伊達重村 が当主、石川宗光 は家臣として残す
+    { id: 'date_daimyo_1789_hist', officerIds: ['off_date_shigemura'], scenarioIds: ['1789'], requireOwners: ['date'], setClanId: 'date', setDefaultProv: 'rikuzen', setAssignedProv: 'rikuzen', setDaimyo: true },
+    { id: 'date_former_leader_1789_hist', officerIds: ['off_edo_date_1760_172'], scenarioIds: ['1789'], requireOwners: ['date'], setClanId: 'date', setDefaultProv: 'rikuzen', setDaimyo: false },
+    // uesugi：上杉治広 が当主、上杉鷹山 は家臣として残す
+    { id: 'uesugi_daimyo_1789_hist', officerIds: ['off_uesugi_haruhiro'], scenarioIds: ['1789'], requireOwners: ['uesugi'], setClanId: 'uesugi', setDefaultProv: 'uzen', setAssignedProv: 'uzen', setDaimyo: true },
+    { id: 'uesugi_former_leader_1789_hist', officerIds: ['off_uesugi_yozan'], scenarioIds: ['1789'], requireOwners: ['uesugi'], setClanId: 'uesugi', setDefaultProv: 'uzen', setDaimyo: false },
+    // ii：井伊直中 が当主、井伊直幸 は家臣として残す
+    { id: 'ii_daimyo_1789_hist', officerIds: ['off_edo_ii_1766_141'], scenarioIds: ['1789'], requireOwners: ['ii'], setClanId: 'ii', setDefaultProv: 'north_omi', setAssignedProv: 'north_omi', setDaimyo: true },
+    { id: 'ii_former_leader_1789_hist', officerIds: ['off_ii_naoyuki'], scenarioIds: ['1789'], requireOwners: ['ii'], setClanId: 'ii', setDefaultProv: 'north_omi', setDaimyo: false },
+    // kishu：徳川治貞 が当主、徳川治宝 は家臣として残す
+    { id: 'kishu_daimyo_1789_hist', officerIds: ['off_succ_kishu_1728_68'], scenarioIds: ['1789'], requireOwners: ['kishu'], setClanId: 'kishu', setDefaultProv: 'kii', setAssignedProv: 'kii', setDaimyo: true },
+    { id: 'kishu_former_leader_1789_hist', officerIds: ['off_edo_kishu_1771_112'], scenarioIds: ['1789'], requireOwners: ['kishu'], setClanId: 'kishu', setDefaultProv: 'kii', setDaimyo: false },
+    // okayama：池田治政 が当主、池田斉政 は家臣として残す
+    { id: 'okayama_daimyo_1789_hist', officerIds: ['off_succ_okayama_1768_120'], scenarioIds: ['1789'], requireOwners: ['okayama'], setClanId: 'okayama', setDefaultProv: 'bizen', setAssignedProv: 'bizen', setDaimyo: true },
+    { id: 'okayama_former_leader_1789_hist', officerIds: ['off_edo_okayama_1773_203'], scenarioIds: ['1789'], requireOwners: ['okayama'], setClanId: 'okayama', setDefaultProv: 'bizen', setDaimyo: false },
+    // mori：毛利治親 が当主、毛利重就 は家臣として残す
+    { id: 'mori_daimyo_1789_hist', officerIds: ['off_edo_mori_1754_176'], scenarioIds: ['1789'], requireOwners: ['mori'], setClanId: 'mori', setDefaultProv: 'nagato', setAssignedProv: 'nagato', setDaimyo: true },
+    { id: 'mori_former_leader_1789_hist', officerIds: ['off_mori_shigenari'], scenarioIds: ['1789'], requireOwners: ['mori'], setClanId: 'mori', setDefaultProv: 'nagato', setDaimyo: false },
+    // hachisuka：蜂須賀治昭 が当主、蜂須賀重喜 は家臣として残す
+    { id: 'hachisuka_daimyo_1789_hist', officerIds: ['off_edo_hachisuka_1773_195'], scenarioIds: ['1789'], requireOwners: ['hachisuka'], setClanId: 'hachisuka', setDefaultProv: 'awa_shikoku', setAssignedProv: 'awa_shikoku', setDaimyo: true },
+    { id: 'hachisuka_former_leader_1789_hist', officerIds: ['off_hachisuka_shigeyoshi'], scenarioIds: ['1789'], requireOwners: ['hachisuka'], setClanId: 'hachisuka', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    // kuroda：黒田斉隆 が当主、黒田清定 は家臣として残す
+    { id: 'kuroda_daimyo_1789_hist', officerIds: ['off_succ_kuroda_1777_78'], scenarioIds: ['1789'], requireOwners: ['kuroda'], setClanId: 'kuroda', setDefaultProv: 'chikuzen', setAssignedProv: 'chikuzen', setDaimyo: true },
+    { id: 'kuroda_former_leader_1789_hist', officerIds: ['off_edo_kuroda_1750_209'], scenarioIds: ['1789'], requireOwners: ['kuroda'], setClanId: 'kuroda', setDefaultProv: 'chikuzen', setDaimyo: false },
+    // shimazu：島津斉宣 が当主、島津重豪 は家臣として残す
+    { id: 'shimazu_daimyo_1789_hist', officerIds: ['off_shimazu_narinobu'], scenarioIds: ['1789'], requireOwners: ['shimazu'], setClanId: 'shimazu', setDefaultProv: 'satsuma', setAssignedProv: 'satsuma', setDaimyo: true },
+    { id: 'shimazu_former_leader_1789_hist', officerIds: ['off_shimazu_shigehide'], scenarioIds: ['1789'], requireOwners: ['shimazu'], setClanId: 'shimazu', setDefaultProv: 'satsuma', setDaimyo: false },
+    // so：宗義功 が当主、宗義質 は家臣として残す
+    { id: 'so_daimyo_1789_hist', officerIds: ['off_succ_so_1755_183'], scenarioIds: ['1789'], requireOwners: ['so'], setClanId: 'so', setDefaultProv: 'tsushima', setAssignedProv: 'tsushima', setDaimyo: true },
+    { id: 'so_former_leader_1789_hist', officerIds: ['off_edo_so_1773_202'], scenarioIds: ['1789'], requireOwners: ['so'], setClanId: 'so', setDefaultProv: 'tsushima', setDaimyo: false },
+    // ito：伊東祐鐘 が当主、伊東祐福 は家臣として残す
+    { id: 'ito_daimyo_1789_hist', officerIds: ['off_ito_sukeatsu'], scenarioIds: ['1789'], requireOwners: ['ito'], setClanId: 'ito', setDefaultProv: 'hyuga', setAssignedProv: 'hyuga', setDaimyo: true },
+    { id: 'ito_former_leader_1789_hist', officerIds: ['off_edo_ito_sukeyoshi_1789'], scenarioIds: ['1789'], requireOwners: ['ito'], setClanId: 'ito', setDefaultProv: 'hyuga', setDaimyo: false }
+  );
+}
+
+// --- edo_sagami_okubo_20261011j: 江戸期の相模城主＝小田原大久保家当主（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 大久保忠職（忠隣改易後〜1670）
+    { id: 'okubo_sagami_head_off_okubo_tadamoto_1615', officerIds: ['off_okubo_tadamoto'], fromYear: 1615, toYear: 1670, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠朝（1670〜1698）
+    { id: 'okubo_sagami_head_off_jd_078_1670', officerIds: ['off_jd_078'], fromYear: 1670, toYear: 1698, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠増（1698〜1713）
+    { id: 'okubo_sagami_head_off_okubo_tadamasu_1698', officerIds: ['off_okubo_tadamasu'], fromYear: 1698, toYear: 1713, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠方（1713〜1732）
+    { id: 'okubo_sagami_head_off_okubo_tadakata_1713', officerIds: ['off_okubo_tadakata'], fromYear: 1713, toYear: 1732, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠興（1732〜1763）
+    { id: 'okubo_sagami_head_off_okubo_tadaoki_1732', officerIds: ['off_okubo_tadaoki'], fromYear: 1732, toYear: 1763, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠由（1763〜1769）
+    { id: 'okubo_sagami_head_off_okubo_tadayoshi_1763', officerIds: ['off_okubo_tadayoshi'], fromYear: 1763, toYear: 1769, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠顕（1769〜1796）
+    { id: 'okubo_sagami_head_off_okubo_tadaaki_1769', officerIds: ['off_okubo_tadaaki'], fromYear: 1769, toYear: 1796, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠真（1796〜1837）
+    { id: 'okubo_sagami_head_off_okubo_tadatomo_line2_1796', officerIds: ['off_okubo_tadatomo_line2'], fromYear: 1796, toYear: 1837, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠愨（1837〜1859）
+    { id: 'okubo_sagami_head_off_okubo_tadanao_1837', officerIds: ['off_okubo_tadanao'], fromYear: 1837, toYear: 1859, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 大久保忠礼（1859〜1868）
+    { id: 'okubo_sagami_head_off_okubo_tadanori_bakumatsu_1859', officerIds: ['off_okubo_tadanori_bakumatsu'], fromYear: 1859, toYear: 1868, requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'sagami', setDaimyo: false },
+    // 浦賀奉行ら（相模ゆかり）：前進プレイで大久保当主の空位を埋めた後に城主を返上させるため、開始年以外の 1838〜1859 のみ武蔵
+    { id: 'uraga_bugyo_musashi_1838_1859', officerIds: ['off_edo_tokugawa_1778_28', 'off_edo_tokugawa_1804_30', 'off_edo_tokugawa_1799_29'], years: [1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1854, 1855, 1856, 1857, 1858, 1859], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false }
+  );
+}
+
+// --- bakumatsu_1853plus_tohoku_moves_20261011k: 1853以降 武将配置（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 楢山佐渡：陸中→陸前（陸前は伊達家本拠のため伊達家臣として）
+    { id: 'narayama_sado_date_rikuzen_1853plus', officerIds: ['off_narayama_sado'], scenarioIds: ['1853', '1860', '1868'], requireOwners: ['date'], setClanId: 'date', setDefaultProv: 'rikuzen', setDaimyo: false },
+    // 八戸隆吉：陸中→陸奥（南部家臣のまま）
+    { id: 'hachinohe_takayoshi_nanbu_mutsu_1853plus', officerIds: ['off_edo_nanbu_1805_189'], scenarioIds: ['1853', '1860'], requireOwners: ['nanbu'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: false },
+    // 南部利済：陸奥→陸中（南部家臣のまま・隠居）
+    { id: 'nanbu_toshitada_nanbu_rikuchu_1853', officerIds: ['off_edo_nanbu_1797_187'], scenarioIds: ['1853'], requireOwners: ['nanbu'], setClanId: 'nanbu', setDefaultProv: 'rikuchu', setDaimyo: false },
+    // 北小路随光：陸奥→山城（公家。山城に朝廷勢力が無いため浪人として京に）
+    { id: 'kitakoji_yorimitsu_ronin_yamashiro_1853plus', officerIds: ['off_jd_431'], scenarioIds: ['1853', '1860', '1866'], setClanId: 'ronin', setDefaultProv: 'yamashiro', setDaimyo: false }
+  );
+}
+
+// --- edo_capitals_1866_fixes_20261011l: 1866 本拠修正に伴う配置（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 前田慶寧：前田家当主として加賀（金沢）に
+    { id: 'maeda_yoshiyasu_daimyo_kaga_1866', officerIds: ['off_dm_maeda_1868'], scenarioIds: ['1866'], requireOwners: ['maeda'], setClanId: 'maeda', setDefaultProv: 'kaga', setAssignedProv: 'kaga', setDaimyo: true },
+    // 前田斉泰：家臣として加賀
+    { id: 'maeda_nariyasu_kaga_1866', officerIds: ['off_maeda_nariyasu'], scenarioIds: ['1866'], requireOwners: ['maeda'], setClanId: 'maeda', setDefaultProv: 'kaga', setDaimyo: false },
+    // 徳川慶喜：徳川家当主として武蔵（江戸）に
+    { id: 'tokugawa_yoshinobu_daimyo_musashi_1866', officerIds: ['off_tokugawa_yoshinobu'], scenarioIds: ['1866'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setAssignedProv: 'musashi', setDaimyo: true },
+    // 太田資始：下野→武蔵（徳川家臣）
+    { id: 'ota_sukemoto_tokugawa_musashi_1866', officerIds: ['off_edo_tokugawa_1799_36'], scenarioIds: ['1866'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    // 藤堂高猷：下野→伊賀（伊賀は桑名藩松平家の領国。城主の藤堂長邦と同じく桑名家臣として）
+    // 北小路随光：山城の徳川家臣（城主にはせず配下待機中）。1853plus の浪人ルールより優先
+    { id: 'kitakoji_yorimitsu_tokugawa_yamashiro_1853plus', officerIds: ['off_jd_431'], scenarioIds: ['1853', '1860', '1866'], requireOwners: ['tokugawa'], setClanId: 'tokugawa', setDefaultProv: 'yamashiro', setDaimyo: false, clearAssignment: true },
+    { id: 'todo_takayuki_kuwana_iga_1866', officerIds: ['off_edo_tokugawa_1813_34'], scenarioIds: ['1866'], requireOwners: ['kuwana'], setClanId: 'kuwana', setDefaultProv: 'iga', setDaimyo: false }
+  );
+}
+
+// --- edo_1614plus_user_updates_20261011: 1614年以降の武将配置（ユーザー指定） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 長尾景広・長尾景利：米沢（羽前）の上杉家臣
+    { id: 'nagao_kagehiro_kagetoshi_uesugi_uzen_1614plus', officerIds: ['off_nagao_kagehiro', 'off_nagao_kagetoshi'], setClanId: 'uesugi', fromYear: 1614, requireOwners: ['uesugi'], setDefaultProv: 'uzen', setDaimyo: false },
+    // 尼子元知：長門の毛利家臣
+    { id: 'amago_mototomo_mori_nagato_1614plus', officerIds: ['off_amago_mototomo'], setClanId: 'mori', fromYear: 1614, requireOwners: ['mori'], setDefaultProv: 'nagato', setDaimyo: false },
+    // 赤松則英：阿波の浪人
+    { id: 'akamatsu_norihide_ronin_awa_1614plus', officerIds: ['off_akamatsu_norihide'], setClanId: 'ronin', fromYear: 1614, setDefaultProv: 'awa_shikoku', clearAssignment: true, setDaimyo: false },
+    // 中川秀成：徳川家臣（豊後岡）
+    { id: 'nakagawa_hidemasa_tokugawa_1614plus', officerIds: ['off_nakagawa_hidemasa'], setClanId: 'tokugawa', fromYear: 1614, requireOwners: ['tokugawa'], setDefaultProv: 'bungo', setDaimyo: false }
+  );
+}
+
+// --- daidoji_kozuke_1570_1577_20261011ag: 1570・1573・1576・1577 上野を上杉領（1573 は元から）とし、大道寺政繁を武蔵の後北条家臣に（城主にしない）。上野城主は上杉憲政（1570）・甘粕景持（1573・1576・1577） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'daidoji_hojo_musashi_1570_1577', officerIds: ['off_daidoji_masashige'], scenarioIds: ['1570', '1573', '1576', '1577'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'musashi', clearAssignment: true, setDaimyo: false },
+    { id: 'uesugi_norimasa_kozuke_1570', officerIds: ['off_dm_uesugi_1546'], scenarioIds: ['1570'], requireOwners: ['uesugi'], setClanId: 'uesugi', setDefaultProv: 'kozuke', setDaimyo: false },
+    { id: 'amakasu_kagemochi_kozuke_1573_1577', officerIds: ['off_amakasu_kagemochi'], scenarioIds: ['1573', '1576', '1577'], requireOwners: ['uesugi'], setClanId: 'uesugi', setDefaultProv: 'kozuke', setDaimyo: false }
+  );
+}
+
+// --- hojo_ujiteru_chiba_20261011al: 北条氏照を武蔵城主に（1555・1560・1570・1573・1587）、退いた北条綱成は武蔵の家臣。1587 千葉直重を後北条家臣・下総城主に ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'hojo_ujiteru_musashi_lord_1555_1587', officerIds: ['off_hojo_ujiteru'], scenarioIds: ['1555', '1560', '1570', '1573', '1587'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'hojo_tsunashige_musashi_retainer_1555_1573', officerIds: ['off_hojo_tsunashige'], scenarioIds: ['1555', '1560', '1570', '1573'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'chiba_naoshige_hojo_shimousa_1587', officerIds: ['off_chiba_naoshige_bridge'], scenarioIds: ['1587'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false }
+  );
+}
+
+// --- moves_1587_20261011an: 北条氏邦→武蔵の家臣、大道寺政繁→上野城主、正木頼忠→安房の里見家臣、北条氏規→伊豆城主 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'hojo_ujikuni_musashi_retainer_1587', officerIds: ['off_hojo_ujikuni'], scenarioIds: ['1587'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'daidoji_kozuke_lord_1587', officerIds: ['off_daidoji_masashige'], scenarioIds: ['1587'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'kozuke', setDaimyo: false },
+    { id: 'masaki_yoritada_satomi_awa_1587', officerIds: ['off_masaki_yoritada'], scenarioIds: ['1587'], requireOwners: ['satomi'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'hojo_ujinori_izu_lord_1587', officerIds: ['off_hojo_ujinori'], scenarioIds: ['1587'], requireOwners: ['hojo'], setClanId: 'hojo', setDefaultProv: 'izu', setDaimyo: false }
+  );
+}
+
+// --- nagao_uesugi_1583_1599_20261011ao: 長尾家の武将（長尾景広）を 1583〜1599 年も上杉家臣に（浪人化の修正） ---
+if (typeof window !== 'undefined' && window.CLAN_SERVICE_FALLBACKS) {
+  window.CLAN_SERVICE_FALLBACKS.push(
+    { clanIds: ['nagao'], setClanId: 'uesugi', fromYear: 1583, toYear: 1599 }
+  );
+}
+
+// --- oda_hidenobu_mino_1600_20261011ap: 織田秀信を美濃（岐阜城）の城主に（石田家臣） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'oda_hidenobu_ishida_mino_lord_1600', officerIds: ['off_oda_hidenobu'], scenarioIds: ['1600'], requireOwners: ['ishida'], setClanId: 'ishida', setDefaultProv: 'mino', setDaimyo: false }
+  );
+}
+
+// --- ouchi_kono_1614_1637_20261011ar: 周防の大内衆→陸前の伊達家臣、伊予の河野の浪人→周防の毛利家臣 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'ouchi_date_rikuzen_1614_1637', officerIds: ['off_ouchi_shigesada', 'off_ouchi_takehide', 'off_ouchi_yoshinaga_edo'], scenarioIds: ['1614', '1637'], requireOwners: ['date'], setClanId: 'date', setDefaultProv: 'rikuzen', setDaimyo: false },
+    { id: 'kono_ronin_mori_suo_1614_1637', officerIds: ['off_kono_michiki', 'off_succ_kono_1555_74'], scenarioIds: ['1614', '1637'], requireOwners: ['mori'], setClanId: 'mori', setDefaultProv: 'suo', setDaimyo: false }
+  );
+}
+
+// --- arima_hyuga_1637_20261011as: 有馬直純を日向の独立大名に、伊東祐久は日向の浪人、尼子就知→長門の毛利家臣、北畠雅教・昌教→加賀の前田家臣 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'arima_naozumi_daimyo_hyuga_1637', officerIds: ['off_jd_053'], scenarioIds: ['1637'], requireOwners: ['arima'], setClanId: 'arima', setDefaultProv: 'hyuga', setAssignedProv: 'hyuga', setDaimyo: true },
+    { id: 'ito_ronin_hyuga_1637', officerIds: ['off_ito_sukeisa', 'off_succ2_ito_1630'], scenarioIds: ['1637'], setClanId: 'ronin', setDefaultProv: 'hyuga', clearAssignment: true, setDaimyo: false },
+    { id: 'amago_naritomo_mori_nagato_1637', officerIds: ['off_amago_naritomo'], scenarioIds: ['1637'], requireOwners: ['mori'], setClanId: 'mori', setDefaultProv: 'nagato', setDaimyo: false },
+    { id: 'kitabatake_maeda_kaga_1637', officerIds: ['off_kitabatake_masanori_2', 'off_kitabatake_masanori'], scenarioIds: ['1637'], requireOwners: ['maeda'], setClanId: 'maeda', setDefaultProv: 'kaga', setDaimyo: false }
+  );
+}
+
+// --- sakakibara_ronin_1702_20261011au: 榊原政邦を 1702 では播磨の浪人に ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'sakakibara_masakuni_ronin_harima_1702', officerIds: ['off_sakakibara_masakuni'], scenarioIds: ['1702'], setClanId: 'ronin', setDefaultProv: 'harima', clearAssignment: true, setDaimyo: false }
+  );
+}
+
+// --- sakenobe_mogami_20261011be: 鮭延秀綱は最上家が地図にあれば最上家臣（羽前、無ければ最上の本拠） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'sakenobe_mogami_retainer_20261011be', officerIds: ['off_shakenobe_hidetsuna'], requireOwners: ['mogami'], setClanId: 'mogami', setDaimyo: false, keepDaimyoIfSameClan: true, placeInOwnedProv: 'uzen' }
+  );
+}

@@ -13,7 +13,8 @@ var getClanAbility = (clanId) => (typeof window !== 'undefined' && typeof window
   : ((typeof window !== 'undefined' && window.CLAN_ABILITIES?.[clanId]) || { politics: 60, military: 60, stratagem: 55, personality: 'balanced' });
 var HISTORICAL_ALLIANCE_BONDS = (typeof window !== 'undefined' && window.HISTORICAL_ALLIANCE_BONDS) || [];
 var AI_PERSONALITY_TUNING = (typeof window !== 'undefined' && window.AI_PERSONALITY_TUNING) || {
-  aggressive: { attackProb: 0.60, requiredRatio: 0.98, forceRatio: 0.75, minSourceTroops: 1400, coalitionBoost: 0.25, coalitionCap: 0.88, ignoreRice: true,  allianceBonus: -0.08, frontShiftMax: 500 },
+  // frontShiftMax を 500 から 3000 などに大幅に増やす
+  aggressive: { attackProb: 0.60, requiredRatio: 0.98, forceRatio: 0.75, minSourceTroops: 1400, coalitionBoost: 0.25, coalitionCap: 0.88, ignoreRice: true,  allianceBonus: -0.08, frontShiftMax: 800 },
   balanced:   { attackProb: 0.25, requiredRatio: 1.25, forceRatio: 0.70, minSourceTroops: 1600, coalitionBoost: 0.25, coalitionCap: 0.75, ignoreRice: false, allianceBonus: 0 },
   domestic:   { attackProb: 0.07, requiredRatio: 1.45, forceRatio: 0.65, minSourceTroops: 1800, coalitionBoost: 0.15, coalitionCap: 0.40, ignoreRice: false, allianceBonus: 0.10 }
 };
@@ -351,25 +352,25 @@ export const ComputerLogicMethods = {
    * オート進行中、プレイヤーのAPが残っている場合に大名と軍師が本拠・直轄地を自動統治
    */
   /** オート統治：境の国の脅威（隣接する敵の最大兵力）と不足（2026-10-11 cj） */
-  autoBorderNeeds() {
+  autoBorderNeeds(clanId = this.playerClanId, ratio = null) { // 勢力・割合の指定は AI 用（2026-10-11 cn）
     const B = this.aiBalance();
-    const me = this.playerClanId;
+    const me = clanId;
     const mine = (this.provinces || []).filter(p => p.ownerId === me);
     const hostileOf = (p) => (p.neighbors || []).map(id => this.aiProvById(id))
       .filter(n => n && n.ownerId && n.ownerId !== me && n.ownerId !== 'null' && !this.isAllied(me, n.ownerId) && !(this.isTruceBlocked?.(n.ownerId, me)));
     return mine.map(p => {
       const foes = hostileOf(p);
       const threat = foes.length ? Math.max(...foes.map(n => Number(n.troops) || 0)) : 0;
-      const target = Math.round(threat * B.autoBorderThreatRatio);
+      const target = Math.round(threat * (ratio ?? B.autoBorderThreatRatio));
       return { p, border: foes.length > 0, threat, target, deficit: Math.max(0, target - (Number(p.troops) || 0)) };
     });
   },
 
   /** オート統治：内地と余裕のある境から、手薄な境へ兵を回す。移した兵数を返す（兵は増えない。2026-10-11 cj） */
-  autoReinforceBorders() {
+  autoReinforceBorders(clanId = this.playerClanId, ratio = null) { // 勢力・割合の指定は AI 用（2026-10-11 cn）
     const B = this.aiBalance();
-    const me = this.playerClanId;
-    const needs = this.autoBorderNeeds();
+    const me = clanId;
+    const needs = this.autoBorderNeeds(me, ratio);
     const byId = new Map(needs.map(x => [x.p.id, x]));
     const short = needs.filter(x => x.deficit > 0).sort((a, b) => b.deficit - a.deficit);
     if (!short.length) return { moved: 0, to: [] };
@@ -1142,20 +1143,25 @@ export const ComputerLogicMethods = {
   /** AI 調整値（window.AI_BALANCE で上書き可） */
   aiBalance() {
     const d = {
-      recruitGoldPerTroop: 0.10, recruitRicePerTroop: 0.10, // 徴兵費（兵1人あたり。プレイヤーのオート徴募とほぼ同じ）
-      domesticGoldPerProv: 3,       // 内政型の城防・治安維持費（1国1季）
-      devGoldCost: 40, devGain: 3, devReserveBase: 400, devReservePerProv: 60, // 余剰資金での開発（石高・商業+3、基準の1.5倍まで）
+      recruitGoldPerTroop: 0.10, recruitRicePerTroop: 0.10, // 徴兵コスト
+      domesticGoldPerProv: 3,       
+      devGoldCost: 40, devGain: 3, devReserveBase: 400, devReservePerProv: 60, // 余剰資金での開発
       plotGoldCost: 40,             // 謀略1件の費用（プレイヤーと同じ）
       attackRiceRate: 0.10, attackRiceMin: 50, // 出陣時の兵糧（プレイヤーと同じ計算）
       startFundsMult: 3,            // 開始資金（シナリオ指定が無い勢力）= 商業・石高合計 × 倍率
       battleCapBase: 2, battleCapPerClans: 12, battleCapMin: 3, battleCapMax: 6, // 1季の合戦上限 = 基数 + 勢力数/割数
       plotCapBase: 2, plotCapPerClans: 10, plotCapMax: 5, plotMinPower: 55,      // 1季の謀略上限
-      defenseMaxMovesPerClan: 4, defenseMoveMax: 900, // 後詰め：1勢力1季の移動回数・1回の上限
+      defenseMaxMovesPerClan: 4, defenseMoveMax: 1000, // 後詰め：1勢力1季の移動回数・1回の上限
       counterAllianceChance: 0.15, counterAllianceChanceVsPlayer: 0.25, counterAllianceSeasons: 8, maxCounterAlliances: 3, // 対抗同盟：1季1件・同時に最大3件
       truceChance: 0.15, truceSeasons: 4, vassalChance: 0.20, vassalSeasons: 16, maxPeacePacts: 3, // 和睦・臣従：同時に最大3件
       breakChance: 0.06, breakChanceAggressive: 0.10,
       autoBorderThreatRatio: 1.5, autoInteriorKeep: 800, autoInteriorKeepRatio: 0.2, autoBorderMoveShare: 0.9, // オート統治：境の目標兵力＝隣の敵の最大兵力×割合、内地の残し方（2026-10-11 cj）
-      coalitionThresholdProvs: 15, coalitionGraceSeasons: 4, coalitionGrowthProvs: 3, // 反覇道包囲網：開始時から大きい家は猶予と実際の拡大が要る（2026-10-11 ck）
+      coalitionThresholdProvs: 15, coalitionGraceSeasons: 0, coalitionGrowthProvs: 0, // 反覇道包囲網：15国以上で結成。猶予は取り消し（0/0 で ck 以前と同じ。2026-10-11 cm）
+      aiBorderReinforce: true, aiBorderThreatRatio: 1.2, // AI の国境後詰め（cj と同じ処理。目標＝隣の敵の最大兵力×割合。2026-10-11 cn）
+      aiSupportShare: 0.5, aiSupportKeep: 600, aiSupportMax: 3, // 兵の集中：攻め先に接する他の自領から、兵の割合（残す下限）で加勢。加勢する国の上限
+      aiWeakTargetBonusMax: 45, aiWeakTargetRatio: 1.5, // プレイヤーの手薄な国を狙う加点（攻め手÷守兵 が割合を超えた分×15、上限）
+      aiRecruitShare: 0, aiRecruitThreatRatio: 1.0, aiRecruitStep: 100, // 既定0（0.05〜0.5 を試すと織田1582が5〜9国まで崩れたため切）。予備費超過分のうち徴兵に回す割合・境の目標（脅威×割合）・1回の人数
+      aiAutumnAttackMult: 1.25, aiEngagedAttackMult: 1.3, aiEngagedTargetBonus: 20, // 時機：秋の出陣、他所と交戦中の敵への出陣・加点
       troopUpkeepGoldPerTroop: 0.01, // 兵の維持費（毎季・兵1人あたりの金。プレイヤー・AI 共通。0.02 ではオート統治の大家の金が尽きたため 0.01。2026-10-11 ci）
       surplusReserveBase: 800, surplusReservePerProv: 150, surplusSpendShare: 0.5, // AI：予備費を超えた金の一部を開発・城普請・徴兵へ（2026-10-11 ci）
       breakawayTruceSeasons: 2, // 家中分裂：本家は独立した家をこの季数攻められない（2026-10-11 cf）
@@ -1282,6 +1288,25 @@ export const ComputerLogicMethods = {
     let budget = Math.floor((e.gold - reserve) * B.surplusSpendShare);
     if (budget < 40) return 0;
     const start = e.gold;
+    // 脅威のある境・攻め口の国に限って徴兵（兵の上限＝石高×10+2000 まで。2026-10-11 cn）
+    {
+      let rb = Math.floor(budget * (Number(B.aiRecruitShare) || 0));
+      if (rb >= 20) {
+        const needs = this.autoBorderNeeds(clanId, Number(B.aiRecruitThreatRatio) || 1)
+          .filter(x => x.border && x.deficit > 0 && (Number(x.p.troops) || 0) < (Number(x.p.rice) || 0) * 10 + 2000)
+          .sort((a, b) => b.deficit - a.deficit);
+        for (const x of needs) {
+          if (rb < 20) break;
+          const cap = (Number(x.p.rice) || 0) * 10 + 2000 - (Number(x.p.troops) || 0);
+          const want = Math.min(x.deficit, cap, Math.floor(rb / B.recruitGoldPerTroop), Number(B.aiRecruitStep) || 100);
+          if (want < 50) continue;
+          const got = this.aiPayTroops(clanId, want);
+          if (got <= 0) break;
+          x.p.troops = (Number(x.p.troops) || 0) + got;
+          rb -= Math.ceil(got * B.recruitGoldPerTroop); budget -= Math.ceil(got * B.recruitGoldPerTroop);
+        }
+      }
+    }
     const hostile = (p) => (p.neighbors || []).some(id => { const n = this.aiProvById(id); return n && n.ownerId && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId); });
     const border = owned.filter(hostile);
     // 石高は通常の AI 開発と同じ基準の1.5倍まで（兵の上限＝石高×10 を膨らませない）。商業は土地の上限まで
@@ -1588,13 +1613,24 @@ export const ComputerLogicMethods = {
     const allyRel = new Map();
 
     // 全前線城 × 隣接敵国の組み合わせを総当たりで戦略評価
+    const BAL = this.aiBalance();
     for (const srcProv of candidateFrontiers) {
-      const attackForce = Math.round(srcProv.troops * tune.forceRatio);
+      const mainForce = Math.round(srcProv.troops * tune.forceRatio);
       const neighborTargets = (srcProv.neighbors || [])
         .map(nId => this.provinces.find(x => x.id === nId))
         .filter(n => n && n.ownerId !== clanId && !this.isAllied(clanId, n.ownerId) && !this.isTruceBlocked?.(clanId, n.ownerId));
 
       for (const target of neighborTargets) {
+        // 兵の集中：攻め先に接する他の自領からも加勢（2026-10-11 cn）
+        const supporters = [];
+        if ((Number(BAL.aiSupportShare) || 0) > 0) {
+          (target.neighbors || []).map(id => this.aiProvById(id))
+            .filter(q => q && q.ownerId === clanId && q.id !== srcProv.id)
+            .map(q => ({ prov: q, n: Math.floor(Math.min((Number(q.troops) || 0) * BAL.aiSupportShare, (Number(q.troops) || 0) - BAL.aiSupportKeep)) }))
+            .filter(s => s.n >= 200).sort((a, b) => b.n - a.n).slice(0, Number(BAL.aiSupportMax) || 0)
+            .forEach(s => supporters.push(s));
+        }
+        const attackForce = mainForce + supporters.reduce((s, x) => s + x.n, 0);
         const isTargetPlayer = target.ownerId === this.playerClanId;
         const isBlank = !target.ownerId || target.ownerId === 'null' || target.ownerId === 'undefined';
 
@@ -1730,6 +1766,13 @@ export const ComputerLogicMethods = {
           });
         }
 
+        // --- D0. プレイヤーの手薄な国を狙う（2026-10-11 cn） ---
+        if (isTargetPlayer) {
+          const weak = attackForce / Math.max(1, Number(target.troops) || 0);
+          const wb = Math.round(Math.min(Number(BAL.aiWeakTargetBonusMax) || 0, Math.max(0, (weak - (Number(BAL.aiWeakTargetRatio) || 1.5)) * 15)));
+          if (wb > 0) { score += wb; motiveFactors.push({ type: 'backstab', title: '手薄な城を衝く', desc: `守りの薄い貴家領国・${target.name}を大軍で衝く`, weight: wb }); }
+        }
+
         // --- D. プレイヤーに対する敵対心・包囲網 ---
         if (isTargetPlayer) {
           if (this.coalitionFormed) {
@@ -1814,6 +1857,12 @@ export const ComputerLogicMethods = {
           }
         }
 
+        // --- G. 他所と交戦中の相手を衝く（2026-10-11 cn） ---
+        if (!isBlank && this._aiEngaged && this._aiEngaged.has(target.ownerId)) {
+          const eb = Number(this.aiBalance().aiEngagedTargetBonus) || 0;
+          if (eb) { score += eb; motiveFactors.push({ type: 'backstab', title: '他方面の戦の隙を衝く', desc: `他所で戦う${isTargetPlayer ? '貴家' : this.getClanFamilyName(target.ownerId)}の手薄な${target.name}を衝く`, weight: eb }); }
+        }
+
         // --- E. 勝算ボーナスと揺らぎ ---
         score += Math.min(30, Math.max(0, (powerRatio - tune.requiredRatio) * 20));
         score += (Math.random() * 16 - 8);
@@ -1830,6 +1879,8 @@ export const ComputerLogicMethods = {
           srcProv,
           target,
           attackForce,
+          mainForce,
+          supporters,
           score,
           powerRatio,
           motive: topMotive
@@ -1875,7 +1926,7 @@ export const ComputerLogicMethods = {
 
       clanProvs.forEach(p => {
         // 石高に応じた兵力上限（石高×10 + 2000）でインフレを完全に防止
-        const maxTroops = p.rice * 10 + 2000;
+        const maxTroops = p.rice * 10 + 3000;
 
         if (personality === 'domestic') {
           // 内政型：城防・治安の維持が最優先、兵力は上限まで堅実に小幅補充（自国をガチガチに固める）
@@ -1898,13 +1949,13 @@ export const ComputerLogicMethods = {
             if (p.rice < cap) p.rice += 1;
           }
           if (p.troops < maxTroops) {
-            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(40 + polRatio * 40)));
+            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(100 + polRatio * 100)));
           }
         } else if (personality === 'balanced') {
           // バランス型：攻守の均衡
           p.defense = Math.min(100, p.defense + 1);
           if (p.troops < maxTroops) {
-            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(50 + milRatio * 50)));
+            p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, Math.round(130 + milRatio * 130)));
           }
         } else {
           // 攻勢型：前線に兵員を集中補充
@@ -1912,7 +1963,7 @@ export const ComputerLogicMethods = {
             const n = this.provinces.find(x => x.id === nId);
             return n && n.ownerId !== clanId;
           });
-          const gain = isFrontier ? Math.round(70 + milRatio * 70) : Math.round(40 + milRatio * 30);
+          const gain = isFrontier ? Math.round(200 + milRatio * 200) : Math.round(100 + milRatio * 90);
           if (p.troops < maxTroops) {
             p.troops += this.aiPayTroops(clanId, Math.min(maxTroops - p.troops, gain));
           }
@@ -1937,7 +1988,7 @@ export const ComputerLogicMethods = {
             .filter(n => n && n.ownerId === clanId && isFront(n))
             .sort((a, b) => b.troops - a.troops)[0];
           if (!front) return;
-          const move = Math.min(AI_PERSONALITY_TUNING.aggressive.frontShiftMax, Math.round((q.troops - 2000) * 0.25));
+          const move = Math.min(AI_PERSONALITY_TUNING.aggressive.frontShiftMax, Math.round((q.troops - 2000) * 0.30));
           if (move <= 0) return;
           q.troops -= move;
           front.troops += move;
@@ -1950,6 +2001,16 @@ export const ComputerLogicMethods = {
 
     // 2. 敵AI防衛後詰め（劣勢・危機前線への救援増援）
     this.executeAiDefenseReinforcements();
+    // 2b. プレイヤーのオート統治と同じ国境後詰め（内地から脅威のある境へ。2026-10-11 cn）
+    if (B.aiBorderReinforce) {
+      allClanIds.filter(id => id && id !== 'null' && id !== 'undefined' && id !== 'ronin').forEach(id => {
+        if (this.provinces.filter(p => p.ownerId === id).length < 2) return;
+        try { this.autoReinforceBorders(id, Number(B.aiBorderThreatRatio) || 1.2); } catch (e) {}
+      });
+    }
+    // 交戦中の勢力（前の季とこの季の合戦。2026-10-11 cn）
+    const warNow = new Set();
+    this._aiEngaged = new Set(this._aiWarPrev || []);
 
     // 3. AI侵攻判断（「適宜バランスよく攻め込む」：1季の合戦上限は勢力数に応じて 3〜6）
     let battleCount = 0;
@@ -1995,6 +2056,13 @@ export const ComputerLogicMethods = {
         if (this.seasonIdx === 3) attackProb *= personality === 'domestic' ? 0.4 : 0.75;
       }
 
+      // 時機：秋（収穫後）は出陣しやすい。隣の敵が他所と交戦中なら出陣しやすい（2026-10-11 cn）
+      if (this.seasonIdx === 2) attackProb *= Number(B.aiAutumnAttackMult) || 1;
+      if (this._aiEngaged.size && clanProvs.some(p => (p.neighbors || []).some(id => { const n = this.aiProvById(id); return n && n.ownerId && n.ownerId !== clanId && this._aiEngaged.has(n.ownerId) && !this.isAllied(clanId, n.ownerId); }))) {
+        attackProb *= Number(B.aiEngagedAttackMult) || 1;
+      }
+      attackProb = Math.min(0.95, attackProb);
+
       if (Math.random() > attackProb) continue;
 
       // AI思考改善第1弾: 大局観・戦略目標・背後急襲（隙突き）に基づく最適侵攻計画の策定
@@ -2002,6 +2070,8 @@ export const ComputerLogicMethods = {
       if (!plan) continue;
 
       const { srcProv, target, attackForce, motive } = plan;
+      const mainForce = Number.isFinite(plan.mainForce) ? plan.mainForce : attackForce; // 2026-10-11 cn
+      const supporters = plan.supporters || [];
 
       // 出陣の兵糧（プレイヤーと同じ計算）。足りなければ出陣を見送る（兵糧を顧みない攻勢型は半分あれば強行）
       const riceCost = Math.max(B.attackRiceMin, Math.round(attackForce * B.attackRiceRate));
@@ -2018,6 +2088,7 @@ export const ComputerLogicMethods = {
 
       // ===== 合戦発生！ =====
       battleCount++;
+      warNow.add(clanId); if (target.ownerId && target.ownerId !== 'null') { warNow.add(target.ownerId); this._aiEngaged.add(target.ownerId); } // 2026-10-11 cn
       const isAttackingPlayer = target.ownerId === this.playerClanId;
       const attackerName = this.getClanFamilyName(clanId);
       const defenderName = isAttackingPlayer
@@ -2060,7 +2131,8 @@ export const ComputerLogicMethods = {
       const attackerWins = Math.random() < siegeOdds.p;
 
       // 出陣兵は全数を出陣元から差し引き、合戦後の生存兵だけが攻略先へ移る（敗退時は生存兵が帰還）
-      srcProv.troops = Math.max(0, (Number(srcProv.troops) || 0) - attackForce);
+      srcProv.troops = Math.max(0, (Number(srcProv.troops) || 0) - mainForce);
+      supporters.forEach(s => { s.prov.troops = Math.max(0, (Number(s.prov.troops) || 0) - s.n); }); // 加勢の国からも出陣（2026-10-11 cn）
 
       if (attackerWins) {
         const remainTroops = Math.max(Math.min(500, attackForce), Math.round(attackForce * 0.65)); // 項目27 az：出陣兵を超えて増えない
@@ -2105,7 +2177,8 @@ export const ComputerLogicMethods = {
         const defRemain = Math.max(300, Math.round(target.troops * 0.75));
         target.troops = defRemain;
         target.defense = Math.max(20, target.defense - 15);
-        srcProv.troops += Math.round(attackForce * 0.40); // 生存兵の帰還（損耗六割は従来どおり）
+        srcProv.troops += Math.round(mainForce * 0.40); // 生存兵の帰還（損耗六割は従来どおり）
+        supporters.forEach(s => { if (s.prov.ownerId === clanId) s.prov.troops = (Number(s.prov.troops) || 0) + Math.round(s.n * 0.40); }); // 加勢の生存兵も帰還（2026-10-11 cn）
 
         if (isAttackingPlayer) {
           this.audio.playFanfare();
@@ -2116,6 +2189,7 @@ export const ComputerLogicMethods = {
         }
       }
     }
+    this._aiWarPrev = [...warNow]; // 次の季の「交戦中」（2026-10-11 cn）
   },
 
   executeGovernanceTurn() {
@@ -2162,8 +2236,8 @@ export const ComputerLogicMethods = {
         p.defense = Math.min(100, (Number(p.defense) || 50) + Math.round(3 * mult));
       } else if (p.governance === 'logistics') {
         // 兵站委任の知能化: 最も支援を必要としている危機前線へ重点ピストン輸送！
-        if ((p.troops || 0) > 1800) {
-          const surplus = Math.min(1500, (p.troops || 0) - 1500);
+        if ((p.troops || 0) > 2500) {
+          const surplus = Math.min(1000, (p.troops || 0) - 1000);
           const frontierCandidates = (p.neighbors || [])
             .map(nId => this.provinces.find(x => x.id === nId))
             .filter(x => x && x.ownerId === this.playerClanId && this.isProvinceFrontier(x));

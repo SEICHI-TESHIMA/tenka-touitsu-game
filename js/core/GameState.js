@@ -6478,6 +6478,7 @@ export const GameStateMethods = {
     const B = this.aiBalance ? this.aiBalance() : {};
     const th = Number(B.coalitionThresholdProvs) || 15;
     if (provCount < th) return false;
+    if (!(Number(B.coalitionGraceSeasons) > 0) && !(Number(B.coalitionGrowthProvs) > 0)) return true; // 猶予なし＝従来どおり（2026-10-11 cm）
     const w = this.coalitionWatch;
     if (!w || w.clan !== this.playerClanId || w.startProvs < th) return true;
     if (w.seasons < (Number(B.coalitionGraceSeasons) || 0)) return false;

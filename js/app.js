@@ -9,12 +9,12 @@
  * @typedef {import('./types.js').GameSaveData} GameSaveData
  */
 
-import { GameState, GameStateMethods } from './core/GameState.js?v=20261011cl';
-import { UIManager, UIManagerMethods } from './ui/UIManager.js?v=20261011cl';
-import { MapRenderer, MapRendererMethods } from './render/MapRenderer.js?v=20261011cl';
-import { ComputerLogic, ComputerLogicMethods } from './ai/ComputerLogic.js?v=20261011cl';
-import { DataLoader } from './core/DataLoader.js?v=20261011cl';
-import * as GameRules from './core/GameRules.js?v=20261011cl';
+import { GameState, GameStateMethods } from './core/GameState.js?v=20261011cn';
+import { UIManager, UIManagerMethods } from './ui/UIManager.js?v=20261011cn';
+import { MapRenderer, MapRendererMethods } from './render/MapRenderer.js?v=20261011cn';
+import { ComputerLogic, ComputerLogicMethods } from './ai/ComputerLogic.js?v=20261011cn';
+import { DataLoader } from './core/DataLoader.js?v=20261011cn';
+import * as GameRules from './core/GameRules.js?v=20261011cn';
 
 // 早期初期化: モジュール評価時点で即座に window.getClanAbility を配備
 if (typeof window !== 'undefined') {

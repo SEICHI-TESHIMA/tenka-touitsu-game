@@ -1387,10 +1387,13 @@ export const UIManagerMethods = {
                     baseDisplay = defProvName 
                       ? `<span style="color:${isDefProvMine ? '#2ecc71' : '#bdc3c7'}; font-weight:${isDefProvMine ? 'bold' : 'normal'};">${defProvName}</span><span style="color:#888; font-size:11pt; margin-left:3px;">(${isDefProvMine ? '自領内' : '流浪'})</span>` 
                       : '<span style="color:#888;">諸国流浪</span>';
+// 【修正後】
                   } else {
-                    const capProv = this.getDaimyoHomeProvince(off);
-                    baseDisplay = capProv 
-                      ? `<span style="color:#5dade2;">${capProv.name}</span><span style="color:#888; font-size:11pt; margin-left:3px;">(待機)</span>` 
+                    // 自領内にゆかりの地があればそこで待機、なければ主君の本拠
+                    const baseProvId = this.officerBaseProvinceId(off);
+                    const baseProv = baseProvId ? this.provinces.find(p => p.id === baseProvId) : null;
+                    baseDisplay = baseProv 
+                      ? `<span style="color:#5dade2;">${baseProv.name}</span><span style="color:#888; font-size:11pt; margin-left:3px;">(待機)</span>` 
                       : '<span style="color:#888;">本国待機</span>';
                   }
 

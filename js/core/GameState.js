@@ -668,6 +668,24 @@ export const GameStateMethods = {
     // ソート: 北の勢力から順に（本拠の北緯の降順。同緯度は領国の平均北緯、次に東から）
     this.sortPlayablesNorthToSouth(allPlayables);
 
+    // ★追加: 九州・東北の大名を「内政型」に一括変更する
+    allPlayables.forEach(d => {
+      const startProv = (this.provinces || []).find(p => p.id === d.startProvId);
+      // 本拠地の地方名で判定
+      if (startProv && /東北|奥羽|蝦夷|北海道|九州/.test(startProv.region || '')) {
+        // UI（大名選択画面のバッジ）を「内政型」に変更
+        d.personality = 'domestic';
+        
+        // AI思考ロジック（CPUの行動）を「内政型」に上書き
+        if (typeof window !== 'undefined' && window.CLAN_ABILITIES) {
+          if (!window.CLAN_ABILITIES[d.id]) {
+            window.CLAN_ABILITIES[d.id] = { politics: 60, military: 60, stratagem: 55 };
+          }
+          window.CLAN_ABILITIES[d.id].personality = 'domestic';
+        }
+      }
+    });
+
     scen.playables = allPlayables;
     return allPlayables;
   },
@@ -1664,10 +1682,16 @@ export const GameStateMethods = {
   // 例: 保元シナリオで源義朝家を頼朝が継いでいる時、壇ノ浦の genji_yoritomo を別勢力として生やさない。,
 
   resolveEventTargetClan(clanId) {
-    if (!clanId || this.isClanExtant(clanId)) return clanId;
+    if (!clanId) return clanId;
 
-    // 1. その家の史実当主が、すでに別IDの勢力を率いていればそこへ渡す
-    const leaderName = this.getDaimyoLeaderName(clanId);
+    // ★追加特例：プレイヤーが「源義経」勢力で、かつ1185年（平家滅亡）までの場合のみ、
+    // 頼朝宛てとなる平家討伐の領土を義経が直接受け取る。
+    // （1189年の奥州合戦では、義経が横取りせず史実通り頼朝が受け取る）
+    if (clanId === 'genji_yoritomo' && this.playerClanId === 'genji_yoshitsune' && this.year <= 1185) {
+      return 'genji_yoshitsune';
+    }
+
+    if (this.isClanExtant(clanId)) return clanId;
     if (leaderName && !this.looksLikeClanId(leaderName)) {
       const lord = (this.activeOfficers || []).find(o =>
         o && !o.isDead && o.isDaimyo && o.name && this.isClanExtant(o.clanId)
@@ -2585,19 +2609,17 @@ export const GameStateMethods = {
       };
     }
 
-    // 4. 配下待機武将（主君の本拠地国に待機）
-    const clanProvs = (this.provinces || []).filter(p => p.ownerId === off.clanId);
-    const capProv = clanProvs.find(p => this.isCapitalProvince(p.id, off.clanId))
-                 || (window.CLAN_CAPITAL_PROVINCES && (this.provinces || []).find(p => p.id === window.CLAN_CAPITAL_PROVINCES[off.clanId]))
-                 || clanProvs[0]
-                 || (off.defaultProv ? (this.provinces || []).find(p => p.id === off.defaultProv) : null);
-    const provName = capProv ? this.getProvinceJapaneseName(capProv.id) : (off.defaultProv ? this.getProvinceJapaneseName(off.defaultProv) : '本国');
+// 4. 配下待機武将（自家の領内にあるゆかりの地、なければ主君の本拠に待機）
+    const baseProvId = this.officerBaseProvinceId(off);
+    const baseProv = baseProvId ? (this.provinces || []).find(p => p.id === baseProvId) : null;
+    const provName = baseProv ? this.getProvinceJapaneseName(baseProv.id) : '本国';
     const isMine = off.clanId === this.playerClanId;
+    
     return {
-      prov: capProv,
+      prov: baseProv,
       provName: provName,
-      castleName: capProv ? (capProv.castleName || capProv.castle) : '',
-      label: '本拠待機',
+      castleName: baseProv ? (baseProv.castleName || baseProv.castle) : '',
+      label: '待機',
       type: 'waiting',
       isMine: isMine
     };
@@ -5484,9 +5506,7 @@ export const GameStateMethods = {
       document.getElementById('siegeCastleName').textContent = `🏯 ${b.dstProv.name} (${b.dstProv.castleName || b.dstProv.castle || "居城"}) 包囲戦`;
 
       // 攻城戦ボタンのdisabledを全解除
-      ['sCmdAssault', 'sCmdShoot', 'sCmdSurround', 'sCmdPersuade', 'sCmdRetreat'].forEach(id => {
-        document.getElementById(id)?.removeAttribute('disabled');
-      });
+      this.setSiegeButtonsDisabled(false);
 
       this.updateSiegeUI();
       sModal.classList.remove('hidden');
@@ -6247,7 +6267,7 @@ export const GameStateMethods = {
     ['bCmdAssault', 'bCmdShoot', 'bCmdDefend', 'bCmdTactic', 'bCmdRetreat'].forEach(id => {
       document.getElementById(id)?.removeAttribute('disabled');
     });
-    ['sCmdAssault', 'sCmdShoot', 'sCmdSurround', 'sCmdPersuade', 'sCmdRetreat'].forEach(id => {
+    ['sCmdAssault', 'sCmdShoot', 'sCmdSurround', 'sCmdPersuade', 'sCmdRetreat', 'siegeBtnAssault', 'siegeBtnShoot', 'siegeBtnSurround', 'siegeBtnPersuade', 'siegeBtnRetreat'].forEach(id => {
       document.getElementById(id)?.removeAttribute('disabled');
     });
 

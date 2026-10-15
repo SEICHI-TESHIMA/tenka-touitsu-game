@@ -232,6 +232,11 @@ export const GameStateMethods = {
         p.castle = scen.castles[p.id];
         p.castleName = scen.castles[p.id];
       }
+      if (scen.castleLores && scen.castleLores[p.id]) {
+        p.castleLore = scen.castleLores[p.id];
+      } else if (window.HISTORICAL_CASTLE_LORES && window.HISTORICAL_CASTLE_LORES[p.castle]) {
+        p.castleLore = window.HISTORICAL_CASTLE_LORES[p.castle];
+      }
       if (scen.provinceTroops && scen.provinceTroops[p.id]) {
         p.troops = scen.provinceTroops[p.id];
         p.rice = Math.max(p.rice, Math.round(p.troops * 0.5));
@@ -282,8 +287,12 @@ export const GameStateMethods = {
       }
 
       if (!leaderOfficer) {
+        const hasProvNow = (this.provinces || []).some(p => p.ownerId === ownerId);
+        if (hasProvNow) {
+          leaderOfficer = this.seatNamedLord(ownerId);
+        }
         const explicit = scen.owners && Object.values(scen.owners).includes(ownerId);
-        if (!explicit) {
+        if (!explicit && !hasProvNow) {
           this.provinces.filter(p => p.ownerId === ownerId).forEach(p => {
             p.ownerId = null;
             p.governorId = null;
@@ -814,6 +823,7 @@ export const GameStateMethods = {
     const ownersSet = new Set(this.provinces.map(p => p.ownerId).filter(Boolean));
     const year = this.year;
     const clanBefore = new Map(this.activeOfficers.map(o => [o.id, o.clanId]));
+    const scenarioAffiliations = (scen && scen.officerAffiliations) || {};
 
     const scenGovMap = (window.SCENARIO_HISTORICAL_GOVERNORS && window.SCENARIO_HISTORICAL_GOVERNORS[String(scen.id)]) || {};
 
@@ -833,9 +843,20 @@ export const GameStateMethods = {
     });
 
     this.activeOfficers.forEach(off => {
+      // シナリオ固有の所属・配置は、武将マスターの既定所属より優先する。
+      const scenarioOverride = scenarioAffiliations[off.id];
+      if (scenarioOverride) {
+        if (scenarioOverride.clanId) off.clanId = scenarioOverride.clanId;
+        if (scenarioOverride.defaultProv) off.defaultProv = scenarioOverride.defaultProv;
+        if (scenarioOverride.assignedProvId) off.assignedProvId = scenarioOverride.assignedProvId;
+        else if (scenarioOverride.clearAssignment) off.assignedProvId = null;
+        if (typeof scenarioOverride.isDaimyo === 'boolean') off.isDaimyo = scenarioOverride.isDaimyo;
+        return;
+      }
       // プレイヤー配下に仕官済みの武将は、年が変わってもシナリオ補正で引き抜かない
       if (!this._isSwitchingScenario && off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
-      // 領地を持つ家の現当主は、年次の再判定で家臣に戻さない（CPU大名が毎年入れ替わるのを防ぐ）
+      // 領地を持つ家の武将（新独立大名含む）は、シナリオ初期所属で別勢力に引き抜かれない
+      if (ownersSet.has(off.clanId) && (off.isDaimyo || ['goryokaku', 'saigo_gun', 'amakusa', 'sue', 'matsunaga', 'kunohe', 'yui', 'oshio'].includes(off.clanId))) return;
       if (off.isDaimyo && !off.isDead && ownersSet.has(off.clanId)) return;
 
       // 【史実城代・配置武将の絶対保証】
@@ -1692,6 +1713,7 @@ export const GameStateMethods = {
     }
 
     if (this.isClanExtant(clanId)) return clanId;
+    const leaderName = this.namedLordForClan ? this.namedLordForClan(clanId) : '';
     if (leaderName && !this.looksLikeClanId(leaderName)) {
       const lord = (this.activeOfficers || []).find(o =>
         o && !o.isDead && o.isDaimyo && o.name && this.isClanExtant(o.clanId)
@@ -7446,7 +7468,11 @@ export const GameStateMethods = {
     if (ch.famine || ch.appoint || Number(ch.gold) || Number(ch.rice) || Number(ch.troops)) return false;
     if (this.hasEventExtras(ch)) return false;
     const territory = this.eventTerritoryFor(ev, ch) || {};
-    return Object.entries(territory).every(([pId, raw]) => {
+    const entries = Object.entries(territory);
+    if (entries.length === 0) return true;
+    // 地図上に現在領地を持たない新勢力への領地移動を含む場合は絶対にNoopではない
+    if (entries.some(([_, raw]) => !this.isClanExtant(raw))) return false;
+    return entries.every(([pId, raw]) => {
       const prov = (this.provinces || []).find(p => p.id === pId);
       if (!prov) return true;
       const to = this.resolveEventTargetClan(raw) || raw;
@@ -7640,8 +7666,19 @@ export const GameStateMethods = {
       if (changes && Array.isArray(changes)) {
         for (const [cutoff, castleName] of changes) {
           if (this.year <= cutoff) {
-            p.castle = castleName;
-            p.castleName = castleName;
+            let actualCastleName = castleName;
+            if (p.id === 'iwaki') {
+              if (p.ownerId === 'soma' && this.year <= 1600) {
+                actualCastleName = '小高城';
+              } else if (this.year >= 1614) {
+                actualCastleName = '相馬中村城';
+              }
+            }
+            p.castle = actualCastleName;
+            p.castleName = actualCastleName;
+            if (window.HISTORICAL_CASTLE_LORES && window.HISTORICAL_CASTLE_LORES[actualCastleName]) {
+              p.castleLore = window.HISTORICAL_CASTLE_LORES[actualCastleName];
+            }
             break;
           }
         }
@@ -7866,7 +7903,79 @@ export const GameStateMethods = {
     return lines;
   },
 
-  applyEventTerritory(changes) {
+    // 歴史イベント等で新大名が独立・領土獲得したときの当主確定・本拠地設定・城主任命・家臣団合流
+  setupNewDaimyoFromTerritory(newOwnerIds) {
+    if (!newOwnerIds || !this.provinces || !this.activeOfficers) return;
+    const distinct = [...new Set(newOwnerIds)].filter(Boolean);
+
+    // 新勢力ごとに合流すべき主要武将の定義
+    const FACTION_ROSTER_MAPPINGS = {
+      goryokaku: ['off_enomoto_takeaki', 'off_hijikata_toshizo', 'off_otori_keisuke', 'off_hitomi_katsutaro'],
+      saigo_gun: ['off_saigo_takamori', 'off_kirino_toshiaki', 'off_shinohara_kunimoto', 'off_murata_shinpachi', 'off_beppu_shinsuke', 'off_oe_taku', 'off_hayashi_yuzo'],
+      amakusa: ['off_amakusa_shiro'],
+      kunohe: ['off_kunohe_masazane'],
+      yui: ['off_yui_shosetsu', 'off_marubashi_chuya'],
+      oshio: ['off_oshio_heihachiro']
+    };
+
+    distinct.forEach(ownerId => {
+      const myProvs = this.provinces.filter(p => p.ownerId === ownerId);
+      if (myProvs.length === 0) return;
+
+      // 1. 本拠地設定 (window.CLAN_CAPITAL_PROVINCES)
+      if (window.CLAN_CAPITAL_PROVINCES) {
+        if (!window.CLAN_CAPITAL_PROVINCES[ownerId] || !myProvs.some(p => p.id === window.CLAN_CAPITAL_PROVINCES[ownerId])) {
+          window.CLAN_CAPITAL_PROVINCES[ownerId] = myProvs[0].id;
+        }
+      }
+      const capProvId = (window.CLAN_CAPITAL_PROVINCES && window.CLAN_CAPITAL_PROVINCES[ownerId]) || myProvs[0].id;
+      const capProv = myProvs.find(p => p.id === capProvId) || myProvs[0];
+
+      // 2. 所属すべき主要武将を新勢力へ転属
+      const targetOids = FACTION_ROSTER_MAPPINGS[ownerId];
+      if (targetOids && targetOids.length) {
+        targetOids.forEach(oid => {
+          let off = this.activeOfficers.find(o => o.id === oid);
+          if (!off && window.OFFICERS_MASTER) {
+            const master = window.OFFICERS_MASTER.find(m => m.id === oid);
+            if (master) {
+              off = JSON.parse(JSON.stringify(master));
+              this.activeOfficers.push(off);
+            }
+          }
+          if (off) {
+            off.clanId = ownerId;
+            off.defaultProv = capProv.id;
+            off.isDead = false;
+          }
+        });
+      }
+
+      // 3. 当主の着座 (seatNamedLord)
+      let lord = this.activeOfficers.find(o => o.clanId === ownerId && o.isDaimyo && !o.isDead);
+      if (!lord) {
+        lord = this.seatNamedLord(ownerId);
+      }
+      if (!lord) {
+        const clanOffs = this.activeOfficers.filter(o => o.clanId === ownerId && !o.isDead);
+        if (clanOffs.length) {
+          lord = this.pickClanLeader(ownerId, clanOffs);
+          if (lord) {
+            lord.isDaimyo = true;
+            lord.isDead = false;
+          }
+        }
+      }
+
+      // 4. 当主を居城の城主に任命
+      if (lord && capProv) {
+        capProv.governorId = lord.id;
+        lord.assignedProvId = capProv.id;
+      }
+    });
+  },
+
+applyEventTerritory(changes) {
     if (!changes) return;
     if (!changes.territory) {
       this.applyEventExtras(changes);
@@ -7889,13 +7998,7 @@ export const GameStateMethods = {
     if (changes.appoint) this.appointHistoricalCastellans(changes.appoint);
     this.updateActiveOfficers();
     if (this.currentScenario) this.resolveOfficerAffiliations(this.currentScenario);
-    new Set(Object.values(changes.territory)).forEach(rawOwner => {
-      const ownerId = this.resolveEventTargetClan(rawOwner) || rawOwner;
-      if (!ownerId) return;
-      if (!this.activeOfficers.some(o => o.clanId === ownerId && o.isDaimyo && !o.isDead)) {
-        this.seatNamedLord(ownerId);
-      }
-    });
+    this.setupNewDaimyoFromTerritory(Object.values(changes.territory));
     this.applyEventLateExtras(changes);
     this.updateCastlesForYear();
     this.updateUI();
@@ -8247,6 +8350,7 @@ export const GameStateMethods = {
       }
       const isHonnouji = this.isSuccessionEvent(ev);
       if (!isHonnouji) {
+        this.setupNewDaimyoFromTerritory(Object.values(territory));
         this.syncDaimyoStatus();
         if (ev.changes.appoint) this.appointHistoricalCastellans(ev.changes.appoint);
         this.updateActiveOfficers();

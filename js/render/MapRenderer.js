@@ -70,15 +70,28 @@ export const MapRendererMethods = {
           drawnPairs.add(key);
           const target = this.provinces.find(x => x.id === nId);
           if (target && p.cx !== undefined && target.cx !== undefined) {
-            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', p.cx);
-            line.setAttribute('y1', p.cy);
-            line.setAttribute('x2', target.cx);
-            line.setAttribute('y2', target.cy);
-            line.setAttribute('stroke', 'rgba(180, 140, 70, 0.45)');
-            line.setAttribute('stroke-width', '1.5');
-            line.setAttribute('stroke-dasharray', '3,3');
-            roadsGroup.appendChild(line);
+            if ((p.id === 'ryukyu' && nId === 'satsuma') || (p.id === 'satsuma' && nId === 'ryukyu')) {
+              // 琉球 - 薩摩間の航路は九州南西海域を優美に周回する曲線航路
+              const satsumaP = p.id === 'satsuma' ? p : target;
+              const ryukyuP = p.id === 'ryukyu' ? p : target;
+              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+              path.setAttribute('d', `M ${satsumaP.cx} ${satsumaP.cy} C 25 540, 60 595, ${ryukyuP.cx} ${ryukyuP.cy}`);
+              path.setAttribute('stroke', 'rgba(180, 140, 70, 0.45)');
+              path.setAttribute('stroke-width', '1.5');
+              path.setAttribute('stroke-dasharray', '3,3');
+              path.setAttribute('fill', 'none');
+              roadsGroup.appendChild(path);
+            } else {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', p.cx);
+              line.setAttribute('y1', p.cy);
+              line.setAttribute('x2', target.cx);
+              line.setAttribute('y2', target.cy);
+              line.setAttribute('stroke', 'rgba(180, 140, 70, 0.45)');
+              line.setAttribute('stroke-width', '1.5');
+              line.setAttribute('stroke-dasharray', '3,3');
+              roadsGroup.appendChild(line);
+            }
           }
         }
       });

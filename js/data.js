@@ -1871,7 +1871,8 @@ window.PROVINCES_DATA = [
     "neighbors": [
       "higo",
       "hyuga",
-      "osumi"
+      "osumi",
+      "ryukyu"
     ],
     "specialty": "薩摩焼・黒糖",
     "goldMine": true,
@@ -2002,9 +2003,31 @@ window.PROVINCES_DATA = [
     "castleLore": "三好三人衆・安宅冬康が拠った洲本城。瀬戸内海の制海権を握る水軍要衝。",
     "battleHistory": "羽柴秀吉・池田元助による淡路平定戦。",
     "culturalNotes": "国生み神話の地（伊弉諾神宮）。人形浄瑠璃と水軍の伝統。"
+  },
+  {
+    "id": "ryukyu",
+    "name": "琉球",
+    "region": "九州",
+    "castle": "首里城",
+    "kokudaka": 90000,
+    "commercial": 80,
+    "military": 50,
+    "defense": 65,
+    "loyalty": 85,
+    "cx": 165.4,
+    "cy": 561.6,
+    "d": "M 154.1 584.3 L 154.9 583.1 L 157.1 582.2 L 159.0 580.2 L 158.6 578.9 L 157.4 579.2 L 155.7 577.8 L 156.9 576.9 L 157.4 574.8 L 159.4 571.0 L 161.1 570.8 L 162.5 572.4 L 163.1 571.2 L 161.2 569.2 L 161.2 567.7 L 158.9 565.6 L 160.2 564.0 L 161.8 563.6 L 164.6 564.5 L 165.1 562.8 L 165.9 563.0 L 167.6 562.0 L 167.1 560.9 L 170.0 560.0 L 169.7 558.4 L 171.6 558.8 L 174.5 558.0 L 174.8 557.2 L 174.0 555.4 L 175.5 553.6 L 176.6 554.0 L 179.4 553.6 L 181.4 551.1 L 182.9 547.9 L 183.8 546.5 L 183.5 543.2 L 181.4 540.7 L 180.1 541.6 L 178.7 544.5 L 174.7 549.2 L 173.5 549.5 L 172.8 551.2 L 171.5 552.8 L 168.8 553.9 L 166.8 552.5 L 167.8 550.3 L 165.0 549.2 L 162.7 549.7 L 161.2 550.6 L 162.3 555.0 L 163.5 554.9 L 166.5 556.0 L 165.9 558.3 L 164.0 559.3 L 161.7 561.0 L 160.9 560.6 L 159.5 561.4 L 159.8 562.2 L 157.6 564.0 L 154.4 565.6 L 153.2 565.9 L 154.9 570.3 L 155.4 573.0 L 153.8 574.2 L 152.8 574.4 L 151.5 576.1 L 151.6 577.0 L 150.0 577.5 L 149.4 578.5 L 150.2 580.5 L 150.8 583.3 L 150.4 585.1 L 151.6 585.6 L 154.1 584.3 Z",
+    "neighbors": [
+      "satsuma"
+    ],
+    "specialty": "泡盛・黒糖",
+    "goldMine": false,
+    "silverMine": false,
+    "castleLore": "琉球王国の王府・首里城。グスク建築の粋を集め、那覇港を拠点に明・東南アジア・日本を結ぶ南海の海洋貿易で繁栄した。",
+    "battleHistory": "三山統一の戦い、慶長の役後の島津氏による琉球出兵。",
+    "culturalNotes": "紅型、泡盛、エイサー、万国津梁の鐘に象徴される海洋交易文化。"
   }
 ];
-
 
 window.SCENARIOS_DATA = [
   {
@@ -2101,33 +2124,34 @@ window.SCENARIOS_DATA = [
       "oki": "heian_court",
       "sado": "heian_court",
       "tsushima": "heian_court",
-      "awaji": "heian_court"
+      "awaji": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "castles": {
       "ezo": "蝦夷地渡島営所",
       "tsugaru": "津軽平野館・柵",
-      "mutsu": "大墓公営所",
+      "mutsu": "志波城・胆沢城",
       "rikuchu": "胆沢柵・巣伏",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
       "uzen": "城輪柵（出羽国府）",
       "iwaki": "白河関・白河営所",
       "iwashiro": "会津郡衙館",
-      "hitachi": "常陸国府館",
-      "shimotsuke": "下野国府館",
+      "hitachi": "常陸国府・府中館",
+      "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
       "musashi": "武蔵国府・府中館",
-      "shimousa": "下総国府館",
+      "shimousa": "石井営所",
       "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
-      "sagami": "相模国府館",
-      "izu": "伊豆国府館",
+      "sagami": "大庭御厨館",
+      "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
       "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
       "south_shinano": "木曽谷関所館",
-      "echigo": "越後国府・蒲原津",
-      "etchu": "越中国府館",
+      "echigo": "越後国府・鳥坂城",
+      "etchu": "倶利伽羅砦",
       "noto": "能登国府館",
       "kaga": "加賀国府館",
       "echizen": "越前国府館",
@@ -2165,7 +2189,7 @@ window.SCENARIOS_DATA = [
       "nagato": "長門国府館",
       "sanuki": "讃岐国府館",
       "awa_shikoku": "阿波国府館",
-      "iyo": "伊予国府館",
+      "iyo": "日振島砦",
       "tosa": "土佐国府館",
       "buzen": "豊前国府館",
       "chikuzen": "大宰府政庁",
@@ -2179,12 +2203,14 @@ window.SCENARIOS_DATA = [
       "oki": "隠岐国府館",
       "sado": "佐渡国府館",
       "tsushima": "対馬金田城・府中",
-      "awaji": "淡路国府館"
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "heian_court": "桓武天皇と征夷大将軍・坂上田村麻呂率いる朝廷軍。古代国家の総力を挙げ奥羽の平定を目指す。",
       "aterui": "古代東北・胆沢の蝦夷首長・阿弖流為。幾度も官軍を打ち破った北天の勇将。郷土を守るため立ち塞がる。",
-      "ezo_native": "蝦夷地（北海道）の先住諸族。オホーツク海交易を営み独自の文化と誇りを保つ。"
+      "ezo_native": "蝦夷地（北海道）の先住諸族。オホーツク海交易を営み独自の文化と誇りを保つ。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -2194,6 +2220,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 72,
         "myProvinces": [
+          "yamashiro",
           "ugo",
           "rikuzen",
           "uzen",
@@ -2228,7 +2255,6 @@ window.SCENARIOS_DATA = [
           "iga",
           "north_omi",
           "south_omi",
-          "yamashiro",
           "yamato",
           "kii",
           "kawachi",
@@ -2281,21 +2307,153 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 4,
         "myProvinces": [
+          "rikuchu",
           "ezo",
           "tsugaru",
-          "mutsu",
-          "rikuchu"
+          "mutsu"
         ],
         "gold": 1000,
         "rice": 1200,
         "personality": "aggressive",
         "officerId": "off_aterui",
         "desc": "胆沢蝦夷の大首長・阿弖流為。寡兵で朝廷の大軍を幾度も返り討ちにした北方の名将。民の誇りを胸に抗戦する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
       "heian_court": "yamashiro",
-      "aterui": "rikuchu"
+      "aterui": "rikuchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_aterui": {
+        "clanId": "aterui",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_more": {
+        "clanId": "aterui",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_kanmu_tenno": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_sakanoue_tamuramaro": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_funya_watamaro": {
+        "clanId": "heian_court",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_fujiwara_otsugu": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "古代より和人とアイヌ民族の交易地として栄えた渡島半島の拠点。北方警備と物資交易の中継地。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "坂上田村麻呂が蝦夷平定のために築いた律令国家の最前線要塞。鎮守府が置かれ、北東北支配の軍政拠点となった。",
+      "rikuchu": "古代東北の英雄アテルイ（阿弖流為）が拠った蝦夷の聖地。朝廷軍の大軍を打ち破った巣伏の戦いの舞台。",
+      "ugo": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "承平天慶の乱で藤原純友が瀬戸内海水軍を率いて拠点とした宇和海上の島塞。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -2389,7 +2547,8 @@ window.SCENARIOS_DATA = [
       "sado": "heian_court",
       "tsugaru": "abe",
       "awaji": "fujiwara_sumitomo",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "taira_masakado": "坂東の英雄にして新皇。常陸・下野の国府を打ち破り、東国独立王国を築くべく坂東武士団を率いて蜂起した。",
@@ -2398,88 +2557,90 @@ window.SCENARIOS_DATA = [
       "taira_sadamori": "伯父将門に父を討たれ復讐を誓う常陸大掾。朝廷の追討使に任ぜられ、秀郷とともに将門包囲網を敷く。",
       "minamoto_tsunemoto": "清和天皇の皇孫にして武家源氏の祖。将門の反乱の兆候をいち早く京に注進し、征東副将軍として出陣。",
       "heian_court": "藤原忠平率いる平安朝廷。東西の同時反乱に震撼し、坂東と西海の豪族に恩賞を約束して武士同士を争わせる策に出る。",
-      "so": "大宰府の下で対馬を預かる在庁官人・惟宗氏。新羅・高麗との往来と国境の海防を担い、承平・天慶の乱では西海の動静を見張る。"
+      "so": "大宰府の下で対馬を預かる在庁官人・惟宗氏。新羅・高麗との往来と国境の海防を担い、承平・天慶の乱では西海の動静を見張る。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "天慶2年",
     "desc": "平安中期、貴族政治の弛緩に乗じ、坂東にて平将門が国府を襲撃して自ら「新皇」を称し、瀬戸内海では藤原純友が海賊衆を率いて蜂起した。朝廷を未曾有の震撼に陥れた東西二大反乱は、武士が歴史の表舞台に躍り出る決定的な契機となった。",
     "lore_background": "平安中期、貴族政治の弛緩に乗じ、坂東にて平将門が国府を襲撃して自ら「新皇」を称し、瀬戸内海では藤原純友が海賊衆を率いて蜂起した。朝廷を未曾有の震撼に陥れた東西二大反乱は、武士が歴史の表舞台に躍り出る決定的な契機となった。",
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "蝦夷地渡島営所",
       "tsugaru": "津軽平野館・柵",
-      "mutsu": "三戸館",
+      "mutsu": "厨川柵",
       "rikuchu": "厨川柵・衣川柵",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "uzen": "城輪柵（出羽国府）",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "会津郡衙館",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
+      "musashi": "武蔵国府・府中館",
       "shimousa": "石井営所",
       "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
-      "kai": "石和館",
+      "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
-      "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "ise": "伊勢国府館",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
       "kawachi": "河内国府館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
       "iyo": "日振島砦",
-      "tosa": "岡豊城",
-      "buzen": "豊前国府",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "豊後国府",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -2489,6 +2650,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 42,
         "myProvinces": [
+          "yamashiro",
           "bungo",
           "buzen",
           "chikugo",
@@ -2529,7 +2691,6 @@ window.SCENARIOS_DATA = [
           "totomi",
           "tsushima",
           "wakasa",
-          "yamashiro",
           "yamato"
         ],
         "gold": 8400,
@@ -2545,6 +2706,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "iyo",
         "provCount": 11,
         "myProvinces": [
+          "iyo",
           "bizen",
           "bicchu",
           "bingo",
@@ -2553,7 +2715,6 @@ window.SCENARIOS_DATA = [
           "nagato",
           "sanuki",
           "awa_shikoku",
-          "iyo",
           "tosa",
           "awaji"
         ],
@@ -2591,8 +2752,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 4,
         "myProvinces": [
-          "mutsu",
           "rikuchu",
+          "mutsu",
           "rikuzen",
           "tsugaru"
         ],
@@ -2697,6 +2858,21 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_daichou",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "heian_court",
@@ -2710,7 +2886,144 @@ window.SCENARIOS_DATA = [
       "abe": "mutsu",
       "kiyohara": "ugo",
       "shimazu_proto": "satsuma",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_taira_masakado": {
+        "clanId": "taira_masakado",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_fujiwara_sumitomo": {
+        "clanId": "fujiwara_sumitomo",
+        "defaultProv": "iyo",
+        "isDaimyo": true
+      },
+      "off_taira_sadamori": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidesato": {
+        "clanId": "fujiwara_hidesato",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": true
+      },
+      "off_minamoto_tsunemoto": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "mino",
+        "isDaimyo": true
+      },
+      "off_dm_abe_939": {
+        "clanId": "abe",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_dm_kiyohara_939": {
+        "clanId": "kiyohara",
+        "defaultProv": "ugo",
+        "isDaimyo": true
+      },
+      "off_tomo_kaneyuki": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_heian_tadahira": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_ezo_daichou": {
+        "clanId": "ezo_native",
+        "defaultProv": "ezo",
+        "isDaimyo": true
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "古代より和人とアイヌ民族の交易地として栄えた渡島半島の拠点。北方警備と物資交易の中継地。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+      "rikuchu": "奥六郡を支配した豪族安倍氏の防衛拠点。北上川流域に連なる天然の要害。",
+      "ugo": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "承平天慶の乱で藤原純友が瀬戸内海水軍を率いて拠点とした宇和海上の島塞。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -2745,9 +3058,9 @@ window.SCENARIOS_DATA = [
       "shimotsuke": "fujiwara_hidesato",
       "kozuke": "fujiwara_hidesato",
       "musashi": "heian_court",
-      "shimousa": "taira_masakado",
-      "kazusa": "taira_masakado",
-      "awa_boshu": "taira_masakado",
+      "shimousa": "taira_tadatsune",
+      "kazusa": "taira_tadatsune",
+      "awa_boshu": "taira_tadatsune",
       "sagami": "heian_court",
       "izu": "heian_court",
       "suruga": "heian_court",
@@ -2807,33 +3120,34 @@ window.SCENARIOS_DATA = [
       "oki": "heian_court",
       "sado": "heian_court",
       "tsushima": "toi",
-      "awaji": "heian_court"
+      "awaji": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "castles": {
       "ezo": "蝦夷地渡島営所",
       "tsugaru": "津軽平野館・柵",
-      "mutsu": "志波城・胆沢城",
+      "mutsu": "厨川柵",
       "rikuchu": "厨川柵・胆沢城",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
       "uzen": "城輪柵（出羽国府）",
       "iwaki": "白河関・白河営所",
       "iwashiro": "会津郡衙館",
-      "hitachi": "常陸国府館",
-      "shimotsuke": "下野国府館",
+      "hitachi": "常陸国府・府中館",
+      "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
       "musashi": "武蔵国府・府中館",
-      "shimousa": "下総国府館",
+      "shimousa": "石井営所",
       "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
-      "sagami": "相模国府館",
-      "izu": "伊豆国府館",
+      "sagami": "大庭御厨館",
+      "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
       "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
       "south_shinano": "木曽谷関所館",
-      "echigo": "越後国府・蒲原津",
-      "etchu": "越中国府館",
+      "echigo": "越後国府・鳥坂城",
+      "etchu": "倶利伽羅砦",
       "noto": "能登国府館",
       "kaga": "加賀国府館",
       "echizen": "越前国府館",
@@ -2885,12 +3199,14 @@ window.SCENARIOS_DATA = [
       "oki": "隠岐国府館",
       "sado": "佐渡国府館",
       "tsushima": "対馬金田城・府中",
-      "awaji": "淡路国府館"
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "heian_court": "大宰権帥・藤原隆家率いる朝廷軍。九州武士団を束ね、刀伊の侵略から国土を守るべく出陣。",
       "toi": "沿海州・豆満江流域の東女真（刀伊）海賊。圧倒的な軍船と騎射・毒矢で対馬・壱岐を攻略し博多へ迫る。",
-      "taira_sadamori": "坂東平氏の棟梁・平忠常。上総・下総・安房に勢威を誇り、東国独立の気運を高める。"
+      "taira_sadamori": "坂東平氏の棟梁・平忠常。上総・下総・安房に勢威を誇り、東国独立の気運を高める。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -2900,6 +3216,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 54,
         "myProvinces": [
+          "yamashiro",
           "iwaki",
           "iwashiro",
           "musashi",
@@ -2920,7 +3237,6 @@ window.SCENARIOS_DATA = [
           "iga",
           "north_omi",
           "south_omi",
-          "yamashiro",
           "yamato",
           "kii",
           "izumi",
@@ -2978,14 +3294,14 @@ window.SCENARIOS_DATA = [
         "kamonSvgId": "kamon-toi"
       },
       {
-        "id": "taira_masakado",
+        "id": "taira_tadatsune",
         "difficulty": "中級",
         "winRate": 45,
         "startProvId": "kazusa",
         "provCount": 3,
         "myProvinces": [
-          "shimousa",
           "kazusa",
+          "shimousa",
           "awa_boshu"
         ],
         "gold": 900,
@@ -3001,17 +3317,17 @@ window.SCENARIOS_DATA = [
         "startProvId": "kawachi",
         "provCount": 6,
         "myProvinces": [
+          "kawachi",
           "kai",
           "north_shinano",
           "south_shinano",
           "mino",
-          "kawachi",
           "settsu"
         ],
         "gold": 1400,
         "rice": 1800,
         "personality": "balanced",
-        "officerId": "off_minamoto_yorimitsu",
+        "officerId": "off_minamoto_yorinobu_1028",
         "desc": "「朝家の守護」清和源氏の棟梁・源頼光および源頼信兄弟。畿内・東国の武士団を束ね、名門武家の揺るぎない基盤を確立した。"
       },
       {
@@ -3053,9 +3369,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 4,
         "myProvinces": [
+          "rikuchu",
           "tsugaru",
           "mutsu",
-          "rikuchu",
           "rikuzen"
         ],
         "gold": 1100,
@@ -3109,22 +3425,209 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_ando_ta",
         "desc": "北の大地・渡島半島に拠る津軽安東氏の祖・安東太。北方の交易路を握り、独自の軍事力で北方世界を統べる。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
       "heian_court": "yamashiro",
       "toi": "tsushima",
-      "taira_masakado": "kazusa",
       "minamoto_tsunemoto": "kawachi",
       "fujiwara_hidesato": "shimotsuke",
       "taira_sadamori": "hitachi",
       "abe": "rikuchu",
       "kiyohara": "ugo",
       "shimazu_proto": "satsuma",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "taira_tadatsune": "kazusa",
+      "ryukyu": "ryukyu"
     },
     "provinceTroops": {
       "tsushima": 5000
+    },
+    "officerAffiliations": {
+      "off_taira_tadanetsune": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "kazusa",
+        "isDaimyo": true
+      },
+      "off_taira_tsuneharu": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": false
+      },
+      "off_taira_tadayori": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_abe_yoritoki": {
+        "clanId": "abe",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_kanemitsu": {
+        "clanId": "fujiwara_hidesato",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": true
+      },
+      "off_kiyohara_takenori": {
+        "clanId": "kiyohara",
+        "defaultProv": "ugo",
+        "isDaimyo": true
+      },
+      "off_minamoto_yorinobu_1028": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "kawachi",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoriyoshi": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "kawachi",
+        "isDaimyo": false
+      },
+      "off_minamoto_yorikuni": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "mino",
+        "isDaimyo": false
+      },
+      "off_minamoto_yorimitsu": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_tomo_kanechika_1028": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_taira_naokata": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_taira_masanori": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "hitachi",
+        "isDaimyo": false
+      },
+      "off_fujiwara_michinaga": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_fujiwara_takaie_daimyo": {
+        "clanId": "heian_court",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_okura_tanezane": {
+        "clanId": "heian_court",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_toi_chieftain": {
+        "clanId": "toi",
+        "defaultProv": "tsushima",
+        "isDaimyo": true
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "古代より和人とアイヌ民族の交易地として栄えた渡島半島の拠点。北方警備と物資交易の中継地。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+      "rikuchu": "律令国家の鎮守府胆沢城と在地豪族の拠点が対峙した古代陸中の軍政要衝。",
+      "ugo": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -3230,7 +3733,8 @@ window.SCENARIOS_DATA = [
       "sado": "heian_court",
       "tsugaru": "abe",
       "awaji": "heian_court",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "capitals": {
       "heian_court": "yamashiro",
@@ -3241,7 +3745,8 @@ window.SCENARIOS_DATA = [
       "taira_sadamori": "ise",
       "ezo_native": "ezo",
       "shimazu_proto": "satsuma",
-      "taira_tadatsune": "kazusa"
+      "taira_tadatsune": "kazusa",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "heian_court": "関白藤原頼通。父道長の死の年に摂関の座を預かり、房総の平忠常追討を諸国の武士へ命じる。",
@@ -3255,85 +3760,87 @@ window.SCENARIOS_DATA = [
       "shimazu_proto": "薩摩・大隅・日向の在地豪族。南九州の独立した武力を保つ。",
       "ezo_native": "北海道の諸部族。本州の争乱から離れ、北方交易で独立を保つ。",
       "so": "対馬の在庁官人。朝鮮海峡の島を預かり、大陸との窓口を守る。",
-      "honma": "佐渡の在地領主。日本海の島を固め、越後との往来を握る。"
+      "honma": "佐渡の在地領主。日本海の島を固め、越後との往来を握る。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "渡島和人館・志苔館",
       "tsugaru": "津軽平野館・柵",
       "mutsu": "厨川柵",
       "rikuchu": "衣川柵",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "uzen": "城輪柵（出羽国府）",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "会津郡衙館",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
-      "shimousa": "下総相馬営所",
-      "kazusa": "上総国府・夷隅営所",
+      "musashi": "武蔵国府・府中館",
+      "shimousa": "石井営所",
+      "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
       "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
       "ise": "伊勢国府館",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "石川荘館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "日振島砦",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -3343,6 +3850,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 58,
         "myProvinces": [
+          "yamashiro",
           "musashi",
           "sagami",
           "iwaki",
@@ -3367,7 +3875,6 @@ window.SCENARIOS_DATA = [
           "south_omi",
           "shima",
           "iga",
-          "yamashiro",
           "yamato",
           "izumi",
           "settsu",
@@ -3447,8 +3954,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "shimotsuke",
         "provCount": 2,
         "myProvinces": [
-          "kozuke",
-          "shimotsuke"
+          "shimotsuke",
+          "kozuke"
         ],
         "gold": 900,
         "rice": 1100,
@@ -3463,8 +3970,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "ise",
         "provCount": 2,
         "myProvinces": [
-          "hitachi",
-          "ise"
+          "ise",
+          "hitachi"
         ],
         "gold": 900,
         "rice": 1100,
@@ -3479,8 +3986,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 4,
         "myProvinces": [
-          "mutsu",
           "rikuchu",
+          "mutsu",
           "rikuzen",
           "tsugaru"
         ],
@@ -3513,8 +4020,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
+          "hyuga",
           "osumi"
         ],
         "gold": 1150,
@@ -3537,8 +4044,184 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_ando_ta",
         "desc": "北海道の諸部族。本州の争乱から離れ、北方交易で独立を保つ。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_taira_tadanetsune": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "kazusa",
+        "isDaimyo": true
+      },
+      "off_taira_tsuneharu": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": false
+      },
+      "off_taira_tsunemasa": {
+        "clanId": "taira_tadatsune",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_minamoto_yorinobu_1028": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "kawachi",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoriyoshi": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "kawachi",
+        "isDaimyo": false
+      },
+      "off_minamoto_yorikuni": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "mino",
+        "isDaimyo": false
+      },
+      "off_taira_naokata": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_taira_masanori": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "ise",
+        "isDaimyo": false
+      },
+      "off_abe_yoritoki": {
+        "clanId": "abe",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_kanemitsu": {
+        "clanId": "fujiwara_hidesato",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": true
+      },
+      "off_kiyohara_takenori": {
+        "clanId": "kiyohara",
+        "defaultProv": "ugo",
+        "isDaimyo": true
+      },
+      "off_tomo_kanechika_1028": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_fujiwara_yorimichi_1028": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_fujiwara_michinaga": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_fujiwara_takaie_daimyo": {
+        "clanId": "heian_court",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+      "rikuchu": "前九年の役の激戦地となった安倍氏南方の要衝。衣川の険を頼みにして朝廷軍を阻んだ。",
+      "ugo": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1056",
@@ -3573,7 +4256,8 @@ window.SCENARIOS_DATA = [
       "shimazu_proto": "satsuma",
       "taira_masakado": "shimousa",
       "taira_sadamori": "hitachi",
-      "fujiwara_hidesato": "kozuke"
+      "fujiwara_hidesato": "kozuke",
+      "ryukyu": "ryukyu"
     },
     "alliances": [
       [
@@ -3658,85 +4342,87 @@ window.SCENARIOS_DATA = [
       "sado": "heian_court",
       "tsugaru": "abe",
       "awaji": "heian_court",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "渡島和人館・志苔館",
       "tsugaru": "津軽平野館・柵",
       "mutsu": "厨川柵",
       "rikuchu": "衣川柵",
       "ugo": "秋田城・払田柵",
       "rikuzen": "多賀城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "uzen": "城輪柵（出羽国府）",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "会津郡衙館",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
-      "shimousa": "下総相馬営所",
-      "kazusa": "上総国府・夷隅営所",
+      "musashi": "武蔵国府・府中館",
+      "shimousa": "石井営所",
+      "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
       "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
       "ise": "伊勢国府館",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "石川荘館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "日振島砦",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -3746,8 +4432,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 4,
         "myProvinces": [
-          "mutsu",
           "rikuchu",
+          "mutsu",
           "rikuzen",
           "tsugaru"
         ],
@@ -3954,8 +4640,182 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_tsugaru_head",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_abe_yoritoki": {
+        "clanId": "abe",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_abe_sadato": {
+        "clanId": "abe",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_abe_muneto": {
+        "clanId": "abe",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_fujiwara_tsunekiyo": {
+        "clanId": "abe",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_minamoto_yoriyoshi": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoshiie": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "rikuzen",
+        "isDaimyo": false
+      },
+      "off_kiyohara_takenori": {
+        "clanId": "kiyohara",
+        "defaultProv": "ugo",
+        "isDaimyo": true
+      },
+      "off_yohiko_hidetake": {
+        "clanId": "kiyohara",
+        "defaultProv": "ugo",
+        "isDaimyo": false
+      },
+      "off_fujiwara_yorimichi_1028": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_dm_kikuchi_939": {
+        "clanId": "kikuchi",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_fujiwara_muneyuki": {
+        "clanId": "fujiwara_hidesato",
+        "defaultProv": "kozuke",
+        "isDaimyo": true
+      },
+      "off_taira_tsunemasa": {
+        "clanId": "taira_masakado",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_taira_masahira": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_tomo_kanetake_1028": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+      "rikuchu": "前九年の役の激戦地となった安倍氏南方の要衝。衣川の険を頼みにして朝廷軍を阻んだ。",
+      "ugo": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "clanDescs": {
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
+    }
   },
   {
     "id": "1087",
@@ -4059,7 +4919,8 @@ window.SCENARIOS_DATA = [
       "sado": "heian_court",
       "tsugaru": "kiyohara_iehira",
       "awaji": "heian_court",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "capitals": {
       "heian_court": "yamashiro",
@@ -4071,7 +4932,8 @@ window.SCENARIOS_DATA = [
       "shimazu_proto": "satsuma",
       "taira_masakado": "shimousa",
       "fujiwara_hidesato": "kozuke",
-      "taira_sadamori": "ise"
+      "taira_sadamori": "ise",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "minamoto_tsunemoto": "八幡太郎義家。陸奥守・鎮守府将軍として多賀城に入り、清原清衡に与して出羽の清原家衡を攻める。朝廷はこの戦を私戦とした。",
@@ -4086,85 +4948,87 @@ window.SCENARIOS_DATA = [
       "shimazu_proto": "大隅肝付の祖。薩摩・大隅・日向の武士団をまとめる。",
       "ezo_native": "渡島の諸部族。本州北端の争乱のさらに北で、独自の秩序を保つ。",
       "so": "対馬を預かる在庁。海峡の島として大陸との通交を続ける。",
-      "honma": "佐渡の在地領主。日本海の島を固め、越後との往来を握る。"
+      "honma": "佐渡の在地領主。日本海の島を固め、越後との往来を握る。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "渡島和人館・志苔館",
       "tsugaru": "津軽平野館・柵",
       "mutsu": "厨川柵",
       "rikuchu": "平泉館",
       "ugo": "金沢柵",
       "rikuzen": "多賀城",
       "uzen": "沼柵",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "会津郡衙館",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
+      "musashi": "武蔵国府・府中館",
       "shimousa": "石井営所",
-      "kazusa": "上総国府・夷隅営所",
+      "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
-      "kai": "石和館",
+      "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
       "ise": "伊勢国府館",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "石川荘館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "日振島砦",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -4189,8 +5053,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "ugo",
         "provCount": 4,
         "myProvinces": [
-          "rikuzen",
           "ugo",
+          "rikuzen",
           "uzen",
           "tsugaru"
         ],
@@ -4222,6 +5086,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 57,
         "myProvinces": [
+          "yamashiro",
           "hitachi",
           "musashi",
           "sagami",
@@ -4248,7 +5113,6 @@ window.SCENARIOS_DATA = [
           "south_omi",
           "shima",
           "iga",
-          "yamashiro",
           "yamato",
           "izumi",
           "settsu",
@@ -4293,8 +5157,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "shimotsuke",
         "provCount": 2,
         "myProvinces": [
-          "kozuke",
-          "shimotsuke"
+          "shimotsuke",
+          "kozuke"
         ],
         "gold": 900,
         "rice": 1100,
@@ -4324,8 +5188,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "kazusa",
         "provCount": 3,
         "myProvinces": [
-          "shimousa",
           "kazusa",
+          "shimousa",
           "awa_boshu"
         ],
         "gold": 1150,
@@ -4341,9 +5205,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "higo",
         "provCount": 3,
         "myProvinces": [
+          "higo",
           "chikugo",
-          "hizen",
-          "higo"
+          "hizen"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -4358,8 +5222,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
+          "hyuga",
           "osumi"
         ],
         "gold": 1150,
@@ -4382,8 +5246,169 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_tsugaru_head",
         "desc": "渡島の諸部族。本州北端の争乱のさらに北で、独自の秩序を保つ。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_ryukyu_anji",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_minamoto_yoshiie": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoshimitsu": {
+        "clanId": "minamoto_tsunemoto",
+        "defaultProv": "hitachi",
+        "isDaimyo": false
+      },
+      "off_fujiwara_kiyohira": {
+        "clanId": "kiyohara",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_yohiko_hidetake": {
+        "clanId": "kiyohara",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_kiyohara_iehira": {
+        "clanId": "kiyohara_iehira",
+        "defaultProv": "uzen",
+        "isDaimyo": true
+      },
+      "off_kiyohara_takehira": {
+        "clanId": "kiyohara_iehira",
+        "defaultProv": "ugo",
+        "isDaimyo": false
+      },
+      "off_shirakawa_in": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_dm_kikuchi_939": {
+        "clanId": "kikuchi",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_taira_masamori": {
+        "clanId": "taira_sadamori",
+        "defaultProv": "ise",
+        "isDaimyo": true
+      },
+      "off_fujiwara_muneyuki": {
+        "clanId": "fujiwara_hidesato",
+        "defaultProv": "kozuke",
+        "isDaimyo": true
+      },
+      "off_tomo_kanekiyo_1087": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_taira_tsunenaga": {
+        "clanId": "taira_masakado",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_ryukyu_anji": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+      "rikuchu": "奥州藤原氏三代が築いた黄金文化の中心地。中尊寺や毛越寺が立ち並ぶ極楽浄土の都。",
+      "ugo": "後三年の役で清原家衡・武衡が立て籠もった難攻不落の要害。源義家・藤原清衡軍の兵糧攻めで落城した。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "後三年の役で清原家衡が拠った豪雪の城柵。源義家軍の猛攻を退けた厳寒の要塞。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1156",
@@ -4476,7 +5501,8 @@ window.SCENARIOS_DATA = [
       "sado": "jo",
       "tsugaru": "fujiwara_hiraizumi",
       "awaji": "heian_court",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "taira": "伊勢平氏の棟梁・平清盛。後白河天皇を擁して機敏に夜襲を成功させ、西国武士団を率いて平氏政権の礎を固めんとする。",
@@ -4486,88 +5512,90 @@ window.SCENARIOS_DATA = [
       "sutoku_in": "父・鳥羽法皇との不和により皇位を奪われた悲運の上皇。藤原頼長、源為義らと結んで復権を期し白河殿に陣取る。",
       "fujiwara_hiraizumi": "平泉に黄金文化を築いた奥州藤原氏二代・基衡。中央の戦乱を傍観しつつ、東北全域に確固たる独立王国を誇る。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "保元元年",
     "desc": "鳥羽法皇崩御を機に、崇徳上皇と後白河天皇、摂関家の対立が爆発。源義朝・平清盛ら後白河天皇方と、源為朝・源為義・平忠正ら崇徳上皇方が京の白河北殿で激突した。",
     "lore_background": "鳥羽法皇崩御を機に、崇徳上皇と後白河天皇、摂関家の対立が爆発。源氏・平氏の武士団も骨肉相食む陣営に分かれて夜襲・合戦に突入した。保元の乱で勝利した後白河方だった平清盛と源義朝も、やがて恩賞の不満から平治の乱で激突する。",
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "十三湊館",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "平泉・柳之御所",
       "ugo": "湊城",
       "rikuzen": "多賀城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "uzen": "長井城",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "阿津賀志山防塁",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
+      "musashi": "武蔵国府・府中館",
       "shimousa": "石井営所",
       "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
-      "kai": "石和館",
+      "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
-      "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "ise": "伊勢国府館",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
       "kawachi": "河内国府館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -4577,8 +5605,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "harima",
         "provCount": 5,
         "myProvinces": [
-          "aki",
           "harima",
+          "aki",
           "iga",
           "ise",
           "shima"
@@ -4612,8 +5640,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamato",
         "provCount": 2,
         "myProvinces": [
-          "kawachi",
-          "yamato"
+          "yamato",
+          "kawachi"
         ],
         "gold": 1100,
         "rice": 1200,
@@ -4628,8 +5656,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 2,
         "myProvinces": [
-          "south_omi",
-          "yamashiro"
+          "yamashiro",
+          "south_omi"
         ],
         "gold": 1700,
         "rice": 1900,
@@ -4644,11 +5672,11 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuzen",
         "provCount": 8,
         "myProvinces": [
+          "rikuzen",
           "iwaki",
           "iwashiro",
           "mutsu",
           "rikuchu",
-          "rikuzen",
           "tsugaru",
           "ugo",
           "uzen"
@@ -4704,6 +5732,21 @@ window.SCENARIOS_DATA = [
         "personality": "defensive",
         "officerId": "off_ezo_leader_1331",
         "desc": "蝦夷地の北方勢力。独自の交易網を維持する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "taira",
@@ -4715,7 +5758,170 @@ window.SCENARIOS_DATA = [
       "fujiwara_hiraizumi": "rikuzen",
       "satake": "hitachi",
       "jo": "echigo",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "heian_court": "yamashiro",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_goshirakawa_in": {
+        "clanId": "goshirakawa_in",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_minamoto_yorimasa": {
+        "clanId": "goshirakawa_in",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_sutoku_in": {
+        "clanId": "sutoku_in",
+        "defaultProv": "yamato",
+        "isDaimyo": true
+      },
+      "off_minamoto_tametomo": {
+        "clanId": "sutoku_in",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_minamoto_tameyoshi": {
+        "clanId": "sutoku_in",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_taira_tadamasa": {
+        "clanId": "sutoku_in",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_fujiwara_yorinaga": {
+        "clanId": "sutoku_in",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_minamoto_yoshitomo": {
+        "clanId": "minamoto_yoshitomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "minamoto_yoshitomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_taira_kiyomori": {
+        "clanId": "taira",
+        "defaultProv": "harima",
+        "isDaimyo": true
+      },
+      "off_fujiwara_motohira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_dm_jo_1156": {
+        "clanId": "jo",
+        "defaultProv": "echigo",
+        "isDaimyo": true
+      },
+      "off_dm_satake_1156": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_heian_court_toba": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州藤原氏の政庁と伝わる平泉の居館。秀衡・泰衡父子が奥羽全域に君臨した北方の政庁。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -4803,7 +6009,8 @@ window.SCENARIOS_DATA = [
       "sado": "jo",
       "tsushima": "heian_court",
       "awaji": "heian_court",
-      "oki": "heian_court"
+      "oki": "heian_court",
+      "ryukyu": "ryukyu"
     },
     "gengo": "平治元年",
     "lore": "平治元年（1159年）12月、平清盛が熊野詣で京を留守にした隙を突き、藤原信頼と結んだ源義朝がクーデターを起こし三条殿を焼き討ちした。しかし清盛は六波羅へ帰還すると、二条天皇と後白河上皇を六波羅へ脱出させることに成功し、官軍として義朝討伐の兵を挙げる。",
@@ -4813,85 +6020,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 3,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、孤島の覇者として日本海交易の利益を享受する。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、孤島の覇者として日本海交易の利益を享受する。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
+      "rikuchu": "平泉・柳之御所",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
-      "hitachi": "太田城",
-      "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
-      "musashi": "河越館・比企館",
-      "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "rikuzen": "多賀城",
+      "uzen": "長井城",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "阿津賀志山防塁",
+      "hitachi": "常陸国府・府中館",
+      "shimotsuke": "唐沢山館・下野国府",
+      "kozuke": "上野国府館",
+      "musashi": "武蔵国府・府中館",
+      "shimousa": "石井営所",
+      "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
-      "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
-      "north_shinano": "葛尾城",
-      "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
-      "totomi": "曳馬城",
-      "mikawa": "岡崎城",
-      "owari": "那古野城",
-      "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "三条東殿・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
-      "harima": "白旗城・置塩城",
-      "inaba": "鳥取城",
-      "hoki": "八橋城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "十河城",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "立花山城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
-      "hyuga": "都於郡城",
-      "satsuma": "一宇治城・内城",
-      "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "sagami": "大庭御厨館",
+      "izu": "北条館・蛭ヶ小島",
+      "suruga": "駿河国府館",
+      "kai": "甲斐国府館",
+      "north_shinano": "信濃国府館",
+      "south_shinano": "木曽谷関所館",
+      "echigo": "越後国府・鳥坂城",
+      "etchu": "倶利伽羅砦",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
+      "totomi": "遠江国府館",
+      "mikawa": "三河国府館",
+      "owari": "尾張国府館",
+      "ise": "伊勢国府館",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
+      "north_omi": "北近江国府館",
+      "south_omi": "近江大津・瀬田関",
+      "yamashiro": "平安京・大内裏",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
+      "harima": "播磨国府館",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
+      "satsuma": "薩摩国府館",
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "minamoto_yoshitomo": "yamashiro",
@@ -4899,7 +6108,9 @@ window.SCENARIOS_DATA = [
       "fujiwara_hiraizumi": "rikuzen",
       "satake": "hitachi",
       "jo": "echigo",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "heian_court": "yamashiro",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -4909,10 +6120,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 4,
         "myProvinces": [
+          "yamashiro",
           "sagami",
           "shimotsuke",
-          "south_shinano",
-          "yamashiro"
+          "south_shinano"
         ],
         "gold": 1600,
         "rice": 1700,
@@ -4927,9 +6138,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "harima",
         "provCount": 6,
         "myProvinces": [
+          "harima",
           "aki",
           "chikuzen",
-          "harima",
           "iga",
           "ise",
           "shima"
@@ -4947,11 +6158,11 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuzen",
         "provCount": 8,
         "myProvinces": [
+          "rikuzen",
           "iwaki",
           "iwashiro",
           "mutsu",
           "rikuchu",
-          "rikuzen",
           "tsugaru",
           "ugo",
           "uzen"
@@ -5007,8 +6218,144 @@ window.SCENARIOS_DATA = [
         "personality": "defensive",
         "officerId": "off_ezo_leader_1331",
         "desc": "蝦夷地の北方勢力。独自の交易網を維持する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_goshirakawa_in": {
+        "clanId": "heian_court",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoshitomo": {
+        "clanId": "minamoto_yoshitomo",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "minamoto_yoshitomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_taira_kiyomori": {
+        "clanId": "taira",
+        "defaultProv": "harima",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_dm_jo_1156": {
+        "clanId": "jo",
+        "defaultProv": "echigo",
+        "isDaimyo": true
+      },
+      "off_dm_satake_1156": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州藤原氏の政庁と伝わる平泉の居館。秀衡・泰衡父子が奥羽全域に君臨した北方の政庁。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1180",
@@ -5113,7 +6460,8 @@ window.SCENARIOS_DATA = [
       "sado": "taira",
       "tsugaru": "fujiwara_hiraizumi",
       "awaji": "taira",
-      "oki": "taira"
+      "oki": "taira",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "genji_yoritomo": "伊豆の流人から立ち上がった源氏嫡流。坂東武士団を糾合して鎌倉に拠点を築き、天下初の武家政権の樹立を目指す。",
@@ -5122,88 +6470,90 @@ window.SCENARIOS_DATA = [
       "takeda": "甲斐源氏の棟梁・武田信義。甲斐・駿河・遠江に一大勢力を誇り、富士川の戦いで頼朝軍とともに平家軍を敗走させた名族。",
       "fujiwara_hiraizumi": "奥州十七万石の黄金王国を統括する藤原秀衡。源義経を庇護し、源平の相克を高みの見物としながら奥州を守護する。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "治承4年",
     "desc": "平清盛が後白河法皇を幽閉し平家専横を極める中、以仁王の令旨が東国に届く。伊豆に流されていた源頼朝が挙兵し、木曽義仲や甲斐源氏も蜂起。平家都落ちから壇ノ浦に至る、武家政権成立への大動乱の幕が開く。",
     "lore_background": "平清盛が後白河法皇を幽閉し平家専横を極める中、以仁王の令旨が東国に届く。伊豆に流されていた源頼朝が挙兵し、木曽義仲や甲斐源氏も蜂起。平家都落ちから壇ノ浦に至る、武家政権成立への大動乱の幕が開く。",
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "十三湊館",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "平泉・柳之御所",
       "ugo": "湊城",
       "rikuzen": "多賀城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
-      "iwashiro": "黒川城",
+      "uzen": "長井城",
+      "iwaki": "白河関・白河営所",
+      "iwashiro": "阿津賀志山防塁",
       "hitachi": "常陸国府・府中館",
       "shimotsuke": "唐沢山館・下野国府",
       "kozuke": "上野国府館",
-      "musashi": "武蔵国府・秩父館",
+      "musashi": "武蔵国府・府中館",
       "shimousa": "石井営所",
       "kazusa": "上総国府館",
       "awa_boshu": "安房国府館",
       "sagami": "大庭御厨館",
       "izu": "北条館・蛭ヶ小島",
       "suruga": "駿河国府館",
-      "kai": "石和館",
+      "kai": "甲斐国府館",
       "north_shinano": "信濃国府館",
-      "south_shinano": "木曽谷徳音寺館",
+      "south_shinano": "木曽谷関所館",
       "echigo": "越後国府・鳥坂城",
       "etchu": "倶利伽羅砦",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "美濃国府・大井戸館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "越前国府館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・不破関",
       "totomi": "遠江国府館",
       "mikawa": "三河国府館",
       "owari": "尾張国府館",
-      "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "ise": "伊勢国府館",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "北近江国府館",
-      "south_omi": "瀬田唐橋館・志賀館",
+      "south_omi": "近江大津・瀬田関",
       "yamashiro": "平安京・大内裏",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "大和国府館",
+      "kii": "紀伊国府館",
       "kawachi": "河内国府館",
-      "izumi": "岸和田城",
-      "settsu": "渡辺津館",
-      "tamba": "八上城・黒井城",
-      "tango": "弓木城",
-      "tajima": "此隅山城・竹田城",
+      "izumi": "和泉国府館",
+      "settsu": "難波宮・渡辺津",
+      "tamba": "丹波国府館",
+      "tango": "丹後国府館",
+      "tajima": "但馬国府館",
       "harima": "播磨国府館",
-      "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
-      "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
-      "mimasaka": "美作三星城",
-      "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "神辺城",
-      "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "屋島行宮・讃岐国府",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
-      "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "大宰府政庁・大津城",
-      "hizen": "村中城",
-      "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "菊池本城・隈府城",
-      "hyuga": "都於郡城",
+      "inaba": "因幡国府館",
+      "hoki": "伯耆国府館",
+      "izumo": "出雲国府館",
+      "iwami": "石見国府館",
+      "mimasaka": "美作国府館",
+      "bizen": "備前国府館",
+      "bicchu": "備中国府館",
+      "bingo": "備後国府館",
+      "aki": "安芸国府館",
+      "suo": "周防国府館",
+      "nagato": "長門国府館",
+      "sanuki": "讃岐国府館",
+      "awa_shikoku": "阿波国府館",
+      "iyo": "伊予国府館",
+      "tosa": "土佐国府館",
+      "buzen": "豊前国府館",
+      "chikuzen": "大宰府政庁",
+      "hizen": "肥前国府館",
+      "chikugo": "筑後国府館",
+      "bungo": "豊後国府館",
+      "higo": "肥後国府館",
+      "hyuga": "日向国府館",
       "satsuma": "薩摩国府館",
-      "osumi": "帖佐城",
-      "oki": "隠岐国府営所・黒木御所",
-      "sado": "佐渡国府・国分寺営所",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "淡路国府館"
+      "osumi": "大隅国府館",
+      "oki": "隠岐国府館",
+      "sado": "佐渡国府館",
+      "tsushima": "対馬金田城・府中",
+      "awaji": "淡路国府館",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -5213,6 +6563,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 49,
         "myProvinces": [
+          "yamashiro",
           "aki",
           "awa_shikoku",
           "awaji",
@@ -5260,7 +6611,6 @@ window.SCENARIOS_DATA = [
           "totomi",
           "tsushima",
           "wakasa",
-          "yamashiro",
           "yamato"
         ],
         "gold": 11400,
@@ -5276,8 +6626,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 8,
         "myProvinces": [
-          "izu",
           "sagami",
+          "izu",
           "musashi",
           "shimousa",
           "kazusa",
@@ -5298,10 +6648,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 8,
         "myProvinces": [
+          "rikuchu",
           "iwaki",
           "iwashiro",
           "rikuzen",
-          "rikuchu",
           "mutsu",
           "ugo",
           "uzen",
@@ -5452,6 +6802,21 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_kikuchi_takenao",
         "desc": "肥後国の名族・菊池氏。以仁王の令旨を受け平家追討の兵を挙げ、九州で反平家の旗を掲げる。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "taira",
@@ -5467,7 +6832,224 @@ window.SCENARIOS_DATA = [
       "jo": "echigo",
       "kumano": "kii",
       "shimazu_proto": "satsuma",
-      "kikuchi": "higo"
+      "kikuchi": "higo",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_minamoto_yoritomo": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_yoshitoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_chiba_tsunetane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_tanemasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_shigeta": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kazusa_hirotsune": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "kazusa",
+        "isDaimyo": false
+      },
+      "off_miura_yoshiaki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_miura_yoshizumi": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kajiwara_kagetoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kumagai_naozane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_hidesato_succ_5": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_taira_kiyomori": {
+        "clanId": "taira",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_taira_munemori": {
+        "clanId": "taira",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_yasuhira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_kiso_yoshinaka": {
+        "clanId": "kiso",
+        "defaultProv": "south_shinano",
+        "isDaimyo": true
+      },
+      "off_dm_kiso_1156": {
+        "clanId": "kiso",
+        "defaultProv": "south_shinano",
+        "isDaimyo": false
+      },
+      "off_dm_jo_1180": {
+        "clanId": "jo",
+        "defaultProv": "echigo",
+        "isDaimyo": true
+      },
+      "off_dm_jo_1156": {
+        "clanId": "jo",
+        "defaultProv": "echigo",
+        "isDaimyo": false
+      },
+      "off_kikuchi_takenao": {
+        "clanId": "kikuchi",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_satake_hideyoshi": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_dm_satake_1156": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": false
+      },
+      "off_shimazu_proto_tadahisa": {
+        "clanId": "shimazu_proto",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_dm_takeda_1180": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": true
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州藤原氏の政庁と伝わる平泉の居館。秀衡・泰衡父子が奥羽全域に君臨した北方の政庁。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+      "shimotsuke": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+      "kozuke": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+      "musashi": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+      "shimousa": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+      "kazusa": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+      "izu": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+      "suruga": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+      "kai": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+      "north_shinano": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+      "south_shinano": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+      "echigo": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+      "totomi": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+      "mikawa": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+      "owari": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+      "ise": "伊勢神宮を擁する神国伊勢の行政拠点。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+      "south_omi": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+      "kii": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+      "tamba": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+      "tango": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+      "tajima": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+      "hoki": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+      "izumo": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+      "iwami": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+      "mimasaka": "古代美作国の政庁。津山盆地の中央に位置する。",
+      "bizen": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+      "bicchu": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+      "bingo": "古代備後国の政庁。芦田川流域の拠点。",
+      "aki": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+      "suo": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+      "nagato": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+      "sanuki": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+      "awa_shikoku": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+      "buzen": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+      "chikuzen": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+      "hizen": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+      "chikugo": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+      "bungo": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+      "higo": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+      "hyuga": "古代日向国の政庁。日向灘を臨む温暖な地。",
+      "satsuma": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+      "osumi": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+      "oki": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+      "sado": "古代佐渡国の政庁。日本海航路の重要拠点。",
+      "tsushima": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+      "awaji": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -5564,7 +7146,8 @@ window.SCENARIOS_DATA = [
       "sado": "taira",
       "tsushima": "taira",
       "awaji": "taira",
-      "oki": "taira"
+      "oki": "taira",
+      "ryukyu": "ryukyu"
     },
     "gengo": "寿永2年",
     "lore": "寿永2年（1183年）7月、木曽義仲の軍勢が比叡山に迫り、平宗盛は安徳天皇と三種の神器を奉じて西国へ逃れた。京に入った義仲は「朝日将軍」の称号を得るが、配下の兵の乱暴狼藉により後白河法皇や京の公家衆との関係が急速に悪化していく。",
@@ -5574,85 +7157,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 1,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "不来方城",
       "ugo": "湊城",
-      "rikuzen": "岩切城",
+      "rikuzen": "多賀城",
       "uzen": "長井城",
-      "iwaki": "霊山城",
-      "iwashiro": "黒川城",
+      "iwaki": "白河小峰城",
+      "iwashiro": "阿津賀志山防塁",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
-      "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "sagami": "鎌倉幕府大蔵御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "倶利伽羅砦",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "北山第",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "kii": "雑賀城",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "一の谷・福原",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "白旗城・置塩城",
+      "harima": "三草山",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
-      "nagato": "勝山城",
-      "sanuki": "十河城",
+      "nagato": "彦島・引島",
+      "sanuki": "屋島",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "対馬府中・小茂田",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "kiso": "yamashiro",
@@ -5666,7 +7251,8 @@ window.SCENARIOS_DATA = [
       "kono": "iyo",
       "otomo": "bungo",
       "kikuchi": "higo",
-      "shimazu_proto": "satsuma"
+      "shimazu_proto": "satsuma",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -5676,6 +7262,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 17,
         "myProvinces": [
+          "yamashiro",
           "echigo",
           "noto",
           "etchu",
@@ -5685,7 +7272,6 @@ window.SCENARIOS_DATA = [
           "hida",
           "mino",
           "iga",
-          "yamashiro",
           "tamba",
           "tango",
           "kawachi",
@@ -5707,13 +7293,13 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 12,
         "myProvinces": [
+          "sagami",
           "kozuke",
           "shimotsuke",
           "shimousa",
           "kazusa",
           "awa_boshu",
           "musashi",
-          "sagami",
           "suruga",
           "totomi",
           "mikawa",
@@ -5733,6 +7319,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 30,
         "myProvinces": [
+          "nagato",
           "aki",
           "awa_shikoku",
           "awaji",
@@ -5752,7 +7339,6 @@ window.SCENARIOS_DATA = [
           "izumi",
           "izumo",
           "mimasaka",
-          "nagato",
           "oki",
           "sado",
           "sanuki",
@@ -5777,9 +7363,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 8,
         "myProvinces": [
+          "rikuchu",
           "tsugaru",
           "mutsu",
-          "rikuchu",
           "ugo",
           "rikuzen",
           "uzen",
@@ -5859,8 +7445,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 2,
         "myProvinces": [
-          "osumi",
-          "satsuma"
+          "satsuma",
+          "osumi"
         ],
         "gold": 1200,
         "rice": 1500,
@@ -5898,8 +7484,179 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_kikuchi_takenao",
         "desc": "肥後国の名族・菊池氏。都落ちして大宰府へ逃れてきた平家に反旗を翻し、肥後を堅守する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_minamoto_yoritomo": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_yoshitoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_chiba_tsunetane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_tanemasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_shigeta": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kazusa_hirotsune": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "kazusa",
+        "isDaimyo": false
+      },
+      "off_kajiwara_kagetoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kumagai_naozane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_taira_munemori": {
+        "clanId": "taira",
+        "defaultProv": "sanuki",
+        "isDaimyo": true
+      },
+      "off_kiso_yoshinaka": {
+        "clanId": "kiso",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_yasuhira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "平清盛が遷都を試みた福原京と、源平合戦の激戦地・一ノ谷。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "源義経が平家軍に夜襲を仕掛けて撃破した三草山の戦いの舞台。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "壇ノ浦の戦いで平家水軍が最後の拠点とした関門海峡の島。",
+      "sanuki": "源平合戦の激戦地。平家の行宮が置かれ、那須与一の扇の的で名高い。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1184",
@@ -5986,7 +7743,8 @@ window.SCENARIOS_DATA = [
       "sado": "genji_yoritomo",
       "tsushima": "taira",
       "awaji": "taira",
-      "oki": "genji_yoritomo"
+      "oki": "genji_yoritomo",
+      "ryukyu": "ryukyu"
     },
     "gengo": "寿永3年 (元暦元年)",
     "lore": "寿永3年（1184年）2月、平家は福原に強固な防衛線を築き、三種の神器と安徳天皇を擁して京の奪還を窺っていた。これに対し源頼朝の命を受けた源範頼・義経の兄弟は京を出発。鎌倉源氏の軍勢は精鋭を率いて背後の険しい崖から平家の陣へ奇襲をかける「逆落とし」を敢行する。",
@@ -5996,85 +7754,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 0,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。日本海交易の利益を享受する孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。日本海交易の利益を享受する孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "不来方城",
       "ugo": "湊城",
-      "rikuzen": "岩切城",
+      "rikuzen": "多賀城",
       "uzen": "長井城",
-      "iwaki": "霊山城",
-      "iwashiro": "黒川城",
+      "iwaki": "白河小峰城",
+      "iwashiro": "阿津賀志山防塁",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
-      "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "sagami": "鎌倉幕府大蔵御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "北山第",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
+      "kii": "雑賀城",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
       "settsu": "一の谷・福原",
-      "tamba": "八上城・黒井城",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "三草山",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
-      "nagato": "勝山城",
+      "nagato": "彦島・引島",
       "sanuki": "屋島",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "対馬府中・小茂田",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "taira": "settsu",
@@ -6085,7 +7845,8 @@ window.SCENARIOS_DATA = [
       "kikuchi": "higo",
       "matsura": "hizen",
       "shimazu_proto": "satsuma",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -6095,6 +7856,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 37,
         "myProvinces": [
+          "sagami",
           "echigo",
           "noto",
           "etchu",
@@ -6108,7 +7870,6 @@ window.SCENARIOS_DATA = [
           "kazusa",
           "awa_boshu",
           "musashi",
-          "sagami",
           "kai",
           "hida",
           "mino",
@@ -6146,6 +7907,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "settsu",
         "provCount": 25,
         "myProvinces": [
+          "settsu",
           "aki",
           "awa_shikoku",
           "awaji",
@@ -6166,7 +7928,6 @@ window.SCENARIOS_DATA = [
           "mimasaka",
           "nagato",
           "sanuki",
-          "settsu",
           "suo",
           "tajima",
           "tosa",
@@ -6185,9 +7946,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 8,
         "myProvinces": [
+          "rikuchu",
           "tsugaru",
           "mutsu",
-          "rikuchu",
           "ugo",
           "rikuzen",
           "uzen",
@@ -6275,8 +8036,164 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_leader_1331",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_minamoto_yoritomo": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_yoshitoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kumagai_naozane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "settsu",
+        "isDaimyo": false
+      },
+      "off_nasu_no_yoichi": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_chiba_tsunetane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kajiwara_kagetoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_taira_munemori": {
+        "clanId": "taira",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_yasuhira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "平清盛が遷都を試みた福原京と、源平合戦の激戦地・一ノ谷。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "源義経が平家軍に夜襲を仕掛けて撃破した三草山の戦いの舞台。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "壇ノ浦の戦いで平家水軍が最後の拠点とした関門海峡の島。",
+      "sanuki": "源平合戦の激戦地。平家の行宮が置かれ、那須与一の扇の的で名高い。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1185",
@@ -6369,7 +8286,8 @@ window.SCENARIOS_DATA = [
       "sado": "genji_yoritomo",
       "tsushima": "taira",
       "awaji": "genji_yoshitsune",
-      "oki": "genji_yoritomo"
+      "oki": "genji_yoritomo",
+      "ryukyu": "ryukyu"
     },
     "gengo": "元暦2年 (寿永4年)",
     "lore": "元暦2年（1185年）春、屋島の戦いで敗れた平家は、本州の西端である長門国の彦島に撤退した。源義経は四国・中国地方の水軍を味方につけ、ついに関門海峡の壇ノ浦へと迫る。日本中を巻き込んだ源平の争乱は、海上の急流を舞台にした最終決戦でついに幕を下ろそうとしていた。",
@@ -6379,85 +8297,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 0,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、孤島の覇者として日本海交易の利益を享受する。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、孤島の覇者として日本海交易の利益を享受する。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "不来方城",
       "ugo": "湊城",
-      "rikuzen": "岩切城",
+      "rikuzen": "多賀城",
       "uzen": "長井城",
-      "iwaki": "霊山城",
-      "iwashiro": "黒川城",
+      "iwaki": "白河小峰城",
+      "iwashiro": "阿津賀志山防塁",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
-      "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "sagami": "鎌倉幕府大蔵御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "北山第",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "kii": "雑賀城",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "一の谷・福原",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "白旗城・置塩城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "彦島・引島",
       "sanuki": "屋島",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
-      "chikuzen": "大宰府",
-      "hizen": "村中城",
+      "chikuzen": "立花山城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "対馬府中・小茂田",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "genji_yoshitsune": "aki",
@@ -6469,7 +8389,8 @@ window.SCENARIOS_DATA = [
       "kikuchi": "higo",
       "matsura": "hizen",
       "shimazu_proto": "satsuma",
-      "ezo_native": "ezo"
+      "ezo_native": "ezo",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -6511,11 +8432,11 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 7,
         "myProvinces": [
+          "nagato",
           "buzen",
           "chikugo",
           "chikuzen",
           "hizen",
-          "nagato",
           "suo",
           "tsushima"
         ],
@@ -6532,6 +8453,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 38,
         "myProvinces": [
+          "sagami",
           "awa_boshu",
           "echigo",
           "echizen",
@@ -6556,7 +8478,6 @@ window.SCENARIOS_DATA = [
           "oki",
           "owari",
           "sado",
-          "sagami",
           "settsu",
           "shima",
           "shimotsuke",
@@ -6584,10 +8505,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 8,
         "myProvinces": [
+          "rikuchu",
           "iwaki",
           "iwashiro",
           "mutsu",
-          "rikuchu",
           "rikuzen",
           "tsugaru",
           "ugo",
@@ -6651,9 +8572,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
+          "satsuma",
           "hyuga",
-          "osumi",
-          "satsuma"
+          "osumi"
         ],
         "gold": 1200,
         "rice": 1500,
@@ -6675,8 +8596,194 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_leader_1331",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。北方交易と独自の武力で独立を保ち続けた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_minamoto_yoshitsune": {
+        "clanId": "genji_yoshitsune",
+        "defaultProv": "aki",
+        "isDaimyo": true
+      },
+      "off_musashibo_benkei": {
+        "clanId": "genji_yoshitsune",
+        "defaultProv": "aki",
+        "isDaimyo": false
+      },
+      "off_sato_tadanobu": {
+        "clanId": "genji_yoshitsune",
+        "defaultProv": "aki",
+        "isDaimyo": false
+      },
+      "off_sato_tsugunobu": {
+        "clanId": "genji_yoshitsune",
+        "defaultProv": "sanuki",
+        "isDaimyo": false
+      },
+      "off_taguchi_shigeyoshi": {
+        "clanId": "genji_yoshitsune",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_minamoto_yoritomo": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_yoshitoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_chiba_tsunetane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kajiwara_kagetoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kumagai_naozane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_nasu_no_yoichi": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_miura_yoshimura": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_taira_munemori": {
+        "clanId": "taira",
+        "defaultProv": "nagato",
+        "isDaimyo": true
+      },
+      "off_fujiwara_hidehira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_fujiwara_yasuhira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "平清盛が遷都を試みた福原京と、源平合戦の激戦地・一ノ谷。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "壇ノ浦の戦いで平家水軍が最後の拠点とした関門海峡の島。",
+      "sanuki": "源平合戦の激戦地。平家の行宮が置かれ、那須与一の扇の的で名高い。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1189",
@@ -6763,7 +8870,8 @@ window.SCENARIOS_DATA = [
       "tsushima": "genji_yoritomo",
       "awaji": "genji_yoritomo",
       "oki": "genji_yoritomo",
-      "bungo": "genji_yoritomo"
+      "bungo": "genji_yoritomo",
+      "ryukyu": "ryukyu"
     },
     "gengo": "文治5年",
     "lore": "文治5年（1189年）夏、平家を滅ぼし実質的な天下人となった源頼朝は、朝廷に圧力をかけ、奥州藤原氏へ義経追討の宣旨を下させた。三代秀衡の死後、跡を継いだ藤原泰衡は鎌倉の圧力に苦慮するが、黄金の都・平泉を守るべく、天才・義経を客将として奥州全土の武士団を動員する。",
@@ -6773,85 +8881,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 1,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。日本海交易の利益を享受する孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。日本海交易の利益を享受する孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "津軽平野館・柵",
+      "mutsu": "三戸館",
       "rikuchu": "平泉館",
       "ugo": "湊城",
-      "rikuzen": "岩切城",
+      "rikuzen": "多賀城",
       "uzen": "長井城",
-      "iwaki": "霊山城",
+      "iwaki": "白河小峰城",
       "iwashiro": "阿津賀志山防塁",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
-      "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "sagami": "鎌倉幕府大蔵御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "六波羅",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "六波羅探題",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "kii": "雑賀城",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "白旗城・置塩城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
-      "sanuki": "屋島",
+      "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
-      "chikuzen": "大宰府",
-      "hizen": "村中城",
+      "chikuzen": "立花山城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "対馬府中・小茂田",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "genji_yoritomo": "sagami",
@@ -6860,7 +8970,8 @@ window.SCENARIOS_DATA = [
       "matsura": "hizen",
       "shimazu_proto": "satsuma",
       "ezo_native": "ezo",
-      "fujiwara_hiraizumi": "rikuchu"
+      "fujiwara_hiraizumi": "rikuchu",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -6870,9 +8981,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 8,
         "myProvinces": [
+          "rikuchu",
           "tsugaru",
           "mutsu",
-          "rikuchu",
           "ugo",
           "rikuzen",
           "uzen",
@@ -6892,6 +9003,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 60,
         "myProvinces": [
+          "sagami",
           "echigo",
           "noto",
           "etchu",
@@ -6905,7 +9017,6 @@ window.SCENARIOS_DATA = [
           "kazusa",
           "awa_boshu",
           "musashi",
-          "sagami",
           "kai",
           "hida",
           "mino",
@@ -6981,8 +9092,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "higo",
         "provCount": 2,
         "myProvinces": [
-          "chikugo",
-          "higo"
+          "higo",
+          "chikugo"
         ],
         "gold": 1200,
         "rice": 1500,
@@ -6997,8 +9108,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
+          "hyuga",
           "osumi"
         ],
         "gold": 1200,
@@ -7021,8 +9132,179 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ezo_leader_1331",
         "desc": "北海道および北奥羽の大自然に生きる部族集団。義経が北へ逃れたという伝説（義経北行伝説）はこの地から生まれる。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_minamoto_yoshitsune": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_musashibo_benkei": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_fujiwara_yasuhira": {
+        "clanId": "fujiwara_hiraizumi",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_minamoto_yoritomo": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_yoshitoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_chiba_tsunetane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_tanemasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kajiwara_kagetoki": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_kumagai_naozane": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_nasu_no_yoichi": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_utsunomiya_yoritsuna": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_miura_yoshimura": {
+        "clanId": "genji_yoritomo",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州藤原氏三代が築いた黄金文化の中心地。中尊寺や毛越寺が立ち並ぶ極楽浄土の都。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1221",
@@ -7115,7 +9397,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsugaru": "nanbu",
       "awaji": "gotoba_in",
-      "oki": "gotoba_in"
+      "oki": "gotoba_in",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "hojo_kamakura": "二代執権北条義時。政子の演説で結束した東国御家人十九万騎を率い、東海道・東山道・北陸道から怒濤の上洛作戦を敢行する。",
@@ -7124,19 +9407,20 @@ window.SCENARIOS_DATA = [
       "miura": "相模屈指の豪族・三浦義村。上皇方の誘いを退け義時への忠誠を貫き、幕府軍の中核として軍功を重ねる。",
       "shimazu": "南九州に確固たる基盤を築いた島津忠久。幕府方として九州の朝廷方を牽制し、島津氏の覇権を揺るぎないものとする。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "承久3年",
     "desc": "源氏将軍断絶に乗じ、名君後鳥羽上皇が執権北条義時追討の院宣を下す。動揺する鎌倉御家人に対し、尼将軍政子が「頼朝公の御恩は山よりも高く海よりも深い」と名演説。奮起した東国武士団十九万騎が京へ押し寄せ、朝廷軍と激突する。",
     "lore_background": "源氏将軍断絶に乗じ、名君後鳥羽上皇が執権北条義時追討の院宣を下す。動揺する鎌倉御家人に対し、尼将軍政子が「頼朝公の御恩は山よりも高く海よりも深い」と名演説。奮起した東国武士団十九万騎が京へ押し寄せ、朝廷軍と激突する。",
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "霊山城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
+      "mutsu": "三戸館",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
       "iwaki": "白河小峰城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
@@ -7144,68 +9428,69 @@ window.SCENARIOS_DATA = [
       "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉幕府大蔵御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
+      "south_omi": "瀬田唐橋館・志賀館",
       "yamashiro": "六波羅探題",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "河内国府館",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "izumi": "和泉国府館",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "三木城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "対馬国府・下県郡館",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "対馬府中・小茂田",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -7261,6 +9546,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 22,
         "myProvinces": [
+          "sagami",
           "awa_boshu",
           "echigo",
           "echizen",
@@ -7278,7 +9564,6 @@ window.SCENARIOS_DATA = [
           "musashi",
           "noto",
           "owari",
-          "sagami",
           "shimotsuke",
           "suruga",
           "totomi",
@@ -7551,6 +9836,21 @@ window.SCENARIOS_DATA = [
         "officerId": "off_succ2_satake_1185",
         "kamonSvgId": "kamon-satake",
         "desc": "常陸の名族・佐竹氏。源氏の流れを汲み、太田城を拠点に関東に確固たる勢力を誇る。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_shunten_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "gotoba_in",
@@ -7573,7 +9873,259 @@ window.SCENARIOS_DATA = [
       "otomo": "buzen",
       "shoni": "chikuzen",
       "shimazu": "hyuga",
-      "satake": "hitachi"
+      "satake": "hitachi",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_hojo_yoshitoki": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hojo_masako": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_yasutoki": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tokifusa": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_hojo_tomatoki_1221": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_hojo_masamura": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_oe_no_hiromoto": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_miura_yoshimura": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_ashikaga_yoshiuji": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "mikawa",
+        "isDaimyo": false
+      },
+      "off_utsunomiya_yoritsuna": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_koyama_tomomasa": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_nasu_no_yoichi": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_yuki_tomomitsu": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_nitta_masayoshi": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "kozuke",
+        "isDaimyo": false
+      },
+      "off_gotoba_in": {
+        "clanId": "gotoba_in",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_dm_otomo_1221": {
+        "clanId": "otomo",
+        "defaultProv": "buzen",
+        "isDaimyo": false
+      },
+      "off_otomo_yoshinao_early_bridge": {
+        "clanId": "otomo",
+        "defaultProv": "bungo",
+        "isDaimyo": true
+      },
+      "off_satake_hideyoshi": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_succ2_satake_1185": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": false
+      },
+      "off_dm_takeda_1221": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": true
+      },
+      "off_takeda_nobumasa": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": false
+      },
+      "off_dm_ando_1221": {
+        "clanId": "ando",
+        "defaultProv": "ugo",
+        "isDaimyo": true
+      },
+      "off_dm_chiba_1221": {
+        "clanId": "chiba",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_date_munemura": {
+        "clanId": "date",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_dm_kasai_1221": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_dm_kikuchi_1221": {
+        "clanId": "kikuchi",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_kono_michinobu_early": {
+        "clanId": "kono",
+        "defaultProv": "iyo",
+        "isDaimyo": true
+      },
+      "off_dm_murakami_1221": {
+        "clanId": "murakami",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_dm_nanbu_1221": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_dm_ogasawara_1221": {
+        "clanId": "ogasawara",
+        "defaultProv": "south_shinano",
+        "isDaimyo": true
+      },
+      "off_shimazu_tadatoki": {
+        "clanId": "shimazu",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_dm_shoni_1221": {
+        "clanId": "shoni",
+        "defaultProv": "chikuzen",
+        "isDaimyo": true
+      },
+      "off_dm_so_1221": {
+        "clanId": "so",
+        "defaultProv": "tsushima",
+        "isDaimyo": true
+      },
+      "off_shunten_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -7674,92 +10226,95 @@ window.SCENARIOS_DATA = [
       "oki": "hojo_kamakura",
       "sado": "hojo_kamakura",
       "tsushima": "yuan",
-      "awaji": "hojo_kamakura"
+      "awaji": "hojo_kamakura",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
-      "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
+      "mutsu": "三戸館",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "青葉城",
-      "uzen": "山形城",
-      "iwaki": "小峰城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
+      "iwaki": "白河小峰城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
-      "musashi": "江戸城",
-      "shimousa": "本佐倉城",
-      "kazusa": "久留里城",
-      "awa_boshu": "館山城",
-      "sagami": "鎌倉幕府御所",
-      "izu": "韮山城",
-      "suruga": "駿府城",
-      "kai": "躑躅ヶ崎館",
-      "north_shinano": "海津城",
-      "south_shinano": "深志城",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "金沢城",
-      "echizen": "一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "松倉城",
-      "mino": "岐阜城",
-      "totomi": "浜松城",
-      "mikawa": "岡崎城",
-      "owari": "清洲城",
+      "kozuke": "新田庄・生品館",
+      "musashi": "河越館・比企館",
+      "shimousa": "千葉城（亥鼻城）",
+      "kazusa": "庁南城",
+      "awa_boshu": "安房国府館",
+      "sagami": "鎌倉幕府大蔵御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "一条館",
+      "north_shinano": "葛尾城",
+      "south_shinano": "諏訪館",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
+      "totomi": "曳馬城",
+      "mikawa": "吉田城",
+      "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "小谷城",
-      "south_omi": "観音寺城",
-      "yamashiro": "六波羅探題・平安京",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
+      "north_omi": "京極館・伊香砦",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "六波羅探題",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
-      "kawachi": "高屋城",
-      "izumi": "岸和田城",
-      "settsu": "大坂城",
+      "kii": "雑賀城",
+      "kawachi": "河内国府館",
+      "izumi": "和泉国府館",
+      "settsu": "渡辺津館",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "tajima": "出石城",
-      "harima": "姫路城",
+      "tango": "弓木城",
+      "tajima": "此隅山城・竹田城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
-      "mimasaka": "津山城",
-      "bizen": "岡山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "iwami": "七尾城",
+      "mimasaka": "美作三星城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館",
-      "nagato": "萩城",
-      "sanuki": "高松城",
-      "awa_shikoku": "徳島城",
-      "iyo": "湯築城",
+      "suo": "山口館・大内館",
+      "nagato": "勝山城",
+      "sanuki": "十河城",
+      "awa_shikoku": "勝瑞城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
-      "chikuzen": "博多水城・警固所",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
-      "bungo": "大分城府館",
-      "higo": "菊池隈府城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
-      "oki": "甲尾城",
+      "buzen": "城井谷城",
+      "chikuzen": "立花山城",
+      "hizen": "勢福寺城",
+      "chikugo": "柳川城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
+      "oki": "隠岐国府営所・黒木御所",
       "sado": "雑太城",
       "tsushima": "対馬府中・小茂田",
-      "awaji": "洲本城"
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "hojo_kamakura": "鎌倉幕府第八代執権・北条時宗。禅の修行で不動心を培い、国難打破のため全国の御家人に大動員令を発令。",
       "yuan": "大元ウルス皇帝クビライが派遣した征東遠征軍。都元帥・忻都率いる大船団と火薬兵器で日本本土を攻める。",
       "shoni": "鎮西奉行・少弐景資。博多湾防衛の総司令官として、赤坂・鳥飼潟にて元軍を迎え撃つ。",
       "kikuchi": "肥後の勇将・菊池武房。一族郎党を率いて赤坂の元軍を奇襲強襲し奮戦散華。",
-      "otomo": "豊後の大友頼泰。豊後・筑後の御家人を統率し、北九州の防衛陣を固める。"
+      "otomo": "豊後の大友頼泰。豊後・筑後の御家人を統率し、北九州の防衛陣を固める。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -7769,6 +10324,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 57,
         "myProvinces": [
+          "sagami",
           "aki",
           "awa_boshu",
           "awa_shikoku",
@@ -7809,7 +10365,6 @@ window.SCENARIOS_DATA = [
           "oki",
           "owari",
           "sado",
-          "sagami",
           "sanuki",
           "settsu",
           "shima",
@@ -8012,6 +10567,21 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_kasai_kiyomune",
         "desc": "鎌倉幕府の奥州総奉行を務める名族葛西氏。不来方城を拠点に陸中を治める。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_eiso_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -8032,10 +10602,207 @@ window.SCENARIOS_DATA = [
       "yuan": "tsushima",
       "nanbu": "mutsu",
       "kasai": "rikuchu",
-      "murakami": "north_shinano"
+      "murakami": "north_shinano",
+      "ryukyu": "ryukyu"
     },
     "provinceTroops": {
       "tsushima": 5000
+    },
+    "officerAffiliations": {
+      "off_ashikaga_ietoki": {
+        "clanId": "ashikaga",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": true
+      },
+      "off_takezaki_suenaga": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_kikuchi_takefusa": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_so_sukekuni": {
+        "clanId": "shoni",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_shimazu_hisaune": {
+        "clanId": "shimazu",
+        "defaultProv": "satsuma",
+        "isDaimyo": false
+      },
+      "off_hojo_tokimune": {
+        "clanId": "hojo_kamakura",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_kublai_khan": {
+        "clanId": "yuan",
+        "defaultProv": "tsushima",
+        "isDaimyo": true
+      },
+      "off_shoni_tsunesuke": {
+        "clanId": "shoni",
+        "defaultProv": "chikuzen",
+        "isDaimyo": true
+      },
+      "off_shoni_kagesuke": {
+        "clanId": "shoni",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_kono_michiari": {
+        "clanId": "kono",
+        "defaultProv": "iyo",
+        "isDaimyo": true
+      },
+      "off_otomo_yoriyasu": {
+        "clanId": "otomo",
+        "defaultProv": "bungo",
+        "isDaimyo": true
+      },
+      "off_shimazu_tadamune": {
+        "clanId": "shimazu",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_chiba_yoritane": {
+        "clanId": "chiba",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_date_masayori": {
+        "clanId": "date",
+        "defaultProv": "rikuzen",
+        "isDaimyo": true
+      },
+      "off_succ_ando_1215_1": {
+        "clanId": "ando",
+        "defaultProv": "tsugaru",
+        "isDaimyo": true
+      },
+      "off_matsura_tota": {
+        "clanId": "matsura",
+        "defaultProv": "hizen",
+        "isDaimyo": true
+      },
+      "off_succ2_murakami_1220": {
+        "clanId": "murakami",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_nanbu_masamitsu": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_ogasawara_nagamasa_kama": {
+        "clanId": "ogasawara",
+        "defaultProv": "south_shinano",
+        "isDaimyo": true
+      },
+      "off_satake_yoshishige_kama": {
+        "clanId": "satake",
+        "defaultProv": "hitachi",
+        "isDaimyo": true
+      },
+      "off_succ_takeda_1240_188": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": true
+      },
+      "off_kasai_kiyomune": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_eiso_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -8121,7 +10888,7 @@ window.SCENARIOS_DATA = [
       "iwashiro": "ashina",
       "rikuzen": "date",
       "rikuchu": "shiba",
-      "mutsu": "kitabatake",
+      "mutsu": "nanbu",
       "ugo": "ando",
       "uzen": "shiba_uzen",
       "ezo": "ezo_native",
@@ -8129,7 +10896,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsugaru": "kitabatake",
       "awaji": "hosokawa",
-      "oki": "enyo"
+      "oki": "enyo",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "godaiho": "不屈の情熱で親政復活を志す大帝。笠置山に拠り、隠岐配流の逆境をも乗り越えて武士たちに幕府打倒を呼びかける。",
@@ -8138,19 +10906,20 @@ window.SCENARIOS_DATA = [
       "ashikaga": "源氏の重鎮・足利高氏（尊氏）。幕府軍の大将として西上するも、後醍醐天皇に呼応して六波羅探題を攻撃する決断を下す。",
       "nitta": "上野国の名門・新田義貞。幕府の重税徴収に反発して生品神社で挙兵、一気に鎌倉本拠へ進軍して幕府にとどめを刺さんとする。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "元弘元年",
     "desc": "鎌倉幕府の得宗専制が極まる中、後醍醐天皇が密かに倒幕を企て笠置山で挙兵。河内では楠木正成が赤坂城・千早城に籠城し、奇策を尽くして幕府数十万の大軍を足止めした。全国の反幕府勢力が一斉に蜂起する引き金となった大乱。",
     "lore_background": "鎌倉幕府の得宗専制が極まる中、後醍醐天皇が密かに倒幕を企て笠置山で挙兵。河内では楠木正成が赤坂城・千早城に籠城し、奇策を尽くして幕府数十万の大軍を足止めした。全国の反幕府勢力が一斉に蜂起する引き金となった大乱。",
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "霊山城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
+      "mutsu": "三戸館",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
       "iwaki": "白河小峰城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
@@ -8158,68 +10927,69 @@ window.SCENARIOS_DATA = [
       "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉幕府大蔵御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
+      "south_omi": "瀬田唐橋館・志賀館",
       "yamashiro": "六波羅探題",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "千早城・上赤坂城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "izumi": "和泉国府館",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "三木城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "伯耆国府館・船上山城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -8394,8 +11164,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "hoki",
         "provCount": 2,
         "myProvinces": [
-          "inaba",
-          "hoki"
+          "hoki",
+          "inaba"
         ],
         "gold": 900,
         "rice": 1100,
@@ -8593,7 +11363,7 @@ window.SCENARIOS_DATA = [
         "id": "toki",
         "difficulty": "超上級",
         "winRate": 30,
-        "startProvId": "mino",
+        "startProvId": "south_omi",
         "provCount": 1,
         "myProvinces": [
           "mino"
@@ -8889,6 +11659,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_jd_322",
         "desc": "斯波家兼が奥州管領として下向し興した羽前斯波氏（最上氏祖）。奥羽に勢力を伸ばす。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_eiso_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "hojo_kamakura",
@@ -8934,8 +11719,135 @@ window.SCENARIOS_DATA = [
       "yuki": "iwaki",
       "utsunomiya": "buzen",
       "shiba_uzen": "uzen",
-      "murakami": "north_shinano"
-    }
+      "murakami": "north_shinano",
+      "nanbu": "mutsu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_dm_nanbu_1331": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_succ2_nanbu_1285": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_nanbu_masanaga": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_yuki_munehiro": {
+        "clanId": "yuki",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_suwa_yorishige_kama": {
+        "clanId": "suwa",
+        "defaultProv": "south_shinano",
+        "isDaimyo": true
+      },
+      "off_eiso_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "楠木正成が金剛山中に築いた山城。鎌倉幕府の大軍十万を奇策と地の利で翻弄し、幕府滅亡の引き金を引いた不落の名城。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato"
+    ]
   },
   {
     "id": "1333",
@@ -9028,7 +11940,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsugaru": "kitabatake",
       "awaji": "hosokawa",
-      "oki": "enyo"
+      "oki": "enyo",
+      "ryukyu": "ryukyu"
     },
     "clanDescs": {
       "godaiho": "自ら政務を執る建武政権の主。記録所や恩賞方を設置し「綸旨」による絶対王権を築かんとするが、武士の不満が高まる。",
@@ -9038,19 +11951,20 @@ window.SCENARIOS_DATA = [
       "kitabatake": "若干十七歳で陸奥守兼鎮守府大将軍に任ぜられた俊英・顕家。父親房とともに奥州武士団を従え、朝廷軍の柱石となる。",
       "hojo_tokiyuki": "北条高時の遺児・北条時行。信濃諏訪頼重の庇護のもと、中先代の乱を起こして鎌倉を一時奪還し幕府再興を狙う。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "gengo": "建武元年 (正慶2年)",
     "desc": "足利尊氏の六波羅攻略、新田義貞の鎌倉突破により鎌倉幕府が滅亡。後醍醐天皇による「建武の新政」が始まるが、公家優遇の恩賞や急進的な改革は武士たちの強い反発を招く。足利尊氏と新田義貞の主導権争いが水面下で激化していく。",
     "lore_background": "足利尊氏の六波羅攻略、新田義貞の鎌倉突破により鎌倉幕府が滅亡。後醍醐天皇による「建武の新政」が始まるが、公家優遇の恩賞や急進的な改革は武士たちの強い反発を招く。足利尊氏と新田義貞の主導権争いが水面下で激化していく。",
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "霊山城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
+      "mutsu": "三戸館",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
       "iwaki": "白河小峰城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
@@ -9058,68 +11972,69 @@ window.SCENARIOS_DATA = [
       "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉幕府大蔵御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
-      "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "echigo": "越後国府・蒲原津",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
+      "south_omi": "瀬田唐橋館・志賀館",
       "yamashiro": "六波羅探題",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "千早城・上赤坂城",
-      "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "izumi": "和泉国府館",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "三木城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
       "hoki": "伯耆国府館・船上山城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "伊予国府館",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "隠岐国府営所・黒木御所",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -9191,8 +12106,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "awa_shikoku",
         "provCount": 3,
         "myProvinces": [
-          "sanuki",
           "awa_shikoku",
+          "sanuki",
           "awaji"
         ],
         "gold": 1400,
@@ -9537,7 +12452,7 @@ window.SCENARIOS_DATA = [
         "id": "toki",
         "difficulty": "超上級",
         "winRate": 30,
-        "startProvId": "mino",
+        "startProvId": "south_omi",
         "provCount": 1,
         "myProvinces": [
           "mino"
@@ -9760,6 +12675,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_succ_murakami_1300_98",
         "desc": "信濃の名門村上氏当主。北信濃葛尾城を本拠として勢力を誇る。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_eiso_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "recommendedClan": "ashikaga",
@@ -9805,8 +12735,109 @@ window.SCENARIOS_DATA = [
       "anekoji": "hida",
       "ashina": "iwashiro",
       "imagawa": "suruga",
-      "shiba_uzen": "uzen"
-    }
+      "shiba_uzen": "uzen",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_eiso_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "古代越後国の国府と信濃川河口の港湾要衝。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "楠木正成が金剛山中に築いた山城。鎌倉幕府の大軍十万を奇策と地の利で翻弄し、幕府滅亡の引き金を引いた不落の名城。",
+      "izumi": "古代和泉国の政庁。堺の港とともに栄えた。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "隠岐を脱出した後醍醐天皇が立て籠もり、鎌倉幕府軍を破って建武中興の起点となった船上山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "古代伊予国の政庁。松山平野の温暖な地。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato"
+    ]
   },
   {
     "id": "1336",
@@ -9903,7 +12934,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "建武3年 (延元元年)",
     "lore": "延元元年、九州から東上した足利尊氏は湊川で楠木正成を破り、光明天皇を擁立して室町幕府を開く。後醍醐天皇は吉野へ逃れて南朝を樹立、新田義貞・北畠顕家ら宮方武将が各地で抗戦を続ける。",
@@ -9911,16 +12943,17 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 1,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
       "mutsu": "霊山城",
-      "rikuchu": "不来方城",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
       "iwaki": "白河小峰城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
@@ -9928,68 +12961,69 @@ window.SCENARIOS_DATA = [
       "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "越前国府・府中館",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "花之御所・室町殿",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "千早城・上赤坂城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
-      "harima": "三木城",
+      "harima": "播磨国府館",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -9999,13 +13033,13 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 12,
         "myProvinces": [
+          "yamashiro",
           "kazusa",
           "awa_boshu",
           "musashi",
           "sagami",
           "izu",
           "iga",
-          "yamashiro",
           "tamba",
           "settsu",
           "chikuzen",
@@ -10040,7 +13074,7 @@ window.SCENARIOS_DATA = [
         "id": "toki",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "mino",
+        "startProvId": "south_omi",
         "provCount": 4,
         "myProvinces": [
           "hida",
@@ -10098,9 +13132,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "noto",
-          "etchu",
-          "kaga"
+          "etchu"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -10164,8 +13198,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "iwashiro",
         "provCount": 2,
         "myProvinces": [
-          "iwaki",
-          "iwashiro"
+          "iwashiro",
+          "iwaki"
         ],
         "gold": 900,
         "rice": 1100,
@@ -10620,6 +13654,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_shiba_ienaga",
         "desc": "斯波高経の長男。足利尊氏より奥州管領に任ぜられ、陸中を本拠として南朝の北畠顕家らと激戦を繰り広げた若き智勇の将。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_eiso_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -10660,8 +13709,119 @@ window.SCENARIOS_DATA = [
       "onodera": "ugo",
       "yuki": "iwaki",
       "anekoji": "hida",
-      "shiba_uzen": "uzen"
-    }
+      "shiba_uzen": "uzen",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_yuki_munehiro": {
+        "clanId": "yuki",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_shiba_ienaga": {
+        "clanId": "shiba_oshu",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_eiso_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "楠木正成が金剛山中に築いた山城。鎌倉幕府の大軍十万を奇策と地の利で翻弄し、幕府滅亡の引き金を引いた不落の名城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato"
+    ]
   },
   {
     "id": "1350",
@@ -10755,7 +13915,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "観応元年 (正平5年)",
     "lore": "観応元年、足利尊氏・高師直と足利直義が激突する「観応の擾乱」が勃発。幕府の内紛は南朝を巻き込み、全国の武士が二派に分かれて相喰む大乱へと発展。九州では征西将軍懐良親王と菊池武光が気勢を上げる。",
@@ -10763,85 +13924,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 3,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
-      "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
+      "mutsu": "霊山城",
+      "rikuchu": "高水寺城",
       "ugo": "湊城",
-      "rikuzen": "岩出山城",
-      "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "rikuzen": "岩切城",
+      "uzen": "長井城",
+      "iwaki": "霊山城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "kozuke": "新田庄・生品館",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
       "kai": "一条館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "花之御所・室町殿",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -11083,8 +14246,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "iwashiro",
         "provCount": 2,
         "myProvinces": [
-          "iwaki",
-          "iwashiro"
+          "iwashiro",
+          "iwaki"
         ],
         "gold": 900,
         "rice": 1100,
@@ -11400,6 +14563,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_murakami_nobusada",
         "desc": "北信濃の有力国人・村上信貞。葛尾城を本拠に信濃に勢力を張る。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_satto_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -11443,8 +14621,109 @@ window.SCENARIOS_DATA = [
       "kasai": "rikuchu",
       "nawa": "hoki",
       "shiba_uzen": "uzen",
-      "murakami": "north_shinano"
-    }
+      "murakami": "north_shinano",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_satto_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+      "rikuchu": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+      "iwaki": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato"
+    ]
   },
   {
     "id": "1359",
@@ -11543,7 +14822,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "正平14年 (延文4年)",
     "lore": "正平14年（1359年）秋、南朝の懐良親王を奉じる肥後の菊池武光は、九州平定を目指して北上。これを迎え撃つべく、少弐頼尚は大友氏時らと結び約6万の大軍を動員した。両軍は筑後川流域の大保原で激突し、凄惨な白兵戦の末に菊池軍が勝利を収め、九州における南朝（征西府）の全盛期を現出することになる。",
@@ -11553,16 +14833,17 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 2,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
-      "tsugaru": "浪岡城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "十三湊館",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
-      "uzen": "長井城",
+      "uzen": "山形城",
       "iwaki": "霊山城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
@@ -11570,68 +14851,69 @@ window.SCENARIOS_DATA = [
       "kozuke": "箕輪城",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "北山第",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "平安京・大内裏",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "ezo_native": "ezo",
@@ -11675,7 +14957,8 @@ window.SCENARIOS_DATA = [
       "isshiki": "tango",
       "anekoji": "hida",
       "nawa": "hoki",
-      "kasai": "rikuchu"
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -11685,8 +14968,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "higo",
         "provCount": 2,
         "myProvinces": [
-          "chikugo",
-          "higo"
+          "higo",
+          "chikugo"
         ],
         "gold": 2500,
         "rice": 3000,
@@ -11701,8 +14984,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "chikuzen",
         "provCount": 3,
         "myProvinces": [
-          "buzen",
           "chikuzen",
+          "buzen",
           "hizen"
         ],
         "gold": 3000,
@@ -11733,10 +15016,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 7,
         "myProvinces": [
+          "yamashiro",
           "mutsu",
           "mikawa",
           "iga",
-          "yamashiro",
           "tamba",
           "tango",
           "settsu"
@@ -11768,10 +15051,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 5,
         "myProvinces": [
+          "sagami",
           "kozuke",
           "kazusa",
           "musashi",
-          "sagami",
           "izu"
         ],
         "gold": 3500,
@@ -11856,8 +15139,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "north_omi",
         "provCount": 3,
         "myProvinces": [
-          "izumo",
           "north_omi",
+          "izumo",
           "oki"
         ],
         "gold": 1600,
@@ -11890,8 +15173,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "suo",
         "provCount": 3,
         "myProvinces": [
-          "iwami",
           "suo",
+          "iwami",
           "nagato"
         ],
         "gold": 1600,
@@ -11907,8 +15190,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "echizen",
         "provCount": 4,
         "myProvinces": [
-          "uzen",
           "echizen",
+          "uzen",
           "owari",
           "wakasa"
         ],
@@ -11956,8 +15239,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "iwashiro",
         "provCount": 2,
         "myProvinces": [
-          "iwaki",
-          "iwashiro"
+          "iwashiro",
+          "iwaki"
         ],
         "gold": 900,
         "rice": 1100,
@@ -12199,8 +15482,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
+          "hyuga",
           "osumi"
         ],
         "gold": 1400,
@@ -12224,7 +15507,134 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_kasai_1331",
         "desc": "奥州の名族・葛西氏。葛西清貞が陸中を領有して独立勢力を築く。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_satto_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
+    ],
+    "officerAffiliations": {
+      "off_satto_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_chuzan_bunei": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_oouso": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato",
+      "off_chuzan_bunei",
+      "off_nanzan_oouso"
     ]
   },
   {
@@ -12301,7 +15711,7 @@ window.SCENARIOS_DATA = [
       "tajima": "yamana",
       "harima": "akamatsu",
       "inaba": "yamana",
-      "hoki": "nawa",
+      "hoki": "yamana",
       "izumo": "kyogoku",
       "iwami": "masuda",
       "mimasaka": "yamana",
@@ -12327,54 +15737,55 @@ window.SCENARIOS_DATA = [
       "oki": "kyogoku",
       "sado": "ashikaga",
       "tsushima": "so",
-      "awaji": "hosokawa"
+      "awaji": "hosokawa",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "渡島和人館・志苔館",
+      "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩切城",
       "uzen": "山形城",
-      "iwaki": "小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
-      "shimousa": "結城城",
-      "kazusa": "久留里城",
-      "awa_boshu": "館山城",
-      "sagami": "小田原城",
-      "izu": "韮山城",
-      "suruga": "駿府城",
-      "kai": "躑躅ヶ崎館",
-      "north_shinano": "海津城",
-      "south_shinano": "深志城",
+      "musashi": "河越館・比企館",
+      "shimousa": "千葉城（亥鼻城）",
+      "kazusa": "庁南城",
+      "awa_boshu": "安房国府館",
+      "sagami": "鎌倉府御所",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
+      "north_shinano": "葛尾城",
+      "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "金沢城",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
       "echizen": "府中城・北ノ庄館",
-      "wakasa": "後瀬山城",
-      "hida": "松倉城",
-      "mino": "岐阜城",
-      "totomi": "浜松城",
-      "mikawa": "岡崎城",
-      "owari": "清洲城",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
+      "totomi": "曳馬城",
+      "mikawa": "吉田城",
+      "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
+      "south_omi": "瀬田唐橋館・志賀館",
       "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "大坂城",
-      "tamba": "八上城・亀山城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
@@ -12382,36 +15793,38 @@ window.SCENARIOS_DATA = [
       "hoki": "打吹城",
       "izumo": "月山富田城",
       "iwami": "七尾城",
-      "mimasaka": "津山城",
-      "bizen": "岡山城",
-      "bicchu": "備中高松城",
+      "mimasaka": "美作三星城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口大内館",
-      "nagato": "萩城",
-      "sanuki": "高松城",
-      "awa_shikoku": "徳島城",
-      "iyo": "湯築城",
+      "suo": "山口館・大内館",
+      "nagato": "勝山城",
+      "sanuki": "十河城",
+      "awa_shikoku": "勝瑞城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "勢福寺城",
-      "chikugo": "久留米城",
+      "chikugo": "柳川城",
       "bungo": "府内館",
-      "higo": "隈府城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
+      "higo": "菊池本城・隈府城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
       "oki": "甲尾城",
       "sado": "雑太城",
-      "tsushima": "金石城",
-      "awaji": "洲本城"
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "ashikaga": "室町幕府第三代将軍・足利義満。管領細川・斯波を従え、花の御所を拠点に守護大名を統合。",
       "yamana": "「六分の一殿」山名氏清・満幸。十一か国の総力を結集し、義満打倒を目指して京内裏へ突進。",
       "ouchi": "周防大内氏当主・大内義弘。百済王族の後裔。西国屈指の軍事力で幕府軍の主力を担う。",
-      "hosokawa": "管領・細川頼之。幕府草創期からの重鎮として義満を補佐し山名包囲網を指揮。"
+      "hosokawa": "管領・細川頼之。幕府草創期からの重鎮として義満を補佐し山名包囲網を指揮。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -12421,12 +15834,12 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 10,
         "myProvinces": [
+          "yamashiro",
           "etchu",
           "hida",
           "totomi",
           "mikawa",
           "iga",
-          "yamashiro",
           "yamato",
           "chikuzen",
           "chikugo",
@@ -12445,13 +15858,13 @@ window.SCENARIOS_DATA = [
         "startProvId": "tamba",
         "provCount": 7,
         "myProvinces": [
+          "tamba",
           "bingo",
           "hoki",
           "inaba",
           "izumi",
           "mimasaka",
-          "tajima",
-          "tamba"
+          "tajima"
         ],
         "gold": 2800,
         "rice": 3500,
@@ -12499,8 +15912,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "harima",
         "provCount": 3,
         "myProvinces": [
-          "bizen",
           "harima",
+          "bizen",
           "bicchu"
         ],
         "gold": 1600,
@@ -12516,8 +15929,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "kozuke",
         "provCount": 2,
         "myProvinces": [
-          "echigo",
-          "kozuke"
+          "kozuke",
+          "echigo"
         ],
         "gold": 1500,
         "rice": 1800,
@@ -12563,8 +15976,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_shinano",
         "provCount": 2,
         "myProvinces": [
-          "north_shinano",
-          "south_shinano"
+          "south_shinano",
+          "north_shinano"
         ],
         "gold": 1200,
         "rice": 1400,
@@ -12579,8 +15992,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 5,
         "myProvinces": [
-          "izu",
           "sagami",
+          "izu",
           "musashi",
           "kazusa",
           "shimousa"
@@ -12666,6 +16079,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_takeda_nobuharu",
         "desc": "甲斐守護・武田信春。躑躅ヶ崎館を拠点に甲斐一国を治める。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_satto_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -12708,8 +16136,149 @@ window.SCENARIOS_DATA = [
       "ashina": "iwashiro",
       "kasai": "rikuchu",
       "nawa": "hoki",
-      "takeda": "kai"
-    }
+      "takeda": "kai",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_yamana_mitsuyuki": {
+        "clanId": "yamana",
+        "defaultProv": "hoki",
+        "isDaimyo": false
+      },
+      "off_yamana_ujikiyo": {
+        "clanId": "yamana",
+        "defaultProv": "tamba",
+        "isDaimyo": true
+      },
+      "off_satto_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_hokuzan_haniji": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_ofusato": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_chuzan_bunei": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_oouso": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_hokuzan_hananchi": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_taromai": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_gosamaru": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_hokuzan_haniji",
+      "off_nanzan_ofusato",
+      "off_chuzan_bunei",
+      "off_nanzan_oouso",
+      "off_hokuzan_hananchi",
+      "off_nanzan_taromai",
+      "off_gosamaru"
+    ]
   },
   {
     "id": "1400",
@@ -12806,7 +16375,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "応永7年",
     "lore": "応永7年、南奥に勢力を広げた伊達政宗（大膳大夫）に対し、鎌倉公方・足利満兼が討伐を下令した。京都では足利義満が北山第で実権を握り、前年の応永の乱を制したばかりの列島はなお揺れている。政宗は霊山城に拠り、幕府と鎌倉府の狭間で伊達家の独立を賭けた。",
@@ -12816,85 +16386,87 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 0,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "渡島和人館・志苔館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
-      "rikuzen": "岩切城",
-      "uzen": "長井城",
-      "iwaki": "霊山城",
+      "rikuzen": "岩出山城",
+      "uzen": "山形城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
-      "kazusa": "久留里城",
+      "kazusa": "庁南城",
       "awa_boshu": "安房国府館",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
-      "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "etchu": "越中国府館",
+      "noto": "能登国府館",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
-      "mikawa": "岡崎城",
+      "mikawa": "吉田城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "北山第",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "capitals": {
       "date": "rikuzen",
@@ -12935,7 +16507,8 @@ window.SCENARIOS_DATA = [
       "mogami": "uzen",
       "soma": "iwaki",
       "isshiki": "tango",
-      "kasai": "rikuchu"
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
     },
     "playables": [
       {
@@ -12961,10 +16534,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "yamashiro",
         "provCount": 7,
         "myProvinces": [
+          "yamashiro",
           "wakasa",
           "mikawa",
           "iga",
-          "yamashiro",
           "tamba",
           "tango",
           "hyuga"
@@ -12982,9 +16555,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kawachi",
         "provCount": 5,
         "myProvinces": [
+          "kawachi",
           "noto",
           "etchu",
-          "kawachi",
           "yamato",
           "kii"
         ],
@@ -13020,10 +16593,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 5,
         "myProvinces": [
+          "sagami",
           "kazusa",
           "awa_boshu",
           "musashi",
-          "sagami",
           "izu"
         ],
         "gold": 1650,
@@ -13075,8 +16648,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "north_omi",
         "provCount": 3,
         "myProvinces": [
-          "izumo",
           "north_omi",
+          "izumo",
           "oki"
         ],
         "gold": 1150,
@@ -13092,8 +16665,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "mutsu",
         "provCount": 3,
         "myProvinces": [
-          "tsugaru",
           "mutsu",
+          "tsugaru",
           "rikuchu"
         ],
         "gold": 1150,
@@ -13125,8 +16698,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "chikuzen",
         "provCount": 3,
         "myProvinces": [
-          "buzen",
           "chikuzen",
+          "buzen",
           "hizen"
         ],
         "gold": 1150,
@@ -13142,8 +16715,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "ugo",
         "provCount": 2,
         "myProvinces": [
-          "ezo",
-          "ugo"
+          "ugo",
+          "ezo"
         ],
         "gold": 900,
         "rice": 1100,
@@ -13238,8 +16811,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "mino",
         "provCount": 2,
         "myProvinces": [
-          "hida",
-          "mino"
+          "mino",
+          "hida"
         ],
         "gold": 900,
         "rice": 1100,
@@ -13390,8 +16963,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_shinano",
         "provCount": 2,
         "myProvinces": [
-          "north_shinano",
-          "south_shinano"
+          "south_shinano",
+          "north_shinano"
         ],
         "gold": 650,
         "rice": 800,
@@ -13518,7 +17091,140 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_kasai_mitsusada",
         "desc": "陸中の葛西氏。平泉の旧領を抑え、奥州に君臨する名族。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_satto_ryukyu",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
+    ],
+    "officerAffiliations": {
+      "off_satto_ryukyu": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_chuzan_bunei": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_oouso": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_hokuzan_hananchi": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_nanzan_taromai": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      },
+      "off_gosamaru": {
+        "clanId": "ronin",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "古代能登国の国府。日本海航路の重要中継地。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "keepRonin": [
+      "off_chuzan_bunei",
+      "off_nanzan_oouso",
+      "off_hokuzan_hananchi",
+      "off_nanzan_taromai",
+      "off_gosamaru"
     ]
   },
   {
@@ -13562,8 +17268,8 @@ window.SCENARIOS_DATA = [
       "hida": "toki",
       "mino": "toki",
       "suruga": "imagawa",
-      "totomi": "ashikaga",
-      "mikawa": "ashikaga",
+      "totomi": "imagawa",
+      "mikawa": "matsudaira",
       "owari": "shiba",
       "izu": "kamakura_fu",
       "ise": "kitabatake",
@@ -13611,7 +17317,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "永享10年",
     "lore": "永享十年、室町幕府六代将軍・足利義教は、幕府打倒を企む鎌倉公方・足利持氏の討伐を下令。関東管領・上杉憲実は将軍と主君の間で苦悩しつつ兵を挙げる。やがて義教自身も嘉吉の乱で非業の最期を遂げる。",
@@ -13619,17 +17326,20 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 2,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "matsudaira": "三河の松平氏。松平信光のもと岩津城から勢力を伸ばし、三河武士団の礎を築く。",
+      "imagawa": "足利一門の名門守護。今川範忠のもと永享の乱で戦功を挙げ、駿河・遠江の二国支配を固める。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "勝山館・茂別館",
+      "ezo": "渡島和人館・志苔館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -13637,67 +17347,68 @@ window.SCENARIOS_DATA = [
       "musashi": "河越館・比企館",
       "shimousa": "千葉城（亥鼻城）",
       "kazusa": "庁南城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "安房国府館",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "室町御所",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -13725,10 +17436,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "wakasa",
-        "provCount": 6,
+        "provCount": 5,
         "myProvinces": [
           "wakasa",
-          "mikawa",
           "iga",
           "yamashiro",
           "tamba",
@@ -14077,15 +17787,16 @@ window.SCENARIOS_DATA = [
         "difficulty": "超上級",
         "winRate": 30,
         "startProvId": "suruga",
-        "provCount": 1,
+        "provCount": 2,
         "myProvinces": [
-          "suruga"
+          "suruga",
+          "totomi"
         ],
         "gold": 650,
         "rice": 800,
         "personality": "domestic",
         "officerId": "off_dm_imagawa_1438",
-        "desc": "足利一門の名門守護。今川義元は駿河・遠江・三河の三国を平定し、「海道一の弓取り」と謳われ上洛の途についた。"
+        "desc": "足利一門の名門守護。今川範忠のもと永享の乱で戦功を挙げ、駿河・遠江の二国支配を固める。"
       },
       {
         "id": "kono",
@@ -14299,6 +18010,36 @@ window.SCENARIOS_DATA = [
         "personality": "defensive",
         "officerId": "off_ezo_koshamain",
         "desc": "蝦夷地のアイヌ民族の首長。和人の進出に対して一族・部族を結集し、コシャマインの戦いを指導した英雄。"
+      },
+      {
+        "id": "matsudaira",
+        "difficulty": "上級",
+        "winRate": 55,
+        "startProvId": "mikawa",
+        "provCount": 1,
+        "myProvinces": [
+          "mikawa"
+        ],
+        "gold": 750,
+        "rice": 900,
+        "personality": "balanced",
+        "officerId": "off_dm_matsudaira_1467",
+        "desc": "三河松平氏第3代当主・松平信光。岩津城を拠点に三河各地へ勢力を拡大し、徳川の礎を築いた名将。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_hashi",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -14341,7 +18082,100 @@ window.SCENARIOS_DATA = [
       "takeda_kazusa": "kazusa",
       "togashi": "kaga",
       "kasai": "rikuchu",
-      "yuki": "shimousa"
+      "yuki": "shimousa",
+      "matsudaira": "mikawa",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_dm_matsudaira_1467": {
+        "clanId": "matsudaira",
+        "defaultProv": "mikawa",
+        "isDaimyo": true
+      },
+      "off_sho_hashi": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+      "shimousa": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+      "kazusa": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+      "awa_boshu": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -14438,7 +18272,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "kyogoku"
+      "oki": "kyogoku",
+      "ryukyu": "ryukyu"
     },
     "gengo": "応仁元年",
     "lore": "応仁元年、将軍継嗣問題と畠山・斯波両家の家督争いが連動し、東軍・細川勝元と西軍・山名宗全が京都で激突。都は焦土と化し、戦乱は全国へと波及。室町幕府の権威は地に堕ち、戦国時代の下剋上が開幕する。",
@@ -14446,17 +18281,18 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 1,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -14464,67 +18300,68 @@ window.SCENARIOS_DATA = [
       "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "鎌倉府御所",
-      "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
+      "izu": "伊豆国府館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "稲葉山城",
+      "kaga": "加賀国府館",
+      "echizen": "府中城・北ノ庄館",
+      "wakasa": "若狭国府館",
+      "hida": "飛騨国府館",
+      "mino": "美濃国府・大井戸館",
       "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
-      "south_omi": "観音寺城",
-      "yamashiro": "室町御所",
+      "south_omi": "瀬田唐橋館・志賀館",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -15197,6 +19034,21 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_ashikaga_shigeuji",
         "desc": "第5代鎌倉公方にして初代古河公方。関東管領上杉氏と激しく対立（享徳の乱）し、古河城を拠点に関東を二分する戦いを繰り広げた名将。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_toku",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -15245,7 +19097,104 @@ window.SCENARIOS_DATA = [
       "kasai": "rikuchu",
       "ogigayatsu": "musashi",
       "takeda_kazusa": "kazusa",
-      "namioka": "tsugaru"
+      "namioka": "tsugaru",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_jd_007": {
+        "clanId": "takeda_wakasa",
+        "defaultProv": "wakasa",
+        "isDaimyo": true
+      },
+      "off_isshiki_yoshinori": {
+        "clanId": "isshiki",
+        "defaultProv": "tango",
+        "isDaimyo": true
+      },
+      "off_sho_toku": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+      "echizen": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "飛騨の匠の里・古代飛騨国の国庁。",
+      "mino": "古代国府と中世美濃源氏の拠点居館。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -15338,7 +19287,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "hosokawa",
-      "oki": "amago"
+      "oki": "amago",
+      "ryukyu": "ryukyu"
     },
     "gengo": "明応4年",
     "lore": "明応四年、北条早雲（伊勢宗瑞）が伊豆修善寺から相模小田原城を夜襲奪取。東国に革命の嵐を巻き起こす。畿内では「半将軍」細川政元が専横を極め、中国では謀聖・尼子経久が出雲月山富田城を奪還して台頭する。",
@@ -15346,17 +19296,18 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 2,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -15364,67 +19315,68 @@ window.SCENARIOS_DATA = [
       "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "鎌倉府御所",
       "izu": "韮山城",
-      "suruga": "今川館",
-      "kai": "一条館",
+      "suruga": "駿府今川館",
+      "kai": "石和館",
       "north_shinano": "葛尾城",
       "south_shinano": "諏訪館",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
-      "wakasa": "後瀬山城",
+      "echizen": "一乗谷城",
+      "wakasa": "若狭国府館",
       "hida": "帰雲城",
       "mino": "稲葉山城",
       "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "那古野城",
       "ise": "安濃津城",
-      "shima": "鳥羽城",
-      "iga": "上野城",
+      "shima": "志摩国府館",
+      "iga": "伊賀国府館",
       "north_omi": "京極館・伊香砦",
       "south_omi": "観音寺城",
-      "yamashiro": "室町御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城",
-      "tamba": "八上城・黒井城",
+      "settsu": "渡辺津館",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "村中城",
+      "hizen": "勢福寺城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "府内館",
+      "higo": "菊池本城・隈府城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "志知城・由良城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -16074,8 +20026,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "awa_boshu",
         "provCount": 2,
         "myProvinces": [
-          "kazusa",
-          "awa_boshu"
+          "awa_boshu",
+          "kazusa"
         ],
         "gold": 700,
         "rice": 850,
@@ -16189,6 +20141,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_kasai_hisanobu",
         "desc": "陸中の名族葛西氏。葛西尚信が陸中を領し、奥州の諸勢力と対峙する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_shin",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -16198,7 +20165,7 @@ window.SCENARIOS_DATA = [
       "amago": "izumo",
       "satake": "hitachi",
       "asakura": "echizen",
-      "oda": "owari",
+      "oda": "south_omi",
       "mori": "aki",
       "honma": "sado",
       "shimazu": "satsuma",
@@ -16242,7 +20209,99 @@ window.SCENARIOS_DATA = [
       "ogasawara": "south_shinano",
       "namioka": "tsugaru",
       "ogigayatsu": "musashi",
-      "kasai": "rikuchu"
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_nagao_yoshikage": {
+        "clanId": "nagao",
+        "defaultProv": "echigo",
+        "isDaimyo": true
+      },
+      "off_sho_shin": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -16340,85 +20399,87 @@ window.SCENARIOS_DATA = [
       "oki": "amago",
       "sado": "honma",
       "tsushima": "so",
-      "awaji": "hosokawa"
+      "awaji": "hosokawa",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
-      "rikuzen": "青葉城",
+      "rikuzen": "岩出山城",
       "uzen": "山形城",
       "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
       "izu": "韮山城",
       "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
-      "north_shinano": "海津城",
+      "north_shinano": "葛尾城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "金沢城",
+      "kaga": "尾山御坊",
       "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
-      "hida": "松倉城",
-      "mino": "岐阜城",
-      "totomi": "浜松城",
+      "hida": "帰雲城",
+      "mino": "稲葉山城",
+      "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "那古野城",
       "ise": "安濃津城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "north_omi": "小谷城",
       "south_omi": "観音寺城",
-      "yamashiro": "二条御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城・尼崎城",
+      "settsu": "越水城",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "tajima": "出石城",
-      "harima": "置塩城",
+      "tango": "弓木城",
+      "tajima": "此隅山城・竹田城",
+      "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
-      "mimasaka": "津山城",
-      "bizen": "天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "iwami": "七尾城",
+      "mimasaka": "美作三星城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口大内館",
-      "nagato": "萩城",
-      "sanuki": "高松城",
+      "suo": "山口館・大内館",
+      "nagato": "勝山城",
+      "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
+      "hizen": "村中城",
+      "chikugo": "柳川城",
       "bungo": "府内館",
       "higo": "隈本城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
       "oki": "甲尾城",
       "sado": "雑太城",
-      "tsushima": "金石城",
-      "awaji": "洲本城"
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "miyoshi": "三好長慶の父・三好元長。阿波水軍と精鋭武士団を率い、大物崩れで高国・村宗軍を殲滅。",
@@ -16426,7 +20487,8 @@ window.SCENARIOS_DATA = [
       "hojo": "小田原北条氏二代・北条氏綱。早雲の志を継ぎ、相模・武蔵への進出を加速。",
       "takeda": "甲斐の猛将・武田信虎。信玄の父。甲斐統一を成し遂げ信濃攻略を狙う。",
       "amago": "「謀聖」尼子経久。一代で中国十一国太守に登り詰めた戦国屈指の知将。",
-      "mori": "安芸吉田郡山城主・毛利元就。大内・尼子の間で巧みに家中を拡大。"
+      "mori": "安芸吉田郡山城主・毛利元就。大内・尼子の間で巧みに家中を拡大。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -16436,9 +20498,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "settsu",
         "provCount": 6,
         "myProvinces": [
+          "settsu",
           "kawachi",
           "izumi",
-          "settsu",
           "sanuki",
           "awa_shikoku",
           "awaji"
@@ -16456,8 +20518,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "bizen",
         "provCount": 2,
         "myProvinces": [
-          "mimasaka",
-          "bizen"
+          "bizen",
+          "mimasaka"
         ],
         "gold": 1800,
         "rice": 2200,
@@ -16510,6 +20572,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_mogami_1546",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_sei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -16568,7 +20645,139 @@ window.SCENARIOS_DATA = [
       "nagao": "echigo",
       "kasai": "rikuchu",
       "kamakura_fu": "shimousa",
-      "ogigayatsu": "musashi"
+      "ogigayatsu": "musashi",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_hosokawa_harumoto": {
+        "clanId": "hosokawa",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_miyoshi_motonaga": {
+        "clanId": "hosokawa",
+        "defaultProv": "izumi",
+        "isDaimyo": false
+      },
+      "off_jd_456": {
+        "clanId": "hattori",
+        "defaultProv": "iga",
+        "isDaimyo": true
+      },
+      "off_jd_455": {
+        "clanId": "kuki",
+        "defaultProv": "shima",
+        "isDaimyo": true
+      },
+      "off_hojo_ujitsuna": {
+        "clanId": "hojo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_succ_honma_1485_34": {
+        "clanId": "honma",
+        "defaultProv": "sado",
+        "isDaimyo": true
+      },
+      "off_takeda_nobutora": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": true
+      },
+      "off_matsudaira_kiyoyasu": {
+        "clanId": "matsudaira",
+        "defaultProv": "mikawa",
+        "isDaimyo": true
+      },
+      "off_dm_rokkaku_1331": {
+        "clanId": "rokkaku",
+        "defaultProv": "south_omi",
+        "isDaimyo": true
+      },
+      "off_sho_sei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "細川管領家の武将・瓦林政頼が西宮に築いた平山城。三好長慶が奪取して摂津支配の拠点とした。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -16669,91 +20878,94 @@ window.SCENARIOS_DATA = [
       "oki": "amago",
       "sado": "honma",
       "tsushima": "so",
-      "awaji": "hosokawa"
+      "awaji": "hosokawa",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "浪岡城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
-      "rikuzen": "青葉城",
+      "rikuzen": "岩出山城",
       "uzen": "山形城",
       "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
       "izu": "韮山城",
       "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
-      "north_shinano": "海津城",
+      "north_shinano": "葛尾城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "金沢城",
+      "kaga": "尾山御坊",
       "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
-      "hida": "松倉城",
-      "mino": "岐阜城",
-      "totomi": "浜松城",
+      "hida": "帰雲城",
+      "mino": "稲葉山城",
+      "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "那古野城",
       "ise": "安濃津城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "north_omi": "小谷城",
       "south_omi": "観音寺城",
-      "yamashiro": "二条御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "越水城・尼崎城",
+      "settsu": "石山本願寺",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "tajima": "出石城",
-      "harima": "置塩城",
+      "tango": "弓木城",
+      "tajima": "此隅山城・竹田城",
+      "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
-      "mimasaka": "津山城",
-      "bizen": "天神山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "iwami": "七尾城",
+      "mimasaka": "美作三星城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口大内館",
-      "nagato": "萩城",
-      "sanuki": "高松城",
+      "suo": "山口館・大内館",
+      "nagato": "勝山城",
+      "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
+      "hizen": "村中城",
+      "chikugo": "柳川城",
       "bungo": "府内館",
       "higo": "隈本城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
       "oki": "甲尾城",
       "sado": "雑太城",
-      "tsushima": "金石城",
-      "awaji": "洲本城"
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "ashikaga_oyumi": "小弓公方・足利義明。足利一門屈指の剛勇。里見義堯とともに国府台に陣を敷き北条打倒に挑む。",
       "satomi": "安房の雄・里見義堯。水軍と精鋭武士団を率い、足利義明の盟友として国府台へ参陣。",
       "hojo": "相模の虎・北条氏綱と若き氏康。江戸城を出陣し、利根川を渡河して乾坤一擲の決戦を挑む。",
-      "takeda": "甲斐統一の覇者・武田信虎。信濃への侵略を進め、東海の情勢を注視。"
+      "takeda": "甲斐統一の覇者・武田信虎。信濃への侵略を進め、東海の情勢を注視。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -16763,8 +20975,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 3,
         "myProvinces": [
-          "musashi",
           "sagami",
+          "musashi",
           "izu"
         ],
         "gold": 2400,
@@ -16777,10 +20989,10 @@ window.SCENARIOS_DATA = [
         "id": "ashikaga_oyumi",
         "difficulty": "上級",
         "winRate": 55,
-        "startProvId": "shimousa",
+        "startProvId": "kazusa",
         "provCount": 1,
         "myProvinces": [
-          "shimousa"
+          "kazusa"
         ],
         "gold": 1400,
         "rice": 1600,
@@ -16795,8 +21007,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "awa_boshu",
         "provCount": 2,
         "myProvinces": [
-          "kazusa",
-          "awa_boshu"
+          "awa_boshu",
+          "kazusa"
         ],
         "gold": 1200,
         "rice": 1400,
@@ -16833,6 +21045,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_mogami_1546",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_sei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -16891,7 +21118,119 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "tsugaru": "tsugaru",
       "kasai": "rikuchu",
-      "kamakura_fu": "shimousa"
+      "kamakura_fu": "shimousa",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_hosokawa_harumoto": {
+        "clanId": "hosokawa",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_jd_456": {
+        "clanId": "hattori",
+        "defaultProv": "iga",
+        "isDaimyo": true
+      },
+      "off_jd_455": {
+        "clanId": "kuki",
+        "defaultProv": "shima",
+        "isDaimyo": true
+      },
+      "off_hojo_ujitsuna": {
+        "clanId": "hojo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_takeda_nobutora": {
+        "clanId": "takeda",
+        "defaultProv": "kai",
+        "isDaimyo": true
+      },
+      "off_sho_sei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -16985,7 +21324,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
-      "oki": "amago"
+      "oki": "amago",
+      "ryukyu": "ryukyu"
     },
     "gengo": "天文15年",
     "lore": "天文十五年、北条氏康は河越城を包囲する山内・扇谷両上杉と古河公方の八万連合軍をわずか八千の奇襲夜戦で粉砕。関東の覇権を決定づける。甲斐の武田晴信、越後の長尾景虎、美濃の斎藤道三ら英傑が相次いで頭角を現す。",
@@ -16993,17 +21333,18 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 2,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -17011,18 +21352,18 @@ window.SCENARIOS_DATA = [
       "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
-      "izu": "下田城",
-      "suruga": "今川館",
+      "izu": "韮山城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "葛尾城",
-      "south_shinano": "高遠城",
+      "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
+      "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
       "hida": "帰雲城",
       "mino": "稲葉山城",
@@ -17031,47 +21372,48 @@ window.SCENARIOS_DATA = [
       "owari": "那古野城",
       "ise": "安濃津城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "north_omi": "小谷城",
       "south_omi": "観音寺城",
-      "yamashiro": "室町御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
-      "tamba": "八上城・黒井城",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "山吹城（石見銀山）",
+      "iwami": "七尾城",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
       "suo": "山口館・大内館",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "隈本城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城・安宅城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -17101,8 +21443,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "izumo",
         "provCount": 4,
         "myProvinces": [
-          "hoki",
           "izumo",
+          "hoki",
           "mimasaka",
           "oki"
         ],
@@ -17119,9 +21461,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "suo",
         "provCount": 6,
         "myProvinces": [
+          "suo",
           "iwami",
           "bingo",
-          "suo",
           "nagato",
           "buzen",
           "chikuzen"
@@ -17156,8 +21498,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "awa_boshu",
         "provCount": 2,
         "myProvinces": [
-          "kazusa",
-          "awa_boshu"
+          "awa_boshu",
+          "kazusa"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -17202,12 +21544,10 @@ window.SCENARIOS_DATA = [
         "id": "yamana",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "tango",
+        "startProvId": "tajima",
         "provCount": 3,
         "myProvinces": [
-          "tango",
-          "tajima",
-          "inaba"
+          "tajima"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -17219,10 +21559,9 @@ window.SCENARIOS_DATA = [
         "id": "ashikaga",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "wakasa",
+        "startProvId": "yamashiro",
         "provCount": 2,
         "myProvinces": [
-          "wakasa",
           "yamashiro"
         ],
         "gold": 900,
@@ -17748,21 +22087,6 @@ window.SCENARIOS_DATA = [
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
       },
       {
-        "id": "kamakura_fu",
-        "difficulty": "上級",
-        "winRate": 55,
-        "startProvId": "shimousa",
-        "provCount": 1,
-        "myProvinces": [
-          "shimousa"
-        ],
-        "gold": 650,
-        "rice": 800,
-        "personality": "balanced",
-        "officerId": "off_ashikaga_haruuji",
-        "desc": "第4代古河公方・足利晴氏の勢力。河越夜戦で北条氏康に敗れ、勢力を大きく衰退させた。"
-      },
-      {
         "id": "mimura",
         "difficulty": "上級",
         "winRate": 55,
@@ -17776,6 +22100,21 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_mimura_iechika",
         "desc": "備中国の雄・三村家親。備中高松城・松山城を拠点に尼子と大内・毛利の狭間で自立を図る。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_sei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -17831,7 +22170,119 @@ window.SCENARIOS_DATA = [
       "tsugaru": "tsugaru",
       "kasai": "rikuchu",
       "chiba": "shimousa",
-      "yamanouchi": "kozuke"
+      "yamanouchi": "kozuke",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_dm_uesugi_1546": {
+        "clanId": "yamanouchi",
+        "defaultProv": "kozuke",
+        "isDaimyo": true
+      },
+      "off_chiba_masatane": {
+        "clanId": "chiba",
+        "defaultProv": "shimousa",
+        "isDaimyo": true
+      },
+      "off_hojo_ujiyasu": {
+        "clanId": "hojo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_dm_oda_1546": {
+        "clanId": "oda",
+        "defaultProv": "owari",
+        "isDaimyo": true
+      },
+      "off_naito_takaharu": {
+        "clanId": "ouchi",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_sho_sei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -17862,7 +22313,7 @@ window.SCENARIOS_DATA = [
       "ezo": "kakizaki",
       "tsugaru": "tsugaru",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -17934,92 +22385,95 @@ window.SCENARIOS_DATA = [
       "oki": "amago",
       "sado": "honma",
       "tsushima": "so",
-      "awaji": "miyoshi"
+      "awaji": "miyoshi",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
-      "rikuzen": "青葉城",
+      "rikuzen": "岩出山城",
       "uzen": "山形城",
       "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
       "izu": "韮山城",
-      "suruga": "駿府城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "金沢城",
+      "kaga": "尾山御坊",
       "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
-      "hida": "松倉城",
-      "mino": "岐阜城",
-      "totomi": "浜松城",
+      "hida": "帰雲城",
+      "mino": "稲葉山城",
+      "totomi": "曳馬城",
       "mikawa": "岡崎城",
       "owari": "清洲城",
       "ise": "安濃津城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "north_omi": "小谷城",
       "south_omi": "観音寺城",
-      "yamashiro": "二条御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
-      "settsu": "大坂城",
+      "settsu": "石山本願寺",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "tajima": "出石城",
-      "harima": "姫路城",
+      "tango": "弓木城",
+      "tajima": "此隅山城・竹田城",
+      "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
-      "mimasaka": "津山城",
-      "bizen": "岡山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "iwami": "山吹城（石見銀山）",
+      "mimasaka": "美作三星城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城・宮島勝山城",
-      "suo": "山口高嶺城・富田若山城",
-      "nagato": "萩城",
-      "sanuki": "高松城",
-      "awa_shikoku": "徳島城",
+      "suo": "山口館・大内館",
+      "nagato": "勝山城",
+      "sanuki": "十河城",
+      "awa_shikoku": "勝瑞城",
       "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
+      "hizen": "村中城",
+      "chikugo": "柳川城",
       "bungo": "府内館",
       "higo": "隈本城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
       "oki": "甲尾城",
       "sado": "雑太城",
-      "tsushima": "金石城",
-      "awaji": "洲本城"
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "mori": "稀代の知将・毛利元就。吉川元春・小早川隆景・村上水軍とともに、宮島での乾坤一擲の奇襲に全てを賭ける。",
       "ouchi": "陶晴賢率いる大内軍主力。西国随一の精兵二万余を誇るが、狭い宮島に誘引され孤立。",
       "amago": "山陰の覇王・尼子晴久。毛利と陶の激突を注視し、隙を突いて備後・安芸への進出を狙う。",
       "takeda": "甲斐の虎・武田晴信（信玄）。信濃を平定し川中島で長尾景虎と対峙。",
-      "uesugi": "越後の龍・長尾景虎（上杉謙信）。義の旗を掲げ、善光寺平で武田軍を迎え撃つ。"
+      "uesugi": "越後の龍・長尾景虎（上杉謙信）。義の旗を掲げ、善光寺平で武田軍を迎え撃つ。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -18029,8 +22483,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "aki",
         "provCount": 2,
         "myProvinces": [
-          "bingo",
-          "aki"
+          "aki",
+          "bingo"
         ],
         "gold": 1100,
         "rice": 1400,
@@ -18061,10 +22515,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "bungo",
         "provCount": 4,
         "myProvinces": [
+          "bungo",
           "buzen",
           "chikuzen",
-          "chikugo",
-          "bungo"
+          "chikugo"
         ],
         "gold": 1800,
         "rice": 2200,
@@ -18079,9 +22533,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "settsu",
         "provCount": 7,
         "myProvinces": [
+          "settsu",
           "kawachi",
           "izumi",
-          "settsu",
           "tamba",
           "sanuki",
           "awa_shikoku",
@@ -18100,9 +22554,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 4,
         "myProvinces": [
+          "sagami",
           "musashi",
           "shimousa",
-          "sagami",
           "izu"
         ],
         "gold": 1600,
@@ -18118,8 +22572,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "awa_boshu",
         "provCount": 2,
         "myProvinces": [
-          "kazusa",
-          "awa_boshu"
+          "awa_boshu",
+          "kazusa"
         ],
         "gold": 900,
         "rice": 1100,
@@ -18151,8 +22605,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "echigo",
         "provCount": 2,
         "myProvinces": [
-          "kozuke",
-          "echigo"
+          "echigo",
+          "kozuke"
         ],
         "gold": 1300,
         "rice": 1700,
@@ -18258,9 +22712,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "izumo",
         "provCount": 6,
         "myProvinces": [
+          "izumo",
           "inaba",
           "hoki",
-          "izumo",
           "iwami",
           "mimasaka",
           "oki"
@@ -18330,6 +22784,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_mogami_1546",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_sei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -18383,7 +22852,160 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "soma": "iwaki",
       "tsugaru": "tsugaru",
-      "yamanouchi": "kozuke"
+      "yamanouchi": "kozuke",
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_chiba_toshitane": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_hara_tanesada_1546": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_mimura_iechika": {
+        "clanId": "mimura",
+        "defaultProv": "bicchu",
+        "isDaimyo": true
+      },
+      "off_jd_456": {
+        "clanId": "hattori",
+        "defaultProv": "iga",
+        "isDaimyo": true
+      },
+      "off_dm_uesugi_1546": {
+        "clanId": "yamanouchi",
+        "defaultProv": "kozuke",
+        "isDaimyo": true
+      },
+      "off_hojo_ujiyasu": {
+        "clanId": "hojo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_mori_motonari": {
+        "clanId": "mori",
+        "defaultProv": "aki",
+        "isDaimyo": true
+      },
+      "off_sue_harukata": {
+        "clanId": "sue",
+        "defaultProv": "suo",
+        "isDaimyo": true
+      },
+      "off_naito_takaharu": {
+        "clanId": "sue",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_sho_sei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "元就の本拠吉田郡山城と、厳島の戦いで陶晴賢を誘い込み撃破した宮島勝山城。",
+      "suo": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -18404,7 +23026,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -18451,7 +23073,7 @@ window.SCENARIOS_DATA = [
       "iwami": "mori",
       "mimasaka": "amago",
       "bizen": "uragami",
-      "bicchu": "mori",
+      "bicchu": "mimura",
       "bingo": "mori",
       "aki": "mori",
       "suo": "mori",
@@ -18477,7 +23099,8 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
-      "oki": "amago"
+      "oki": "amago",
+      "ryukyu": "ryukyu"
     },
     "gengo": "永禄3年",
     "lore": "永禄三年五月、駿遠三の大太守・今川義元が四万の兵を率いて上洛を開始。対する織田信長はわずか三千の手勢で豪雨の中を急襲し、本陣の義元を討ち取る。信長の名は天下に轟き、若き徳川家康は岡崎城で独立を果たす。",
@@ -18485,17 +23108,18 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 1,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -18503,18 +23127,18 @@ window.SCENARIOS_DATA = [
       "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
-      "izu": "下田城",
-      "suruga": "今川館",
+      "izu": "韮山城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
+      "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
       "hida": "帰雲城",
       "mino": "稲葉山城",
@@ -18523,47 +23147,48 @@ window.SCENARIOS_DATA = [
       "owari": "清洲城",
       "ise": "安濃津城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "north_omi": "小谷城",
       "south_omi": "観音寺城",
-      "yamashiro": "室町御所",
+      "yamashiro": "室町花の御所",
       "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
-      "tamba": "八上城・黒井城",
+      "tamba": "八上城",
       "tango": "弓木城",
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
       "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
-      "bizen": "天神山城",
-      "bicchu": "備中高松城",
+      "bizen": "三石城・天神山城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "府内館",
       "higo": "隈本城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "甲尾城・美保関館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城・安宅城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -19214,15 +23839,15 @@ window.SCENARIOS_DATA = [
         "id": "mimura",
         "difficulty": "中級",
         "winRate": 65,
-        "startProvId": "bizen",
+        "startProvId": "bicchu",
         "provCount": 1,
         "myProvinces": [
-          "bizen"
+          "bicchu"
         ],
         "gold": 650,
         "rice": 800,
         "personality": "balanced",
-        "officerId": "off_mimura_iechika",
+        "officerId": "off_mimura_motochika",
         "desc": "備前天神山城主・三村家親。毛利と連携しつつ、備前を拠点に山陽の覇を競う。"
       },
       {
@@ -19269,6 +23894,21 @@ window.SCENARIOS_DATA = [
         "personality": "aggressive",
         "officerId": "off_kuki_yoshitaka",
         "desc": "志摩鳥羽城主・九鬼嘉隆。志摩水軍を率いる海賊大名。伊勢湾の制海権を掌握する。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_gen",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -19319,7 +23959,136 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "rokkaku": "south_omi",
       "uragami": "bizen",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "kasai": "rikuchu",
+      "mimura": "bicchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_hojo_ujiyasu": {
+        "clanId": "hojo",
+        "defaultProv": "sagami",
+        "isDaimyo": true
+      },
+      "off_hatano_hideharu": {
+        "clanId": "hatano",
+        "defaultProv": "tamba",
+        "isDaimyo": true
+      },
+      "off_mimura_motochika": {
+        "clanId": "mimura",
+        "defaultProv": "bicchu",
+        "isDaimyo": true
+      },
+      "off_oda_nobunaga": {
+        "clanId": "oda",
+        "defaultProv": "owari",
+        "isDaimyo": true
+      },
+      "off_sho_gen": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+      "totomi": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -19348,7 +24117,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -19378,10 +24147,10 @@ window.SCENARIOS_DATA = [
       "izu": "hojo",
       "ise": "oda",
       "shima": "oda",
-      "iga": "oda",
+      "iga": "momochi",
       "yamashiro": "ashikaga",
       "tamba": "hatano",
-      "tango": "yamana",
+      "tango": "isshiki",
       "settsu": "honganji",
       "kawachi": "miyoshi",
       "izumi": "miyoshi",
@@ -19421,7 +24190,90 @@ window.SCENARIOS_DATA = [
       "sado": "honma",
       "tsushima": "so",
       "awaji": "miyoshi",
-      "oki": "mori"
+      "oki": "mori",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_isshiki_yoshimichi": {
+        "clanId": "isshiki",
+        "defaultProv": "tango",
+        "isDaimyo": true
+      },
+      "off_hatano_hideharu": {
+        "clanId": "hatano",
+        "defaultProv": "tamba",
+        "isDaimyo": true
+      },
+      "off_jd_014": {
+        "clanId": "yamana",
+        "defaultProv": "tajima",
+        "isDaimyo": false
+      },
+      "off_dm_yamana_1546": {
+        "clanId": "yamana",
+        "defaultProv": "tajima",
+        "isDaimyo": true
+      },
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_chiba_toshitane": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_hara_tanesada_1546": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akizane": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_matsunaga_hisahide": {
+        "clanId": "matsunaga",
+        "defaultProv": "yamato",
+        "isDaimyo": true
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_jd_456": {
+        "clanId": "momochi",
+        "defaultProv": "iga",
+        "isDaimyo": true
+      },
+      "off_sho_gen": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
     },
     "gengo": "元亀元年",
     "lore": "元亀元年、将軍・足利義昭の密書により浅井長政、朝倉義景、武田信玄、本願寺顕如、延暦寺が連携し、織田信長に対する一大包囲網を形成。信長と盟友・徳川家康は姉川の戦いや野田福島の戦いで絶体絶命の危機に立ち向かう。",
@@ -19429,17 +24281,18 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 2,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。"
+      "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -19447,32 +24300,32 @@ window.SCENARIOS_DATA = [
       "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
-      "izu": "下田城",
-      "suruga": "駿府城",
+      "izu": "韮山城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "kaga": "尾山御坊",
-      "echizen": "金ヶ崎城・一乗谷城",
+      "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
       "hida": "帰雲城",
       "mino": "岐阜城",
-      "totomi": "曳馬城",
-      "mikawa": "吉田城",
+      "totomi": "浜松城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "長島城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "小谷城",
-      "south_omi": "安土城",
-      "yamashiro": "室町御所",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "south_omi": "観音寺城",
+      "yamashiro": "室町花の御所",
+      "yamato": "信貴山城",
+      "kii": "雑賀城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
@@ -19481,33 +24334,34 @@ window.SCENARIOS_DATA = [
       "tajima": "此隅山城・竹田城",
       "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "八橋城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "三石城・天神山城",
-      "bicchu": "備中高松城",
+      "bicchu": "備中松山城",
       "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "臼杵城",
       "higo": "隈本城",
       "hyuga": "都於郡城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城・安宅城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -19537,15 +24391,15 @@ window.SCENARIOS_DATA = [
         "id": "oda",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "mino",
+        "startProvId": "south_omi",
         "provCount": 6,
         "myProvinces": [
+          "south_omi",
           "mino",
           "owari",
           "ise",
           "shima",
-          "iga",
-          "south_omi"
+          "iga"
         ],
         "gold": 2200,
         "rice": 2800,
@@ -19576,14 +24430,13 @@ window.SCENARIOS_DATA = [
         "id": "hojo",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "kozuke",
+        "startProvId": "sagami",
         "provCount": 5,
         "myProvinces": [
-          "kozuke",
-          "shimousa",
-          "musashi",
           "sagami",
-          "izu"
+          "musashi",
+          "izu",
+          "shimousa"
         ],
         "gold": 1650,
         "rice": 2000,
@@ -19648,11 +24501,11 @@ window.SCENARIOS_DATA = [
         "id": "yamana",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "tango",
+        "startProvId": "tajima",
         "provCount": 3,
         "myProvinces": [
-          "tango",
           "tajima",
+          "tango",
           "inaba"
         ],
         "gold": 1150,
@@ -20107,16 +24960,31 @@ window.SCENARIOS_DATA = [
         "id": "momochi",
         "difficulty": "上級",
         "winRate": 55,
-        "startProvId": "tamba",
+        "startProvId": "iga",
         "provCount": 1,
         "myProvinces": [
-          "tamba"
+          "iga"
         ],
         "gold": 600,
         "rice": 700,
         "personality": "aggressive",
         "officerId": "off_jd_456",
         "desc": "丹波八上城主・百地丹波。忍びの頭領として丹波に勢力を張り独立を期す。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_gen",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -20129,7 +24997,7 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "chosokabe": "tosa",
       "satake": "hitachi",
-      "oda": "owari",
+      "oda": "south_omi",
       "asakura": "echizen",
       "mori": "aki",
       "honma": "sado",
@@ -20138,6 +25006,8 @@ window.SCENARIOS_DATA = [
       "takeda": "kai",
       "so": "tsushima",
       "nanbu": "mutsu",
+      "kasai": "rikuchu",
+      "isshiki": "tango",
       "ashina": "iwashiro",
       "date": "rikuzen",
       "otomo": "bungo",
@@ -20152,14 +25022,95 @@ window.SCENARIOS_DATA = [
       "hatakeyama": "noto",
       "utsunomiya": "shimotsuke",
       "anekoji": "hida",
-      "yamana": "tango",
+      "yamana": "tajima",
       "saika": "kii",
       "akamatsu": "harima",
       "kono": "iyo",
       "sagara": "higo",
       "ito": "hyuga",
       "hatano": "tamba",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "momochi": "iga",
+      "ryukyu": "ryukyu"
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "織田信長が稲葉山城を奪取し『天下布武』の拠点として改称・整備した名城。ルイス・フロイスも絶賛した。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "木曽三川河口の輪中に位置する一向一揆の要塞。織田信長が三度にわたる大攻勢で激戦を繰り広げた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が信貴山山頂に築いた一大山城。四重天守を持ち、織田信長に背いた久秀が平蜘蛛釜とともに爆死した地。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -20192,7 +25143,7 @@ window.SCENARIOS_DATA = [
       "ezo": "kakizaki",
       "tsugaru": "tsugaru",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "uzen": "mogami",
       "rikuzen": "date",
@@ -20264,91 +25215,94 @@ window.SCENARIOS_DATA = [
       "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
-      "tsushima": "so"
+      "tsushima": "so",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "uzen": "山形城",
-      "rikuzen": "青葉城",
+      "rikuzen": "岩出山城",
       "iwashiro": "黒川城",
       "iwaki": "小高城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "sagami": "小田原城",
       "izu": "韮山城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "shimousa": "本佐倉城",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
-      "suruga": "駿府城",
-      "totomi": "浜松城・二俣城",
-      "mikawa": "岡崎城・吉田城",
+      "suruga": "駿府今川館",
+      "totomi": "浜松城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
       "mino": "岐阜城",
-      "hida": "松倉城",
-      "ise": "安濃津城",
+      "hida": "帰雲城",
+      "ise": "長島城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "sado": "雑太城",
-      "kaga": "金沢城",
+      "kaga": "尾山御坊",
       "echizen": "一乗谷城",
       "wakasa": "後瀬山城",
       "north_omi": "小谷城",
-      "south_omi": "佐和山城",
-      "yamashiro": "二条御所",
+      "south_omi": "観音寺城",
+      "yamashiro": "室町花の御所",
       "yamato": "信貴山城",
       "kawachi": "高屋城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
       "kii": "雑賀城",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "harima": "置塩城",
-      "bizen": "天神山城",
-      "mimasaka": "津山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "tango": "弓木城",
+      "harima": "白旗城・置塩城",
+      "bizen": "三石城・天神山城",
+      "mimasaka": "美作三星城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館",
-      "nagato": "萩城",
-      "tajima": "出石城",
+      "suo": "山口高嶺城・富田若山城",
+      "nagato": "勝山城",
+      "tajima": "此隅山城・竹田城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "oki": "甲尾城",
-      "awaji": "洲本城",
+      "awaji": "志知城・由良城",
       "sanuki": "十河城",
-      "awa_shikoku": "徳島城",
+      "awa_shikoku": "勝瑞城",
       "tosa": "岡豊城",
-      "iyo": "湯築城",
-      "buzen": "小倉城",
+      "iyo": "湯築城・能島城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "bungo": "府内館",
-      "chikugo": "久留米城",
-      "hizen": "佐賀城",
+      "bungo": "臼杵城",
+      "chikugo": "柳川城",
+      "hizen": "村中城",
       "higo": "隈本城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
-      "tsushima": "金石城"
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
+      "tsushima": "厳原城・府中城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "takeda": "「甲斐の虎」武田信玄。風林火山の軍旗を掲げ、生涯最後の大勝負として三万の精鋭を率い西上。",
       "tokugawa": "三河の英傑・徳川家康。武田の大軍に屈せず浜松城を出陣。三方ヶ原で死闘を繰り広げる。",
       "oda": "織田信長。将軍義昭に背かれ全方位を包囲される中、反撃の機を窺う。",
-      "azai": "北近江の義将・浅井長政。信玄の西上に呼応し小谷城より信長の背後を突く。"
+      "azai": "北近江の義将・浅井長政。信玄の西上に呼応し小谷城より信長の背後を突く。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -20392,11 +25346,11 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_omi",
         "provCount": 8,
         "myProvinces": [
+          "south_omi",
           "owari",
           "mino",
           "ise",
           "shima",
-          "south_omi",
           "yamashiro",
           "kawachi",
           "izumi"
@@ -20444,9 +25398,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "aki",
         "provCount": 9,
         "myProvinces": [
+          "aki",
           "mimasaka",
           "bingo",
-          "aki",
           "suo",
           "nagato",
           "hoki",
@@ -20489,6 +25443,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_mogami_yoshiaki",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -20511,7 +25480,7 @@ window.SCENARIOS_DATA = [
       "honganji": "settsu",
       "asakura": "echizen",
       "takeda_wakasa": "wakasa",
-      "oda": "owari",
+      "oda": "south_omi",
       "anekoji": "hida",
       "momochi": "iga",
       "azai": "north_omi",
@@ -20533,7 +25502,140 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "so": "tsushima",
       "suzuki": "kii",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_chiba_toshitane": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_hara_tanesada_1546": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_matsunaga_hisahide": {
+        "clanId": "matsunaga",
+        "defaultProv": "yamato",
+        "isDaimyo": true
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "織田信長が稲葉山城を奪取し『天下布武』の拠点として改称・整備した名城。ルイス・フロイスも絶賛した。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "木曽三川河口の輪中に位置する一向一揆の要塞。織田信長が三度にわたる大攻勢で激戦を繰り広げた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+      "south_omi": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+      "yamashiro": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+      "yamato": "松永久秀が信貴山山頂に築いた一大山城。四重天守を持ち、織田信長に背いた久秀が平蜘蛛釜とともに爆死した地。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -20563,7 +25665,7 @@ window.SCENARIOS_DATA = [
       "ezo": "kakizaki",
       "tsugaru": "tsugaru",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -20574,7 +25676,7 @@ window.SCENARIOS_DATA = [
       "kozuke": "uesugi",
       "musashi": "hojo",
       "shimousa": "hojo",
-      "kazusa": "hojo",
+      "kazusa": "satomi",
       "awa_boshu": "satomi",
       "sagami": "hojo",
       "izu": "hojo",
@@ -20635,91 +25737,94 @@ window.SCENARIOS_DATA = [
       "oki": "mori",
       "sado": "honma",
       "tsushima": "so",
-      "awaji": "miyoshi"
+      "awaji": "miyoshi",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
-      "rikuzen": "米沢城",
+      "rikuzen": "岩出山城",
       "uzen": "山形城",
       "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "shimousa": "本佐倉城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "sagami": "小田原城",
       "izu": "韮山城",
-      "suruga": "駿府城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
-      "kaga": "金沢城",
+      "kaga": "尾山御坊",
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
-      "hida": "松倉城",
+      "hida": "帰雲城",
       "mino": "岐阜城",
       "totomi": "浜松城",
       "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "長島城",
       "shima": "鳥羽城",
-      "iga": "伊賀上野城",
+      "iga": "伊賀国府館",
       "north_omi": "長浜城",
       "south_omi": "安土城",
       "yamashiro": "二条御所",
       "yamato": "信貴山城",
       "kii": "雑賀城",
-      "kawachi": "高屋城",
+      "kawachi": "若江城",
       "izumi": "岸和田城",
-      "settsu": "石山本願寺・木津川口砦",
+      "settsu": "石山本願寺",
       "tamba": "八上城",
       "tango": "弓木城",
-      "tajima": "出石城",
-      "harima": "姫路城",
+      "tajima": "此隅山城・竹田城",
+      "harima": "白旗城・置塩城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
-      "mimasaka": "津山城",
+      "iwami": "山吹城（石見銀山）",
+      "mimasaka": "美作三星城",
       "bizen": "岡山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館",
-      "nagato": "萩城",
+      "suo": "山口高嶺城・富田若山城",
+      "nagato": "勝山城",
       "sanuki": "十河城",
-      "awa_shikoku": "徳島城",
-      "iyo": "湯築城",
+      "awa_shikoku": "勝瑞城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "小倉城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
-      "bungo": "府内館",
+      "hizen": "村中城",
+      "chikugo": "柳川城",
+      "bungo": "臼杵城",
       "higo": "隈本城",
-      "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
+      "hyuga": "都於郡城",
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
       "oki": "甲尾城",
       "sado": "雑太城",
-      "tsushima": "金石城",
-      "awaji": "洲本城"
+      "tsushima": "厳原城・府中城",
+      "awaji": "志知城・由良城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "mori": "毛利輝元・小早川隆景。瀬戸内海の制海権を握り、村上水軍とともに石山本願寺へ兵糧を搬入。",
       "murakami_suigun": "「日本最大の海賊」村上武吉。焙烙玉と火矢を駆使し、木津川口で織田水軍を灰燼に帰す。",
       "honganji": "石山本願寺・顕如。門徒衆と雑賀鉄砲衆を統率し、十年余にわたる信長との死闘を継続。",
-      "oda": "織田信長。安土城を築城し天下布武を進めるも、木津川口の敗戦を受け鉄甲船の建造を企図。"
+      "oda": "織田信長。安土城を築城し天下布武を進めるも、木津川口の敗戦を受け鉄甲船の建造を企図。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -20729,6 +25834,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_omi",
         "provCount": 11,
         "myProvinces": [
+          "south_omi",
           "echizen",
           "wakasa",
           "mino",
@@ -20736,7 +25842,6 @@ window.SCENARIOS_DATA = [
           "ise",
           "shima",
           "north_omi",
-          "south_omi",
           "yamashiro",
           "kawachi",
           "izumi"
@@ -20757,12 +25862,12 @@ window.SCENARIOS_DATA = [
         "startProvId": "aki",
         "provCount": 9,
         "myProvinces": [
+          "aki",
           "hoki",
           "izumo",
           "iwami",
           "bicchu",
           "bingo",
-          "aki",
           "suo",
           "nagato",
           "oki"
@@ -20801,8 +25906,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "kai",
         "provCount": 4,
         "myProvinces": [
-          "suruga",
           "kai",
+          "suruga",
           "north_shinano",
           "south_shinano"
         ],
@@ -20858,8 +25963,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "bizen",
         "provCount": 2,
         "myProvinces": [
-          "mimasaka",
-          "bizen"
+          "bizen",
+          "mimasaka"
         ],
         "gold": 2800,
         "rice": 3500,
@@ -20877,10 +25982,10 @@ window.SCENARIOS_DATA = [
         "startProvId": "bungo",
         "provCount": 4,
         "myProvinces": [
+          "bungo",
           "buzen",
           "chikuzen",
-          "chikugo",
-          "bungo"
+          "chikugo"
         ],
         "gold": 1800,
         "rice": 2200,
@@ -20933,6 +26038,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_mogami_yoshiaki",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -20973,9 +26093,172 @@ window.SCENARIOS_DATA = [
       "hatakeyama": "noto",
       "sagara": "higo",
       "ito": "hyuga",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
     },
-    "recommendedClan": "oda"
+    "recommendedClan": "oda",
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_dm_satomi_1582": {
+        "clanId": "satomi",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": true
+      },
+      "off_satomi_yoshihiro": {
+        "clanId": "satomi",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": false
+      },
+      "off_masaki_yoritada": {
+        "clanId": "satomi",
+        "defaultProv": "kazusa",
+        "isDaimyo": false
+      },
+      "off_hojo_ujikuni": {
+        "clanId": "hojo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_hojo_ujinori": {
+        "clanId": "hojo",
+        "defaultProv": "izu",
+        "isDaimyo": false
+      },
+      "off_jd_252": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_matsunaga_hisahide": {
+        "clanId": "matsunaga",
+        "defaultProv": "yamato",
+        "isDaimyo": true
+      },
+      "off_dm_ukita_1560": {
+        "clanId": "ukita",
+        "defaultProv": "bizen",
+        "isDaimyo": true
+      },
+      "off_hanafusa_masayuki": {
+        "clanId": "ukita",
+        "defaultProv": "mimasaka",
+        "isDaimyo": false
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "織田信長が稲葉山城を奪取し『天下布武』の拠点として改称・整備した名城。ルイス・フロイスも絶賛した。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "木曽三川河口の輪中に位置する一向一揆の要塞。織田信長が三度にわたる大攻勢で激戦を繰り広げた。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "羽柴秀吉が浅井攻めの功により拝領し、初めて一国一城の主として築いた琵琶湖畔の城。",
+      "south_omi": "織田信長が天下布武の象徴として築いた絢爛豪華なる城。五重七階の天主が聳え、城郭建築を一変させた幻の名城。",
+      "yamashiro": "織田信長が京都滞在時の拠点、あるいは誠仁親王のために築いた豪華な御所。",
+      "yamato": "松永久秀が信貴山山頂に築いた一大山城。四重天守を持ち、織田信長に背いた久秀が平蜘蛛釜とともに爆死した地。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1577",
@@ -21006,7 +26289,7 @@ window.SCENARIOS_DATA = [
       "ezo": "kakizaki",
       "tsugaru": "tsugaru",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "uzen": "mogami",
       "rikuzen": "date",
@@ -21078,41 +26361,42 @@ window.SCENARIOS_DATA = [
       "hyuga": "ito",
       "satsuma": "shimazu",
       "osumi": "shimazu",
-      "tsushima": "so"
+      "tsushima": "so",
+      "ryukyu": "ryukyu"
     },
     "castles": {
-      "ezo": "松前城",
-      "tsugaru": "弘前城",
+      "ezo": "勝山館・茂別館",
+      "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "uzen": "山形城",
-      "rikuzen": "米沢城",
+      "rikuzen": "岩出山城",
       "iwashiro": "黒川城",
       "iwaki": "小高城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
       "kozuke": "箕輪城",
-      "musashi": "江戸城",
+      "musashi": "河越城・岩付城",
       "sagami": "小田原城",
       "izu": "韮山城",
       "kazusa": "久留里城",
-      "awa_boshu": "館山城",
+      "awa_boshu": "勝山城",
       "shimousa": "本佐倉城",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
-      "suruga": "駿府城",
+      "suruga": "駿府今川館",
       "totomi": "浜松城",
       "mikawa": "岡崎城",
       "owari": "清洲城",
       "mino": "岐阜城",
-      "hida": "松倉城",
-      "ise": "安濃津城",
+      "hida": "帰雲城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀国府館",
       "echigo": "春日山城",
-      "etchu": "富山城",
+      "etchu": "越中国府館",
       "noto": "七尾城",
       "sado": "雑太城",
       "kaga": "尾山御坊",
@@ -21122,47 +26406,49 @@ window.SCENARIOS_DATA = [
       "south_omi": "安土城",
       "yamashiro": "二条御所",
       "yamato": "信貴山城",
-      "kawachi": "高屋城",
+      "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "石山本願寺",
       "kii": "雑賀城",
       "tamba": "八上城",
-      "tango": "宮津城",
-      "harima": "置塩城",
+      "tango": "弓木城",
+      "harima": "白旗城・置塩城",
       "bizen": "岡山城",
-      "mimasaka": "津山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "mimasaka": "美作三星城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館",
-      "nagato": "萩城",
-      "tajima": "出石城",
+      "suo": "山口高嶺城・富田若山城",
+      "nagato": "勝山城",
+      "tajima": "此隅山城・竹田城",
       "inaba": "鳥取城",
-      "hoki": "米子城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "oki": "甲尾城",
-      "awaji": "洲本城",
+      "awaji": "志知城・由良城",
       "sanuki": "十河城",
-      "awa_shikoku": "徳島城",
+      "awa_shikoku": "勝瑞城",
       "tosa": "岡豊城",
-      "iyo": "湯築城",
-      "buzen": "小倉城",
+      "iyo": "湯築城・能島城",
+      "buzen": "城井谷城",
       "chikuzen": "立花山城",
-      "bungo": "府内館",
-      "chikugo": "久留米城",
-      "hizen": "佐賀城",
+      "bungo": "臼杵城",
+      "chikugo": "柳川城",
+      "hizen": "村中城",
       "higo": "隈本城",
       "hyuga": "飫肥城",
-      "satsuma": "内城",
-      "osumi": "富隈城",
-      "tsushima": "金石城"
+      "satsuma": "一宇治城・内城",
+      "osumi": "帖佐城",
+      "tsushima": "厳原城・府中城",
+      "ryukyu": "首里城"
     },
     "clanDescs": {
       "uesugi": "軍神・上杉謙信。七尾城を攻略し、手取川の激流で織田軍四万を溺死・壊滅させた生涯最高の大勝利。",
       "oda": "織田信長。柴田勝家・羽柴秀吉らを北陸へ派遣するも手取川で敗退。松永久秀の離反にも直面。",
       "matsunaga": "大和の梟雄・松永久秀。信長包囲網に呼応し信貴山城で挙兵。天下一の茶釜「平蜘蛛」を抱き籠城。",
-      "honganji": "石山本願寺・顕如。加賀一向一揆とともに上杉謙信を援護し、信長を東西から挟撃。"
+      "honganji": "石山本願寺・顕如。加賀一向一揆とともに上杉謙信を援護し、信長を東西から挟撃。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "playables": [
       {
@@ -21189,6 +26475,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "south_omi",
         "provCount": 11,
         "myProvinces": [
+          "south_omi",
           "owari",
           "mino",
           "ise",
@@ -21196,7 +26483,6 @@ window.SCENARIOS_DATA = [
           "echizen",
           "wakasa",
           "north_omi",
-          "south_omi",
           "yamashiro",
           "kawachi",
           "izumi"
@@ -21214,9 +26500,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "bungo",
         "provCount": 4,
         "myProvinces": [
+          "bungo",
           "buzen",
           "chikuzen",
-          "bungo",
           "chikugo"
         ],
         "gold": 1800,
@@ -21232,9 +26518,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "aki",
         "provCount": 9,
         "myProvinces": [
+          "aki",
           "bicchu",
           "bingo",
-          "aki",
           "suo",
           "nagato",
           "hoki",
@@ -21311,6 +26597,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_mogami_yoshiaki",
         "desc": "山形城を本拠とする斯波一門の名門。最上義光は伊達政宗の伯父であり、知勇兼備の英主として出羽山形五十七万石の領国を築き上げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -21350,7 +26651,155 @@ window.SCENARIOS_DATA = [
       "ito": "hyuga",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "kasai": "rikuchu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_hojo_ujikuni": {
+        "clanId": "hojo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_hojo_ujinori": {
+        "clanId": "hojo",
+        "defaultProv": "izu",
+        "isDaimyo": false
+      },
+      "off_jd_252": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_matsunaga_hisahide": {
+        "clanId": "matsunaga",
+        "defaultProv": "yamato",
+        "isDaimyo": true
+      },
+      "off_dm_ukita_1560": {
+        "clanId": "ukita",
+        "defaultProv": "bizen",
+        "isDaimyo": true
+      },
+      "off_hanafusa_masayuki": {
+        "clanId": "ukita",
+        "defaultProv": "mimasaka",
+        "isDaimyo": false
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+      "noto": "石見の名門・益田氏が中世に代々本拠とした山城。",
+      "kaga": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "織田信長が稲葉山城を奪取し『天下布武』の拠点として改称・整備した名城。ルイス・フロイスも絶賛した。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+      "north_omi": "羽柴秀吉が浅井攻めの功により拝領し、初めて一国一城の主として築いた琵琶湖畔の城。",
+      "south_omi": "織田信長が天下布武の象徴として築いた絢爛豪華なる城。五重七階の天主が聳え、城郭建築を一変させた幻の名城。",
+      "yamashiro": "織田信長が京都滞在時の拠点、あるいは誠仁親王のために築いた豪華な御所。",
+      "yamato": "松永久秀が信貴山山頂に築いた一大山城。四重天守を持ち、織田信長に背いた久秀が平蜘蛛釜とともに爆死した地。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+      "tango": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+      "tajima": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+      "harima": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -21370,7 +26819,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -21408,7 +26857,7 @@ window.SCENARIOS_DATA = [
       "kawachi": "oda",
       "izumi": "oda",
       "yamato": "oda",
-      "kii": "saika",
+      "kii": "suzuki",
       "harima": "oda",
       "tajima": "oda",
       "inaba": "oda",
@@ -21443,7 +26892,8 @@ window.SCENARIOS_DATA = [
       "awaji": "oda",
       "sado": "honma",
       "tsushima": "so",
-      "oki": "mori"
+      "oki": "mori",
+      "ryukyu": "ryukyu"
     },
     "gengo": "天正10年",
     "lore": "天正十年春、織田信長は甲州征伐にて武田勝頼を滅ぼし、天下布武の総仕上げに入った。安土城に君臨する信長に対し、中国攻めの羽柴秀吉、北陸の柴田勝家、四国征伐の丹羽長秀・織田信孝、そして丹波の明智光秀が奔走する。だがその絶頂の陰で、運命の歯車が静かに狂い始めていた――。",
@@ -21453,17 +26903,18 @@ window.SCENARIOS_DATA = [
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
       "honma": "佐渡国を一手に統括する佐渡守護代・本間家。雑太城・沢根城を拠点とし、日本海交易と豊かな鉱山資源を背景に越後諸勢力と互角に対峙した孤島の覇者。",
       "oda": "尾張から天下布武を推し進め、宿敵武田を滅ぼして天下統一目前となった覇王・織田信長。安土城の天主より日の本を睥睨する。",
-      "tokugawa": "三河・遠江に加え甲州征伐の功により駿河を領有した徳川家康。盟友信長との絆を深めつつ、東海に強固な基盤を確立する。"
+      "tokugawa": "三河・遠江に加え甲州征伐の功により駿河を領有した徳川家康。盟友信長との絆を深めつつ、東海に強固な基盤を確立する。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -21473,8 +26924,8 @@ window.SCENARIOS_DATA = [
       "kazusa": "久留里城",
       "awa_boshu": "館山城",
       "sagami": "小田原城",
-      "izu": "下田城",
-      "suruga": "駿府城",
+      "izu": "韮山城",
+      "suruga": "駿府今川館",
       "kai": "躑躅ヶ崎館",
       "north_shinano": "海津城",
       "south_shinano": "深志城",
@@ -21485,62 +26936,64 @@ window.SCENARIOS_DATA = [
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
       "hida": "帰雲城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "長浜城",
       "south_omi": "安土城",
       "yamashiro": "二条御所",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "雑賀城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
-      "settsu": "大坂城",
+      "settsu": "石山本願寺",
       "tamba": "丹波亀山城",
-      "tango": "弓木城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
-      "hoki": "米子城",
+      "inaba": "鳥取城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
       "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "臼杵城",
       "higo": "隈本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
         "id": "oda",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "noto",
+        "startProvId": "south_omi",
         "provCount": 27,
         "myProvinces": [
+          "south_omi",
           "noto",
           "kaga",
           "echizen",
@@ -21566,7 +27019,6 @@ window.SCENARIOS_DATA = [
           "north_shinano",
           "south_shinano",
           "north_omi",
-          "south_omi",
           "awaji"
         ],
         "gold": 6900,
@@ -21605,9 +27057,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "sagami",
         "provCount": 4,
         "myProvinces": [
+          "sagami",
           "shimousa",
           "musashi",
-          "sagami",
           "izu"
         ],
         "gold": 1650,
@@ -21888,7 +27340,7 @@ window.SCENARIOS_DATA = [
         "desc": "清和源氏の名門。「坂東太郎」「鬼佐竹」と恐れられた佐竹義重の代に関東に覇を唱え、北条氏や伊達氏と激しく覇権を争った。"
       },
       {
-        "id": "saika",
+        "id": "suzuki",
         "difficulty": "超上級",
         "winRate": 30,
         "startProvId": "kii",
@@ -21932,6 +27384,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
@@ -21943,7 +27410,7 @@ window.SCENARIOS_DATA = [
       "chosokabe": "tosa",
       "satake": "hitachi",
       "mori": "aki",
-      "oda": "owari",
+      "oda": "south_omi",
       "honma": "sado",
       "shimazu": "satsuma",
       "so": "tsushima",
@@ -21956,9 +27423,142 @@ window.SCENARIOS_DATA = [
       "mogami": "uzen",
       "soma": "iwaki",
       "utsunomiya": "shimotsuke",
-      "saika": "kii",
       "ukita": "mimasaka",
-      "tsugaru": "tsugaru"
+      "tsugaru": "tsugaru",
+      "kasai": "rikuchu",
+      "suzuki": "kii",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_hojo_ujikuni": {
+        "clanId": "hojo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_hojo_ujinori": {
+        "clanId": "hojo",
+        "defaultProv": "izu",
+        "isDaimyo": false
+      },
+      "off_saika_magoichi": {
+        "clanId": "suzuki",
+        "defaultProv": "kii",
+        "isDaimyo": true
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+      "kai": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "羽柴秀吉が浅井攻めの功により拝領し、初めて一国一城の主として築いた琵琶湖畔の城。",
+      "south_omi": "織田信長が天下布武の象徴として築いた絢爛豪華なる城。五重七階の天主が聳え、城郭建築を一変させた幻の名城。",
+      "yamashiro": "織田信長が京都滞在時の拠点、あるいは誠仁親王のために築いた豪華な御所。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "羽柴秀吉が黒田官兵衛の策により足守川を堰き止めて水攻めにした湖上要塞。城主・清水宗治の切腹で名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -21986,7 +27586,6 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "ukita": "bizen",
       "mori": "aki",
-      "saika": "kii",
       "chosokabe": "tosa",
       "otomo": "bungo",
       "ryuzoji": "hizen",
@@ -22002,7 +27601,10 @@ window.SCENARIOS_DATA = [
       "tsugaru": "tsugaru",
       "kakizaki": "ezo",
       "honma": "sado",
-      "so": "tsushima"
+      "so": "tsushima",
+      "kasai": "rikuchu",
+      "suzuki": "kii",
+      "ryukyu": "ryukyu"
     },
     "alliances": [
       [
@@ -22081,7 +27683,7 @@ window.SCENARIOS_DATA = [
       "iwami": "mori",
       "hoki": "mori",
       "oki": "mori",
-      "kii": "saika",
+      "kii": "suzuki",
       "tosa": "chosokabe",
       "awa_shikoku": "chosokabe",
       "sanuki": "chosokabe",
@@ -22103,21 +27705,22 @@ window.SCENARIOS_DATA = [
       "uzen": "mogami",
       "ugo": "ando",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "tsugaru": "tsugaru",
       "ezo": "kakizaki",
       "sado": "honma",
-      "tsushima": "so"
+      "tsushima": "so",
+      "ryukyu": "ryukyu"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -22127,11 +27730,11 @@ window.SCENARIOS_DATA = [
       "kazusa": "久留里城",
       "awa_boshu": "館山城",
       "sagami": "小田原城",
-      "izu": "下田城",
+      "izu": "韮山城",
       "suruga": "駿府城",
       "kai": "甲府城",
-      "north_shinano": "上田城",
-      "south_shinano": "深志城",
+      "north_shinano": "海津城",
+      "south_shinano": "松本城",
       "echigo": "春日山城",
       "etchu": "富山城",
       "noto": "小丸山城",
@@ -22139,53 +27742,54 @@ window.SCENARIOS_DATA = [
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
       "hida": "帰雲城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "長島城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "長浜城",
-      "south_omi": "安土城",
-      "yamashiro": "山崎城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "iga": "伊賀上野城",
+      "north_omi": "佐和山城",
+      "south_omi": "八幡山城",
+      "yamashiro": "二条御所",
+      "yamato": "郡山城",
+      "kii": "雑賀城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "弓木城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
-      "hoki": "米子城",
+      "inaba": "鳥取城",
+      "hoki": "打吹城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "十河城",
       "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
       "buzen": "城井谷城",
       "chikuzen": "立花山城",
       "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
+      "bungo": "臼杵城",
       "higo": "隈本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -22416,7 +28020,7 @@ window.SCENARIOS_DATA = [
         "desc": "備前岡山城主。秀吉の寵愛を受け、若くして秀吉方の一翼を担う。"
       },
       {
-        "id": "saika",
+        "id": "suzuki",
         "difficulty": "上級",
         "winRate": 48,
         "startProvId": "kii",
@@ -22645,8 +28249,232 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々統治する名門島主・宗家。日本と朝鮮半島を結ぶ海運・通商・外交の結節点を一手に扼し、幾多の外患や乱世を不屈の誇りと巧みな外交力で乗り越えた独立水軍大名。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_sengoku_hidehisa": {
+        "clanId": "toyotomi",
+        "defaultProv": "awaji",
+        "isDaimyo": false
+      },
+      "off_sogo_ariyasu": {
+        "clanId": "ronin",
+        "defaultProv": "sanuki",
+        "isDaimyo": false
+      },
+      "off_miyoshi_fusakazu": {
+        "clanId": "ronin",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_dm_miyoshi_1570": {
+        "clanId": "ronin",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_miyoshi_masayasu": {
+        "clanId": "ronin",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_toyotomi_hideyoshi": {
+        "clanId": "toyotomi",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_toyotomi_hidenaga": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_ishida_mitsunari": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_gamo_ujisato": {
+        "clanId": "toyotomi",
+        "defaultProv": "south_omi",
+        "isDaimyo": false
+      },
+      "off_hori_hidemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_ikeda_tsuneoki": {
+        "clanId": "toyotomi",
+        "defaultProv": "mino",
+        "isDaimyo": false
+      },
+      "off_asano_nagamasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "wakasa",
+        "isDaimyo": false
+      },
+      "off_maeda_geni": {
+        "clanId": "toyotomi",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_hachisuka_iemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "kawachi",
+        "isDaimyo": false
+      },
+      "off_hosokawa_tadaoki": {
+        "clanId": "toyotomi",
+        "defaultProv": "tango",
+        "isDaimyo": false
+      },
+      "off_niwa_nagahide": {
+        "clanId": "toyotomi",
+        "defaultProv": "echizen",
+        "isDaimyo": false
+      },
+      "off_saika_magoichi": {
+        "clanId": "suzuki",
+        "defaultProv": "kii",
+        "isDaimyo": true
+      },
+      "off_sanada_masayuki": {
+        "clanId": "sanada",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+      "south_omi": "豊臣秀次が安土城の資材を用いて築いた城郭。城下町近江八幡の繁栄の礎となった。",
+      "yamashiro": "織田信長が京都滞在時の拠点、あるいは誠仁親王のために築いた豪華な御所。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+      "awa_shikoku": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+      "chikuzen": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "clanDescs": {
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
+    }
   },
   {
     "id": "1587",
@@ -22685,7 +28513,10 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "kakizaki": "ezo",
       "honma": "sado",
-      "so": "tsushima"
+      "so": "tsushima",
+      "kasai": "rikuchu",
+      "tsugaru": "tsugaru",
+      "ryukyu": "ryukyu"
     },
     "alliances": [
       [
@@ -22786,21 +28617,22 @@ window.SCENARIOS_DATA = [
       "uzen": "mogami",
       "ugo": "ando",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "tsugaru": "tsugaru",
       "ezo": "kakizaki",
       "sado": "honma",
-      "tsushima": "so"
+      "tsushima": "so",
+      "ryukyu": "ryukyu"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "黒川城",
       "hitachi": "太田城",
       "shimotsuke": "宇都宮城",
@@ -22810,65 +28642,66 @@ window.SCENARIOS_DATA = [
       "kazusa": "久留里城",
       "awa_boshu": "館山城",
       "sagami": "小田原城",
-      "izu": "下田城",
+      "izu": "韮山城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "上田城",
-      "south_shinano": "深志城",
+      "south_shinano": "松本城",
       "echigo": "春日山城",
       "etchu": "富山城",
       "noto": "小丸山城",
       "kaga": "金沢城",
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
-      "hida": "帰雲城",
-      "mino": "岐阜城",
+      "hida": "高山城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "長浜城",
-      "south_omi": "安土城",
+      "iga": "伊賀上野城",
+      "north_omi": "佐和山城",
+      "south_omi": "八幡山城",
       "yamashiro": "聚楽第",
-      "yamato": "多聞山城",
+      "yamato": "郡山城",
       "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "弓木城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
-      "bicchu": "備中高松城",
-      "bingo": "福山城",
+      "bicchu": "備中松山城",
+      "bingo": "神辺城",
       "aki": "吉田郡山城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
-      "sanuki": "十河城",
-      "awa_shikoku": "勝瑞城",
-      "iyo": "湯築城",
+      "sanuki": "高松城",
+      "awa_shikoku": "徳島城",
+      "iyo": "湯築城・能島城",
       "tosa": "岡豊城",
-      "buzen": "城井谷城",
-      "chikuzen": "立花山城",
-      "hizen": "佐賀城",
+      "buzen": "中津城",
+      "chikuzen": "名島城",
+      "hizen": "村中城",
       "chikugo": "柳川城",
-      "bungo": "丹生島城",
+      "bungo": "臼杵城",
       "higo": "隈本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "雑太城（本間氏本拠）",
-      "tsushima": "金石城（宗氏代々居城）",
-      "awaji": "洲本城"
+      "oki": "甲尾城",
+      "sado": "雑太城",
+      "tsushima": "厳原城・府中城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -23284,8 +29117,227 @@ window.SCENARIOS_DATA = [
         "name": "大浦為信",
         "desc": "北奥の英傑・津軽為信。南部氏の支配を脱し、津軽一統を成し遂げて独立大名となった。",
         "clan": "大浦家"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_ei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_dm_toyotomi_1600": {
+        "clanId": "toyotomi",
+        "defaultProv": "settsu",
+        "isDaimyo": false
+      },
+      "off_dm_asano_1600": {
+        "clanId": "toyotomi",
+        "defaultProv": "settsu",
+        "isDaimyo": false
+      },
+      "off_hachisuka_iemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_toyotomi_hideyoshi": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_kobayakawa_takakage": {
+        "clanId": "kobayakawa",
+        "defaultProv": "iyo",
+        "isDaimyo": true
+      },
+      "off_sanada_masayuki": {
+        "clanId": "sanada",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_ryuzoji_masaie": {
+        "clanId": "ryuzoji",
+        "defaultProv": "hizen",
+        "isDaimyo": true
+      },
+      "off_chosokabe_motochika": {
+        "clanId": "chosokabe",
+        "defaultProv": "tosa",
+        "isDaimyo": true
+      },
+      "off_toyotomi_hidenaga": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_kato_kiyomasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "harima",
+        "isDaimyo": false
+      },
+      "off_fukushima_masanori": {
+        "clanId": "toyotomi",
+        "defaultProv": "owari",
+        "isDaimyo": false
+      },
+      "off_ishida_mitsunari": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_gamo_ujisato": {
+        "clanId": "toyotomi",
+        "defaultProv": "south_omi",
+        "isDaimyo": false
+      },
+      "off_hori_hidemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "mino",
+        "isDaimyo": false
+      },
+      "off_asano_nagamasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "wakasa",
+        "isDaimyo": false
+      },
+      "off_maeda_geni": {
+        "clanId": "toyotomi",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_hosokawa_tadaoki": {
+        "clanId": "toyotomi",
+        "defaultProv": "tango",
+        "isDaimyo": false
+      },
+      "off_niwa_nagashige": {
+        "clanId": "toyotomi",
+        "defaultProv": "echizen",
+        "isDaimyo": false
+      },
+      "off_sho_ei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+      "south_omi": "豊臣秀次が安土城の資材を用いて築いた城郭。城下町近江八幡の繁栄の礎となった。",
+      "yamashiro": "豊臣秀吉が京都に築いた政庁兼城郭。後陽成天皇の行幸を迎え、白壁金瓦の威容で関白秀吉の天下を天下に示した。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "黒田如水・長政父子が築城を開始し、細川忠興が改修した日本三大水城の一つ。中津川河口に築かれた。",
+      "chikuzen": "小早川隆景が博多湾の半島先端に築いた海城。秀吉の九州平定の拠点となり、黒田長政が福岡城へ移るまで居城とした。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "clanDescs": {
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
+    }
   },
   {
     "id": "1590",
@@ -23307,7 +29359,7 @@ window.SCENARIOS_DATA = [
     "owners": {
       "ezo": "kakizaki",
       "mutsu": "nanbu",
-      "rikuchu": "nanbu",
+      "rikuchu": "kasai",
       "ugo": "ando",
       "rikuzen": "date",
       "uzen": "mogami",
@@ -23324,7 +29376,7 @@ window.SCENARIOS_DATA = [
       "hitachi": "satake",
       "shimousa": "hojo",
       "kazusa": "hojo",
-      "awa_boshu": "hojo",
+      "awa_boshu": "satomi",
       "musashi": "hojo",
       "sagami": "hojo",
       "kai": "tokugawa",
@@ -23380,7 +29432,8 @@ window.SCENARIOS_DATA = [
       "sado": "uesugi",
       "tsushima": "so",
       "awaji": "toyotomi",
-      "oki": "toyotomi"
+      "oki": "toyotomi",
+      "ryukyu": "ryukyu"
     },
     "gengo": "天正18年",
     "lore": "天正十八年、関白・豊臣秀吉は全国の諸大名に動員令を発し、二十万の大軍で難攻不落の小田原城を完全包囲。北条氏直・氏政父子は徹底抗戦の構えを見せ、奥州の覇者・伊達政宗は去就の決断を迫られる。天下統一の最終章。",
@@ -23388,13 +29441,14 @@ window.SCENARIOS_DATA = [
     "seasonIdx": 0,
     "clanDescs": {
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "tsugaru": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏の重囲を破って津軽一統を成し遂げ、秀吉から本領安堵状を勝ち取った不撓不屈の大名。"
+      "tsugaru": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏の重囲を破って津軽一統を成し遂げ、秀吉から本領安堵状を勝ち取った不撓不屈の大名。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
       "tsugaru": "大浦城",
       "mutsu": "三戸城",
-      "rikuchu": "不来方城",
+      "rikuchu": "寺地城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -23408,65 +29462,66 @@ window.SCENARIOS_DATA = [
       "kazusa": "久留里城",
       "awa_boshu": "館山城",
       "sagami": "小田原城",
-      "izu": "下田城",
+      "izu": "韮山城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "上田城",
       "south_shinano": "松本城",
       "echigo": "春日山城",
-      "etchu": "高岡城",
+      "etchu": "富山城",
       "noto": "小丸山城",
       "kaga": "金沢城",
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
       "hida": "高山城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "佐和山城",
       "south_omi": "八幡山城",
       "yamashiro": "聚楽第",
-      "yamato": "多聞山城",
+      "yamato": "郡山城",
       "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "宮津城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
       "bicchu": "備中松山城",
-      "bingo": "福山城",
+      "bingo": "神辺城",
       "aki": "広島城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
       "iyo": "松山城",
-      "tosa": "高知城",
-      "buzen": "小倉城",
-      "chikuzen": "福岡城",
-      "hizen": "佐賀城",
-      "chikugo": "久留米城",
-      "bungo": "府内城・大友館",
+      "tosa": "岡豊城",
+      "buzen": "中津城",
+      "chikuzen": "名島城",
+      "hizen": "村中城",
+      "chikugo": "柳川城",
+      "bungo": "臼杵城",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
       "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "沢根城・新穂城",
-      "tsushima": "清水山城",
-      "awaji": "洲本城"
+      "oki": "甲尾城",
+      "sado": "相川陣屋・佐渡奉行所",
+      "tsushima": "厳原城・府中城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -23586,9 +29641,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "iwashiro",
         "provCount": 3,
         "myProvinces": [
+          "iwashiro",
           "rikuzen",
-          "iwaki",
-          "iwashiro"
+          "iwaki"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -23810,12 +29865,27 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_so_yoshitoshi",
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_nei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
       "toyotomi": "settsu",
       "hojo": "sagami",
-      "tokugawa": "mikawa",
+      "tokugawa": "suruga",
       "date": "iwashiro",
       "shimazu": "satsuma",
       "uesugi": "echigo",
@@ -23832,7 +29902,241 @@ window.SCENARIOS_DATA = [
       "ryuzoji": "hizen",
       "sanada": "north_shinano",
       "tsugaru": "tsugaru",
-      "so": "tsushima"
+      "so": "tsushima",
+      "kasai": "rikuchu",
+      "satomi": "awa_boshu",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_kasai_harunobu": {
+        "clanId": "kasai",
+        "defaultProv": "rikuchu",
+        "isDaimyo": true
+      },
+      "off_kita_nobuchika": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_dm_nanbu_1582": {
+        "clanId": "nanbu",
+        "defaultProv": "mutsu",
+        "isDaimyo": true
+      },
+      "off_shiba_akinao": {
+        "clanId": "ronin",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_dm_satomi_1582": {
+        "clanId": "satomi",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": true
+      },
+      "off_masaki_yoritada": {
+        "clanId": "satomi",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": false
+      },
+      "off_tokugawa_ieyasu": {
+        "clanId": "tokugawa",
+        "defaultProv": "suruga",
+        "isDaimyo": true
+      },
+      "off_sakai_tadayo": {
+        "clanId": "tokugawa",
+        "defaultProv": "suruga",
+        "isDaimyo": false
+      },
+      "off_chiba_naoshige_bridge": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_chiba_shigetane": {
+        "clanId": "hojo",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_hojo_ujikuni": {
+        "clanId": "hojo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_narita_ujinaga": {
+        "clanId": "hojo",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_asano_nagamasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_dm_asano_1600": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_jd_337": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_toyotomi_hideyoshi": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_sanada_masayuki": {
+        "clanId": "sanada",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_ryuzoji_masaie": {
+        "clanId": "ryuzoji",
+        "defaultProv": "hizen",
+        "isDaimyo": true
+      },
+      "off_dm_otomo_1600": {
+        "clanId": "otomo",
+        "defaultProv": "bungo",
+        "isDaimyo": true
+      },
+      "off_toyotomi_hidenaga": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_kato_kiyomasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_ishida_mitsunari": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_kobayakawa_takakage": {
+        "clanId": "toyotomi",
+        "defaultProv": "iyo",
+        "isDaimyo": false
+      },
+      "off_hori_hidemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "etchu",
+        "isDaimyo": false
+      },
+      "off_maeda_geni": {
+        "clanId": "toyotomi",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_hosokawa_tadaoki": {
+        "clanId": "toyotomi",
+        "defaultProv": "tango",
+        "isDaimyo": false
+      },
+      "off_hachisuka_iemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_niwa_nagashige": {
+        "clanId": "toyotomi",
+        "defaultProv": "echizen",
+        "isDaimyo": false
+      },
+      "off_sho_nei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+      "iwashiro": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+      "hitachi": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+      "shimotsuke": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+      "kozuke": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+      "musashi": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+      "shimousa": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+      "kazusa": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+      "south_omi": "豊臣秀次が安土城の資材を用いて築いた城郭。城下町近江八幡の繁栄の礎となった。",
+      "yamashiro": "豊臣秀吉が京都に築いた政庁兼城郭。後陽成天皇の行幸を迎え、白壁金瓦の威容で関白秀吉の天下を天下に示した。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "黒田如水・長政父子が築城を開始し、細川忠興が改修した日本三大水城の一つ。中津川河口に築かれた。",
+      "chikuzen": "小早川隆景が博多湾の半島先端に築いた海城。秀吉の九州平定の拠点となり、黒田長政が福岡城へ移るまで居城とした。",
+      "hizen": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -23875,7 +30179,8 @@ window.SCENARIOS_DATA = [
       "satomi": "awa_boshu",
       "gamo": "iwashiro",
       "soma": "iwaki",
-      "kobayakawa": "chikuzen"
+      "kobayakawa": "chikuzen",
+      "ryukyu": "ryukyu"
     },
     "alliances": [
       [
@@ -23985,24 +30290,25 @@ window.SCENARIOS_DATA = [
       "tajima": "toyotomi",
       "harima": "toyotomi",
       "inaba": "toyotomi",
-      "hoki": "toyotomi"
+      "hoki": "toyotomi",
+      "ryukyu": "ryukyu"
     },
     "castles": {
       "ezo": "勝山館・茂別館",
-      "tsugaru": "大浦城",
+      "tsugaru": "堀越城",
       "mutsu": "三戸城",
       "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
-      "iwaki": "白河小峰城",
+      "iwaki": "小高城",
       "iwashiro": "会津若松城",
-      "hitachi": "太田城",
-      "shimotsuke": "宇都宮城",
-      "kozuke": "箕輪城",
+      "hitachi": "水戸城",
+      "shimotsuke": "壬生城",
+      "kozuke": "高崎城",
       "musashi": "江戸城",
-      "shimousa": "本佐倉城",
-      "kazusa": "久留里城",
+      "shimousa": "佐倉城",
+      "kazusa": "大多喜城",
       "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
@@ -24011,66 +30317,67 @@ window.SCENARIOS_DATA = [
       "north_shinano": "上田城",
       "south_shinano": "松本城",
       "echigo": "春日山城",
-      "etchu": "高岡城",
+      "etchu": "富山城",
       "noto": "小丸山城",
       "kaga": "金沢城",
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
       "hida": "高山城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "佐和山城",
       "south_omi": "八幡山城",
-      "yamashiro": "聚楽第・伏見城",
-      "yamato": "多聞山城",
+      "yamashiro": "聚楽第",
+      "yamato": "郡山城",
       "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "宮津城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
       "bicchu": "備中松山城",
-      "bingo": "福山城",
+      "bingo": "神辺城",
       "aki": "広島城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
       "iyo": "松山城",
-      "tosa": "高知城",
+      "tosa": "岡豊城",
       "buzen": "中津城",
       "chikuzen": "名島城",
       "hizen": "名護屋城",
       "chikugo": "柳川城",
-      "bungo": "府内城・大友館",
-      "higo": "隈本城",
+      "bungo": "臼杵城",
+      "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
-      "osumi": "帖佐城",
-      "oki": "隠岐陣屋・西郷館",
-      "sado": "沢根城・新穂城",
+      "osumi": "富隈城",
+      "oki": "甲尾城",
+      "sado": "相川陣屋・佐渡奉行所",
       "tsushima": "清水山城",
-      "awaji": "洲本城"
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
         "id": "toyotomi",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "buzen",
+        "startProvId": "yamashiro",
         "provCount": 33,
         "myProvinces": [
           "buzen",
@@ -24509,8 +30816,182 @@ window.SCENARIOS_DATA = [
         "officerId": "off_kobayakawa_takakage",
         "name": "小早川隆景",
         "desc": "筑前名島を領する毛利両川の智将。豊臣政権五大老の一人として絶大な信望を集める。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_nei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_toyotomi_hideyoshi": {
+        "clanId": "toyotomi",
+        "defaultProv": "yamashiro",
+        "isDaimyo": true
+      },
+      "off_kato_kiyomasa": {
+        "clanId": "kato",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_kobayakawa_takakage": {
+        "clanId": "kobayakawa",
+        "defaultProv": "chikuzen",
+        "isDaimyo": true
+      },
+      "off_gamo_ujisato": {
+        "clanId": "gamo",
+        "defaultProv": "iwashiro",
+        "isDaimyo": true
+      },
+      "off_sanada_masayuki": {
+        "clanId": "sanada",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_ryuzoji_masaie": {
+        "clanId": "ryuzoji",
+        "defaultProv": "hizen",
+        "isDaimyo": true
+      },
+      "off_ishida_mitsunari": {
+        "clanId": "toyotomi",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_otani_yoshitsugu": {
+        "clanId": "toyotomi",
+        "defaultProv": "echizen",
+        "isDaimyo": false
+      },
+      "off_fukushima_masanori": {
+        "clanId": "toyotomi",
+        "defaultProv": "owari",
+        "isDaimyo": false
+      },
+      "off_asano_nagamasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "kai",
+        "isDaimyo": false
+      },
+      "off_maeda_geni": {
+        "clanId": "toyotomi",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_hosokawa_tadaoki": {
+        "clanId": "toyotomi",
+        "defaultProv": "tango",
+        "isDaimyo": false
+      },
+      "off_hachisuka_iemasa": {
+        "clanId": "toyotomi",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_sho_nei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽平定を果たした津軽為信が大浦城から移った本拠。弘前城完成までの間、津軽領国支配の中枢となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+      "south_omi": "豊臣秀次が安土城の資材を用いて築いた城郭。城下町近江八幡の繁栄の礎となった。",
+      "yamashiro": "豊臣秀吉が京都に築いた政庁兼城郭。後陽成天皇の行幸を迎え、白壁金瓦の威容で関白秀吉の天下を天下に示した。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "黒田如水・長政父子が築城を開始し、細川忠興が改修した日本三大水城の一つ。中津川河口に築かれた。",
+      "chikuzen": "小早川隆景が博多湾の半島先端に築いた海城。秀吉の九州平定の拠点となり、黒田長政が福岡城へ移るまで居城とした。",
+      "hizen": "豊臣秀吉が朝鮮出兵（文禄・慶長の役）のため肥前波戸岬に築いた巨大城郭。大坂城に次ぐ規模を誇り、諸大名陣屋が並び立った。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "文禄の役の際、豊臣秀吉の命により名護屋城と朝鮮半島を結ぶ兵站拠点として宗義智が築いた山城。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    },
+    "clanDescs": {
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
+    }
   },
   {
     "id": "1600",
@@ -24596,7 +31077,7 @@ window.SCENARIOS_DATA = [
       "yamato": "toyotomi",
       "kii": "toyotomi",
       "harima": "toyotomi",
-      "tajima": "mori",
+      "tajima": "toyotomi",
       "inaba": "mori",
       "hoki": "mori",
       "izumo": "mori",
@@ -24629,7 +31110,8 @@ window.SCENARIOS_DATA = [
       "sado": "tokugawa",
       "tsushima": "so",
       "awaji": "toyotomi",
-      "oki": "tokugawa"
+      "oki": "tokugawa",
+      "ryukyu": "ryukyu"
     },
     "gengo": "慶長5年",
     "lore": "慶長五年九月十五日、徳川家康率いる東軍十万と石田三成・毛利輝元ら西軍十万が美濃関ヶ原で激突。会津の上杉、出羽の最上・伊達、信濃の真田、九州の黒田如水・加藤清正など、日本全土を二分した史上最大の決戦。",
@@ -24640,13 +31122,14 @@ window.SCENARIOS_DATA = [
       "nakagawa": "賤ヶ岳で散った中川清秀の後を継いだ秀成。豊後岡七万石を領し、関ヶ原では東西の狭間で家名を守った。",
       "tachibana": "秀吉に西国無双と称えられた立花宗茂。筑後柳川を本拠に関ヶ原西軍として奮戦した。",
       "so": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。",
-      "tsugaru": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏の重囲を破って津軽一統を成し遂げ、秀吉から本領安堵状を勝ち取った不撓不屈の大名。"
+      "tsugaru": "「津軽の剃刀」と謳われた名将・津軽為信。南部氏の重囲を破って津軽一統を成し遂げ、秀吉から本領安堵状を勝ち取った不撓不屈の大名。",
+      "ryukyu": "首里城を拠点に南蛮・明・日本を結ぶ南海の大交易王国。"
     },
     "castles": {
-      "ezo": "松前城（福山城）",
+      "ezo": "勝山館・茂別館",
       "tsugaru": "堀越城",
       "mutsu": "三戸城",
-      "rikuchu": "盛岡城",
+      "rikuchu": "不来方城",
       "ugo": "湊城",
       "rikuzen": "岩出山城",
       "uzen": "山形城",
@@ -24658,7 +31141,7 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
@@ -24666,66 +31149,67 @@ window.SCENARIOS_DATA = [
       "north_shinano": "上田城",
       "south_shinano": "松本城",
       "echigo": "新発田城",
-      "etchu": "高岡城",
+      "etchu": "富山城",
       "noto": "小丸山城",
       "kaga": "金沢城",
       "echizen": "北ノ庄城",
       "wakasa": "後瀬山城",
       "hida": "高山城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "清洲城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "佐和山城",
       "south_omi": "大津城",
       "yamashiro": "伏見城",
       "yamato": "郡山城",
-      "kii": "新宮城",
+      "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "宮津城",
+      "tango": "田辺城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "月山富田城",
-      "iwami": "浜田城",
+      "iwami": "山吹城（石見銀山）",
       "mimasaka": "美作三星城",
       "bizen": "岡山城",
       "bicchu": "備中松山城",
-      "bingo": "福山城",
+      "bingo": "神辺城",
       "aki": "広島城",
-      "suo": "山口館・大内館",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "勝山城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
       "iyo": "松山城",
-      "tosa": "高知城",
-      "buzen": "小倉城",
-      "chikuzen": "福岡城",
+      "tosa": "岡豊城",
+      "buzen": "中津城",
+      "chikuzen": "名島城",
       "hizen": "佐賀城",
       "chikugo": "柳川城",
-      "bungo": "岡城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "一宇治城・内城",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
-      "sado": "沢根城・新穂城",
-      "tsushima": "清水山城",
-      "awaji": "洲本城"
+      "sado": "相川陣屋・佐渡奉行所",
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
         "id": "tokugawa",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "echigo",
+        "startProvId": "musashi",
         "provCount": 18,
         "myProvinces": [
           "echigo",
@@ -24760,6 +31244,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "north_omi",
         "provCount": 9,
         "myProvinces": [
+          "north_omi",
           "echizen",
           "wakasa",
           "mino",
@@ -24767,8 +31252,7 @@ window.SCENARIOS_DATA = [
           "shima",
           "iga",
           "yamashiro",
-          "chikuzen",
-          "north_omi"
+          "chikuzen"
         ],
         "gold": 3150,
         "rice": 3800,
@@ -24780,10 +31264,9 @@ window.SCENARIOS_DATA = [
         "id": "mori",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "tajima",
+        "startProvId": "aki",
         "provCount": 10,
         "myProvinces": [
-          "tajima",
           "inaba",
           "hoki",
           "izumo",
@@ -24804,7 +31287,7 @@ window.SCENARIOS_DATA = [
         "id": "toyotomi",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "tamba",
+        "startProvId": "settsu",
         "provCount": 10,
         "myProvinces": [
           "tamba",
@@ -24816,7 +31299,8 @@ window.SCENARIOS_DATA = [
           "harima",
           "awaji",
           "sanuki",
-          "awa_shikoku"
+          "awa_shikoku",
+          "tajima"
         ],
         "gold": 1650,
         "rice": 2000,
@@ -24828,7 +31312,7 @@ window.SCENARIOS_DATA = [
         "id": "maeda",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "noto",
+        "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
           "noto",
@@ -24879,8 +31363,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
-          "mutsu",
-          "rikuchu"
+          "rikuchu",
+          "mutsu"
         ],
         "gold": 900,
         "rice": 1100,
@@ -24892,7 +31376,7 @@ window.SCENARIOS_DATA = [
         "id": "uesugi",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "iwaki",
+        "startProvId": "iwashiro",
         "provCount": 2,
         "myProvinces": [
           "iwaki",
@@ -25144,13 +31628,28 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_kyogoku_takatsugu",
         "desc": "近江源氏の名門・京極家。京極高次は大津城に籠城し、西軍一万五千の精鋭を関ヶ原本戦から引き離す大功を挙げた。"
+      },
+      {
+        "id": "ryukyu",
+        "difficulty": "上級",
+        "winRate": 45,
+        "startProvId": "ryukyu",
+        "provCount": 1,
+        "myProvinces": [
+          "ryukyu"
+        ],
+        "gold": 900,
+        "rice": 900,
+        "personality": "domestic",
+        "officerId": "off_sho_nei",
+        "desc": "南海に浮かぶ海洋交易国家・琉球王国。首里城を拠点に明・東南アジア・日本を結ぶ海上ネットワークを誇る。"
       }
     ],
     "capitals": {
       "tokugawa": "musashi",
       "ishida": "north_omi",
       "toyotomi": "settsu",
-      "mori": "suo",
+      "mori": "aki",
       "uesugi": "iwashiro",
       "date": "rikuzen",
       "satake": "hitachi",
@@ -25174,7 +31673,134 @@ window.SCENARIOS_DATA = [
       "so": "tsushima",
       "hosokawa": "tango",
       "kyogoku": "south_omi",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "ryukyu": "ryukyu"
+    },
+    "officerAffiliations": {
+      "off_hosokawa_tadaoki": {
+        "clanId": "hosokawa",
+        "defaultProv": "tango",
+        "isDaimyo": true
+      },
+      "off_kyogoku_takatsugu": {
+        "clanId": "kyogoku",
+        "defaultProv": "south_omi",
+        "isDaimyo": true
+      },
+      "off_ishida_mitsunari": {
+        "clanId": "ishida",
+        "defaultProv": "north_omi",
+        "isDaimyo": true
+      },
+      "off_kato_kiyomasa": {
+        "clanId": "kato",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_dm_toyotomi_1600": {
+        "clanId": "toyotomi",
+        "defaultProv": "settsu",
+        "isDaimyo": true
+      },
+      "off_sanada_masayuki": {
+        "clanId": "sanada",
+        "defaultProv": "north_shinano",
+        "isDaimyo": true
+      },
+      "off_succ_ito_1550_45": {
+        "clanId": "ito",
+        "defaultProv": "hyuga",
+        "isDaimyo": true
+      },
+      "off_sho_nei": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_jana_rizan": {
+        "clanId": "ryukyu",
+        "defaultProv": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+      "tsugaru": "津軽平定を果たした津軽為信が大浦城から移った本拠。弘前城完成までの間、津軽領国支配の中枢となった。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+      "rikuzen": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "関ヶ原後に鳥居忠政が築いた磐城平藩の本拠。いわき平野を見下ろす近世城郭。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "新発田重家が上杉景勝に抵抗した城。関ヶ原後は溝口氏が入り『あやめ城』とも呼ばれる近世城郭へ発展した。",
+      "etchu": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+      "south_omi": "豊臣政権下で京の喉首を扼する城として築かれた。関ヶ原の戦いでは京極高次が西軍一万五千を相手に防戦した。",
+      "yamashiro": "豊臣秀吉が晩年の居城として築き、秀吉終焉の地となった巨城。関ヶ原の前哨戦や家康の上洛拠点ともなった。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+      "iwami": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+      "mimasaka": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+      "buzen": "黒田如水・長政父子が築城を開始し、細川忠興が改修した日本三大水城の一つ。中津川河口に築かれた。",
+      "chikuzen": "小早川隆景が博多湾の半島先端に築いた海城。秀吉の九州平定の拠点となり、黒田長政が福岡城へ移るまで居城とした。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -25208,7 +31834,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "gamou",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -25276,17 +31902,18 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "castles": {
       "ezo": "松前城（福山城）",
-      "tsugaru": "堀越城",
+      "tsugaru": "弘前城",
       "mutsu": "三戸城",
-      "rikuchu": "盛岡城",
-      "ugo": "湊城",
-      "rikuzen": "岩出山城",
+      "rikuchu": "不来方城",
+      "ugo": "久保田城",
+      "rikuzen": "青葉城（仙台城）",
       "uzen": "山形城",
-      "iwaki": "平城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -25294,7 +31921,7 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
@@ -25305,21 +31932,21 @@ window.SCENARIOS_DATA = [
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
-      "echizen": "北ノ庄城",
+      "echizen": "福井城",
       "wakasa": "後瀬山城",
       "hida": "高山城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
-      "owari": "清洲城",
-      "ise": "安濃津城",
+      "mikawa": "岡崎城",
+      "owari": "名古屋城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "佐和山城",
-      "south_omi": "大津城",
-      "yamashiro": "伏見城",
+      "iga": "伊賀上野城",
+      "north_omi": "彦根城",
+      "south_omi": "膳所城",
+      "yamashiro": "二条城",
       "yamato": "郡山城",
-      "kii": "新宮城",
+      "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城（真田丸）",
@@ -25327,17 +31954,17 @@ window.SCENARIOS_DATA = [
       "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
-      "izumo": "月山富田城",
+      "izumo": "松江城",
       "iwami": "浜田城",
-      "mimasaka": "美作三星城",
+      "mimasaka": "津山城",
       "bizen": "岡山城",
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
+      "suo": "山口高嶺城・富田若山城",
+      "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
       "iyo": "松山城",
@@ -25345,23 +31972,24 @@ window.SCENARIOS_DATA = [
       "buzen": "小倉城",
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
-      "chikugo": "柳川城",
-      "bungo": "岡城",
+      "chikugo": "久留米城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
-      "satsuma": "一宇治城・内城",
+      "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
-      "sado": "沢根城・新穂城",
-      "tsushima": "清水山城",
-      "awaji": "洲本城"
+      "sado": "相川陣屋・佐渡奉行所",
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
         "id": "toyotomi",
         "difficulty": "上級",
         "winRate": 48,
-        "startProvId": "kawachi",
+        "startProvId": "settsu",
         "provCount": 3,
         "myProvinces": [
           "kawachi",
@@ -25381,6 +32009,7 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 42,
         "myProvinces": [
+          "musashi",
           "awa_boshu",
           "awaji",
           "bicchu",
@@ -25392,7 +32021,6 @@ window.SCENARIOS_DATA = [
           "harima",
           "hida",
           "hoki",
-          "hyuga",
           "iga",
           "inaba",
           "ise",
@@ -25406,7 +32034,6 @@ window.SCENARIOS_DATA = [
           "mikawa",
           "mimasaka",
           "mino",
-          "musashi",
           "oki",
           "sado",
           "sagami",
@@ -25449,7 +32076,7 @@ window.SCENARIOS_DATA = [
         "id": "maeda",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "etchu",
+        "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
           "etchu",
@@ -25467,10 +32094,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2400,
         "rice": 2800,
@@ -25513,7 +32139,7 @@ window.SCENARIOS_DATA = [
         "id": "mori",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "aki",
+        "startProvId": "suo",
         "provCount": 2,
         "myProvinces": [
           "suo",
@@ -25530,10 +32156,11 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 2,
+        "provCount": 3,
         "myProvinces": [
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 2000,
         "rice": 2400,
@@ -25667,8 +32294,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
-          "mutsu",
-          "rikuchu"
+          "rikuchu",
+          "mutsu"
         ],
         "gold": 1200,
         "rice": 1400,
@@ -25782,6 +32409,21 @@ window.SCENARIOS_DATA = [
         "officerId": "off_fukushima_masanori",
         "name": "福島正則",
         "desc": "賤ヶ岳の七本槍筆頭・福島正則。関ヶ原の戦功により安芸・備後四十九万八千石を領し広島城に入った武勇の名将。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_toshitane",
+        "desc": "相馬家当主。陸奥相馬中村藩初代藩主・相馬利胤。関ヶ原の難局を乗り越え中村城を築城。大坂の陣でも幕府方として活躍し藩政の礎を固めた。"
       }
     ],
     "capitals": {
@@ -25812,7 +32454,125 @@ window.SCENARIOS_DATA = [
       "so": "tsushima",
       "mito": "hitachi",
       "fukushima": "aki",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
+    },
+    "officerAffiliations": {
+      "off_soma_yoshitane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_nagao_kagehiro": {
+        "clanId": "uesugi",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_nagao_kagetoshi": {
+        "clanId": "uesugi",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_soma_toshitane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_okada_naotane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_fukushima_masanori": {
+        "clanId": "fukushima",
+        "defaultProv": "aki",
+        "isDaimyo": true
+      },
+      "off_sho_nei": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "新発田重家が上杉景勝に抵抗した城。関ヶ原後は溝口氏が入り『あやめ城』とも呼ばれる近世城郭へ発展した。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "大坂冬の陣で真田信繁（幸村）が出城『真田丸』を築き、徳川数十万の大軍を撃退した天下無双の要塞。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -25847,7 +32607,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -25915,17 +32675,18 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "castles": {
       "ezo": "松前城（福山城）",
-      "tsugaru": "堀越城",
+      "tsugaru": "弘前城",
       "mutsu": "三戸城",
       "rikuchu": "盛岡城",
-      "ugo": "湊城",
-      "rikuzen": "岩出山城",
+      "ugo": "久保田城",
+      "rikuzen": "青葉城（仙台城）",
       "uzen": "山形城",
-      "iwaki": "平城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -25933,32 +32694,32 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
-      "north_shinano": "上田城",
+      "north_shinano": "松代城",
       "south_shinano": "松本城",
       "echigo": "新発田城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
-      "echizen": "北ノ庄城",
+      "echizen": "福井城",
       "wakasa": "後瀬山城",
       "hida": "高山城",
-      "mino": "岐阜城",
+      "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
-      "owari": "清洲城",
-      "ise": "安濃津城",
+      "mikawa": "岡崎城",
+      "owari": "名古屋城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
-      "north_omi": "佐和山城",
-      "south_omi": "大津城",
-      "yamashiro": "伏見城",
+      "iga": "伊賀上野城",
+      "north_omi": "彦根城",
+      "south_omi": "膳所城",
+      "yamashiro": "二条城",
       "yamato": "郡山城",
-      "kii": "新宮城",
+      "kii": "和歌山城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
@@ -25966,17 +32727,17 @@ window.SCENARIOS_DATA = [
       "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
-      "izumo": "月山富田城",
+      "izumo": "松江城",
       "iwami": "浜田城",
-      "mimasaka": "美作三星城",
+      "mimasaka": "津山城",
       "bizen": "岡山城",
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口館・大内館",
-      "nagato": "勝山城",
+      "suo": "山口高嶺城・富田若山城",
+      "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
       "iyo": "松山城",
@@ -25984,16 +32745,17 @@ window.SCENARIOS_DATA = [
       "buzen": "小倉城",
       "chikuzen": "福岡城",
       "hizen": "原城",
-      "chikugo": "柳川城",
-      "bungo": "岡城",
+      "chikugo": "久留米城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
-      "hyuga": "延岡城",
-      "satsuma": "一宇治城・内城",
+      "hyuga": "飫肥城",
+      "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
-      "sado": "沢根城・新穂城",
-      "tsushima": "清水山城",
-      "awaji": "洲本城"
+      "sado": "相川陣屋・佐渡奉行所",
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -26015,7 +32777,7 @@ window.SCENARIOS_DATA = [
         "id": "tokugawa",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "shimotsuke",
+        "startProvId": "musashi",
         "provCount": 44,
         "myProvinces": [
           "shimotsuke",
@@ -26058,7 +32820,6 @@ window.SCENARIOS_DATA = [
           "iyo",
           "buzen",
           "bungo",
-          "hyuga",
           "oki",
           "sado",
           "awaji"
@@ -26118,7 +32879,7 @@ window.SCENARIOS_DATA = [
         "id": "maeda",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "etchu",
+        "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
           "etchu",
@@ -26136,10 +32897,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2200,
         "rice": 2600,
@@ -26199,10 +32959,11 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 2,
+        "provCount": 3,
         "myProvinces": [
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 2000,
         "rice": 2400,
@@ -26353,8 +33114,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
-          "mutsu",
-          "rikuchu"
+          "rikuchu",
+          "mutsu"
         ],
         "gold": 1100,
         "rice": 1300,
@@ -26421,6 +33182,21 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_hachisuka_tadahide",
         "desc": "阿波徳島藩主・蜂須賀忠英。蜂須賀小六・至鎮の血を引く勇将。幕府軍の島原の乱征伐において四国防衛と後方警備を固める。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_yoshitane_2",
+        "desc": "相馬家当主。陸奥相馬中村藩第二代藩主・相馬義胤。領内の検地や藩政の基盤確立に尽力し、島原の乱の折には幕府の命を受け江戸城警備の重責を果たした。"
       }
     ],
     "capitals": {
@@ -26449,7 +33225,125 @@ window.SCENARIOS_DATA = [
       "tachibana": "chikugo",
       "hosokawa": "higo",
       "so": "tsushima",
-      "arima": "hyuga"
+      "arima": "hyuga",
+      "soma": "iwaki"
+    },
+    "officerAffiliations": {
+      "off_nagao_kagetoshi": {
+        "clanId": "uesugi",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_nagao_kagefusa": {
+        "clanId": "uesugi",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_edo_matsue_1601_161": {
+        "clanId": "tokugawa",
+        "defaultProv": "izumo",
+        "isDaimyo": false
+      },
+      "off_soma_yoshitane_2": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_okada_naotane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_jd_053": {
+        "clanId": "arima",
+        "defaultProv": "hyuga",
+        "isDaimyo": true
+      },
+      "off_sho_ho": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "新発田重家が上杉景勝に抵抗した城。関ヶ原後は溝口氏が入り『あやめ城』とも呼ばれる近世城郭へ発展した。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "有馬氏の旧城。寛永14年（1637年）、天草四郎を総大将とする島原の乱の一揆勢三万七千が立て籠もり幕府軍と死闘を演じた。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -26487,7 +33381,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -26555,7 +33449,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -26588,7 +33483,8 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "so": "tsushima",
       "ogasawara": "buzen",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -26597,8 +33493,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -26606,7 +33502,7 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
@@ -26622,24 +33518,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -26648,7 +33544,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -26658,15 +33554,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -26691,9 +33588,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 39,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -26734,8 +33631,9 @@ window.SCENARIOS_DATA = [
         "gold": 9000,
         "rice": 10000,
         "personality": "domestic",
-        "officerId": "off_tokugawa_iemitsu",
-        "desc": "三代将軍。慶安四年に薨じ、四代家綱はまだ幼い。松平信綱・酒井忠勝・保科正之が幕閣を支える。"
+        "officerId": "off_tokugawa_ietsuna",
+        "desc": "三代将軍。慶安四年に薨じ、四代家綱はまだ幼い。松平信綱・酒井忠勝・保科正之が幕閣を支える。",
+        "name": "徳川家綱"
       },
       {
         "id": "owari",
@@ -26819,9 +33717,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -26836,9 +33734,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -26853,8 +33751,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -26867,10 +33765,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -26907,8 +33804,130 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_yamauchi_tadayoshi",
         "desc": "土佐藩主。山内家。四国の外様として藩政を固める。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_tadatane",
+        "desc": "相馬家当主。陸奥相馬中村藩第三代藩主・相馬忠胤。土井利勝の子で相馬義胤の養子となり家督を継ぐ。相馬野馬追の振興や家中規律の刷新に努めた名君。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_tadatane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_nagao_kagefusa": {
+        "clanId": "uesugi",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_soma_yoshitane_2": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_okada_naotane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_sho_shitsu": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "新発田重家が上杉景勝に抵抗した城。関ヶ原後は溝口氏が入り『あやめ城』とも呼ばれる近世城郭へ発展した。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1702",
@@ -26925,7 +33944,9 @@ window.SCENARIOS_DATA = [
       ]
     ],
     "fieldLandedOnly": true,
-    "keepRonin": ["off_sakakibara_masakuni"],
+    "keepRonin": [
+      "off_sakakibara_masakuni"
+    ],
     "noAutoCastellan": true,
     "daikanProvinces": [
       "hida",
@@ -26957,7 +33978,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -27025,7 +34046,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -27057,7 +34079,8 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "so": "tsushima",
       "ako_ronin": "harima",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -27066,8 +34089,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -27075,14 +34098,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -27091,24 +34114,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
-      "harima": "赤穂城",
-      "inaba": "鳥取城（近世）",
+      "harima": "姫路城",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -27117,7 +34140,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -27127,15 +34150,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -27160,9 +34184,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 40,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -27290,9 +34314,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -27307,9 +34331,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -27324,8 +34348,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -27338,10 +34362,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -27409,8 +34432,115 @@ window.SCENARIOS_DATA = [
         "officerId": "off_uesugi_tsunanori",
         "name": "上杉綱憲",
         "desc": "米沢藩第四代藩主・上杉綱憲。吉良義央の実子で上杉家に入嗣。学問を奨励し、能書家としても知られた。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_masatane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_masatane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_sho_tei": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1721",
@@ -27447,7 +34577,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -27515,7 +34645,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -27547,7 +34678,8 @@ window.SCENARIOS_DATA = [
       "shimazu": "satsuma",
       "so": "tsushima",
       "ito": "hyuga",
-      "todo": "ise"
+      "todo": "ise",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -27556,8 +34688,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -27565,14 +34697,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -27581,24 +34713,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -27607,7 +34739,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -27617,15 +34749,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -27633,11 +34766,11 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "musashi",
-        "provCount": 41,
+        "provCount": 39,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -27652,9 +34785,7 @@ window.SCENARIOS_DATA = [
           "mino",
           "totomi",
           "mikawa",
-          "ise",
           "shima",
-          "iga",
           "south_omi",
           "yamashiro",
           "yamato",
@@ -27766,9 +34897,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -27783,9 +34914,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -27800,8 +34931,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -27814,10 +34945,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -27901,8 +35031,120 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_jd_272",
         "desc": "津藩主・藤堂高敏。伊勢・伊賀を領し、築城の名手藤堂高虎以来の名家として伊勢路を押さえる。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_nobutane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_nobutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_edo_matsue_1685_164": {
+        "clanId": "matsue",
+        "defaultProv": "izumo",
+        "isDaimyo": true
+      },
+      "off_sho_kei": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1789",
@@ -27939,7 +35181,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -28007,7 +35249,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -28038,7 +35281,8 @@ window.SCENARIOS_DATA = [
       "hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "ito": "hyuga"
+      "ito": "hyuga",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -28047,8 +35291,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -28056,14 +35300,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -28072,24 +35316,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -28098,7 +35342,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -28108,15 +35352,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -28126,9 +35371,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 41,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -28257,9 +35502,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -28274,9 +35519,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -28291,8 +35536,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -28305,10 +35550,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -28376,8 +35620,120 @@ window.SCENARIOS_DATA = [
         "officerId": "off_uesugi_haruhiro",
         "name": "上杉治広",
         "desc": "米沢藩第十代藩主。養父・上杉鷹山の改革を受け継ぎ、米沢の藩政再建を進める。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_yoshitane_9",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_yoshitane_9": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_kusano_heima": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_sho_boku": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1837",
@@ -28413,7 +35769,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -28481,7 +35837,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -28511,7 +35868,8 @@ window.SCENARIOS_DATA = [
       "tachibana": "chikugo",
       "kumamoto_hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -28520,8 +35878,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -28529,14 +35887,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -28545,24 +35903,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -28571,7 +35929,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -28581,15 +35939,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -28614,9 +35973,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 42,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -28698,11 +36057,12 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 3,
+        "provCount": 4,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "hyuga",
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -28717,8 +36077,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -28733,9 +36093,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -28808,10 +36168,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -28848,8 +36207,130 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_edo_asano_1817_208",
         "desc": "広島藩主。芸州四十二万石。長州と境を接する。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_masutane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_masutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_soma_mitsutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_tomita_kokei": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_hosokawa_narimori": {
+        "clanId": "kumamoto_hosokawa",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_sho_iku": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1853",
@@ -28886,7 +36367,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -28954,7 +36435,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -28984,7 +36466,8 @@ window.SCENARIOS_DATA = [
       "kumamoto_hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "sakai": "harima"
+      "sakai": "harima",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -28993,8 +36476,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -29002,14 +36485,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -29018,24 +36501,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -29044,7 +36527,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -29054,15 +36537,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -29072,9 +36556,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 42,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -29126,11 +36610,12 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 3,
+        "provCount": 4,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "hyuga",
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -29190,8 +36675,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -29206,9 +36691,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -29266,10 +36751,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -29306,8 +36790,140 @@ window.SCENARIOS_DATA = [
         "personality": "domestic",
         "officerId": "off_edo_kishu_1771_112",
         "desc": "紀州の長老。この年に没する。御三家紀伊の家格を守る。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_mitsutane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_mitsutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_kuroda_nagashige": {
+        "clanId": "fukuoka_kuroda",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_shimada_kai": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_nakajima_nobori": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_tomita_kokei": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_hosokawa_narimori": {
+        "clanId": "kumamoto_hosokawa",
+        "defaultProv": "higo",
+        "isDaimyo": true
+      },
+      "off_sho_tai": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1860",
@@ -29344,7 +36960,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -29412,7 +37028,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "capitals": {
       "kakizaki": "ezo",
@@ -29442,7 +37059,8 @@ window.SCENARIOS_DATA = [
       "kumamoto_hosokawa": "higo",
       "shimazu": "satsuma",
       "so": "tsushima",
-      "sakai": "harima"
+      "sakai": "harima",
+      "soma": "iwaki"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -29451,8 +37069,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -29460,14 +37078,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -29476,24 +37094,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -29502,7 +37120,7 @@ window.SCENARIOS_DATA = [
       "bicchu": "備中松山城",
       "bingo": "福山城",
       "aki": "広島城",
-      "suo": "山口政事堂",
+      "suo": "山口高嶺城・富田若山城",
       "nagato": "萩城",
       "sanuki": "高松城",
       "awa_shikoku": "徳島城",
@@ -29512,15 +37130,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -29545,9 +37164,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 42,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -29591,7 +37210,7 @@ window.SCENARIOS_DATA = [
         "gold": 9000,
         "rice": 10000,
         "personality": "domestic",
-        "officerId": "off_tokugawa_yoshinobu",
+        "officerId": "off_tokugawa_iemochi",
         "desc": "一橋家の当主。将軍家茂は十四歳で未元服のため、成年の徳川として幕政の受け皿になる。実権は大老井伊にあった。"
       },
       {
@@ -29614,11 +37233,12 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "satsuma",
-        "provCount": 3,
+        "provCount": 4,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "hyuga",
+          "osumi",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -29633,8 +37253,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -29709,9 +37329,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -29724,10 +37344,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 2800,
         "rice": 3200,
@@ -29749,8 +37368,145 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_nabeshima_1868",
         "desc": "佐賀藩主。軍事力では雄藩の一つ。開国と富国の実務を進める。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_mitsutane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
-    ]
+    ],
+    "officerAffiliations": {
+      "off_soma_mitsutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_kuroda_nagashige": {
+        "clanId": "fukuoka_kuroda",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_shimada_kai": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_nakajima_nobori": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_tokugawa_iemochi": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": true
+      },
+      "off_tokugawa_yoshinobu": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_tomita_kokei": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_sho_tai": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
+    }
   },
   {
     "id": "1866",
@@ -29794,7 +37550,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "hitachi": "mito",
       "shimotsuke": "tokugawa",
@@ -29862,7 +37618,8 @@ window.SCENARIOS_DATA = [
       "oki": "tokugawa",
       "sado": "tokugawa",
       "tsushima": "so",
-      "awaji": "tokugawa"
+      "awaji": "tokugawa",
+      "ryukyu": "shimazu"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -29871,8 +37628,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -29880,14 +37637,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -29896,24 +37653,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -29932,27 +37689,29 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
         "id": "shimazu",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "hyuga",
-        "provCount": 3,
+        "startProvId": "satsuma",
+        "provCount": 4,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "hyuga",
+          "ryukyu"
         ],
         "gold": 3500,
         "rice": 4000,
@@ -29967,8 +37726,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "nagato",
         "provCount": 2,
         "myProvinces": [
-          "suo",
-          "nagato"
+          "nagato",
+          "suo"
         ],
         "gold": 3200,
         "rice": 3800,
@@ -29998,9 +37757,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "musashi",
         "provCount": 37,
         "myProvinces": [
+          "musashi",
           "shimotsuke",
           "kozuke",
-          "musashi",
           "shimousa",
           "kazusa",
           "awa_boshu",
@@ -30186,9 +37945,9 @@ window.SCENARIOS_DATA = [
         "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "etchu",
-          "noto",
-          "kaga"
+          "noto"
         ],
         "gold": 2000,
         "rice": 2400,
@@ -30201,10 +37960,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "中級",
         "winRate": 70,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 1800,
         "rice": 2100,
@@ -30249,8 +38007,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
-          "mutsu",
-          "rikuchu"
+          "rikuchu",
+          "mutsu"
         ],
         "gold": 1100,
         "rice": 1300,
@@ -30392,6 +38150,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_so_1868",
         "desc": "鎌倉時代より対馬を代々統治する名門島主・宗家。日本と朝鮮半島を結ぶ海運・通商・外交の結節点を一手に扼し、幾多の外患や乱世を不屈の誇りと巧みな外交力で乗り越えた独立水軍大名。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_mitsutane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
     ],
     "capitals": {
@@ -30418,14 +38191,157 @@ window.SCENARIOS_DATA = [
       "matsue": "izumo",
       "okayama": "bizen",
       "asano": "aki",
-      "mori": "suo",
+      "mori": "nagato",
       "hachisuka": "awa_shikoku",
       "fukuoka_kuroda": "chikuzen",
       "nabeshima": "hizen",
       "tachibana": "chikugo",
       "kumamoto_hosokawa": "higo",
       "shimazu": "satsuma",
-      "so": "tsushima"
+      "so": "tsushima",
+      "soma": "iwaki"
+    },
+    "officerAffiliations": {
+      "off_soma_mitsutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_kondo_isami": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_hijikata_toshizo": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_okita_soji": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_nagakura_shinpachi": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_saito_hajime": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_shimada_kai": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_nakajima_nobori": {
+        "clanId": "tokugawa",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_kasuga_saemon": {
+        "clanId": "tokugawa",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_omura_masujiro": {
+        "clanId": "mori",
+        "defaultProv": "suo",
+        "isDaimyo": false
+      },
+      "off_tomita_kokei": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_sho_tai": {
+        "clanId": "shimazu",
+        "defaultProv": "ryukyu",
+        "assignedProvId": "ryukyu",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "幕末、長州藩主・毛利敬親が萩から山口へ藩庁を移転（山口移鎮）して設けた政庁。倒幕運動の司令塔となった。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -30479,7 +38395,7 @@ window.SCENARIOS_DATA = [
       "ugo": "satake",
       "rikuzen": "date",
       "uzen": "uesugi",
-      "iwaki": "date",
+      "iwaki": "soma",
       "iwashiro": "aizu",
       "echigo": "makino",
       "noto": "maeda",
@@ -30548,7 +38464,8 @@ window.SCENARIOS_DATA = [
       "sado": "meiji",
       "tsushima": "so",
       "awaji": "meiji",
-      "oki": "meiji"
+      "oki": "meiji",
+      "ryukyu": "meiji"
     },
     "gengo": "慶応4年 (明治元年)",
     "lore": "慶応四年一月、鳥羽・伏見の戦いで旧幕府軍と薩長新政府軍が衝突。錦の御旗が掲げられ、江戸城無血開城、北越戦争、会津戦争、箱館五稜郭へと転戦する。七百年に及ぶ武家政治の終焉と近代国家誕生の産声。",
@@ -30564,8 +38481,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -30573,7 +38490,7 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
@@ -30589,24 +38506,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
       "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -30625,15 +38542,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -30641,11 +38559,11 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "yamashiro",
-        "provCount": 19,
+        "provCount": 20,
         "myProvinces": [
+          "yamashiro",
           "shimotsuke",
           "kai",
-          "yamashiro",
           "tamba",
           "tango",
           "settsu",
@@ -30661,7 +38579,8 @@ window.SCENARIOS_DATA = [
           "south_omi",
           "sado",
           "awaji",
-          "oki"
+          "oki",
+          "ryukyu"
         ],
         "gold": 5650,
         "rice": 6800,
@@ -30673,14 +38592,14 @@ window.SCENARIOS_DATA = [
         "id": "tokugawa",
         "difficulty": "初級",
         "winRate": 88,
-        "startProvId": "kozuke",
+        "startProvId": "musashi",
         "provCount": 10,
         "myProvinces": [
+          "musashi",
           "kozuke",
           "shimousa",
           "kazusa",
           "awa_boshu",
-          "musashi",
           "sagami",
           "suruga",
           "totomi",
@@ -30697,12 +38616,12 @@ window.SCENARIOS_DATA = [
         "id": "maeda",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "noto",
+        "startProvId": "kaga",
         "provCount": 3,
         "myProvinces": [
+          "kaga",
           "noto",
-          "etchu",
-          "kaga"
+          "etchu"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -30714,12 +38633,12 @@ window.SCENARIOS_DATA = [
         "id": "owari",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "hida",
+        "startProvId": "owari",
         "provCount": 3,
         "myProvinces": [
-          "hida",
+          "owari",
           "mino",
-          "owari"
+          "hida"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -30748,12 +38667,12 @@ window.SCENARIOS_DATA = [
         "id": "tottori",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "tajima",
+        "startProvId": "inaba",
         "provCount": 3,
         "myProvinces": [
-          "tajima",
           "inaba",
-          "hoki"
+          "hoki",
+          "tajima"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -30765,12 +38684,12 @@ window.SCENARIOS_DATA = [
         "id": "mori",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "iwami",
+        "startProvId": "nagato",
         "provCount": 3,
         "myProvinces": [
-          "iwami",
+          "nagato",
           "suo",
-          "nagato"
+          "iwami"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -30782,11 +38701,11 @@ window.SCENARIOS_DATA = [
         "id": "okayama",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "mimasaka",
+        "startProvId": "bizen",
         "provCount": 3,
         "myProvinces": [
-          "mimasaka",
           "bizen",
+          "mimasaka",
           "bicchu"
         ],
         "gold": 1150,
@@ -30799,12 +38718,12 @@ window.SCENARIOS_DATA = [
         "id": "shimazu",
         "difficulty": "中級",
         "winRate": 70,
-        "startProvId": "hyuga",
+        "startProvId": "satsuma",
         "provCount": 3,
         "myProvinces": [
-          "hyuga",
           "satsuma",
-          "osumi"
+          "osumi",
+          "hyuga"
         ],
         "gold": 1150,
         "rice": 1400,
@@ -30817,10 +38736,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "上級",
         "winRate": 50,
         "startProvId": "rikuzen",
-        "provCount": 2,
+        "provCount": 1,
         "myProvinces": [
-          "rikuzen",
-          "iwaki"
+          "rikuzen"
         ],
         "gold": 900,
         "rice": 1100,
@@ -30848,11 +38766,11 @@ window.SCENARIOS_DATA = [
         "id": "asano",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "bingo",
+        "startProvId": "aki",
         "provCount": 2,
         "myProvinces": [
-          "bingo",
-          "aki"
+          "aki",
+          "bingo"
         ],
         "gold": 900,
         "rice": 1100,
@@ -30864,11 +38782,11 @@ window.SCENARIOS_DATA = [
         "id": "fukuoka_kuroda",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "buzen",
+        "startProvId": "chikuzen",
         "provCount": 2,
         "myProvinces": [
-          "buzen",
-          "chikuzen"
+          "chikuzen",
+          "buzen"
         ],
         "gold": 900,
         "rice": 1100,
@@ -30880,11 +38798,11 @@ window.SCENARIOS_DATA = [
         "id": "kumamoto_hosokawa",
         "difficulty": "上級",
         "winRate": 50,
-        "startProvId": "bungo",
+        "startProvId": "higo",
         "provCount": 2,
         "myProvinces": [
-          "bungo",
-          "higo"
+          "higo",
+          "bungo"
         ],
         "gold": 900,
         "rice": 1100,
@@ -30929,8 +38847,8 @@ window.SCENARIOS_DATA = [
         "startProvId": "rikuchu",
         "provCount": 2,
         "myProvinces": [
-          "mutsu",
-          "rikuchu"
+          "rikuchu",
+          "mutsu"
         ],
         "gold": 650,
         "rice": 800,
@@ -31087,6 +39005,21 @@ window.SCENARIOS_DATA = [
         "personality": "balanced",
         "officerId": "off_dm_so_1868",
         "desc": "鎌倉時代より対馬を代々治める島主・宗家。朝鮮との交易・外交を管掌し、文永の役や応永の外寇など外患の最前線で対馬海峡を死守した名門海洋大名。"
+      },
+      {
+        "id": "soma",
+        "difficulty": "初級",
+        "winRate": 70,
+        "startProvId": "iwaki",
+        "provCount": 1,
+        "myProvinces": [
+          "iwaki"
+        ],
+        "gold": 800,
+        "rice": 1000,
+        "personality": "balanced",
+        "officerId": "off_soma_tomotane",
+        "desc": "相馬中村藩主。奥州相馬氏の名跡を守り、相馬野馬追の伝統を継承する。"
       }
     ],
     "capitals": {
@@ -31118,7 +39051,114 @@ window.SCENARIOS_DATA = [
       "nabeshima": "hizen",
       "shimazu": "satsuma",
       "tsugaru": "tsugaru",
-      "so": "tsushima"
+      "so": "tsushima",
+      "soma": "iwaki"
+    },
+    "officerAffiliations": {
+      "off_soma_tomotane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": true
+      },
+      "off_kido_takayoshi": {
+        "clanId": "mori",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_omura_masujiro": {
+        "clanId": "mori",
+        "defaultProv": "suo",
+        "isDaimyo": false
+      },
+      "off_soma_mitsutane": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_tomita_kokei": {
+        "clanId": "soma",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "幕末、長州藩主・毛利敬親が萩から山口へ藩庁を移転（山口移鎮）して設けた政庁。倒幕運動の司令塔となった。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   },
   {
@@ -31131,10 +39171,10 @@ window.SCENARIOS_DATA = [
     "subtitle": "西郷隆盛の挙兵",
     "gengo": "明治10年",
     "recommendedClan": "saigo_gun",
-    "desc": "明治十年、私学校党に擁された西郷隆盛が鹿児島で挙兵。熊本城を囲み田原坂で官軍と激突する、最後の士族反乱。",
+    "desc": "明治10年、私学校党に擁された西郷隆盛が挙兵。政府軍は全国六鎮台（東京・仙台・名古屋・大阪・広島・熊本）と各府県令を総動員してこれを迎え撃つ。日本の命運を分かつ最後にして最大の士族戦争。",
     "lore": "西南の役。西郷隆盛・桐野利秋ら私学校党対明治政府の決戦。",
     "lore_background": "廃藩置県と徴兵令の後、士族の不満が鹿児島に渦巻いた。明治十年二月、西郷隆盛を盟主に仰いだ私学校生徒らは銃を取り、鹿児島を発って熊本城を包囲した。山縣有朋・黒田清隆らが率いる政府軍は田原坂で薩軍を破り、九月、西郷は城山で自刃した。",
-    "lore_factions": "【私学校党・薩軍】西郷隆盛・桐野利秋・村田新八・篠原国幹・別府晋介\n【明治政府軍】明治天皇・有栖川宮熾仁親王（征討総督）・山縣有朋・黒田清隆",
+    "lore_factions": "【薩軍（西郷軍）】西郷隆盛・桐野利秋・篠原国幹・村田新八・別府晋介・永山弥一郎・池上四郎・辺見十郎太・貴島清・西郷小兵衛・野村忍介・別府九間・宮崎八郎・中島健彦・越智彦四郎・大山綱良・大江卓・林有造\n【政府軍・鎮台・府県】明治天皇・有栖川宮熾仁親王（征討総督）・谷干城（熊本鎮台）・乃木希典・川路利良（大警視）・児玉源太郎・三浦梧楼（広島鎮台）・三好重臣（大阪鎮台）・四条隆謌（仙台鎮台）・高島鞆之助（東京鎮台）・丸山定政（名古屋鎮台）・山縣有朋・大久保利通・黒田清隆・西郷従道・楠本正隆・槇村正直・渡辺昇",
     "lore_focus": "士族の誇りを貫いて鹿児島から京へ進むか、徴兵の兵と新式銃で反乱を鎮めるか。西南の決戦が明治国家の命運を決する。",
     "owners": {
       "ezo": "meiji",
@@ -31212,7 +39252,8 @@ window.SCENARIOS_DATA = [
       "sado": "meiji",
       "tsushima": "meiji",
       "awaji": "meiji",
-      "oki": "meiji"
+      "oki": "meiji",
+      "ryukyu": "meiji"
     },
     "castles": {
       "ezo": "松前城（福山城）",
@@ -31221,8 +39262,8 @@ window.SCENARIOS_DATA = [
       "rikuchu": "盛岡城",
       "ugo": "久保田城",
       "rikuzen": "青葉城（仙台城）",
-      "uzen": "米沢城",
-      "iwaki": "平城",
+      "uzen": "山形城",
+      "iwaki": "相馬中村城",
       "iwashiro": "会津若松城",
       "hitachi": "水戸城",
       "shimotsuke": "壬生城",
@@ -31230,14 +39271,14 @@ window.SCENARIOS_DATA = [
       "musashi": "江戸城",
       "shimousa": "佐倉城",
       "kazusa": "大多喜城",
-      "awa_boshu": "勝山城",
+      "awa_boshu": "館山城",
       "sagami": "小田原城",
       "izu": "下田城",
       "suruga": "駿府城",
       "kai": "甲府城",
       "north_shinano": "松代城",
       "south_shinano": "松本城",
-      "echigo": "新発田城",
+      "echigo": "長岡城",
       "etchu": "高岡城",
       "noto": "小丸山城",
       "kaga": "金沢城",
@@ -31246,24 +39287,24 @@ window.SCENARIOS_DATA = [
       "hida": "高山城",
       "mino": "大垣城",
       "totomi": "浜松城",
-      "mikawa": "吉田城",
+      "mikawa": "岡崎城",
       "owari": "名古屋城",
-      "ise": "安濃津城",
+      "ise": "桑名城",
       "shima": "鳥羽城",
-      "iga": "上野城",
+      "iga": "伊賀上野城",
       "north_omi": "彦根城",
       "south_omi": "膳所城",
       "yamashiro": "二条城",
-      "yamato": "多聞山城",
-      "kii": "和歌山城",
+      "yamato": "郡山城",
+      "kii": "新宮城",
       "kawachi": "若江城",
       "izumi": "岸和田城",
       "settsu": "大坂城",
       "tamba": "丹波亀山城",
-      "tango": "田辺城",
+      "tango": "宮津城",
       "tajima": "出石城",
       "harima": "姫路城",
-      "inaba": "鳥取城（近世）",
+      "inaba": "鳥取城",
       "hoki": "米子城",
       "izumo": "松江城",
       "iwami": "浜田城",
@@ -31282,15 +39323,16 @@ window.SCENARIOS_DATA = [
       "chikuzen": "福岡城",
       "hizen": "佐賀城",
       "chikugo": "久留米城",
-      "bungo": "臼杵城",
+      "bungo": "府内城・大友館",
       "higo": "熊本城",
       "hyuga": "飫肥城",
       "satsuma": "鹿児島城（鶴丸城）",
       "osumi": "富隈城",
       "oki": "隠岐陣屋・西郷館",
       "sado": "相川陣屋・佐渡奉行所",
-      "tsushima": "厳原城・府中城",
-      "awaji": "洲本城"
+      "tsushima": "金石城",
+      "awaji": "洲本城",
+      "ryukyu": "首里城"
     },
     "playables": [
       {
@@ -31317,8 +39359,9 @@ window.SCENARIOS_DATA = [
         "difficulty": "初級",
         "winRate": 88,
         "startProvId": "musashi",
-        "provCount": 71,
+        "provCount": 72,
         "myProvinces": [
+          "musashi",
           "ezo",
           "mutsu",
           "rikuchu",
@@ -31339,7 +39382,6 @@ window.SCENARIOS_DATA = [
           "shimousa",
           "kazusa",
           "awa_boshu",
-          "musashi",
           "sagami",
           "kai",
           "hida",
@@ -31389,7 +39431,8 @@ window.SCENARIOS_DATA = [
           "awaji",
           "oki",
           "nagato",
-          "tosa"
+          "tosa",
+          "ryukyu"
         ],
         "gold": 9000,
         "rice": 10000,
@@ -31405,9 +39448,666 @@ window.SCENARIOS_DATA = [
     "capitals": {
       "meiji": "musashi",
       "saigo_gun": "satsuma"
+    },
+    "officerAffiliations": {
+      "off_saigo_takamori": {
+        "clanId": "saigo_gun",
+        "defaultProv": "satsuma",
+        "isDaimyo": true
+      },
+      "off_kirino_toshiaki": {
+        "clanId": "saigo_gun",
+        "defaultProv": "osumi",
+        "isDaimyo": false
+      },
+      "off_shinohara_kunimoto": {
+        "clanId": "saigo_gun",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_murata_shinpachi": {
+        "clanId": "saigo_gun",
+        "defaultProv": "hyuga",
+        "isDaimyo": false
+      },
+      "off_beppu_shinsuke": {
+        "clanId": "saigo_gun",
+        "defaultProv": "bungo",
+        "isDaimyo": false
+      },
+      "off_nagayama_yaichiro": {
+        "clanId": "saigo_gun",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_ikegami_shiro": {
+        "clanId": "saigo_gun",
+        "defaultProv": "osumi",
+        "isDaimyo": false
+      },
+      "off_henmi_jurota": {
+        "clanId": "saigo_gun",
+        "defaultProv": "satsuma",
+        "isDaimyo": false
+      },
+      "off_kijima_kiyoshi": {
+        "clanId": "saigo_gun",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_saigo_kohei": {
+        "clanId": "saigo_gun",
+        "defaultProv": "satsuma",
+        "isDaimyo": false
+      },
+      "off_nomura_oshisuke": {
+        "clanId": "saigo_gun",
+        "defaultProv": "hyuga",
+        "isDaimyo": false
+      },
+      "off_beppu_kuma": {
+        "clanId": "saigo_gun",
+        "defaultProv": "satsuma",
+        "isDaimyo": false
+      },
+      "off_miyazaki_hachiro": {
+        "clanId": "saigo_gun",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_nakajima_takehiko": {
+        "clanId": "saigo_gun",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_ochi_hikoshiro": {
+        "clanId": "saigo_gun",
+        "defaultProv": "bungo",
+        "isDaimyo": false
+      },
+      "off_oyama_tsunayoshi": {
+        "clanId": "saigo_gun",
+        "defaultProv": "satsuma",
+        "isDaimyo": false
+      },
+      "off_oe_taku": {
+        "clanId": "saigo_gun",
+        "defaultProv": "tosa",
+        "isDaimyo": false
+      },
+      "off_hayashi_yuzo": {
+        "clanId": "saigo_gun",
+        "defaultProv": "tosa",
+        "isDaimyo": false
+      },
+      "off_meiji_tenno": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": true
+      },
+      "off_dm_meiji_1868": {
+        "clanId": "meiji",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_okubo_toshimichi": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_kido_takayoshi": {
+        "clanId": "meiji",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_katsu_kaishu": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_yamagata_aritomo": {
+        "clanId": "meiji",
+        "defaultProv": "buzen",
+        "isDaimyo": false
+      },
+      "off_oyama_iwao": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_saigo_tsugumichi": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_kawaji_toshiyoshi": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_torio_koyata": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_itagaki_taisuke": {
+        "clanId": "meiji",
+        "defaultProv": "tosa",
+        "isDaimyo": false
+      },
+      "off_shinagawa_yajiro": {
+        "clanId": "meiji",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_kuroda_kiyotaka": {
+        "clanId": "meiji",
+        "defaultProv": "ezo",
+        "isDaimyo": false
+      },
+      "off_tani_tateki": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_kodama_gentaro": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_kabayama_sukemori": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_nogi_maresuke": {
+        "clanId": "meiji",
+        "defaultProv": "buzen",
+        "isDaimyo": false
+      },
+      "off_sakuma_samata": {
+        "clanId": "meiji",
+        "defaultProv": "buzen",
+        "isDaimyo": false
+      },
+      "off_notzu_shizuo": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_notzu_michitsura": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_kurokawa_michinori": {
+        "clanId": "meiji",
+        "defaultProv": "chikugo",
+        "isDaimyo": false
+      },
+      "off_miura_goro": {
+        "clanId": "meiji",
+        "defaultProv": "aki",
+        "isDaimyo": false
+      },
+      "off_miyoshi_shigeomi": {
+        "clanId": "meiji",
+        "defaultProv": "settsu",
+        "isDaimyo": false
+      },
+      "off_maruyama_sadamasa": {
+        "clanId": "meiji",
+        "defaultProv": "owari",
+        "isDaimyo": false
+      },
+      "off_shijo_takauta": {
+        "clanId": "meiji",
+        "defaultProv": "rikuzen",
+        "isDaimyo": false
+      },
+      "off_takashima_tomonosuke": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_kusumoto_masataka": {
+        "clanId": "meiji",
+        "defaultProv": "musashi",
+        "isDaimyo": false
+      },
+      "off_makimura_masanao": {
+        "clanId": "meiji",
+        "defaultProv": "yamashiro",
+        "isDaimyo": false
+      },
+      "off_watanabe_noboru": {
+        "clanId": "meiji",
+        "defaultProv": "settsu",
+        "isDaimyo": false
+      },
+      "off_nomura_yasushi": {
+        "clanId": "meiji",
+        "defaultProv": "sagami",
+        "isDaimyo": false
+      },
+      "off_morioka_masazumi": {
+        "clanId": "meiji",
+        "defaultProv": "harima",
+        "isDaimyo": false
+      },
+      "off_kitajima_hidetomo": {
+        "clanId": "meiji",
+        "defaultProv": "hizen",
+        "isDaimyo": false
+      },
+      "off_nagayama_moriteru": {
+        "clanId": "meiji",
+        "defaultProv": "echigo",
+        "isDaimyo": false
+      },
+      "off_yasuba_yasukazu": {
+        "clanId": "meiji",
+        "defaultProv": "owari",
+        "isDaimyo": false
+      },
+      "off_miyagi_tokisuke": {
+        "clanId": "meiji",
+        "defaultProv": "rikuzen",
+        "isDaimyo": false
+      },
+      "off_yamayoshi_morinori": {
+        "clanId": "meiji",
+        "defaultProv": "iwashiro",
+        "isDaimyo": false
+      },
+      "off_mishima_michitsune": {
+        "clanId": "meiji",
+        "defaultProv": "uzen",
+        "isDaimyo": false
+      },
+      "off_yamada_hidenori": {
+        "clanId": "meiji",
+        "defaultProv": "tsugaru",
+        "isDaimyo": false
+      },
+      "off_ishida_eikichi": {
+        "clanId": "meiji",
+        "defaultProv": "ugo",
+        "isDaimyo": false
+      },
+      "off_shima_isei": {
+        "clanId": "meiji",
+        "defaultProv": "mutsu",
+        "isDaimyo": false
+      },
+      "off_kiriyama_junko": {
+        "clanId": "meiji",
+        "defaultProv": "kaga",
+        "isDaimyo": false
+      },
+      "off_osako_sadakiyo": {
+        "clanId": "meiji",
+        "defaultProv": "suruga",
+        "isDaimyo": false
+      },
+      "off_iwamura_sadataka": {
+        "clanId": "meiji",
+        "defaultProv": "ise",
+        "isDaimyo": false
+      },
+      "off_kozaki_toshitomo": {
+        "clanId": "meiji",
+        "defaultProv": "mino",
+        "isDaimyo": false
+      },
+      "off_narasaki_kanjiki": {
+        "clanId": "meiji",
+        "defaultProv": "north_shinano",
+        "isDaimyo": false
+      },
+      "off_fujimura_shiro": {
+        "clanId": "meiji",
+        "defaultProv": "kai",
+        "isDaimyo": false
+      },
+      "off_nabeshima_miki": {
+        "clanId": "meiji",
+        "defaultProv": "shimotsuke",
+        "isDaimyo": false
+      },
+      "off_katori_motohiko": {
+        "clanId": "meiji",
+        "defaultProv": "kozuke",
+        "isDaimyo": false
+      },
+      "off_nomura_iho": {
+        "clanId": "meiji",
+        "defaultProv": "hitachi",
+        "isDaimyo": false
+      },
+      "off_shibahara_yawaragu": {
+        "clanId": "meiji",
+        "defaultProv": "shimousa",
+        "isDaimyo": false
+      },
+      "off_shirane_senichi": {
+        "clanId": "meiji",
+        "defaultProv": "wakasa",
+        "isDaimyo": false
+      },
+      "off_matsuda_michiyuki": {
+        "clanId": "meiji",
+        "defaultProv": "south_omi",
+        "isDaimyo": false
+      },
+      "off_kamiyama_gunren": {
+        "clanId": "meiji",
+        "defaultProv": "kii",
+        "isDaimyo": false
+      },
+      "off_sato_ichihei": {
+        "clanId": "meiji",
+        "defaultProv": "izumo",
+        "isDaimyo": false
+      },
+      "off_takasaki_goroku": {
+        "clanId": "meiji",
+        "defaultProv": "bizen",
+        "isDaimyo": false
+      },
+      "off_date_isao": {
+        "clanId": "meiji",
+        "defaultProv": "aki",
+        "isDaimyo": false
+      },
+      "off_sekiguchi_takayoshi": {
+        "clanId": "meiji",
+        "defaultProv": "suo",
+        "isDaimyo": false
+      },
+      "off_iwamura_takatoshi": {
+        "clanId": "meiji",
+        "defaultProv": "iyo",
+        "isDaimyo": false
+      },
+      "off_koike_kuniomi": {
+        "clanId": "meiji",
+        "defaultProv": "tosa",
+        "isDaimyo": false
+      },
+      "off_watanabe_kiyoshi": {
+        "clanId": "meiji",
+        "defaultProv": "chikuzen",
+        "isDaimyo": false
+      },
+      "off_morishita_kagetane": {
+        "clanId": "meiji",
+        "defaultProv": "bungo",
+        "isDaimyo": false
+      },
+      "off_tomioka_tomoaki": {
+        "clanId": "meiji",
+        "defaultProv": "higo",
+        "isDaimyo": false
+      },
+      "off_sho_tai": {
+        "clanId": "meiji",
+        "defaultProv": "ryukyu",
+        "isDaimyo": true
+      },
+      "off_yamada_akiyoshi": {
+        "clanId": "meiji",
+        "defaultProv": "nagato",
+        "isDaimyo": false
+      },
+      "off_nanbu_toshiyuki": {
+        "clanId": "meiji",
+        "defaultProv": "rikuchu",
+        "isDaimyo": false
+      },
+      "off_soma_tomotane": {
+        "clanId": "meiji",
+        "defaultProv": "iwaki",
+        "isDaimyo": false
+      },
+      "off_hayashi_tadataka": {
+        "clanId": "meiji",
+        "defaultProv": "kazusa",
+        "isDaimyo": false
+      },
+      "off_jd_293": {
+        "clanId": "meiji",
+        "defaultProv": "awa_boshu",
+        "isDaimyo": false
+      },
+      "off_jd_341": {
+        "clanId": "meiji",
+        "defaultProv": "izu",
+        "isDaimyo": false
+      },
+      "off_jd_431": {
+        "clanId": "meiji",
+        "defaultProv": "south_shinano",
+        "isDaimyo": false
+      },
+      "off_maeda_toshitomo": {
+        "clanId": "meiji",
+        "defaultProv": "etchu",
+        "isDaimyo": false
+      },
+      "off_jd_379": {
+        "clanId": "meiji",
+        "defaultProv": "noto",
+        "isDaimyo": false
+      },
+      "off_edo_fukui_matsudaira_1828_139": {
+        "clanId": "meiji",
+        "defaultProv": "echizen",
+        "isDaimyo": false
+      },
+      "off_niwa_ichigaku": {
+        "clanId": "meiji",
+        "defaultProv": "hida",
+        "isDaimyo": false
+      },
+      "off_jd_068": {
+        "clanId": "meiji",
+        "defaultProv": "totomi",
+        "isDaimyo": false
+      },
+      "off_tokugawa_iesato": {
+        "clanId": "meiji",
+        "defaultProv": "mikawa",
+        "isDaimyo": false
+      },
+      "off_edo_tokugawa_1813_34": {
+        "clanId": "meiji",
+        "defaultProv": "shima",
+        "isDaimyo": false
+      },
+      "off_edo_tokugawa_1820_58": {
+        "clanId": "meiji",
+        "defaultProv": "iga",
+        "isDaimyo": false
+      },
+      "off_edo_ii_1848_144": {
+        "clanId": "meiji",
+        "defaultProv": "north_omi",
+        "isDaimyo": false
+      },
+      "off_jd_063": {
+        "clanId": "meiji",
+        "defaultProv": "yamato",
+        "isDaimyo": false
+      },
+      "off_jd_429": {
+        "clanId": "meiji",
+        "defaultProv": "kawachi",
+        "isDaimyo": false
+      },
+      "off_jd_064": {
+        "clanId": "meiji",
+        "defaultProv": "izumi",
+        "isDaimyo": false
+      },
+      "off_jd_428": {
+        "clanId": "meiji",
+        "defaultProv": "tamba",
+        "isDaimyo": false
+      },
+      "off_jd_291": {
+        "clanId": "meiji",
+        "defaultProv": "tango",
+        "isDaimyo": false
+      },
+      "off_sengoku_masakata": {
+        "clanId": "meiji",
+        "defaultProv": "tajima",
+        "isDaimyo": false
+      },
+      "off_dm_tottori_1868": {
+        "clanId": "meiji",
+        "defaultProv": "inaba",
+        "isDaimyo": false
+      },
+      "off_ikeda_nakahiro": {
+        "clanId": "meiji",
+        "defaultProv": "hoki",
+        "isDaimyo": false
+      },
+      "off_matsudaira_naofusa": {
+        "clanId": "meiji",
+        "defaultProv": "iwami",
+        "isDaimyo": false
+      },
+      "off_jd_296": {
+        "clanId": "meiji",
+        "defaultProv": "mimasaka",
+        "isDaimyo": false
+      },
+      "off_yamada_hokoku": {
+        "clanId": "meiji",
+        "defaultProv": "bicchu",
+        "isDaimyo": false
+      },
+      "off_asano_nagayuki": {
+        "clanId": "meiji",
+        "defaultProv": "bingo",
+        "isDaimyo": false
+      },
+      "off_matsudaira_yoritane": {
+        "clanId": "meiji",
+        "defaultProv": "sanuki",
+        "isDaimyo": false
+      },
+      "off_dm_hachisuka_1868": {
+        "clanId": "meiji",
+        "defaultProv": "awa_shikoku",
+        "isDaimyo": false
+      },
+      "off_dm_matsue_1868": {
+        "clanId": "meiji",
+        "defaultProv": "oki",
+        "isDaimyo": false
+      },
+      "off_tatsumi_kanzaburo": {
+        "clanId": "meiji",
+        "defaultProv": "sado",
+        "isDaimyo": false
+      },
+      "off_so_shigemasa": {
+        "clanId": "meiji",
+        "defaultProv": "tsushima",
+        "isDaimyo": false
+      },
+      "off_jd_072": {
+        "clanId": "meiji",
+        "defaultProv": "awaji",
+        "isDaimyo": false
+      }
+    },
+    "castleLores": {
+      "ezo": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+      "tsugaru": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+      "mutsu": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+      "rikuchu": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+      "ugo": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+      "rikuzen": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+      "uzen": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+      "iwaki": "相馬利胤が小高城から本拠を移して近世城郭に整備した相馬中村藩六万石の居城。伝統神事・相馬野馬追の総大将出陣の拠点。",
+      "iwashiro": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+      "hitachi": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+      "shimotsuke": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+      "kozuke": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+      "musashi": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+      "shimousa": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+      "kazusa": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+      "awa_boshu": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+      "sagami": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+      "izu": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+      "suruga": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+      "kai": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+      "north_shinano": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+      "south_shinano": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+      "echigo": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+      "etchu": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+      "noto": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+      "kaga": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+      "echizen": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+      "wakasa": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+      "hida": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+      "mino": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+      "totomi": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+      "mikawa": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+      "owari": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+      "ise": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+      "shima": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+      "iga": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+      "north_omi": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+      "south_omi": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+      "yamashiro": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+      "yamato": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+      "kii": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+      "kawachi": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+      "izumi": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+      "settsu": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+      "tamba": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+      "tango": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+      "tajima": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+      "harima": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+      "inaba": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+      "hoki": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+      "izumo": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+      "iwami": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+      "mimasaka": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+      "bizen": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+      "bicchu": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+      "bingo": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+      "aki": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+      "suo": "幕末、長州藩主・毛利敬親が萩から山口へ藩庁を移転（山口移鎮）して設けた政庁。倒幕運動の司令塔となった。",
+      "nagato": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+      "sanuki": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+      "awa_shikoku": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+      "iyo": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+      "tosa": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+      "buzen": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+      "chikuzen": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+      "hizen": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+      "chikugo": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+      "bungo": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+      "higo": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+      "hyuga": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+      "satsuma": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+      "osumi": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+      "oki": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+      "sado": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+      "tsushima": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+      "awaji": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。",
+      "ryukyu": "琉球王国の王府・首里城。グスク建築の粋を集め、南海交易の拠点として威容を誇る。"
     }
   }
 ];
+
 window.CLAN_MASTER_DATA = {
   "aterui": {
     "family": "阿弖流為軍",
@@ -31821,7 +40521,9 @@ window.CLAN_MASTER_DATA = {
       "1333": "足利尊氏",
       "1531": "足利義晴",
       "1538": "足利義晴",
-      "1570": "足利義昭"
+      "1570": "足利義昭",
+      "1359": "足利義詮",
+      "1391": "足利義満"
     }
   },
   "ashina": {
@@ -32033,10 +40735,12 @@ window.CLAN_MASTER_DATA = {
       "1570": "畠山昭高",
       "1573": "畠山昭高",
       "1391": "畠山基国",
-      "1359": "畠山義深",
+      "1359": "畠山国清",
       "1531": "畠山義続",
       "1538": "畠山義続",
-      "1576": "畠山昭高"
+      "1576": "畠山昭高",
+      "1331": "畠山国清",
+      "1333": "畠山国清"
     }
   },
   "hojo": {
@@ -32133,7 +40837,8 @@ window.CLAN_MASTER_DATA = {
       "1853": "細川護久",
       "1860": "細川護久",
       "1866": "細川護久",
-      "1868": "細川護久"
+      "1868": "細川護久",
+      "1359": "細川頼之"
     }
   },
   "imagawa": {
@@ -32448,7 +41153,8 @@ window.CLAN_MASTER_DATA = {
       "1180": "佐々木定綱",
       "1333": "京極導誉",
       "1391": "京極高詮",
-      "1600": "京極高次"
+      "1600": "京極高次",
+      "1359": "京極導誉"
     }
   },
   "maeda": {
@@ -32929,7 +41635,8 @@ window.CLAN_MASTER_DATA = {
       "1331": "大内弘幸",
       "1333": "大内弘幸",
       "1531": "大内義隆",
-      "1538": "大内義隆"
+      "1538": "大内義隆",
+      "1359": "大内弘世"
     }
   },
   "rokkaku": {
@@ -33202,7 +41909,8 @@ window.CLAN_MASTER_DATA = {
       "default": "斯波義廉",
       "1331": "斯波高経",
       "1333": "斯波高経",
-      "1359": "斯波高経"
+      "1359": "斯波高経",
+      "1391": "斯波義将"
     }
   },
   "shibata": {
@@ -33332,31 +42040,42 @@ window.CLAN_MASTER_DATA = {
     "tacticDesc": "平将門伝来の妙見野馬追で鍛えられた神速の騎馬隊が敵側面を急襲。",
     "desc": "平将門の後裔を称する奥州の名門。相馬義胤らは伊達政宗の度重なる侵攻を跳ね返し、近世大名として中村藩の礎を守り抜いた。",
     "leaders": {
-      "1868": "相馬誠胤",
-      "1336": "相馬重胤",
       "1180": "相馬師常",
-      "1467": "相馬盛胤",
-      "1495": "相馬顕胤",
+      "1336": "相馬重胤",
+      "1350": "相馬胤平",
+      "1391": "相馬憲胤",
+      "1400": "相馬胤弘",
+      "1438": "相馬重胤",
+      "1467": "相馬高胤",
+      "1495": "相馬盛胤",
+      "1531": "相馬顕胤",
+      "1538": "相馬顕胤",
       "1542": "相馬顕胤",
       "1546": "相馬盛胤",
       "1555": "相馬盛胤",
       "1560": "相馬盛胤",
       "1570": "相馬盛胤",
-      "1582": "相馬義胤",
-      "1590": "相馬義胤",
-      "1600": "相馬義胤",
-      "default": "相馬義胤",
-      "1350": "相馬胤平",
-      "1438": "相馬重胤",
-      "1576": "相馬義胤",
       "1573": "相馬義胤",
+      "1576": "相馬義胤",
       "1577": "相馬義胤",
-      "1531": "相馬盛胤",
-      "1538": "相馬盛胤",
-      "1391": "相馬憲胤",
-      "1592": "相馬盛胤",
+      "1582": "相馬義胤",
       "1584": "相馬義胤",
-      "1587": "相馬義胤"
+      "1587": "相馬義胤",
+      "1590": "相馬義胤",
+      "1592": "相馬盛胤",
+      "1600": "相馬義胤",
+      "1614": "相馬利胤",
+      "1637": "相馬義胤",
+      "1651": "相馬忠胤",
+      "1702": "相馬昌胤",
+      "1721": "相馬叙胤",
+      "1789": "相馬祥胤",
+      "1837": "相馬益胤",
+      "1853": "相馬充胤",
+      "1860": "相馬充胤",
+      "1866": "相馬充胤",
+      "1868": "相馬誠胤",
+      "default": "相馬義胤"
     }
   },
   "sue": {
@@ -33510,7 +42229,8 @@ window.CLAN_MASTER_DATA = {
       "1331": "土岐頼遠",
       "1333": "土岐頼貞",
       "1350": "土岐頼康",
-      "1391": "土岐頼益"
+      "1391": "土岐頼益",
+      "1359": "土岐頼康"
     }
   },
   "tokugawa": {
@@ -33648,7 +42368,9 @@ window.CLAN_MASTER_DATA = {
       "1702": "上杉綱憲",
       "1721": "上杉吉憲",
       "1789": "上杉治広",
-      "1866": "上杉斉憲"
+      "1866": "上杉斉憲",
+      "1350": "上杉憲顕",
+      "1359": "上杉憲顕"
     }
   },
   "ukita": {
@@ -33767,7 +42489,7 @@ window.CLAN_MASTER_DATA = {
       "1577": "山名祐豊",
       "1531": "山名致豊",
       "1538": "山名祐豊",
-      "1391": "山名時照",
+      "1391": "山名氏清",
       "1331": "山名時氏",
       "1359": "山名時氏",
       "1576": "山名祐豊"
@@ -33902,7 +42624,8 @@ window.CLAN_MASTER_DATA = {
       "1391": "足利氏満",
       "1531": "足利晴氏",
       "1538": "足利晴氏",
-      "1467": "足利成氏"
+      "1467": "足利成氏",
+      "1359": "足利基氏"
     }
   },
   "aizu": {
@@ -34294,7 +43017,7 @@ window.CLAN_MASTER_DATA = {
       "1868": "細川護久",
       "default": "細川護久",
       "1837": "細川斉護",
-      "1853": "細川護久",
+      "1853": "細川斉護",
       "1860": "細川護久",
       "1866": "細川護久"
     }
@@ -36040,6 +44763,60 @@ window.CLAN_MASTER_DATA = {
       "1721": "藤堂高敏",
       "default": "藤堂高敏"
     }
+  },
+  "ryukyu": {
+    "family": "琉球王家",
+    "color": "#c0392b",
+    "kamon": "kamon-ryukyu",
+    "capital_pref": [
+      "okinawa"
+    ],
+    "tactic": "万国津梁の交易",
+    "tacticDesc": "海洋貿易で莫大な富と兵糧を蓄え、防衛戦で堅城首里の威力を発揮する。",
+    "desc": "首里城を王府として南蛮・明・日本を結ぶ南海の大交易王国。舜天・英祖・尚氏と王統を継ぎ、独自の琉球文化と海洋ネットワークを誇る。",
+    "leaders": {
+      "801": "天孫按司",
+      "939": "天孫按司",
+      "1019": "天孫按司",
+      "1028": "天孫按司",
+      "1056": "天孫按司",
+      "1087": "天孫按司",
+      "1156": "舜天",
+      "1159": "舜天",
+      "1180": "舜天",
+      "1183": "舜天",
+      "1184": "舜天",
+      "1185": "舜天",
+      "1189": "舜天",
+      "1221": "舜馬順煕",
+      "1274": "英祖",
+      "1331": "察度",
+      "1333": "察度",
+      "1336": "察度",
+      "1350": "察度",
+      "1359": "察度",
+      "1391": "察度",
+      "1400": "尚巴志",
+      "1438": "尚巴志",
+      "1467": "尚徳",
+      "1495": "尚真",
+      "1531": "尚清",
+      "1538": "尚清",
+      "1546": "尚清",
+      "1555": "尚元",
+      "1560": "尚元",
+      "1570": "尚元",
+      "1573": "尚永",
+      "1576": "尚永",
+      "1577": "尚永",
+      "1582": "尚永",
+      "1584": "尚永",
+      "1587": "尚永",
+      "1590": "尚寧",
+      "1592": "尚寧",
+      "1600": "尚寧",
+      "default": "尚寧"
+    }
   }
 };
 
@@ -37385,6 +46162,14 @@ window.CLAN_ABILITIES = {
     "personality": "balanced",
     "title": "築城の名家",
     "note": "藤堂高虎を祖とする津藩三十二万石・伊賀上野城"
+  },
+  "ryukyu": {
+    "personality": "domestic",
+    "military": 62,
+    "politics": 82,
+    "stratagem": 75,
+    "tactic": "万国津梁の交易",
+    "specialty": "海洋交易"
   }
 };
 
@@ -40247,33 +49032,745 @@ window.HISTORICAL_CHOICE_EVENTS = [
 ];
 
 window.HISTORICAL_CASTLE_CHANGES = {
+  "ezo": [
+    [
+      1027,
+      "蝦夷地渡島営所"
+    ],
+    [
+      1466,
+      "渡島和人館・志苔館"
+    ],
+    [
+      1613,
+      "勝山館・茂別館"
+    ],
+    [
+      9999,
+      "松前城（福山城）"
+    ]
+  ],
+  "tsugaru": [
+    [
+      1220,
+      "津軽平野館・柵"
+    ],
+    [
+      1390,
+      "十三湊館"
+    ],
+    [
+      1545,
+      "浪岡城"
+    ],
+    [
+      1591,
+      "大浦城"
+    ],
+    [
+      1613,
+      "堀越城"
+    ],
+    [
+      9999,
+      "弘前城"
+    ]
+  ],
+  "mutsu": [
+    [
+      938,
+      "志波城・胆沢城"
+    ],
+    [
+      1155,
+      "厨川柵"
+    ],
+    [
+      1335,
+      "三戸館"
+    ],
+    [
+      1358,
+      "霊山城"
+    ],
+    [
+      9999,
+      "三戸城"
+    ]
+  ],
+  "rikuchu": [
+    [
+      938,
+      "胆沢柵・巣伏"
+    ],
+    [
+      1018,
+      "厨川柵・衣川柵"
+    ],
+    [
+      1027,
+      "厨川柵・胆沢城"
+    ],
+    [
+      1086,
+      "衣川柵"
+    ],
+    [
+      1155,
+      "平泉館"
+    ],
+    [
+      1182,
+      "平泉・柳之御所"
+    ],
+    [
+      1188,
+      "不来方城"
+    ],
+    [
+      1220,
+      "平泉館"
+    ],
+    [
+      1358,
+      "高水寺城"
+    ],
+    [
+      1591,
+      "寺地城"
+    ],
+    [
+      1636,
+      "不来方城"
+    ],
+    [
+      9999,
+      "盛岡城"
+    ]
+  ],
+  "ugo": [
+    [
+      1086,
+      "秋田城・払田柵"
+    ],
+    [
+      1155,
+      "金沢柵"
+    ],
+    [
+      1613,
+      "湊城"
+    ],
+    [
+      9999,
+      "久保田城"
+    ]
+  ],
+  "rikuzen": [
+    [
+      1220,
+      "多賀城"
+    ],
+    [
+      1399,
+      "岩切城"
+    ],
+    [
+      1613,
+      "岩出山城"
+    ],
+    [
+      9999,
+      "青葉城（仙台城）"
+    ]
+  ],
+  "uzen": [
+    [
+      1086,
+      "城輪柵（出羽国府）"
+    ],
+    [
+      1155,
+      "沼柵"
+    ],
+    [
+      1358,
+      "長井城"
+    ],
+    [
+      9999,
+      "山形城"
+    ]
+  ],
+  "iwaki": [
+    [
+      1182,
+      "白河関・白河営所"
+    ],
+    [
+      1335,
+      "白河小峰城"
+    ],
+    [
+      1390,
+      "霊山城"
+    ],
+    [
+      1591,
+      "白河小峰城"
+    ],
+    [
+      9999,
+      "平城"
+    ]
+  ],
+  "iwashiro": [
+    [
+      1155,
+      "会津郡衙館"
+    ],
+    [
+      1220,
+      "阿津賀志山防塁"
+    ],
+    [
+      1591,
+      "黒川城"
+    ],
+    [
+      9999,
+      "会津若松城"
+    ]
+  ],
+  "hitachi": [
+    [
+      1182,
+      "常陸国府・府中館"
+    ],
+    [
+      1591,
+      "太田城"
+    ],
+    [
+      9999,
+      "水戸城"
+    ]
+  ],
+  "shimotsuke": [
+    [
+      1182,
+      "唐沢山館・下野国府"
+    ],
+    [
+      1591,
+      "宇都宮城"
+    ],
+    [
+      9999,
+      "壬生城"
+    ]
+  ],
+  "kozuke": [
+    [
+      1182,
+      "上野国府館"
+    ],
+    [
+      1358,
+      "新田庄・生品館"
+    ],
+    [
+      1591,
+      "箕輪城"
+    ],
+    [
+      9999,
+      "高崎城"
+    ]
+  ],
+  "musashi": [
+    [
+      1182,
+      "武蔵国府・府中館"
+    ],
+    [
+      1466,
+      "河越館・比企館"
+    ],
+    [
+      1591,
+      "河越城・岩付城"
+    ],
+    [
+      9999,
+      "江戸城"
+    ]
+  ],
+  "shimousa": [
+    [
+      1182,
+      "石井営所"
+    ],
+    [
+      1466,
+      "千葉城（亥鼻城）"
+    ],
+    [
+      1591,
+      "本佐倉城"
+    ],
+    [
+      9999,
+      "佐倉城"
+    ]
+  ],
+  "kazusa": [
+    [
+      1182,
+      "上総国府館"
+    ],
+    [
+      1466,
+      "庁南城"
+    ],
+    [
+      1591,
+      "久留里城"
+    ],
+    [
+      9999,
+      "大多喜城"
+    ]
+  ],
+  "awa_boshu": [
+    [
+      1466,
+      "安房国府館"
+    ],
+    [
+      1581,
+      "勝山城"
+    ],
+    [
+      9999,
+      "館山城"
+    ]
+  ],
+  "sagami": [
+    [
+      1182,
+      "大庭御厨館"
+    ],
+    [
+      1335,
+      "鎌倉幕府大蔵御所"
+    ],
+    [
+      1530,
+      "鎌倉府御所"
+    ],
+    [
+      9999,
+      "小田原城"
+    ]
+  ],
+  "izu": [
+    [
+      1182,
+      "北条館・蛭ヶ小島"
+    ],
+    [
+      1494,
+      "伊豆国府館"
+    ],
+    [
+      1591,
+      "韮山城"
+    ],
+    [
+      9999,
+      "下田城"
+    ]
+  ],
+  "suruga": [
+    [
+      1182,
+      "駿河国府館"
+    ],
+    [
+      1583,
+      "駿府今川館"
+    ],
+    [
+      9999,
+      "駿府城"
+    ]
+  ],
+  "kai": [
+    [
+      1182,
+      "甲斐国府館"
+    ],
+    [
+      1358,
+      "一条館"
+    ],
+    [
+      1530,
+      "石和館"
+    ],
+    [
+      1583,
+      "躑躅ヶ崎館"
+    ],
+    [
+      9999,
+      "甲府城"
+    ]
+  ],
+  "north_shinano": [
+    [
+      1182,
+      "信濃国府館"
+    ],
+    [
+      1554,
+      "葛尾城"
+    ],
+    [
+      1586,
+      "海津城"
+    ],
+    [
+      1636,
+      "上田城"
+    ],
+    [
+      9999,
+      "松代城"
+    ]
+  ],
+  "south_shinano": [
+    [
+      1182,
+      "木曽谷関所館"
+    ],
+    [
+      1530,
+      "諏訪館"
+    ],
+    [
+      1583,
+      "深志城"
+    ],
+    [
+      9999,
+      "松本城"
+    ]
+  ],
+  "echigo": [
+    [
+      1182,
+      "越後国府・鳥坂城"
+    ],
+    [
+      1335,
+      "越後国府・蒲原津"
+    ],
+    [
+      1599,
+      "春日山城"
+    ],
+    [
+      1701,
+      "新発田城"
+    ],
+    [
+      9999,
+      "長岡城"
+    ]
+  ],
+  "etchu": [
+    [
+      1183,
+      "倶利伽羅砦"
+    ],
+    [
+      1581,
+      "越中国府館"
+    ],
+    [
+      1613,
+      "富山城"
+    ],
+    [
+      9999,
+      "高岡城"
+    ]
+  ],
+  "noto": [
+    [
+      1437,
+      "能登国府館"
+    ],
+    [
+      1581,
+      "七尾城"
+    ],
+    [
+      9999,
+      "小丸山城"
+    ]
+  ],
+  "kaga": [
+    [
+      1494,
+      "加賀国府館"
+    ],
+    [
+      1581,
+      "尾山御坊"
+    ],
+    [
+      9999,
+      "金沢城"
+    ]
+  ],
+  "echizen": [
+    [
+      1182,
+      "越前国府館"
+    ],
+    [
+      1494,
+      "府中城・北ノ庄館"
+    ],
+    [
+      1575,
+      "一乗谷城"
+    ],
+    [
+      1613,
+      "北ノ庄城"
+    ],
+    [
+      9999,
+      "福井城"
+    ]
+  ],
+  "wakasa": [
+    [
+      1530,
+      "若狭国府館"
+    ],
+    [
+      9999,
+      "後瀬山城"
+    ]
+  ],
+  "hida": [
+    [
+      1494,
+      "飛騨国府館"
+    ],
+    [
+      1586,
+      "帰雲城"
+    ],
+    [
+      9999,
+      "高山城"
+    ]
+  ],
+  "mino": [
+    [
+      1182,
+      "美濃国府・不破関"
+    ],
+    [
+      1494,
+      "美濃国府・大井戸館"
+    ],
+    [
+      1569,
+      "稲葉山城"
+    ],
+    [
+      1581,
+      "岐阜城"
+    ],
+    [
+      9999,
+      "大垣城"
+    ]
+  ],
+  "totomi": [
+    [
+      1182,
+      "遠江国府館"
+    ],
+    [
+      1569,
+      "曳馬城"
+    ],
+    [
+      9999,
+      "浜松城"
+    ]
+  ],
+  "mikawa": [
+    [
+      1182,
+      "三河国府館"
+    ],
+    [
+      1466,
+      "吉田城"
+    ],
+    [
+      9999,
+      "岡崎城"
+    ]
+  ],
+  "owari": [
+    [
+      1182,
+      "尾張国府館"
+    ],
+    [
+      1554,
+      "那古野城"
+    ],
+    [
+      1613,
+      "清洲城"
+    ],
+    [
+      9999,
+      "名古屋城"
+    ]
+  ],
+  "ise": [
+    [
+      1182,
+      "伊勢国府館"
+    ],
+    [
+      1569,
+      "安濃津城"
+    ],
+    [
+      1576,
+      "長島城"
+    ],
+    [
+      9999,
+      "桑名城"
+    ]
+  ],
+  "shima": [
+    [
+      1530,
+      "志摩国府館"
+    ],
+    [
+      9999,
+      "鳥羽城"
+    ]
+  ],
+  "iga": [
+    [
+      1581,
+      "伊賀国府館"
+    ],
+    [
+      9999,
+      "伊賀上野城"
+    ]
+  ],
+  "north_omi": [
+    [
+      1182,
+      "北近江国府館"
+    ],
+    [
+      1530,
+      "京極館・伊香砦"
+    ],
+    [
+      1575,
+      "小谷城"
+    ],
+    [
+      1583,
+      "長浜城"
+    ],
+    [
+      1613,
+      "佐和山城"
+    ],
+    [
+      9999,
+      "彦根城"
+    ]
+  ],
+  "south_omi": [
+    [
+      1182,
+      "近江大津・瀬田関"
+    ],
+    [
+      1494,
+      "瀬田唐橋館・志賀館"
+    ],
+    [
+      1575,
+      "観音寺城"
+    ],
+    [
+      1583,
+      "安土城"
+    ],
+    [
+      1599,
+      "八幡山城"
+    ],
+    [
+      1613,
+      "大津城"
+    ],
+    [
+      9999,
+      "膳所城"
+    ]
+  ],
   "yamashiro": [
     [
-      1185,
+      1188,
       "平安京・大内裏"
     ],
     [
-      1333,
+      1335,
       "六波羅探題"
     ],
     [
-      1392,
-      "花之御所・室町殿"
+      1390,
+      "平安京・大内裏"
     ],
     [
-      1573,
-      "室町御所"
+      1575,
+      "室町花の御所"
     ],
     [
-      1585,
+      1586,
       "二条御所"
     ],
     [
-      1598,
+      1599,
       "聚楽第"
     ],
     [
-      1615,
+      1613,
       "伏見城"
     ],
     [
@@ -40281,26 +49778,40 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "二条城"
     ]
   ],
-  "settsu": [
+  "yamato": [
     [
-      1180,
-      "渡辺津館"
+      1182,
+      "大和国府館"
     ],
     [
-      1185,
-      "福原京"
+      1569,
+      "多聞山城"
     ],
     [
-      1532,
-      "越水城"
-    ],
-    [
-      1580,
-      "石山本願寺"
+      1581,
+      "信貴山城"
     ],
     [
       9999,
-      "大坂城"
+      "郡山城"
+    ]
+  ],
+  "kii": [
+    [
+      1182,
+      "紀伊国府館"
+    ],
+    [
+      1586,
+      "雑賀城"
+    ],
+    [
+      1650,
+      "和歌山城"
+    ],
+    [
+      9999,
+      "新宮城"
     ]
   ],
   "kawachi": [
@@ -40309,7 +49820,7 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "河内国府館"
     ],
     [
-      1348,
+      1349,
       "千早城・上赤坂城"
     ],
     [
@@ -40321,434 +49832,58 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "若江城"
     ]
   ],
-  "sagami": [
+  "izumi": [
     [
-      1180,
-      "大庭御厨館"
-    ],
-    [
-      1333,
-      "鎌倉幕府大蔵御所"
-    ],
-    [
-      1495,
-      "鎌倉府御所"
+      1335,
+      "和泉国府館"
     ],
     [
       9999,
-      "小田原城"
+      "岸和田城"
     ]
   ],
-  "musashi": [
+  "settsu": [
     [
-      1180,
-      "武蔵国府・秩父館"
+      1182,
+      "難波宮・渡辺津"
     ],
     [
-      1457,
-      "河越館・比企館"
+      1188,
+      "一の谷・福原"
     ],
     [
-      1590,
-      "河越城・岩付城"
+      1530,
+      "渡辺津館"
     ],
     [
-      9999,
-      "江戸城"
-    ]
-  ],
-  "shimousa": [
-    [
-      1180,
-      "石井営所"
+      1537,
+      "越水城"
     ],
     [
-      1455,
-      "千葉城（亥鼻城）"
+      1583,
+      "石山本願寺"
     ],
     [
-      1590,
-      "本佐倉城"
+      1613,
+      "大坂城"
     ],
     [
-      9999,
-      "佐倉城"
-    ]
-  ],
-  "kazusa": [
-    [
-      1180,
-      "上総国府館"
-    ],
-    [
-      1590,
-      "久留里城"
+      1636,
+      "大坂城（真田丸）"
     ],
     [
       9999,
-      "大多喜城"
-    ]
-  ],
-  "awa_boshu": [
-    [
-      1440,
-      "安房国府館"
-    ],
-    [
-      1590,
-      "館山城"
-    ],
-    [
-      9999,
-      "勝山城"
-    ]
-  ],
-  "hitachi": [
-    [
-      1180,
-      "常陸国府・府中館"
-    ],
-    [
-      1590,
-      "太田城"
-    ],
-    [
-      9999,
-      "水戸城"
-    ]
-  ],
-  "shimotsuke": [
-    [
-      1180,
-      "唐沢山館・下野国府"
-    ],
-    [
-      1590,
-      "宇都宮城"
-    ],
-    [
-      9999,
-      "壬生城"
-    ]
-  ],
-  "kozuke": [
-    [
-      1180,
-      "上野国府館"
-    ],
-    [
-      1338,
-      "新田庄・生品館"
-    ],
-    [
-      1590,
-      "箕輪城"
-    ],
-    [
-      9999,
-      "高崎城"
-    ]
-  ],
-  "kai": [
-    [
-      1185,
-      "石和館"
-    ],
-    [
-      1519,
-      "一条館"
-    ],
-    [
-      1582,
-      "躑躅ヶ崎館"
-    ],
-    [
-      9999,
-      "甲府城"
-    ]
-  ],
-  "north_shinano": [
-    [
-      1185,
-      "信濃国府館"
-    ],
-    [
-      1553,
-      "葛尾城"
-    ],
-    [
-      1582,
-      "海津城"
-    ],
-    [
-      1615,
-      "上田城"
-    ],
-    [
-      9999,
-      "松代城"
-    ]
-  ],
-  "south_shinano": [
-    [
-      1185,
-      "木曽谷徳音寺館"
-    ],
-    [
-      1504,
-      "諏訪館"
-    ],
-    [
-      1582,
-      "深志城"
-    ],
-    [
-      9999,
-      "松本城"
-    ]
-  ],
-  "north_omi": [
-    [
-      1185,
-      "北近江国府館"
-    ],
-    [
-      1495,
-      "京極館・伊香砦"
-    ],
-    [
-      1573,
-      "小谷城"
-    ],
-    [
-      1582,
-      "長浜城"
-    ],
-    [
-      1600,
-      "佐和山城"
-    ],
-    [
-      9999,
-      "彦根城"
-    ]
-  ],
-  "south_omi": [
-    [
-      1185,
-      "瀬田唐橋館・志賀館"
-    ],
-    [
-      1568,
-      "観音寺城"
-    ],
-    [
-      1582,
-      "安土城"
-    ],
-    [
-      1595,
-      "八幡山城"
-    ],
-    [
-      1600,
-      "大津城"
-    ],
-    [
-      9999,
-      "膳所城"
-    ]
-  ],
-  "owari": [
-    [
-      1185,
-      "尾張国府館"
-    ],
-    [
-      1555,
-      "那古野城"
-    ],
-    [
-      1610,
-      "清洲城"
-    ],
-    [
-      9999,
-      "名古屋城"
-    ]
-  ],
-  "mikawa": [
-    [
-      1185,
-      "三河国府館"
-    ],
-    [
-      1560,
-      "岡崎城"
-    ],
-    [
-      9999,
-      "吉田城"
-    ]
-  ],
-  "totomi": [
-    [
-      1185,
-      "遠江国府館"
-    ],
-    [
-      1570,
-      "曳馬城"
-    ],
-    [
-      9999,
-      "浜松城"
-    ]
-  ],
-  "suruga": [
-    [
-      1185,
-      "駿河国府館"
-    ],
-    [
-      1568,
-      "今川館"
-    ],
-    [
-      9999,
-      "駿府城"
-    ]
-  ],
-  "izu": [
-    [
-      1185,
-      "北条館・蛭ヶ小島"
-    ],
-    [
-      1495,
-      "韮山城"
-    ],
-    [
-      9999,
-      "下田城"
-    ]
-  ],
-  "mino": [
-    [
-      1185,
-      "美濃国府・大井戸館"
-    ],
-    [
-      1567,
-      "稲葉山城"
-    ],
-    [
-      1600,
-      "岐阜城"
-    ],
-    [
-      9999,
-      "大垣城"
-    ]
-  ],
-  "echizen": [
-    [
-      1338,
-      "越前国府・府中館"
-    ],
-    [
-      1573,
-      "金ヶ崎城・一乗谷城"
-    ],
-    [
-      1600,
-      "北ノ庄城"
-    ],
-    [
-      9999,
-      "福井城"
-    ]
-  ],
-  "echigo": [
-    [
-      1185,
-      "越後国府・鳥坂城"
-    ],
-    [
-      1598,
-      "春日山城"
-    ],
-    [
-      9999,
-      "新発田城"
-    ]
-  ],
-  "etchu": [
-    [
-      1185,
-      "倶利伽羅砦"
-    ],
-    [
-      1585,
-      "富山城"
-    ],
-    [
-      9999,
-      "高岡城"
-    ]
-  ],
-  "noto": [
-    [
-      1577,
-      "七尾城"
-    ],
-    [
-      9999,
-      "小丸山城"
-    ]
-  ],
-  "kaga": [
-    [
-      1580,
-      "尾山御坊"
-    ],
-    [
-      9999,
-      "金沢城"
-    ]
-  ],
-  "hida": [
-    [
-      1585,
-      "帰雲城"
-    ],
-    [
-      9999,
-      "高山城"
-    ]
-  ],
-  "harima": [
-    [
-      1180,
-      "播磨国府館"
-    ],
-    [
-      1336,
-      "三木城"
-    ],
-    [
-      1580,
-      "白旗城・置塩城"
-    ],
-    [
-      9999,
-      "姫路城"
+      "大坂城"
     ]
   ],
   "tamba": [
     [
-      1579,
-      "八上城・黒井城"
+      1182,
+      "丹波国府館"
+    ],
+    [
+      1581,
+      "八上城"
     ],
     [
       9999,
@@ -40757,21 +49892,29 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "tango": [
     [
-      1582,
+      1182,
+      "丹後国府館"
+    ],
+    [
+      1581,
       "弓木城"
     ],
     [
-      1600,
-      "宮津城"
+      1613,
+      "田辺城"
     ],
     [
       9999,
-      "田辺城"
+      "宮津城"
     ]
   ],
   "tajima": [
     [
-      1580,
+      1182,
+      "但馬国府館"
+    ],
+    [
+      1581,
       "此隅山城・竹田城"
     ],
     [
@@ -40779,24 +49922,54 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "出石城"
     ]
   ],
-  "inaba": [
+  "harima": [
+    [
+      1182,
+      "播磨国府館"
+    ],
+    [
+      1184,
+      "三草山"
+    ],
+    [
+      1349,
+      "播磨国府館"
+    ],
     [
       1581,
-      "鳥取城"
+      "白旗城・置塩城"
     ],
     [
       9999,
-      "鳥取城（近世）"
+      "姫路城"
+    ]
+  ],
+  "inaba": [
+    [
+      1182,
+      "因幡国府館"
+    ],
+    [
+      9999,
+      "鳥取城"
     ]
   ],
   "hoki": [
     [
-      1333,
+      1182,
+      "伯耆国府館"
+    ],
+    [
+      1332,
+      "打吹城"
+    ],
+    [
+      1335,
       "伯耆国府館・船上山城"
     ],
     [
-      1580,
-      "八橋城"
+      1586,
+      "打吹城"
     ],
     [
       9999,
@@ -40805,7 +49978,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "izumo": [
     [
-      1600,
+      1182,
+      "出雲国府館"
+    ],
+    [
+      1613,
       "月山富田城"
     ],
     [
@@ -40815,7 +49992,15 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "iwami": [
     [
-      1560,
+      1182,
+      "石見国府館"
+    ],
+    [
+      1554,
+      "七尾城"
+    ],
+    [
+      1613,
       "山吹城（石見銀山）"
     ],
     [
@@ -40825,7 +50010,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "mimasaka": [
     [
-      1600,
+      1182,
+      "美作国府館"
+    ],
+    [
+      1613,
       "美作三星城"
     ],
     [
@@ -40835,7 +50024,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "bizen": [
     [
-      1573,
+      1182,
+      "備前国府館"
+    ],
+    [
+      1575,
       "三石城・天神山城"
     ],
     [
@@ -40845,7 +50038,15 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "bicchu": [
     [
-      1582,
+      1182,
+      "備中国府館"
+    ],
+    [
+      1581,
+      "備中松山城"
+    ],
+    [
+      1583,
       "備中高松城"
     ],
     [
@@ -40855,7 +50056,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "bingo": [
     [
-      1580,
+      1182,
+      "備後国府館"
+    ],
+    [
+      1613,
       "神辺城"
     ],
     [
@@ -40864,6 +50069,18 @@ window.HISTORICAL_CASTLE_CHANGES = {
     ]
   ],
   "aki": [
+    [
+      1182,
+      "安芸国府館"
+    ],
+    [
+      1554,
+      "吉田郡山城"
+    ],
+    [
+      1559,
+      "吉田郡山城・宮島勝山城"
+    ],
     [
       1589,
       "吉田郡山城"
@@ -40875,8 +50092,16 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "suo": [
     [
-      1863,
+      1182,
+      "周防国府館"
+    ],
+    [
+      1559,
       "山口館・大内館"
+    ],
+    [
+      1865,
+      "山口高嶺城・富田若山城"
     ],
     [
       9999,
@@ -40885,7 +50110,15 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "nagato": [
     [
-      1600,
+      1182,
+      "長門国府館"
+    ],
+    [
+      1188,
+      "彦島・引島"
+    ],
+    [
+      1613,
       "勝山城"
     ],
     [
@@ -40895,11 +50128,15 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "sanuki": [
     [
-      1185,
-      "屋島行宮・讃岐国府"
+      1182,
+      "讃岐国府館"
     ],
     [
-      1585,
+      1188,
+      "屋島"
+    ],
+    [
+      1586,
       "十河城"
     ],
     [
@@ -40909,7 +50146,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "awa_shikoku": [
     [
-      1585,
+      1182,
+      "阿波国府館"
+    ],
+    [
+      1586,
       "勝瑞城"
     ],
     [
@@ -40919,12 +50160,16 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "iyo": [
     [
-      950,
+      1018,
       "日振島砦"
     ],
     [
-      1585,
-      "湯築城"
+      1335,
+      "伊予国府館"
+    ],
+    [
+      1589,
+      "湯築城・能島城"
     ],
     [
       9999,
@@ -40933,7 +50178,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "tosa": [
     [
-      1585,
+      1182,
+      "土佐国府館"
+    ],
+    [
+      1613,
       "岡豊城"
     ],
     [
@@ -40943,41 +50192,77 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "buzen": [
     [
-      1587,
+      1182,
+      "豊前国府館"
+    ],
+    [
+      1586,
       "城井谷城"
+    ],
+    [
+      1613,
+      "中津城"
     ],
     [
       9999,
       "小倉城"
     ]
   ],
-  "bungo": [
-    [
-      1593,
-      "府内城・大友館"
-    ],
-    [
-      9999,
-      "臼杵城"
-    ]
-  ],
   "chikuzen": [
     [
-      1185,
-      "大宰府政庁・大津城"
+      1182,
+      "大宰府政庁"
     ],
     [
-      1587,
+      1586,
       "立花山城"
+    ],
+    [
+      1613,
+      "名島城"
     ],
     [
       9999,
       "福岡城"
     ]
   ],
+  "hizen": [
+    [
+      1182,
+      "肥前国府館"
+    ],
+    [
+      1530,
+      "勢福寺城"
+    ],
+    [
+      1591,
+      "村中城"
+    ],
+    [
+      1599,
+      "名護屋城"
+    ],
+    [
+      1636,
+      "佐賀城"
+    ],
+    [
+      1650,
+      "原城"
+    ],
+    [
+      9999,
+      "佐賀城"
+    ]
+  ],
   "chikugo": [
     [
-      1587,
+      1182,
+      "筑後国府館"
+    ],
+    [
+      1613,
       "柳川城"
     ],
     [
@@ -40985,23 +50270,35 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "久留米城"
     ]
   ],
-  "hizen": [
+  "bungo": [
     [
-      1584,
-      "村中城"
+      1182,
+      "豊後国府館"
+    ],
+    [
+      1569,
+      "府内館"
+    ],
+    [
+      1599,
+      "臼杵城"
     ],
     [
       9999,
-      "佐賀城"
+      "府内城・大友館"
     ]
   ],
   "higo": [
     [
-      1338,
+      1182,
+      "肥後国府館"
+    ],
+    [
+      1530,
       "菊池本城・隈府城"
     ],
     [
-      1588,
+      1589,
       "隈本城"
     ],
     [
@@ -41011,7 +50308,11 @@ window.HISTORICAL_CASTLE_CHANGES = {
   ],
   "hyuga": [
     [
-      1577,
+      1182,
+      "日向国府館"
+    ],
+    [
+      1576,
       "都於郡城"
     ],
     [
@@ -41019,23 +50320,13 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "飫肥城"
     ]
   ],
-  "osumi": [
-    [
-      1590,
-      "帖佐城"
-    ],
-    [
-      9999,
-      "富隈城"
-    ]
-  ],
   "satsuma": [
     [
-      1185,
+      1182,
       "薩摩国府館"
     ],
     [
-      1601,
+      1613,
       "一宇治城・内城"
     ],
     [
@@ -41043,201 +50334,454 @@ window.HISTORICAL_CASTLE_CHANGES = {
       "鹿児島城（鶴丸城）"
     ]
   ],
-  "iwaki": [
+  "osumi": [
     [
-      1590,
-      "白河小峰城"
+      1182,
+      "大隅国府館"
+    ],
+    [
+      1591,
+      "帖佐城"
     ],
     [
       9999,
-      "平城"
-    ]
-  ],
-  "iwashiro": [
-    [
-      1589,
-      "黒川城"
-    ],
-    [
-      9999,
-      "会津若松城"
-    ]
-  ],
-  "rikuzen": [
-    [
-      1189,
-      "平泉・柳之御所"
-    ],
-    [
-      1600,
-      "岩出山城"
-    ],
-    [
-      9999,
-      "青葉城（仙台城）"
-    ]
-  ],
-  "rikuchu": [
-    [
-      1189,
-      "衣川柵"
-    ],
-    [
-      1590,
-      "九戸城"
-    ],
-    [
-      9999,
-      "盛岡城"
-    ]
-  ],
-  "mutsu": [
-    [
-      1087,
-      "多賀城・厨川柵"
-    ],
-    [
-      1338,
-      "霊山城"
-    ],
-    [
-      1590,
-      "三戸城"
-    ],
-    [
-      9999,
-      "盛岡城"
-    ]
-  ],
-  "tsugaru": [
-    [
-      1087,
-      "津軽平野館・柵"
-    ],
-    [
-      1495,
-      "浪岡城"
-    ],
-    [
-      1590,
-      "大浦城"
-    ],
-    [
-      1611,
-      "堀越城"
-    ],
-    [
-      9999,
-      "弘前城"
-    ]
-  ],
-  "ugo": [
-    [
-      1087,
-      "秋田城・払田柵"
-    ],
-    [
-      1602,
-      "湊城"
-    ],
-    [
-      9999,
-      "久保田城"
-    ]
-  ],
-  "uzen": [
-    [
-      1600,
-      "山形城"
-    ],
-    [
-      9999,
-      "米沢城"
-    ]
-  ],
-  "ezo": [
-    [
-      1590,
-      "勝山館・茂別館"
-    ],
-    [
-      1868,
-      "松前城（福山城）"
-    ],
-    [
-      9999,
-      "五稜郭"
-    ]
-  ],
-  "sado": [
-    [
-      1185,
-      "佐渡国府・国分寺営所"
-    ],
-    [
-      1589,
-      "雑太城（本間氏本拠）"
-    ],
-    [
-      1600,
-      "沢根城・新穂城"
-    ],
-    [
-      9999,
-      "相川陣屋・佐渡奉行所"
-    ]
-  ],
-  "awaji": [
-    [
-      1185,
-      "淡路国府館"
-    ],
-    [
-      1495,
-      "志知城・由良城"
-    ],
-    [
-      1581,
-      "洲本城・安宅城"
-    ],
-    [
-      9999,
-      "洲本城"
+      "富隈城"
     ]
   ],
   "oki": [
     [
-      1185,
+      1182,
+      "隠岐国府館"
+    ],
+    [
+      1335,
       "隠岐国府営所・黒木御所"
     ],
     [
-      1566,
-      "甲尾城・美保関館"
+      1599,
+      "甲尾城"
     ],
     [
       9999,
       "隠岐陣屋・西郷館"
     ]
   ],
+  "sado": [
+    [
+      1182,
+      "佐渡国府館"
+    ],
+    [
+      1589,
+      "雑太城"
+    ],
+    [
+      9999,
+      "相川陣屋・佐渡奉行所"
+    ]
+  ],
   "tsushima": [
     [
-      1274,
-      "対馬国府・下県郡館"
+      1182,
+      "対馬金田城・府中"
     ],
     [
-      1587,
-      "金石城（宗氏代々居城）"
+      1330,
+      "対馬府中・小茂田"
     ],
     [
-      1600,
+      1591,
+      "厳原城・府中城"
+    ],
+    [
+      1599,
       "清水山城"
     ],
     [
       9999,
-      "厳原城・府中城"
+      "金石城"
+    ]
+  ],
+  "awaji": [
+    [
+      1182,
+      "淡路国府館"
+    ],
+    [
+      1581,
+      "志知城・由良城"
+    ],
+    [
+      9999,
+      "洲本城"
     ]
   ]
 };
+
+window.HISTORICAL_CASTLE_LORES = {
+  "蝦夷地渡島営所": "古代より和人とアイヌ民族の交易地として栄えた渡島半島の拠点。北方警備と物資交易の中継地。",
+  "渡島和人館・志苔館": "道南十二館の一つ。津軽海峡を越えた和人豪族が割拠し、北方交易と防衛の拠点とした中世城館。",
+  "勝山館・茂別館": "蠣崎氏（松前氏の祖）が拠点とした日本海側の名館。アイヌ民族との抗争と和睦の舞台となり、北方支配の基礎となった。",
+  "松前城（福山城）": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+  "松前城": "松前氏が蝦夷地支配の拠点として築いた日本最北の近世城郭。日本海航路（北前船）の要衝として栄えた。",
+  "津軽平野館・柵": "古代津軽の蝦夷諸部族や在地豪族が拠った柵や城館。北方交易と馬産で栄えた北のフロンティア。",
+  "十三湊館": "中世奥州の雄・安東氏（安藤氏）が本拠とした国際貿易港。日本海海運を通じて北東アジアや京都の物資が行き交った。",
+  "浪岡城": "名門北畠氏が津軽平野中部に築いた大規模な平城。五重の堀と土塁を巡らし、中世津軽の文化と政治の中心地となった。",
+  "大浦城": "津軽統一の英主・津軽為信（大浦為信）が蜂起した本拠。津軽一統に向けた軍事行動の出撃拠点となった。",
+  "堀越城": "津軽平定を果たした津軽為信が大浦城から移った本拠。弘前城完成までの間、津軽領国支配の中枢となった。",
+  "弘前城": "津軽為信が構想し2代信枚が慶長16年（1611年）に完成させた津軽十万石の本拠。北限の名城として五重天守が聳えた。",
+  "志波城・胆沢城": "坂上田村麻呂が蝦夷平定のために築いた律令国家の最前線要塞。鎮守府が置かれ、北東北支配の軍政拠点となった。",
+  "厨川柵": "前九年の役で安倍貞任・宗任が拠った安倍氏最北の拠点。北上川と雫石川の合流点に位置し、激戦の末に落城した。",
+  "三戸館": "奥州合戦後に糠部郡へ入部した南部光行以来の南部氏本拠。馬産を背景に勢力を伸ばした。",
+  "霊山城": "南北朝時代、南朝方の名将・北畠顕家や北畠顕信が拠った天然の山岳要塞。奥羽の南朝勢力結集の牙城となった。",
+  "三戸城": "戦国期に南部晴政・信直が本拠とした堅固な山城。三戸南部氏が奥州北部の広大な所領を統治した中枢。",
+  "胆沢柵・巣伏": "古代東北の英雄アテルイ（阿弖流為）が拠った蝦夷の聖地。朝廷軍の大軍を打ち破った巣伏の戦いの舞台。",
+  "厨川柵・衣川柵": "奥六郡を支配した豪族安倍氏の防衛拠点。北上川流域に連なる天然の要害。",
+  "厨川柵・胆沢城": "律令国家の鎮守府胆沢城と在地豪族の拠点が対峙した古代陸中の軍政要衝。",
+  "衣川柵": "前九年の役の激戦地となった安倍氏南方の要衝。衣川の険を頼みにして朝廷軍を阻んだ。",
+  "平泉館": "奥州藤原氏三代が築いた黄金文化の中心地。中尊寺や毛越寺が立ち並ぶ極楽浄土の都。",
+  "平泉・柳之御所": "奥州藤原氏の政庁と伝わる平泉の居館。秀衡・泰衡父子が奥羽全域に君臨した北方の政庁。",
+  "高水寺城": "奥州斯波氏（高水寺斯波氏）代々の居城。陸中斯波郡の要衝に位置し、奥州管領の格式を誇る斯波氏の支配拠点となった。",
+  "寺地城": "陸中・陸南に割拠した葛西氏代々の本拠城。北上川流域の要衝にあり、中世奥州の豪族葛西氏の勢力を支えた。",
+  "不来方城": "盛岡城の前身となる平山城。南部氏が三戸から南下して本拠を移し、後の盛岡藩の基盤を築いた。",
+  "盛岡城": "南部信直・利直父子が不来方の地に築いた南部二十万石の巨城。北上川と中津川に囲まれた総石垣の近世名城。",
+  "秋田城・払田柵": "出羽国北部を統括した古代の城柵。日本海交易と北方諸部族の懐柔・軍政の中枢。",
+  "金沢柵": "後三年の役で清原家衡・武衡が立て籠もった難攻不落の要害。源義家・藤原清衡軍の兵糧攻めで落城した。",
+  "湊城": "秋田港（土崎湊）河口に位置する安東氏の城。日本海海運を支配し、北海道・上方との交易で巨万の富を築いた。",
+  "久保田城": "関ヶ原後に常陸から転封された佐竹義宣が築城した秋田藩二十万石の城。石垣を多用せず土塁と水堀で固めた堅城。",
+  "多賀城": "神亀元年（724年）創建の律令国家鎮守府兼陸奥国府。古代東北の軍事・政治・文化を統括した壮大な城柵。",
+  "岩切城": "南北朝時代、奥州管領吉良氏や在地豪族留守氏が拠った山城。多賀城に隣接する軍事拠点。",
+  "岩出山城": "伊達政宗が豊臣秀吉の命で米沢から移った本拠。関ヶ原後に仙台城へ移るまで政宗が伊達領支配の拠点とした。",
+  "青葉城（仙台城）": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+  "青葉城": "伊達政宗が青葉山に築いた伊達六十二万石の名城。広瀬川の断崖に張り出す壮麗な山城で、天下に武威を誇った。",
+  "城輪柵（出羽国府）": "庄内平野に位置した古代出羽国の国府政庁。日本海交易と出羽国の行政・祭祀の中心地。",
+  "沼柵": "後三年の役で清原家衡が拠った豪雪の城柵。源義家軍の猛攻を退けた厳寒の要塞。",
+  "長井城": "大江広元の後裔・長井氏が置賜郡に拠った中世城館。羽前南部の政治的拠点。",
+  "米沢城": "伊達氏代々の本拠にして伊達政宗生誕の城。後に上杉景勝・直江兼続が入封し米沢藩上杉三十万石の居城となった。",
+  "山形城": "斯波兼頼（最上氏の祖）が築いた最上五十七万石の大城郭。三重の堀と土塁を巡らせた東北屈指の巨城。",
+  "白河関・白河営所": "みちのくの玄関口・白河関を守護する古代・中世の要衝。多くの歌人にも詠まれた歴史的関所。",
+  "白河小峰城": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城で、近世には丹羽氏・松平氏が総石垣に改修した。",
+  "小峰城": "結城親朝が築いた奥州白河の要衝。阿武隈川を背にした名城。",
+  "小高城": "相馬氏が下総から奥州に移って代々の本拠とした平山城。相馬野馬追の伝統を育んだ武門の拠点。",
+  "平城": "関ヶ原後に鳥居忠政が築いた磐城平藩の本拠。いわき平野を見下ろす近世城郭。",
+  "会津郡衙館": "古代会津盆地の律令支配拠点。肥沃な盆地の農耕と交通を結ぶ要衝。",
+  "阿津賀志山防塁": "奥州藤原泰衡が源頼朝の奥州征伐軍を迎え撃つために築いた大防塁。二重の土塁と堀で街道を遮断した。",
+  "黒川城": "芦名氏代々の本拠城。会津盆地を掌握する要害で、後に伊達政宗が奪い、蒲生氏郷が近代城郭へと大改修した。",
+  "会津若松城": "蒲生氏郷が黒川城を拡張・改修して名付けた名城（鶴ヶ城）。戊辰戦争で一ヶ月の猛攻に耐え抜いた不屈の城。",
+  "常陸国府館": "常陸国の国府が置かれた石岡の古代政庁。常陸平野の農耕と水運を管掌した中枢。",
+  "常陸国府・府中館": "古代から中世にかけて常陸大掾氏らが拠った常陸国の中心館。",
+  "太田城": "名族佐竹氏が代々本拠とした常陸北部の要塞。佐竹義重・義宣父子が北関東全域へ勢力を伸長させた牙城。",
+  "水戸城": "佐竹氏が太田城から移転し、関ヶ原後に徳川御三家の水戸徳川家が入封した水戸三十五万石の居城。那珂川の断崖に聳える。",
+  "下野国府館": "古代下野国の国庁が置かれた政治の中心地。東山道が通過する交通の要衝。",
+  "唐沢山館・下野国府": "古代下野国府と、藤原秀郷以来の名門佐野氏が拠った唐沢山城の連携要衝。",
+  "宇都宮城": "藤原宗円以来、下野の盟主・宇都宮氏が拠った関東屈指の平城。近世には日光東照宮参詣の将軍宿泊地ともなった。",
+  "壬生城": "下野中部に位置する平城。中世は壬生氏、近世には鳥居氏ら譜代大名が治めた要衝。",
+  "上野国府館": "上野国の政治の中心地。古代東山道の重要軍政拠点。",
+  "新田庄・生品館": "新田義貞が鎌倉幕府打倒の旗揚げを行った新田氏一族の本拠。利根川水系の豊かな穀倉地帯を背景とした。",
+  "箕輪城": "長野業正・業盛父子が武田信玄の猛攻を幾度も退けた天下の堅城。後に井伊直政も一時城主を務めた。",
+  "高崎城": "慶長3年（1598年）、徳川家康の命を受けた井伊直政が箕輪城から移転して築いた中山道と三国街道の結節要塞。",
+  "武蔵国府・府中館": "大化の改新以降、武蔵国の国府が置かれた府中の中枢。武蔵総社大國魂神社が鎮座する政治の要地。",
+  "武蔵国府・秩父館": "秩父平氏の武士団が拠った武蔵国北西部の要衝。",
+  "河越館・比企館": "鎌倉幕府の有力御家人・河越氏や比企氏が拠った中世武蔵武士団の拠点館。",
+  "河越城・岩付城": "太田道灌が築いた武蔵平野の要塞群。扇谷上杉氏と後北条氏が激突した河越夜戦の舞台。",
+  "江戸城": "太田道灌が築城し、徳川家康が入封して世界最大級の城塞へと発展させた徳川幕府・将軍の居城。",
+  "下総国府館": "古代下総国の国府が置かれた市川・国府台の地。東京湾岸と利根川水系を見下ろす高台。",
+  "石井営所": "平将門が平安中期に関東自立を宣言して本拠とした下総石井（岩井）の営所。承平天慶の乱の舞台。",
+  "下総相馬営所": "平将門の勢力基盤となった相馬郡の軍事拠点。",
+  "千葉城（亥鼻城）": "平安末期から室町期に千葉常胤をはじめ千葉氏一族が本拠とした居城。",
+  "本佐倉城": "享徳の乱ののち、千葉輔胤が印旛沼南岸に築いた千葉氏宗家の本拠城。堅固な空堀と土塁群を誇る。",
+  "佐倉城": "徳川家康の命により土井利勝が築いた近世城郭。江戸東方の防衛線を担う譜代大名の居城。",
+  "結城城": "藤原秀郷流の名門・結城氏が鎌倉期から代々拠った下総北西部の平城。",
+  "上総国府館": "古代上総国の政庁が置かれた市原の拠点。内房沿岸の海上交通を管掌した。",
+  "上総国府・夷隅営所": "古代上総国の国府と房総半島東岸の防衛拠点。",
+  "庁南城": "武田信長（上総武田氏）が上総平定のために築いた中世山城。",
+  "久留里城": "里見義堯・義弘父子が後北条氏の軍勢を幾度も撃退した『雨城』の異名を持つ不落の山城。",
+  "大多喜城": "徳川四天王・本多忠勝が十万石で入り、近世城郭へと大改修した房総制圧の拠点要塞。",
+  "安房国府館": "安房国の行政中枢。房総半島南端の温暖な気候と沿岸漁業・水運の拠点。",
+  "勝山城": "長門守護代内藤氏が拠った城。毛利氏に下り長門支配の拠点となった。",
+  "館山城": "天正8年（1580年）、里見義頼が安房統一の拠点として館山湾を見下ろす丘陵に築いた里見氏後期の居城。",
+  "相模国府館": "古代相模国の政庁。相模湾に面した温暖で豊かな平野部を治めた。",
+  "大庭御厨館": "平安末期に鎌倉景政らが開墾した伊勢神宮領大庭御厨の拠点館。相模武士団の台頭の地。",
+  "鎌倉幕府大蔵御所": "源頼朝が建久元年（1190年）に開いた初代鎌倉幕府の政庁。武家政権発祥の地。",
+  "鎌倉幕府御所": "源頼朝から北条執権期にかけて武家政権の中枢となった鎌倉の御所。",
+  "鎌倉府御所": "室町幕府が東国統治のために置いた鎌倉公方（足利氏）と関東管領（上杉氏）の政庁。",
+  "小田原城": "後北条氏五代が拡張を重ねた中世最大級の巨城。城下全体を囲む周囲九キロの総構を誇り、上杉・武田をも退けた。",
+  "伊豆国府館": "三島に置かれた古代伊豆国の国府。三嶋大社の門前に広がる東海道の要衝。",
+  "北条館・蛭ヶ小島": "源頼朝が二十年間配流生活を送った蛭ヶ小島と、それを支えた北条時政ら北条氏の館。",
+  "北条館": "鎌倉幕府執権・北条氏発祥の地である伊豆の拠点館。",
+  "韮山城": "伊勢宗瑞（北条早雲）が伊豆討ち入り後に本拠とし、後北条氏の関東進出の起点となった堅固な平山城。",
+  "下田城": "後北条氏が伊豆半島南端に築いた水軍基地。豊臣秀吉の小田原攻めでは長宗我部・九鬼水軍を相手に籠城戦を展開した。",
+  "甲斐国府館": "古代甲斐国の政治中枢。甲府盆地東部に位置し、東山道支路が交差する地。",
+  "一条館": "甲斐源氏・武田氏の祖たちが本拠とした館。",
+  "石和館": "武田信重・信守らが笛吹川沿いに構えた中世武田氏の本拠居館。",
+  "躑躅ヶ崎館": "武田信虎・信玄・勝頼三代が領国支配の中枢とした居館。『人は城、人は石垣』の思想を体現した武田の本拠。",
+  "甲府城": "武田氏滅亡後、豊臣政権下で浅野長政らが築き、徳川期に完成した総石垣の近世要塞。",
+  "信濃国府館": "古代信濃国の国府政庁。千曲川流域の広大な信濃路を統括した。",
+  "葛尾城": "北信濃の雄・村上義清の居城。武田晴信（信玄）の軍勢を二度にわたり撃退した名高き山城。",
+  "海津城": "武田信玄が山本勘助に命じて築かせた川中島支配の最前線基地。後に真田氏が入り松代城と改称。",
+  "上田城": "真田昌幸が築城し、二度にわたる徳川軍の大軍を寡兵で撃退した天下の名城。千曲川の断崖に築かれた。",
+  "松代城": "近世松代藩十万石・真田家の居城。千曲川を天然の堀とした海津城の後身。",
+  "諏訪館": "信濃の名族・諏訪大社大祝を兼ねる諏訪氏代々の本拠居館。",
+  "木曽谷関所館": "木曽谷の街道を扼する関所と木曽義仲ゆかりの居館群。",
+  "木曽谷徳音寺館": "木曽義仲ゆかりの木曽谷の菩提寺・拠点館。",
+  "深志城": "信濃守護小笠原氏が築き、武田信玄が中信濃支配の拠点とした城。後の松本城。",
+  "高遠城": "南信濃の要衝。武田信玄の五男・仁科盛信が織田信忠の大軍を相手に壮絶な討死を遂げた激戦の地。",
+  "松本城": "石川数正・康長父子が築いた現存五重六階の国宝天守を誇る名城。黒漆塗りの威容が北アルプスに映える。",
+  "越後国府・蒲原津": "古代越後国の国府と信濃川河口の港湾要衝。",
+  "越後国府・鳥坂城": "越後国府と古代の山城・鳥坂城。日本海側の防衛拠点。",
+  "春日山城": "越後守護代・長尾氏、そして軍神・上杉謙信が本拠とした名城。全山に無数の曲輪が広がる一大要塞群。",
+  "新発田城": "新発田重家が上杉景勝に抵抗した城。関ヶ原後は溝口氏が入り『あやめ城』とも呼ばれる近世城郭へ発展した。",
+  "長岡城": "越後長岡藩牧野氏の本拠。戊辰戦争では家老・河井継之助がガトリング砲を駆使して激烈な攻防戦を演じた。",
+  "越中国府館": "万葉の歌人・大伴家持が国司として赴任した伏木（高岡）の越中国府。",
+  "倶利伽羅砦": "寿永2年（1183年）、木曾義仲が平家の大軍を火牛の計などで破った倶利伽羅峠の要塞。",
+  "富山城": "佐々成政が越中統一の拠点とした城。神通川の水を引き入れた水城で『浮城』と称された。",
+  "高岡城": "加賀藩2代前田利長が隠居城として築いた名城。堀の美しさと縄張りの巧みさで知られる。",
+  "能登国府館": "古代能登国の国府。日本海航路の重要中継地。",
+  "七尾城": "石見の名門・益田氏が中世に代々本拠とした山城。",
+  "小丸山城": "前田利家が能登一国を与えられた際に七尾湾を望む地に築いた居城。",
+  "加賀国府館": "古代加賀国の政庁。白山信仰と肥沃な平野部を束ねた。",
+  "尾山御坊": "加賀一向一揆が本拠とした寺院要塞。約百年にわたり『百姓の持ちたる国』の中枢として君臨した。",
+  "金沢城": "前田利家が入城して加賀百万石の拠点とした名城。菱櫓や五十間長屋、壮麗な石垣群を誇る。",
+  "越前国府館": "古代越前国の政治の中心地。北陸道が通過する要衝。",
+  "越前国府・府中館": "古代国府から中世武士団の拠点へと引き継がれた越前府中の館。",
+  "府中城・北ノ庄館": "織田信長の前田利家ら府中三人衆の拠点、および朝倉滅亡後の拠点館。",
+  "金ヶ崎城・一乗谷城": "南北朝の新田義貞終焉の地・金ヶ崎城と、朝倉氏の居城の要衝群。",
+  "一乗谷城": "朝倉氏五代が百年にわたり栄華を極めた都市型城郭。京都の雅を移した城下町遺構が完全な形で発掘された。",
+  "北ノ庄城": "柴田勝家が信長より越前を与えられて築いた巨城。九重天守が聳えたと伝わり、勝家とお市の最期の地となった。",
+  "福井城": "結城秀康（徳川家康の次男）が六十七万石で入封し築いた大城郭。壮大な石垣と水堀を巡らせた親藩の名城。",
+  "若狭国府館": "御食国（みけつくに）として朝廷に海の幸を貢納した若狭国の政庁。",
+  "後瀬山城": "若狭武田氏が小浜を見下ろす山上に築いた本拠城。若狭湾交易の利を握った。",
+  "飛騨国府館": "飛騨の匠の里・古代飛騨国の国庁。",
+  "松倉城": "三木自綱（姉小路氏）が飛騨統一のために築いた峻険な山城。",
+  "帰雲城": "内ヶ島氏が飛騨北部に築いた難攻不落の城。天正13年の天正地震による山崩れで城ごと地中に埋没した伝説の城。",
+  "高山城": "金森長近が飛騨平定後に築いた平山城。城下町高山の町並みとともに飛騨の文化・産業を開花させた。",
+  "美濃国府・不破関": "古代三関の一つ・不破関と美濃国府。天下の分け目を扼する軍事大動脈。",
+  "美濃国府・大井戸館": "古代国府と中世美濃源氏の拠点居館。",
+  "稲葉山城": "斎藤道三が金華山の険峰に築いた難攻不落の山城。濃尾平野を一望する絶好の戦略拠点。",
+  "岐阜城": "織田信長が稲葉山城を奪取し『天下布武』の拠点として改称・整備した名城。ルイス・フロイスも絶賛した。",
+  "大垣城": "水門川を外堀とした四層天守を誇る美濃の要塞。関ヶ原の戦いでは西軍・石田三成の本営となった。",
+  "駿河国府館": "古代駿河国の国庁。富士山を望む東海道の要衝。",
+  "今川館": "駿河守護・今川氏が代々本拠とした館。雅やかな公家文化が花開き『東海の小京都』と称された。",
+  "駿府今川館": "今川義元らが治めた駿河国の政庁。文化と武備が融合した東海の大拠点。",
+  "駿府城": "徳川家康が晩年の大御所期を過ごした壮大な城郭。三重の堀と広大な本丸を誇り、実質的な天下の政庁となった。",
+  "遠江国府館": "古代遠江国の政治中枢。浜名湖東岸の豊かな平野部を治めた。",
+  "曳馬城": "今川配下の飯尾氏が拠った城。後に徳川家康が奪取して改修し、浜松城と改称した前身の城。",
+  "浜松城": "徳川家康が武田信玄の脅威に備えて築き二十九歳から四十五歳まで在城した『出世城』。",
+  "浜松城・二俣城": "徳川家康の居城・浜松城と、武田・徳川が激戦を繰り広げた天竜川の要衝・二俣城。",
+  "三河国府館": "古代三河国の国庁。三河湾沿岸の肥沃な平野を統治した。",
+  "岡崎城": "松平清康・広忠、そして徳川家康が生誕した神君の城。矢作川と乙川の合流点に位置する名城。",
+  "岡崎城・吉田城": "家康生誕の岡崎城と、東三河の交通・海上要衝である吉田城（豊橋）。",
+  "吉田城": "酒井忠次ら徳川重臣が守った東三河の旗頭城郭。豊川河口に築かれた水運の要塞。",
+  "尾張国府館": "古代尾張国の国庁。熱田神宮とともに古代交通の要衝をなした。",
+  "那古野城": "今川氏親が築き、織田信秀が奪取して信長が生誕した城。若き日の信長が本拠とした。",
+  "清洲城": "織田信長が桶狭間の戦いに出陣した尾張の中心城郭。信長死後の清洲会議の舞台ともなった。",
+  "名古屋城": "徳川家康が天下普請で築いた尾張徳川家六十二万石の居城。『金鯱』輝く五層天守を誇る近世城郭の最高峰。",
+  "伊勢国府館": "伊勢神宮を擁する神国伊勢の行政拠点。",
+  "長島城": "木曽三川河口の輪中に位置する一向一揆の要塞。織田信長が三度にわたる大攻勢で激戦を繰り広げた。",
+  "安濃津城": "伊勢湾の重要港湾・津に築かれた平城。織田信包や富田氏が治めた。",
+  "桑名城": "東海道桑名宿に位置し、徳川四天王・本多忠勝が築いた伊勢湾岸の要塞城郭。",
+  "志摩国府館": "古代志摩国の政庁。英虞湾や鳥羽湾の豊かな海産物を朝廷に供給した。",
+  "鳥羽城": "九鬼水軍の総帥・九鬼嘉隆が築いた日本有数の海城。大手門が海に向かって開く水軍城塞。",
+  "伊賀国府館": "山に囲まれた盆地に位置する古代伊賀国の政庁。",
+  "伊賀上野城": "筒井定次が築き、築城の名手・藤堂高虎が高石垣を築いて拡張した平山城。西国大名への抑えとされた名城。",
+  "上野城": "伊賀盆地の中央に位置し、忍びの郷・伊賀の軍事拠点となった城。",
+  "北近江国府館": "古代近江国北部の政庁。北陸道と東山道が分岐する交通の結節点。",
+  "京極館・伊香砦": "近江守護・京極氏が代々本拠とした湖北の居館と山城群。",
+  "小谷城": "浅井三代（亮政・久政・長政）が小谷山全域に築いた日本屈指の山城。信長の猛攻に散った浅井氏落日の城。",
+  "長浜城": "羽柴秀吉が浅井攻めの功により拝領し、初めて一国一城の主として築いた琵琶湖畔の城。",
+  "佐和山城": "石田三成が城主となり『三成に過ぎたるもの』と謳われた名城。琵琶湖東岸を扼する要衝。",
+  "彦根城": "井伊直政の遺志を継ぎ直継・直孝が築いた国宝天守を誇る名城。琵琶湖を望む譜代筆頭・井伊氏三十五万石の居城。",
+  "近江大津・瀬田関": "天智天皇の近江大津宮ゆかりの地。東海道・東山道が京都へ入る直前の要衝。",
+  "瀬田唐橋館・志賀館": "京都防衛の生命線・瀬田の唐橋を扼する軍事拠点。",
+  "観音寺城": "近江守護六角氏が繖山に築いた巨大山城。総石垣の曲輪群が山上に広がる中世屈指の大城郭。",
+  "安土城": "織田信長が天下布武の象徴として築いた絢爛豪華なる城。五重七階の天主が聳え、城郭建築を一変させた幻の名城。",
+  "八幡山城": "豊臣秀次が安土城の資材を用いて築いた城郭。城下町近江八幡の繁栄の礎となった。",
+  "大津城": "豊臣政権下で京の喉首を扼する城として築かれた。関ヶ原の戦いでは京極高次が西軍一万五千を相手に防戦した。",
+  "膳所城": "徳川家康が天下普請第一号として藤堂高虎に築かせた琵琶湖岸の城。『瀬田の唐橋からすの鳴かぬ日はあれど…』と謳われた。",
+  "平安京・大内裏": "延暦13年（794年）桓武天皇遷都以来、千年の栄華を誇る日本の首都。大極殿や内裏が並び立つ国家の中枢。",
+  "六波羅": "平家一門が居館を連ね、平氏政権の軍政中枢となった京都六波羅の地。",
+  "六波羅探題": "承久の乱後、鎌倉幕府が朝廷監視と西国統括のために置いた軍政出先機関。北条氏の重鎮が歴代探題を務めた。",
+  "六波羅探題・平安京": "皇居平安京と武家政権監視の六波羅探題が併存した鎌倉期の京都中枢。",
+  "三条東殿・大内裏": "保元の乱・平治の乱の舞台となった院政期の御所と大内裏。",
+  "花之御所・室町殿": "室町幕府3代将軍・足利義満が造営した将軍家の豪壮な邸宅。武家と公家文化が融合した北山・東山文化の発信地。",
+  "室町花の御所": "室町将軍家の公邸。応仁の乱では東西両軍がこの周辺で死闘を繰り広げた。",
+  "室町御所": "室町幕府歴代将軍の居城。足利義昭が織田信長に追放されるまで武家政権の象徴であり続けた。",
+  "二条御所": "織田信長が京都滞在時の拠点、あるいは誠仁親王のために築いた豪華な御所。",
+  "山崎城": "山崎の戦いで明智光秀を破った羽柴秀吉が、天王山山頂に一時築いた戦略拠点要塞。",
+  "聚楽第": "豊臣秀吉が京都に築いた政庁兼城郭。後陽成天皇の行幸を迎え、白壁金瓦の威容で関白秀吉の天下を天下に示した。",
+  "聚楽第・伏見城": "秀吉が築いた聚楽第と隠居城伏見城が連携した織豊期京都の中枢。",
+  "伏見城": "豊臣秀吉が晩年の居城として築き、秀吉終焉の地となった巨城。関ヶ原の前哨戦や家康の上洛拠点ともなった。",
+  "二条城": "慶長8年（1603年）、徳川家康が将軍拝賀の儀を行った平城。大政奉還の舞台となり幕末の終止符が打たれた歴史的名城。",
+  "大和国府館": "飛鳥・奈良の都を抱く古代日本の揺籃の地・大和国の政庁。",
+  "信貴山城": "松永久秀が信貴山山頂に築いた一大山城。四重天守を持ち、織田信長に背いた久秀が平蜘蛛釜とともに爆死した地。",
+  "多聞山城": "松永久秀が奈良に築いた先進的城郭。日本最初の四重天守を持ち、白壁の美しさから『多聞櫓』の語源となった。",
+  "郡山城": "筒井順慶が築き、豊臣秀長（秀吉の弟）が大和・紀伊・和泉百万石の拠点として大改修した大和屈指の巨城。",
+  "紀伊国府館": "古代紀伊国の政庁。熊野古道や高野山への入り口を扼する。",
+  "雑賀城": "雑賀孫一率いる鉄砲集団・雑賀衆の本拠地。信長の軍勢を卓越した射撃戦術で幾度も苦しめた。",
+  "和歌山城": "豊臣秀吉の命で藤堂高虎が縄張りし、浅野氏を経て紀州徳川家五十万石の居城となった虎伏山の名城。",
+  "新宮城": "熊野川河口に築かれた水野氏の城。熊野炭や材木の集散地を抑えた。",
+  "河内国府館": "古代河内国の政庁。大和川水系と大阪湾を結ぶ水陸の要衝。",
+  "石川荘館": "源氏ゆかりの武士団・石川源氏が拠った中世河内の居館。",
+  "千早城・上赤坂城": "楠木正成が金剛山中に築いた山城。鎌倉幕府の大軍十万を奇策と地の利で翻弄し、幕府滅亡の引き金を引いた不落の名城。",
+  "高屋城": "河内守護畠山氏の本拠城。応仁の乱前後の家督争いや織田信長との高屋城の戦いの舞台となった平城。",
+  "若江城": "三好義継が拠り、信長との戦いに敗れて自刃した城。河内平野中央の軍事拠点。",
+  "和泉国府館": "古代和泉国の政庁。堺の港とともに栄えた。",
+  "岸和田城": "楠木正成の一族・和田氏が築いたと伝わり、小出氏・岡部氏が城主を務めた『千亀利城』の別名を持つ名城。",
+  "難波宮・渡辺津": "大化の改新の舞台・難波宮と、瀬戸内海交通の起点となった古代・中世の国際港湾・渡辺津。",
+  "一の谷・福原": "平清盛が遷都を試みた福原京と、源平合戦の激戦地・一ノ谷。",
+  "渡辺津館": "源頼光四天王の渡辺綱以来、嵯峨源氏渡辺党が水軍の拠点とした港湾要塞館。",
+  "越水城": "細川管領家の武将・瓦林政頼が西宮に築いた平山城。三好長慶が奪取して摂津支配の拠点とした。",
+  "越水城・尼崎城": "西宮の越水城と、尼崎港を守る水陸の要衝。",
+  "石山本願寺": "蓮如が開基し、顕如が十年におよぶ信長包囲網の盟主として抗戦した難攻不落の寺内町巨城。",
+  "石山本願寺・木津川口砦": "石山本願寺と、毛利水軍と織田水軍が激突した木津川口の防衛砦群。",
+  "大坂城": "豊臣秀吉が石山本願寺跡に築いた天下統一の金字塔。豪壮華麗な天守と難攻不落の巨石石垣を誇る近世城郭の王者。",
+  "大坂城（真田丸）": "大坂冬の陣で真田信繁（幸村）が出城『真田丸』を築き、徳川数十万の大軍を撃退した天下無双の要塞。",
+  "丹波国府館": "古代丹波国の政庁。山陰道が通過する交通の要衝。",
+  "八上城": "波多野秀治ら波多野氏三代が拠った丹波富士・高城山山頂の堅城。明智光秀の丹波攻めに激しく抵抗した。",
+  "八上城・亀山城": "波多野氏の八上城と、光秀が丹波平定の拠点とした亀山城。",
+  "八上城・黒井城": "波多野氏の八上城と、丹波の赤鬼・赤井直正が拠った黒井城の連携要衝。",
+  "丹波亀山城": "明智光秀が丹波平定の拠点として築いた城。本能寺の変に際し『敵は本能寺にあり』と出陣した歴史の舞台。",
+  "丹後国府館": "古代丹後国の政庁。天橋立を望む日本海側の重要拠点。",
+  "弓木城": "丹後守護一色氏が拠った堅城。細川藤孝の軍勢に最後まで抵抗した。",
+  "宮津城": "細川藤孝・忠興父子が丹後平定後に宮津湾を望む地に築いた居城。",
+  "田辺城": "関ヶ原の戦いにおいて、細川幽斎（藤孝）が西軍一万五千を相手に五百の寡兵で五十日間籠城した『舞鶴城』。",
+  "但馬国府館": "古代但馬国の政庁。円山川流域の穀倉地帯を統括した。",
+  "此隅山城・竹田城": "但馬守護山名氏の本拠・此隅山城と、『天空の城』として名高い支城・竹田城。",
+  "出石城": "山名氏が有子山城を経て山麓に築いた近世城郭。小出氏・仙石氏が治めた。",
+  "播磨国府館": "古代播磨国の政庁。山陽道と播磨灘の水運が交わる地。",
+  "三草山": "源義経が平家軍に夜襲を仕掛けて撃破した三草山の戦いの舞台。",
+  "白旗城・置塩城": "赤松則村（円心）が新田義貞の軍勢を足止めした白旗城と、中世赤松氏の本拠・置塩城。",
+  "置塩城": "赤松政則が築いた中世山城。播磨中部の山上に広大な曲輪群を展開した。",
+  "三木城": "東播磨の雄・別所長治が拠った要害。織田信長の命を受けた羽柴秀吉による二年間の兵糧攻め（三木の干殺し）に耐えた。",
+  "姫路城": "羽柴秀吉が三層天守を築き、関ヶ原後に池田輝政が白鷺城と呼ばれる世界遺産の五層天守を完成させた天下の名城。",
+  "赤穂城": "浅野内匠頭、そして大石内蔵助ら赤穂浪士ゆかりの近世海岸平城。",
+  "因幡国府館": "古代因幡国の政庁。大伴家持が最後の和歌を詠んだ地としても知られる。",
+  "鳥取城": "因幡守護山名氏が築き、吉川経家が秀吉の壮絶な飢え殺しに耐え抜いた平山城。近世には池田三十万石の城となった。",
+  "鳥取城（近世）": "池田光政・池田光仲らが近世大名として整備した鳥取藩の居城。",
+  "伯耆国府館": "古代伯耆国の政庁。大山を望む日本海側の要衝。",
+  "伯耆国府館・船上山城": "隠岐を脱出した後醍醐天皇が立て籠もり、鎌倉幕府軍を破って建武中興の起点となった船上山城。",
+  "打吹城": "伯耆守護山名氏が打吹山に築いた城。倉吉の町を見下ろす中世山城。",
+  "米子城": "吉川広家が築城を開始し、中村一忠が完成させた五重天守と四重天守が並び立つ山陰屈指の巨城。",
+  "八橋城": "伯耆国中央部に位置し、毛利・尼子の争奪戦の舞台となった要衝。",
+  "出雲国府館": "古代出雲国の政庁。出雲大社と宍道湖を擁する神話の郷の中枢。",
+  "月山富田城": "山陰の覇者・尼子経久をはじめ尼子氏三代が拠った難攻不落の巨大山城。幾重の堀切と急峻な山容を誇る。",
+  "松江城": "堀尾吉晴が宍道湖畔に築いた現存十二天守の一つ。千鳥城とも呼ばれる黒漆塗りの威容を誇る山陰の要塞。",
+  "石見国府館": "古代石見国の政庁。日本海航路と内陸鉱山を結ぶ要地。",
+  "山吹城（石見銀山）": "世界遺産・石見銀山を直接防衛・掌握するために築かれた要塞。大内・尼子・毛利が熾烈な争奪戦を繰り広げた。",
+  "浜田城": "古田重治が築いた浜田藩の城。日本海に突き出た小高い丘に築かれた近世平山城。",
+  "美作国府館": "古代美作国の政庁。津山盆地の中央に位置する。",
+  "美作三星城": "美作東部を支配した豪族後藤氏の本拠城。浦上・宇喜多氏の侵攻に激しく抵抗した。",
+  "津山城": "織田信長の小姓・森蘭丸の弟である森忠政が十三年の歳月をかけて築いた近世名城。姫路城に匹敵する壮大な石垣群を誇る。",
+  "備前国府館": "古代備前国の政庁。吉井川水系と瀬戸内海の恵みを受ける地。",
+  "天神山城": "備前守護代・浦上宗景が本拠とした城。家臣の下克上により宇喜多直家に滅ぼされた。",
+  "三石城・天神山城": "浦上氏が拠った備前東部の天神山城と三石城の要塞群。",
+  "岡山城": "宇喜多直家・秀家父子が旭川の流路を変えて築いた名城。『烏城』と呼ばれる黒塗りの天守が黄金の威容を放つ。",
+  "備中国府館": "古代備中国の政庁。高梁川流域の豊かな盆地を治めた。",
+  "備中高松城": "羽柴秀吉が黒田官兵衛の策により足守川を堰き止めて水攻めにした湖上要塞。城主・清水宗治の切腹で名高い。",
+  "備中松山城": "標高四百三十メートルの臥牛山頂に聳える現存天守を持つ唯一の山城。雲海に浮かぶ天空の城として名高い。",
+  "備後国府館": "古代備後国の政庁。芦田川流域の拠点。",
+  "神辺城": "備後中南部を扼する要塞。毛利元就が備後進出の足がかりとし、福島正則の時代まで使われた。",
+  "福山城": "徳川家康の従兄弟・水野勝成が十万石で築城した近世城郭の最高峰。五重天守と北面の鉄板張りが天下に知られる。",
+  "安芸国府館": "古代安芸国の政庁。太田川河口のデルタ地帯を見下ろす地。",
+  "吉田郡山城": "毛利元就が全山を城郭化し、一代で中国十カ国の大大名へと駆け上がった毛利氏飛躍の本拠城。",
+  "吉田郡山城・宮島勝山城": "元就の本拠吉田郡山城と、厳島の戦いで陶晴賢を誘い込み撃破した宮島勝山城。",
+  "広島城": "毛利輝元が太田川デルタに築いた巨城。『鯉城』と呼ばれ、福島正則、浅野氏へと引き継がれた西国随一の大城郭。",
+  "周防国府館": "古代周防国の政庁（防府）。瀬戸内海交通の要塞港。",
+  "山口館": "大内氏が周防山口に築いた居館。京都を模した町づくりを行い文化を愛でた。",
+  "山口館・大内館": "大内義興・義隆らが西国の覇者として君臨した山口の豪壮な居館群。",
+  "山口大内館": "大内義隆がフランシスコ・ザビエルらを迎え、西の京として国際色豊かに栄えた大内氏の本拠居館。",
+  "山口高嶺城・富田若山城": "大内氏滅亡後に大内氏遺臣や毛利氏が防衛のために築いた峻険な山城要塞。",
+  "山口政事堂": "幕末、長州藩主・毛利敬親が萩から山口へ藩庁を移転（山口移鎮）して設けた政庁。倒幕運動の司令塔となった。",
+  "長門国府館": "古代長門国の政庁。本州西端の関門海峡を扼する地。",
+  "彦島・引島": "壇ノ浦の戦いで平家水軍が最後の拠点とした関門海峡の島。",
+  "萩城": "関ヶ原後、防長二カ国三十六万石に減封された毛利輝元が指月山山麓に築いた長州藩の本拠。幕末維新を切り拓いた維新の聖地。",
+  "讃岐国府館": "古代讃岐国の政庁。菅原道真が国司として赴任した地。",
+  "屋島": "源平合戦の激戦地。平家の行宮が置かれ、那須与一の扇の的で名高い。",
+  "屋島行宮・讃岐国府": "平家一門が幼帝安徳天皇を奉じて行宮を構えた屋島と讃岐国府。",
+  "十河城": "三好一門の猛将・十河一存や十河存保が拠った平山城。長宗我部軍との激しい攻防戦の舞台となった。",
+  "高松城": "生駒親正が築き、水戸徳川家連枝の松平氏が入封した瀬戸内海屈指の水城（玉藻城）。海水を引き入れた水堀が特徴。",
+  "阿波国府館": "古代阿波国の政庁。吉野川河口の肥沃な平野部を治めた。",
+  "勝瑞城": "阿波守護細川氏、ついで三好長慶ら三好氏代々が拠点とした平城。畿内をも動かす四国の一大政治都市となった。",
+  "徳島城": "豊臣秀吉の四国征伐後、蜂須賀正勝・家政父子が吉野川デルタの猪山に築いた阿波二十五万石の居城。",
+  "伊予国府館": "古代伊予国の政庁。松山平野の温暖な地。",
+  "日振島砦": "承平天慶の乱で藤原純友が瀬戸内海水軍を率いて拠点とした宇和海上の島塞。",
+  "湯築城": "伊予守護河野氏が道後温泉に隣接して築いた平山城。二重の堀と土塁に囲まれた優美な中世城郭。",
+  "湯築城・能島城": "河野氏の本拠湯築城と、村上水軍の棟梁・村上武吉が瀬戸内の潮流を利用して拠った海城能島城。",
+  "松山城": "賤ヶ岳の七本槍・加藤嘉明が勝山山頂に築いた現存十二天守の一つ。幾重の石垣と登り石垣を備えた難攻不落の城。",
+  "土佐国府館": "古代土佐国の政庁。土佐日記の紀貫之が国司を務めた地。",
+  "岡豊城": "長宗我部国親・元親父子が拠り、土佐一国から四国全土の覇権へと乗り出した長宗我部氏飛躍の山城。",
+  "高知城": "山内一豊が関ヶ原の戦功で土佐に入封し、大高坂山に築いた城。本丸御殿と天守が揃って現存する南国高知の象徴。",
+  "豊前国府館": "古代豊前国の政庁。周防灘に面した海上交通の要地。",
+  "豊前国府": "古代豊前国の政庁。",
+  "城井谷城": "中世名門宇都宮氏の流れを汲む城井鎮房が拠った峻険無比の谷山城。黒田孝高（官兵衛）軍を苦しめた。",
+  "中津城": "黒田如水・長政父子が築城を開始し、細川忠興が改修した日本三大水城の一つ。中津川河口に築かれた。",
+  "小倉城": "関ヶ原後、細川忠興が築城した九州の総鎮守。南蛮造りの五重天守と壮大な石垣を誇る関門海峡の抑え。",
+  "大宰府政庁": "古代日本の西海道統括およびアジア外交・国防の総司令部。『遠の朝廷（とおのみかど）』と称された壮大な都。",
+  "大宰府": "古代西海道の総司令部。",
+  "大宰府政庁・大津城": "大宰府政庁と有明海沿岸の防衛拠点。",
+  "博多水城・警固所": "白村江の敗戦後、唐・新羅の侵攻に備えて大宰府北方に築かれた巨大土塁防壁（水城）。",
+  "立花山城": "大友氏の勇将・立花道雪（戸次鑑連）が拠った博多湾を見下ろす天然の要塞。島津の大軍をも退けた不落の山城。",
+  "名島城": "小早川隆景が博多湾の半島先端に築いた海城。秀吉の九州平定の拠点となり、黒田長政が福岡城へ移るまで居城とした。",
+  "福岡城": "黒田如水・長政父子が慶長6年（1601年）より七年の歳月をかけて築いた五十二万石の巨城。四十七基の櫓を連ねた名城（舞鶴城）。",
+  "筑後国府館": "古代筑後国の政庁。筑後川下流域の穀倉地帯を統括した。",
+  "柳川城": "蒲池氏が築き、立花宗茂が城主となって島津・豊臣・徳川の各時代を生き抜いた水郷柳川の名城。網目状の水堀が城を囲む。",
+  "久留米城": "筑後川に面した笹原山に位置し、毛利秀包や有馬氏が治めた筑後平野の要衝。",
+  "肥前国府館": "古代肥前国の政庁。有明海と玄界灘を繋ぐ要所。",
+  "勢福寺城": "少弐氏が東肥前の要衝に築き、龍造寺氏との抗争の舞台となった山城。",
+  "村中城": "龍造寺隆信が本拠とした平城。後に鍋島直茂がこの地を拡張して近世佐賀城を築いた。",
+  "名護屋城": "豊臣秀吉が朝鮮出兵（文禄・慶長の役）のため肥前波戸岬に築いた巨大城郭。大坂城に次ぐ規模を誇り、諸大名陣屋が並び立った。",
+  "原城": "有馬氏の旧城。寛永14年（1637年）、天草四郎を総大将とする島原の乱の一揆勢三万七千が立て籠もり幕府軍と死闘を演じた。",
+  "佐賀城": "鍋島直茂・勝茂父子が村中城を拡張して築いた佐賀三十五万石の巨城。『沈み城』の異名を持つ多重の水堀が美しい。",
+  "肥後国府館": "古代肥後国の政庁。白川流域の広大な肥後平野を治めた。",
+  "菊池本城・隈府城": "名族菊池氏が南北朝時代に南朝方の九州の牙城として拠った中世山城群。",
+  "菊池隈府城": "菊池武光らが征西将軍懐良親王を迎え九州を席巻した菊池氏の本拠。",
+  "隈府城": "肥後屈指の名族・菊池氏代々の本拠城。",
+  "隈本城": "出石城主城親冬が築き、佐々成政、ついで加藤清正が最初に入城した古城。清正の手により近代熊本城へと生まれ変わった。",
+  "熊本城": "加藤清正が心血を注いで築いた天下の名城。美しい曲線を描く『武者返し』の石垣、宇土櫓など実戦的防備の極致。",
+  "豊後国府館": "古代豊後国の政庁。別府湾に面した豊かな水陸の要衝。",
+  "豊後国府": "古代豊後国の政庁。",
+  "大分城府館": "古代国府から発展した豊後の中枢居館。",
+  "府内館": "大友能直以来、豊後守護大友氏二十代が拠った居館。キリシタン文化が栄え南蛮船が来航した国際都市。",
+  "府内館・大友館": "大友宗麟らが南蛮貿易とキリスト教信仰の拠点とした華やかな府内の館。",
+  "臼杵城": "大友宗麟が丹生島に築いた海城。四方を海に囲まれた天然の要害で、ポルトガルの大砲『国崩し』を配備した。",
+  "丹生島城": "大友宗麟が隠居城として築いた臼杵湾の要塞。",
+  "府内城・大友館": "大友氏の伝統と、近世府内城（大分城）の要衝。",
+  "岡城": "志賀氏が阿蘇溶岩台地の断崖絶壁に築いた難攻不落の山城。滝廉太郎の『荒城の月』のモチーフとなったことでも有名。",
+  "日向国府館": "古代日向国の政庁。日向灘を臨む温暖な地。",
+  "都於郡城": "伊東氏代々が拠った日向中央部の三日月城。幾重の深い谷を巡らせた南九州屈指の山城。",
+  "飫肥城": "伊東四十八城の中心として島津氏と百年にわたり奪い合われた城。近世には伊東氏飫肥藩五万石の居城となった。",
+  "延岡城": "高橋元種が五ヶ瀬川河口の丘陵に築いた城。『千人殺し』と呼ばれる高石垣で知られる日向北部の要衝。",
+  "薩摩国府館": "古代薩摩国の政庁。薩摩半島中西部の要地。",
+  "一宇治城・内城": "島津貴久が伊作から移って三州平定の足がかりとした伊集院の一宇治城と、鹿児島の内城。",
+  "内城": "島津義久が九州統一戦の総司令部とした鹿児島の平城。背後の山城と連携して領国を統治した。",
+  "鹿児島城（鶴丸城）": "島津忠恒（家久）が築いた薩摩七十七万石の本拠。『城は人なり』の理念のもと天守を持たず、背後の城山と屋形からなる。",
+  "大隅国府館": "古代大隅国の政庁。桜島と大隅半島を望む地。",
+  "帖佐城": "大隅平野の要衝。島津義弘が居城とし、朝鮮出兵の出陣拠点ともなった。",
+  "富隈城": "島津義弘が錦江湾に面して築いた平城。海を天然の堀とした水運の拠点。",
+  "佐渡国府館": "古代佐渡国の政庁。日本海航路の重要拠点。",
+  "佐渡国府・国分寺営所": "古代佐渡国府と国分寺が並び立つ島の中心地。",
+  "雑太城": "佐渡守護代・本間氏宗家が代々拠った居城。上杉景勝の佐渡攻めで落城した。",
+  "雑太城（本間氏本拠）": "本間氏が佐渡全土に君臨した中世の拠点山城。",
+  "沢根城・新穂城": "佐渡の鉱山と港湾を掌握した本間氏諸流の要塞群。",
+  "相川陣屋・佐渡奉行所": "慶長6年（1601年）の佐渡金山発見に伴い、徳川幕府が金山採掘と島全土を直轄支配するために置いた奉行所陣屋。",
+  "隠岐国府館": "古代隠岐国の政庁。日本海隠岐諸島の行政中枢。",
+  "隠岐国府営所・黒木御所": "隠岐国府と、元弘の乱で配流された後醍醐天皇が行在所とした黒木御所。",
+  "甲尾城": "隠岐守護代・隠岐氏が代々本拠とした島前・島後の要塞。",
+  "甲尾城・美保関館": "隠岐氏の甲尾城と出雲美保関の連携拠点。",
+  "隠岐陣屋・西郷館": "江戸幕府が隠岐を天領として直轄統治するために置いた陣屋。北前船の風待ち港としても栄えた。",
+  "対馬金田城・府中": "天智天皇6年（667年）白村江の戦い後に朝鮮半島からの侵攻に備えて築かれた古代山城・金田城と対馬国府。",
+  "対馬国府・下県郡館": "古代対馬国の政庁。",
+  "対馬府中・小茂田": "文永11年（1274年）蒙古襲来（文永の役）の激戦地・小茂田浜と対馬政庁。",
+  "厳原城・府中城": "対馬領主・宗氏が代々本拠とした城館。朝鮮との交易・外交を管掌した。",
+  "清水山城": "文禄の役の際、豊臣秀吉の命により名護屋城と朝鮮半島を結ぶ兵站拠点として宗義智が築いた山城。",
+  "金石城": "宗義智が近世に対馬府中藩の本拠として整備した平山城。朝鮮通信使を迎える外交の舞台となった。",
+  "金石城（宗氏代々居城）": "宗氏が朝鮮外交と海運を統括した格式高き居城。",
+  "淡路国府館": "古代淡路国の政庁。淡路島南部の肥沃な平野部に位置した。",
+  "志知城・由良城": "淡路水軍が拠った沿岸要塞群。加藤嘉明も一時城主を務めた。",
+  "洲本城・安宅城": "三好配下の水軍武将・安宅氏が拠った洲本三熊山と安宅の要塞。",
+  "洲本城": "三熊山山頂に総石垣の山城が築かれ、脇坂安治や蜂須賀氏が治めた淡路国の中心城郭。紀淡海峡を扼する要衝。"
+};
+
 
 window.DAIMYO_LIFESPAN_DATA = {
   "oda": {
@@ -42390,7 +51934,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_shinano": "off_minamoto_yorikiyo_1028",
     "tajima": "off_fujiwara_sukehira",
     "harima": "off_tanabe_maro_1028",
-    "shimousa": "off_taira_tsunemasa"
+    "shimousa": "off_taira_tsunemasa",
+    "hitachi": "off_taira_naokata"
   },
   "1087": {
     "kazusa": "off_taira_tsunehira",
@@ -42454,10 +51999,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "north_omi": "off_minamoto_tsunenari_1087_north_omi",
     "south_omi": "off_fujiwara_munezane_heian",
     "mutsu": "off_jd_352",
-    "uzen": "off_kiyohara_takehira",
+    "uzen": "off_kiyohara_iehira",
     "tsugaru": "off_abe_masato",
     "ugo": "off_kiyohara_iehira",
-    "rikuzen": "off_minamoto_yoshiie"
+    "rikuzen": "off_minamoto_yoshiie",
+    "yamashiro": "off_shirakawa_in"
   },
   "1156": {
     "harima": "off_taira_kiyomori",
@@ -42589,19 +52135,20 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "rikuchu": "off_dm_kasai_1221",
     "rikuzen": "off_dm_date_1221",
     "iwashiro": "off_dm_date_1221",
-    "sagami": "off_hojo_yoshitoki"
+    "sagami": "off_hojo_yoshitoki",
+    "yamashiro": "off_gotoba_in"
   },
   "1331": {
     "musashi": "off_kanazawa_sadamasa",
-    "kaga": "off_dm_togashi_1333",
-    "yamashiro": null,
+    "kaga": "off_jd_214",
+    "yamashiro": "off_hojo_nakatoki",
     "izumi": "off_wada_masato",
     "tajima": "off_yamana_tokiuji",
     "tosa": "off_jd_218",
     "izu": "off_nagasaki_enki",
     "totomi": null,
     "echigo": "off_wakiya_yoshisuke",
-    "tamba": "off_ashikaga_tadayoshi",
+    "tamba": "off_niki_yoriaki",
     "settsu": "off_kusunoki_masasue",
     "shima": "off_kitabatake_akiyoshi",
     "mimasaka": "off_jd_216",
@@ -42612,19 +52159,18 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tango": "off_isshiki_norouji",
     "suruga": "off_succ_imagawa_1304_41",
     "shimotsuke": "off_ko_no_morofuyu",
-    "etchu": "off_momoi_tadatsune",
     "kawachi": "off_kusunoki_masasue",
     "kii": "off_kumano_tankai",
     "hoki": "off_nawa_yoshitaka",
     "iwami": "off_masuda_kanemi",
     "bungo": "off_otomo_sadamune",
     "higo": "off_kikuchi_takeshige",
-    "mutsu": "off_kitabatake_akiie",
+    "mutsu": "off_dm_nanbu_1331",
     "owari": null,
     "kazusa": "off_hojo_harutoki",
     "noto": null,
     "wakasa": null,
-    "iga": "off_nitta_yoshiaki",
+    "iga": "off_kusunoki_masasue",
     "inaba": "off_kojima_takanori",
     "bicchu": "off_jd_418",
     "bingo": null,
@@ -42641,10 +52187,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mikawa": "off_ashikaga_tadayoshi",
     "sanuki": "off_dm_hosokawa_1336",
     "buzen": "off_jd_233",
-    "iwaki": "off_dm_kasai_1331",
+    "iwaki": "off_yuki_munehiro",
     "uzen": "off_jd_322",
     "yamato": "off_moriyoshi_shinno",
-    "iyo": "off_doi_michimasu",
+    "iyo": "off_dm_kono_1331",
     "ise": "off_taira_morimune",
     "chikuzen": "off_hojo_hidetoki",
     "echizen": "off_shiba_takatsune",
@@ -42681,13 +52227,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izu": null,
     "inaba": "off_nawa_yoshitaka",
     "iwashiro": "off_ashina_morimune",
-    "owari": "off_toki_yorisada",
     "etchu": "off_momoi_tadatsune",
     "noto": null,
     "bungo": "off_succ_otomo_1285_123",
-    "settsu": "off_hojo_nakatoki",
-    "iga": "off_hojo_hidetoki",
-    "kii": "off_nagasaki_enki",
+    "settsu": "off_kusunoki_masashige",
+    "iga": "off_jd_364",
     "rikuzen": "off_dm_date_1331",
     "sanuki": "off_dm_hosokawa_1336",
     "awa_shikoku": "off_dm_hosokawa_1331",
@@ -42695,13 +52239,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_shimazu_sadahisa",
     "tsugaru": "off_jd_363",
     "awaji": "off_dm_hosokawa_1331",
-    "oki": "off_kogen_tenno",
+    "oki": "off_jd_399",
     "buzen": "off_jd_233",
     "nagato": "off_ouchi_nagahiro",
     "bingo": "off_yamana_ujiie",
     "uzen": "off_jd_322",
     "bicchu": "off_jd_418",
-    "yamashiro": "off_gofushimi_in",
+    "yamashiro": "off_chigusa_tadaaki",
     "ise": "off_kitabatake_chikafusa",
     "iwaki": "off_yuki_munehiro",
     "mino": "off_toki_yorisada",
@@ -42716,7 +52260,6 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "uzen": "off_jd_322",
     "echigo": "off_wakiya_yoshisuke",
     "kazusa": null,
-    "awa_boshu": "off_satomi_yoshitane",
     "izu": null,
     "iga": "off_jd_364",
     "izumo": "off_dm_enyo_1331",
@@ -42735,17 +52278,17 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kozuke": "off_wakiya_yoshisuke",
     "sagami": "off_ashikaga_tadayoshi",
     "mino": "off_toki_yorikasu",
-    "ise": "off_chigusa_tadaaki",
+    "ise": "off_kitabatake_chikafusa",
     "yamashiro": "off_ko_no_moronao",
     "settsu": null,
-    "hoki": "off_nawa_yoshitaka",
+    "hoki": "off_yamana_tokiuji",
     "iwami": "off_masuda_kanemi",
-    "iwaki": "off_ashina_morimune",
+    "iwaki": "off_yuki_munehiro",
     "noto": null,
     "wakasa": "off_isshiki_norouji",
     "hida": "off_jd_224",
     "totomi": "off_succ_imagawa_1304_41",
-    "mikawa": "off_ashikaga_tadayoshi",
+    "mikawa": "off_isshiki_norouji",
     "shima": "off_kitabatake_akiyoshi",
     "yamato": "off_godaiho_tenno",
     "inaba": "off_yamana_moriyoshi",
@@ -42775,7 +52318,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "owari": null,
     "shima": "off_kitabatake_akiyoshi",
     "settsu": null,
-    "izumo": "off_dm_enyo_1331",
+    "izumo": "off_jd_325",
     "iwami": "off_masuda_kanemi",
     "mimasaka": "off_jd_216",
     "bizen": "off_akamatsu_sadanori",
@@ -42798,7 +52341,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "yamashiro": "off_ko_no_moronao",
     "tango": "off_isshiki_norouji",
     "hoki": "off_nawa_yoshitaka",
-    "wakasa": "off_shiba_takatsune",
+    "wakasa": "off_isshiki_norouji",
     "kazusa": null,
     "musashi": "off_uesugi_noriaki_first",
     "izu": "off_succ_hatakeyama_1300_22",
@@ -42886,8 +52429,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "totomi": null,
     "shima": "off_succ_kitabatake_1390_69",
     "yamashiro": "off_dm_ashikaga_1438",
-    "kawachi": "off_kusunoki_masashige_2",
-    "hoki": "off_nawa_akitada",
+    "kawachi": "off_dm_hatakeyama_1438",
+    "hoki": "off_jd_244",
     "iwami": "off_masuda_kanetaka",
     "aki": "off_mori_hiromoto_early",
     "chikugo": null,
@@ -42906,13 +52449,14 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izumo": "off_amago_mochihisa",
     "echigo": "off_nagao_kagenobu",
     "rikuchu": "off_kasai_munekiyo",
-    "ugo": "off_ando_morisue"
+    "ugo": "off_ando_morisue",
+    "mikawa": "off_dm_matsudaira_1467"
   },
   "1467": {
     "kozuke": null,
     "hida": null,
     "totomi": null,
-    "izumi": "off_honetsugi_doken",
+    "izumi": "off_jd_247",
     "osumi": "off_shimazu_tadakuni",
     "tango": "off_isshiki_yoshinori",
     "iwami": "off_masuda_sadakane",
@@ -42922,7 +52466,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shima": "off_kitabatake_masasato",
     "yamashiro": "off_dm_ashikaga_1467",
     "settsu": "off_hosokawa_katsumoto",
-    "kawachi": "off_kusunoki_masamitsu",
+    "kawachi": "off_dm_hatakeyama_1467",
     "tajima": "off_yamana_sozen",
     "hoki": null,
     "mimasaka": "off_succ_akamatsu_1440_0",
@@ -42949,7 +52493,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "owari": "off_dm_shiba_1467",
     "bingo": "off_yamana_koretoyo",
     "echigo": "off_uesugi_fusasada",
-    "sagami": "off_hojo_tokikane",
+    "sagami": "off_ota_sukeyasu",
     "shimousa": "off_ashikaga_shigeuji"
   },
   "1495": {
@@ -42973,7 +52517,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "yamashiro": "off_ashikaga_yoshitane",
     "izumi": "off_jd_247",
     "kii": "off_hatakeyama_yoshitoyo",
-    "hoki": "off_nawa_shigeyuki",
+    "hoki": "off_yamana_toyoshige",
     "bicchu": null,
     "sanuki": "off_hosokawa_masamoto",
     "chikugo": "off_succ_otomo_1490_124",
@@ -42993,7 +52537,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iga": null,
     "south_omi": "off_rokkaku_takayori",
     "rikuchu": "off_kasai_hisanobu",
-    "suo": "off_sue_okifusa"
+    "suo": "off_sue_okifusa",
+    "sagami": "off_hojo_soun",
+    "suruga": "off_dm_imagawa_1495"
   },
   "1546": {
     "owari": "off_shibata_katsuie",
@@ -43005,15 +52551,15 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shimousa": "off_chiba_toshitane",
     "musashi": "off_hojo_genan",
     "izu": "off_hojo_tsunashige",
-    "kawachi": "off_jd_249",
+    "kawachi": "off_miyoshi_nagayoshi",
     "izumi": "off_miyoshi_yoshikata",
-    "hoki": "off_jd_250",
-    "nagato": "off_sue_harukata",
+    "hoki": "off_honjo_tsunemitsu",
+    "nagato": "off_dm_ouchi_1546",
     "osumi": "off_shimazu_tadayoshi",
-    "iwami": "off_honjo_tsunemitsu",
+    "iwami": "off_dm_ouchi_1546",
     "mimasaka": "off_jd_055",
     "bicchu": "off_mimura_iechika",
-    "bingo": "off_yamauchi_takadouri",
+    "bingo": "off_dm_ouchi_1546",
     "sanuki": "off_shinohara_nagafusa",
     "awaji": "off_atagi_fuyuyasu",
     "buzen": "off_aso_hiroyasu",
@@ -43023,7 +52569,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_shinano": "off_takeda_nobushige",
     "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
-    "yamashiro": "off_ashikaga_yoshiteru",
+    "yamashiro": "off_ashikaga_yoshiharu",
     "chikugo": "off_otomo_yoshiaki_early",
     "tsugaru": "off_jd_013",
     "kazusa": "off_satomi_yoshihiro",
@@ -43057,7 +52603,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awa_shikoku": "off_miyoshi_nagayasu",
     "tosa": "off_chosokabe_motochika",
     "ugo": "off_dm_ando_1560",
-    "bicchu": "off_jd_015",
+    "bicchu": "off_mimura_motochika",
     "wakasa": "off_takeda_motoaki",
     "kazusa": "off_masaki_tokishige",
     "kawachi": "off_matsunaga_hisahide",
@@ -43065,7 +52611,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_shimazu_tadayoshi",
     "awaji": "off_atagi_fuyuyasu",
     "mutsu": "off_kita_nobuchika",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "sagami": "off_hojo_ujimasa",
     "inaba": "off_jd_010",
     "bizen": "off_dm_uragami_1546",
@@ -43111,34 +52657,34 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
     "etchu": "off_jd_305",
-    "wakasa": "off_takeda_motoaki",
+    "wakasa": "off_asakura_kageakira",
     "kazusa": "off_dm_satomi_1582",
     "hida": "off_anekoji_yoritsuna",
     "ise": "off_jd_059",
     "shima": "off_kuki_yoshitaka",
-    "iga": "off_hosokawa_fujitaka",
+    "iga": "off_jd_456",
     "izumi": "off_miyoshi_nagayasu",
     "hoki": "off_jd_250",
     "mimasaka": "off_jd_015",
     "buzen": "off_jd_258",
     "osumi": "off_shimazu_iehisa",
-    "shimousa": "off_hojo_ujinori",
+    "shimousa": "off_chiba_toshitane",
     "sanuki": "off_shinohara_nagafusa",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "awa_boshu": "off_dm_satomi_1546",
     "sagami": "off_hojo_ujimasa",
     "mikawa": "off_honda_tadakatsu",
     "settsu": "off_dm_honganji_1560",
-    "tajima": "off_yamana_toyokuni",
+    "tajima": "off_jd_014",
     "inaba": "off_jd_011",
     "izumo": "off_jd_421",
     "bizen": "off_dm_uragami_1546",
-    "chikuzen": "off_succ_shoni_1515_166",
+    "chikuzen": "off_tachibana_dosetsu",
     "awaji": "off_jd_012",
     "iwami": "off_masuda_fujikane",
     "bingo": "off_jd_034",
     "oki": "off_oki_tamekiyo",
-    "tango": "off_jd_014",
+    "tango": "off_isshiki_yoshimichi",
     "mino": "off_takigawa_kazumasu",
     "totomi": "off_okubo_tadayo",
     "yamashiro": "off_ashikaga_yoshiaki",
@@ -43181,11 +52727,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izumi": "off_hachiya_yoritaka",
     "tajima": "off_toyotomi_hidenaga",
     "inaba": "off_miyabe_keijun",
-    "shimousa": "off_hojo_ujinori",
-    "izu": "off_hojo_ujikuni",
+    "shimousa": "off_jd_425",
+    "izu": "off_hojo_ujinori",
     "chikugo": "off_jd_024",
     "rikuzen": "off_katakura_kagenori",
-    "rikuchu": "off_dm_nanbu_1582",
+    "rikuchu": "off_kasai_harunobu",
     "etchu": "off_jd_305",
     "ise": "off_jd_059",
     "iga": "off_jd_017",
@@ -43198,11 +52744,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_shimazu_toshihisa",
     "kazusa": "off_masaki_yoritada",
     "nagato": "off_naito_takaharu",
-    "hoki": "off_nanjo_mototsugu",
+    "hoki": "off_kikkawa_motoharu",
     "oki": "off_oki_kiyomasa_sengoku",
     "sanuki": "off_jd_021",
     "buzen": "off_jd_258",
-    "chikuzen": "off_succ2_shoni_1550",
+    "chikuzen": "off_nabeshima_naoshige",
     "totomi": "off_ii_naomasa",
     "bicchu": "off_shimizu_muneharu",
     "mimasaka": "off_jd_419",
@@ -43234,7 +52780,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iwaki": "off_date_shigezane",
     "etchu": "off_hori_hidemasa",
     "wakasa": "off_nakamura_kazuuji",
-    "awa_boshu": "off_narita_ujinaga",
+    "awa_boshu": "off_dm_satomi_1582",
     "hida": "off_tanaka_yoshimasa",
     "mino": "off_yamauchi_kazutoyo",
     "ise": "off_goto_matabei",
@@ -43254,10 +52800,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awa_shikoku": "off_hachisuka_iemasa",
     "chikugo": "off_tachibana_muneshige",
     "awaji": "off_wakisaka_yasuharu",
-    "kazusa": "off_hojo_ujikuni",
     "iwashiro": "off_date_masamune",
-    "shimousa": "off_sakai_tadayo",
-    "suruga": "off_okubo_tadayo",
+    "shimousa": "off_chiba_naoshige_bridge",
+    "suruga": "off_tokugawa_ieyasu",
     "mikawa": "off_honda_tadakatsu",
     "settsu": "off_asano_nagamasa",
     "harima": "off_ikeda_terumasa",
@@ -43272,7 +52817,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "rikuzen": "off_katakura_kagenori",
     "totomi": "off_ii_naomasa",
     "iwami": "off_masuda_fujikane",
-    "oki": "off_jd_260"
+    "oki": "off_oki_kiyomasa_sengoku",
+    "rikuchu": "off_kasai_harunobu"
   },
   "1600": {
     "bungo": "off_nakagawa_hidemasa",
@@ -43302,9 +52848,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shimotsuke": "off_ii_naomasa",
     "kazusa": "off_honda_tadakatsu",
     "awa_boshu": "off_succ2_satomi_1573",
-    "tamba": null,
+    "tamba": "off_maeda_geni",
     "kawachi": "off_katagiri_katsumoto",
-    "hyuga": null,
+    "hyuga": "off_succ_ito_1550_45",
     "nagato": "off_mori_hidemoto",
     "hida": "off_kanamori_nagachika",
     "izu": "off_naito_kiyoshige",
@@ -43317,7 +52863,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iga": "off_tsutsui_sadatsugu",
     "chikugo": "off_tachibana_muneshige",
     "etchu": "off_jd_037",
-    "kaga": "off_togashi_ieharu",
+    "kaga": "off_dm_maeda_1600",
     "musashi": "off_doidoi_toshikatsu",
     "kii": "off_horiuchi_ujiyoshi",
     "izumo": "off_amago_mototomo",
@@ -43338,7 +52884,19 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mimasaka": "off_jd_031",
     "iwaki": "off_jd_262",
     "kai": "off_dm_asano_1600",
-    "inaba": "off_jd_338"
+    "inaba": "off_jd_338",
+    "aki": "off_mori_terumoto",
+    "rikuzen": "off_date_masamune",
+    "uzen": "off_mogami_yoshiaki",
+    "ugo": "off_dm_ando_1582",
+    "hitachi": "off_dm_satake_1590",
+    "tosa": "off_chosokabe_morichika",
+    "north_shinano": "off_sanada_masayuki",
+    "hizen": "off_nabeshima_naoshige",
+    "tsushima": "off_so_yoshitoshi",
+    "tsugaru": "off_tsugaru_tamenobu",
+    "ezo": "off_dm_kakizaki_1590",
+    "izumi": "off_jd_028"
   },
   "1868": {
     "nagato": "off_kido_takayoshi",
@@ -43347,11 +52905,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "aki": "off_edo_asano_1817_208",
     "chikuzen": "off_kuroda_nagahiro_han",
     "higo": "off_jd_069",
-    "iwaki": "off_jd_061",
+    "iwaki": "off_soma_tomotane",
     "wakasa": "off_edo_tokugawa_1813_35",
     "sagami": "off_okubo_tadanori_bakumatsu",
     "mino": "off_jd_066",
-    "totomi": null,
+    "totomi": "off_katsu_kaishu",
     "izu": "off_edo_tokugawa_1801_22",
     "shima": "off_edo_tokugawa_1810_57",
     "iga": "off_edo_tokugawa_1820_58",
@@ -43401,10 +52959,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kozuke": "off_sakai_tadayo",
     "kawachi": "off_ono_harunaga",
     "izumi": "off_kimura_shigenari",
-    "iwaki": "off_date_shigezane",
+    "iwaki": "off_soma_yoshitane",
     "uzen": "off_naoe_kanetsugu",
     "aki": "off_fukushima_masanori",
-    "osumi": "off_shimazu_tadatsune",
+    "osumi": "off_edo_shimazu_1596_185",
     "shimotsuke": "off_honda_masazumi",
     "musashi": "off_doidoi_toshikatsu",
     "shimousa": "off_honda_masanobu",
@@ -43423,12 +52981,12 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iyo": "off_kato_yoshiaki",
     "chikugo": "off_tachibana_muneshige",
     "hyuga": "off_ito_sukeyoshi",
-    "rikuzen": "off_katakura_kagenori",
+    "rikuzen": "off_date_masamune",
     "noto": "off_cho_tsuratatsu",
     "nagato": "off_mori_hidemoto",
     "iwashiro": "off_gamo_tadazato",
     "south_shinano": "off_succ_ogasawara_1569_116",
-    "ugo": null,
+    "ugo": "off_dm_satake_1590",
     "buzen": "off_hosokawa_tadaoki",
     "rikuchu": "off_nanbu_toshinao",
     "kazusa": "off_honda_tadatomo",
@@ -43442,7 +53000,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mikawa": "off_itakura_shigemasa",
     "shima": "off_jd_041",
     "iga": "off_jd_042",
-    "south_omi": "off_honda_masazumi",
+    "south_omi": "off_edo_tokugawa_1576_80",
     "settsu": "off_dm_toyotomi_1600",
     "tamba": "off_arima_toyo-uji",
     "tajima": "off_edo_tokugawa_1597_86",
@@ -43455,15 +53013,29 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hitachi": "off_tokugawa_yorifusa",
     "etchu": "off_edo_maeda_1580_180",
     "bizen": "off_ikeda_tadatsugu",
-    "bungo": "off_edo_tokugawa_1595_92"
+    "bungo": "off_edo_tokugawa_1595_92",
+    "satsuma": "off_shimazu_tadatsune",
+    "north_omi": "off_ii_naotaka",
+    "owari": "off_tokugawa_yoshinao",
+    "kii": "off_asano_nagaakira",
+    "awa_shikoku": "off_hachisuka_yoshishige",
+    "tosa": "off_yamauchi_tadayoshi",
+    "higo": "off_kato_tadahiro",
+    "hizen": "off_nabeshima_katsushige",
+    "chikuzen": "off_kuroda_nagamasa",
+    "north_shinano": "off_sanada_nobuyuki",
+    "tsushima": "off_so_yoshitoshi",
+    "tsugaru": "off_tsugaru_nobuhira",
+    "ezo": "off_dm_kakizaki_1590",
+    "ryukyu": "off_sho_nei"
   },
   "1637": {
     "bingo": "off_mizuno_katsunari",
     "mikawa": "off_itakura_shigemasa",
     "ise": "off_todo_takatsugu",
-    "shimotsuke": "off_honda_masazumi",
+    "shimotsuke": "off_edo_tokugawa_1608_94",
     "musashi": "off_matsudaira_nobutsuna",
-    "echigo": "off_succ2_matsudaira_1592",
+    "echigo": "off_edo_tokugawa_1616_82",
     "kozuke": "off_edo_tokugawa_1592_95",
     "shimousa": "off_edo_tokugawa_1609_75",
     "kazusa": "off_edo_tokugawa_1609_107",
@@ -43479,17 +53051,17 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tajima": "off_edo_tokugawa_1597_86",
     "hoki": "off_jd_047",
     "mimasaka": "off_edo_tokugawa_1610_87",
-    "hyuga": null,
+    "hyuga": "off_jd_053",
     "sado": "off_edo_tokugawa_1600_105",
     "awaji": "off_edo_tokugawa_1609_93",
     "nagato": "off_mori_hidemoto",
     "rikuchu": "off_edo_nanbu_1600_188",
-    "bizen": "off_uragami_muneyasu",
+    "bizen": "off_ikeda_mitsumasa",
     "aki": "off_asano_mitsuakira",
-    "iwaki": "off_edo_date_1585_173",
+    "iwaki": "off_soma_tadatane",
     "iwashiro": "off_edo_aizu_1611_118",
     "sagami": "off_okubo_tadamoto",
-    "izu": "off_matsudaira_tadanao",
+    "izu": "off_edo_tokugawa_1595_79",
     "suruga": "off_edo_tokugawa_1595_79",
     "kai": "off_takeda_nobuyuki",
     "south_shinano": "off_suwa_yorimizu",
@@ -43503,8 +53075,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "south_omi": "off_ii_naotaka",
     "yamato": "off_jd_043",
     "harima": "off_jd_045",
-    "inaba": null,
-    "izumo": "off_succ_kyogoku_1590_81",
+    "inaba": "off_edo_tottori_1610_160",
+    "izumo": "off_edo_matsue_1601_161",
     "iwami": "off_jd_046",
     "bicchu": "off_jd_050",
     "sanuki": "off_jd_051",
@@ -43513,11 +53085,30 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "bungo": "off_jd_052",
     "osumi": "off_edo_shimazu_1621_223",
     "mutsu": "off_hachinohe_naoyoshi",
-    "etchu": "off_edo_maeda_1580_180"
+    "etchu": "off_edo_maeda_1580_180",
+    "hizen": "off_amakusa_shiro",
+    "north_omi": "off_ii_naotaka",
+    "higo": "off_hosokawa_tadatoshi",
+    "chikuzen": "off_kuroda_tadayuki",
+    "chikugo": "off_tachibana_muneshige",
+    "tosa": "off_yamauchi_tadayoshi",
+    "kii": "off_tokugawa_yorinobu",
+    "owari": "off_tokugawa_yoshinao",
+    "hitachi": "off_tokugawa_yorifusa",
+    "rikuzen": "off_date_tadamune",
+    "ugo": "off_satake_yoshitaka",
+    "uzen": "off_uesugi_sadakatsu",
+    "awa_shikoku": "off_hachisuka_tadahide",
+    "satsuma": "off_shimazu_tadatsune",
+    "north_shinano": "off_sanada_nobuyuki",
+    "tsugaru": "off_tsugaru_nobuyoshi",
+    "ezo": "off_matsumae_kimihiro",
+    "tsushima": "off_so_yoshinari",
+    "ryukyu": "off_sho_ho"
   },
   "1866": {
     "osumi": "off_jd_070",
-    "hyuga": null,
+    "hyuga": "off_edo_shimazu_1817_184",
     "sagami": "off_okubo_tadanori_bakumatsu",
     "north_shinano": "off_sanada_yukitaka_m",
     "harima": "off_sakai_tadateru",
@@ -43530,11 +53121,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kazusa": "off_hayashi_tadataka",
     "chikuzen": "off_kuroda_nagahiro_han",
     "uzen": "off_sakai_kichinojo",
-    "iwaki": "off_jd_061",
+    "iwaki": "off_soma_mitsutane",
     "kozuke": "off_edo_tokugawa_1810_45",
     "shimousa": "off_edo_tokugawa_1814_72",
     "awa_boshu": "off_edo_tokugawa_1808_71",
-    "kaga": null,
+    "kaga": "off_edo_maeda_1805_182",
     "wakasa": "off_edo_tokugawa_1813_35",
     "hida": "off_edo_tokugawa_1802_65",
     "mino": "off_jd_066",
@@ -43569,11 +53160,12 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izu": "off_jd_341",
     "south_shinano": "off_jd_378",
     "yamashiro": "off_dm_kuwana_1868",
-    "etchu": "off_edo_maeda_1805_182"
+    "etchu": "off_edo_maeda_1805_182",
+    "ryukyu": "off_sho_tai"
   },
   "1651": {
-    "rikuchu": "off_edo_nanbu_1600_188",
-    "iwaki": "off_edo_date_1585_173",
+    "rikuchu": "off_nanbu_shigenao",
+    "iwaki": "off_soma_tadatane",
     "shimotsuke": "off_edo_tokugawa_1608_94",
     "kozuke": "off_edo_tokugawa_1592_95",
     "shimousa": "off_edo_tokugawa_1609_75",
@@ -43581,7 +53173,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awa_boshu": "off_edo_tokugawa_1600_108",
     "sagami": "off_okubo_tadamoto",
     "kai": "off_edo_tokugawa_1632_106",
-    "echigo": "off_succ2_matsudaira_1592",
+    "echigo": "off_edo_tokugawa_1616_82",
     "wakasa": "off_edo_tokugawa_1587_73",
     "hida": "off_edo_tokugawa_1590_81",
     "mino": "off_edo_tokugawa_1576_80",
@@ -43601,17 +53193,17 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hoki": "off_edo_tottori_1610_160",
     "mimasaka": "off_edo_tokugawa_1610_87",
     "bicchu": "off_edo_tokugawa_1597_88",
-    "bingo": "off_mizuno_katsunari",
+    "bingo": "off_edo_tokugawa_1613_89",
     "suo": "off_succ2_mori_1630",
     "sanuki": "off_edo_tokugawa_1622_90",
     "iyo": "off_edo_tokugawa_1587_91",
     "bungo": "off_edo_tokugawa_1595_92",
-    "hyuga": null,
+    "hyuga": "off_ito_sukeisa",
     "sado": "off_edo_tokugawa_1600_105",
     "awaji": "off_edo_tokugawa_1609_93",
     "musashi": "off_matsudaira_nobutsuna",
-    "uzen": "off_mogami_yoshitomo_edo",
-    "higo": "off_sagara_yoriyoshi",
+    "uzen": "off_uesugi_tsunakatsu",
+    "higo": "off_hosokawa_tsunatoshi",
     "izu": "off_todo_takatsugu",
     "south_shinano": "off_suwa_tadatsune",
     "noto": "off_hatakeyama_yoshiyuki",
@@ -43619,13 +53211,35 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ise": "off_kitabatake_masanori_2",
     "iwami": "off_edo_tokugawa_1602_74",
     "buzen": "off_ogasawara_tadamasa_edo",
-    "satsuma": "off_edo_shimazu_1621_223",
-    "osumi": null,
+    "satsuma": "off_shimazu_mitsuhisa",
+    "osumi": "off_edo_shimazu_1621_223",
     "mutsu": "off_hachinohe_naoyoshi",
     "etchu": "off_edo_maeda_1621_222",
     "nagato": "off_mori_hidenari",
     "oki": "off_edo_matsue_1601_161",
-    "south_omi": "off_jd_267"
+    "south_omi": "off_jd_267",
+    "suruga": "off_edo_yui_1605_0",
+    "echizen": "off_edo_fukui_matsudaira_1634_129",
+    "inaba": "off_edo_tottori_1630_149",
+    "izumo": "off_edo_matsue_1601_161",
+    "bizen": "off_ikeda_mitsumasa",
+    "aki": "off_asano_mitsuakira",
+    "iwashiro": "off_edo_aizu_1611_118",
+    "north_omi": "off_ii_naotaka",
+    "owari": "off_tokugawa_mitsutomo",
+    "kii": "off_tokugawa_yorinobu",
+    "hitachi": "off_tokugawa_yorifusa",
+    "rikuzen": "off_date_tadamune",
+    "ugo": "off_satake_yoshitaka",
+    "tsugaru": "off_tsugaru_nobuyoshi",
+    "ezo": "off_succ_kakizaki_1625_52",
+    "tsushima": "off_so_yoshinari",
+    "awa_shikoku": "off_hachisuka_tadahide",
+    "tosa": "off_yamauchi_tadayoshi",
+    "chikuzen": "off_kuroda_tadayuki",
+    "hizen": "off_nabeshima_katsushige",
+    "chikugo": "off_tachibana_tadashige",
+    "ryukyu": "off_sho_shitsu"
   },
   "1702": {
     "mikawa": "off_kira_yoshihisa",
@@ -43639,21 +53253,20 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iyo": "off_matsudaira_sadanori",
     "buzen": "off_jd_097",
     "totomi": "off_jd_086",
-    "ugo": null,
+    "ugo": "off_satake_yoshisumi",
     "uzen": "off_uesugi_tsunanori",
     "higo": "off_sagara_yoritaka",
     "rikuchu": "off_succ2_nanbu_1675",
     "iwaki": "off_soma_masatane",
     "kozuke": "off_jd_079",
     "shimousa": "off_jd_081",
-    "awa_boshu": null,
     "izu": "off_jd_099",
     "suruga": "off_jd_077",
     "kai": "off_tokugawa_ienobu",
     "south_shinano": "off_suwa_tadatotora",
     "echigo": "off_jd_083",
     "noto": "off_hatakeyama_yoshinori_edo",
-    "hida": null,
+    "hida": "off_jd_339",
     "ise": "off_jd_087",
     "yamashiro": "off_jd_075",
     "settsu": "off_jd_076",
@@ -43662,11 +53275,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "satsuma": "off_shimazu_tsunataka",
     "sado": "off_succ_honma_1675_37",
     "etchu": "off_jd_100",
-    "kawachi": null,
+    "kawachi": "off_takagi_masanobu",
     "izumi": "off_jd_090",
     "tamba": "off_jd_091",
     "hoki": "off_edo_tottori_1648_150",
-    "hyuga": null,
+    "hyuga": "off_ito_sukezane",
     "south_omi": "off_jd_088",
     "yamato": "off_jd_089",
     "tajima": "off_jd_093",
@@ -43681,7 +53294,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tango": "off_jd_092",
     "iwami": "off_jd_094",
     "mimasaka": "off_jd_452",
-    "osumi": "off_jd_451"
+    "osumi": "off_jd_451",
+    "ryukyu": "off_sho_tei"
   },
   "1721": {
     "musashi": "off_tokugawa_yoshimune",
@@ -43692,42 +53306,43 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "sanuki": "off_matsudaira_yoritoyo",
     "iyo": "off_matsudaira_sadahide",
     "buzen": "off_ogasawara_tadamoto",
-    "ugo": null,
+    "ugo": "off_satake_yoshimine",
     "uzen": "off_uesugi_yoshinori",
     "rikuchu": "off_succ2_nanbu_1675",
-    "iwaki": "off_soma_masatane",
+    "iwaki": "off_soma_nobutane",
     "shimousa": "off_toda_tadatomo",
     "kazusa": "off_honda_tadayuki",
     "sagami": "off_okubo_tadakata",
     "south_shinano": "off_suwa_tadatotora",
-    "echigo": "off_makino_tadanari",
+    "echigo": "off_jd_083",
     "noto": "off_hatakeyama_yoshisato",
     "kaga": "off_maeda_yoshinori",
-    "ise": null,
+    "ise": "off_jd_272",
     "yamashiro": "off_kitsuregawa_ujiharu",
     "settsu": "off_honganji_jakunyo",
     "harima": "off_sakakibara_masakuni",
     "nagato": "off_mori_munehiro",
     "sado": "off_succ_honma_1675_37",
-    "shimotsuke": null,
+    "shimotsuke": "off_toda_tadatomo",
     "etchu": "off_sassa_tsunakiyo",
     "kawachi": "off_takagi_masanobu",
     "tajima": "off_sengoku_masafusa",
     "bungo": "off_matsudaira_chikayoshi",
-    "oki": "off_tokugawa_yoshimune",
     "awaji": "off_jd_274",
     "mutsu": "off_nanbu_toshimoto",
     "awa_boshu": "off_jd_269",
     "wakasa": "off_jd_374",
     "mikawa": "off_mizuno_tadayuki",
-    "iga": null,
+    "iga": "off_jd_272",
     "south_omi": "off_jd_273",
     "izu": "off_jd_309",
     "hida": "off_jd_339",
     "yamato": "off_jd_375",
-    "hoki": "off_tokugawa_yoshimune",
-    "hyuga": null,
-    "osumi": "off_jd_450"
+    "hoki": "off_edo_tottori_1689_151",
+    "hyuga": "off_ito_suketaka",
+    "osumi": "off_jd_450",
+    "izumo": "off_edo_matsue_1685_164",
+    "ryukyu": "off_sho_kei"
   },
   "1789": {
     "ezo": "off_succ_kakizaki_1754_57",
@@ -43739,7 +53354,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iyo": "off_matsudaira_sadanori_line",
     "buzen": "off_ogasawara_tadafusa",
     "ugo": "off_succ_satake_1775_150",
-    "iwaki": "off_edo_date_1760_172",
+    "iwaki": "off_soma_yoshitane_9",
     "kozuke": "off_tokugawa_harusada",
     "musashi": "off_tokugawa_ienari",
     "echigo": "off_edo_tokugawa_1759_16",
@@ -43791,11 +53406,12 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "awa_shikoku": "off_edo_hachisuka_1773_195",
     "chikuzen": "off_succ_kuroda_1777_78",
     "satsuma": "off_shimazu_narinobu",
-    "tsushima": "off_succ_so_1755_183"
+    "tsushima": "off_succ_so_1755_183",
+    "ryukyu": "off_sho_boku"
   },
   "1837": {
     "rikuchu": "off_edo_nanbu_1805_189",
-    "iwaki": "off_edo_date_1800_174",
+    "iwaki": "off_soma_masutane",
     "shimotsuke": "off_edo_tokugawa_1800_44",
     "kozuke": "off_edo_tokugawa_1819_40",
     "shimousa": "off_edo_tokugawa_1810_19",
@@ -43847,10 +53463,11 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_edo_shimazu_1809_183",
     "south_shinano": "off_jd_280",
     "hyuga": "off_jd_281",
-    "oki": "off_jd_282"
+    "oki": "off_jd_282",
+    "ryukyu": "off_sho_iku"
   },
   "1853": {
-    "iwaki": "off_edo_date_1800_174",
+    "iwaki": "off_soma_mitsutane",
     "shimotsuke": "off_edo_tokugawa_1800_44",
     "kozuke": "off_edo_tokugawa_1819_40",
     "shimousa": "off_edo_tokugawa_1810_19",
@@ -43894,17 +53511,18 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikuzen": "off_kuroda_nagahiro_han",
     "uzen": "off_ban_hyakuetsu",
     "satsuma": "off_edo_shimazu_1809_183",
-    "rikuchu": null,
+    "rikuchu": "off_dm_nanbu_1868",
     "hoki": "off_edo_tottori_1785_159",
     "mutsu": "off_nanbu_nobuyuki",
     "hyuga": "off_edo_shimazu_1817_184",
     "south_shinano": "off_jd_378",
     "noto": "off_maeda_nariyasu",
     "south_omi": "off_jd_285",
-    "oki": "off_dm_matsue_1868"
+    "oki": "off_dm_matsue_1868",
+    "ryukyu": "off_sho_tai"
   },
   "1860": {
-    "iwaki": "off_edo_date_1800_174",
+    "iwaki": "off_soma_mitsutane",
     "shimotsuke": "off_edo_tokugawa_1800_44",
     "kozuke": "off_edo_tokugawa_1819_40",
     "shimousa": "off_edo_tokugawa_1810_19",
@@ -43944,7 +53562,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "higo": "off_hosokawa_yoshikuni",
     "chikuzen": "off_kuroda_nagahiro_han",
     "uzen": "off_sakai_kichinojo",
-    "rikuchu": null,
+    "rikuchu": "off_dm_nanbu_1868",
     "bingo": "off_edo_tokugawa_1823_49",
     "nagato": "off_takasugi_shinsaku",
     "satsuma": "off_komatsu_tatewaki",
@@ -43955,7 +53573,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "oki": "off_dm_matsue_1868",
     "izu": "off_jd_287",
     "noto": "off_jd_379",
-    "south_shinano": "off_jd_378"
+    "south_shinano": "off_jd_378",
+    "ryukyu": "off_sho_tai"
   },
   "1056": {
     "iwashiro": "off_jd_349",
@@ -44052,13 +53671,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "izumo": "off_kikkawa_hiroie",
     "buzen": "off_takahashi_shoun",
     "shima": "off_kuki_yoshitaka",
-    "awaji": "off_wakisaka_yasuharu",
+    "awaji": "off_sengoku_hidehisa",
     "inaba": "off_miyabe_keijun",
-    "hoki": "off_nanjo_mototsugu",
+    "hoki": "off_kikkawa_motoharu",
     "izu": "off_matsuda_yasunaga",
-    "sanuki": "off_sengoku_hidehisa",
+    "sanuki": "off_jd_021",
     "iga": "off_tsutsui_sadatsugu",
-    "awa_shikoku": "off_miyoshi_fusakazu",
+    "awa_shikoku": "off_jd_022",
     "ise": "off_jd_017",
     "mikawa": "off_sakakibara_yasumasa",
     "bingo": "off_mizuno_katsunari",
@@ -44072,7 +53691,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tango": "off_hosokawa_tadaoki",
     "musashi": "off_hojo_ujiteru",
     "bungo": "off_tachibana_dosetsu",
-    "kii": "off_saika_magoichi"
+    "kii": "off_saika_magoichi",
+    "rikuchu": "off_kasai_harunobu",
+    "tosa": "off_chosokabe_motochika"
   },
   "1587": {
     "yamashiro": "off_toyotomi_hidetsugu",
@@ -44101,7 +53722,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hida": "off_kanamori_arishige",
     "tango": "off_hosokawa_tadaoki",
     "tamba": "off_maeda_geni",
-    "kawachi": "off_hachisuka_iemasa",
+    "kawachi": "off_katagiri_katsumoto",
     "izumi": "off_konishi_yukinaga",
     "sanuki": "off_sengoku_hidehisa",
     "iyo": "off_kobayakawa_takakage",
@@ -44114,7 +53735,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hoki": "off_nanjo_mototsugu",
     "izu": "off_hojo_ujinori",
     "izumo": "off_kikkawa_hiroie",
-    "kii": "off_dm_asano_1600",
+    "kii": "off_jd_027",
     "bizen": "off_dm_ukita_1582",
     "mimasaka": "off_mori_tadamasa",
     "ise": "off_todo_takatora",
@@ -44125,11 +53746,12 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shimousa": "off_chiba_naoshige_bridge",
     "iwami": "off_masuda_motoyoshi",
     "bicchu": "off_jd_034",
-    "awa_shikoku": "off_dm_toyotomi_1600",
+    "awa_shikoku": "off_hachisuka_iemasa",
     "nagato": "off_naito_motosori",
     "mikawa": "off_sakai_tadatsugu",
     "musashi": "off_hojo_ujiteru",
-    "oki": "off_jd_260"
+    "oki": "off_oki_kiyomasa_sengoku",
+    "rikuchu": "off_kasai_harunobu"
   },
   "1592": {
     "hizen": "off_ryuzoji_masaie",
@@ -44196,60 +53818,83 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "nagato": "off_naito_motosori"
   },
   "1877": {
-    "nagato": "off_kido_takayoshi",
-    "suo": "off_kido_takayoshi",
-    "bizen": "off_ikeda_akimasa",
-    "aki": "off_yamagata_aritomo",
-    "chikuzen": "off_kuroda_kiyotaka",
-    "higo": "off_shinohara_kunimoto",
-    "iwaki": "off_yamagata_aritomo",
-    "wakasa": "off_kuroda_kiyotaka",
-    "sagami": "off_enomoto_takeaki",
-    "mino": "off_jd_066",
-    "totomi": "off_katsu_kaishu",
-    "izu": "off_enomoto_takeaki",
-    "shima": "off_yamagata_aritomo",
+    "ezo": "off_kuroda_kiyotaka",
+    "tsugaru": "off_yamada_hidenori",
+    "mutsu": "off_shima_isei",
+    "rikuchu": "off_nanbu_toshiyuki",
+    "ugo": "off_ishida_eikichi",
+    "rikuzen": "off_shijo_takauta",
+    "uzen": "off_mishima_michitsune",
+    "iwaki": "off_soma_tomotane",
+    "iwashiro": "off_yamayoshi_morinori",
+    "hitachi": "off_nomura_iho",
+    "shimotsuke": "off_nabeshima_miki",
+    "kozuke": "off_katori_motohiko",
+    "musashi": "off_kusumoto_masataka",
+    "shimousa": "off_shibahara_yawaragu",
+    "kazusa": "off_hayashi_tadataka",
+    "awa_boshu": "off_jd_293",
+    "sagami": "off_nomura_yasushi",
+    "izu": "off_jd_341",
+    "suruga": "off_osako_sadakiyo",
+    "kai": "off_fujimura_shiro",
+    "north_shinano": "off_narasaki_kanjiki",
+    "south_shinano": "off_jd_431",
+    "echigo": "off_nagayama_moriteru",
+    "etchu": "off_maeda_toshitomo",
+    "noto": "off_jd_379",
+    "kaga": "off_kiriyama_junko",
+    "echizen": "off_edo_fukui_matsudaira_1828_139",
+    "wakasa": "off_shirane_senichi",
+    "hida": "off_niwa_ichigaku",
+    "mino": "off_kozaki_toshitomo",
+    "totomi": "off_jd_068",
+    "mikawa": "off_tokugawa_iesato",
+    "owari": "off_maruyama_sadamasa",
+    "ise": "off_iwamura_sadataka",
+    "shima": "off_edo_tokugawa_1813_34",
     "iga": "off_edo_tokugawa_1820_58",
-    "yamashiro": "off_dm_meiji_1868",
-    "yamato": "off_yamagata_aritomo",
-    "harima": "off_oyama_iwao",
-    "bicchu": "off_jd_073",
-    "sanuki": "off_edo_tokugawa_1811_50",
-    "iyo": "off_katsu_kaishu",
+    "north_omi": "off_edo_ii_1848_144",
+    "south_omi": "off_matsuda_michiyuki",
+    "yamashiro": "off_makimura_masanao",
+    "yamato": "off_jd_063",
+    "kii": "off_kamiyama_gunren",
+    "kawachi": "off_jd_429",
+    "izumi": "off_jd_064",
+    "settsu": "off_miyoshi_shigeomi",
+    "tamba": "off_jd_428",
+    "tango": "off_jd_291",
+    "tajima": "off_sengoku_masakata",
+    "harima": "off_morioka_masazumi",
+    "inaba": "off_dm_tottori_1868",
+    "hoki": "off_ikeda_nakahiro",
+    "izumo": "off_sato_ichihei",
+    "iwami": "off_matsudaira_naofusa",
+    "mimasaka": "off_jd_296",
+    "bizen": "off_takasaki_goroku",
+    "bicchu": "off_yamada_hokoku",
+    "bingo": "off_asano_nagayuki",
+    "aki": "off_miura_goro",
+    "suo": "off_sekiguchi_takayoshi",
+    "nagato": "off_yamada_akiyoshi",
+    "sanuki": "off_matsudaira_yoritane",
+    "awa_shikoku": "off_dm_hachisuka_1868",
+    "iyo": "off_iwamura_takatoshi",
+    "tosa": "off_koike_kuniomi",
+    "buzen": "off_nogi_maresuke",
+    "chikuzen": "off_watanabe_kiyoshi",
+    "hizen": "off_kitajima_hidetomo",
+    "chikugo": "off_tani_tateki",
+    "bungo": "off_beppu_shinsuke",
+    "higo": "off_shinohara_kunimoto",
+    "hyuga": "off_murata_shinpachi",
     "satsuma": "off_saigo_takamori",
     "osumi": "off_kirino_toshiaki",
-    "north_shinano": "off_kuroda_kiyotaka",
-    "north_omi": "off_edo_ii_1848_144",
-    "sado": "off_oyama_iwao",
-    "mutsu": "off_oyama_iwao",
-    "hyuga": "off_murata_shinpachi",
-    "bingo": "off_kuroda_kiyotaka",
-    "buzen": "off_yamagata_aritomo",
-    "bungo": "off_beppu_shinsuke",
-    "etchu": "off_enomoto_takeaki",
-    "owari": "off_jd_067",
-    "suruga": "off_jd_068",
-    "chikugo": "off_katsu_kaishu",
+    "oki": "off_dm_matsue_1868",
+    "sado": "off_tatsumi_kanzaburo",
+    "tsushima": "off_so_shigemasa",
     "awaji": "off_jd_072",
-    "hoki": "off_jd_074",
-    "hida": "off_niwa_ichigaku",
-    "tajima": "off_sengoku_masakata",
-    "noto": "off_jd_379",
-    "tango": "off_jd_291",
-    "shimotsuke": "off_jd_292",
-    "awa_boshu": "off_jd_293",
-    "kai": "off_itagaki_taisuke",
-    "settsu": "off_goto_shojiro",
-    "mimasaka": "off_jd_296",
-    "oki": "off_edo_fukui_matsudaira_1807_140",
-    "izumi": "off_jd_342",
-    "tamba": "off_jd_428",
-    "kawachi": "off_jd_429",
-    "iwami": "off_kuroda_kiyotaka",
-    "south_shinano": "off_jd_431",
-    "south_omi": "off_jd_432",
-    "tosa": "off_dm_meiji_1868",
-    "musashi": "off_okubo_toshimichi"
+    "ryukyu": "off_sho_tai"
   },
   "801": {
     "yamashiro": "off_kanmu_tenno",
@@ -44290,7 +53935,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "musashi": "off_adachi_yasumori",
     "nagato": "off_hojo_muneyori",
     "buzen": "off_shoni_tsunesuke",
-    "chikuzen": "off_shoni_kagesuke",
+    "chikuzen": "off_shoni_tsunesuke",
     "chikugo": "off_kikuchi_takefusa",
     "bungo": "off_otomo_yoriyasu",
     "higo": "off_takezaki_suenaga",
@@ -44318,7 +53963,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "echigo": "off_uesugi_zenshu",
     "hitachi": "off_succ2_satake_1365",
     "mino": "off_succ_toki_1375_198",
-    "mikawa": "off_ashikaga_yoshimitsu",
+    "mikawa": "off_jd_404",
     "owari": "off_shiba_yoshimasa",
     "shima": "off_kitabatake_akiyasu",
     "settsu": "off_hosokawa_yorimoto",
@@ -44336,21 +53981,21 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mutsu": "off_nanbu_nobunaga",
     "tajima": "off_yamana_ujikiyo",
     "rikuchu": "off_succ2_nanbu_1345",
-    "etchu": "off_ashikaga_yoshimitsu",
+    "etchu": "off_jd_402",
     "awa_boshu": "off_satomi_yoshinori",
     "sagami": "off_ashikaga_ujimitsu",
     "hida": "off_ashikaga_yoshimitsu",
     "totomi": "off_shiba_yoshimasa",
-    "iga": "off_rokkaku_mitsutaka",
+    "iga": "off_jd_406",
     "yamashiro": "off_ashikaga_yoshimitsu",
     "tango": "off_jd_385",
-    "hoki": "off_nawa_yoshitaka",
+    "hoki": "off_yamana_mitsuyuki",
     "wakasa": "off_jd_404",
     "kazusa": null,
     "musashi": "off_ashikaga_mitsutaka",
     "izu": "off_jd_405",
     "yamato": "off_ashikaga_yoshimitsu",
-    "kii": "off_ashikaga_yoshimitsu",
+    "kii": "off_jd_409",
     "bingo": "off_jd_413",
     "nagato": "off_ouchi_yoshihiro",
     "chikugo": "off_imagawa_sadayo",
@@ -44387,8 +54032,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   },
   "1531": {
     "owari": "off_dm_oda_1546",
-    "south_omi": "off_dm_rokkaku_1560",
-    "mikawa": "off_matsudaira_hirotada",
+    "south_omi": "off_dm_rokkaku_1331",
+    "mikawa": "off_matsudaira_kiyoyasu",
     "settsu": "off_hosokawa_harumoto",
     "rikuzen": "off_date_tanemune_early",
     "kozuke": "off_dm_uesugi_1546",
@@ -44396,20 +54041,20 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "musashi": "off_uesugi_tomooki",
     "izu": "off_hojo_tsunashige",
     "kawachi": "off_jd_249",
-    "izumi": "off_hosokawa_takakuni",
-    "hoki": "off_jd_250",
-    "nagato": "off_sue_harukata",
+    "izumi": "off_miyoshi_motonaga",
+    "hoki": "off_honjo_tsunemitsu",
+    "nagato": "off_dm_ouchi_1546",
     "osumi": "off_shimazu_tadayoshi",
     "iwami": "off_honjo_tsunemitsu",
     "mimasaka": "off_uragami_muramune",
     "bicchu": "off_mimura_iechika",
     "bingo": "off_yamauchi_takadouri",
-    "sanuki": "off_shinohara_nagafusa",
+    "sanuki": "off_hosokawa_harumoto",
     "awaji": "off_hosokawa_takakuni",
     "buzen": "off_aso_hiroyasu",
     "chikuzen": "off_aso_hiroyasu",
     "mutsu": "off_nanbu_harumasa",
-    "tango": "off_jd_014",
+    "tango": "off_isshiki_yoshiyuki",
     "south_shinano": "off_succ_ogasawara_1514_114",
     "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
@@ -44417,7 +54062,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "chikugo": "off_otomo_yoshiaki_early",
     "tsugaru": "off_succ2_nanbu_1495",
     "kazusa": "off_ashikaga_yoshiaki_oyumi",
-    "oki": "off_oki_tamekiyo",
+    "oki": "off_dm_amago_1546",
     "wakasa": "off_jd_008",
     "tamba": "off_hatano_hidetada",
     "inaba": "off_jd_010",
@@ -44443,7 +54088,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   },
   "1538": {
     "owari": "off_dm_oda_1546",
-    "south_omi": "off_dm_rokkaku_1560",
+    "south_omi": "off_dm_rokkaku_1331",
     "mikawa": "off_matsudaira_hirotada",
     "settsu": "off_hosokawa_harumoto",
     "rikuzen": "off_date_tanemune_early",
@@ -44451,21 +54096,21 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "shimousa": "off_ashikaga_haruuji",
     "musashi": "off_hojo_ujiyasu",
     "izu": "off_hojo_tsunashige",
-    "kawachi": "off_matsunaga_hisahide",
+    "kawachi": "off_miyoshi_nagayoshi",
     "izumi": "off_hosokawa_harumoto",
-    "hoki": "off_jd_250",
-    "nagato": "off_sue_harukata",
+    "hoki": "off_honjo_tsunemitsu",
+    "nagato": "off_dm_ouchi_1546",
     "osumi": "off_shimazu_tadayoshi",
     "iwami": "off_honjo_tsunemitsu",
     "mimasaka": "off_jd_055",
     "bicchu": "off_mimura_iechika",
     "bingo": "off_yamauchi_takadouri",
-    "sanuki": "off_shinohara_nagafusa",
+    "sanuki": "off_hosokawa_harumoto",
     "awaji": "off_hosokawa_harumoto",
     "buzen": "off_aso_hiroyasu",
     "chikuzen": "off_aso_hiroyasu",
     "mutsu": "off_nanbu_harumasa",
-    "tango": "off_jd_014",
+    "tango": "off_isshiki_yoshiyuki",
     "south_shinano": "off_succ_ogasawara_1514_114",
     "rikuchu": "off_kasai_harushige_1531",
     "totomi": "off_okabe_motonobu",
@@ -44502,13 +54147,13 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "north_shinano": "off_kosaka_masanobu",
     "south_shinano": "off_akiyama_nobutomo",
     "musashi": "off_hojo_ujiteru",
-    "izu": "off_hojo_ujinori",
+    "izu": "off_hojo_tsunashige",
     "kozuke": "off_dm_uesugi_1546",
     "hida": "off_anekoji_yoritsuna",
-    "north_omi": "off_azai_nagamasa",
+    "north_omi": "off_dm_azai_1546",
     "kaga": "off_shimotsuma_rairen",
-    "tamba": "off_hatano_hideharu",
-    "tango": "off_jd_014",
+    "tamba": "off_matsunaga_hisahide",
+    "tango": "off_isshiki_yoshiyuki",
     "suo": "off_sue_harukata",
     "nagato": "off_naito_takaharu",
     "izumo": "off_dm_amago_1546",
@@ -44524,15 +54169,15 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "osumi": "off_shimazu_tadayoshi",
     "awaji": "off_atagi_fuyuyasu",
     "mutsu": "off_nanbu_harumasa",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "sagami": "off_hojo_ujiyasu",
     "inaba": "off_jd_010",
     "bizen": "off_dm_uragami_1546",
     "bingo": "off_kobayakawa_takakage",
     "chikuzen": "off_tachibana_dosetsu",
-    "south_omi": "off_succ_rokkaku_1545_135",
+    "south_omi": "off_dm_rokkaku_1560",
     "chikugo": "off_jd_057",
-    "iwami": "off_masuda_fujikane",
+    "iwami": "off_honjo_tsunemitsu",
     "shimousa": "off_jd_252",
     "iga": "off_jd_456",
     "yamashiro": "off_ashikaga_yoshiteru",
@@ -44558,7 +54203,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ezo": "off_dm_kakizaki_1546",
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "ugo": "off_dm_ando_1560",
     "uzen": "off_mogami_yoshiaki",
     "rikuzen": "off_dm_date_1560",
@@ -44649,14 +54294,14 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "owari": "off_oda_nobutada",
     "awa_shikoku": "off_dm_miyoshi_1570",
     "kozuke": "off_amakasu_kagemochi",
-    "izu": "off_matsuda_yasunaga",
+    "izu": "off_hojo_ujinori",
     "bicchu": "off_shimizu_muneharu",
     "chikugo": "off_takahashi_shoun",
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
     "etchu": "off_jd_305",
     "wakasa": "off_niwa_nagahide",
-    "kazusa": "off_dm_satomi_1582",
+    "kazusa": "off_masaki_yoritada",
     "hida": "off_anekoji_yoritsuna",
     "ise": "off_oda_nobukatsu",
     "shima": "off_kuki_yoshitaka",
@@ -44666,10 +54311,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "mimasaka": "off_jd_419",
     "buzen": "off_jd_258",
     "osumi": "off_shimazu_iehisa",
-    "shimousa": "off_hojo_ujinori",
+    "shimousa": "off_jd_252",
     "sanuki": "off_sogo_ariyasu",
-    "rikuchu": "off_kita_nobuchika",
-    "awa_boshu": "off_satomi_yoshihiro",
+    "rikuchu": "off_kasai_harunobu",
+    "awa_boshu": "off_dm_satomi_1582",
     "sagami": "off_hojo_ujimasa",
     "mikawa": "off_honda_tadakatsu",
     "settsu": "off_dm_honganji_1560",
@@ -44702,7 +54347,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "ezo": "off_dm_kakizaki_1546",
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "ugo": "off_dm_ando_1560",
     "uzen": "off_mogami_yoshiaki",
     "rikuzen": "off_dm_date_1560",
@@ -44713,10 +54358,10 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "kozuke": "off_amakasu_kagemochi",
     "musashi": "off_hojo_ujiteru",
     "sagami": "off_hojo_ujimasa",
-    "izu": "off_matsuda_yasunaga",
+    "izu": "off_hojo_ujinori",
     "kazusa": "off_dm_satomi_1582",
     "awa_boshu": "off_dm_satomi_1582",
-    "shimousa": "off_hojo_ujinori",
+    "shimousa": "off_jd_252",
     "kai": "off_takeda_katsuyori",
     "north_shinano": "off_kosaka_masanobu",
     "south_shinano": "off_kiso_yoshimasa",
@@ -44777,8 +54422,8 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "tsushima": "off_dm_so_1560"
   },
   "1159": {
-    "yamashiro": "off_fujiwara_nobuyori",
-    "sagami": "off_minamoto_yoshihira",
+    "yamashiro": "off_goshirakawa_in",
+    "sagami": "off_minamoto_yoshitomo",
     "shimotsuke": "off_minamoto_tomonaga",
     "south_shinano": "off_minamoto_yoshitaka",
     "harima": "off_taira_kiyomori",
@@ -44797,7 +54442,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "harima": "off_taira_shigehira",
     "bizen": "off_namba_tsuneto",
     "nagato": "off_taira_tomomori",
-    "sanuki": "off_taira_noritsune",
+    "sanuki": "off_taira_munemori",
     "izu": "off_dohi_sanehira",
     "kozuke": "off_nitta_yoshishige",
     "shimotsuke": "off_ashikaga_yoshikane",
@@ -44900,7 +54545,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "iyo": "off_kono_michinobu_early",
     "harima": "off_kumagai_naozane",
     "bizen": "off_adachi_morinaga",
-    "nagato": "off_taira_tomomori",
+    "nagato": "off_taira_munemori",
     "sanuki": "off_sato_tsugunobu",
     "izu": "off_dohi_sanehira",
     "kozuke": "off_nitta_yoshishige",
@@ -45014,9 +54659,9 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "hitachi": "off_hosokawa_yoriyuki",
     "mino": "off_toki_yorikasu",
     "mikawa": "off_ashikaga_yoshiakira",
-    "owari": "off_toki_yorikasu",
+    "owari": "off_shiba_yoshimasa",
     "shima": "off_kitabatake_akiyoshi",
-    "settsu": "off_kusunoki_masanori",
+    "settsu": "off_hosokawa_kiyouji",
     "izumo": "off_jd_325",
     "iwami": "off_masuda_kaneyoshi",
     "mimasaka": "off_akamatsu_sadanori",
@@ -45050,7 +54695,7 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
     "nagato": "off_ouchi_hiroyo",
     "chikugo": "off_kikuchi_takemitsu",
     "osumi": "off_shimazu_ujihisa",
-    "awaji": "off_ogasawara_nagamoto",
+    "awaji": "off_dm_hosokawa_1336",
     "oki": null,
     "aki": "off_mori_motoharu",
     "awa_shikoku": "off_dm_hosokawa_1336",
@@ -45071,1080 +54716,6 @@ window.SCENARIO_HISTORICAL_GOVERNORS = {
   }
 };
 
-window.CLAN_CAPITAL_PROVINCES = {
-  "oda": "owari",
-  "tokugawa": "musashi",
-  "toyotomi": "settsu",
-  "takeda": "kai",
-  "uesugi": "uzen",
-  "mori": "aki",
-  "hojo": "sagami",
-  "date": "rikuzen",
-  "shimazu": "satsuma",
-  "chosokabe": "tosa",
-  "imagawa": "suruga",
-  "azai": "north_omi",
-  "asakura": "echizen",
-  "saito": "mino",
-  "miyoshi": "awa_shikoku",
-  "otomo": "bungo",
-  "ryuzoji": "hizen",
-  "satake": "hitachi",
-  "nanbu": "mutsu",
-  "mogami": "uzen",
-  "ashikaga": "yamashiro",
-  "so": "tsushima",
-  "honma": "sado",
-  "tsugaru": "tsugaru",
-  "satomi": "awa_boshu",
-  "utsunomiya": "shimotsuke",
-  "ashina": "iwashiro",
-  "soma": "iwaki",
-  "sanada": "north_shinano",
-  "anekoji": "hida",
-  "hatano": "tamba",
-  "matsudaira": "mikawa",
-  "ukita": "bizen",
-  "uragami": "bizen",
-  "akechi": "tamba",
-  "shibata": "echizen",
-  "maeda": "kaga",
-  "nabeshima": "hizen",
-  "kuroda": "chikuzen",
-  "amago": "izumo",
-  "rokkaku": "south_omi",
-  "kitabatake": "ise",
-  "hatakeyama": "noto",
-  "matsunaga": "yamato",
-  "tsutsui": "yamato",
-  "saika": "kii",
-  "kono": "iyo",
-  "ito": "hyuga",
-  "sagara": "higo",
-  "aso": "higo",
-  "shoni": "hizen",
-  "ando": "ugo",
-  "kasai": "rikuzen",
-  "osaki": "rikuzen",
-  "chiba": "shimousa",
-  "yuki": "shimousa",
-  "ogigayatsu": "musashi",
-  "yamanouchi": "kozuke",
-  "jinbo": "etchu",
-  "shiina": "etchu",
-  "anayama": "kai",
-  "kiso": "south_shinano",
-  "suwa": "south_shinano",
-  "murakami": "north_shinano",
-  "ogasawara": "south_shinano",
-  "ichijo": "tosa",
-  "hosokawa": "settsu",
-  "yamana": "tamba",
-  "shiba": "owari",
-  "isshiki": "tango",
-  "toki": "mino",
-  "kyogoku": "north_omi",
-  "akamatsu": "harima",
-  "ouchi": "suo",
-  "togashi": "kaga",
-  "jo": "echigo",
-  "kumano": "kii",
-  "masuda": "iwami",
-  "matsura": "hizen",
-  "kikuchi": "higo",
-  "nawa": "hoki",
-  "enyo": "izumo",
-  "abe": "mutsu",
-  "kiyohara": "ugo",
-  "ezo_native": "ezo",
-  "kazusa_nosuke": "kazusa",
-  "miura": "sagami",
-  "taira_masakado": "shimousa",
-  "fujiwara_sumitomo": "iyo",
-  "taira_sadamori": "hitachi",
-  "fujiwara_hidesato": "shimotsuke",
-  "minamoto_tsunemoto": "kai",
-  "heian_court": "yamashiro",
-  "taira": "yamashiro",
-  "genji_yoritomo": "sagami",
-  "minamoto_yoshitomo": "sagami",
-  "minamoto_tametomo": "hizen",
-  "fujiwara_hiraizumi": "rikuchu",
-  "goshirakawa_in": "yamashiro",
-  "sutoku_in": "sanuki",
-  "hojo_kamakura": "sagami",
-  "gotoba_in": "yamashiro",
-  "godaiho": "yamashiro",
-  "kusunoki": "kawachi",
-  "nitta": "kozuke",
-  "hojo_tokiyuki": "north_shinano",
-  "shimazu_proto": "satsuma",
-  "meiji": "yamashiro",
-  "tokugawa_bakufu": "musashi",
-  "satsuma_han": "satsuma",
-  "choshu_han": "nagato",
-  "tosa_han": "tosa",
-  "aizu_han": "iwashiro",
-  "amakusa": "hizen",
-  "yamashiro_ikki": "yamashiro",
-  "saigo_gun": "satsuma",
-  "yui": "suruga",
-  "oshio": "settsu",
-  "owari": "owari",
-  "tottori": "inaba",
-  "okayama": "bizen",
-  "asano": "aki",
-  "fukuoka_kuroda": "chikuzen",
-  "kumamoto_hosokawa": "higo",
-  "kishu": "kii",
-  "mito": "hitachi",
-  "aizu": "iwashiro",
-  "matsue": "izumo",
-  "kuwana": "ise",
-  "fukui_matsudaira": "echizen",
-  "tachibana": "chikugo",
-  "nakagawa": "bungo",
-  "hachisuka": "awa_shikoku",
-  "makino": "echigo",
-  "kakizaki": "ezo",
-  "ii": "north_omi",
-  "sassa": "etchu",
-  "momochi": "iga",
-  "hattori": "iga",
-  "kuki": "shima",
-  "anesanokoji": "hida",
-  "anesakoji": "hida",
-  "suzuki": "kii",
-  "takeda_kazusa": "kazusa",
-  "gamo": "iwashiro",
-  "fukushima": "aki",
-  "gamou": "iwashiro",
-  "shiba_oshu": "rikuchu",
-  "todo": "ise"
-};
-
-window.OFFICER_FAMILY_ROSTERS = {
-  "chosokabe": [
-    "off_jd_021",
-    "off_jd_022",
-    "off_chosokabe_ketsugu",
-    "off_chosokabe_motochika",
-    "off_dm_chosokabe_1546",
-    "off_chosokabe_shigeuji",
-    "off_chosokabe_nobukane",
-    "off_dm_chosokabe_1336",
-    "off_chosokabe_moritsune",
-    "off_chosokabe_moritaka",
-    "off_chosokabe_morichika",
-    "off_chosokabe_yoshitoshi",
-    "off_chosokabe_fumikane",
-    "off_dm_chosokabe_1495",
-    "off_jd_023"
-  ],
-  "nanbu": [
-    "off_kunohe_sanechika",
-    "off_kunohe_masazane",
-    "off_oura_tamenori",
-    "off_jd_326",
-    "off_dm_nanbu_1221",
-    "off_dm_nanbu_1467",
-    "off_nanbu_yukinobu",
-    "off_succ2_nanbu_1495",
-    "off_dm_nanbu_1331",
-    "off_dm_nanbu_1495",
-    "off_nanbu_tokinaga",
-    "off_jd_318",
-    "off_nanbu_sanenaga_1221",
-    "off_dm_nanbu_1438",
-    "off_nanbu_shigenao",
-    "off_succ2_nanbu_1675",
-    "off_nanbu_nobuyuki",
-    "off_jd_241",
-    "off_nanbu_nobunaga",
-    "off_dm_nanbu_1582",
-    "off_nanbu_masamitsu",
-    "off_jd_303",
-    "off_succ2_nanbu_1285",
-    "off_jd_370",
-    "off_succ2_nanbu_1345",
-    "off_nanbu_masanaga",
-    "off_nanbu_harumasa",
-    "off_nanbu_toshihide",
-    "off_nanbu_toshimoto",
-    "off_nanbu_toshiyuki",
-    "off_succ2_nanbu_1755",
-    "off_edo_nanbu_1782_186",
-    "off_dm_nanbu_1868",
-    "off_edo_nanbu_1797_187",
-    "off_nanbu_toshiatsu",
-    "off_nanbu_toshiaki",
-    "off_succ_nanbu_1751_107",
-    "off_nanbu_toshinao",
-    "off_nanbu_toshifumi",
-    "off_nanbu_toshio",
-    "off_jd_340",
-    "off_hachinohe_naoyoshi",
-    "off_edo_nanbu_1600_188",
-    "off_edo_nanbu_1805_189",
-    "off_jd_431",
-    "off_kita_nobuchika",
-    "off_nanbu_namioka_akiyasu"
-  ]
-};
-
-window.HISTORICAL_EVENT_LINKS = [
-      { choiceId: 'fujiwara_kiyohira_restoration', dataIds: ['evt_1088_kiyohira_fujiwara'], year: 1088, season: '春' },
-      { choiceId: 'minatogawa', dataIds: ['evt_1336_minatogawa'], year: 1336, season: '夏' },
-      { choiceId: 'kawagoe', dataIds: ['evt_1546_kawagoe_night'], year: 1546, season: '春' },
-      { choiceId: 'okehazama', dataIds: ['evt_1560_okehazama'], year: 1560, season: '夏' },
-      { choiceId: 'sanpougahara', dataIds: ['evt_1572_mikatagahara'], year: 1572, season: '冬' },
-      { choiceId: 'honnoji', dataIds: ['evt_1582_honnouji_yamazaki'], year: 1582, season: '夏' },
-      { choiceId: 'kunohe_rebellion', dataIds: ['evt_1591_kunohe_rebellion'], year: 1591, season: '夏' },
-      { choiceId: 'sekigahara', dataIds: ['evt_1600_sekigahara'], year: 1600, season: '秋' },
-      { choiceId: 'shimabara_rebellion', dataIds: ['evt_1637_shimabara_outbreak'], year: 1637, season: '冬' },
-      { choiceId: 'keian_yui_rebellion', dataIds: ['evt_1651_keian_hen'], year: 1651, season: '秋' },
-      { choiceId: 'tenguto_rebellion', dataIds: ['evt_1864_tenguto_rebellion'], year: 1864, season: '冬' },
-      { choiceId: 'tobafushimi', dataIds: ['evt_1868_toba_fushimi'], year: 1868, season: '春' }
-    ];
-
-window.REBELLION_EVENT_PAIRS = [
-      ['evt_1591_kunohe_rebellion', 'kunohe_rebellion', 'evt_1591_kunohe_victory_if'],
-      ['evt_1651_keian_hen', 'keian_yui_rebellion', 'evt_1651_keian_success_if'],
-      ['evt_1864_tenguto_rebellion', 'tenguto_rebellion', 'evt_1864_tenguto_success_if']
-    ];
-
-// ============================================================================
-// 歴史イベント・エンジン用マスターデータ（app.js はこれを読んで汎用に処理する）
-// ============================================================================
-
-// イベントIDごとの特殊扱い。app.js 側にイベントIDを直書きしない
-window.HISTORICAL_EVENT_RULES = {
-  // 領地がすでに史実どおりでも「変化なし」で済ませない（改名・落命・相続などの付帯処理がある）
-  neverNoop: [
-    'evt_1088_kiyohira_fujiwara', 'evt_1560_okehazama', 'evt_1087_kanazawa', 'evt_1582_yamazaki',
-    'evt_1582_honnouji_yamazaki', 'evt_1837_oshio_success_if', 'evt_1837_ikuta_success_if',
-    'evt_1863_tenchugumi_success_if', 'evt_1863_ikuno_success_if'
-  ],
-  // ゲーム内フラグが立っていたら起こさない（本能寺回避後の山崎・賤ヶ岳など）
-  skipWhenFlag: {
-    honnoujiAverted: ['evt_1582_yamazaki', 'evt_1583_shizugatake']
-  },
-  // 前提欠如で封じたときに立てるフラグ
-  setFlagOnPrereqSkip: { 'evt_1582_honnouji_yamazaki': 'honnoujiAverted' },
-  // データイベントで「史実を適用しない」を選んだときに立てるフラグ
-  setFlagOnReject: { 'evt_1582_honnouji_yamazaki': 'honnoujiAverted' },
-  // 選択イベントで改変ルートを選んだときに立てるフラグ
-  setFlagOnIfChoice: { 'honnoji': 'honnoujiAverted' },
-  // 本能寺型：領地分割と後継選択を HONNOUJI_SUCCESSION_DATA で行うイベント（isHonnouji / chooseSuccessor フラグと同等）
-  successionEvents: ['evt_1582_honnouji_yamazaki'],
-  // その家に残る領国をすべて勝者へ移し、指定武将を落命させる（山崎の明智滅亡など）
-  clanCollapse: {
-    'evt_1582_yamazaki': { from: 'akechi', to: 'toyotomi', killOfficerIds: ['off_akechi_mitsuhide'], minTroops: 3000 }
-  },
-  // 史実を適用したときに立てるフラグと、呼ぶ改名処理（hook は app 側の許可リストにある名前だけ）
-  onApply: {
-    'evt_1560_okehazama': { flag: 'okehazamaOccurred', hook: 'updateTokugawaSurname' },
-    'evt_1087_kanazawa': { flag: 'kanazawaOccurred', hook: 'updateKiyohiraSurname' }
-  },
-  // 効果プレビューに足す一文（史実適用時）
-  acceptEffectLines: {
-    'evt_1560_okehazama': ['松平が徳川を称する'],
-    'evt_1582_yamazaki': ['明智光秀が討ち死にし、明智家は滅亡する']
-  },
-  // 「史実を適用しない」を当事者でプレーしているときの追加ボーナス
-  playerRejectBonus: {
-    'evt_1837_oshio_success_if': {
-      clanId: 'oshio', gold: 2500, rice: 5000,
-      previewLines: ['摂津・河内・和泉が大塩勢のものになる', '兵糧 +5,000、金 +2,500']
-    }
-  },
-  // 年・季節ごとに再発しうる選択イベント
-  repeatablePerSeason: ['great_harvest'],
-  // 同じ季節の他イベントの後に回す選択イベント
-  deferToSeasonEnd: ['gunshi_join', 'great_harvest']
-};
-
-// 本能寺の変：落命・領地分割・後継大名・家臣団の付け替え（すべて ID 完全一致）
-window.HONNOUJI_SUCCESSION_DATA = {
-  deadOfficerIds: ['off_oda_nobunaga', 'off_oda_nobutada'],
-  formerClan: 'oda',
-  minTroops: 3000,
-  territory: {
-    yamashiro: 'akechi', tamba: 'akechi', tango: 'akechi', south_omi: 'akechi',
-    harima: 'toyotomi', settsu: 'toyotomi', kawachi: 'toyotomi', izumi: 'toyotomi',
-    yamato: 'toyotomi', tajima: 'toyotomi', inaba: 'toyotomi', awaji: 'toyotomi',
-    echizen: 'shibata', kaga: 'shibata', noto: 'shibata', north_omi: 'toyotomi', wakasa: 'shibata', hida: 'shibata',
-    owari: 'oda', mino: 'oda', ise: 'oda', shima: 'oda', iga: 'oda',
-    kai: 'tokugawa', south_shinano: 'tokugawa', north_shinano: 'sanada', kozuke: 'hojo'
-  },
-  // 後継大名本人。houseHeir は旧主家を継ぐ当主（信雄）。見つからなければ旧主家の家臣から立てる
-  successors: [
-    { clanId: 'toyotomi', officerIds: ['off_toyotomi_hideyoshi'] },
-    { clanId: 'akechi', officerIds: ['off_akechi_mitsuhide'] },
-    { clanId: 'shibata', officerIds: ['off_shibata_katsuie'] },
-    { clanId: 'oda', officerIds: ['off_oda_nobukatsu'], houseHeir: true }
-  ],
-  // 家臣団の付け替え（上から順に判定）
-  retainers: [
-    { clanId: 'toyotomi', officerIds: [
-      'off_toyotomi_hideyoshi', 'off_toyotomi_hidenaga', 'off_toyotomi_hidetsugu',
-      'off_kuroda_kanbei', 'off_kuroda_nagamasa', 'off_takenaka_hanbei',
-      'off_ishida_mitsunari', 'off_otani_yoshitsugu', 'off_fukushima_masanori',
-      'off_kato_kiyomasa', 'off_hachisuka_koroku', 'off_asano_nagamasa',
-      'off_yamauchi_kazutoyo', 'off_kato_yoshiaki', 'off_wakisaka_yasuharu',
-      'off_katagiri_katsumoto', 'off_sengoku_hidehisa', 'off_hori_hidemasa',
-      'off_dm_ukita_1582', 'off_konishi_yukinaga', 'off_ono_harunaga'
-    ] },
-    { clanId: 'akechi', officerIds: ['off_akechi_mitsuhide', 'off_jd_018'] },
-    { clanId: 'shibata', officerIds: [
-      'off_shibata_katsuie', 'off_maeda_toshiie', 'off_sassa_narimasa',
-      'off_sakuma_morimasa', 'off_kanamori_nagachika'
-    ] }
-  ],
-  successorOptions: [
-    { clanId: 'toyotomi', name: '羽柴秀吉', title: '中国大返し・山崎の戦い', desc: '備中高松から電撃の中国大返し！光秀を討ち信長の後継者として天下統一を目指す。' },
-    { clanId: 'akechi', name: '明智光秀', title: '敵は本能寺にあり', desc: '本能寺の変を断行！山崎の決戦に勝利して三日天下の汚名を雪ぎ、新たな武家幕府を築く。' },
-    { clanId: 'shibata', name: '柴田勝家', title: '織田家筆頭宿老の覚悟', desc: '越前北ノ庄城より号令！筆頭宿老として不届き者を征伐し、織田家臣団の頂点に立つ。' },
-    { clanId: 'oda', name: '織田信雄', title: '織田家正統の継承', desc: '織田家の嫡流として尾張・美濃の遺領を固守し、徳川と同盟して天下の正統を守る。' }
-  ],
-  log: '【天下動乱・跡継ぎ勢力分裂】織田信長公の落命に伴い、羽柴・明智・柴田・織田信雄の各後継大名に諸将の所属先が再編されました！'
-};
-
-// 同一人物の別名（改名・賜姓・表記ゆれ）。当主名の照合はこの完全一致グループだけで行い、部分一致は使わない
-window.LEADER_NAME_ALIASES = [
-  ['羽柴秀吉', '豊臣秀吉', '木下藤吉郎'],
-  ['羽柴秀長', '豊臣秀長'],
-  ['羽柴秀次', '豊臣秀次'],
-  ['羽柴秀頼', '豊臣秀頼'],
-  ['清原清衡', '藤原清衡', '清原清衝', '藤原清衝'],
-  ['徳川家康', '松平元康'],
-  ['津軽為信', '大浦為信'],
-  ['由比正雪', '由井正雪'],
-  ['天草四郎', '天草四郎時貞'],
-  ['安倍頼時', '安倍頼良']
-];
-
-// 改姓で家名が変わる家（勢力IDは同じまま、年代で家名・当主名を切り替える。GameState.updateClanNameEras）
-window.CLAN_NAME_ERAS = {
-  // 大浦為信は近衛前久の猶子となって姓を大浦から津軽に改めた（ja.wikipedia「津軽為信」。弘前藩主 1590年〜）
-  tsugaru: {
-    switchYear: 1590,
-    before: { family: '大浦家', officers: { 'off_tsugaru_tamenobu': '大浦為信' } },
-    after: { family: '津軽家', officers: { 'off_tsugaru_tamenobu': '津軽為信' } },
-    log: '📜【改姓】大浦為信公は近衛前久の猶子となり、姓を大浦から「津軽」に改めました。大浦家はこれより「津軽家」を称します。'
-  }
-};
-
-// 羽柴⇔豊臣の改姓対象（ID → 名）。苗字の前方一致では選ばない
-window.TOYOTOMI_SURNAME_OFFICERS = {
-  'off_toyotomi_hideyoshi': '秀吉',
-  'off_toyotomi_hidenaga': '秀長',
-  'off_toyotomi_hidetsugu': '秀次'
-};
-
-// 清原→藤原の復姓対象（ID 完全一致）
-window.KIYOHIRA_OFFICER_IDS = ['off_fujiwara_kiyohira'];
-
-// 秀吉の家の家督順（ID 完全一致。秀頼→秀次→秀長）
-window.HIDEYOSHI_HEIR_ORDER_IDS = ['off_dm_toyotomi_1600', 'off_toyotomi_hideyori', 'off_toyotomi_hidetsugu', 'off_toyotomi_hidenaga'];
-
-// 地方ごとの北→南の並び（蝦夷から薩摩）。緯度が無いときの予備
-window.PROVINCE_NORTH_TO_SOUTH = [
-  'ezo',
-  'tsugaru', 'mutsu', 'ugo', 'rikuchu', 'uzen', 'rikuzen', 'iwashiro', 'iwaki',
-  'sado', 'echigo', 'noto', 'etchu', 'kaga', 'echizen', 'wakasa',
-  'shimotsuke', 'hitachi', 'kozuke', 'shimousa', 'musashi', 'kazusa', 'sagami', 'awa_boshu',
-  'north_shinano', 'south_shinano', 'hida', 'kai', 'mino', 'owari', 'izu', 'suruga', 'mikawa', 'totomi',
-  'tango', 'north_omi', 'south_omi', 'tamba', 'yamashiro', 'iga', 'ise', 'settsu', 'yamato', 'kawachi', 'shima', 'izumi', 'awaji', 'kii',
-  'oki', 'inaba', 'tajima', 'hoki', 'izumo', 'mimasaka', 'iwami', 'harima', 'bicchu', 'aki', 'bizen', 'bingo', 'nagato', 'suo',
-  'sanuki', 'awa_shikoku', 'iyo', 'tosa',
-  'tsushima', 'buzen', 'chikuzen', 'chikugo', 'hizen', 'bungo', 'higo', 'osumi', 'hyuga', 'satsuma'
-];
-
-// 各国の中心（国府・主城）のおおよその北緯。勢力選択画面を北から並べる鍵（地図SVGは傾いているので y 座標は使わない）
-window.PROVINCE_LATITUDE = {
-  ezo: 41.43, tsugaru: 40.60, mutsu: 40.40, rikuchu: 39.70, ugo: 39.72, rikuzen: 38.27, uzen: 38.25,
-  iwashiro: 37.49, iwaki: 37.05, sado: 38.02, echigo: 37.14, noto: 37.05, etchu: 36.70, kaga: 36.56,
-  echizen: 36.06, wakasa: 35.50, hitachi: 36.37, shimotsuke: 36.56, kozuke: 36.39, musashi: 35.75,
-  shimousa: 35.72, kazusa: 35.40, awa_boshu: 35.00, sagami: 35.25, izu: 34.97, suruga: 34.98, kai: 35.66,
-  north_shinano: 36.64, south_shinano: 36.00, hida: 36.14, mino: 35.43, totomi: 34.71, mikawa: 34.95,
-  owari: 35.18, ise: 34.73, shima: 34.48, iga: 34.77, north_omi: 35.38, south_omi: 35.12, yamashiro: 35.01,
-  yamato: 34.68, kii: 34.23, kawachi: 34.50, izumi: 34.46, settsu: 34.69, tamba: 35.05, tango: 35.53,
-  tajima: 35.46, harima: 34.83, inaba: 35.50, hoki: 35.43, izumo: 35.35, iwami: 34.80, mimasaka: 35.06,
-  bizen: 34.66, bicchu: 34.75, bingo: 34.49, aki: 34.45, suo: 34.18, nagato: 34.30, oki: 36.20,
-  sanuki: 34.34, awa_shikoku: 34.07, iyo: 33.84, tosa: 33.56, awaji: 34.35, tsushima: 34.20,
-  buzen: 33.75, chikuzen: 33.59, chikugo: 33.30, hizen: 33.25, bungo: 33.24, higo: 32.80,
-  hyuga: 32.00, satsuma: 31.60, osumi: 31.40
-};
-
-// 時代で本拠が移った家（その年以降の本拠）。領内にあるものを新しい順に採り、無ければ CLAN_CAPITAL_PROVINCES へ
-window.CLAN_CAPITAL_ERAS = {
-  taira: [[1100, 'ise'], [1168, 'settsu']],
-  ashikaga: [[1333, 'shimotsuke'], [1336, 'yamashiro']],
-  godaiho: [[1331, 'yamato']],
-  oda: [[1555, 'owari'], [1567, 'mino'], [1576, 'south_omi'], [1583, 'owari']],
-  tokugawa: [[1560, 'mikawa'], [1570, 'totomi'], [1586, 'suruga'], [1590, 'musashi']],
-  date: [[1560, 'rikuzen'], [1589, 'iwashiro'], [1591, 'rikuzen']],
-  nanbu: [[1180, 'mutsu'], [1598, 'rikuchu']],
-  uesugi: [[1598, 'iwashiro'], [1601, 'uzen']],
-  mori: [[1601, 'nagato']]
-};
-
-
-// ============================================================================
-// 陣形マスター（三すくみ）／特産シナジー／地形キーワード — app はこれを読むだけ
-// ============================================================================
-window.FORMATION_TYPES = {
-  assault: { id: 'assault', label: '突撃系', keys: ['gyorin', 'hoshi', 'kuruma'] },
-  encircle: { id: 'encircle', label: '包囲系', keys: ['kakuyoku', 'ganko'] },
-  defense: { id: 'defense', label: '防御系', keys: ['hoen'] }
-};
-
-window.FORMATIONS_DATA = {
-  gyorin:  { key: 'gyorin',  name: '魚鱗', label: '魚鱗 (突撃突破)', type: 'assault',  desc: '中央突破の突撃陣' },
-  hoshi:   { key: 'hoshi',   name: '鋒矢', label: '鋒矢 (中央直撃)', type: 'assault',  desc: '一点突破の突撃陣' },
-  kuruma:  { key: 'kuruma',  name: '車懸', label: '車懸 (波状連撃)', type: 'assault',  desc: '波状の連撃突撃' },
-  kakuyoku:{ key: 'kakuyoku',name: '鶴翼', label: '鶴翼 (包囲殲滅)', type: 'encircle', desc: '両翼包囲の陣' },
-  ganko:   { key: 'ganko',   name: '雁行', label: '雁行 (鉄砲斉射)', type: 'encircle', desc: '斜線斉射の包囲射撃' },
-  hoen:    { key: 'hoen',    name: '方円', label: '方円 (鉄壁防御)', type: 'defense',  desc: '全周防御の鉄壁陣' }
-};
-
-// 突撃 > 包囲 > 防御 > 突撃。dealt=与ダメ倍率, taken=被ダメ倍率
-window.FORMATION_RPS = {
-  assault:  { beats: 'encircle', losesTo: 'defense' },
-  encircle: { beats: 'defense',  losesTo: 'assault' },
-  defense:  { beats: 'assault',  losesTo: 'encircle' },
-  advantage:  { dealt: 1.18, taken: 0.90 },
-  disadvantage:{ dealt: 0.85, taken: 1.12 },
-  neutral:    { dealt: 1.00, taken: 1.00 }
-};
-
-// 地形キーワード（specialty / culturalNotes / region 照合）。±10%程度
-window.TERRAIN_KEYWORDS = {
-  plain:    { label: '平地', boost: 'assault',  keywords: /平原|平野|盆地|田園|穀倉|米どころ|大平野|沃野|平城/ },
-  mountain: { label: '山地', boost: 'defense',  keywords: /山|峠|峡|山城|山地|嶺|峰|険|要塞|金坑|銀山|金山|鉱山/ },
-  coast:    { label: '沿岸', boost: 'encircle', keywords: /港|湊|湾|海|島|水軍|船|黒潮|瀬戸|南蛮|貿易|舟運|湖|川/ }
-};
-
-window.SPECIALTY_SYNERGY = [
-  {
-    id: 'iron',
-    label: '鉄・刀剣産地',
-    keywords: /鉄|刀|刃物|鉄器|砂鉄|甲冑|武具|銅|兵器/,
-    effects: { militaryGoldDiscount: 0.20 } // 軍備金コスト -20%
-  },
-  {
-    id: 'rice',
-    label: '米・穀倉',
-    keywords: /米|穀|稲|縮|穀倉|米どころ|新田/,
-    effects: { autumnRiceBonus: 0.20 } // 秋収穫 +20%
-  },
-  {
-    id: 'port',
-    label: '港・南蛮貿易',
-    keywords: /港|湊|堺|博多|平戸|南蛮|貿易|海運|水軍/,
-    effects: { autumnDefenseBonus: 2, autumnTroopBonus: 80, gunSupplyFlag: true }
-  }
-];
-
-window.IKKI_ORDER_THRESHOLD = 50;
-window.CASTELLAN_INDEPENDENCE_CHANCE = 0.32;
-window.RONIN_BLANK_UPRISING_CHANCE = 0.28;
-
-
-// ===== 史実配置の補正（武将の所属・城代） =====
-// 朝廷・院・公家方。城代の配置先を理由に武家へ吸収しない（app の一般一門吸収で参照）
-window.NON_ABSORBABLE_CLANS = ['heian_court', 'court', 'godaiho', 'gotoba_in', 'goshirakawa_in', 'sutoku_in'];
-
-// 主家が地図にない年代の仕官先（主家が地図にあればそちらが優先）
-window.CLAN_SERVICE_FALLBACKS = [
-  { clanIds: ['shibata'], setClanId: 'oda', fromYear: 1540, toYear: 1582 },
-  { clanIds: ['toyotomi'], setClanId: 'oda', fromYear: 1540, toYear: 1582 },
-  { clanIds: ['maeda'], setClanId: 'oda', fromYear: 1551, toYear: 1582 },
-  { clanIds: ['sassa'], setClanId: 'oda', fromYear: 1550, toYear: 1582 },
-  { clanIds: ['akechi'], setClanId: 'oda', fromYear: 1568, toYear: 1582 },
-  { clanIds: ['sanada'], setClanId: 'takeda', fromYear: 1550, toYear: 1582 },
-  { clanIds: ['kuroda'], setClanId: 'akamatsu', fromYear: 1560, toYear: 1577 },
-  { clanIds: ['miyoshi'], setClanId: 'hosokawa', fromYear: 1500, toYear: 1538 }
-];
-
-(function () {
-  const rules = window.OFFICER_AFFILIATION_RULES = window.OFFICER_AFFILIATION_RULES || [];
-  rules.unshift(
-
-  // =========================================================================
-  // 古代・平安・源平シナリオ（12世紀以前）史実武将配属ルール
-  // =========================================================================
-
-  // --- 1028 長元元年 平忠常の乱 ---
-  {
-    id: 'tadatsune_1028',
-    officerIds: ['off_taira_tadanetsune'],
-    scenarioIds: ['1028'],
-    setClanId: 'taira_tadatsune',
-    setDefaultProv: 'kazusa',
-    setAssignedProv: 'kazusa',
-    setDaimyo: true
-  },
-  {
-    id: 'tsunemasa_1028',
-    officerIds: ['off_taira_tsunemasa'],
-    scenarioIds: ['1028'],
-    setClanId: 'taira_tadatsune',
-    setDefaultProv: 'shimousa',
-    setAssignedProv: 'shimousa',
-    setDaimyo: false
-  },
-  {
-    id: 'tsuneharu_1028',
-    officerIds: ['off_taira_tsuneharu'],
-    scenarioIds: ['1028'],
-    setClanId: 'taira_tadatsune',
-    setDefaultProv: 'awa_boshu',
-    setAssignedProv: 'awa_boshu',
-    setDaimyo: false
-  },
-  {
-    id: 'yorinobu_1028',
-    officerIds: ['off_minamoto_yorinobu_1028'],
-    scenarioIds: ['1028'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'kawachi',
-    setAssignedProv: 'kawachi',
-    setDaimyo: true
-  },
-
-  // --- 1056 天喜4年 前九年の役 ---
-  {
-    id: 'tsunekiyo_abe_1056',
-    officerIds: ['off_fujiwara_tsunekiyo'],
-    scenarioIds: ['1056'],
-    setClanId: 'abe',
-    setDefaultProv: 'rikuchu',
-    setAssignedProv: 'rikuchu',
-    setDaimyo: false
-  },
-  {
-    id: 'hidetake_kiyohara_1056',
-    officerIds: ['off_yohiko_hidetake'],
-    scenarioIds: ['1056'],
-    setClanId: 'kiyohara',
-    setDefaultProv: 'ugo',
-    setAssignedProv: 'ugo',
-    setDaimyo: false
-  },
-  {
-    id: 'yoriyoshi_tagajo_1056',
-    officerIds: ['off_minamoto_yoriyoshi'],
-    scenarioIds: ['1056'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'rikuzen',
-    setAssignedProv: 'rikuzen',
-    setDaimyo: true
-  },
-  {
-    id: 'yoshiie_tagajo_1056',
-    officerIds: ['off_minamoto_yoshiie'],
-    scenarioIds: ['1056'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'rikuzen',
-    setAssignedProv: 'rikuzen',
-    setDaimyo: false
-  },
-
-  // --- 1087 寛治元年 後三年の役 ---
-  {
-    id: 'hidetake_kiyohara_1087',
-    officerIds: ['off_yohiko_hidetake'],
-    scenarioIds: ['1087'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'ugo',
-    setAssignedProv: 'ugo',
-    setDaimyo: false
-  },
-  {
-    id: 'yoshiie_tagajo_1087',
-    officerIds: ['off_minamoto_yoshiie'],
-    scenarioIds: ['1087'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'rikuzen',
-    setAssignedProv: 'rikuzen',
-    setDaimyo: true
-  },
-  {
-    id: 'yoshimitsu_tagajo_1087',
-    officerIds: ['off_minamoto_yoshimitsu'],
-    scenarioIds: ['1087'],
-    setClanId: 'minamoto_tsunemoto',
-    setDefaultProv: 'rikuzen',
-    setAssignedProv: 'rikuzen',
-    setDaimyo: false
-  },
-
-  // --- 1156 保元の乱 ---
-  {
-    id: 'tametomo_sutoku_fixed_1156',
-    officerIds: ['off_minamoto_tametomo'],
-    scenarioIds: ['1156'],
-    setClanId: 'sutoku_in',
-    setDefaultProv: 'yamato',
-    setAssignedProv: 'yamato',
-    setDaimyo: false
-  },
-
-  // --- 1180〜1189 源平合戦 鎌倉幕府重臣 ---
-  {
-    id: 'kanto_vassals_yoritomo_all',
-    officerIds: ['off_hojo_tokimasa', 'off_kajiwara_kagetoki', 'off_koyama_tomomasa', 'off_adachi_morinaga'],
-    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
-    setClanId: 'genji_yoritomo',
-    setDefaultProv: 'sagami',
-    setAssignedProv: 'sagami',
-    setDaimyo: false
-  },
-  {
-    id: 'kumagai_naozane_yoritomo',
-    officerIds: ['off_kumagai_naozane'],
-    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
-    setClanId: 'genji_yoritomo',
-    setDefaultProv: 'musashi',
-    setAssignedProv: 'musashi',
-    setDaimyo: false
-  },
-  {
-    id: 'oba_kagechika_taira_1180',
-    officerIds: ['off_oba_kagechika'],
-    scenarioIds: ['1180'],
-    setClanId: 'taira',
-    setDefaultProv: 'sagami',
-    setAssignedProv: 'sagami',
-    setDaimyo: false
-  },
-  {
-    id: 'ito_sukekiyo_taira_1180',
-    officerIds: ['off_ito_sukekiyo'],
-    scenarioIds: ['1180', '1183'],
-    setClanId: 'taira',
-    setDefaultProv: 'izu',
-    setAssignedProv: 'izu',
-    setDaimyo: false
-  },
-  {
-    id: 'fujiwara_kunihiro_hiraizumi',
-    officerIds: ['off_fujiwara_kunihiro'],
-    scenarioIds: ['1180', '1183', '1184', '1185', '1189'],
-    setClanId: 'fujiwara_hiraizumi',
-    setDefaultProv: 'rikuzen',
-    setAssignedProv: 'rikuzen',
-    setDaimyo: false
-  },
-  {
-    id: 'fujiwara_tadahira_hiraizumi',
-    officerIds: ['off_fujiwara_tadahira_ou'],
-    scenarioIds: ['1183', '1184', '1185', '1189'],
-    setClanId: 'fujiwara_hiraizumi',
-    setDefaultProv: 'mutsu',
-    setAssignedProv: 'mutsu',
-    setDaimyo: false
-  },
-  {
-    id: 'nasu_yoichi_yoritomo_1184',
-    officerIds: ['off_nasu_no_yoichi'],
-    scenarioIds: ['1184', '1189'],
-    setClanId: 'genji_yoritomo',
-    setDefaultProv: 'shimotsuke',
-    setAssignedProv: 'shimotsuke',
-    setDaimyo: false
-  },
-
-  // --- 1185 壇ノ浦の戦い（源義経勢力への配属） ---
-  {
-    id: 'yoshitsune_dan_no_ura_1185',
-    officerIds: ['off_minamoto_yoshitsune'],
-    scenarioIds: ['1185'],
-    setClanId: 'genji_yoshitsune',
-    setDefaultProv: 'aki',
-    setAssignedProv: 'aki',
-    setDaimyo: true
-  },
-  {
-    id: 'benkei_dan_no_ura_1185',
-    officerIds: ['off_musashibo_benkei'],
-    scenarioIds: ['1185'],
-    setClanId: 'genji_yoshitsune',
-    setDefaultProv: 'aki',
-    setAssignedProv: 'aki',
-    setDaimyo: false
-  },
-  {
-    id: 'sato_tadanobu_1185',
-    officerIds: ['off_sato_tadanobu'],
-    scenarioIds: ['1185'],
-    setClanId: 'genji_yoshitsune',
-    setDefaultProv: 'sanuki',
-    setAssignedProv: 'sanuki',
-    setDaimyo: false
-  },
-  {
-    id: 'sato_tsugunobu_1185',
-    officerIds: ['off_sato_tsugunobu'],
-    scenarioIds: ['1185'],
-    setClanId: 'genji_yoshitsune',
-    setDefaultProv: 'sanuki',
-    setAssignedProv: 'sanuki',
-    setDaimyo: false
-  },
-  {
-    id: 'nasu_yoichi_1185',
-    officerIds: ['off_nasu_no_yoichi'],
-    scenarioIds: ['1185'],
-    setClanId: 'genji_yoshitsune',
-    setDefaultProv: 'sanuki',
-    setAssignedProv: 'sanuki',
-    setDaimyo: false
-  },
-
-  // --- 1189 奥州合戦（義経・弁慶の平泉在陣） ---
-  {
-    id: 'yoshitsune_hiraizumi_1189',
-    officerIds: ['off_minamoto_yoshitsune'],
-    scenarioIds: ['1189'],
-    setClanId: 'fujiwara_hiraizumi',
-    setDefaultProv: 'rikuchu',
-    setAssignedProv: 'rikuchu',
-    setDaimyo: false
-  },
-  {
-    id: 'benkei_hiraizumi_1189',
-    officerIds: ['off_musashibo_benkei'],
-    scenarioIds: ['1189'],
-    setClanId: 'fujiwara_hiraizumi',
-    setDefaultProv: 'rikuchu',
-    setAssignedProv: 'rikuchu',
-    setDaimyo: false
-  },
-  {
-    id: 'kunihiro_azukashi_1189',
-    officerIds: ['off_fujiwara_kunihiro'],
-    scenarioIds: ['1189'],
-    setClanId: 'fujiwara_hiraizumi',
-    setDefaultProv: 'iwashiro',
-    setAssignedProv: 'iwashiro',
-    setDaimyo: false
-  },
-
-    // 承平・天慶の乱：小野好古は朝廷の追捕使長官（平貞盛の配下ではない）
-    { id: 'ono_yoshifuru_court', officerIds: ['off_ono_yoshifuru'], setClanId: 'heian_court', fromYear: 930, toYear: 968, scenarioIds: ['939'], requireOwners: ['heian_court'], setDaimyo: false },
-    // 柴田勝家・佐久間盛政は本能寺まで織田家臣（柴田家が地図に立ったら柴田家）
-    { id: 'shibata_oda_service', officerIds: ['off_shibata_katsuie', 'off_sakuma_morimasa'], setClanId: 'oda', fromYear: 1546, toYear: 1582, requireOwners: ['oda'], unlessOwner: 'shibata', setDaimyo: false },
-    // 明智光秀は本能寺まで織田家臣（明智家が地図に立ったら明智家）
-    { id: 'akechi_mitsuhide_oda', officerIds: ['off_akechi_mitsuhide'], setClanId: 'oda', fromYear: 1568, toYear: 1582, requireOwners: ['oda'], unlessOwner: 'akechi', setDaimyo: false },
-    // 織田信包は織田家臣
-    { id: 'oda_nobukane_oda', officerIds: ['off_jd_059'], setClanId: 'oda', fromYear: 1546, toYear: 1600, requireOwners: ['oda'], setDaimyo: false },
-    // 真田昌幸・信尹ら：真田家が地図に無い間は武田家臣
-    { id: 'sanada_takeda_service', officerIds: ['off_sanada_masayuki', 'off_sanada_nobutada', 'off_sanada_nobuyuki', 'off_sanada_yukimura'], setClanId: 'takeda', fromYear: 1550, toYear: 1582, requireOwners: ['takeda'], unlessOwner: 'sanada', setDaimyo: false },
-    // 黒田官兵衛：播磨・赤松氏家臣（秀吉仕官前／黒田家未登場）
-    { id: 'kanbei_akamatsu_service', officerIds: ['off_kuroda_kanbei'], setClanId: 'akamatsu', fromYear: 1560, toYear: 1577, requireOwners: ['akamatsu'], unlessOwner: 'kuroda', setDaimyo: false },
-    // 赤井直正は波多野家臣
-    { id: 'akai_hatano_service', officerIds: ['off_jd_257'], setClanId: 'hatano', fromYear: 1546, toYear: 1579, requireOwners: ['hatano'], setDaimyo: false },
-    // 三木直頼・姉小路頼綱は姉小路家
-    { id: 'anekoji_retainers', officerIds: ['off_jd_248', 'off_anekoji_yoritsuna'], setClanId: 'anekoji', fromYear: 1495, toYear: 1582, requireOwners: ['anekoji'], setDaimyo: false }
-  );
-})();
-
-// 史実配置の補正（続き）：源平期の仕官先・個別の所属
-window.CLAN_SERVICE_FALLBACKS.push(
-  { clanIds: ['genji_yoritomo'], setClanId: 'minamoto_yoshitomo', fromYear: 1150, toYear: 1160 },
-  { clanIds: ['minamoto_yoshitomo', 'chiba', 'kazusa_nosuke'], setClanId: 'genji_yoritomo', fromYear: 1180, toYear: 1199 }
-);
-window.OFFICER_AFFILIATION_RULES.unshift(
-  { id: 'yohiko_kiyohara', officerIds: ['off_yohiko_hidetake'], setClanId: 'kiyohara', fromYear: 1050, toYear: 1086, requireOwners: ['kiyohara'], setDaimyo: false },
-  { id: 'munetada_court_1087', officerIds: ['off_fujiwara_munetada'], setClanId: 'heian_court', fromYear: 1080, toYear: 1141, requireOwners: ['heian_court'], setDaimyo: false },
-  { id: 'oba_hogen_1156', officerIds: ['off_oba_kagechika'], setClanId: 'minamoto_yoshitomo', fromYear: 1150, toYear: 1160, requireOwners: ['minamoto_yoshitomo'], setDaimyo: false },
-  { id: 'nobuyori_goshirakawa_1156', officerIds: ['off_fujiwara_nobuyori'], setClanId: 'goshirakawa_in', fromYear: 1150, toYear: 1160, requireOwners: ['goshirakawa_in'], setDaimyo: false },
-  { id: 'genji_kanto_1180', officerIds: ['off_hojo_tokimasa', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_miura_yoshiaki', 'off_sasaki_hideyoshi_heian', 'off_hidesato_succ_5'], setClanId: 'genji_yoritomo', fromYear: 1180, toYear: 1185, requireOwners: ['genji_yoritomo'], setDaimyo: false }
-);
-window.CLAN_SERVICE_FALLBACKS.push(
-  // 徳川改姓（1566）前の三河衆は松平家
-  { clanIds: ['tokugawa'], setClanId: 'matsudaira', fromYear: 1540, toYear: 1566 }
-);
-window.OFFICER_AFFILIATION_RULES.unshift(
-  // 成瀬正肥は尾張藩の付家老（犬山）
-  { id: 'naruse_owari_bakumatsu', officerIds: ['off_jd_067'], setClanId: 'owari', fromYear: 1850, toYear: 1871, requireOwners: ['owari'], setDaimyo: false }
-);
-(function () {
-  // 1560：松平家が地図にあれば、三河衆は今川へ直に吸収しない
-  const r = (window.OFFICER_AFFILIATION_RULES || []).find(x => x && x.id === 'single_1560_imagawa_家康_50');
-  if (r) r.unlessOwner = 'matsudaira';
-})();
-
-// --- ronin audit 2026-10-05 ---
-window.CLAN_SERVICE_FALLBACKS.push(
-  // 宇喜多氏が地図に立つ前は浦上家臣
-  { clanIds: ['ukita'], setClanId: 'uragami', fromYear: 1530, toYear: 1559 },
-  // 斎藤滅亡後の美濃衆の一部（竹中は個別ルールでもカバー）
-  { clanIds: ['takenaka'], setClanId: 'oda', fromYear: 1567, toYear: 1582 },
-  // 村上義清ら：信濃喪失後は上杉
-  { clanIds: ['murakami'], setClanId: 'uesugi', fromYear: 1553, toYear: 1578 },
-  // 長尾（晴景ら）：謙信改姓後の上杉
-  { clanIds: ['nagao'], setClanId: 'uesugi', fromYear: 1551, toYear: 1582 },
-  // 諏訪・小笠原：武田傘下期
-  { clanIds: ['suwa'], setClanId: 'takeda', fromYear: 1542, toYear: 1582 },
-  { clanIds: ['ogasawara'], setClanId: 'takeda', fromYear: 1555, toYear: 1582 },
-  // 北畠：伊勢織田支配後
-  { clanIds: ['kitabatake'], setClanId: 'oda', fromYear: 1569, toYear: 1582 }
-);
-window.OFFICER_AFFILIATION_RULES.unshift(
-  // A) 竹中半兵衛：稲葉山開城後〜病没まで織田（秀吉参謀）
-  { id: 'takenaka_hanbei_oda', officerIds: ['off_takenaka_hanbei'], setClanId: 'oda', fromYear: 1567, toYear: 1579, requireOwners: ['oda'], setDaimyo: false },
-  // 1560以前は斎藤家臣（主家が地図にあるとき）
-  { id: 'takenaka_hanbei_saito', officerIds: ['off_takenaka_hanbei'], setClanId: 'saito', fromYear: 1544, toYear: 1566, requireOwners: ['saito'], setDaimyo: false },
-  // F) 前野長康・蜂須賀正勝＝織田家臣（豊臣家が地図に立つまで）
-  { id: 'maeno_hachisuka_oda', officerIds: ['off_maeno_nagayasu', 'off_hachisuka_koroku'], setClanId: 'oda', fromYear: 1546, toYear: 1582, requireOwners: ['oda'], unlessOwner: 'toyotomi', setDaimyo: false },
-  // D) 宇喜多直家：宇喜多領が立つまで浦上家臣
-  { id: 'ukita_naoie_uragami', officerIds: ['off_dm_ukita_1560'], setClanId: 'uragami', fromYear: 1546, toYear: 1572, requireOwners: ['uragami'], unlessOwner: 'ukita', setDaimyo: false },
-  // 宇喜多一門（花房ら）も同様
-  { id: 'ukita_retainers_uragami', officerIds: ['off_jd_419', 'off_jd_031'], setClanId: 'uragami', fromYear: 1546, toYear: 1572, requireOwners: ['uragami'], unlessOwner: 'ukita', setDaimyo: false },
-  // E) 松平広忠は松平当主
-  { id: 'hirotada_matsudaira_daimyo', officerIds: ['off_matsudaira_hirotada'], setClanId: 'matsudaira', fromYear: 1540, toYear: 1549, requireOwners: ['matsudaira'], setDaimyo: true },
-  // 酒井忠次：松平／徳川家臣（今川直属にしない）
-  { id: 'sakai_matsudaira_service', officerIds: ['off_sakai_tadatsugu'], setClanId: 'matsudaira', fromYear: 1540, toYear: 1566, requireOwners: ['matsudaira'], unlessOwner: 'tokugawa', setDaimyo: false },
-  // 北畠具教ら：伊勢織田支配後は織田家臣
-  // 1560 足利将軍兄弟（義輝・義昭）は山城で三好配下
-  // 1560 畠山高政は河内で浪人
-  { id: 'hatakeyama_takamasa_ronin_1560', officerIds: ['off_dm_hatakeyama_1560'], setClanId: 'ronin', scenarioIds: ['1560'], fromYear: 1560, toYear: 1560, setDaimyo: false, setDefaultProv: 'kawachi', setAssignedProv: 'bingo' },
-  // 1558-1563 細川晴元は浪人
-  { id: 'hosokawa_harumoto_ronin_1560', officerIds: ['off_hosokawa_harumoto'], setClanId: 'ronin', fromYear: 1558, toYear: 1563, setDaimyo: false, setDefaultProv: 'settsu', setAssignedProv: 'bingo' },
-  // 1555 松平家臣（鳥居元忠、酒井忠次、石川数正、本多正信は三河で松平配下）
-  { id: 'matsudaira_retainers_mikawa_1555', officerIds: ['off_torii_mototada', 'off_sakai_tadatsugu', 'off_ishikawa_kazumasa', 'off_honda_masanobu'], setClanId: 'matsudaira', fromYear: 1550, toYear: 1572, requireOwners: ['matsudaira'], setDaimyo: false, setDefaultProv: 'mikawa', setAssignedProv: 'mikawa' },
-  // 1555 三村元親は備前所属
-  { id: 'mimura_motochika_bizen_1555', officerIds: ['off_mimura_motochika'], scenarioIds: ['1555'], setClanId: 'uragami', fromYear: 1550, toYear: 1572, setDaimyo: false, setDefaultProv: 'bizen', setAssignedProv: 'bizen' },
-  // 1560 松平元康は三河で今川配下
-  { id: 'motoyasu_imagawa_vassal_1560', officerIds: ['off_tokugawa_ieyasu'], scenarioIds: ['1560'], setClanId: 'imagawa', fromYear: 1560, toYear: 1560, requireOwners: ['imagawa'], setDaimyo: false, setDefaultProv: 'mikawa', setAssignedProv: 'mikawa' },
-  // 1576 足利義昭は備後で浪人（鞆幕府）
-  { id: 'yoshiaki_bingo_ronin_1576', officerIds: ['off_ashikaga_yoshiaki'], scenarioIds: ['1576', '1577'], setClanId: 'ronin', fromYear: 1576, toYear: 1577, setDaimyo: false, setDefaultProv: 'bingo', setAssignedProv: 'bingo' },
-  // 1585-1598 宇喜多秀家および宇喜多家臣（備前）は豊臣配下
-  {
-    id: 'ukita_bizen_toyotomi_service',
-    officerIds: [
-      'off_dm_ukita_1582',
-      'off_akashi_teruzumi',
-      'off_jd_371',
-      'off_jd_031',
-      'off_jd_419',
-      'off_jd_056',
-      'off_jd_030',
-      'off_uragami_narimune',
-      'off_uragami_muneyasu'
-    ],
-    setClanId: 'toyotomi',
-    scenarioIds: ['1587', '1590'],
-    fromYear: 1585,
-    toYear: 1598,
-    requireOwners: ['toyotomi'],
-    unlessOwner: 'ukita',
-    setDefaultProv: 'bizen',
-    setDaimyo: false
-  },
-  // 1587-1598 島左近は石田三成に仕官して北近江に配備
-  {
-    id: 'sakon_north_omi_toyotomi_service',
-    officerIds: ['off_shima_sakon'],
-    scenarioIds: ['1587', '1590'],
-    fromYear: 1585,
-    toYear: 1599,
-    setClanId: 'toyotomi',
-    setDefaultProv: 'north_omi',
-    setAssignedProv: 'north_omi',
-    requireOwners: ['toyotomi'],
-    setDaimyo: false
-  },
-  // 1587 水野勝成は駿河の徳川配下
-  {
-    id: 'mizuno_katsunari_suruga_1587',
-    officerIds: ['off_mizuno_katsunari'],
-    scenarioIds: ['1587'],
-    fromYear: 1585,
-    toYear: 1590,
-    setClanId: 'tokugawa',
-    setDefaultProv: 'suruga',
-    setAssignedProv: 'suruga',
-    requireOwners: ['tokugawa'],
-    setDaimyo: false
-  },
-  // 1180 樋口兼光・根井行親は義仲配下として南信濃
-  {
-    id: 'kiso_retainers_south_shinano_1180',
-    officerIds: ['off_jd_208', 'off_nenoi_yukichika', 'off_imai_kanehira'],
-    scenarioIds: ['1180'],
-    fromYear: 1180,
-    toYear: 1184,
-    setClanId: 'kiso',
-    setDefaultProv: 'south_shinano',
-    setAssignedProv: 'south_shinano',
-    requireOwners: ['kiso'],
-    setDaimyo: false
-  },
-
-
-
-
-
-  { id: 'kitabatake_oda_service', officerIds: ['off_dm_kitabatake_1560', 'off_kitabatake_tomochika'], setClanId: 'oda', fromYear: 1569, toYear: 1582, requireOwners: ['oda'], unlessOwner: 'kitabatake', setDaimyo: false },
-  // 村上義清：上杉家臣
-  { id: 'murakami_yoshikiyo_uesugi', officerIds: ['off_dm_murakami_1546'], setClanId: 'uesugi', fromYear: 1553, toYear: 1573, requireOwners: ['uesugi'], unlessOwner: 'murakami', setDaimyo: false }
-);
-(function () {
-  // 1560 今川吸収ルールに松平除外は既存。広忠生存シナリオでも酒井を今川へ引きずらない
-  const r = (window.OFFICER_AFFILIATION_RULES || []).find(x => x && x.id === 'single_1560_imagawa_家康_50');
-  if (r) r.unlessOwner = 'matsudaira';
-  // odaRetainers に半兵衛・前野・蜂須賀を追加
-  const oda = (window.OFFICER_AFFILIATION_RULES || []).find(x => x && x.id === 'auto_any_oda_odaRetainers_6');
-  if (oda && Array.isArray(oda.officerIds)) {
-    for (const id of ['off_takenaka_hanbei', 'off_maeno_nagayasu', 'off_hachisuka_koroku']) {
-      if (!oda.officerIds.includes(id)) oda.officerIds.push(id);
-    }
-  }
-})();
-
-// ゆかりの家臣で上書きしない史実城代（シナリオID → 領国 → 武将ID）
-// 史実城代の所属勢力（data/governors.json の jodaiClans と同じ。2026-10-11 ch）
-window.JODAI_CLAN_BY_SCENARIO = {
-  "1056": {
-    "off_taira_naokata": "minamoto_tsunemoto",
-    "off_taira_tsuneharu": "taira_sadamori",
-    "off_fujiwara_tsunekiyo": "abe",
-    "off_jd_314": "abe",
-    "off_abe_masato": "abe"
-  },
-  "1087": {
-    "off_kiyohara_sanehira": "kiyohara",
-    "off_abe_masato": "kiyohara",
-    "off_yohiko_hidetake": "minamoto_tsunemoto",
-    "off_abe_muneto": "heian_court"
-  },
-  "1400": {
-    "off_shiba_yoshimasa": "hatakeyama",
-    "off_uesugi_norisada": "kamakura_fu",
-    "off_hosokawa_mitsumoto": "hosokawa"
-  },
-  "1570": {
-    "off_jd_059": "oda",
-    "off_jd_250": "mori"
-  },
-  "1582": {
-    "off_jd_059": "oda"
-  },
-  "1590": {
-    "off_jd_014": "toyotomi",
-    "off_miyabe_keijun": "toyotomi",
-    "off_jd_422": "toyotomi"
-  },
-  "1600": {
-    "off_wakisaka_yasuharu": "tokugawa"
-  },
-  "1868": {
-    "off_edo_tokugawa_1813_35": "fukui_matsudaira",
-    "off_jd_066": "owari",
-    "off_jd_067": "owari",
-    "off_jd_291": "meiji"
-  },
-  "939": {
-    "off_jd_111": "heian_court",
-    "off_minamoto_satoru_939": "heian_court",
-    "off_taira_kimimasa": "taira_sadamori"
-  },
-  "1019": {
-    "off_okura_tanezane": "heian_court",
-    "off_minamoto_yorimitsu": "heian_court",
-    "off_minamoto_yorinobu_1028": "heian_court",
-    "off_saeki_tsunenori": "heian_court",
-    "off_kikuchi_tsunemichi_1028": "heian_court"
-  },
-  "1028": {
-    "off_taira_tsuneharu": "taira_masakado",
-    "off_tachibana_norimitsu": "heian_court",
-    "off_tachibana_michisada": "heian_court",
-    "off_kuwabara_naoshige": "heian_court",
-    "off_kikuchi_tsunemichi_1028": "heian_court"
-  },
-  "1156": {
-    "off_minamoto_kiyomitsu": "minamoto_yoshitomo",
-    "off_oba_kagechika": "taira",
-    "off_dohi_sanehira": "minamoto_yoshitomo",
-    "off_miura_yoshizumi": "minamoto_yoshitomo"
-  },
-  "1159": {
-    "off_minamoto_yorimasa": "taira",
-    "off_fujiwara_shinzei": "heian_court",
-    "off_sasaki_hideyoshi_heian": "minamoto_yoshitomo",
-    "off_adachi_morinaga": "minamoto_yoshitomo",
-    "off_dohi_sanehira": "minamoto_yoshitomo",
-    "off_oba_kagechika": "taira",
-    "off_minamoto_kiyomitsu": "minamoto_yoshitomo"
-  },
-  "1183": {
-    "off_kiso_yoshinaka": "kiso",
-    "off_imai_kanehira": "kiso",
-    "off_nenoi_yukichika": "kiso",
-    "off_jd_208": "kiso",
-    "off_tomoe_gozen": "kiso",
-    "off_hojo_tokimasa": "genji_yoritomo",
-    "off_kumagai_naozane": "genji_yoritomo",
-    "off_kajiwara_kagetoki": "genji_yoritomo",
-    "off_dm_takeda_1180": "takeda"
-  },
-  "1184": {
-    "off_kajiwara_kagetoki": "genji_yoritomo",
-    "off_kumagai_naozane": "genji_yoritomo",
-    "off_nasu_no_yoichi": "genji_yoritomo",
-    "off_hojo_tokimasa": "genji_yoritomo",
-    "off_minamoto_yoshitsune": "genji_yoritomo"
-  },
-  "1185": {
-    "off_kajiwara_kagetoki": "genji_yoritomo",
-    "off_taguchi_shigeyoshi": "taira",
-    "off_harada_tanenao": "taira",
-    "off_minamoto_yoshitsune": "genji_yoshitsune"
-  },
-  "1189": {
-    "off_hojo_tokimasa": "genji_yoritomo",
-    "off_hatakeyama_shigetada": "genji_yoritomo",
-    "off_kajiwara_kagetoki": "genji_yoritomo",
-    "off_adachi_morinaga": "genji_yoritomo",
-    "off_fujiwara_yasuhira": "fujiwara_hiraizumi",
-    "off_fujiwara_kunihiro": "fujiwara_hiraizumi",
-    "off_sato_motoharu": "fujiwara_hiraizumi"
-  },
-  "1274": {
-    "off_shoni_kagesuke": "shoni",
-    "off_takezaki_suenaga": "kikuchi",
-    "off_kikuchi_takefusa": "kikuchi",
-    "off_otomo_yoriyasu": "otomo",
-    "off_so_sukekuni": "so"
-  },
-  "1359": {
-    "off_kikuchi_takemitsu": "kikuchi",
-    "off_ashikaga_yoshiakira": "ashikaga",
-    "off_dm_shoni_1336": "shoni",
-    "off_sasaki_doyo": "kyogoku",
-    "off_dm_akamatsu_1350": "akamatsu"
-  },
-  "1391": {
-    "off_ashikaga_yoshimitsu": "ashikaga",
-    "off_yamana_ujikiyo": "yamana",
-    "off_shiba_yoshimasa": "shiba",
-    "off_hosokawa_yoriyuki": "hosokawa",
-    "off_ouchi_yoshihiro": "ouchi",
-    "off_akamatsu_yoshinori": "akamatsu"
-  },
-  "1331": {
-    "off_dm_togashi_1333": "hojo_kamakura",
-    "off_togashi_ujiharu": "hojo_kamakura",
-    "off_jo_sukemitsu": "nitta"
-  }
-};
-
 window.PINNED_SCENARIO_GOVERNORS = {
   "1582": {
     "echizen": "off_shibata_katsuie",
@@ -46152,7 +54723,11 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "harima": "off_toyotomi_hideyoshi",
     "tamba": "off_akechi_mitsuhide",
     "suo": "off_ichikawa_tsuneyoshi",
-    "izumo": "off_kikkawa_motoharu"
+    "izumo": "off_kikkawa_motoharu",
+    "rikuchu": "off_kasai_harunobu",
+    "izu": "off_hojo_ujinori",
+    "shimousa": "off_jd_425",
+    "musashi": "off_hojo_ujiteru"
   },
   "1584": {
     "tsugaru": "off_tsugaru_tamenobu",
@@ -46161,7 +54736,12 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "kazusa": "off_hojo_ujikuni",
     "iyo": "off_jd_023",
     "chikuzen": "off_ryuzoji_masaie",
-    "kozuke": "off_daidoji_masashige"
+    "kozuke": "off_daidoji_masashige",
+    "rikuchu": "off_kasai_harunobu",
+    "tosa": "off_chosokabe_motochika",
+    "sanuki": "off_jd_021",
+    "awa_shikoku": "off_jd_022",
+    "awaji": "off_sengoku_hidehisa"
   },
   "1587": {
     "tsugaru": "off_tsugaru_tamenobu",
@@ -46169,7 +54749,11 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "hizen": "off_ryuzoji_masaie",
     "bizen": "off_dm_ukita_1582",
     "bicchu": "off_jd_034",
-    "bingo": "off_jd_035"
+    "bingo": "off_jd_035",
+    "rikuchu": "off_kasai_harunobu",
+    "awa_shikoku": "off_hachisuka_iemasa",
+    "kawachi": "off_katagiri_katsumoto",
+    "kii": "off_jd_027"
   },
   "1590": {
     "bungo": "off_dm_otomo_1600",
@@ -46178,7 +54762,12 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "chikuzen": "off_kuroda_nagamasa",
     "hizen": "off_ryuzoji_masaie",
     "bizen": "off_dm_ukita_1582",
-    "iyo": "off_kobayakawa_takakage"
+    "iyo": "off_kobayakawa_takakage",
+    "rikuchu": "off_kasai_harunobu",
+    "awa_boshu": "off_dm_satomi_1582",
+    "shimousa": "off_chiba_naoshige_bridge",
+    "musashi": "off_hojo_ujiteru",
+    "suruga": "off_tokugawa_ieyasu"
   },
   "1592": {
     "higo": "off_kato_kiyomasa",
@@ -46218,32 +54807,45 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "kazusa": "off_honda_tadatomo",
     "shimousa": "off_honda_masanobu",
     "sagami": "off_okubo_tadachika",
-    "tamba": "off_arima_toyo-uji"
+    "tamba": "off_arima_toyo-uji",
+    "iwaki": "off_soma_yoshitane",
+    "ryukyu": "off_sho_nei"
   },
   "1637": {
     "iwashiro": "off_edo_aizu_1611_118",
     "aki": "off_asano_mitsuakira",
     "tamba": "off_arima_toyo-uji",
-    "sagami": "off_okubo_tadamoto"
+    "sagami": "off_okubo_tadamoto",
+    "iwaki": "off_soma_tadatane",
+    "izumo": "off_edo_matsue_1601_161",
+    "ryukyu": "off_sho_ho"
   },
   "1651": {
     "buzen": "off_ogasawara_tadamasa_edo",
-    "sagami": "off_okubo_tadamoto"
+    "sagami": "off_okubo_tadamoto",
+    "iwaki": "off_soma_tadatane",
+    "ryukyu": "off_sho_shitsu"
   },
   "1853": {
     "harima": "off_edo_tokugawa_1811_54",
-    "sagami": "off_okubo_tadanao"
+    "sagami": "off_okubo_tadanao",
+    "iwaki": "off_soma_mitsutane",
+    "ryukyu": "off_sho_tai"
   },
   "1860": {
     "harima": "off_edo_tokugawa_1811_54",
-    "sagami": "off_okubo_tadanori_bakumatsu"
+    "sagami": "off_okubo_tadanori_bakumatsu",
+    "iwaki": "off_soma_mitsutane",
+    "ryukyu": "off_sho_tai"
   },
   "1866": {
     "harima": "off_sakai_tadateru",
     "north_shinano": "off_sanada_yukitaka_m",
     "sagami": "off_okubo_tadanori_bakumatsu",
     "etchu": "off_edo_maeda_1805_182",
-    "shimotsuke": "off_hitomi_katsutaro"
+    "shimotsuke": "off_hitomi_katsutaro",
+    "iwaki": "off_soma_mitsutane",
+    "ryukyu": "off_sho_tai"
   },
   "1877": {
     "satsuma": "off_saigo_takamori",
@@ -46292,16 +54894,20 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "echizen": "off_shibata_katsuie",
     "inaba": "off_yamana_toyokuni",
     "hoki": "off_kikkawa_tsuneie",
-    "shimousa": "off_hojo_ujinori",
+    "shimousa": "off_jd_252",
     "musashi": "off_hojo_ujiteru",
-    "kawachi": "off_jd_019"
+    "kawachi": "off_jd_019",
+    "rikuchu": "off_kasai_harunobu",
+    "awa_boshu": "off_dm_satomi_1582",
+    "kazusa": "off_masaki_yoritada",
+    "izu": "off_hojo_ujinori"
   },
   "1573": {
     "kozuke": "off_amakasu_kagemochi",
     "ezo": "off_dm_kakizaki_1546",
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "ugo": "off_dm_ando_1560",
     "uzen": "off_mogami_yoshiaki",
     "rikuzen": "off_dm_date_1560",
@@ -46378,7 +54984,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "ezo": "off_dm_kakizaki_1546",
     "tsugaru": "off_tsugaru_tamenobu",
     "mutsu": "off_dm_nanbu_1582",
-    "rikuchu": "off_kita_nobuchika",
+    "rikuchu": "off_kasai_harunobu",
     "ugo": "off_dm_ando_1560",
     "uzen": "off_mogami_yoshiaki",
     "rikuzen": "off_dm_date_1560",
@@ -46389,10 +54995,10 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "kozuke": "off_amakasu_kagemochi",
     "musashi": "off_hojo_ujiteru",
     "sagami": "off_hojo_ujimasa",
-    "izu": "off_matsuda_yasunaga",
+    "izu": "off_hojo_ujinori",
     "kazusa": "off_dm_satomi_1582",
     "awa_boshu": "off_dm_satomi_1582",
-    "shimousa": "off_hojo_ujinori",
+    "shimousa": "off_jd_252",
     "kai": "off_takeda_katsuyori",
     "north_shinano": "off_kosaka_masanobu",
     "south_shinano": "off_kiso_yoshimasa",
@@ -46545,7 +55151,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "harima": "off_dm_akamatsu_1546",
     "mikawa": "off_succ2_matsudaira_1510",
     "yamashiro": "off_ashikaga_yoshiteru",
-    "rikuchu": "off_kita_nobuchika"
+    "rikuchu": "off_kasai_harunobu"
   },
   "1560": {
     "noto": "off_dm_hatakeyama_1546",
@@ -46563,7 +55169,7 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "shima": "off_kuki_yoshitaka",
     "bicchu": "off_jd_015",
     "bingo": "off_shimizu_muneharu",
-    "rikuchu": "off_kita_nobuchika"
+    "rikuchu": "off_kasai_harunobu"
   },
   "1570": {
     "bizen": "off_dm_uragami_1546",
@@ -46572,17 +55178,25 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "mimasaka": "off_jd_015",
     "yamashiro": "off_ashikaga_yoshiaki",
     "yamato": "off_matsunaga_hisahide",
-    "tamba": "off_jd_456"
+    "tamba": "off_jd_456",
+    "rikuchu": "off_kasai_harunobu"
   },
   "801": {
     "tsugaru": "off_ezo_leader_801",
-    "ezo": "off_ezo_leader_801"
+    "ezo": "off_ezo_leader_801",
+    "rikuchu": "off_aterui",
+    "mutsu": "off_more",
+    "yamashiro": "off_kanmu_tenno"
   },
   "1185": {
-    "aki": "off_minamoto_yoshitsune"
+    "aki": "off_minamoto_yoshitsune",
+    "sagami": "off_minamoto_yoritomo",
+    "nagato": "off_taira_munemori",
+    "rikuchu": "off_fujiwara_hidehira"
   },
   "1189": {
-    "rikuchu": "off_fujiwara_yasuhira"
+    "rikuchu": "off_fujiwara_yasuhira",
+    "sagami": "off_minamoto_yoritomo"
   },
   "1274": {
     "tsushima": "off_hindu_yuan",
@@ -46594,44 +55208,69 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "iyo": "off_kono_michiari",
     "hizen": "off_matsura_tota",
     "iwashiro": "off_date_munetsuna",
-    "higo": "off_takezaki_suenaga"
+    "higo": "off_takezaki_suenaga",
+    "sagami": "off_hojo_tokimune",
+    "chikuzen": "off_shoni_tsunesuke"
   },
   "1180": {
     "north_shinano": "off_taira_morikuni",
     "hida": "off_taira_tomonori_1156",
     "etchu": "off_jd_004",
-    "south_shinano": "off_imai_kanehira",
+    "south_shinano": "off_kiso_yoshinaka",
     "satsuma": "off_shimazu_proto_tadahisa",
-    "higo": "off_kikuchi_takenao"
+    "higo": "off_kikuchi_takenao",
+    "sagami": "off_minamoto_yoritomo",
+    "settsu": "off_taira_kiyomori",
+    "rikuchu": "off_fujiwara_hidehira"
   },
   "1350": {
     "mino": "off_toki_yorikasu",
-    "owari": "off_ashikaga_tadayoshi"
+    "owari": "off_ashikaga_tadayoshi",
+    "izumo": "off_jd_325",
+    "wakasa": "off_isshiki_norouji"
   },
   "1400": {
     "uzen": "off_jd_383"
   },
   "1184": {
-    "tamba": "off_minamoto_yoshitsune"
+    "tamba": "off_minamoto_yoshitsune",
+    "sagami": "off_minamoto_yoritomo",
+    "settsu": "off_taira_munemori",
+    "rikuchu": "off_fujiwara_hidehira"
   },
   "1159": {
-    "yamashiro": "off_fujiwara_nobuyori",
-    "south_shinano": "off_minamoto_yoshitaka"
+    "yamashiro": "off_goshirakawa_in",
+    "south_shinano": "off_minamoto_yoshitaka",
+    "sagami": "off_minamoto_yoshitomo",
+    "harima": "off_taira_kiyomori",
+    "rikuzen": "off_fujiwara_hidehira"
   },
   "1156": {
-    "yamato": "off_minamoto_tametomo"
+    "yamato": "off_sutoku_in",
+    "yamashiro": "off_goshirakawa_in",
+    "sagami": "off_minamoto_yoshitomo",
+    "harima": "off_taira_kiyomori",
+    "rikuzen": "off_fujiwara_motohira"
   },
   "1183": {
     "satsuma": "off_shimazu_proto_tadahisa",
-    "higo": "off_kikuchi_takenao"
+    "higo": "off_kikuchi_takenao",
+    "sagami": "off_minamoto_yoritomo",
+    "sanuki": "off_taira_munemori",
+    "yamashiro": "off_kiso_yoshinaka",
+    "rikuchu": "off_fujiwara_hidehira"
   },
   "1702": {
     "shimotsuke": "off_toda_tadatomo",
-    "sagami": "off_okubo_tadamasu"
+    "sagami": "off_okubo_tadamasu",
+    "iwaki": "off_soma_masatane",
+    "ryukyu": "off_sho_tei"
   },
   "1721": {
     "harima": "off_sakakibara_masakuni",
-    "sagami": "off_okubo_tadakata"
+    "sagami": "off_okubo_tadakata",
+    "iwaki": "off_soma_nobutane",
+    "ryukyu": "off_sho_kei"
   },
   "1789": {
     "owari": "off_succ_owari_1733_132",
@@ -46648,15 +55287,173 @@ window.PINNED_SCENARIO_GOVERNORS = {
     "satsuma": "off_shimazu_narinobu",
     "tsushima": "off_succ_so_1755_183",
     "hyuga": "off_ito_sukeatsu",
-    "sagami": "off_okubo_tadaaki"
+    "sagami": "off_okubo_tadaaki",
+    "iwaki": "off_soma_yoshitane_9",
+    "ryukyu": "off_sho_boku"
   },
   "1837": {
-    "sagami": "off_okubo_tadatomo_line2"
+    "sagami": "off_okubo_tadatomo_line2",
+    "iwaki": "off_soma_masutane",
+    "ryukyu": "off_sho_iku"
   },
   "1868": {
-    "sagami": "off_okubo_tadanori_bakumatsu"
+    "sagami": "off_okubo_tadanori_bakumatsu",
+    "iwaki": "off_soma_tomotane"
+  },
+  "1019": {
+    "chikuzen": "off_fujiwara_takaie_daimyo",
+    "kazusa": "off_taira_tadanetsune",
+    "yamashiro": "off_fujiwara_michinaga",
+    "kawachi": "off_minamoto_yorinobu_1028"
+  },
+  "1028": {
+    "kazusa": "off_taira_tadanetsune",
+    "shimousa": "off_taira_tsunemasa",
+    "yamashiro": "off_fujiwara_yorimichi_1028",
+    "kawachi": "off_minamoto_yorinobu_1028",
+    "hitachi": "off_taira_naokata"
+  },
+  "1056": {
+    "mutsu": "off_abe_yoritoki",
+    "rikuzen": "off_minamoto_yoriyoshi",
+    "ugo": "off_kiyohara_takenori",
+    "yamashiro": "off_fujiwara_yorimichi_1028"
+  },
+  "1087": {
+    "rikuzen": "off_minamoto_yoshiie",
+    "rikuchu": "off_fujiwara_kiyohira",
+    "uzen": "off_kiyohara_iehira",
+    "yamashiro": "off_shirakawa_in"
+  },
+  "1221": {
+    "sagami": "off_hojo_yoshitoki",
+    "yamashiro": "off_gotoba_in"
+  },
+  "1331": {
+    "mutsu": "off_dm_nanbu_1331",
+    "iwaki": "off_yuki_munehiro",
+    "kaga": "off_jd_214",
+    "iyo": "off_dm_kono_1331",
+    "iga": "off_kusunoki_masasue",
+    "tamba": "off_niki_yoriaki",
+    "yamashiro": "off_hojo_nakatoki"
+  },
+  "1333": {
+    "yamashiro": "off_chigusa_tadaaki",
+    "settsu": "off_kusunoki_masashige",
+    "iga": "off_jd_364",
+    "oki": "off_jd_399"
+  },
+  "1336": {
+    "iwaki": "off_yuki_munehiro",
+    "hoki": "off_yamana_tokiuji",
+    "mikawa": "off_isshiki_norouji",
+    "ise": "off_kitabatake_chikafusa"
+  },
+  "1359": {
+    "settsu": "off_hosokawa_kiyouji",
+    "awaji": "off_dm_hosokawa_1336",
+    "owari": "off_shiba_yoshimasa"
+  },
+  "1391": {
+    "hoki": "off_yamana_mitsuyuki",
+    "etchu": "off_jd_402",
+    "kii": "off_jd_409",
+    "mikawa": "off_jd_404",
+    "iga": "off_jd_406"
+  },
+  "1438": {
+    "kawachi": "off_dm_hatakeyama_1438",
+    "hoki": "off_jd_244"
+  },
+  "1467": {
+    "kawachi": "off_dm_hatakeyama_1467",
+    "izumi": "off_jd_247",
+    "sagami": "off_ota_sukeyasu"
+  },
+  "1495": {
+    "hoki": "off_yamana_toyoshige",
+    "sagami": "off_hojo_soun",
+    "suruga": "off_dm_imagawa_1495"
   }
 };
+
+window.OFFICER_AFFILIATION_RULES.unshift(
+  // 17世紀シナリオ史実補正
+  {
+    id: 'kuroda_kanbei_buzen_1600',
+    officerIds: ['off_kuroda_kanbei'],
+    scenarioIds: ['1600'],
+    setClanId: 'kuroda',
+    setDefaultProv: 'buzen',
+    setAssignedProv: 'buzen',
+    setDaimyo: false
+  },
+  {
+    id: 'goto_matabei_kuroda_buzen_1600',
+    officerIds: ['off_goto_matabei'],
+    scenarioIds: ['1600'],
+    setClanId: 'kuroda',
+    setDefaultProv: 'buzen',
+    setAssignedProv: 'buzen',
+    setDaimyo: false
+  },
+  {
+    id: 'shima_sakon_ishida_north_omi_1600',
+    officerIds: ['off_shima_sakon'],
+    scenarioIds: ['1600'],
+    setClanId: 'ishida',
+    setDefaultProv: 'north_omi',
+    setAssignedProv: 'north_omi',
+    setDaimyo: false
+  },
+  {
+    id: 'sanada_yukimura_toyotomi_settsu_1614',
+    officerIds: ['off_sanada_yukimura'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  {
+    id: 'chosokabe_morichika_toyotomi_settsu_1614',
+    officerIds: ['off_chosokabe_morichika'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  {
+    id: 'akashi_teruzumi_toyotomi_settsu_1614',
+    officerIds: ['off_akashi_teruzumi'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  {
+    id: 'goto_matabei_mori_katsunaga_toyotomi_settsu_1614',
+    officerIds: ['off_goto_matabei', 'off_mori_katsunaga'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  {
+    id: 'arima_naozumi_hyuga_daimyo_1637',
+    officerIds: ['off_jd_053'],
+    scenarioIds: ['1637'],
+    setClanId: 'arima',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+);
+
 window.OFFICER_AFFILIATION_RULES.unshift(
   // 1) 立花宗茂：立花家未独立時は大友家臣（筑前立花山）
   // 1584 立花宗茂は豊後に移動して大友氏配下
@@ -46812,6 +55609,7 @@ window.OFFICER_AFFILIATION_RULES.unshift(
   const C = window.CLAN_CAPITAL_PROVINCES = window.CLAN_CAPITAL_PROVINCES || {};
   C.sakai = 'harima';
   C.gamou = 'iwashiro';
+  C.ryukyu = 'ryukyu';
 })();
 
 window.OFFICER_AFFILIATION_RULES.unshift(
@@ -47877,5 +56675,359 @@ if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
 if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
   window.OFFICER_AFFILIATION_RULES.unshift(
     { id: 'sakenobe_mogami_retainer_20261011be', officerIds: ['off_shakenobe_hidetsuna'], requireOwners: ['mogami'], setClanId: 'mogami', setDaimyo: false, keepDaimyoIfSameClan: true, placeInOwnedProv: 'uzen' }
+  );
+}
+
+// --- user_scenario_updates_20261015: 陸中葛西独立・南部信直北信愛陸奥・斯波詮直浪人・千葉利胤原胤貞北条配下・里見義頼独立安房上総・正木頼忠上総・北条氏邦武蔵・北条氏規伊豆・北条氏繁下総 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+        // --- user_scenario_updates_20261015_post1614 ---
+        // --- user_scenario_updates_20261015_req2 ---
+    { id: 'user_scenario_updates_20261015_shinsengumi_1866', officerIds: ['off_kondo_isami', 'off_hijikata_toshizo', 'off_okita_soji', 'off_nagakura_shinpachi', 'off_saito_hajime', 'off_shimada_kai', 'off_nakajima_nobori'], scenarioIds: ['1866'], setClanId: 'tokugawa', setDefaultProv: 'yamashiro', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_kasuga_1866', officerIds: ['off_kasuga_saemon'], scenarioIds: ['1866'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_chiba_hara_1555', officerIds: ['off_chiba_toshitane', 'off_hara_tanesada_1546'], scenarioIds: ['1555'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_mimura_1555', officerIds: ['off_mimura_iechika'], scenarioIds: ['1555'], setClanId: 'mimura', setDefaultProv: 'bicchu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_matsudaira_1438', officerIds: ['off_dm_matsudaira_1467'], scenarioIds: ['1438'], setClanId: 'matsudaira', setDefaultProv: 'mikawa', setDaimyo: true },
+{ id: 'user_scenario_updates_20261015_matsue_1637', officerIds: ['off_edo_matsue_1601_161'], scenarioIds: ['1637'], setClanId: 'tokugawa', setDefaultProv: 'izumo', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_kuroda_1853_1860', officerIds: ['off_kuroda_nagashige'], scenarioIds: ['1853', '1860'], setClanId: 'fukuoka_kuroda', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_shinsengumi_1853_1860', officerIds: ['off_shimada_kai', 'off_nakajima_nobori'], scenarioIds: ['1853', '1860'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nagao_uzen', officerIds: ['off_nagao_kagehiro', 'off_nagao_kagetoshi', 'off_nagao_kagefusa'], setClanId: 'uesugi', setDefaultProv: 'uzen', setDaimyo: false },
+{ id: 'user_scenario_updates_20261015_kasai_rikuchu', officerIds: ['off_kasai_harunobu'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'kasai', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_kita_mutsu', officerIds: ['off_kita_nobuchika'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nanbu_nobunao_mutsu_retainer', officerIds: ['off_dm_nanbu_1582'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nanbu_nobunao_mutsu_daimyo', officerIds: ['off_dm_nanbu_1582'], scenarioIds: ['1582', '1584', '1587', '1590'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_shiba_akinao_rikuchu', officerIds: ['off_shiba_akinao'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'ronin', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_chiba_hara_1573', officerIds: ['off_chiba_toshitane', 'off_hara_tanesada_1546'], scenarioIds: ['1573'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_satomi_yoshiyori_1576', officerIds: ['off_dm_satomi_1582'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_satomi_yoshihiro_1576', officerIds: ['off_satomi_yoshihiro'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_masaki_yoritada_1576', officerIds: ['off_masaki_yoritada'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'kazusa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujikuni_musashi_1576_1582', officerIds: ['off_hojo_ujikuni'], scenarioIds: ['1576', '1577', '1582'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujinori_izu_1576_1582', officerIds: ['off_hojo_ujinori'], scenarioIds: ['1576', '1577', '1582'], setClanId: 'hojo', setDefaultProv: 'izu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujishige_shimousa_1576_1577', officerIds: ['off_jd_252'], scenarioIds: ['1576', '1577'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false }
+  );
+}
+
+// --- user_shikoku_updates_20261015: 1584長宗我部元親当主・仙石秀久淡路・十河存保讃岐浪人・三好氏阿波浪人・1587豊臣秀頼摂津・浅野幸長摂津・蜂須賀家政阿波城主 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'user_shikoku_updates_20261015_chosokabe_motochika_1584', officerIds: ['off_chosokabe_motochika'], scenarioIds: ['1584'], setClanId: 'chosokabe', setDefaultProv: 'tosa', setDaimyo: true },
+    { id: 'user_shikoku_updates_20261015_sengoku_hidehisa_1584', officerIds: ['off_sengoku_hidehisa'], scenarioIds: ['1584'], setClanId: 'toyotomi', setDefaultProv: 'awaji', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_sogo_ariyasu_1584', officerIds: ['off_sogo_ariyasu'], scenarioIds: ['1584'], setClanId: 'ronin', setDefaultProv: 'sanuki', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_miyoshi_awa_ronin_1584', officerIds: ['off_miyoshi_fusakazu', 'off_dm_miyoshi_1570', 'off_miyoshi_masayasu'], scenarioIds: ['1584'], setClanId: 'ronin', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_toyotomi_hideyori_1587', officerIds: ['off_dm_toyotomi_1600'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'settsu', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_asano_yoshinaga_1587', officerIds: ['off_dm_asano_1600'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'settsu', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_hachisuka_iemasa_1587', officerIds: ['off_hachisuka_iemasa'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'awa_shikoku', setDaimyo: false }
+  );
+}
+
+// --- user_1590_updates_20261015: 1590酒井忠世駿河・千葉氏下総北条配下・北条氏邦成田氏長武蔵・里見義頼安房独立・正木頼忠安房・浅野氏北近江・徳川家康駿河 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'user_1590_updates_20261015_satomi_yoshiyori_1590', officerIds: ['off_dm_satomi_1582'], scenarioIds: ['1590'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: true },
+    { id: 'user_1590_updates_20261015_masaki_yoritada_1590', officerIds: ['off_masaki_yoritada'], scenarioIds: ['1590'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_tokugawa_ieyasu_1590', officerIds: ['off_tokugawa_ieyasu'], scenarioIds: ['1590'], setClanId: 'tokugawa', setDefaultProv: 'suruga', setDaimyo: true },
+    { id: 'user_1590_updates_20261015_sakai_tadayo_1590', officerIds: ['off_sakai_tadayo'], scenarioIds: ['1590'], setClanId: 'tokugawa', setDefaultProv: 'suruga', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_chiba_shimousa_1590', officerIds: ['off_chiba_naoshige_bridge', 'off_chiba_shigetane'], scenarioIds: ['1590'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_hojo_ujikuni_narita_1590', officerIds: ['off_hojo_ujikuni', 'off_narita_ujinaga'], scenarioIds: ['1590'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_asano_north_omi_1590', officerIds: ['off_asano_nagamasa', 'off_dm_asano_1600', 'off_jd_337'], scenarioIds: ['1590'], setClanId: 'toyotomi', setDefaultProv: 'north_omi', setDaimyo: false }
+  );
+}
+
+// --- pre13th_scenario_historical_fixes_20261015: 13世紀以前シナリオの各勢力・武将史実配置修正 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 801
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_aterui', officerIds: ['off_aterui'], scenarioIds: ['801'], setClanId: 'aterui', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_more', officerIds: ['off_more'], scenarioIds: ['801'], setClanId: 'aterui', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_kanmu', officerIds: ['off_kanmu_tenno'], scenarioIds: ['801'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_tamuramaro', officerIds: ['off_sakanoue_tamuramaro'], scenarioIds: ['801'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: false },
+    
+    // 1019 & 1028
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_tadatsune', officerIds: ['off_taira_tadanetsune'], scenarioIds: ['1019', '1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'kazusa', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_tsuneharu', officerIds: ['off_taira_tsuneharu'], scenarioIds: ['1019', '1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_tadayori', officerIds: ['off_taira_tadayori'], scenarioIds: ['1019'], setClanId: 'taira_tadatsune', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1028_tsunemasa', officerIds: ['off_taira_tsunemasa'], scenarioIds: ['1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_yorinobu', officerIds: ['off_minamoto_yorinobu_1028'], scenarioIds: ['1019', '1028'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'kawachi', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_naokata', officerIds: ['off_taira_naokata'], scenarioIds: ['1019', '1028'], setClanId: 'taira_sadamori', setDefaultProv: 'hitachi', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_takaie', officerIds: ['off_fujiwara_takaie_daimyo'], scenarioIds: ['1019'], setClanId: 'heian_court', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1028_yorimichi', officerIds: ['off_fujiwara_yorimichi_1028'], scenarioIds: ['1028'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: true },
+
+    // 1056 前九年
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_tsunekiyo', officerIds: ['off_fujiwara_tsunekiyo'], scenarioIds: ['1056'], setClanId: 'abe', setDefaultProv: 'iwaki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_yoriyoshi', officerIds: ['off_minamoto_yoriyoshi'], scenarioIds: ['1056'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'rikuzen', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_yohiko', officerIds: ['off_yohiko_hidetake'], scenarioIds: ['1056'], setClanId: 'kiyohara', setDefaultProv: 'ugo', setDaimyo: false },
+
+    // 1087 後三年
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_yoshiie', officerIds: ['off_minamoto_yoshiie'], scenarioIds: ['1087'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'rikuzen', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_kiyohira', officerIds: ['off_fujiwara_kiyohira'], scenarioIds: ['1087'], setClanId: 'kiyohara', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_yohiko', officerIds: ['off_yohiko_hidetake'], scenarioIds: ['1087'], setClanId: 'kiyohara', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_iehira', officerIds: ['off_kiyohara_iehira'], scenarioIds: ['1087'], setClanId: 'kiyohara_iehira', setDefaultProv: 'uzen', setDaimyo: true },
+
+    // 1156 保元
+    { id: 'pre13th_scenario_historical_fixes_20261015_1156_tametomo', officerIds: ['off_minamoto_tametomo'], scenarioIds: ['1156'], setClanId: 'sutoku_in', setDefaultProv: 'yamato', setDaimyo: false },
+
+    // 1180-1184 治承・寿永・一ノ谷 坂東武士団
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_1184_bando', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_chiba_tanemasa', 'off_chiba_shigeta', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_koyama_tomomasa'], scenarioIds: ['1180', '1183', '1184'], setClanId: 'genji_yoritomo', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_1183_kazusa', officerIds: ['off_kazusa_hirotsune'], scenarioIds: ['1180', '1183'], setClanId: 'genji_yoritomo', setDefaultProv: 'kazusa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_miura_aki', officerIds: ['off_miura_yoshiaki'], scenarioIds: ['1180'], setClanId: 'genji_yoritomo', setDefaultProv: 'sagami', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1184_nasu', officerIds: ['off_nasu_no_yoichi'], scenarioIds: ['1184'], setClanId: 'genji_yoritomo', setDefaultProv: 'shimotsuke', setDaimyo: false },
+
+    // 1185 壇ノ浦 義経軍独立
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_yoshitsune', officerIds: ['off_minamoto_yoshitsune'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'aki', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_benkei', officerIds: ['off_musashibo_benkei', 'off_sato_tadanobu'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'aki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_tsugunobu', officerIds: ['off_sato_tsugunobu'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'sanuki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_taguchi', officerIds: ['off_taguchi_shigeyoshi'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_yoritomo_vassals', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_nasu_no_yoichi', 'off_koyama_tomomasa', 'off_miura_yoshimura'], scenarioIds: ['1185'], setClanId: 'genji_yoritomo', setDaimyo: false },
+
+    // 1189 義経追討
+    { id: 'pre13th_scenario_historical_fixes_20261015_1189_yoshitsune_hiraizumi', officerIds: ['off_minamoto_yoshitsune', 'off_musashibo_benkei'], scenarioIds: ['1189'], setClanId: 'fujiwara_hiraizumi', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1189_yoritomo_vassals', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_chiba_tanemasa', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_nasu_no_yoichi', 'off_utsunomiya_yoritsuna', 'off_koyama_tomomasa', 'off_miura_yoshimura'], scenarioIds: ['1189'], setClanId: 'genji_yoritomo', setDaimyo: false },
+
+    // 1221 承久の乱 幕府首脳陣
+    { id: 'pre13th_scenario_historical_fixes_20261015_1221_hojo_yoshitoki', officerIds: ['off_hojo_yoshitoki'], scenarioIds: ['1221'], setClanId: 'hojo_kamakura', setDefaultProv: 'sagami', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1221_bakufu_leaders', officerIds: ['off_hojo_masako', 'off_hojo_yasutoki', 'off_hojo_tokifusa', 'off_hojo_masamura', 'off_oe_no_hiromoto', 'off_miura_yoshimura', 'off_ashikaga_yoshiuji', 'off_utsunomiya_yoritsuna', 'off_koyama_tomomasa', 'off_nasu_no_yoichi', 'off_yuki_tomomitsu', 'off_nitta_masayoshi'], scenarioIds: ['1221'], setClanId: 'hojo_kamakura', setDaimyo: false },
+
+    // 1274 元寇 足利家時 & 九州防衛軍
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_ashikaga_ietoki', officerIds: ['off_ashikaga_ietoki'], scenarioIds: ['1274'], setClanId: 'ashikaga', setDefaultProv: 'shimotsuke', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_takezaki_kikuchi', officerIds: ['off_takezaki_suenaga', 'off_kikuchi_takefusa'], scenarioIds: ['1274'], setClanId: 'hojo_kamakura', setDefaultProv: 'higo', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_so_sukekuni', officerIds: ['off_so_sukekuni'], scenarioIds: ['1274'], setClanId: 'shoni', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_shimazu_hisaune', officerIds: ['off_shimazu_hisaune'], scenarioIds: ['1274'], setClanId: 'shimazu', setDefaultProv: 'satsuma', setDaimyo: false }
+  );
+}
+// ============================================================================
+// 剣豪・兵法者（バガボンド・史実剣豪）主家配属・所属制御ルール
+// 主家が存在する時代はその配下、主家不在または仕官前後は各土地の浪人
+// 江戸時代以降の柳生家（宗矩・宗厳・利厳・十兵衛）は徳川家配下
+// ============================================================================
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 1. 上泉信綱：長野家・山内上杉家・上杉家が上野を領有していればその配下（上野一本槍）
+    {
+      id: 'kamiizumi_nobutsuna_retained_pre1566',
+      officerIds: ['off_kamiizumi_nobutsuna'],
+      toYear: 1565,
+      requireOwners: ['nagano', 'yamanouchi', 'uesugi'],
+      setClanId: 'uesugi', // default fallback, adjusted by owners below
+      placeInOwnedProv: 'kozuke',
+      setDefaultProv: 'kozuke',
+      setDaimyo: false
+    },
+
+    // 2. 富田勢源：朝倉家が存在していれば朝倉家配下（越前一乗谷）
+    {
+      id: 'toda_seigen_asakura',
+      officerIds: ['off_toda_seigen'],
+      requireOwners: ['asakura'],
+      setClanId: 'asakura',
+      setDefaultProv: 'echizen',
+      setDaimyo: false
+    },
+
+    // 3. 丸目長恵：相良家が存在していれば相良家配下（肥後人吉）
+    {
+      id: 'marume_nagayoshi_sagara',
+      officerIds: ['off_marume_nagayoshi'],
+      requireOwners: ['sagara'],
+      setClanId: 'sagara',
+      setDefaultProv: 'higo',
+      setDaimyo: false
+    },
+
+    // 4. 東郷重位：島津家が存在していれば島津家配下（薩摩示現流師範）
+    {
+      id: 'togo_shigekata_shimazu',
+      officerIds: ['off_togo_shigekata'],
+      requireOwners: ['shimazu'],
+      setClanId: 'shimazu',
+      setDefaultProv: 'satsuma',
+      setDaimyo: false
+    },
+
+    // 5. 新免無二斎：宇喜多家があれば宇喜多配下、不在で黒田家があれば黒田配下、不在時は美作浪人
+    {
+      id: 'shinmen_munisai_ukita',
+      officerIds: ['off_shinmen_munisai'],
+      requireOwners: ['ukita'],
+      setClanId: 'ukita',
+      setDefaultProv: 'mimasaka',
+      setDaimyo: false
+    },
+    {
+      id: 'shinmen_munisai_kuroda',
+      officerIds: ['off_shinmen_munisai'],
+      requireOwners: ['kuroda'],
+      setClanId: 'kuroda',
+      setDefaultProv: 'buzen',
+      setDaimyo: false
+    },
+
+    // 6. 林崎甚助：最上家が存在していれば最上家配下（出羽・羽前）
+    {
+      id: 'hayashizaki_jinsuke_mogami',
+      officerIds: ['off_hayashizaki_jinsuke'],
+      requireOwners: ['mogami'],
+      setClanId: 'mogami',
+      setDefaultProv: 'uzen',
+      setDaimyo: false
+    },
+
+    // 7. 斎藤伝鬼坊：佐竹家が存在していれば佐竹家配下（常陸真壁）
+    {
+      id: 'saito_denkibo_satake',
+      officerIds: ['off_saito_denkibo'],
+      requireOwners: ['satake'],
+      setClanId: 'satake',
+      setDefaultProv: 'hitachi',
+      setDaimyo: false
+    },
+
+    // 8. 師岡一羽：佐竹家が存在していれば佐竹家配下（常陸）
+    {
+      id: 'morooka_ippa_satake',
+      officerIds: ['off_morooka_ippa'],
+      requireOwners: ['satake'],
+      setClanId: 'satake',
+      setDefaultProv: 'hitachi',
+      setDaimyo: false
+    },
+
+    // 9. 小野忠明：1600年以降は徳川家配下、1599年以前は里見家配下（里見不在時は安房浪人）
+    {
+      id: 'ono_tadaaki_tokugawa_post1600',
+      officerIds: ['off_ono_tadaaki'],
+      fromYear: 1600,
+      requireOwners: ['tokugawa'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'musashi',
+      setDaimyo: false
+    },
+    {
+      id: 'ono_tadaaki_satomi_pre1600',
+      officerIds: ['off_ono_tadaaki'],
+      toYear: 1599,
+      requireOwners: ['satomi'],
+      setClanId: 'satomi',
+      setDefaultProv: 'awa_boshu',
+      setDaimyo: false
+    },
+
+    // 10. 柳生宗厳（石舟斎）：
+    //     ・1600年以降（江戸時代）は徳川家配下
+    //     ・1570〜1576年は松我家配下
+    //     ・1569年以前は筒井家配下
+    //     ・主家不在時・隠退期は大和浪人（柳生の里）
+    {
+      id: 'yagyu_muneyoshi_tokugawa_post1600',
+      officerIds: ['off_yagyu_muneyoshi'],
+      fromYear: 1600,
+      requireOwners: ['tokugawa'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+    {
+      id: 'yagyu_muneyoshi_matsunaga_1570',
+      officerIds: ['off_yagyu_muneyoshi'],
+      years: [1570, 1573, 1576],
+      requireOwners: ['matsunaga'],
+      setClanId: 'matsunaga',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+    {
+      id: 'yagyu_muneyoshi_tsutsui_early',
+      officerIds: ['off_yagyu_muneyoshi'],
+      toYear: 1569,
+      requireOwners: ['tsutsui'],
+      setClanId: 'tsutsui',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+    {
+      id: 'yagyu_muneyoshi_ronin_fallback',
+      officerIds: ['off_yagyu_muneyoshi'],
+      toYear: 1599,
+      setClanId: 'ronin',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+
+    // 11. 柳生宗矩：1600年以降（江戸時代）は徳川家配下、1599年以前は大和浪人
+    {
+      id: 'yagyu_munenori_tokugawa_post1600',
+      officerIds: ['off_yagyu_munenori'],
+      fromYear: 1600,
+      requireOwners: ['tokugawa'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'musashi',
+      setDaimyo: false
+    },
+    {
+      id: 'yagyu_munenori_ronin_pre1600',
+      officerIds: ['off_yagyu_munenori'],
+      toYear: 1599,
+      setClanId: 'ronin',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+
+    // 12. 柳生利厳：1615年以降は尾張家または徳川家配下、それ以前は大和浪人
+    {
+      id: 'yagyu_toshiyoshi_owari_tokugawa_1615',
+      officerIds: ['off_yagyu_toshiyoshi'],
+      fromYear: 1615,
+      requireOwners: ['owari', 'tokugawa'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'owari',
+      placeInOwnedProv: 'owari',
+      setDaimyo: false
+    },
+    {
+      id: 'yagyu_toshiyoshi_ronin_pre1615',
+      officerIds: ['off_yagyu_toshiyoshi'],
+      toYear: 1614,
+      setClanId: 'ronin',
+      setDefaultProv: 'yamato',
+      setDaimyo: false
+    },
+
+    // 13. 柳生十兵衛（三厳）：徳川家配下（武蔵）
+    {
+      id: 'yagyu_mitsuyoshi_tokugawa',
+      officerIds: ['off_yagyu_mitsuyoshi'],
+      requireOwners: ['tokugawa'],
+      setClanId: 'tokugawa',
+      setDefaultProv: 'musashi',
+      setDaimyo: false
+    },
+
+    // 14. 佐々木小次郎：活躍地は巌流島（長門）。細川家が存在すれば客将・指南役として配下、不在時は長門浪人
+    {
+      id: 'sasaki_kojiro_hosokawa_1600',
+      officerIds: ['off_sasaki_kojiro'],
+      fromYear: 1600,
+      requireOwners: ['hosokawa'],
+      setClanId: 'hosokawa',
+      setDefaultProv: 'nagato',
+      setDaimyo: false
+    },
+    {
+      id: 'sasaki_kojiro_nagato_ronin',
+      officerIds: ['off_sasaki_kojiro'],
+      setClanId: 'ronin',
+      setDefaultProv: 'nagato',
+      setDaimyo: false
+    },
+
+    // 15. 宮本武蔵：晩年（1637年島原の乱以降）は細川家客分（肥後熊本藩）
+    {
+      id: 'miyamoto_musashi_hosokawa_late',
+      officerIds: ['off_miyamoto_musashi'],
+      fromYear: 1637,
+      requireOwners: ['hosokawa'],
+      setClanId: 'hosokawa',
+      setDefaultProv: 'higo',
+      setDaimyo: false
+    }
   );
 }

@@ -812,6 +812,96 @@ export const HISTORICAL_CHOICE_EVENTS = [
 if (typeof window !== "undefined") window.HISTORICAL_CHOICE_EVENTS = HISTORICAL_CHOICE_EVENTS;
 
 export const OFFICER_AFFILIATION_RULES = [
+  // =========================================================================
+  // 17世紀シナリオ（1600関ヶ原、1614大坂の陣、1637島原の乱、1651慶安の変）史実武将配属ルール
+  // =========================================================================
+
+  // --- 1600 関ヶ原の戦い ---
+  // 黒田如水（官兵衛）: 豊前中津挙兵・黒田家臣
+  {
+    id: 'kuroda_kanbei_buzen_1600',
+    officerIds: ['off_kuroda_kanbei'],
+    scenarioIds: ['1600'],
+    setClanId: 'kuroda',
+    setDefaultProv: 'buzen',
+    setAssignedProv: 'buzen',
+    setDaimyo: false
+  },
+  // 後藤又兵衛: 黒田家筆頭重臣・関ヶ原先鋒
+  {
+    id: 'goto_matabei_kuroda_buzen_1600',
+    officerIds: ['off_goto_matabei'],
+    scenarioIds: ['1600'],
+    setClanId: 'kuroda',
+    setDefaultProv: 'buzen',
+    setAssignedProv: 'buzen',
+    setDaimyo: false
+  },
+  // 島左近: 石田三成筆頭家老・佐和山北近江
+  {
+    id: 'shima_sakon_ishida_north_omi_1600',
+    officerIds: ['off_shima_sakon'],
+    scenarioIds: ['1600'],
+    setClanId: 'ishida',
+    setDefaultProv: 'north_omi',
+    setAssignedProv: 'north_omi',
+    setDaimyo: false
+  },
+
+  // --- 1614 大坂の陣（大坂浪人五人衆・主力入城） ---
+  // 真田幸村: 大坂城入城・真田丸
+  {
+    id: 'sanada_yukimura_toyotomi_settsu_1614',
+    officerIds: ['off_sanada_yukimura'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  // 長宗我部盛親: 大坂城入城・八尾若江奮戦
+  {
+    id: 'chosokabe_morichika_toyotomi_settsu_1614',
+    officerIds: ['off_chosokabe_morichika'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  // 明石全登: 大坂城入城・キリシタン部隊奮戦
+  {
+    id: 'akashi_teruzumi_toyotomi_settsu_1614',
+    officerIds: ['off_akashi_teruzumi'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+  // 後藤又兵衛・毛利勝永: 大坂城入城・豊臣家配下
+  {
+    id: 'goto_matabei_mori_katsunaga_toyotomi_settsu_1614',
+    officerIds: ['off_goto_matabei', 'off_mori_katsunaga'],
+    scenarioIds: ['1614'],
+    setClanId: 'toyotomi',
+    setDefaultProv: 'settsu',
+    setAssignedProv: 'settsu',
+    setDaimyo: false
+  },
+
+  // --- 1637 島原の乱 ---
+  // 有馬直純: 日向延岡藩主独立
+  {
+    id: 'arima_naozumi_hyuga_daimyo_1637',
+    officerIds: ['off_jd_053'],
+    scenarioIds: ['1637'],
+    setClanId: 'arima',
+    setDefaultProv: 'hyuga',
+    setAssignedProv: 'hyuga',
+    setDaimyo: true
+  },
+
 
   // =========================================================================
   // 古代・平安・源平シナリオ（12世紀以前）史実武将配属ルール
@@ -5588,7 +5678,7 @@ export const PROVINCE_NORTH_TO_SOUTH = [
   'tango', 'north_omi', 'south_omi', 'tamba', 'yamashiro', 'iga', 'ise', 'settsu', 'yamato', 'kawachi', 'shima', 'izumi', 'awaji', 'kii',
   'oki', 'inaba', 'tajima', 'hoki', 'izumo', 'mimasaka', 'iwami', 'harima', 'bicchu', 'aki', 'bizen', 'bingo', 'nagato', 'suo',
   'sanuki', 'awa_shikoku', 'iyo', 'tosa',
-  'tsushima', 'buzen', 'chikuzen', 'chikugo', 'hizen', 'bungo', 'higo', 'osumi', 'hyuga', 'satsuma'
+  'tsushima', 'buzen', 'chikuzen', 'chikugo', 'hizen', 'bungo', 'higo', 'osumi', 'hyuga', 'satsuma', 'ryukyu'
 ];
 
 // 各国の中心（国府・主城）のおおよその北緯。勢力選択画面を北から並べる鍵（地図SVGは傾いているので y 座標は使わない）;
@@ -5606,7 +5696,7 @@ export const PROVINCE_LATITUDE = {
   bizen: 34.66, bicchu: 34.75, bingo: 34.49, aki: 34.45, suo: 34.18, nagato: 34.30, oki: 36.20,
   sanuki: 34.34, awa_shikoku: 34.07, iyo: 33.84, tosa: 33.56, awaji: 34.35, tsushima: 34.20,
   buzen: 33.75, chikuzen: 33.59, chikugo: 33.30, hizen: 33.25, bungo: 33.24, higo: 32.80,
-  hyuga: 32.00, satsuma: 31.60, osumi: 31.40
+  hyuga: 32.00, satsuma: 31.60, osumi: 31.40, ryukyu: 26.21
 };
 
 // 時代で本拠が移った家（その年以降の本拠）。領内にあるものを新しい順に採り、無ければ CLAN_CAPITAL_PROVINCES へ;
@@ -10478,5 +10568,150 @@ if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
 if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
   window.OFFICER_AFFILIATION_RULES.unshift(
     { id: 'sakenobe_mogami_retainer_20261011be', officerIds: ['off_shakenobe_hidetsuna'], requireOwners: ['mogami'], setClanId: 'mogami', setDaimyo: false, keepDaimyoIfSameClan: true, placeInOwnedProv: 'uzen' }
+  );
+}
+
+// --- user_scenario_updates_20261015: 陸中葛西独立・南部信直北信愛陸奥・斯波詮直浪人・千葉利胤原胤貞北条配下・里見義頼独立安房上総・正木頼忠上総・北条氏邦武蔵・北条氏規伊豆・北条氏繁下総 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+        // --- user_scenario_updates_20261015_post1614 ---
+        // --- user_scenario_updates_20261015_req2 ---
+    { id: 'user_scenario_updates_20261015_shinsengumi_1866', officerIds: ['off_kondo_isami', 'off_hijikata_toshizo', 'off_okita_soji', 'off_nagakura_shinpachi', 'off_saito_hajime', 'off_shimada_kai', 'off_nakajima_nobori'], scenarioIds: ['1866'], setClanId: 'tokugawa', setDefaultProv: 'yamashiro', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_kasuga_1866', officerIds: ['off_kasuga_saemon'], scenarioIds: ['1866'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_chiba_hara_1555', officerIds: ['off_chiba_toshitane', 'off_hara_tanesada_1546'], scenarioIds: ['1555'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_mimura_1555', officerIds: ['off_mimura_iechika'], scenarioIds: ['1555'], setClanId: 'mimura', setDefaultProv: 'bicchu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_matsudaira_1438', officerIds: ['off_dm_matsudaira_1467'], scenarioIds: ['1438'], setClanId: 'matsudaira', setDefaultProv: 'mikawa', setDaimyo: true },
+{ id: 'user_scenario_updates_20261015_matsue_1637', officerIds: ['off_edo_matsue_1601_161'], scenarioIds: ['1637'], setClanId: 'tokugawa', setDefaultProv: 'izumo', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_kuroda_1853_1860', officerIds: ['off_kuroda_nagashige'], scenarioIds: ['1853', '1860'], setClanId: 'fukuoka_kuroda', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_shinsengumi_1853_1860', officerIds: ['off_shimada_kai', 'off_nakajima_nobori'], scenarioIds: ['1853', '1860'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nagao_uzen', officerIds: ['off_nagao_kagehiro', 'off_nagao_kagetoshi', 'off_nagao_kagefusa'], setClanId: 'uesugi', setDefaultProv: 'uzen', setDaimyo: false },
+{ id: 'user_scenario_updates_20261015_kasai_rikuchu', officerIds: ['off_kasai_harunobu'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'kasai', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_kita_mutsu', officerIds: ['off_kita_nobuchika'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nanbu_nobunao_mutsu_retainer', officerIds: ['off_dm_nanbu_1582'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_nanbu_nobunao_mutsu_daimyo', officerIds: ['off_dm_nanbu_1582'], scenarioIds: ['1582', '1584', '1587', '1590'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_shiba_akinao_rikuchu', officerIds: ['off_shiba_akinao'], scenarioIds: ['1555', '1560', '1570', '1573', '1576', '1577', '1582', '1584', '1587', '1590'], setClanId: 'ronin', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_chiba_hara_1573', officerIds: ['off_chiba_toshitane', 'off_hara_tanesada_1546'], scenarioIds: ['1573'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_satomi_yoshiyori_1576', officerIds: ['off_dm_satomi_1582'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: true },
+    { id: 'user_scenario_updates_20261015_satomi_yoshihiro_1576', officerIds: ['off_satomi_yoshihiro'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_masaki_yoritada_1576', officerIds: ['off_masaki_yoritada'], scenarioIds: ['1576'], setClanId: 'satomi', setDefaultProv: 'kazusa', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujikuni_musashi_1576_1582', officerIds: ['off_hojo_ujikuni'], scenarioIds: ['1576', '1577', '1582'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujinori_izu_1576_1582', officerIds: ['off_hojo_ujinori'], scenarioIds: ['1576', '1577', '1582'], setClanId: 'hojo', setDefaultProv: 'izu', setDaimyo: false },
+    { id: 'user_scenario_updates_20261015_hojo_ujishige_shimousa_1576_1577', officerIds: ['off_jd_252'], scenarioIds: ['1576', '1577'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false }
+  );
+}
+
+// --- user_shikoku_updates_20261015: 1584長宗我部元親当主・仙石秀久淡路・十河存保讃岐浪人・三好氏阿波浪人・1587豊臣秀頼摂津・浅野幸長摂津・蜂須賀家政阿波城主 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'user_shikoku_updates_20261015_chosokabe_motochika_1584', officerIds: ['off_chosokabe_motochika'], scenarioIds: ['1584'], setClanId: 'chosokabe', setDefaultProv: 'tosa', setDaimyo: true },
+    { id: 'user_shikoku_updates_20261015_sengoku_hidehisa_1584', officerIds: ['off_sengoku_hidehisa'], scenarioIds: ['1584'], setClanId: 'toyotomi', setDefaultProv: 'awaji', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_sogo_ariyasu_1584', officerIds: ['off_sogo_ariyasu'], scenarioIds: ['1584'], setClanId: 'ronin', setDefaultProv: 'sanuki', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_miyoshi_awa_ronin_1584', officerIds: ['off_miyoshi_fusakazu', 'off_dm_miyoshi_1570', 'off_miyoshi_masayasu'], scenarioIds: ['1584'], setClanId: 'ronin', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_toyotomi_hideyori_1587', officerIds: ['off_dm_toyotomi_1600'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'settsu', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_asano_yoshinaga_1587', officerIds: ['off_dm_asano_1600'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'settsu', setDaimyo: false },
+    { id: 'user_shikoku_updates_20261015_hachisuka_iemasa_1587', officerIds: ['off_hachisuka_iemasa'], scenarioIds: ['1587'], setClanId: 'toyotomi', setDefaultProv: 'awa_shikoku', setDaimyo: false }
+  );
+}
+
+// --- user_1590_updates_20261015: 1590酒井忠世駿河・千葉氏下総北条配下・北条氏邦成田氏長武蔵・里見義頼安房独立・正木頼忠安房・浅野氏北近江・徳川家康駿河 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'user_1590_updates_20261015_satomi_yoshiyori_1590', officerIds: ['off_dm_satomi_1582'], scenarioIds: ['1590'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: true },
+    { id: 'user_1590_updates_20261015_masaki_yoritada_1590', officerIds: ['off_masaki_yoritada'], scenarioIds: ['1590'], setClanId: 'satomi', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_tokugawa_ieyasu_1590', officerIds: ['off_tokugawa_ieyasu'], scenarioIds: ['1590'], setClanId: 'tokugawa', setDefaultProv: 'suruga', setDaimyo: true },
+    { id: 'user_1590_updates_20261015_sakai_tadayo_1590', officerIds: ['off_sakai_tadayo'], scenarioIds: ['1590'], setClanId: 'tokugawa', setDefaultProv: 'suruga', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_chiba_shimousa_1590', officerIds: ['off_chiba_naoshige_bridge', 'off_chiba_shigetane'], scenarioIds: ['1590'], setClanId: 'hojo', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_hojo_ujikuni_narita_1590', officerIds: ['off_hojo_ujikuni', 'off_narita_ujinaga'], scenarioIds: ['1590'], setClanId: 'hojo', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_1590_updates_20261015_asano_north_omi_1590', officerIds: ['off_asano_nagamasa', 'off_dm_asano_1600', 'off_jd_337'], scenarioIds: ['1590'], setClanId: 'toyotomi', setDefaultProv: 'north_omi', setDaimyo: false }
+  );
+}
+
+// --- pre13th_scenario_historical_fixes_20261015: 13世紀以前シナリオの各勢力・武将史実配置修正 ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    // 801
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_aterui', officerIds: ['off_aterui'], scenarioIds: ['801'], setClanId: 'aterui', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_more', officerIds: ['off_more'], scenarioIds: ['801'], setClanId: 'aterui', setDefaultProv: 'mutsu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_kanmu', officerIds: ['off_kanmu_tenno'], scenarioIds: ['801'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_801_tamuramaro', officerIds: ['off_sakanoue_tamuramaro'], scenarioIds: ['801'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: false },
+    
+    // 1019 & 1028
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_tadatsune', officerIds: ['off_taira_tadanetsune'], scenarioIds: ['1019', '1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'kazusa', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_tsuneharu', officerIds: ['off_taira_tsuneharu'], scenarioIds: ['1019', '1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'awa_boshu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_tadayori', officerIds: ['off_taira_tadayori'], scenarioIds: ['1019'], setClanId: 'taira_tadatsune', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1028_tsunemasa', officerIds: ['off_taira_tsunemasa'], scenarioIds: ['1028'], setClanId: 'taira_tadatsune', setDefaultProv: 'shimousa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_yorinobu', officerIds: ['off_minamoto_yorinobu_1028'], scenarioIds: ['1019', '1028'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'kawachi', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_1028_naokata', officerIds: ['off_taira_naokata'], scenarioIds: ['1019', '1028'], setClanId: 'taira_sadamori', setDefaultProv: 'hitachi', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1019_takaie', officerIds: ['off_fujiwara_takaie_daimyo'], scenarioIds: ['1019'], setClanId: 'heian_court', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1028_yorimichi', officerIds: ['off_fujiwara_yorimichi_1028'], scenarioIds: ['1028'], setClanId: 'heian_court', setDefaultProv: 'yamashiro', setDaimyo: true },
+
+    // 1056 前九年
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_tsunekiyo', officerIds: ['off_fujiwara_tsunekiyo'], scenarioIds: ['1056'], setClanId: 'abe', setDefaultProv: 'iwaki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_yoriyoshi', officerIds: ['off_minamoto_yoriyoshi'], scenarioIds: ['1056'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'rikuzen', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1056_yohiko', officerIds: ['off_yohiko_hidetake'], scenarioIds: ['1056'], setClanId: 'kiyohara', setDefaultProv: 'ugo', setDaimyo: false },
+
+    // 1087 後三年
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_yoshiie', officerIds: ['off_minamoto_yoshiie'], scenarioIds: ['1087'], setClanId: 'minamoto_tsunemoto', setDefaultProv: 'rikuzen', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_kiyohira', officerIds: ['off_fujiwara_kiyohira'], scenarioIds: ['1087'], setClanId: 'kiyohara', setDefaultProv: 'rikuchu', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_yohiko', officerIds: ['off_yohiko_hidetake'], scenarioIds: ['1087'], setClanId: 'kiyohara', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1087_iehira', officerIds: ['off_kiyohara_iehira'], scenarioIds: ['1087'], setClanId: 'kiyohara_iehira', setDefaultProv: 'uzen', setDaimyo: true },
+
+    // 1156 保元
+    { id: 'pre13th_scenario_historical_fixes_20261015_1156_tametomo', officerIds: ['off_minamoto_tametomo'], scenarioIds: ['1156'], setClanId: 'sutoku_in', setDefaultProv: 'yamato', setDaimyo: false },
+
+    // 1180-1184 治承・寿永・一ノ谷 坂東武士団
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_1184_bando', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_chiba_tanemasa', 'off_chiba_shigeta', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_koyama_tomomasa'], scenarioIds: ['1180', '1183', '1184'], setClanId: 'genji_yoritomo', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_1183_kazusa', officerIds: ['off_kazusa_hirotsune'], scenarioIds: ['1180', '1183'], setClanId: 'genji_yoritomo', setDefaultProv: 'kazusa', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1180_miura_aki', officerIds: ['off_miura_yoshiaki'], scenarioIds: ['1180'], setClanId: 'genji_yoritomo', setDefaultProv: 'sagami', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1184_nasu', officerIds: ['off_nasu_no_yoichi'], scenarioIds: ['1184'], setClanId: 'genji_yoritomo', setDefaultProv: 'shimotsuke', setDaimyo: false },
+
+    // 1185 壇ノ浦 義経軍独立
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_yoshitsune', officerIds: ['off_minamoto_yoshitsune'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'aki', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_benkei', officerIds: ['off_musashibo_benkei', 'off_sato_tadanobu'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'aki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_tsugunobu', officerIds: ['off_sato_tsugunobu'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'sanuki', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_taguchi', officerIds: ['off_taguchi_shigeyoshi'], scenarioIds: ['1185'], setClanId: 'genji_yoshitsune', setDefaultProv: 'awa_shikoku', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1185_yoritomo_vassals', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_nasu_no_yoichi', 'off_koyama_tomomasa', 'off_miura_yoshimura'], scenarioIds: ['1185'], setClanId: 'genji_yoritomo', setDaimyo: false },
+
+    // 1189 義経追討
+    { id: 'pre13th_scenario_historical_fixes_20261015_1189_yoshitsune_hiraizumi', officerIds: ['off_minamoto_yoshitsune', 'off_musashibo_benkei'], scenarioIds: ['1189'], setClanId: 'fujiwara_hiraizumi', setDefaultProv: 'rikuchu', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1189_yoritomo_vassals', officerIds: ['off_hojo_tokimasa', 'off_chiba_tsunetane', 'off_chiba_tanemasa', 'off_kajiwara_kagetoki', 'off_kumagai_naozane', 'off_nasu_no_yoichi', 'off_utsunomiya_yoritsuna', 'off_koyama_tomomasa', 'off_miura_yoshimura'], scenarioIds: ['1189'], setClanId: 'genji_yoritomo', setDaimyo: false },
+
+    // 1221 承久の乱 幕府首脳陣
+    { id: 'pre13th_scenario_historical_fixes_20261015_1221_hojo_yoshitoki', officerIds: ['off_hojo_yoshitoki'], scenarioIds: ['1221'], setClanId: 'hojo_kamakura', setDefaultProv: 'sagami', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1221_bakufu_leaders', officerIds: ['off_hojo_masako', 'off_hojo_yasutoki', 'off_hojo_tokifusa', 'off_hojo_masamura', 'off_oe_no_hiromoto', 'off_miura_yoshimura', 'off_ashikaga_yoshiuji', 'off_utsunomiya_yoritsuna', 'off_koyama_tomomasa', 'off_nasu_no_yoichi', 'off_yuki_tomomitsu', 'off_nitta_masayoshi'], scenarioIds: ['1221'], setClanId: 'hojo_kamakura', setDaimyo: false },
+
+    // 1274 元寇 足利家時 & 九州防衛軍
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_ashikaga_ietoki', officerIds: ['off_ashikaga_ietoki'], scenarioIds: ['1274'], setClanId: 'ashikaga', setDefaultProv: 'shimotsuke', setDaimyo: true },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_takezaki_kikuchi', officerIds: ['off_takezaki_suenaga', 'off_kikuchi_takefusa'], scenarioIds: ['1274'], setClanId: 'hojo_kamakura', setDefaultProv: 'higo', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_so_sukekuni', officerIds: ['off_so_sukekuni'], scenarioIds: ['1274'], setClanId: 'shoni', setDefaultProv: 'chikuzen', setDaimyo: false },
+    { id: 'pre13th_scenario_historical_fixes_20261015_1274_shimazu_hisaune', officerIds: ['off_shimazu_hisaune'], scenarioIds: ['1274'], setClanId: 'shimazu', setDefaultProv: 'satsuma', setDaimyo: false }
+  );
+}
+
+// --- user_18th_century_updates_20261015: 18世紀以降の史実武将所属ルール（佐竹義処・義峯羽後、伊東祐実・祐崇日向、家茂1860将軍、大村益次郎長州、木戸孝允長州、西南戦争西郷軍） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'user_18th_century_updates_20261015_satake_ugo_1702', officerIds: ['off_satake_yoshisumi'], scenarioIds: ['1702'], setClanId: 'satake', setDefaultProv: 'ugo', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_ito_hyuga_1702', officerIds: ['off_ito_sukezane'], scenarioIds: ['1702'], setClanId: 'ito', setDefaultProv: 'hyuga', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_satake_ugo_1721', officerIds: ['off_satake_yoshimine'], scenarioIds: ['1721'], setClanId: 'satake', setDefaultProv: 'ugo', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_ito_hyuga_1721', officerIds: ['off_ito_suketaka'], scenarioIds: ['1721'], setClanId: 'ito', setDefaultProv: 'hyuga', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_iemochi_1860', officerIds: ['off_tokugawa_iemochi'], scenarioIds: ['1860'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: true },
+    { id: 'user_18th_century_updates_20261015_yoshinobu_1860', officerIds: ['off_tokugawa_yoshinobu'], scenarioIds: ['1860'], setClanId: 'tokugawa', setDefaultProv: 'musashi', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_omura_mori_1866_1868', officerIds: ['off_omura_masujiro'], scenarioIds: ['1866', '1868'], setClanId: 'mori', setDefaultProv: 'suo', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_kido_mori_1868', officerIds: ['off_kido_takayoshi'], scenarioIds: ['1868'], setClanId: 'mori', setDefaultProv: 'nagato', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_saigo_gun_1877', officerIds: ['off_saigo_takamori'], scenarioIds: ['1877'], setClanId: 'saigo_gun', setDefaultProv: 'satsuma', setDaimyo: true },
+    { id: 'user_18th_century_updates_20261015_saigo_retainers_1877', officerIds: ['off_kirino_toshiaki', 'off_murata_shinpachi', 'off_shinohara_kunimoto', 'off_beppu_shinsuke'], scenarioIds: ['1877'], setClanId: 'saigo_gun', setDaimyo: false },
+    { id: 'user_18th_century_updates_20261015_meiji_gov_1877', officerIds: ['off_yamagata_aritomo', 'off_kuroda_kiyotaka', 'off_okubo_toshimichi', 'off_oyama_iwao', 'off_dm_meiji_1868'], scenarioIds: ['1877'], setClanId: 'meiji', setDaimyo: false }
+  );
+}
+
+// --- scenario_14_15_corrections_20261015: 14世紀・15世紀シナリオ史実配置修正（1331南部師行・結城宗広、1391山名満幸・氏清） ---
+if (typeof window !== 'undefined' && window.OFFICER_AFFILIATION_RULES) {
+  window.OFFICER_AFFILIATION_RULES.unshift(
+    { id: 'scenario_14_15_corrections_20261015_nanbu_1331_daimyo', officerIds: ['off_dm_nanbu_1331'], scenarioIds: ['1331'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setAssignedProv: 'mutsu', setDaimyo: true },
+    { id: 'scenario_14_15_corrections_20261015_nanbu_1331_vassals', officerIds: ['off_succ2_nanbu_1285', 'off_nanbu_masanaga'], scenarioIds: ['1331'], setClanId: 'nanbu', setDefaultProv: 'mutsu', setAssignedProv: 'mutsu', setDaimyo: false },
+    { id: 'scenario_14_15_corrections_20261015_yuki_munehiro_1331_1336', officerIds: ['off_yuki_munehiro'], scenarioIds: ['1331', '1336'], setClanId: 'yuki', setDefaultProv: 'iwaki', setAssignedProv: 'iwaki', setDaimyo: true },
+    { id: 'scenario_14_15_corrections_20261015_yamana_mitsuyuki_1391', officerIds: ['off_yamana_mitsuyuki'], scenarioIds: ['1391'], setClanId: 'yamana', setDefaultProv: 'hoki', setAssignedProv: 'hoki', setDaimyo: false },
+    { id: 'scenario_14_15_corrections_20261015_yamana_ujikiyo_1391', officerIds: ['off_yamana_ujikiyo'], scenarioIds: ['1391'], setClanId: 'yamana', setDefaultProv: 'tamba', setAssignedProv: 'tamba', setDaimyo: true }
   );
 }

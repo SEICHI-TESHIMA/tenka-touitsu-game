@@ -551,7 +551,9 @@
 
   .commands-grid {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 4px;
+    margin-top: 4px;
   }
 
   .cmd-btn {
@@ -567,6 +569,7 @@
     gap: 1px;
     transition: all 0.2s;
     text-align: center;
+    padding: 4px 10px;
   }
   .cmd-btn:hover:not(:disabled) {
     background: linear-gradient(180deg, #442d20 0%, #291a12 100%);
@@ -577,6 +580,38 @@
   .cmd-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+
+  .cmd-btn-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1px;
+  }
+  .cmd-title {
+    font-size: 11.5pt;
+    font-weight: bold;
+    color: inherit;
+  }
+  .cmd-cost {
+    font-size: 10.5pt;
+  }
+  .cmd-sub-desc {
+    font-size: 10pt;
+    color: #ccc;
+    text-align: left;
+    width: 100%;
+    line-height: 1.15;
+  }
+
+  /* 下部コントロールバー（PCでは縦並び） */
+  .bottom-action-dock {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+    flex-shrink: 0;
   }
 
   /* ターン進行ボタン */
@@ -613,6 +648,7 @@
   }
 
   .cmd-panel > .panel-title,
+  .cmd-panel > .bottom-action-dock,
   .cmd-panel > #nextTurnBtn,
   .cmd-panel > .autoplay-panel {
     flex-shrink: 0;
@@ -2159,53 +2195,71 @@
       min-height: 100dvh;
       max-width: 100%;
       overflow: visible;
-      /* 画面下に固定する季節進行バーの裏に、本文が隠れない余白 */
-      padding: 0 0 calc(116px + env(safe-area-inset-bottom));
+      /* 画面下に固定するフローティングアクションバーの裏に、本文が隠れない余白 */
+      padding: 0 0 calc(76px + env(safe-area-inset-bottom));
       gap: 6px;
     }
 
-    /* --- 上部：タイトルは固定。操作ボタンは初期状態で折りたたみ --- */
+    /* --- 上部：タイトルバー ＆ アコーディオン切替ボタン --- */
     header {
       height: auto;
-      min-height: 48px;
+      min-height: 46px;
       position: sticky;
       top: 0;
       z-index: 40;
       flex-wrap: wrap;
       align-items: stretch;
-      padding: 8px;
-      gap: 8px;
+      padding: 6px 8px;
+      gap: 6px;
     }
 
     .title-group {
       width: 100%;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 4px 6px;
+      align-items: center;
     }
 
     h1 {
-      font-size: 14pt;
+      font-size: 13.5pt;
       letter-spacing: 0;
     }
 
+    .season-info,
+    .weather-badge,
+    .diff-badge-header,
+    .bgm-badge-header {
+      font-size: 10pt;
+      padding: 2px 6px;
+      min-height: 28px;
+    }
+
     .mobile-accordion-btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex: 1 1 46%;
+      gap: 6px;
+      flex: 1 1 45%;
       width: auto;
-      min-height: 44px;
-      padding: 8px 10px;
-      border-radius: 4px;
+      min-height: 40px;
+      height: 40px;
+      padding: 6px 10px;
+      border-radius: 6px;
       border: 1px solid var(--border-gold);
-      background: linear-gradient(180deg, #442a1b 0%, #25160e 100%);
+      background: linear-gradient(180deg, #3d2516 0%, #20130a 100%);
       color: var(--gold-bright);
       font-family: inherit;
       font-size: 11pt;
       font-weight: bold;
       cursor: pointer;
       white-space: nowrap;
-      height: 44px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+      transition: all 0.15s ease;
+    }
+
+    .mobile-accordion-btn:active {
+      transform: scale(0.98);
+      background: linear-gradient(180deg, #4d301c 0%, #2a1a0f 100%);
     }
 
     /* 操作メニューはスマホ初期状態で閉じる。is-open のときだけ開く */
@@ -2217,32 +2271,35 @@
     .header-controls.is-open {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 6px;
+      padding-top: 4px;
     }
 
     .header-btn,
-    .sound-btn,
-    .bgm-badge-header {
-      min-height: 44px;
-      min-width: 44px;
-      padding: 8px 10px;
+    .sound-btn {
+      min-height: 40px;
+      min-width: 40px;
+      padding: 6px 8px;
       justify-content: center;
       white-space: normal;
       text-align: center;
+      font-size: 10.5pt;
+      border-radius: 5px;
     }
 
     .volume-slider {
       grid-column: 1 / -1;
       width: 100%;
-      height: 44px;
+      height: 40px;
     }
 
     .chronicle-wide-bar {
-      height: 44px;
-      min-height: 44px;
+      height: 40px;
+      min-height: 40px;
       flex-wrap: nowrap;
       overflow: hidden;
       padding: 4px 8px;
+      font-size: 10.5pt;
     }
 
     /* 勢力状況（金・兵糧・兵力）は初期非表示。ボタンで開く */
@@ -2255,20 +2312,20 @@
     .clan-bar.is-open {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 6px;
       height: auto;
       max-height: 46dvh;
       overflow-y: auto;
-      padding: 8px;
-      scroll-margin-top: 160px;
-      scroll-margin-bottom: 190px;
+      padding: 6px;
+      scroll-margin-top: 150px;
+      scroll-margin-bottom: 180px;
     }
 
     .clan-bar.is-open .stat-card {
       height: auto;
       max-height: none;
-      min-height: 64px;
-      padding: 8px;
+      min-height: 58px;
+      padding: 6px 8px;
     }
 
     /* 大名名カードだけは1行いっぱいに広げる */
@@ -2294,9 +2351,9 @@
 
     .map-wrapper {
       width: 100%;
-      /* JSが下部バーと軍令の見え始めを測って上書きする。ここは読み込み直後の仮の高さ */
-      height: 52dvh;
-      min-height: 300px;
+      /* JSが下部バーと軍令の見え始めを測って上書きする */
+      height: 50dvh;
+      min-height: 280px;
       flex: none;
       /* 地図上の縦ドラッグをページスクロールに渡さない */
       touch-action: none;
@@ -2307,31 +2364,65 @@
     }
 
     .map-ctrl-btn {
-      width: 44px;
-      height: 44px;
-      font-size: 18pt;
+      width: 40px;
+      height: 40px;
+      font-size: 16pt;
     }
 
     .map-controls-group {
-      gap: 8px;
+      gap: 6px;
     }
 
-    .map-legend {
-      top: auto;
-      bottom: 6px;
-      left: 58px;
-      right: 8px;
-      font-size: 9pt;
-      line-height: 1.3;
+    /* スマホ地図：＋ボタンの右（左上隅）にピクトグラムボタン群、その右隣に凡例を配置 */
+    .map-heat-panel {
+      position: absolute;
+      top: 6px;
+      left: 50px;
+      right: 6px;
+      z-index: 15;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+
+    .map-heat-filter {
+      flex-shrink: 0;
+      gap: 3px;
+      padding: 2px 3px;
+    }
+
+    .map-heat-btn {
+      width: 34px;
+      height: 34px;
+      min-height: 34px;
+      border-radius: 4px;
+    }
+
+    .map-heat-btn .heat-icon {
+      font-size: 13pt;
+    }
+
+    .map-heat-legend {
+      flex: 0 1 auto;
+      font-size: 8.5pt;
       padding: 3px 6px;
+      max-width: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      gap: 4px;
+      justify-content: flex-start;
     }
 
-    .legend-desktop {
-      display: none;
-    }
-
-    .legend-mobile {
-      display: inline;
+    .map-heat-legend .heat-grad,
+    .map-heat-legend .heat-grad-troops,
+    .map-heat-legend .heat-grad-rice {
+      width: 52px;
+      height: 8px;
     }
 
     .side-panel {
@@ -2347,81 +2438,177 @@
       overflow: visible;
     }
 
+    /* --- 軍令発令所：極端に細長いボタンを撲滅し、親指で押しやすい2列タイルへ --- */
     .cmd-panel > .commands-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
       flex: none;
       min-height: 0;
       overflow: visible;
+      margin-top: 6px !important;
     }
 
     .cmd-btn {
-      min-height: 48px;
-      padding: 8px 10px;
+      min-height: 58px;
+      height: auto;
+      padding: 8px 6px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-align: center;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: transform 0.1s ease, box-shadow 0.15s ease;
     }
 
-    /* 説明の2行目はスマホでは隠し、軍令ボタンを短く押せるようにする */
-    .cmd-btn > div:nth-child(2) {
-      display: none;
+    .cmd-btn:active:not(:disabled) {
+      transform: scale(0.97);
     }
 
-    /* --- 下部固定：季節を進めるボタンと速度スライダー（親指で操作） --- */
-    #nextTurnBtn {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: calc(56px + env(safe-area-inset-bottom));
-      z-index: 50;
-      width: auto;
-      margin: 0;
-      border-radius: 0;
-      min-height: 44px;
-      height: 48px;
-      white-space: nowrap;
+    .cmd-btn-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      width: 100%;
+    }
+
+    .cmd-title {
+      font-size: 11pt;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      line-height: 1.2;
+    }
+
+    .cmd-icon {
       font-size: 12pt;
     }
 
-    .autoplay-panel {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 50;
-      margin: 0;
-      border-radius: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: center;
-      gap: 6px;
-      height: calc(56px + env(safe-area-inset-bottom));
-      min-height: 0;
-      padding: 0 8px env(safe-area-inset-bottom);
-      box-sizing: border-box;
-      overflow: hidden;
+    /* スマホでは括弧内の長文補足は非表示にし、簡潔明瞭なボタン名にする */
+    .cmd-sub-bracket {
+      display: none;
     }
 
-    .autoplay-header,
-    .autoplay-speed-row {
+    /* スマホでは2行目の詳細文は非表示にし、タイル内にすっきり収める */
+    .cmd-sub-desc {
+      display: none;
+    }
+
+    .cmd-cost {
+      font-size: 9.5pt;
+      font-weight: normal;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1px 6px;
+      border-radius: 3px;
+      display: inline-block;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* --- 下部固定：洗練された和風フローティング・アクションドック --- */
+    .bottom-action-dock {
+      position: fixed;
+      left: 8px;
+      right: 8px;
+      bottom: calc(6px + env(safe-area-inset-bottom));
+      z-index: 50;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 14, 10, 0.94);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 6px 8px;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.85), 0 0 12px rgba(212,175,55,0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-sizing: border-box;
+      height: 56px;
+    }
+
+    /* 季節を進めるボタン：主役として堂々と押しやすい幅・高さ */
+    #nextTurnBtn {
+      position: static;
+      flex: 1 1 auto;
+      width: auto;
       margin: 0;
-      min-width: 0;
+      min-height: 44px;
+      height: 44px;
+      border-radius: 6px;
+      font-size: 11.5pt;
+      font-weight: bold;
+      padding: 4px 10px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(184, 36, 36, 0.5);
+    }
+
+    #nextTurnBtn .turn-btn-sub {
+      display: none; /* スマホでは副文言を隠してスッキリ */
+    }
+
+    /* オート進行パネル：ドック内のコンパクトなトグルへ */
+    .autoplay-panel {
+      position: static;
+      flex: 0 0 auto;
+      width: auto;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      height: 44px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+      overflow: visible;
     }
 
     .autoplay-header {
-      flex: 0 1 auto;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .autoplay-speed-row {
-      flex: 1 1 auto;
-    }
-
-    .autoplay-speed-title {
-      display: none;
+    .autoplay-title {
+      display: none; /* スマホではラベル文字を省きトグルボタンのみ配置 */
     }
 
     .autoplay-toggle-btn {
       min-height: 44px;
-      min-width: 64px;
       height: 44px;
+      min-width: 62px;
       padding: 4px 10px;
+      font-size: 10.5pt;
+      font-weight: bold;
+      border-radius: 6px;
+      border: 1px solid #775533;
+      background: linear-gradient(180deg, #332218, #1a110c);
+      color: #ffd700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .autoplay-speed-row {
+      display: none; /* ドックを圧迫しないようスライダーはスマホ固定バーでは非表示 */
     }
 
     /* スライダーの当たりを指サイズ（44px相当）にする */
@@ -2464,7 +2651,7 @@
       border: 2px solid #5d4037;
     }
 
-    /* モーダル内の横並びを、画面幅に収まる列数へ */
+    /* モーダル内のレイアウトをスマホ全画面最適化 */
     .modal-overlay {
       padding: 0;
       align-items: stretch;
@@ -2478,12 +2665,45 @@
       max-height: 100dvh;
       border-radius: 0;
       padding: 12px;
+      overflow-y: auto;
+    }
+
+    /* 時代タブを横スクロール可能に */
+    .scenario-era-tabs {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      gap: 4px;
+    }
+
+    .era-tab-btn {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      padding: 4px 10px;
+      font-size: 10pt;
+    }
+
+    .scenario-selector-container {
+      max-height: 36dvh;
+      overflow-y: auto;
     }
 
     .scenario-selector-group,
-    .diff-selector-group,
     #formationOptionGroup {
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 6px !important;
+    }
+
+    .diff-selector-wrapper {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 6px !important;
+    }
+
+    .diff-selector-group {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 6px !important;
     }
 
     .scenario-btn,
@@ -2492,8 +2712,7 @@
     .battle-btn,
     .duel-btn,
     .jb-btn,
-    .jb-se-btn,
-    .daimyo-popup-start-btn {
+    .jb-se-btn {
       min-height: 44px;
     }
 
@@ -2507,14 +2726,77 @@
       max-height: none;
     }
 
-    .daimyo-popup-stats {
-      grid-template-columns: 1fr;
+    /* 大名詳細ポップアップ：能力値を3列で折り返し、本文を縦積みに */
+    .daimyo-popup-header {
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* 自軍と敵軍の2画面は縦に積む */
+    .daimyo-popup-stats {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 6px !important;
+    }
+
+    .daimyo-popup-body-grid {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    .daimyo-popup-footer-actions {
+      flex-direction: column-reverse !important;
+      gap: 8px !important;
+      width: 100%;
+    }
+
+    .daimyo-popup-start-btn {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 48px;
+      font-size: 12pt !important;
+      margin: 0 !important;
+    }
+
+    .daimyo-popup-cancel-btn {
+      width: 100% !important;
+      min-height: 40px;
+    }
+
+    /* --- 戦闘・攻城戦：細長いボタンを撲滅し、2列タイル＋全幅撤退へ --- */
     .battle-stage,
-    .siege-meters,
+    .siege-meters {
+      grid-template-columns: 1fr !important;
+      gap: 8px;
+    }
+
     .battle-actions,
+    .siege-actions {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 6px !important;
+    }
+
+    .battle-actions > button:last-child,
+    .siege-actions > button:last-child {
+      grid-column: 1 / -1 !important;
+    }
+
+    .battle-btn {
+      min-height: 52px;
+      padding: 6px 4px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 11pt;
+    }
+
+    .battle-btn .sub {
+      font-size: 9.5pt;
+      line-height: 1.2;
+    }
+
     .duel-actions {
       grid-template-columns: 1fr !important;
     }
@@ -2543,6 +2825,48 @@
     .jb-track-grid {
       grid-template-columns: 1fr;
     }
+
+    /* モーダル下部の決定・中止ボタン：押しやすい2等分ボタンへ */
+    .modal-footer-btns {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: stretch !important;
+      gap: 8px !important;
+      width: 100%;
+    }
+
+    .modal-footer-btns > button {
+      flex: 1 1 50% !important;
+      min-height: 44px !important;
+      font-size: 11.5pt !important;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* 歴史イベント選択ボタン：縦積みにし全幅でタップしやすく */
+    .event-choice-actions {
+      flex-direction: column !important;
+      gap: 8px !important;
+      width: 100%;
+    }
+
+    .event-choice-actions > button {
+      max-width: 100% !important;
+      min-height: 44px !important;
+      width: 100%;
+    }
+
+    /* 領国軍情の武将一覧・城主交代ボタンのタッチ領域拡大 */
+    .btn-view-prov-officers {
+      min-height: 34px;
+      padding: 4px 10px;
+      font-size: 11pt;
+    }
+
+    #btnAppointGovernor {
+      min-height: 28px;
+      padding: 3px 10px;
+    }
   }
 
 
@@ -2550,156 +2874,104 @@
 
 
 
-/* ---- 地図ヒートマップ切替（右上） ---- */
+/* ---- 地図表示モード切替（左上隅・＋ボタンの右隣にピクトグラム、その右隣に凡例） ---- */
 .map-heat-panel {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 48px;
   z-index: 12;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   pointer-events: none;
 }
 .map-heat-filter {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
   gap: 4px;
   pointer-events: auto;
-  background: rgba(18, 12, 8, 0.82);
+  background: rgba(18, 12, 8, 0.88);
   border: 1px solid var(--border-gold);
   border-radius: 6px;
-  padding: 4px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.55);
+  padding: 3px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 .map-heat-btn {
   background: rgba(40, 28, 18, 0.9);
   border: 1px solid #6a5338;
   color: #d8c8a8;
-  font-size: 10.5pt;
-  font-family: inherit;
-  padding: 3px 8px;
+  width: 34px;
+  height: 34px;
   border-radius: 4px;
   cursor: pointer;
-  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+.map-heat-btn .heat-icon {
+  font-size: 13.5pt;
+  line-height: 1;
 }
 .map-heat-btn:hover {
   border-color: var(--gold-bright);
   color: #fff;
+  transform: scale(1.06);
 }
 .map-heat-btn.active {
   background: linear-gradient(180deg, #8a6a28, #5a4018);
   border-color: var(--gold-bright);
-  color: #ffe9a0;
-  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  transform: scale(1.06);
 }
 .map-heat-legend {
-  pointer-events: none;
-  background: rgba(12, 10, 8, 0.78);
+  pointer-events: auto;
+  background: rgba(12, 10, 8, 0.88);
   border: 1px solid #554433;
   border-radius: 4px;
   padding: 3px 8px;
-  font-size: 10pt;
+  font-size: 9.5pt;
   color: #ddd0b8;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
   max-width: 280px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.55);
 }
 .map-heat-legend .heat-sw {
   display: inline-block;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 2px;
   border: 1px solid rgba(255,255,255,0.35);
   margin-right: 2px;
   vertical-align: -1px;
 }
-.map-heat-legend .heat-grad {
-  display: inline-block;
-  width: 72px;
-  height: 10px;
-  border-radius: 2px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: linear-gradient(90deg, #ffffff, #7fd7ff, #12b5e8);
-}
-.map-heat-legend .heat-num {
-  font-variant-numeric: tabular-nums;
-  color: #cdefff;
-}
-.map-heat-legend .heat-note {
-  color: #cfc0a0;
-}
-
-/* ---- 地図注記＋表示モード切替：注記ボックスの右隣に並べる ---- */
-.map-overlay-bar {
-  position: absolute;
-  top: 10px;
-  left: 52px;
-  right: 10px;
-  z-index: 12;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 8px;
-  pointer-events: none;
-}
-.map-overlay-bar .map-legend {
-  position: static;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
-  flex: 0 1 auto;
-  max-width: 440px;
-}
-.map-overlay-bar .map-heat-panel {
-  position: static;
-  top: auto;
-  right: auto;
-  flex: 0 0 auto;
-  align-items: flex-start;
-}
-.map-overlay-bar .map-heat-filter,
-.map-overlay-bar .map-heat-legend {
-  justify-content: flex-start;
-}
-/* 兵力：深い藍→翠→水色、石高：焦茶→金→淡金 */
 .map-heat-legend .heat-grad,
 .map-heat-legend .heat-grad-troops {
-  width: 96px;
+  display: inline-block;
+  width: 80px;
   height: 10px;
+  border-radius: 2px;
   border: 1px solid rgba(127, 219, 255, 0.35);
   background: linear-gradient(90deg, #0e2233, #135e72, #1abc9c, #7fdbff);
   box-shadow: 0 0 6px rgba(26, 188, 156, 0.35);
 }
 .map-heat-legend .heat-grad-rice {
+  width: 80px;
   border-color: rgba(255, 233, 160, 0.35);
   background: linear-gradient(90deg, #1c1408, #6b4e12, #c9a227, #ffe9a0);
   box-shadow: 0 0 6px rgba(201, 162, 39, 0.35);
 }
+.map-heat-legend .heat-num {
+  font-variant-numeric: tabular-nums;
+  font-size: 9pt;
+}
 .map-heat-legend .heat-num-troops { color: #9fe8ff; }
 .map-heat-legend .heat-num-rice { color: #ffe39a; }
-
-@media (max-width: 768px) {
-  .map-overlay-bar {
-    top: auto;
-    bottom: 6px;
-    left: 58px;
-    right: 8px;
-    gap: 5px;
-    align-items: flex-end;
-  }
-  .map-overlay-bar .map-legend {
-    max-width: none;
-    flex: 1 1 100%;
-  }
-  .map-heat-btn {
-    min-height: 32px;
-    padding: 4px 10px;
-  }
+.map-heat-legend .heat-note {
+  color: #cfc0a0;
 }

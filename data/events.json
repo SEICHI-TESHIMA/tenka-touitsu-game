@@ -1928,7 +1928,7 @@
       "id": "evt_1868_toba_fushimi",
       "scenarioId": "*",
       "year": 1868,
-      "season": "夏",
+      "season": "春",
       "title": "鳥羽・伏見の戦い・錦の御旗の翻り",
       "desc": "鳥羽・伏見で旧幕府軍一万五千と薩長軍五千が激突！新政府軍に『錦の御旗』が掲げられると旧幕府軍は朝敵となる恐怖から総崩れ。徳川慶喜は大坂城から海路江戸へ退却し、近畿全土が新政府軍に落ちた！",
       "changes": {
@@ -2010,35 +2010,34 @@
       "id": "evt_1877_seinan",
       "scenarioId": "*",
       "year": 1877,
-      "season": "夏",
+      "season": "春",
       "title": "西南戦争・西郷隆盛の挙兵",
-      "desc": "明治十年二月、私学校の生徒らに擁された西郷隆盛は一万三千の兵を率いて鹿児島を発ち、熊本城を囲んだ。政府軍は徴兵の兵と警視庁抜刀隊を送り、三月の田原坂の激戦で薩軍を破った。薩軍は九州を転戦したのち、九月、西郷は鹿児島の城山で自刃した。最後の士族反乱だった。",
-      "requiresClans": [
-        "meiji"
-      ],
-      "onlyFrom": [
-        "shimazu",
-        "saigo_gun"
-      ],
-      "onReject": {
+      "desc": "明治十年二月、私学校の生徒らに擁された西郷隆盛は一万三千の兵を率いて鹿児島で挙兵！薩摩・大隅・日向の旧士族が結集して新政府に対抗し、薩摩士族軍を組織して熊本城包囲へと進撃を開始した！",
+      "changes": {
         "territory": {
           "satsuma": "saigo_gun",
           "osumi": "saigo_gun",
-          "hyuga": "saigo_gun",
-          "higo": "saigo_gun",
-          "bungo": "saigo_gun",
-          "tosa": "saigo_gun",
-          "nagato": "saigo_gun"
+          "hyuga": "saigo_gun"
         },
-        "message": "熊本城が落ち、西郷軍が肥後・豊後へ広がり、土佐・長門とも気脈を通じた。",
-        "troopShock": {
-          "meiji": 0.8
-        }
-      },
+        "message": "西郷隆盛が鹿児島で挙兵し、薩摩・大隅・日向を掌握して西南戦争が勃発しました！"
+      }
+    },
+    {
+      "id": "evt_1877_seinan_fall",
+      "scenarioId": "*",
+      "year": 1877,
+      "season": "秋",
+      "title": "城山の戦い・西南戦争の終焉",
+      "desc": "新政府軍が鹿児島・城山を総攻撃！西郷隆盛は自刃し、桐野利秋・村田新八・別府晋介ら幹部も壮烈に戦死。日本最後の士族反乱はここに終結し、明治国家の統一体制が確立した。",
+      "requiresClans": [
+        "saigo_gun",
+        "meiji"
+      ],
       "changes": {
         "territory": {
           "satsuma": "meiji",
-          "osumi": "meiji"
+          "osumi": "meiji",
+          "hyuga": "meiji"
         },
         "killOfficerIds": [
           "off_saigo_takamori",
@@ -2047,10 +2046,7 @@
           "off_murata_shinpachi",
           "off_beppu_shinsuke"
         ],
-        "message": "城山で西郷隆盛が自刃し、桐野利秋・村田新八らも倒れて士族の反乱は鎮圧されました。薩摩・大隅は政府の直轄となり、政府軍も多くの兵を失いました。",
-        "troopShock": {
-          "meiji": 0.9
-        }
+        "message": "城山で西郷隆盛が自刃し、士族の反乱は鎮圧されました。薩摩・大隅・日向は新政府直轄となりました。"
       }
     }
   ],
@@ -2853,12 +2849,28 @@
     ],
     "iwaki": [
       [
-        1590,
+        1182,
+        "白河関・白河営所"
+      ],
+      [
+        1335,
         "白河小峰城"
       ],
       [
-        9999,
+        1390,
+        "霊山城"
+      ],
+      [
+        1591,
+        "白河小峰城"
+      ],
+      [
+        1613,
         "平城"
+      ],
+      [
+        9999,
+        "相馬中村城"
       ]
     ],
     "iwashiro": [

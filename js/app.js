@@ -291,8 +291,8 @@ function setupMobileLayout() {
     if (!headerToggle || !clanToggle) return;
     const headerOpen = !!(headerControls && headerControls.classList.contains('is-open'));
     const clanOpen = !!(clanBar && clanBar.classList.contains('is-open'));
-    headerToggle.textContent = headerOpen ? '操作を閉じる' : '操作メニュー';
-    clanToggle.textContent = clanOpen ? '勢力を閉じる' : '勢力状況';
+    headerToggle.innerHTML = headerOpen ? '✕ 操作を閉じる' : '⚙️ 操作メニュー';
+    clanToggle.innerHTML = clanOpen ? '✕ 勢力を閉じる' : '🏯 勢力状況';
     headerToggle.setAttribute('aria-expanded', headerOpen ? 'true' : 'false');
     clanToggle.setAttribute('aria-expanded', clanOpen ? 'true' : 'false');
   };
@@ -305,12 +305,11 @@ function setupMobileLayout() {
       map.style.height = '';
       return;
     }
-    const turn = document.getElementById('nextTurnBtn');
-    const auto = document.getElementById('autoPlayPanel');
-    const dockH = (turn?.offsetHeight || 48) + (auto?.offsetHeight || 52);
-    const peek = 88;
+    const dock = document.getElementById('bottomActionDock');
+    const dockH = dock?.offsetHeight || 56;
+    const peek = 70;
     const available = window.innerHeight - map.offsetTop - dockH - peek;
-    const height = Math.max(300, Math.min(available, Math.round(window.innerHeight * 0.62)));
+    const height = Math.max(280, Math.min(available, Math.round(window.innerHeight * 0.65)));
     map.style.height = height + 'px';
   };
 

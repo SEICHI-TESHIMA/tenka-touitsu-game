@@ -45,6 +45,9 @@ var CLAN_MASTER = _createObjectProxy(() => (typeof window !== 'undefined' && (wi
 var DAIMYOS = (typeof window !== 'undefined' && window.DAIMYOS) || [];
 var DAIMYO_EPILOGUES = (typeof window !== 'undefined' && window.DAIMYO_EPILOGUES) || {};
 var triggerCelebrationConfetti = (typeof window !== 'undefined' && window.triggerCelebrationConfetti) || (() => {});
+var formatHistoricalYear = (y) => (typeof window !== 'undefined' && typeof window.formatHistoricalYear === 'function')
+  ? window.formatHistoricalYear(y)
+  : (Number(y) < 0 ? `前${Math.abs(Number(y))}` : String(y ?? ''));
 
 export class UIManager {
   constructor(game) {
@@ -53,6 +56,10 @@ export class UIManager {
 }
 
 export const UIManagerMethods = {
+  formatYear(year = this.year) {
+    return formatHistoricalYear(year);
+  },
+
   savedDaimyoName(data) {
     const clanId = data?.playerClanId;
     if (!clanId) return '無名';
@@ -124,7 +131,7 @@ export const UIManagerMethods = {
       const seasonName = ['春', '夏', '秋', '冬'][data.seasonIdx || 0];
 
       if (summary) {
-        summary.textContent = `${data.year}年 ${seasonName} / ${daimyoLabel} (支配: ${myProvs.length}国 / 兵力: ${myProvs.reduce((a,c)=>a+(c.troops || 0),0).toLocaleString()}人)`;
+        summary.innerHTML = `<span class="resume-main-info">${formatHistoricalYear(data.year)}年 ${seasonName} / ${daimyoLabel}</span><span class="resume-sub-info"> (支配: ${myProvs.length}国 / 兵力: ${myProvs.reduce((a,c)=>a+(c.troops || 0),0).toLocaleString()}人)</span>`;
       }
 
       banner.style.display = 'flex';
@@ -287,7 +294,7 @@ export const UIManagerMethods = {
           <span class="daimyo-clan-name" title="${d.clan}">${d.clan}</span>
           <span style="color:${personColor}; font-size: 10.5pt; background:rgba(0,0,0,0.6); padding:1px 4px; border-radius:2px; border:1px solid ${personColor}; flex-shrink:0;">${d.difficulty}</span>
         </div>
-        <div style="display:flex; justify-content:space-between; font-size: 11.5pt; background:rgba(0,0,0,0.35); padding:1px 4px; border-radius:2px;">
+        <div class="daimyo-card-stats" style="display:flex; justify-content:space-between; font-size: 11.5pt; background:rgba(0,0,0,0.35); padding:1px 4px; border-radius:2px;">
           <span style="color:#ffaaaa;">武<strong>${ability.military}</strong></span>
           <span style="color:#aaffaa;">内<strong>${ability.politics}</strong></span>
           <span style="color:#aaaaff;">知<strong>${ability.stratagem}</strong></span>
@@ -360,7 +367,7 @@ export const UIManagerMethods = {
 
     // シナリオ情報の取得 (IDまたは年で柔軟に検索)
     const scen = SCENARIOS.find(s => String(s.id) === String(this.currentScenarioId) || String(s.year) === String(this.currentScenarioId)) || SCENARIOS[0];
-    const scenTitle = scen ? `${scen.year}年 ${scen.title}` : '戦国天下統一伝';
+    const scenTitle = scen ? `${formatHistoricalYear(scen.year)}年 ${scen.title}` : '戦国天下統一伝';
 
     // シナリオ固有の解説文を取得（大名の歴史的位置づけ）
     const scenDesc = (scen && scen.clanDescs && scen.clanDescs[d.id]) || d.desc || '天下布武の志を抱き、乱世に覇を唱えんとする当主。';
@@ -664,7 +671,7 @@ export const UIManagerMethods = {
           <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin-bottom:18px; background:rgba(0,0,0,0.35); padding:10px 14px; border-radius:5px; border:1px solid #3d2d20;">
             <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; font-size:12pt; color:#ccc;">
               <div>
-                生没年: <strong style="color:#ffffff;">${off.birthYear || '?'}年 〜 ${off.deathYear || '?'}年</strong>
+                生没年: <strong style="color:#ffffff;">${off.birthYear != null ? formatHistoricalYear(off.birthYear) + '年' : '?'} 〜 ${off.deathYear != null ? formatHistoricalYear(off.deathYear) + '年' : '?'}</strong>
                 <span style="color:#aaa; margin-left:6px;">(現在 ${age}歳)</span>
               </div>
               <div>
@@ -813,44 +820,55 @@ export const UIManagerMethods = {
       };
 
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1180px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+        <div class="custom-modal-content appoint-modal-content" style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1180px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
           <!-- ヘッダー -->
-          <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+          <div class="modal-header-bar appoint-header-bar" style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ ${p.name}国 (${p.castleName || p.castle}) 城代・城主任命 ❖</h3>
-              <span style="font-size:12pt; color:#ccc;">武将行をクリックすると直ちに城主任命。各列ヘッダークリックで並び替え。城主不在時は城代が統治（能力${Math.round((p.jodaiRatio || 0.55)*100)}%）。</span>
+              <h3 class="modal-title-text" style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ ${p.name}国 (${p.castleName || p.castle}) 城代・城主任命 ❖</h3>
+              <span class="modal-subtitle-text" style="font-size:12pt; color:#ccc;">武将行をクリックすると直ちに城主任命。各列ヘッダークリックで並び替え。城主不在時は城代が統治（能力${Math.round((p.jodaiRatio || 0.55)*100)}%）。</span>
             </div>
             <button id="closeGovModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px;">✕</button>
           </div>
           
           <!-- 現在の統治状況バー & 検索 -->
-          <div style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
-            <div style="display:flex; align-items:center; gap:14px;">
+          <div class="modal-control-bar appoint-control-bar" style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
+            <div class="appoint-current-status" style="display:flex; align-items:center; gap:14px;">
               <div>
                 <span style="color:#aaa; font-size:12pt;">現在の統治: </span>
-                ${currentGov ? (currentGov.isDaimyo ? `<strong style="color:var(--gold-bright); font-size:13pt;">👑 本拠親政: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>` : `<strong style="color:#2ecc71; font-size:13pt;">🏯 城主: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>`) : `<strong style="color:#e67e22; font-size:13pt;">🏯 ${this.getEffectiveStats(p.id).vacantBadge || '城代統治'}</strong>`}
+                ${currentGov ? (currentGov.isDaimyo ? `<strong style="color:var(--gold-bright); font-size:13pt;">👑 本拠<span class="honkyo-shinsei-sub">親政</span>: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>` : `<strong style="color:#2ecc71; font-size:13pt;">🏯 城主: ${currentGov.name}</strong> <span style="font-size:12pt; color:#ddd;">${this.formatLordStatsInline(p.id, currentGov)}</span>`) : `<strong style="color:#e67e22; font-size:13pt;">🏯 ${this.getEffectiveStats(p.id).vacantBadge || '城代統治'}</strong>`}
               </div>
               ${currentGov ? `<button id="btnDismissGov" style="background:#78281f; color:#fff; border:1px solid #c0392b; padding:5px 14px; border-radius:4px; cursor:pointer; font-size:12pt; transition:0.2s;">城代に戻す (城主解任)</button>` : ''}
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:12pt; color:#aaa;">検索:</span>
+            <div class="modal-search-wrap" style="display:flex; align-items:center; gap:8px;">
+              <span class="modal-search-label" style="font-size:12pt; color:#aaa;">検索:</span>
               <input id="inputGovSearch" type="text" placeholder="武将名・特技..." value="${searchQuery}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:5px 10px; border-radius:4px; font-size:12pt; width:180px;">
             </div>
           </div>
 
+          <!-- スマホ用ソートバー (身分、名前、武勇、内政、知略、年齢) -->
+          <div class="modal-mobile-sort-bar appoint-mobile-sort-bar">
+            <span class="mobile-sort-label">並換:</span>
+            <button class="mobile-sort-btn ${sortKey === 'role' ? 'active' : ''}" data-key="role">身分${sortKey === 'role' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'name' ? 'active' : ''}" data-key="name">名前${sortKey === 'name' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'military' ? 'active' : ''}" data-key="military">武勇${sortKey === 'military' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'politic' ? 'active' : ''}" data-key="politic">内政${sortKey === 'politic' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'intel' ? 'active' : ''}" data-key="intel">知略${sortKey === 'intel' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'age' ? 'active' : ''}" data-key="age">年齢${sortKey === 'age' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+          </div>
+
           <!-- テーブル一覧コンテナ -->
-          <div style="flex:1; overflow-y:auto; padding:0 20px;">
-            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+          <div class="modal-table-scroll appoint-table-scroll" style="flex:1; overflow-y:auto; padding:0 20px;">
+            <table class="appoint-list-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
-                  <th class="sortable-gov-th" data-key="name" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:160px; font-size:12pt;">名前 ${getSortIcon('name')}</th>
-                  <th class="sortable-gov-th" data-key="role" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:center; font-size:12pt;">身分・配置 ${getSortIcon('role')}</th>
-                  <th class="sortable-gov-th" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:135px; text-align:center; font-size:12pt;">拠点 ${getSortIcon('base')}</th>
-                  <th class="sortable-gov-th" data-key="age" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">年齢 ${getSortIcon('age')}</th>
-                  <th class="sortable-gov-th" data-key="military" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">武勇 ${getSortIcon('military')}</th>
-                  <th class="sortable-gov-th" data-key="politic" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">内政 ${getSortIcon('politic')}</th>
-                  <th class="sortable-gov-th" data-key="intel" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">知略 ${getSortIcon('intel')}</th>
-                  <th style="padding:11px 12px; color:var(--gold); width:125px; text-align:center; font-size:12pt;">任命操作</th>
+                  <th class="sortable-gov-th appoint-th-name" data-key="name" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:160px; font-size:12pt;">名前 ${getSortIcon('name')}</th>
+                  <th class="sortable-gov-th appoint-th-role" data-key="role" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:center; font-size:12pt;">身分・配置 ${getSortIcon('role')}</th>
+                  <th class="sortable-gov-th appoint-th-base" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:135px; text-align:center; font-size:12pt;">拠点 ${getSortIcon('base')}</th>
+                  <th class="sortable-gov-th appoint-th-age" data-key="age" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">年齢 ${getSortIcon('age')}</th>
+                  <th class="sortable-gov-th appoint-th-mil" data-key="military" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">武勇 ${getSortIcon('military')}</th>
+                  <th class="sortable-gov-th appoint-th-pol" data-key="politic" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">内政 ${getSortIcon('politic')}</th>
+                  <th class="sortable-gov-th appoint-th-int" data-key="intel" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">知略 ${getSortIcon('intel')}</th>
+                  <th class="appoint-th-action" style="padding:11px 12px; color:var(--gold); width:125px; text-align:center; font-size:12pt;">任命操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -892,29 +910,57 @@ export const UIManagerMethods = {
                     : (idx % 2 === 0 ? 'rgba(255, 255, 255, 0.02)' : 'rgba(0, 0, 0, 0.18)');
 
                   return `
-                    <tr class="officer-table-row" data-off-id="${off.id}" title="${isAssignedHere ? '現在任命中' : `クリックして${off.name}を城主任命`}" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt; transition:background 0.15s;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt;">
+                    <tr class="appoint-table-row" data-off-id="${off.id}" title="${isAssignedHere ? '現在任命中' : `クリックして${off.name}を城主任命`}" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt; transition:background 0.15s;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
+                      <td class="appoint-td-name" style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt;">
                         ${off.name}
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap;">
+                      <td class="appoint-td-role" style="padding:10px 12px; text-align:center; white-space:nowrap;">
                         ${roleBadge}
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap; font-size:12pt;">
+                      <td class="appoint-td-base" style="padding:10px 12px; text-align:center; white-space:nowrap; font-size:12pt;">
                         ${baseDisplay}
                       </td>
-                      <td style="padding:10px 10px; text-align:center; color:#ddd; white-space:nowrap; font-size:12pt;">
+                      <td class="appoint-td-age" style="padding:10px 10px; text-align:center; color:#ddd; white-space:nowrap; font-size:12pt;">
                         ${age}歳
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="appoint-td-mil" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#ff6b6b; font-size:12.5pt;">${off.military}</b>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="appoint-td-pol" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#5dade2; font-size:12.5pt;">${off.politic}</b>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="appoint-td-int" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#a3e4d7; font-size:12.5pt;">${off.intel}</b>
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap;">
+                      <td class="appoint-td-mobile-card" style="display:none;">
+                        <!-- 1行目: 武将名・年齢 (左) ＆ 能力値 (右) -->
+                        <div class="appoint-mcard-row1">
+                          <div class="appoint-mcard-left">
+                            <strong class="appoint-mcard-name">${off.name}</strong>
+                            <span class="appoint-mcard-age">${age}歳</span>
+                          </div>
+                          <div class="appoint-mcard-stats">
+                            <span class="stat-mil">武<b>${off.military}</b></span>
+                            <span class="stat-pol">内<b>${off.politic}</b></span>
+                            <span class="stat-int">智<b>${off.intel}</b></span>
+                          </div>
+                        </div>
+                        <!-- 2行目: 身分・拠点 (左) ＆ 任命ボタン (右) -->
+                        <div class="appoint-mcard-row2">
+                          <div class="appoint-mcard-meta">
+                            <span class="appoint-mcard-role">${roleBadge}</span>
+                            <span class="appoint-mcard-base">🏯${baseDisplay}</span>
+                          </div>
+                          <div class="appoint-mcard-action">
+                            ${isAssignedHere ? `
+                              <span style="color:#2ecc71; font-weight:bold; font-size:9pt;">任命中</span>
+                            ` : `
+                              <button class="btn-select-gov" data-off-id="${off.id}" style="background:#1b4f72; color:#fff; border:1px solid #3498db; padding:2px 8px; border-radius:3px; cursor:pointer; font-size:8.5pt; font-weight:bold;">任命</button>
+                            `}
+                          </div>
+                        </div>
+                      </td>
+                      <td class="appoint-td-action" style="padding:10px 12px; text-align:center; white-space:nowrap;">
                         ${isAssignedHere ? `
                           <span style="color:#2ecc71; font-weight:bold; font-size:12pt;">任命中</span>
                         ` : `
@@ -929,11 +975,17 @@ export const UIManagerMethods = {
           </div>
 
           <!-- フッター -->
-          <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:12pt; color:#aaa;">表示中: ${list.length}名 (現在年: ${this.year}年) 💡武将行をクリックで直ちに城主任命</span>
-            <div style="display:flex; gap:8px;">
-              <button id="openBatchGovFromSingle" style="background:#1b4f72; color:#fff; border:1px solid #3498db; padding:7px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">城主を一括任命</button>
-              <button id="closeGovModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉じる</button>
+          <div class="modal-footer-bar appoint-footer-bar" style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
+            <span class="modal-footer-info" style="font-size:12pt; color:#aaa;">表示中: ${list.length}名 (現在年: ${formatHistoricalYear(this.year)}年) 💡武将行をクリックで直ちに城主任命</span>
+            <div class="appoint-footer-btn-group" style="display:flex; gap:8px;">
+              <button id="openBatchGovFromSingle" class="btn-batch-gov" style="background:#1b4f72; color:#fff; border:1px solid #3498db; padding:7px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">
+                <span class="btn-label-full">城主を一括任命</span>
+                <span class="btn-label-short">一括任命</span>
+              </button>
+              <button id="closeGovModalBtnBottom" class="modal-footer-close-btn" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">
+                <span class="btn-label-full">閉じる</span>
+                <span class="btn-label-short">閉じる</span>
+              </button>
             </div>
           </div>
         </div>
@@ -947,6 +999,34 @@ export const UIManagerMethods = {
       document.getElementById('openBatchGovFromSingle')?.addEventListener('click', () => {
         closeModal();
         this.openBatchGovernorModal();
+      });
+
+      // ヘッダークリックソート
+      modal.querySelectorAll('.sortable-gov-th').forEach(th => {
+        th.addEventListener('click', () => {
+          const key = th.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'base' ? 'asc' : 'desc');
+          }
+          render();
+        });
+      });
+
+      // スマホ用ソートボタンクリック
+      modal.querySelectorAll('.appoint-mobile-sort-bar .mobile-sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'base' ? 'asc' : 'desc');
+          }
+          render();
+        });
       });
 
       // 解任ボタン
@@ -1302,19 +1382,19 @@ export const UIManagerMethods = {
       };
 
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1180px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+        <div class="custom-modal-content officer-modal-content" style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1180px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
           <!-- ヘッダー -->
-          <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+          <div class="modal-header-bar" style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 参陣武将録・名将一覧 ❖</h3>
-              <span style="font-size:12pt; color:#ccc;">自軍および天下に名轟く武将・浪人の身分・拠点・能力を閲覧できます。浪人は直接登用も可能です。</span>
+              <h3 class="modal-title-text" style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 参陣武将録・名将一覧 ❖</h3>
+              <span class="modal-subtitle-text" style="font-size:12pt; color:#ccc;">自軍および天下に名轟く武将・浪人の身分・拠点・能力を閲覧できます。浪人は直接登用も可能です。</span>
             </div>
             <button id="closeOfficerModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px;">✕</button>
           </div>
 
           <!-- コントロールバー（タブ、検索） -->
-          <div style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="modal-control-bar" style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+            <div class="modal-tabs-wrap" style="display:flex; gap:8px; flex-wrap:wrap;">
               <button id="tabMyOfficers" style="background:${currentTab === 'my' ? '#922b21' : '#2b1d14'}; color:#fff; border:1px solid ${currentTab === 'my' ? '#c0392b' : '#664422'}; padding:6px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; transition:0.2s;">
                 我が軍の武将 (${myActive.length}名)
               </button>
@@ -1326,26 +1406,39 @@ export const UIManagerMethods = {
               </button>
             </div>
 
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:12pt; color:#aaa;">検索:</span>
+            <div class="modal-search-wrap" style="display:flex; align-items:center; gap:8px;">
+              <span class="modal-search-label" style="font-size:12pt; color:#aaa;">検索:</span>
               <input id="inputOfficerSearch" type="text" placeholder="武将名・所属..." value="${searchQuery}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:5px 10px; border-radius:4px; font-size:12pt; width:190px;">
             </div>
           </div>
 
+          <!-- スマホ用ソートバー (身分、拠点、名前、所属、武勇、内政、知略、年齢) -->
+          <div class="modal-mobile-sort-bar officer-mobile-sort-bar">
+            <span class="mobile-sort-label">並換:</span>
+            <button class="mobile-sort-btn ${sortKey === 'role' ? 'active' : ''}" data-key="role">身分${sortKey === 'role' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'base' ? 'active' : ''}" data-key="base">拠点${sortKey === 'base' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'name' ? 'active' : ''}" data-key="name">名前${sortKey === 'name' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'clan' ? 'active' : ''}" data-key="clan">所属${sortKey === 'clan' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'military' ? 'active' : ''}" data-key="military">武勇${sortKey === 'military' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'politic' ? 'active' : ''}" data-key="politic">内政${sortKey === 'politic' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'intel' ? 'active' : ''}" data-key="intel">知略${sortKey === 'intel' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'age' ? 'active' : ''}" data-key="age">年齢${sortKey === 'age' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+          </div>
+
           <!-- 武将テーブル一覧 -->
-          <div style="flex:1; overflow-y:auto; padding:0 20px;">
-            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+          <div class="modal-table-scroll officer-table-scroll" style="flex:1; overflow-y:auto; padding:0 20px;">
+            <table class="officer-list-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
-                  <th class="sortable-off-th" data-key="name" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px; font-size:12pt;">名前 ${getSortIcon('name')}</th>
-                  <th class="sortable-off-th" data-key="role" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:center; font-size:12pt;">身分・配置 ${getSortIcon('role')}</th>
-                  <th class="sortable-off-th" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:135px; text-align:center; font-size:12pt;">拠点 ${getSortIcon('base')}</th>
-                  <th class="sortable-off-th" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:130px; font-size:12pt;">所属 ${getSortIcon('clan')}</th>
-                  <th class="sortable-off-th" data-key="age" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:150px; text-align:center; font-size:12pt;">年齢・生没年 ${getSortIcon('age')}</th>
-                  <th class="sortable-off-th" data-key="military" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">武勇 ${getSortIcon('military')}</th>
-                  <th class="sortable-off-th" data-key="politic" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">内政 ${getSortIcon('politic')}</th>
-                  <th class="sortable-off-th" data-key="intel" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">知略 ${getSortIcon('intel')}</th>
-                  <th style="padding:11px 10px; color:var(--gold); width:100px; text-align:center; font-size:12pt;">登用</th>
+                  <th class="sortable-off-th off-th-name" data-key="name" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px; font-size:12pt;">名前 ${getSortIcon('name')}</th>
+                  <th class="sortable-off-th off-th-role" data-key="role" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:center; font-size:12pt;">身分・配置 ${getSortIcon('role')}</th>
+                  <th class="sortable-off-th off-th-base" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:135px; text-align:center; font-size:12pt;">拠点 ${getSortIcon('base')}</th>
+                  <th class="sortable-off-th off-th-clan" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:130px; font-size:12pt;">所属 ${getSortIcon('clan')}</th>
+                  <th class="sortable-off-th off-th-age" data-key="age" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:150px; text-align:center; font-size:12pt;">年齢・生没年 ${getSortIcon('age')}</th>
+                  <th class="sortable-off-th off-th-mil" data-key="military" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">武勇 ${getSortIcon('military')}</th>
+                  <th class="sortable-off-th off-th-pol" data-key="politic" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">内政 ${getSortIcon('politic')}</th>
+                  <th class="sortable-off-th off-th-int" data-key="intel" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:80px; text-align:center; font-size:12pt;">知略 ${getSortIcon('intel')}</th>
+                  <th class="off-th-action" style="padding:11px 10px; color:var(--gold); width:100px; text-align:center; font-size:12pt;">登用</th>
                 </tr>
               </thead>
               <tbody>
@@ -1387,7 +1480,6 @@ export const UIManagerMethods = {
                     baseDisplay = defProvName 
                       ? `<span style="color:${isDefProvMine ? '#2ecc71' : '#bdc3c7'}; font-weight:${isDefProvMine ? 'bold' : 'normal'};">${defProvName}</span><span style="color:#888; font-size:11pt; margin-left:3px;">(${isDefProvMine ? '自領内' : '流浪'})</span>` 
                       : '<span style="color:#888;">諸国流浪</span>';
-// 【修正後】
                   } else {
                     // 自領内にゆかりの地があればそこで待機、なければ主君の本拠
                     const baseProvId = this.officerBaseProvinceId(off);
@@ -1413,34 +1505,55 @@ export const UIManagerMethods = {
 
                   return `
                     <tr class="officer-table-row" data-off-id="${off.id}" title="クリックで人物列伝を表示" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt; transition:background 0.15s;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt; text-decoration:none; border-bottom:none;">
+                      <td class="off-td-name" style="padding:10px 12px; font-weight:bold; color:#ffffff; white-space:nowrap; font-size:12.5pt; text-decoration:none; border-bottom:none;">
                         ${off.name}
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap;">
+                      <td class="off-td-role" style="padding:10px 12px; text-align:center; white-space:nowrap;">
                         ${roleBadge}
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap; font-size:12pt;">
+                      <td class="off-td-base" style="padding:10px 12px; text-align:center; white-space:nowrap; font-size:12pt;">
                         ${baseDisplay}
                       </td>
-                      <td style="padding:10px 12px; white-space:nowrap;">
+                      <td class="off-td-clan" style="padding:10px 12px; white-space:nowrap;">
                         <span style="background:${isRonin ? 'rgba(127, 140, 141, 0.25)' : (isMyClan ? 'rgba(46, 204, 113, 0.2)' : 'rgba(255, 255, 255, 0.05)')}; color:${isRonin ? '#bdc3c7' : (isMyClan ? '#2ecc71' : '#e0d8c3')}; padding:3px 8px; border-radius:3px; border:1px solid ${isRonin ? '#7f8c8d' : (isMyClan ? '#27ae60' : '#5a4638')}; font-size:12pt;">
                           ${clanAffiliation}
                         </span>
                       </td>
-                      <td style="padding:10px 12px; text-align:center; color:#ddd; white-space:nowrap; font-size:12pt;">
+                      <td class="off-td-age" style="padding:10px 12px; text-align:center; color:#ddd; white-space:nowrap; font-size:12pt;">
                         <strong style="color:#ffffff; font-size:12.5pt;">${age}歳</strong>
-                        <span style="color:#aaa; font-size:12pt; margin-left:4px;">(${off.birthYear}〜${off.deathYear})</span>
+                        <span style="color:#aaa; font-size:12pt; margin-left:4px;">(${formatHistoricalYear(off.birthYear)}〜${formatHistoricalYear(off.deathYear)})</span>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="off-td-mil" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#ff6b6b; font-size:12.5pt;">${off.military}</b>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="off-td-pol" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#5dade2; font-size:12.5pt;">${off.politic}</b>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; white-space:nowrap;">
+                      <td class="off-td-int" style="padding:10px 10px; text-align:center; white-space:nowrap;">
                         <b style="color:#a3e4d7; font-size:12.5pt;">${off.intel}</b>
                       </td>
-                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">
+                      <td class="off-td-mobile-card" style="display:none;">
+                        <div class="off-mcard-row1">
+                          <div class="off-mcard-left">
+                            <strong class="off-mcard-name">${off.name}</strong>
+                            <span class="off-mcard-age">${age}歳</span>
+                          </div>
+                          <div class="off-mcard-stats">
+                            <span class="stat-mil">武<b>${off.military}</b></span>
+                            <span class="stat-pol">内<b>${off.politic}</b></span>
+                            <span class="stat-int">智<b>${off.intel}</b></span>
+                          </div>
+                        </div>
+                        <div class="off-mcard-row2">
+                          <div class="off-mcard-meta">
+                            <span class="off-mcard-role">${roleBadge}</span>
+                            <span class="off-mcard-base">🏯${baseDisplay}</span>
+                            <span class="off-mcard-clan">${clanAffiliation}</span>
+                          </div>
+                          ${isRonin && roninReach && roninReach.reachable ? `<div class="off-mcard-action"><button class="btn-recruit-ronin-row" data-off-id="${off.id}" style="background:linear-gradient(180deg, #d4af37, #b7950b); color:#111; border:none; padding:1px 7px; border-radius:3px; font-weight:bold; font-size:8.5pt; cursor:pointer;">登用</button></div>` : ''}
+                        </div>
+                      </td>
+                      <td class="off-td-action" style="padding:10px 8px; text-align:center; white-space:nowrap;">
                         ${recruitBtn}
                       </td>
                     </tr>
@@ -1451,9 +1564,9 @@ export const UIManagerMethods = {
           </div>
 
           <!-- フッター -->
-          <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:12pt; color:#aaa;">表示中: ${list.length}名 (現在年: ${this.year}年) 💡行クリックで人物列伝を表示 ｜ 遠国も登用可（遠いほど成功率は低下）。跡継ぎ不在時は確率が上がり、仕官も来ます</span>
-            <button id="closeOfficerModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
+          <div class="modal-footer-bar officer-footer-bar" style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
+            <span class="modal-footer-info" style="font-size:12pt; color:#aaa;">表示中: ${list.length}名 (現在年: ${formatHistoricalYear(this.year)}年) 💡行クリックで人物列伝を表示 ｜ 遠国も登用可（遠いほど成功率は低下）。跡継ぎ不在時は確率が上がり、仕官も来ます</span>
+            <button id="closeOfficerModalBtnBottom" class="modal-footer-close-btn" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
           </div>
         </div>
       `;
@@ -1483,6 +1596,20 @@ export const UIManagerMethods = {
       modal.querySelectorAll('.sortable-off-th').forEach(th => {
         th.addEventListener('click', () => {
           const key = th.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'clan' || key === 'base' ? 'asc' : 'desc');
+          }
+          render();
+        });
+      });
+
+      // スマホ用ソートボタンクリック
+      modal.querySelectorAll('.officer-mobile-sort-bar .mobile-sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.key;
           if (sortKey === key) {
             sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
           } else {
@@ -1654,20 +1781,20 @@ export const UIManagerMethods = {
 
       const th = (key, label, extra) => `<th class="sortable-prov-th" data-key="${key}" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; font-size:12pt; white-space:nowrap; ${extra || ''}">${label} ${getSortIcon(key)}</th>`;
 
-      const governorCell = (r, roleBadge) => `<td style="padding:8px 8px; white-space:nowrap;">${roleBadge}<b style="margin-left:6px; color:#fff;">${esc(r.govName)}</b></td>`;
+      const governorCell = (r, roleBadge) => `<td class="prov-td-gov" style="padding:8px 8px; white-space:nowrap;">${roleBadge}<b style="margin-left:6px; color:#fff;">${esc(r.govName)}</b></td>`;
 
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:96vw; max-width:1560px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
-          <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+        <div class="custom-modal-content province-modal-content" style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:96vw; max-width:1560px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+          <div class="modal-header-bar" style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 領国録・城主と石高 ❖</h3>
-              <span style="font-size:12pt; color:#ccc;">城主と武勇・内政・智謀、兵力や表高を一覧できます。城主・当主の行をクリックすると、その武将の概要と列伝が開きます。城代や空白地の行は、地図でその領国を選びます。</span>
+              <h3 class="modal-title-text" style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 領国録・城主と石高 ❖</h3>
+              <span class="modal-subtitle-text" style="font-size:12pt; color:#ccc;">城主と武勇・内政・智謀、兵力や表高を一覧できます。城主・当主の行をクリックすると、その武将の概要と列伝が開きます。城代や空白地の行は、地図でその領国を選びます。</span>
             </div>
             <button id="closeProvinceModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px;">✕</button>
           </div>
 
-          <div style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="modal-control-bar" style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+            <div class="modal-tabs-wrap" style="display:flex; gap:8px; flex-wrap:wrap;">
               <button id="tabMyProvinces" style="background:${currentTab === 'my' ? '#922b21' : '#2b1d14'}; color:#fff; border:1px solid ${currentTab === 'my' ? '#c0392b' : '#664422'}; padding:6px 16px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">
                 我が領国 (${myProvs.length}国)
               </button>
@@ -1679,14 +1806,27 @@ export const UIManagerMethods = {
               </button>
               <button id="provListOpenBatchGov" title="自領の城主をまとめて任命" style="background:linear-gradient(180deg, #d4af37, #b7950b); color:#111; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">城主一括任命</button>
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:12pt; color:#aaa;">検索:</span>
+            <div class="modal-search-wrap" style="display:flex; align-items:center; gap:8px;">
+              <span class="modal-search-label" style="font-size:12pt; color:#aaa;">検索:</span>
               <input id="inputProvinceSearch" type="text" placeholder="国名・城・城主・領主..." value="${esc(searchQuery)}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:5px 10px; border-radius:4px; font-size:12pt; width:210px;">
             </div>
           </div>
 
-          <div id="provinceListScroll" style="flex:1; overflow:auto; padding:0 12px 0 20px;">
-            <table style="width:max-content; min-width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+          <!-- スマホ用ソートバー (国名、拠点、城主、武勇、内政、智謀、兵力、石高) -->
+          <div class="modal-mobile-sort-bar province-mobile-sort-bar">
+            <span class="mobile-sort-label">並換:</span>
+            <button class="mobile-sort-btn ${sortKey === 'name' ? 'active' : ''}" data-key="name">国名${sortKey === 'name' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'castle' ? 'active' : ''}" data-key="castle">拠点${sortKey === 'castle' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'governor' ? 'active' : ''}" data-key="governor">城主${sortKey === 'governor' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'military' ? 'active' : ''}" data-key="military">武勇${sortKey === 'military' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'politics' ? 'active' : ''}" data-key="politics">内政${sortKey === 'politics' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'stratagem' ? 'active' : ''}" data-key="stratagem">智謀${sortKey === 'stratagem' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'troops' ? 'active' : ''}" data-key="troops">兵力${sortKey === 'troops' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'kokudaka' ? 'active' : ''}" data-key="kokudaka">石高${sortKey === 'kokudaka' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+          </div>
+
+          <div id="provinceListScroll" class="modal-table-scroll province-table-scroll" style="flex:1; overflow:auto; padding:0 12px 0 20px;">
+            <table class="province-list-table" style="width:max-content; min-width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
                   ${th('name', '国名', '')}
@@ -1725,9 +1865,9 @@ export const UIManagerMethods = {
                     const badge = esc(badgeText);
                     roleBadge = `<span style="background:#d35400; color:#fff; padding:2px 8px; border-radius:3px; font-size:12pt; font-weight:bold;">${badge}</span>`;
                   }
-                  const statCell = (value, color, mark = '') => value == null
-                    ? '<td style="padding:10px 8px; text-align:center; white-space:nowrap; color:#777;">—</td>'
-                    : `<td style="padding:10px 8px; text-align:center; white-space:nowrap;"><b style="color:${color}; font-size:12.5pt;">${value}</b>${mark}</td>`;
+                  const statCell = (value, color, mark = '', cls = '') => value == null
+                    ? `<td class="${cls}" style="padding:10px 8px; text-align:center; white-space:nowrap; color:#777;">—</td>`
+                    : `<td class="${cls}" style="padding:10px 8px; text-align:center; white-space:nowrap;"><b style="color:${color}; font-size:12.5pt;">${value}</b>${mark}</td>`;
                   const isSelected = r.p.id === this.selectedProvId;
                   const rowBg = isSelected
                     ? 'rgba(215, 175, 100, 0.22)'
@@ -1744,22 +1884,59 @@ export const UIManagerMethods = {
                   const rowTitle = r.officer ? 'クリックで武将の概要と列伝を表示' : 'クリックで地図上の領国を選択';
                   return `
                     <tr class="province-table-row" role="button" tabindex="0" data-prov-id="${esc(r.p.id)}" data-off-id="${esc(r.officer ? r.officer.id : '')}" title="${rowTitle}" style="background:${rowBg}; border-bottom:1px solid #3d2d20; cursor:pointer; font-size:12pt;" onmouseover="this.style.background='rgba(215, 175, 100, 0.12)'" onmouseout="this.style.background='${rowBg}'">
-                      <td style="padding:10px 8px; font-weight:bold; color:#fff; white-space:nowrap; font-size:12.5pt;">${esc(r.p.name)}</td>
-                      <td style="padding:10px 8px; color:#f5eedc; white-space:nowrap; min-width:14em;" title="${esc(r.specialty)}">${esc(r.castle)}</td>
-                      <td style="padding:10px 8px; text-align:center; white-space:nowrap; color:#ccc;">${esc(r.region)}</td>
-                      <td style="padding:10px 10px; white-space:nowrap;">
+                      <td class="prov-td-name" style="padding:10px 8px; font-weight:bold; color:#fff; white-space:nowrap; font-size:12.5pt;">
+                        ${esc(r.p.name)} <span class="prov-mobile-castle-name" style="font-size:10pt; color:#ddd; font-weight:normal; margin-left:4px;">🏯${esc(r.castle)}</span>
+                      </td>
+                      <td class="prov-td-castle" style="padding:10px 8px; color:#f5eedc; white-space:nowrap; min-width:14em;" title="${esc(r.specialty)}">${esc(r.castle)}</td>
+                      <td class="prov-td-region" style="padding:10px 8px; text-align:center; white-space:nowrap; color:#ccc;">${esc(r.region)}</td>
+                      <td class="prov-td-owner" style="padding:10px 10px; white-space:nowrap;">
                         <span style="${ownerStyle} padding:3px 8px; border-radius:3px; font-size:12pt;">${esc(r.ownerName)}</span>
                       </td>
+                      <td class="prov-td-mobile-card" style="display:none;">
+                        <!-- 1行目: 国名・城名 (左) ＆ 所属大名家 (右) -->
+                        <div class="prov-mcard-row1">
+                          <div class="prov-mcard-left">
+                            <strong class="prov-mcard-name">${esc(r.p.name)}</strong>
+                            <span class="prov-mcard-castle">🏯${esc(r.castle)}</span>
+                          </div>
+                          <span class="prov-mcard-owner" style="${ownerStyle}">${esc(r.ownerName)}</span>
+                        </div>
+                        <!-- 2行目: 城主 (左) ＆ 能力値 (右) -->
+                        <div class="prov-mcard-row2">
+                          <div class="prov-mcard-gov">
+                            <span class="prov-mcard-badge">${roleBadge}</span>
+                            <strong class="prov-mcard-govname">${esc(r.govName)}</strong>
+                          </div>
+                          <div class="prov-mcard-stats">
+                            <span class="stat-mil">武<b>${r.military ?? '—'}</b></span>
+                            <span class="stat-pol">内<b>${r.politics ?? '—'}</b></span>
+                            <span class="stat-strat">智<b>${r.stratagem ?? '—'}</b></span>
+                          </div>
+                        </div>
+                        <!-- 3行目: 軍事・経済データ (横並び) -->
+                        <div class="prov-mcard-row3">
+                          <div class="prov-mcard-mil-data">
+                            <span class="mdata-item">兵 <b>${r.troops.toLocaleString('ja-JP')}</b></span>
+                            <span class="mdata-item">防御 <b>${r.defense}</b></span>
+                            <span class="mdata-item">士気 <b>${r.morale}</b></span>
+                          </div>
+                          <div class="prov-mcard-eco-data">
+                            <span class="mdata-item">石高 <b>${formatManKoku(r.kokudaka)}</b></span>
+                            <span class="mdata-item">商 <b>${r.commerce.toLocaleString('ja-JP')}</b></span>
+                            <span class="mdata-item">治 <b>${r.order}%</b></span>
+                          </div>
+                        </div>
+                      </td>
                       ${governorCell(r, roleBadge)}
-                      ${statCell(r.military, '#ff6b6b', this.lordAideMark(r.eff, 'military'))}
-                      ${statCell(r.politics, '#5dade2', this.lordAideMark(r.eff, 'politics'))}
-                      ${statCell(r.stratagem, '#a3e4d7', this.lordAideMark(r.eff, 'stratagem'))}
-                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.troops.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 人</span></td>
-                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.defense}</td>
-                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.morale}</td>
-                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;"><b style="color:#ffd700; font-size:12.5pt;">${formatManKoku(r.kokudaka)}</b></td>
-                      <td style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.commerce.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 貫</span></td>
-                      <td style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.order}%</td>
+                      ${statCell(r.military, '#ff6b6b', this.lordAideMark(r.eff, 'military'), 'prov-td-mil')}
+                      ${statCell(r.politics, '#5dade2', this.lordAideMark(r.eff, 'politics'), 'prov-td-pol')}
+                      ${statCell(r.stratagem, '#a3e4d7', this.lordAideMark(r.eff, 'stratagem'), 'prov-td-strat')}
+                      <td class="prov-td-troops" style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.troops.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 人</span></td>
+                      <td class="prov-td-defense" style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.defense}</td>
+                      <td class="prov-td-morale" style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.morale}</td>
+                      <td class="prov-td-kokudaka" style="padding:10px 10px; text-align:right; white-space:nowrap;"><b style="color:#ffd700; font-size:12.5pt;">${formatManKoku(r.kokudaka)}</b></td>
+                      <td class="prov-td-commerce" style="padding:10px 10px; text-align:right; white-space:nowrap;">${r.commerce.toLocaleString('ja-JP')}<span style="color:#aaa; font-size:11pt;"> 貫</span></td>
+                      <td class="prov-td-order" style="padding:10px 8px; text-align:center; white-space:nowrap;">${r.order}%</td>
                     </tr>
                   `;
                 }).join('')}
@@ -1767,9 +1944,9 @@ export const UIManagerMethods = {
             </table>
           </div>
 
-          <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center; gap:12px;">
-            <span style="font-size:12pt; color:#aaa;">表示中: ${rows.length}国 (現在年: ${this.year}年) ｜ 城主・当主の行は列伝 ｜ 城代・空白地の行は地図を選択</span>
-            <button id="closeProvinceModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">閉</button>
+          <div class="modal-footer-bar province-footer-bar" style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span class="modal-footer-info" style="font-size:12pt; color:#aaa;">表示中: ${rows.length}国 (現在年: ${formatHistoricalYear(this.year)}年) ｜ 城主・当主の行は列伝 ｜ 城代・空白地の行は地図を選択</span>
+            <button id="closeProvinceModalBtnBottom" class="modal-footer-close-btn" style="background:#555; color:#fff; border:none; padding:7px 14px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">閉</button>
           </div>
         </div>
       `;
@@ -1788,6 +1965,20 @@ export const UIManagerMethods = {
       modal.querySelectorAll('.sortable-prov-th').forEach(el => {
         el.addEventListener('click', () => {
           const key = el.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'castle' || key === 'region' || key === 'owner') ? 'asc' : 'desc';
+          }
+          render();
+        });
+      });
+
+      // スマホ用ソートボタンクリック
+      modal.querySelectorAll('.province-mobile-sort-bar .mobile-sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.key;
           if (sortKey === key) {
             sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
           } else {
@@ -1899,6 +2090,7 @@ export const UIManagerMethods = {
           totalTroops,
           officerCount,
           capitalDisplay,
+          mainProvId: mainProv ? mainProv.id : null,
           allies,
           isPlayer,
           isAlliedWithPlayer
@@ -1924,7 +2116,7 @@ export const UIManagerMethods = {
         } else if (sortKey === 'leader') {
           diff = a.daimyoName.localeCompare(b.daimyoName, 'ja');
         } else if (sortKey === 'base') {
-          diff = a.capitalDisplay.localeCompare(b.capitalDisplay, 'ja');
+          diff = this.provinceGeoRank(a.mainProvId) - this.provinceGeoRank(b.mainProvId);
         } else if (sortKey === 'provCount') {
           diff = a.provCount - b.provCount;
         } else if (sortKey === 'totalRice') {
@@ -1952,53 +2144,63 @@ export const UIManagerMethods = {
       const myClanName = this.getClanFamilyName(this.playerClanId);
 
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1580px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+        <div class="custom-modal-content faction-modal-content" style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1580px; height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
           <!-- ヘッダー -->
-          <div style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+          <div class="modal-header-bar" style="padding:12px 22px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 天下大名勢力録・外交指南 ❖</h3>
-              <span style="font-size:12pt; color:#ccc;">天下諸大名の支配領国、総石高、総兵力、武将数および外交同盟関係を閲覧できます。他大名との同盟締結・破棄が可能です。</span>
+              <h3 class="modal-title-text" style="margin:0; font-size:15pt; color:var(--gold-bright);">❖ 天下大名勢力録・外交指南 ❖</h3>
+              <span class="modal-subtitle-text" style="font-size:12pt; color:#ccc;">天下諸大名の支配領国、総石高、総兵力、武将数および外交同盟関係を閲覧できます。他大名との同盟締結・破棄が可能です。</span>
             </div>
             <button id="closeFactionModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px;">✕</button>
           </div>
 
           <!-- コントロールバー（自軍状況、検索） -->
-          <div style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
-            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-size:12pt;">
-              <span style="background:rgba(212,175,55,0.15); border:1px solid var(--gold); padding:4px 12px; border-radius:4px;">
+          <div class="modal-control-bar" style="padding:10px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+            <div class="faction-my-info-bar" style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-size:12pt;">
+              <span class="fac-info-item" style="background:rgba(212,175,55,0.15); border:1px solid var(--gold); padding:4px 12px; border-radius:4px;">
                 👑 貴家: <strong style="color:var(--gold-bright);">${myClanName}</strong> (${myDaimyoName}公)
               </span>
-              <span style="background:rgba(0,0,0,0.4); border:1px solid #555; padding:4px 10px; border-radius:4px;">
+              <span class="fac-info-item" style="background:rgba(0,0,0,0.4); border:1px solid #555; padding:4px 10px; border-radius:4px;">
                 ⚡ 行動力: <strong style="color:#5dade2;">${this.ap} AP</strong>
               </span>
-              <span style="background:rgba(0,0,0,0.4); border:1px solid #555; padding:4px 10px; border-radius:4px;">
+              <span class="fac-info-item" style="background:rgba(0,0,0,0.4); border:1px solid #555; padding:4px 10px; border-radius:4px;">
                 💰 軍資金: <strong style="color:#ffd700;">${this.gold.toLocaleString()} 両</strong>
               </span>
-              <span style="background:rgba(46,204,113,0.15); border:1px solid #27ae60; padding:4px 10px; border-radius:4px;">
+              <span class="fac-info-item" style="background:rgba(46,204,113,0.15); border:1px solid #27ae60; padding:4px 10px; border-radius:4px;">
                 🤝 同盟国: <strong style="color:#2ecc71;">${myAllies.length} 家</strong>
               </span>
             </div>
 
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:12pt; color:#aaa;">勢力検索:</span>
+            <div class="modal-search-wrap" style="display:flex; align-items:center; gap:8px;">
+              <span class="modal-search-label" style="font-size:12pt; color:#aaa;">勢力検索:</span>
               <input id="inputFactionSearch" type="text" placeholder="大名家・当主・本拠..." value="${searchQuery}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:5px 10px; border-radius:4px; font-size:12pt; width:200px;">
             </div>
           </div>
 
+          <!-- スマホ用ソートバー (本拠、領国数、石高、兵力、武将) -->
+          <div class="modal-mobile-sort-bar faction-mobile-sort-bar">
+            <span class="mobile-sort-label">並換:</span>
+            <button class="mobile-sort-btn ${sortKey === 'base' ? 'active' : ''}" data-key="base">本拠${sortKey === 'base' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'provCount' ? 'active' : ''}" data-key="provCount">領国数${sortKey === 'provCount' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'totalRice' ? 'active' : ''}" data-key="totalRice">石高${sortKey === 'totalRice' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'totalTroops' ? 'active' : ''}" data-key="totalTroops">兵力${sortKey === 'totalTroops' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'officerCount' ? 'active' : ''}" data-key="officerCount">武将${sortKey === 'officerCount' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+          </div>
+
           <!-- 勢力テーブル一覧 -->
-          <div style="flex:1; overflow-y:auto; padding:0 20px;">
-            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+          <div class="modal-table-scroll faction-table-scroll" style="flex:1; overflow-y:auto; padding:0 20px;">
+            <table class="faction-list-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
-                  <th class="sortable-fac-th" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:260px; min-width:260px; white-space:nowrap; font-size:12pt;">大名家 ${getSortIcon('clan')}</th>
-                  <th class="sortable-fac-th" data-key="leader" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:130px; font-size:12pt;">当主 ${getSortIcon('leader')}</th>
-                  <th class="sortable-fac-th" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:360px; min-width:360px; white-space:nowrap; font-size:12pt;">本拠地 (居城) ${getSortIcon('base')}</th>
-                  <th class="sortable-fac-th" data-key="provCount" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:95px; text-align:center; font-size:12pt;">領国数 ${getSortIcon('provCount')}</th>
-                  <th class="sortable-fac-th" data-key="totalRice" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総石高 ${getSortIcon('totalRice')}</th>
-                  <th class="sortable-fac-th" data-key="totalTroops" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総兵力 ${getSortIcon('totalTroops')}</th>
-                  <th class="sortable-fac-th" data-key="officerCount" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">武将数 ${getSortIcon('officerCount')}</th>
-                  <th class="sortable-fac-th" data-key="allies" style="padding:11px 12px; color:var(--gold); user-select:none; width:200px; font-size:12pt;">同盟国</th>
-                  <th class="sortable-fac-th" data-key="diplomacy" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:170px; text-align:center; font-size:12pt;">外交・同盟 ${getSortIcon('diplomacy')}</th>
+                  <th class="sortable-fac-th fac-th-clan" data-key="clan" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:260px; min-width:260px; white-space:nowrap; font-size:12pt;">大名家 ${getSortIcon('clan')}</th>
+                  <th class="sortable-fac-th fac-th-leader" data-key="leader" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:130px; font-size:12pt;">当主 ${getSortIcon('leader')}</th>
+                  <th class="sortable-fac-th fac-th-base" data-key="base" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:360px; min-width:360px; white-space:nowrap; font-size:12pt;">本拠地 (居城) ${getSortIcon('base')}</th>
+                  <th class="sortable-fac-th fac-th-provs" data-key="provCount" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:95px; text-align:center; font-size:12pt;">領国数 ${getSortIcon('provCount')}</th>
+                  <th class="sortable-fac-th fac-th-rice" data-key="totalRice" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総石高 ${getSortIcon('totalRice')}</th>
+                  <th class="sortable-fac-th fac-th-troops" data-key="totalTroops" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:110px; text-align:right; font-size:12pt;">総兵力 ${getSortIcon('totalTroops')}</th>
+                  <th class="sortable-fac-th fac-th-officers" data-key="officerCount" style="padding:11px 10px; color:var(--gold); cursor:pointer; user-select:none; width:85px; text-align:center; font-size:12pt;">武将数 ${getSortIcon('officerCount')}</th>
+                  <th class="sortable-fac-th fac-th-allies" data-key="allies" style="padding:11px 12px; color:var(--gold); user-select:none; width:200px; font-size:12pt;">同盟国</th>
+                  <th class="sortable-fac-th fac-th-action" data-key="diplomacy" style="padding:11px 12px; color:var(--gold); cursor:pointer; user-select:none; width:170px; text-align:center; font-size:12pt;">外交・同盟 ${getSortIcon('diplomacy')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -2059,32 +2261,32 @@ export const UIManagerMethods = {
                   }
 
                   return `
-                    <tr style="border-bottom:1px solid #3d2b1f; background:${rowBg}; border-left:${borderLeft}; transition:background 0.2s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.06)'" onmouseout="this.style.backgroundColor='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:${isPlayer ? 'var(--gold-bright)' : '#fff'}; white-space:nowrap;">
-                        ${isPlayer ? '★ ' : ''}${f.clanName}
+                    <tr class="faction-table-row" style="border-bottom:1px solid #3d2b1f; background:${rowBg}; border-left:${borderLeft}; transition:background 0.2s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.06)'" onmouseout="this.style.backgroundColor='${rowBg}'">
+                      <td class="fac-td-clan" style="padding:10px 12px; font-weight:bold; color:${isPlayer ? 'var(--gold-bright)' : '#fff'}; white-space:nowrap;">
+                        ${isPlayer ? '★ ' : ''}${f.clanName} <span class="fac-mobile-leader-name" style="color:var(--gold-bright); font-size:10.5pt; font-weight:normal; margin-left:4px;">(${f.daimyoName})</span>
                       </td>
-                      <td style="padding:10px 12px; color:var(--gold-bright); font-weight:bold;">
+                      <td class="fac-td-leader" style="padding:10px 12px; color:var(--gold-bright); font-weight:bold;">
                         ${f.daimyoName}
                       </td>
-                      <td style="padding:10px 12px; color:#ddd; white-space:nowrap;">
+                      <td class="fac-td-base" style="padding:10px 12px; color:#ddd; white-space:nowrap;">
                         ${f.capitalDisplay}
                       </td>
-                      <td style="padding:10px 10px; text-align:center;" title="支配領国: ${provNames}">
+                      <td class="fac-td-provs" style="padding:10px 10px; text-align:center;" title="支配領国: ${provNames}">
                         <span style="font-weight:bold; color:${f.provCount >= 5 ? '#e74c3c' : (f.provCount >= 3 ? '#e67e22' : '#fff')};">${f.provCount}</span> ヶ国
                       </td>
-                      <td style="padding:10px 10px; text-align:right; color:#2ecc71; font-weight:bold;">
+                      <td class="fac-td-rice" style="padding:10px 10px; text-align:right; color:#2ecc71; font-weight:bold;">
                         ${f.totalRice.toLocaleString()} 石
                       </td>
-                      <td style="padding:10px 10px; text-align:right; color:#f39c12; font-weight:bold;">
+                      <td class="fac-td-troops" style="padding:10px 10px; text-align:right; color:#f39c12; font-weight:bold;">
                         ${f.totalTroops.toLocaleString()} 人
                       </td>
-                      <td style="padding:10px 10px; text-align:center; color:#ccc;">
+                      <td class="fac-td-officers" style="padding:10px 10px; text-align:center; color:#ccc;">
                         ${f.officerCount} 名
                       </td>
-                      <td style="padding:10px 12px;">
+                      <td class="fac-td-allies" style="padding:10px 12px;">
                         ${alliesTagsHtml}
                       </td>
-                      <td style="padding:10px 12px; text-align:center;">
+                      <td class="fac-td-action" style="padding:10px 12px; text-align:center;">
                         ${actionHtml}
                       </td>
                     </tr>
@@ -2095,13 +2297,13 @@ export const UIManagerMethods = {
           </div>
 
           <!-- フッター -->
-          <div style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:12pt; color:#aaa;">
+          <div class="modal-footer-bar faction-footer-bar" style="padding:12px 20px; border-top:1px solid #443322; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
+            <div class="modal-footer-info" style="font-size:12pt; color:#aaa;">
               現存大名: <strong style="color:#fff;">${factions.length}</strong> 家 ｜ 貴家の同盟国: <strong style="color:#2ecc71;">${myAllies.length}</strong> 家
-              <span style="margin-left:14px; color:#bbb; font-size:11pt;">💡【同盟効果】相互攻撃不可・防衛戦での援軍（二年＝八季で解消。滅亡した大名は一覧から消える。締結: 金500両・AP 1点）</span>
+              <span class="fac-footer-note" style="margin-left:14px; color:#bbb; font-size:11pt;">💡【同盟効果】相互攻撃不可・防衛戦での援軍（二年＝八季で解消。滅亡した大名は一覧から消える。締結: 金500両・AP 1点）</span>
             </div>
             <div>
-              <button id="closeFactionModalBtnBottom" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
+              <button id="closeFactionModalBtnBottom" class="modal-footer-close-btn" style="background:#555; color:#fff; border:none; padding:7px 22px; border-radius:4px; cursor:pointer; font-size:12pt; font-weight:bold;">閉</button>
             </div>
           </div>
         </div>
@@ -2140,6 +2342,20 @@ export const UIManagerMethods = {
           } else {
             sortKey = key;
             sortOrder = (key === 'clan' || key === 'leader' || key === 'base' ? 'asc' : 'desc');
+          }
+          render();
+        });
+      });
+
+      // スマホ用ソートボタンクリック
+      modal.querySelectorAll('.faction-mobile-sort-bar .mobile-sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'base' ? 'asc' : 'desc');
           }
           render();
         });
@@ -2694,56 +2910,72 @@ export const UIManagerMethods = {
 
       modal.style.display = 'flex';
       modal.innerHTML = `
-        <div style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1080px; max-height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
+        <div class="custom-modal-content prov-officers-modal-content" style="background:#1b140e; border:2px solid var(--gold); border-radius:8px; width:95vw; max-width:1080px; max-height:88vh; display:flex; flex-direction:column; box-shadow:0 0 45px rgba(0,0,0,0.95); color:#f5eedc; font-family:'Noto Serif JP',serif;">
           <!-- ヘッダー -->
-          <div style="padding:12px 20px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
+          <div class="modal-header-bar prov-officers-header-bar" style="padding:12px 20px; border-bottom:1px solid #5a4638; background:linear-gradient(180deg, #2b1d14 0%, #1a110a 100%); display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <h3 style="margin:0; font-size:15pt; color:var(--gold-bright);">
+              <h3 class="modal-title-text prov-officers-title-text" style="margin:0; font-size:15pt; color:var(--gold-bright);">
                 🏯【${p.name}】在国武将一覧
-                <span style="font-size:12.5pt; color:#ccc; font-weight:normal; margin-left:8px;">(城郭: ${curCastle})</span>
+                <span class="prov-officers-castle-tag" style="font-size:12pt; color:#ccc; font-weight:normal; margin-left:8px;">(城郭: ${curCastle})</span>
               </h3>
-              <div style="font-size:11.5pt; color:#aaa; margin-top:2px;">
+              <div class="modal-subtitle-text prov-officers-subtitle-text" style="font-size:11.5pt; color:#aaa; margin-top:2px;">
                 支配: <strong style="color:${isMine ? 'var(--gold)' : (isBlank ? '#bdc3c7' : '#e0d8c3')}">${ownerName}</strong> 
                 ｜ 滞在武将: <strong style="color:var(--gold-bright);">${provOfficers.length} 名</strong>
-                <span style="color:#888; margin-left:8px;">※武将をクリックすると列伝・詳細を確認できます</span>
+                <span class="prov-officers-note-pc" style="color:#888; margin-left:8px;">※武将をクリックすると列伝・詳細を確認できます</span>
+              </div>
+              <div class="prov-officers-mobile-sub" style="display:none;">
+                <span class="prov-officers-mobile-owner">支配: <strong style="color:${isMine ? 'var(--gold)' : (isBlank ? '#bdc3c7' : '#e0d8c3')}">${ownerName}</strong></span>
+                <span class="prov-officers-mobile-count">滞在: <strong style="color:var(--gold-bright);">${provOfficers.length}名</strong></span>
               </div>
             </div>
-            <button id="closeProvOfficersModalBtn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px; line-height:1;">✕</button>
+            <button id="closeProvOfficersModalBtn" class="modal-close-x-btn" style="background:transparent; border:none; color:#ddd; font-size:20pt; cursor:pointer; padding:0 8px; line-height:1;">✕</button>
           </div>
 
           <!-- 検索バー ＆ アクション -->
-          <div style="padding:8px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:12pt; color:#ccc;">
+          <div class="modal-control-bar prov-officers-control-bar" style="padding:8px 20px; background:rgba(0,0,0,0.35); border-bottom:1px dashed #5a4638; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div class="prov-officers-actions">
               ${isMine ? `
-                <button id="btnProvOfficersAppoint" style="background:linear-gradient(180deg, #b7950b, #967208); color:#fff; border:1px solid #d4af37; padding:4px 12px; border-radius:3px; cursor:pointer; font-size:11.5pt; font-weight:bold;">
+                <button id="btnProvOfficersAppoint" class="btn-prov-officers-appoint" style="background:linear-gradient(180deg, #b7950b, #967208); color:#fff; border:1px solid #d4af37; padding:4px 12px; border-radius:3px; cursor:pointer; font-size:11.5pt; font-weight:bold; white-space:nowrap;">
                   🏯 城主を交代・任命
                 </button>
               ` : ''}
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:11.5pt; color:#aaa;">検索:</span>
-              <input id="inputProvOfficerSearch" type="text" placeholder="武将名・所属..." value="${searchQuery}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:4px 8px; border-radius:4px; font-size:11.5pt; width:180px;">
+            <div class="modal-search-wrap prov-officers-search-wrap" style="display:flex; align-items:center; gap:8px;">
+              <span class="modal-search-label" style="font-size:11.5pt; color:#aaa;">検索:</span>
+              <input id="inputProvOfficerSearch" type="text" placeholder="武将名・所属・略歴..." value="${searchQuery}" style="background:#22160d; color:#fff; border:1px solid #775533; padding:4px 8px; border-radius:4px; font-size:11.5pt; width:180px;">
             </div>
           </div>
 
+          <!-- スマホ用ソートバー (身分、名前、所属、武勇、内政、知略、年齢) -->
+          <div class="modal-mobile-sort-bar prov-officers-mobile-sort-bar">
+            <span class="mobile-sort-label">並換:</span>
+            <button class="mobile-sort-btn ${sortKey === 'role' ? 'active' : ''}" data-key="role">身分${sortKey === 'role' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'name' ? 'active' : ''}" data-key="name">名前${sortKey === 'name' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'clan' ? 'active' : ''}" data-key="clan">所属${sortKey === 'clan' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'military' ? 'active' : ''}" data-key="military">武勇${sortKey === 'military' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'politic' ? 'active' : ''}" data-key="politic">内政${sortKey === 'politic' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'intel' ? 'active' : ''}" data-key="intel">知略${sortKey === 'intel' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+            <button class="mobile-sort-btn ${sortKey === 'age' ? 'active' : ''}" data-key="age">年齢${sortKey === 'age' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}</button>
+          </div>
+
           <!-- 武将テーブル一覧 -->
-          <div style="flex:1; overflow-y:auto; padding:0 20px;">
-            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
+          <div class="modal-table-scroll prov-officers-table-scroll" style="flex:1; overflow-y:auto; padding:0 20px;">
+            <table class="prov-officers-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12pt;">
               <thead>
                 <tr style="position:sticky; top:0; background:#261a12; border-bottom:2px solid #775533; z-index:10; box-shadow:0 2px 4px rgba(0,0,0,0.5);">
-                  <th class="sortable-prov-th" data-key="name" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px;">名前 ${getSortIcon('name')}</th>
-                  <th class="sortable-prov-th" data-key="role" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:170px; min-width:170px; white-space:nowrap; text-align:center;">身分・役職 ${getSortIcon('role')}</th>
-                  <th class="sortable-prov-th" data-key="clan" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:120px;">所属 ${getSortIcon('clan')}</th>
-                  <th class="sortable-prov-th" data-key="age" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:220px; min-width:220px; white-space:nowrap; text-align:center;">年齢・生没年 ${getSortIcon('age')}</th>
-                  <th class="sortable-prov-th" data-key="military" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">武勇 ${getSortIcon('military')}</th>
-                  <th class="sortable-prov-th" data-key="politic" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">内政 ${getSortIcon('politic')}</th>
-                  <th class="sortable-prov-th" data-key="intel" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">知略 ${getSortIcon('intel')}</th>
-                  <th style="padding:10px 12px; color:var(--gold);">略歴・特徴</th>
+                  <th class="sortable-prov-th prov-th-name" data-key="name" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:140px;">名前 ${getSortIcon('name')}</th>
+                  <th class="sortable-prov-th prov-th-role" data-key="role" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:150px; min-width:150px; white-space:nowrap; text-align:center;">身分・役職 ${getSortIcon('role')}</th>
+                  <th class="sortable-prov-th prov-th-clan" data-key="clan" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:120px;">所属 ${getSortIcon('clan')}</th>
+                  <th class="sortable-prov-th prov-th-age" data-key="age" style="padding:10px 12px; color:var(--gold); cursor:pointer; user-select:none; width:190px; min-width:190px; white-space:nowrap; text-align:center;">年齢・生没年 ${getSortIcon('age')}</th>
+                  <th class="sortable-prov-th prov-th-mil" data-key="military" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">武勇 ${getSortIcon('military')}</th>
+                  <th class="sortable-prov-th prov-th-pol" data-key="politic" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">内政 ${getSortIcon('politic')}</th>
+                  <th class="sortable-prov-th prov-th-int" data-key="intel" style="padding:10px 10px; color:var(--gold); cursor:pointer; user-select:none; width:70px; text-align:center;">知略 ${getSortIcon('intel')}</th>
+                  <th class="prov-th-comment" style="padding:10px 12px; color:var(--gold);">略歴・特徴</th>
                 </tr>
               </thead>
               <tbody>
                 ${list.length === 0 ? `
-                  <tr>
+                  <tr class="prov-officers-empty-row">
                     <td colspan="8" style="text-align:center; padding:40px 20px; color:#aaa;">
                       <div style="font-size:28pt; margin-bottom:8px;">🏯</div>
                       <div style="font-size:13pt; color:#e0d8c3; font-weight:bold; margin-bottom:6px;">
@@ -2783,20 +3015,27 @@ export const UIManagerMethods = {
 
                   return `
                     <tr class="prov-officer-table-row" data-off-id="${off.id}" style="border-bottom:1px solid #3d2d20; background:${rowBg}; cursor:pointer; transition:background 0.15s;" onmouseover="this.style.background='rgba(212,175,55,0.18)'" onmouseout="this.style.background='${rowBg}'">
-                      <td style="padding:10px 12px; font-weight:bold; color:#fff;">
-                        ${off.name}
+                      <td class="prov-off-td-name" style="padding:10px 12px; font-weight:bold; color:#fff;">
+                        <span class="prov-off-name-text">${off.name}</span>
                         ${off.isDaimyo ? ' <span style="color:var(--gold-bright); font-size:10.5pt;">★</span>' : ''}
                       </td>
-                      <td style="padding:10px 12px; text-align:center; white-space:nowrap;">${roleBadge}</td>
-                      <td style="padding:10px 12px; color:#d5dbdb;">${clanName}</td>
-                      <td style="padding:10px 12px; text-align:center; color:#ccc; white-space:nowrap;">
-                        ${age}歳
-                        <span style="font-size:10.5pt; color:#888;">(${off.birthYear || '?'}〜${off.deathYear || '?'})</span>
+                      <td class="prov-off-td-role" style="padding:10px 12px; text-align:center; white-space:nowrap;">${roleBadge}</td>
+                      <td class="prov-off-td-clan" style="padding:10px 12px; color:#d5dbdb;">${clanName}</td>
+                      <td class="prov-off-td-age" style="padding:10px 12px; text-align:center; color:#ccc; white-space:nowrap;">
+                        <span class="prov-off-age-num">${age}歳</span>
+                        <span class="prov-off-lifespan" style="font-size:10.5pt; color:#888;">(${off.birthYear != null ? formatHistoricalYear(off.birthYear) : '?'}〜${off.deathYear != null ? formatHistoricalYear(off.deathYear) : '?'})</span>
                       </td>
-                      <td style="padding:10px 10px; text-align:center; font-weight:bold; color:#ff6b6b;">${off.military || 0}</td>
-                      <td style="padding:10px 10px; text-align:center; font-weight:bold; color:#5dade2;">${off.politic || 0}</td>
-                      <td style="padding:10px 10px; text-align:center; font-weight:bold; color:#a3e4d7;">${off.intel || 0}</td>
-                      <td style="padding:10px 12px; font-size:11pt; color:#c8b9ab; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${comment}">
+                      <td class="prov-off-td-mil" style="padding:10px 10px; text-align:center; font-weight:bold; color:#ff6b6b;">${off.military || 0}</td>
+                      <td class="prov-off-td-pol" style="padding:10px 10px; text-align:center; font-weight:bold; color:#5dade2;">${off.politic || 0}</td>
+                      <td class="prov-off-td-int" style="padding:10px 10px; text-align:center; font-weight:bold; color:#a3e4d7;">${off.intel || 0}</td>
+                      <td class="prov-off-td-mobile-stats" style="display:none;">
+                        <div class="prov-off-mobile-stats-line">
+                          <span class="stat-badge stat-mil">⚔️武勇 <b>${off.military || 0}</b></span>
+                          <span class="stat-badge stat-pol">🌾内政 <b>${off.politic || 0}</b></span>
+                          <span class="stat-badge stat-int">💡知略 <b>${off.intel || 0}</b></span>
+                        </div>
+                      </td>
+                      <td class="prov-off-td-comment" style="padding:10px 12px; font-size:11pt; color:#c8b9ab; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${comment}">
                         ${comment}
                       </td>
                     </tr>
@@ -2807,11 +3046,11 @@ export const UIManagerMethods = {
           </div>
 
           <!-- フッター -->
-          <div style="padding:10px 20px; border-top:1px solid #5a4638; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:11.5pt; color:#888;">
-              行をクリックすると列伝・能力の詳細が開きます。
+          <div class="modal-footer-bar prov-officers-footer-bar" style="padding:10px 20px; border-top:1px solid #5a4638; background:rgba(0,0,0,0.4); display:flex; justify-content:space-between; align-items:center;">
+            <div class="modal-footer-info prov-officers-footer-info" style="font-size:11.5pt; color:#aaa;">
+              💡 武将をタップすると人物列伝・能力の詳細が開きます。
             </div>
-            <button id="btnProvOfficersCloseFooter" style="background:#555; color:#fff; border:none; padding:6px 20px; border-radius:4px; cursor:pointer; font-size:11.5pt; font-weight:bold;">
+            <button id="btnProvOfficersCloseFooter" class="modal-footer-close-btn" style="background:#555; color:#fff; border:none; padding:6px 20px; border-radius:4px; cursor:pointer; font-size:11.5pt; font-weight:bold;">
               閉じる
             </button>
           </div>
@@ -2830,10 +3069,24 @@ export const UIManagerMethods = {
         this.openAppointGovernorModal(p.id);
       });
 
-      // ソート
+      // テーブルヘッダークリックソート
       modal.querySelectorAll('.sortable-prov-th').forEach(th => {
         th.addEventListener('click', () => {
           const key = th.dataset.key;
+          if (sortKey === key) {
+            sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
+          } else {
+            sortKey = key;
+            sortOrder = (key === 'name' || key === 'clan' ? 'asc' : 'desc');
+          }
+          render();
+        });
+      });
+
+      // スマホ用ソートボタンクリック
+      modal.querySelectorAll('.prov-officers-mobile-sort-bar .mobile-sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.key;
           if (sortKey === key) {
             sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc');
           } else {
@@ -2867,7 +3120,8 @@ export const UIManagerMethods = {
 
       // 列伝表示（行クリック）
       modal.querySelectorAll('.prov-officer-table-row').forEach(row => {
-        row.addEventListener('click', () => {
+        row.addEventListener('click', (e) => {
+          if (e.target.closest('button')) return;
           const offId = row.dataset.offId;
           const off = (this.activeOfficers || []).find(o => o.id === offId) 
                    || (window.OFFICERS_MASTER || []).find(o => o.id === offId);
@@ -2877,6 +3131,26 @@ export const UIManagerMethods = {
     };
 
     render();
+  },
+
+  getCircledNumber(num) {
+    const n = Math.floor(Number(num) || 0);
+    if (n === 0) return '⓪';
+    if (n >= 1 && n <= 20) return String.fromCharCode(0x2460 + n - 1);
+    if (n >= 21 && n <= 35) return String.fromCharCode(0x3251 + n - 21);
+    if (n >= 36 && n <= 50) return String.fromCharCode(0x32b1 + n - 36);
+    return `(${n})`;
+  },
+
+  getGovernModeName(mode) {
+    const map = {
+      direct: '👑 直轄（手動指揮）',
+      military: '⚔️ 軍事進攻型',
+      domestic: '🌾 内政型',
+      balanced: '⚖️ 均衡型',
+      logistics: '🚚 兵站輸送'
+    };
+    return map[mode] || mode || '直轄';
   },
 
   // 領国の選択と詳細表示,
@@ -2896,11 +3170,22 @@ export const UIManagerMethods = {
     // 自国領土の全最前面押し出し・大名カラー輪郭ハイライト・選択中タイル最前面化を実行
     this.updateMapDisplay();
 
+    const curCastle = (this.currentScenario && this.currentScenario.castles && this.currentScenario.castles[p.id]) || p.castleName || p.castle || '居城';
     const badge = document.getElementById('selectedProvBadge');
     if (badge) {
-      const curCastle = (this.currentScenario && this.currentScenario.castles && this.currentScenario.castles[p.id]) || p.castleName || p.castle || '居城';
       badge.textContent = `${p.name} (${curCastle})`;
       badge.style.color = p.ownerId === this.playerClanId ? 'var(--gold-bright)' : '#e0d8c3';
+    }
+
+    const loreBtn = document.getElementById('btnMobileCastleLore');
+    if (loreBtn) {
+      const loreText = p.castleLore || (window.HISTORICAL_CASTLE_LORES && window.HISTORICAL_CASTLE_LORES[curCastle]);
+      if (loreText) {
+        loreBtn.classList.remove('is-hidden');
+        loreBtn.title = `${curCastle}の解説を見る`;
+      } else {
+        loreBtn.classList.add('is-hidden');
+      }
     }
 
     const isMine = p.ownerId === this.playerClanId;
@@ -2926,7 +3211,7 @@ export const UIManagerMethods = {
         governorBadge = `
           <div style="margin:2px 0; background:rgba(212,175,55,0.12); border:1px solid #b7950b; border-radius:3px; padding:2px 6px; display:flex; justify-content:space-between; align-items:center; font-size:12pt; white-space:nowrap; overflow:hidden;">
             <div style="display:flex; align-items:center; gap:5px; overflow:hidden;">
-              <span style="color:var(--gold-bright); font-weight:bold;">👑 本拠親政: ${effStats.name}</span>
+              <span style="color:var(--gold-bright); font-weight:bold;">👑 本拠<span class="honkyo-shinsei-sub">親政</span>: ${effStats.name}</span>
               <span style="color:#f5eedc; font-size:12pt;" title="${this.describeLordAides(effStats)}">武<b style="color:#ff6b6b;">${effStats.military}</b>${this.lordAideMark(effStats, 'military')} 内<b style="color:#5dade2;">${effStats.politics}</b>${this.lordAideMark(effStats, 'politics')} 謀<b style="color:#a3e4d7;">${effStats.stratagem}</b>${this.lordAideMark(effStats, 'stratagem')}</span>
             </div>
             ${isMine ? `<button id="btnAppointGovernor" style="background:#b7950b; color:#fff; border:none; padding:1px 6px; border-radius:2px; cursor:pointer; font-size:12pt; font-weight:bold; white-space:nowrap;">交代</button>` : ''}
@@ -2967,8 +3252,9 @@ export const UIManagerMethods = {
             ${abStr ? `<span style="font-size: 12pt; color:#f9e79f; font-weight:bold; background:rgba(0,0,0,0.45); padding:1px 6px; border-radius:3px; border:1px solid #7d6608; white-space:nowrap; letter-spacing:0.5px;">${abStr}</span>` : ''}
           </div>
           <button id="btnViewProvOfficers" class="btn-view-prov-officers" style="background:linear-gradient(180deg, #3d2c1d, #22160d); color:var(--gold-bright); border:1px solid #8e6d3a; border-radius:3px; padding:2px 8px; font-size:11.5pt; font-weight:bold; cursor:pointer; display:inline-flex; align-items:center; gap:5px; box-shadow:0 1px 3px rgba(0,0,0,0.5); white-space:nowrap; transition:all 0.15s ease;" title="${p.name}の在国武将を一覧表示">
-            <span>👥 武将一覧</span>
-            <span style="background:rgba(212,175,55,0.25); color:#ffd700; border-radius:8px; padding:0 5px; font-size:10.5pt; border:1px solid rgba(212,175,55,0.4);">${provOfficers.length}</span>
+            <span class="prov-officers-icon">👥</span><span class="prov-officers-text"> 武将一覧</span>
+            <span class="prov-officers-count" style="background:rgba(212,175,55,0.25); color:#ffd700; border-radius:8px; padding:0 5px; font-size:10.5pt; border:1px solid rgba(212,175,55,0.4);">${provOfficers.length}</span>
+            <span class="prov-officers-mobile-count">${this.getCircledNumber(provOfficers.length)}</span>
           </button>
         </div>
         ${governorBadge}
@@ -2981,8 +3267,8 @@ export const UIManagerMethods = {
           <div class="prov-stat-row"><span>治安度</span><span class="val">${p.order !== undefined ? p.order : 85}%</span></div>
         </div>
         ${isMine ? `
-          <div style="margin-top:2px; background:rgba(0,0,0,0.35); padding:2px 6px; border-radius:3px; border:1px solid #553e2a; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size: 12pt; color:var(--gold-bright); white-space:nowrap;">統治方針:</span>
+          <div class="prov-govern-policy-row" style="margin-top:2px; background:rgba(0,0,0,0.35); padding:2px 6px; border-radius:3px; border:1px solid #553e2a; display:flex; justify-content:space-between; align-items:center;">
+            <span class="govern-policy-label" style="font-size: 12pt; color:var(--gold-bright); white-space:nowrap;">統治方針:</span>
             <select id="singleProvGovernSelect" style="background:#1c130d; color:#fff; border:1px solid #775533; padding:1px 4px; border-radius:3px; font-family:inherit; font-size: 12pt; height:24px;">
               <option value="direct" ${p.governance === 'direct' ? 'selected' : ''}>👑 直轄（手動指揮）</option>
               <option value="military" ${p.governance === 'military' ? 'selected' : ''}>⚔️ 軍事進攻型</option>
@@ -2992,8 +3278,30 @@ export const UIManagerMethods = {
             </select>
           </div>
         ` : ''}
-        ${p.castleLore ? `<div style="margin-top:2px; font-size: 12pt; color:#c8b9ab; line-height:1.3; border-top:1px dashed #553e2a; padding-top:2px;">🏯 ${p.castleLore}</div>` : ''}
+        ${p.castleLore ? `<div class="castle-lore-box" style="margin-top:2px; font-size: 12pt; color:#c8b9ab; line-height:1.3; border-top:1px dashed #553e2a; padding-top:2px;">🏯 ${p.castleLore}</div>` : ''}
       `;
+
+      // スマホ用委任プルダウンの同期・制御
+      const mobileGovWrap = document.getElementById('mobileGovernPolicyWrap');
+      const mobileGovSelect = document.getElementById('mobileProvGovernSelect');
+      if (mobileGovWrap && mobileGovSelect) {
+        if (isMine) {
+          mobileGovWrap.classList.remove('is-hidden');
+          mobileGovWrap.style.display = 'inline-flex';
+          mobileGovSelect.value = p.governance || 'direct';
+          mobileGovSelect.disabled = false;
+          mobileGovSelect.onchange = (e) => {
+            p.governance = e.target.value;
+            const pcSelect = document.getElementById('singleProvGovernSelect');
+            if (pcSelect) pcSelect.value = p.governance;
+            this.log(`【統治方針】${p.name}の方針を「${this.getGovernModeName(p.governance)}」に変更しました。`);
+            this.showOrderResult('📋 統治方針 変更', `${p.name}の方針を「${this.getGovernModeName(p.governance)}」に変更`, '#ffd700');
+          };
+        } else {
+          mobileGovWrap.classList.add('is-hidden');
+          mobileGovWrap.style.display = 'none';
+        }
+      }
 
       if (isMine) {
         document.getElementById('btnAppointGovernor')?.addEventListener('click', () => {
@@ -3001,6 +3309,8 @@ export const UIManagerMethods = {
         });
         document.getElementById('singleProvGovernSelect')?.addEventListener('change', (e) => {
           p.governance = e.target.value;
+          const mobSelect = document.getElementById('mobileProvGovernSelect');
+          if (mobSelect) mobSelect.value = p.governance;
           this.log(`【統治方針】${p.name}の方針を「${this.getGovernModeName(p.governance)}」に変更しました。`);
           this.showOrderResult('📋 統治方針 変更', `${p.name}の方針を「${this.getGovernModeName(p.governance)}」に変更`, '#ffd700');
         });
@@ -3012,6 +3322,58 @@ export const UIManagerMethods = {
     }
 
     this.updateCommandButtons();
+  },
+
+  openCastleLoreModal(provId) {
+    this.pauseAutoPlayForScreen?.('城郭解説の表示');
+    const p = (this.provinces || []).find(x => x.id === provId);
+    if (!p) return;
+
+    const modal = document.getElementById('castleLoreModal');
+    if (!modal) return;
+
+    const curCastle = (this.currentScenario && this.currentScenario.castles && this.currentScenario.castles[p.id]) || p.castleName || p.castle || '居城';
+    const loreText = p.castleLore || (window.HISTORICAL_CASTLE_LORES && window.HISTORICAL_CASTLE_LORES[curCastle]) || `${curCastle}の城郭です。`;
+    const isBlank = !p.ownerId;
+    const ownerName = isBlank ? '空白地（領主不在）' : this.getClanDisplayName(p.ownerId);
+
+    const titleEl = document.getElementById('castleLoreModalTitle');
+    if (titleEl) titleEl.textContent = `城郭解説：${curCastle}`;
+
+    const placeEl = document.getElementById('castleLoreModalPlace');
+    if (placeEl) placeEl.textContent = `${p.name}国（${curCastle}）`;
+
+    const ownerEl = document.getElementById('castleLoreModalOwner');
+    if (ownerEl) {
+      ownerEl.textContent = isBlank ? ownerName : `領主: ${ownerName}`;
+      ownerEl.style.color = p.ownerId === this.playerClanId ? 'var(--gold-bright)' : '#e0d8c3';
+    }
+
+    const contentEl = document.getElementById('castleLoreModalContent');
+    if (contentEl) {
+      contentEl.textContent = loreText;
+    }
+
+    const statsEl = document.getElementById('castleLoreModalStats');
+    if (statsEl) {
+      statsEl.innerHTML = `
+        <span style="display:inline-flex; align-items:center; gap:3px;">🛡️ 城防: <strong style="color:var(--gold-bright);">${p.defense}</strong>/100</span>
+        <span style="display:inline-flex; align-items:center; gap:3px;">👥 兵力: <strong style="color:#eee;">${p.troops.toLocaleString()}</strong>人</span>
+        <span style="display:inline-flex; align-items:center; gap:3px;">🌾 石高: <strong style="color:#ffcc66;">${p.rice}</strong>石</span>
+        <span style="display:inline-flex; align-items:center; gap:3px;">💰 商業: <strong style="color:#ffd700;">${p.commerce}</strong>貫</span>
+      `;
+    }
+
+    modal.classList.remove('hidden');
+    try { this.audio.playDecision?.(); } catch (e) {}
+  },
+
+  closeCastleLoreModal() {
+    const modal = document.getElementById('castleLoreModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+      try { this.audio.playCancel?.(); } catch (e) {}
+    }
   },
 
   updateCommandButtons() {
@@ -3084,15 +3446,16 @@ export const UIManagerMethods = {
     myProvs.forEach(p => {
       const isFrontier = this.isProvinceFrontier(p);
       const tr = document.createElement('tr');
+      tr.className = 'govern-prov-row';
       tr.style.borderBottom = '1px solid #3a2a1a';
 
       tr.innerHTML = `
-        <td style="padding:6px 10px;"><input type="checkbox" class="govern-select-cb" data-prov-id="${p.id}" style="accent-color:var(--gold);"></td>
-        <td style="padding:6px 10px; font-weight:bold; color:#fff;">${p.name} <span style="font-size: 12pt; color:#aaa;">(${p.castleName || p.castle || "居城"})</span></td>
-        <td style="padding:6px 10px;">${isFrontier ? '<span style="color:#ff8888;">前線</span>' : '<span style="color:#a9dfbf;">後方</span>'}</td>
-        <td style="padding:6px 10px; color:#ffaaaa;">${p.troops.toLocaleString()} 人</td>
-        <td style="padding:6px 10px; color:#ffd700;">${p.rice} / ${p.commerce}</td>
-        <td style="padding:6px 10px;">
+        <td class="gov-td-check" style="padding:6px 10px;"><input type="checkbox" class="govern-select-cb" data-prov-id="${p.id}" style="accent-color:var(--gold);"></td>
+        <td class="gov-td-name" style="padding:6px 10px; font-weight:bold; color:#fff;">${p.name} <span class="gov-castle-name" style="font-size: 12pt; color:#aaa;">(${p.castleName || p.castle || "居城"})</span></td>
+        <td class="gov-td-pos" style="padding:6px 10px;">${isFrontier ? '<span class="gov-pos-badge frontier" style="color:#ff8888;">前線</span>' : '<span class="gov-pos-badge rear" style="color:#a9dfbf;">後方</span>'}</td>
+        <td class="gov-td-troops" style="padding:6px 10px; color:#ffaaaa;">${p.troops.toLocaleString()} 人</td>
+        <td class="gov-td-eco" style="padding:6px 10px; color:#ffd700;">${p.rice} / ${p.commerce}</td>
+        <td class="gov-td-select" style="padding:6px 10px;">
           <select class="govern-row-select" data-prov-id="${p.id}" style="background:#1a110a; color:#fff; border:1px solid #664422; padding:3px 6px; border-radius:3px; font-size: 12pt;">
             <option value="direct" ${p.governance === 'direct' ? 'selected' : ''}>👑 直轄</option>
             <option value="military" ${p.governance === 'military' ? 'selected' : ''}>⚔️ 軍事進攻型（自動攻略）</option>
@@ -3289,6 +3652,9 @@ export const UIManagerMethods = {
   },
 
   startEndingRoll(isShogunRoute = false) {
+    if (this.isShogunEndingAllowed && !this.isShogunEndingAllowed()) {
+      isShogunRoute = false;
+    }
     const rollModal = document.getElementById('endingRollModal');
     if (!rollModal) return;
 
@@ -3313,11 +3679,22 @@ export const UIManagerMethods = {
     const clanName = this.playerDaimyo?.clan || '武家';
     const daimyoName = this.playerDaimyo?.name || '当主';
     const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+    const scenYear = this.getScenarioYear ? this.getScenarioYear() : Number(this.year || 1560);
+    const isShogun = isShogunRoute && (!this.isShogunEndingAllowed || this.isShogunEndingAllowed());
+
+    const defaultRegime = isShogun
+      ? `${clanName}幕府・天下泰平の新体制`
+      : (scenYear >= 1868 ? `${clanName}新政府・近代国家の新体制` : `${clanName}政権・天下泰平の新体制`);
+
     const ep = DAIMYO_EPILOGUES[this.playerClanId] || {
-      regime: `${clanName}幕府・天下泰平の新体制`,
+      regime: defaultRegime,
       capital: `${daimyoName}公の居城（京洛ならびに天下の要衝）`,
-      pillar1: '万民の生業を安堵し、武力による横暴を厳禁とする徳政令と武家諸法度を敷いた。',
-      pillar2: '新田開拓と街道・河川の整備を全国で推進し、飢饉なき豊かな国づくりを成し遂げた。',
+      pillar1: scenYear <= 801
+        ? '大いなる和の規範を敷き、私闘を禁じ民百姓が安心して暮らせる法と秩序を整えた。'
+        : (scenYear >= 1868 ? '四民平等の原則を貫き、国民の権利を守り法の下の公正な統治を確立した。' : '万民の生業を安堵し、武力による横暴を厳禁とする徳政令と武家諸法度を敷いた。'),
+      pillar2: scenYear >= 1868
+        ? '近代産業の振興と交通網の整備を全国で推進し、国力富強の礎を築いた。'
+        : '新田開拓と街道・河川の整備を全国で推進し、飢饉なき豊かな国づくりを成し遂げた。',
       pillar3: '諸大名との和睦と公正な統治を確立し、百余年にわたる乱世の争乱を永遠に終焉させた。',
       future10: '【統一後十年：礎の時代】天下普請と新法度の敷設。荒廃した山河が蘇り、民百姓の安穏な耕作が戻った。',
       future50: '【統一後五十年：文化と産業の開花】二代・三代へと政権が継承され、街道と港湾が結ばれ空前の好景気を迎えた。',
@@ -3325,16 +3702,33 @@ export const UIManagerMethods = {
       historianQuote: '『乱世の塗炭の苦しみから人々を救い出し、永遠の泰平を築いたその英名は、未来永劫語り継がれるであろう』'
     };
 
-    const titlePrefix = isShogunRoute ? '朝廷勅許・征夷大将軍就任' : '日本全五拾州完全平定';
-    const titleMain = isShogunRoute ? `${clanName}幕府 開府創世録` : '天下統一・不滅の大覇業録';
+    const titlePrefix = isShogun ? '朝廷勅許・征夷大将軍就任' : `日本全${myProvs.length || 72}州完全平定`;
+    const titleMain = isShogun ? `${clanName}幕府 開府創世録` : '天下統一・不滅の大覇業録';
 
     // 天下静謐の大綱（泰平の法制・仁政）
-    const peaceEdicts = [
-      { title: '兵農分離・万民安堵', desc: '武士は武と徳を修めて治安を護り、農民は耕作に専念する盤石の秩序を確立。' },
-      { title: '五街道整備・楽市楽座', desc: '関所を撤廃し諸国の交易を奨励。街道と宿場町が賑わい、豊かな文化が花開く。' },
-      { title: '武家諸法度・信義の天下', desc: '私闘や横暴を厳禁とし、公明正大なる法治と信義に基づく泰平の政道を敷く。' },
-      { title: '四海静謐・治水開墾', desc: '大河川の治水と新田開発を全国で推進し、飢饉なき豊かな美田を後世へ遺す。' }
-    ];
+    let peaceEdicts;
+    if (scenYear <= 801) {
+      peaceEdicts = [
+        { title: '大和建国・万民安撫', desc: '戦乱の荒波を鎮め、すべての民が安らかに暮らせる大いなる和の国を確立。' },
+        { title: '官道整備・交易振興', desc: '諸国を結ぶ官道を拓き、各地の物産と文化の交流を促して国力を高める。' },
+        { title: '律令遵法・公正の治', desc: '私利私闘を排し、公平無私の規範と信義に基づく大いなる政道を敷く。' },
+        { title: '治水開拓・美田創出', desc: '大河の治水と新田の開発を推し進め、飢饉なき豊かな実りある国土を築く。' }
+      ];
+    } else if (scenYear >= 1868) {
+      peaceEdicts = [
+        { title: '四民平等・万民安堵', desc: '旧来の身分制を排し、すべての民が誇りと活力を発揮できる近代国家を確立。' },
+        { title: '殖産興業・文明開化', desc: '近代産業と交通・通信網を全国に張り巡らせ、世界の列強に伍する富国を推進。' },
+        { title: '立憲法治・信義の天下', desc: '法の下の平等を定め、国民の信義と公正に基づく近代立憲政治の基礎を築く。' },
+        { title: '四海静謐・治水開拓', desc: '国土の保全と近代土木技術による開墾を進め、万民が安穏に暮らせる社会を実現。' }
+      ];
+    } else {
+      peaceEdicts = [
+        { title: '兵農分離・万民安堵', desc: '武士は武と徳を修めて治安を護り、農民は耕作に専念する盤石の秩序を確立。' },
+        { title: '五街道整備・楽市楽座', desc: '関所を撤廃し諸国の交易を奨励。街道と宿場町が賑わい、豊かな文化が花開く。' },
+        { title: '武家諸法度・信義の天下', desc: '私闘や横暴を厳禁とし、公明正大なる法治と信義に基づく泰平の政道を敷く。' },
+        { title: '四海静謐・治水開墾', desc: '大河川の治水と新田開発を全国で推進し、飢饉なき豊かな美田を後世へ遺す。' }
+      ];
+    }
 
     const edictsHtml = peaceEdicts.map(e => `
       <div style="background:rgba(212,175,55,0.08); border:1px solid #775533; border-radius:6px; padding:14px 18px; text-align:left;">
@@ -3353,10 +3747,10 @@ export const UIManagerMethods = {
             ${titleMain}
           </div>
           <div style="font-size: 22pt; color: #ffd700; font-weight: bold;">
-            初代征夷大将軍 ${daimyoName}
+            ${isShogun ? `初代征夷大将軍 ${daimyoName}` : `天下統一覇者 ${daimyoName}`}
           </div>
           <div style="font-size: 13pt; color: #aaa; margin-top: 8px;">
-            ${clanName} 宗家
+            ${clanName} ${isShogun ? '宗家' : ''}
           </div>
         </div>
 
@@ -3366,7 +3760,7 @@ export const UIManagerMethods = {
             【第一幕：天下統一の軌跡】
           </div>
           <p style="font-size: 12.5pt; color: #eee; max-width: 680px; margin: 0 auto 16px auto; line-height: 2.2; text-indent: 1.5em;">
-            時に西暦${this.year}年 ${this.seasonNames[this.seasonIdx]}。百余年にわたり幾多の英傑が夢見ながらも果たすことの叶わなかった天下静謐の誓いが、ここに結実せり。
+            時に${this.year < 0 ? '紀元前' + Math.abs(this.year) : '西暦' + this.year}年 ${this.seasonNames[this.seasonIdx]}。百余年にわたり幾多の英傑が夢見ながらも果たすことの叶わなかった天下静謐の誓いが、ここに結実せり。
             北の蝦夷松前から南の薩摩大隅に至るまで、戦禍の煙はことごとく消え去り、日の本全土に満開の桜と民の歓喜が満ち溢れた。
           </p>
           <div style="font-size: 12pt; color: #ffdd88; margin-top: 10px;">
@@ -3377,7 +3771,7 @@ export const UIManagerMethods = {
         <!-- 第二幕：幕府施政大綱 -->
         <div style="margin-bottom: 90px;">
           <div style="font-size: 15pt; color: #ffd700; font-weight: bold; margin-bottom: 16px; letter-spacing: 4px;">
-            【第二幕：武門棟梁・新政の柱石】
+            【第二幕：${isShogun ? '武門棟梁・新政の柱石' : '天下統一・新政の柱石'}】
           </div>
           <div style="font-size: 18pt; color: #fff; font-weight: bold; margin-bottom: 8px;">
             ${ep.regime}
@@ -3395,7 +3789,7 @@ export const UIManagerMethods = {
         <!-- 第三幕：その後の幕府と日本の歴史（百年の変遷）★最重要 -->
         <div style="margin-bottom: 100px; padding: 30px 20px; border-top: 2px solid #ffd700; border-bottom: 2px solid #ffd700; background: radial-gradient(circle, rgba(40,20,10,0.6) 0%, rgba(0,0,0,0.85) 100%); border-radius: 8px;">
           <div style="font-size: 18pt; color: #ffd700; font-weight: bold; margin-bottom: 20px; letter-spacing: 6px; text-shadow: 0 0 15px rgba(255,215,0,0.7);">
-            【第三幕：この幕府が紡いだ「その後の日本」】
+            【第三幕：この${isShogun ? '幕府' : (scenYear >= 1868 ? '新政府' : '政権')}が紡いだ「その後の日本」】
           </div>
           <div style="font-size: 13pt; color: #dcd0c0; margin-bottom: 30px; font-style: italic;">
             〜 乱世を越えて、時代はどのように受け継がれたのか 〜
@@ -3468,8 +3862,9 @@ export const UIManagerMethods = {
             〜 天下泰平 ・ 日の本の黎明 〜
           </div>
 
-          <button id="endingCloseFinalBtn" style="padding: 12px 36px; font-size: 14pt; font-weight: bold; background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%); color: #111; border: 2px solid #fff; border-radius: 30px; cursor: pointer; box-shadow: 0 0 30px rgba(255,215,0,0.8); font-family: inherit;">
-            ❖ 統一の記録・詳細へ進む ❖
+          <button id="endingCloseFinalBtn" class="ending-close-btn" style="padding: 12px 36px; font-size: 14pt; font-weight: bold; background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%); color: #111; border: 2px solid #fff; border-radius: 30px; cursor: pointer; box-shadow: 0 0 30px rgba(255,215,0,0.8); font-family: inherit; white-space: nowrap;">
+            <span class="btn-label-full">❖ 統一の記録・詳細へ進む ❖</span>
+            <span class="btn-label-short">❖ 統一記録へ ❖</span>
           </button>
         </div>
       `;
@@ -3563,7 +3958,7 @@ export const UIManagerMethods = {
     this.updateDiffBadge();
     const seasonDisp = document.getElementById('seasonDisplay');
     if (seasonDisp) {
-      seasonDisp.innerHTML = `<i data-lucide="calendar" style="width:16px; height:16px;"></i><span>${this.year}年 ${this.seasonNames[this.seasonIdx]}</span>`;
+      seasonDisp.innerHTML = `<i data-lucide="calendar" style="width:16px; height:16px;"></i><span>${formatHistoricalYear(this.year)}年 ${this.seasonNames[this.seasonIdx]}</span>`;
       if (window.lucide) lucide.createIcons();
     }
 
@@ -3673,7 +4068,7 @@ export const UIManagerMethods = {
     if (fullList) {
       const div = document.createElement('div');
       div.className = `log-entry ${type}`;
-      div.textContent = `${this.year}年 ${this.seasonNames[this.seasonIdx]}: ${msg}`;
+      div.textContent = `${formatHistoricalYear(this.year)}年 ${this.seasonNames[this.seasonIdx]}: ${msg}`;
       fullList.insertBefore(div, fullList.firstChild);
       // 新しい3000件だけ残す（長いオート進行でページが重くなるのを防ぐ。2026-10-11 cl）
       const maxEntries = Number(window.CHRONICLE_MAX_ENTRIES) || 3000;
@@ -3693,6 +4088,7 @@ export const UIManagerMethods = {
       this.audio.playHyoshigi();
     };
     document.getElementById('headerChronicleWrap')?.addEventListener('click', openChronicle);
+    document.getElementById('headerChronicleBtnMobile')?.addEventListener('click', openChronicle);
     document.getElementById('closeChronicleModalBtn')?.addEventListener('click', () => {
       document.getElementById('chronicleModal')?.classList.add('hidden');
     });
@@ -3777,6 +4173,32 @@ export const UIManagerMethods = {
     // 武将一覧モーダル
     document.getElementById('officerListModalBtn')?.addEventListener('click', () => this.openOfficerListModal());
 
+    // 城郭解説モーダル（スマホ用ピクトグラムボタン連動）
+    document.getElementById('btnMobileCastleLore')?.addEventListener('click', () => {
+      if (this.selectedProvId) {
+        this.openCastleLoreModal(this.selectedProvId);
+      }
+    });
+    document.getElementById('closeCastleLoreModalBtn')?.addEventListener('click', () => {
+      this.closeCastleLoreModal();
+    });
+    document.getElementById('closeCastleLoreModalBtn2')?.addEventListener('click', () => {
+      this.closeCastleLoreModal();
+    });
+    document.getElementById('castleLoreModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'castleLoreModal') {
+        this.closeCastleLoreModal();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const loreModal = document.getElementById('castleLoreModal');
+        if (loreModal && !loreModal.classList.contains('hidden')) {
+          this.closeCastleLoreModal();
+        }
+      }
+    });
+
     // 領国一括委任モーダル
     document.getElementById('governModalBtn')?.addEventListener('click', () => this.openGovernModal());
     document.getElementById('closeGovernModalBtn')?.addEventListener('click', () => {
@@ -3805,6 +4227,7 @@ export const UIManagerMethods = {
     // 征夷大将軍宣下モーダルボタン
     document.getElementById('shogunAcceptEndingBtn')?.addEventListener('click', () => {
       document.getElementById('shogunModal')?.classList.add('hidden');
+      if (this.isShogunEndingAllowed && !this.isShogunEndingAllowed()) return;
       this.shogunAppointed = true;
       this.triggerVictory(true); // 将軍就任エンディング
     });
@@ -4284,7 +4707,7 @@ export const UIManagerMethods = {
     const container = document.getElementById('eventChoicesContainer');
 
     if (titleEl) titleEl.textContent = ev.title;
-    if (badgeEl) badgeEl.textContent = `${this.year}年 ${this.seasonNames[this.seasonIdx]}`;
+    if (badgeEl) badgeEl.textContent = `${formatHistoricalYear(this.year)}年 ${this.seasonNames[this.seasonIdx]}`;
     if (subTitleEl) subTitleEl.textContent = ev.subTitle;
     if (narrativeEl) narrativeEl.textContent = typeof ev.narrative === 'function' ? ev.narrative(this) : ev.narrative;
 

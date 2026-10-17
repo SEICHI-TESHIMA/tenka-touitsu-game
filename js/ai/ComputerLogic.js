@@ -1097,39 +1097,78 @@ export const ComputerLogicMethods = {
       if (!window.Swal) return;
       try { this.audio.playHyoshigi?.(); } catch (e) {}
       const hasFunds = info.rows.some(r => r.gold != null); // 初期資金の列（2026-10-11 bv）
-      const rows = info.rows.map(r => `
-        <tr>
-          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; color:var(--gold-bright); font-weight:bold;">${esc(r.name)}</td>
-          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.clanName)}</td>
-          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.provName)}</td>
-          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right;">${esc((Number(r.troops) || 0).toLocaleString())}${r.movedTroops > 0 ? `<span style="font-size:10pt; color:#bbb;">（本家より+${esc(Number(r.movedTroops).toLocaleString())}）</span>` : ''}</td>
-          <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; font-size:10.5pt;">${(r.followers && r.followers.length) ? `${r.followers.length}名<span style="color:#bbb;">（${esc(r.followers.slice(0, 3).join('・'))}${r.followers.length > 3 ? ` 他${r.followers.length - 3}名` : ''}）</span>` : '—'}</td>
-          ${hasFunds ? `<td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right; white-space:nowrap;">${r.gold == null ? '—' : `金${esc(Math.round(Number(r.gold) || 0).toLocaleString())}・糧${esc(Math.round(Number(r.rice) || 0).toLocaleString())}`}</td>` : ''}
-        </tr>`).join('');
       const who = info.isPlayer ? '我が家' : esc(info.oldName);
       const head = info.newHeadName ? `（新当主：${esc(info.newHeadName)}）` : '';
-      await Swal.fire({
-        title: info.isPlayer ? '⚡ 家中分裂・独立 ⚡' : `⚡ ${esc(info.oldName)}で家中分裂 ⚡`,
-        html: `
-          <div style="text-align:left; font-size:12pt; color:#f5eedc; font-family:'Noto Serif JP',serif; line-height:1.6;">
-            <p style="margin:0 0 10px 0;">${who}の家督が一門以外${head}に移ったのを機に、次の家臣が所領を率いて独立しました。</p>
-            <div style="max-height:52vh; overflow-y:auto; border:1px solid #3d2f25; border-radius:3px;">
-            <table style="width:100%; border-collapse:collapse; font-size:11.5pt;">
-              <thead style="position:sticky; top:0; background:#1e140d; z-index:1;"><tr style="color:#d4b483; border-bottom:1px solid #5a4638;">
-                <th style="padding:4px 8px; text-align:left;">新大名</th><th style="padding:4px 8px; text-align:left;">家名</th>
-                <th style="padding:4px 8px; text-align:left;">領国</th><th style="padding:4px 8px; text-align:right;">兵力</th><th style="padding:4px 8px; text-align:left;">随従</th>${hasFunds ? '<th style="padding:4px 8px; text-align:right;">資金</th>' : ''}
-              </tr></thead>
-              <tbody>${rows}</tbody>
-            </table>
+      const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+      if (isMobile) {
+        // スマートフォン画面：シンプルで文字が見切れないスマートカード表示
+        const mobileCards = info.rows.map(r => `
+          <div style="background:rgba(42,28,18,0.9); border:1px solid rgba(212,175,55,0.35); border-radius:5px; padding:6px 8px; margin-bottom:5px; text-align:left; line-height:1.35;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px; gap:4px;">
+              <span style="color:var(--gold-bright); font-weight:bold; font-size:10pt;">${esc(r.name)}</span>
+              <span style="color:#88ccff; font-weight:bold; font-size:9pt;">${esc(r.clanName)}</span>
             </div>
-            <p style="margin:10px 0 0 0; font-size:10.5pt; color:#bbb;">独立 ${info.rows.length} 家${(info.rows[0] && info.rows[0].truce > 0) ? `　🕊 停戦：本家は ${esc(info.rows[0].truce)} 季のあいだ独立した家を攻められません` : ''}</p>
-          </div>`,
-        confirmButtonText: '承知した',
-        confirmButtonColor: '#8e44ad',
-        background: '#1c130d',
-        color: '#f5eedc',
-        width: 820
-      });
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:8.5pt; color:#ddd;">
+              <span>🏯 ${esc(r.provName)}</span>
+              <span style="color:#ff9999; font-weight:bold;">兵 ${esc((Number(r.troops) || 0).toLocaleString())}</span>
+              ${(r.followers && r.followers.length) ? `<span style="color:#aaa;">随従${r.followers.length}名</span>` : ''}
+              ${hasFunds && r.gold != null ? `<span style="color:#f39c12;">金${esc(Math.round(Number(r.gold) || 0).toLocaleString())}・糧${esc(Math.round(Number(r.rice) || 0).toLocaleString())}</span>` : ''}
+            </div>
+          </div>`).join('');
+
+        await Swal.fire({
+          title: info.isPlayer ? '⚡ 家中分裂・独立 ⚡' : `⚡ ${esc(info.oldName)}で家中分裂 ⚡`,
+          html: `
+            <div style="text-align:left; font-size:9pt; color:#f5eedc; font-family:'Noto Serif JP',serif; line-height:1.4;">
+              <p style="margin:0 0 6px 0; font-size:8.8pt; color:#ccc;">${who}の家督相続${head}を機に家臣が独立：</p>
+              <div style="max-height:48vh; overflow-y:auto; padding-right:2px; box-sizing:border-box;">
+                ${mobileCards}
+              </div>
+              <p style="margin:6px 0 0 0; font-size:8.2pt; color:#aaa; text-align:right;">
+                独立 ${info.rows.length}家${(info.rows[0] && info.rows[0].truce > 0) ? `　🕊 停戦 ${esc(info.rows[0].truce)}季` : ''}
+              </p>
+            </div>`,
+          confirmButtonText: '承知した',
+          confirmButtonColor: '#8e44ad',
+          background: '#1c130d',
+          color: '#f5eedc'
+        });
+      } else {
+        // ウェブ上の画面（PC大画面）：従来の詳細テーブル表示を完全維持
+        const rows = info.rows.map(r => `
+          <tr>
+            <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; color:var(--gold-bright); font-weight:bold;">${esc(r.name)}</td>
+            <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.clanName)}</td>
+            <td style="padding:4px 8px; border-bottom:1px solid #3d2f25;">${esc(r.provName)}</td>
+            <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right;">${esc((Number(r.troops) || 0).toLocaleString())}${r.movedTroops > 0 ? `<span style="font-size:10pt; color:#bbb;">（本家より+${esc(Number(r.movedTroops).toLocaleString())}）</span>` : ''}</td>
+            <td style="padding:4px 8px; border-bottom:1px solid #3d2f25; font-size:10.5pt;">${(r.followers && r.followers.length) ? `${r.followers.length}名<span style="color:#bbb;">（${esc(r.followers.slice(0, 3).join('・'))}${r.followers.length > 3 ? ` 他${r.followers.length - 3}名` : ''}）</span>` : '—'}</td>
+            ${hasFunds ? `<td style="padding:4px 8px; border-bottom:1px solid #3d2f25; text-align:right; white-space:nowrap;">${r.gold == null ? '—' : `金${esc(Math.round(Number(r.gold) || 0).toLocaleString())}・糧${esc(Math.round(Number(r.rice) || 0).toLocaleString())}`}</td>` : ''}
+          </tr>`).join('');
+
+        await Swal.fire({
+          title: info.isPlayer ? '⚡ 家中分裂・独立 ⚡' : `⚡ ${esc(info.oldName)}で家中分裂 ⚡`,
+          html: `
+            <div style="text-align:left; font-size:12pt; color:#f5eedc; font-family:'Noto Serif JP',serif; line-height:1.6;">
+              <p style="margin:0 0 10px 0;">${who}の家督が一門以外${head}に移ったのを機に、次の家臣が所領を率いて独立しました。</p>
+              <div style="max-height:52vh; overflow-y:auto; border:1px solid #3d2f25; border-radius:3px;">
+              <table style="width:100%; border-collapse:collapse; font-size:11.5pt;">
+                <thead style="position:sticky; top:0; background:#1e140d; z-index:1;"><tr style="color:#d4b483; border-bottom:1px solid #5a4638;">
+                  <th style="padding:4px 8px; text-align:left;">新大名</th><th style="padding:4px 8px; text-align:left;">家名</th>
+                  <th style="padding:4px 8px; text-align:left;">領国</th><th style="padding:4px 8px; text-align:right;">兵力</th><th style="padding:4px 8px; text-align:left;">随従</th>${hasFunds ? '<th style="padding:4px 8px; text-align:right;">資金</th>' : ''}
+                </tr></thead>
+                <tbody>${rows}</tbody>
+              </table>
+              </div>
+              <p style="margin:10px 0 0 0; font-size:10.5pt; color:#bbb;">独立 ${info.rows.length} 家${(info.rows[0] && info.rows[0].truce > 0) ? `　🕊 停戦：本家は ${esc(info.rows[0].truce)} 季のあいだ独立した家を攻められません` : ''}</p>
+            </div>`,
+          confirmButtonText: '承知した',
+          confirmButtonColor: '#8e44ad',
+          background: '#1c130d',
+          color: '#f5eedc',
+          width: 820
+        });
+      }
     };
     if (typeof this.enqueueRoninRequest === 'function') this.enqueueRoninRequest(show);
     else void show();

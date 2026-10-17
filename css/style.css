@@ -137,6 +137,56 @@
     box-shadow: 0 0 8px rgba(255,215,0,0.5);
   }
 
+  .header-mobile-quick-actions {
+    display: none;
+  }
+
+  .btn-label-full,
+  .btn-preset-full {
+    display: inline;
+  }
+  .btn-label-short,
+  .btn-preset-short {
+    display: none !important;
+  }
+
+  /* スマホ専用モーダル要素はPC版では完全に非表示 */
+  .modal-mobile-sort-bar,
+  .fac-mobile-leader-name,
+  .prov-mobile-castle-name,
+  .prov-td-mobile-card,
+  .prov-td-mobile-officer,
+  .off-td-mobile-card,
+  .off-td-mobile-meta,
+  .off-td-mobile-stats,
+  .appoint-td-mobile-card,
+  .appoint-td-mobile-stats,
+  .prov-off-td-mobile-stats,
+  .prov-officers-mobile-sub,
+  .prov-officers-mobile-count {
+    display: none !important;
+  }
+
+  /* PC版（幅769px以上）：スマホ専用委任プルダウンおよび城解説ピクトグラムボタンを完全に非表示 */
+  @media (min-width: 769px) {
+    .mobile-govern-policy-wrap,
+    .btn-castle-lore {
+      display: none !important;
+    }
+  }
+
+  .prov-panel-title-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .prov-panel-title-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
   .header-controls {
     display: flex;
     align-items: center;
@@ -192,6 +242,16 @@
     box-shadow: 0 0 12px rgba(231, 76, 60, 0.6);
     display: none;
     flex-shrink: 0;
+  }
+  .coalition-banner .coalition-text-short {
+    display: none;
+  }
+
+  .appoint-footer-btn-group .btn-label-short,
+  .ending-ctrl-bar .btn-label-short,
+  .ending-close-btn .btn-label-short,
+  .victory-btn-group .btn-label-short {
+    display: none;
   }
 
   /* 勢力ステータスバー (大名名折り返し対応・1列目拡張・7分割) */
@@ -913,7 +973,7 @@
     font-weight: bold;
   }
   .scenario-btn .scen-title {
-    font-size: 11.5pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #eee;
     line-height: 1.15;
@@ -921,6 +981,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    letter-spacing: -0.2px;
   }
   .scenario-btn.selected .scen-title {
     color: #ffd700;
@@ -1152,6 +1213,8 @@
     border-radius: 6px;
     padding: 14px 18px;
     margin-bottom: 14px;
+    max-height: 48vh;
+    overflow-y: auto;
   }
   .event-change-notice {
     background: linear-gradient(90deg, rgba(192,57,43,0.35), rgba(0,0,0,0.6));
@@ -2200,109 +2263,202 @@
       gap: 6px;
     }
 
-    /* --- 上部：タイトルバー ＆ アコーディオン切替ボタン --- */
+    /* --- 上部：タイトルバー ＆ 1行クイックアクションピクトグラム(📖/⚙️/🏯) --- */
     header {
       height: auto;
-      min-height: 46px;
+      min-height: 40px;
       position: sticky;
       top: 0;
       z-index: 40;
-      flex-wrap: wrap;
-      align-items: stretch;
-      padding: 6px 8px;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      padding: 4px 8px;
       gap: 6px;
     }
 
     .title-group {
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 4px 6px;
-      align-items: center;
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px 6px !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      flex-wrap: nowrap !important;
     }
 
     h1 {
-      font-size: 13.5pt;
-      letter-spacing: 0;
+      font-size: 10.5pt !important;
+      letter-spacing: -0.3px;
+      margin: 0 !important;
+      white-space: nowrap !important;
+      flex-shrink: 1 !important;
     }
 
-    .season-info,
+    .season-info {
+      font-size: 13.5pt !important;
+      font-weight: bold !important;
+      padding: 0 7px !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+      border-radius: 4px !important;
+      background: rgba(28, 18, 12, 0.85) !important;
+      border: 1px solid var(--border-gold) !important;
+      color: var(--gold-bright) !important;
+      letter-spacing: 0.5px !important;
+    }
+    .season-info svg,
+    .season-info i {
+      width: 18px !important;
+      height: 18px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .diff-badge-header {
+      font-size: 8.5pt !important;
+      padding: 1px 4px !important;
+      min-height: 22px !important;
+      white-space: nowrap !important;
+    }
+
+    /* 天候ボックス・BGM設定ボタン・戦況年代記バーをスマホで省略 */
+    #weatherDisplay,
     .weather-badge,
-    .diff-badge-header,
-    .bgm-badge-header {
-      font-size: 10pt;
-      padding: 2px 6px;
-      min-height: 28px;
+    #bgmToggleBtn,
+    .bgm-badge-header,
+    #headerChronicleWrap,
+    .chronicle-wide-bar {
+      display: none !important;
     }
 
-    .mobile-accordion-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex: 1 1 45%;
-      width: auto;
-      min-height: 40px;
-      height: 40px;
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--border-gold);
-      background: linear-gradient(180deg, #3d2516 0%, #20130a 100%);
-      color: var(--gold-bright);
-      font-family: inherit;
-      font-size: 11pt;
-      font-weight: bold;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.45);
-      transition: all 0.15s ease;
+    /* 一番上の全記録一覧(📖)・操作メニュー(⚙️)・勢力情勢(🏯)ボタングループ(1行表示) */
+    .header-mobile-quick-actions {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      flex-shrink: 0 !important;
     }
 
-    .mobile-accordion-btn:active {
-      transform: scale(0.98);
-      background: linear-gradient(180deg, #4d301c 0%, #2a1a0f 100%);
+    .mobile-quick-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 36px !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      min-width: 36px !important;
+      padding: 0 !important;
+      border-radius: 4px !important;
+      border: 1px solid var(--border-gold) !important;
+      background: linear-gradient(180deg, #3d2516 0%, #20130a 100%) !important;
+      color: var(--gold-bright) !important;
+      cursor: pointer !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.45) !important;
+      transition: all 0.15s ease !important;
+      box-sizing: border-box !important;
     }
 
-    /* 操作メニューはスマホ初期状態で閉じる。is-open のときだけ開く */
+    .mobile-quick-btn:active {
+      transform: scale(0.95) !important;
+      background: linear-gradient(180deg, #50301a 0%, #2a1a0f 100%) !important;
+    }
+
+    .mobile-quick-btn .btn-text {
+      display: none !important;
+    }
+
+    .mobile-quick-btn .btn-icon {
+      font-size: 13.5pt !important;
+      line-height: 1 !important;
+    }
+
+    /* 操作メニュー：スマホでは画面両端いっぱいに広げた 2行×4列（上下幅圧縮）レイアウトで表示 */
     .header-controls {
       display: none;
       width: 100%;
     }
 
     .header-controls.is-open {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      padding-top: 4px;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 4px 3px !important;
+      padding: 5px 4px !important;
+      background: rgba(18, 12, 8, 0.97) !important;
+      border: 1px solid #5a3d24 !important;
+      border-radius: 6px !important;
+      margin-top: 4px !important;
+      margin-left: -4px !important;
+      margin-right: -4px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.75) !important;
+      width: calc(100% + 8px) !important;
+      flex: 1 1 calc(100% + 8px) !important;
+      box-sizing: border-box !important;
     }
 
     .header-btn,
     .sound-btn {
-      min-height: 40px;
-      min-width: 40px;
-      padding: 6px 8px;
-      justify-content: center;
-      white-space: normal;
-      text-align: center;
-      font-size: 10.5pt;
-      border-radius: 5px;
+      min-height: 30px !important;
+      height: 30px !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      padding: 1px 2px !important;
+      justify-content: center !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      text-align: center !important;
+      font-size: 9.5pt !important;
+      font-weight: bold !important;
+      border-radius: 4px !important;
+      gap: 3px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
     }
 
+    .header-btn svg,
+    .header-btn i {
+      width: 13px !important;
+      height: 13px !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* スマホ表示時は要約テキストへ切替 */
+    .btn-label-full {
+      display: none !important;
+    }
+    .btn-label-short {
+      display: inline !important;
+    }
+
+    .sound-btn {
+      font-size: 9.5pt !important;
+      font-weight: bold !important;
+      gap: 2px !important;
+    }
+    #soundIcon {
+      font-size: 10pt !important;
+      line-height: 1 !important;
+    }
+    #soundText {
+      font-size: 9pt !important;
+      letter-spacing: -0.5px !important;
+    }
+
+    /* スマホ表示時は音量調節スライドバーを非表示にして2行×4列のボタンのみ表示 */
+    .header-controls .volume-slider,
     .volume-slider {
-      grid-column: 1 / -1;
-      width: 100%;
-      height: 40px;
+      display: none !important;
     }
 
-    .chronicle-wide-bar {
-      height: 40px;
-      min-height: 40px;
-      flex-wrap: nowrap;
-      overflow: hidden;
-      padding: 4px 8px;
-      font-size: 10.5pt;
-    }
-
-    /* 勢力状況（金・兵糧・兵力）は初期非表示。ボタンで開く */
+    /* 勢力情報（金・兵糧・兵力・当主等）のスマホ要約表示 */
     .clan-bar {
       display: none;
       height: auto;
@@ -2310,33 +2466,92 @@
     }
 
     .clan-bar.is-open {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      height: auto;
-      max-height: 46dvh;
-      overflow-y: auto;
-      padding: 6px;
-      scroll-margin-top: 150px;
-      scroll-margin-bottom: 180px;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important; /* 2行×3列 */
+      gap: 5px !important;
+      height: auto !important;
+      max-height: none !important;
+      padding: 6px 6px !important;
+      background: rgba(18, 12, 8, 0.95) !important;
+      border: 1px solid var(--border-gold) !important;
+      border-radius: 6px !important;
+      margin-bottom: 6px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
     }
 
-    .clan-bar.is-open .stat-card {
-      height: auto;
-      max-height: none;
-      min-height: 58px;
-      padding: 6px 8px;
-    }
-
-    /* 大名名カードだけは1行いっぱいに広げる */
+    /* 自大名カード（家紋・家名・氏名・能力値）は最上部で1行全幅表示（残す） */
     .clan-bar.is-open .stat-card:first-child {
-      grid-column: 1 / -1;
+      grid-column: 1 / -1 !important;
+      min-height: 38px !important;
+      height: auto !important;
+      padding: 3px 8px !important;
+      background: linear-gradient(90deg, rgba(50, 32, 20, 0.95), rgba(25, 16, 10, 0.95)) !important;
+      border: 1px solid var(--border-gold) !important;
+      border-radius: 4px !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
     }
 
-    .stat-card .label,
-    .stat-card .value,
-    .stat-card .sub-value {
-      white-space: normal;
+    /* 内政型などの性格バッジのみスマホでは省略 */
+    .clan-bar.is-open #statPersonalityBadge {
+      display: none !important;
+    }
+
+    /* 覇道進捗から総動員兵力までの6ボックス（2行×3列：シンプル＆スマートデザイン） */
+    .clan-bar.is-open .stat-card {
+      min-height: 44px !important;
+      height: auto !important;
+      padding: 4px 2px !important;
+      border-radius: 4px !important;
+      background: linear-gradient(180deg, rgba(35, 23, 16, 0.92) 0%, rgba(18, 12, 8, 0.95) 100%) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      gap: 2px !important;
+      text-align: center !important;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .clan-bar.is-open .stat-card .label {
+      font-size: 7.8pt !important;
+      color: #c4b69d !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 2px !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+      letter-spacing: -0.2px !important;
+    }
+
+    .clan-bar.is-open .stat-card .label i,
+    .clan-bar.is-open .stat-card .label svg {
+      width: 11px !important;
+      height: 11px !important;
+      opacity: 0.85 !important;
+    }
+
+    .clan-bar.is-open .stat-card .value {
+      font-size: 10.5pt !important;
+      font-weight: bold !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+      line-height: 1.15 !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
+    /* 補足説明（夏・冬に商業運上、天下統一まで等）はスマホで省略し要約 */
+    .clan-bar.is-open .stat-card .sub-value,
+    .clan-bar.is-open .stat-card .stat-label-sub,
+    .clan-bar.is-open .prob-bar-track,
+    .clan-bar.is-open .ap-tokens-wrap {
+      display: none !important;
     }
 
     /* --- 中央：地図を大きく。その下に領国軍情と軍令を縦積み --- */
@@ -2351,9 +2566,9 @@
 
     .map-wrapper {
       width: 100%;
-      /* JSが下部バーと軍令の見え始めを測って上書きする */
-      height: 50dvh;
-      min-height: 280px;
+      /* 縦の幅を25%ほど縮小 (50dvh -> 38dvh) */
+      height: 38dvh !important;
+      min-height: 210px !important;
       flex: none;
       /* 地図上の縦ドラッグをページスクロールに渡さない */
       touch-action: none;
@@ -2363,66 +2578,76 @@
       touch-action: none;
     }
 
-    .map-ctrl-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 16pt;
-    }
-
+    /* スマホ地図操作：左上に[＋] [−] [⟲] の3ボタンを横並び配置 */
     .map-controls-group {
-      gap: 6px;
+      position: absolute !important;
+      top: 6px !important;
+      left: 6px !important;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 4px !important;
+      z-index: 15 !important;
     }
 
-    /* スマホ地図：＋ボタンの右（左上隅）にピクトグラムボタン群、その右隣に凡例を配置 */
+    .map-ctrl-btn {
+      width: 32px !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      font-size: 14pt !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 4px !important;
+    }
+
+    /* スマホ地図：リセットボタンの右隣にピクトグラム計4ボタン([🏯] [🤝] [⚔️] [🌾])を横並び配置 */
     .map-heat-panel {
-      position: absolute;
-      top: 6px;
-      left: 50px;
-      right: 6px;
-      z-index: 15;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
-      pointer-events: none;
-      flex-wrap: nowrap;
-      overflow: hidden;
+      position: absolute !important;
+      top: 6px !important;
+      left: calc(32px * 3 + 6px + 8px) !important;
+      right: auto !important;
+      z-index: 15 !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 4px !important;
+      pointer-events: none !important;
+      flex-wrap: nowrap !important;
+      overflow: visible !important;
+      margin: 0 !important;
     }
 
     .map-heat-filter {
-      flex-shrink: 0;
-      gap: 3px;
-      padding: 2px 3px;
+      pointer-events: auto !important;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 4px !important;
+      padding: 0 !important;
+      background: none !important;
+      border: none !important;
+      flex-shrink: 0 !important;
     }
 
     .map-heat-btn {
-      width: 34px;
-      height: 34px;
-      min-height: 34px;
-      border-radius: 4px;
+      width: 32px !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 4px !important;
     }
 
     .map-heat-btn .heat-icon {
-      font-size: 13pt;
+      font-size: 12.5pt !important;
+      line-height: 1 !important;
     }
 
+    /* 地図の中の各大名家の領国色などの凡例はスマホでは省略 */
     .map-heat-legend {
-      flex: 0 1 auto;
-      font-size: 8.5pt;
-      padding: 3px 6px;
-      max-width: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      gap: 4px;
-      justify-content: flex-start;
-    }
-
-    .map-heat-legend .heat-grad,
-    .map-heat-legend .heat-grad-troops,
-    .map-heat-legend .heat-grad-rice {
-      width: 52px;
-      height: 8px;
+      display: none !important;
     }
 
     .side-panel {
@@ -2438,80 +2663,235 @@
       overflow: visible;
     }
 
-    /* --- 軍令発令所：極端に細長いボタンを撲滅し、親指で押しやすい2列タイルへ --- */
+    /* --- 領国軍情：タイトルバーのレイアウト調整 ＆ 委任プルダウンを幅1/4で文字の右隣に移動 --- */
+    .prov-panel .panel-title {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+
+    .prov-panel-title-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+
+    .prov-panel-title-left > span:first-child {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* 委任プルダウンメニュー：幅1/4にして領国軍情の文字の右隣に移動。四字以内に要約表示 */
+    .mobile-govern-policy-wrap {
+      display: inline-flex !important;
+      width: 25% !important;
+      min-width: 66px !important;
+      max-width: 92px !important;
+      flex-shrink: 0 !important;
+      align-items: center !important;
+    }
+
+    .mobile-govern-policy-wrap.is-hidden {
+      display: none !important;
+    }
+
+    .mobile-govern-select {
+      width: 100% !important;
+      height: 22px !important;
+      background: #1c130d !important;
+      color: #ffd700 !important;
+      border: 1px solid #775533 !important;
+      padding: 0 1px !important;
+      border-radius: 3px !important;
+      font-family: inherit !important;
+      font-size: 10pt !important;
+      font-weight: bold !important;
+      cursor: pointer !important;
+      outline: none !important;
+    }
+
+    .prov-panel-title-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      justify-content: flex-end !important;
+      flex-shrink: 1 !important;
+      min-width: 0 !important;
+    }
+
+    #selectedProvBadge {
+      flex-shrink: 1 !important;
+      text-align: right !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+      font-size: 11pt !important;
+      min-width: 0 !important;
+    }
+
+    /* 城の解説ピクトグラムボタン（スマホ専用） */
+    .btn-castle-lore {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      background: linear-gradient(180deg, #3d2a1b 0%, #201309 100%) !important;
+      color: #ffd700 !important;
+      border: 1px solid #8e6d3a !important;
+      border-radius: 4px !important;
+      padding: 1px 4px !important;
+      font-size: 11pt !important;
+      line-height: 1.1 !important;
+      cursor: pointer !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+      user-select: none !important;
+      touch-action: manipulation !important;
+      transition: transform 0.1s ease, background 0.15s ease !important;
+    }
+
+    .btn-castle-lore:active {
+      transform: scale(0.92) !important;
+      background: #25160e !important;
+    }
+
+    .btn-castle-lore.is-hidden {
+      display: none !important;
+    }
+
+    /* 城郭解説モーダルカード（スマホ用コンパクト設計） */
+    .castle-lore-modal-card {
+      width: 90vw !important;
+      max-width: 440px !important;
+      max-height: 85dvh !important;
+      background: linear-gradient(180deg, #24160e 0%, #150d08 100%) !important;
+      border: 2px solid var(--gold) !important;
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.95), 0 0 20px rgba(212, 175, 55, 0.35) !important;
+      border-radius: 8px !important;
+      padding: 14px 16px !important;
+      box-sizing: border-box !important;
+      margin: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow-y: auto !important;
+    }
+
+    /* 本拠親政を「本拠」に2文字削減 */
+    .honkyo-shinsei-sub {
+      display: none !important;
+    }
+
+    /* 武将一覧ボタン：ピクトグラムの後ろに在国数を丸数字で付記 */
+    .btn-view-prov-officers .prov-officers-text,
+    .btn-view-prov-officers .prov-officers-count {
+      display: none !important;
+    }
+
+    .prov-officers-mobile-count {
+      display: inline-block !important;
+      font-size: 11pt !important;
+      color: #ffd700 !important;
+      margin-left: 2px !important;
+      line-height: 1 !important;
+      font-weight: bold !important;
+      vertical-align: middle !important;
+    }
+
+    .btn-view-prov-officers {
+      padding: 2px 6px !important;
+      min-width: 34px !important;
+      justify-content: center !important;
+      align-items: center !important;
+      display: inline-flex !important;
+    }
+
+    /* 城の説明非表示 */
+    .castle-lore-box {
+      display: none !important;
+    }
+
+    /* スマホでは provDetailBox 内の委任行（prov-govern-policy-row）は非表示（タイトルバーへ移動したため上下幅を圧縮） */
+    .prov-govern-policy-row {
+      display: none !important;
+    }
+
+    /* --- 軍令発令所：3行×2列のボタン配置（各ボタンは1行要約スタイル） --- */
     .cmd-panel > .commands-grid {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr) !important;
-      gap: 8px !important;
+      gap: 5px !important;
       flex: none;
       min-height: 0;
       overflow: visible;
-      margin-top: 6px !important;
+      margin-top: 4px !important;
     }
 
     .cmd-btn {
-      min-height: 58px;
-      height: auto;
-      padding: 8px 6px;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      text-align: center;
-      box-sizing: border-box;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      transition: transform 0.1s ease, box-shadow 0.15s ease;
+      min-height: 38px !important;
+      height: auto !important;
+      padding: 4px 6px !important;
+      border-radius: 4px !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
+      transition: transform 0.1s ease, box-shadow 0.15s ease !important;
     }
 
     .cmd-btn:active:not(:disabled) {
-      transform: scale(0.97);
+      transform: scale(0.98) !important;
     }
 
     .cmd-btn-main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      width: 100%;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 4px !important;
+      width: 100% !important;
+      margin: 0 !important;
     }
 
     .cmd-title {
-      font-size: 11pt;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      line-height: 1.2;
+      font-size: 10pt !important;
+      font-weight: bold !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 3px !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
+      margin: 0 !important;
     }
 
     .cmd-icon {
-      font-size: 12pt;
+      font-size: 11pt !important;
     }
 
     /* スマホでは括弧内の長文補足は非表示にし、簡潔明瞭なボタン名にする */
     .cmd-sub-bracket {
-      display: none;
+      display: none !important;
     }
 
-    /* スマホでは2行目の詳細文は非表示にし、タイル内にすっきり収める */
+    /* スマホでは2行目の詳細文は非表示にし、1行にすっきり収める */
     .cmd-sub-desc {
-      display: none;
+      display: none !important;
     }
 
     .cmd-cost {
-      font-size: 9.5pt;
-      font-weight: normal;
-      background: rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 1px 6px;
-      border-radius: 3px;
-      display: inline-block;
-      line-height: 1.2;
-      white-space: nowrap;
+      font-size: 8.5pt !important;
+      font-weight: normal !important;
+      background: rgba(0,0,0,0.45) !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      padding: 1px 5px !important;
+      border-radius: 3px !important;
+      display: inline-block !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
+      margin: 0 !important;
     }
 
     /* --- 下部固定：洗練された和風フローティング・アクションドック --- */
@@ -2668,24 +3048,14 @@
       overflow-y: auto;
     }
 
-    /* 時代タブを横スクロール可能に */
+    /* 時代別クイック切替タブのスマホ省略 */
     .scenario-era-tabs {
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      gap: 4px;
+      display: none !important;
     }
 
-    .era-tab-btn {
-      flex: 0 0 auto;
-      white-space: nowrap;
-      padding: 4px 10px;
-      font-size: 10pt;
-    }
-
+    /* シナリオ選択ボックス：上下幅を広げ、スクロールしやすく */
     .scenario-selector-container {
-      max-height: 36dvh;
+      max-height: 48dvh;
       overflow-y: auto;
     }
 
@@ -2695,20 +3065,46 @@
       gap: 6px !important;
     }
 
+    .scenario-btn {
+      padding: 6px 8px !important;
+      min-height: 48px !important;
+    }
+
+    /* 難易度選択：初級・中級・上級・修羅を1行で表示 */
     .diff-selector-wrapper {
-      flex-direction: column !important;
-      align-items: stretch !important;
+      flex-direction: row !important;
+      align-items: center !important;
       gap: 6px !important;
+      padding: 4px 6px !important;
+    }
+
+    .diff-selector-label {
+      font-size: 10pt !important;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .diff-selector-group {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 6px !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 4px !important;
+      flex: 1;
     }
 
-    .scenario-btn,
-    .diff-option-btn,
-    .daimyo-card,
+    .diff-option-btn {
+      min-height: 34px !important;
+      padding: 4px 2px !important;
+      font-size: 10pt !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .diff-btn-sub {
+      display: none !important;
+    }
+
     .battle-btn,
     .duel-btn,
     .jb-btn,
@@ -2721,9 +3117,31 @@
       height: 44px;
     }
 
+    /* 大名一覧＆カード：武力・内政・智略の能力表示を省略し上下幅を圧縮 */
+    .daimyo-card-stats {
+      display: none !important;
+    }
+
+    .daimyo-card {
+      min-height: auto !important;
+      padding: 3px 6px !important;
+    }
+
+    .daimyo-card .daimyo-name {
+      font-size: 10.5pt !important;
+      margin-bottom: 2px !important;
+    }
+
+    .daimyo-card .daimyo-clan-row {
+      margin-bottom: 0 !important;
+      font-size: 9.5pt !important;
+    }
+
     .daimyo-grid {
       grid-template-columns: 1fr;
       max-height: none;
+      gap: 4px !important;
+      padding: 2px 4px !important;
     }
 
     /* 大名詳細ポップアップ：能力値を3列で折り返し、本文を縦積みに */
@@ -2735,6 +3153,24 @@
     .daimyo-popup-stats {
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 6px !important;
+    }
+
+    /* 大名詳細ポップアップ：内政型等の統治気質ボックスを省略し、奥義説明を左右全幅表示 */
+    #popupPersonality {
+      display: none !important;
+    }
+
+    .daimyo-popup-personality-tactic-row {
+      display: block !important;
+      margin-bottom: 10px !important;
+    }
+
+    .daimyo-popup-tactic,
+    #popupTactic {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      flex: 1 1 100% !important;
     }
 
     .daimyo-popup-body-grid {
@@ -2805,15 +3241,49 @@
       flex-direction: column;
     }
 
+    /* 自動セーブ再開バナー：年・季節・大名名と再開ボタンのみに整理 */
     #resumeSaveBanner {
       flex-direction: column !important;
       align-items: stretch !important;
       gap: 8px;
     }
 
+    #resumeSaveBanner .resume-save-title {
+      display: none !important;
+    }
+
+    #resumeSaveBanner .resume-sub-info {
+      display: none !important;
+    }
+
+    #resumeSaveSummary {
+      font-size: 11pt !important;
+      text-align: center;
+      line-height: 1.4;
+    }
+
     #resumeSaveBtn {
       width: 100% !important;
       min-height: 44px;
+    }
+
+    /* シナリオ説明文のスマホ省略 */
+    .scenario-intro-desc {
+      display: none !important;
+    }
+
+    /* 歴史シナリオ選択の補足（カッコ）のスマホ省略 */
+    .scenario-select-sub {
+      display: none !important;
+    }
+
+    /* 選択可能大名一覧の補足（カッコ）と右側大名選択バッジのスマホ省略 */
+    .daimyo-list-sub {
+      display: none !important;
+    }
+
+    #selectedDaimyoBadge {
+      display: none !important;
     }
 
     .order-result-toast {
@@ -2858,14 +3328,1732 @@
 
     /* 領国軍情の武将一覧・城主交代ボタンのタッチ領域拡大 */
     .btn-view-prov-officers {
-      min-height: 34px;
-      padding: 4px 10px;
+      min-height: 28px;
+      padding: 2px 6px;
       font-size: 11pt;
     }
 
     #btnAppointGovernor {
       min-height: 28px;
       padding: 3px 10px;
+    }
+
+    /* ==========================================================================
+       スマホ用：勢力一覧、領国一覧、武将一覧、領国一括委任の最適化デザイン
+       ========================================================================== */
+
+    /* --- 共通モーダル外枠・ヘッダー・タブ --- */
+    .custom-modal-content {
+      width: 96vw !important;
+      max-width: 96vw !important;
+      height: 94dvh !important;
+      max-height: 94dvh !important;
+      border-radius: 6px !important;
+    }
+
+    .modal-header-bar {
+      padding: 8px 12px !important;
+    }
+
+    .modal-title-text {
+      font-size: 13pt !important;
+    }
+
+    .modal-subtitle-text {
+      display: none !important;
+    }
+
+    .modal-control-bar {
+      padding: 6px 8px !important;
+      gap: 6px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+
+    .modal-tabs-wrap {
+      display: flex !important;
+      gap: 4px !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      width: 100% !important;
+      padding-bottom: 2px !important;
+    }
+
+    .modal-tabs-wrap > button {
+      padding: 5px 8px !important;
+      font-size: 9.5pt !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+      text-align: center !important;
+      border-radius: 4px !important;
+    }
+
+    .modal-search-wrap {
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+
+    .modal-search-label {
+      font-size: 10pt !important;
+      white-space: nowrap !important;
+    }
+
+    .modal-search-wrap input {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      padding: 4px 8px !important;
+      font-size: 10pt !important;
+      box-sizing: border-box !important;
+    }
+
+    .modal-table-scroll {
+      padding: 4px 6px !important;
+    }
+
+    .modal-footer-bar {
+      padding: 8px 12px !important;
+      gap: 6px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .modal-footer-info {
+      font-size: 9.5pt !important;
+      line-height: 1.35 !important;
+      flex: 1 1 100% !important;
+    }
+
+    .modal-footer-close-btn {
+      width: 100% !important;
+      min-height: 38px !important;
+      margin-top: 4px !important;
+      font-size: 11pt !important;
+    }
+
+    /* --- モーダル用スマホソートバー共通スタイル --- */
+    .modal-mobile-sort-bar {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      padding: 6px 8px !important;
+      background: rgba(0, 0, 0, 0.35) !important;
+      border-bottom: 1px dashed #5a4638 !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+
+    .modal-mobile-sort-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-sort-label {
+      font-size: 9.5pt !important;
+      color: #aaa !important;
+      white-space: nowrap !important;
+      margin-right: 2px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .mobile-sort-btn {
+      background: #2b1d14 !important;
+      color: #e0d8c3 !important;
+      border: 1px solid #664422 !important;
+      border-radius: 4px !important;
+      padding: 3px 8px !important;
+      font-size: 9pt !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      flex: 0 0 auto !important;
+      min-height: 28px !important;
+      font-family: inherit !important;
+      transition: all 0.15s ease !important;
+    }
+
+    .mobile-sort-btn:active {
+      transform: scale(0.96) !important;
+    }
+
+    .mobile-sort-btn.active {
+      background: linear-gradient(180deg, #922b21, #78281f) !important;
+      color: #fff !important;
+      border-color: #d4af37 !important;
+      font-weight: bold !important;
+      box-shadow: 0 0 6px rgba(212, 175, 55, 0.4) !important;
+    }
+
+    /* --- 1. 武将一覧（#officerListModal）：スマホ用カード化 --- */
+    .officer-list-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+
+    /* ==========================================================================
+       スマホ用モーダル共通ソートバー
+       ========================================================================== */
+    .modal-mobile-sort-bar {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      padding: 6px 12px !important;
+      background: rgba(22, 14, 9, 0.96) !important;
+      border-bottom: 1px solid #5a3d24 !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      flex-shrink: 0 !important;
+    }
+    .modal-mobile-sort-bar::-webkit-scrollbar {
+      display: none !important;
+    }
+    .mobile-sort-label {
+      font-size: 9.5pt !important;
+      color: var(--gold-bright) !important;
+      font-weight: bold !important;
+      flex-shrink: 0 !important;
+      margin-right: 2px !important;
+    }
+    .mobile-sort-btn {
+      background: #2b1c12 !important;
+      border: 1px solid #664422 !important;
+      color: #ddd !important;
+      padding: 3px 9px !important;
+      border-radius: 4px !important;
+      font-size: 9.5pt !important;
+      cursor: pointer !important;
+      flex-shrink: 0 !important;
+      line-height: 1.3 !important;
+      transition: all 0.15s ease !important;
+    }
+    .mobile-sort-btn.active {
+      background: linear-gradient(180deg, #8a6a28, #5a4018) !important;
+      border-color: var(--gold-bright) !important;
+      color: #fff !important;
+      font-weight: bold !important;
+      box-shadow: 0 0 6px rgba(255, 215, 0, 0.4) !important;
+    }
+
+    /* ==========================================================================
+       1. 武将一覧（#officerListModal）：3行カード化＆ソート
+       ========================================================================== */
+    .officer-list-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    .officer-list-table thead {
+      display: none !important;
+    }
+    .officer-list-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .officer-table-row {
+      display: block !important;
+      padding: 7px 10px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+      transition: background 0.15s ease !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .officer-table-row:active {
+      background: rgba(55, 38, 26, 0.98) !important;
+    }
+    .officer-table-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    /* 旧個別カラムtdはスマホでは全て非表示 */
+    .off-td-name,
+    .off-td-role,
+    .off-td-base,
+    .off-td-clan,
+    .off-td-age,
+    .off-td-mil,
+    .off-td-pol,
+    .off-td-int,
+    .off-td-action,
+    .off-td-mobile-meta,
+    .off-td-mobile-stats {
+      display: none !important;
+    }
+
+    /* スマホ専用2行カードを表示 */
+    .off-td-mobile-card {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 5px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1行目: 武将名・年齢（左） ＆ 能力値: 武・内・知（右） */
+    .off-mcard-row1 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .off-mcard-left {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 6px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .off-mcard-name {
+      font-size: 11.5pt !important;
+      font-weight: bold !important;
+      color: #ffffff !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+    .off-mcard-age {
+      font-size: 9.5pt !important;
+      color: #bbb !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    .off-mcard-stats {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      font-size: 9pt !important;
+      flex-shrink: 0 !important;
+      background: rgba(0, 0, 0, 0.35) !important;
+      border: 1px solid #4a3420 !important;
+      border-radius: 4px !important;
+      padding: 2px 6px !important;
+      white-space: nowrap !important;
+    }
+    .off-mcard-stats .stat-mil b { color: #ff6b6b !important; }
+    .off-mcard-stats .stat-pol b { color: #5dade2 !important; }
+    .off-mcard-stats .stat-int b { color: #a3e4d7 !important; }
+
+    /* 2行目: 身分・拠点・所属（左） ＆ 登用ボタン（右） */
+    .off-mcard-row2 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+      font-size: 9pt !important;
+      color: #ccc !important;
+    }
+    .off-mcard-meta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .off-mcard-role {
+      flex-shrink: 0 !important;
+      font-size: 8.5pt !important;
+    }
+    .off-mcard-base {
+      flex-shrink: 1 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      color: #85c1e9 !important;
+      white-space: nowrap !important;
+    }
+    .off-mcard-clan {
+      flex-shrink: 1 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      color: #aaa !important;
+      white-space: nowrap !important;
+    }
+    .off-mcard-action {
+      flex-shrink: 0 !important;
+      margin-left: auto !important;
+    }
+    .off-mcard-action .btn-recruit-ronin-row {
+      min-height: 22px !important;
+      height: 22px !important;
+      padding: 1px 8px !important;
+      font-size: 8.5pt !important;
+      font-weight: bold !important;
+    }
+
+    /* フッター説明文をスマホでは省略 */
+    .officer-footer-bar {
+      padding: 6px 12px !important;
+      justify-content: flex-end !important;
+    }
+    .officer-footer-bar .modal-footer-info {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       2. 領国一覧（#provinceListModal）：3行カードレイアウト
+       ========================================================================== */
+    .province-list-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    .province-list-table thead {
+      display: none !important;
+    }
+    .province-list-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .province-table-row {
+      display: block !important;
+      padding: 7px 10px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .province-table-row:active {
+      background: rgba(55, 38, 26, 0.98) !important;
+    }
+    .province-table-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    /* 旧個別カラムtdはスマホでは全て非表示 */
+    .prov-td-name,
+    .prov-td-castle,
+    .prov-td-region,
+    .prov-td-owner,
+    .prov-td-mobile-officer,
+    .prov-td-gov,
+    .prov-td-mil,
+    .prov-td-pol,
+    .prov-td-strat,
+    .prov-td-troops,
+    .prov-td-defense,
+    .prov-td-morale,
+    .prov-td-kokudaka,
+    .prov-td-commerce,
+    .prov-td-order {
+      display: none !important;
+    }
+
+    /* スマホ専用3行カードを表示 */
+    .prov-td-mobile-card {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1行目: 国名・城名（左） ＆ 所属大名家（右） */
+    .prov-mcard-row1 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .prov-mcard-left {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 6px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .prov-mcard-name {
+      font-size: 11.5pt !important;
+      font-weight: bold !important;
+      color: #fff !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+    .prov-mcard-castle {
+      font-size: 9.5pt !important;
+      color: #ddd !important;
+      font-weight: normal !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    .prov-mcard-owner {
+      font-size: 8.5pt !important;
+      padding: 1px 6px !important;
+      border-radius: 3px !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* 2行目: 城主役職・名前（左） ＆ 能力値（右） */
+    .prov-mcard-row2 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid #4a3420 !important;
+      border-radius: 4px !important;
+      padding: 2px 6px !important;
+      box-sizing: border-box !important;
+    }
+    .prov-mcard-gov {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .prov-mcard-badge {
+      font-size: 8.5pt !important;
+      flex-shrink: 0 !important;
+    }
+    .prov-mcard-govname {
+      color: #fff !important;
+      font-size: 10pt !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+    .prov-mcard-stats {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      font-size: 9pt !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    .prov-mcard-stats .stat-mil b { color: #ff6b6b !important; }
+    .prov-mcard-stats .stat-pol b { color: #5dade2 !important; }
+    .prov-mcard-stats .stat-strat b { color: #a3e4d7 !important; }
+
+    /* 3行目: 軍事・経済データ（1行横並び） */
+    .prov-mcard-row3 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+      font-size: 8.5pt !important;
+      color: #bbb !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+    }
+    .prov-mcard-mil-data,
+    .prov-mcard-eco-data {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      white-space: nowrap !important;
+    }
+    .mdata-item {
+      color: #aaa !important;
+      font-size: 8.5pt !important;
+    }
+    .mdata-item b {
+      color: #fff !important;
+      font-size: 8.5pt !important;
+      margin-left: 2px !important;
+    }
+    .prov-mcard-mil-data .mdata-item:first-child b { color: #ffaaaa !important; }
+    .prov-mcard-eco-data .mdata-item:first-child b { color: #ffd700 !important; }
+
+    /* フッター説明文をスマホでは省略 */
+    .province-footer-bar {
+      padding: 6px 12px !important;
+      justify-content: flex-end !important;
+    }
+    .province-footer-bar .modal-footer-info {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       3. 勢力一覧（#factionListModal）：3行カード化＆4ボックス非表示
+       ========================================================================== */
+    /* 上の大名名・行動力・同盟国・軍資金の4つのボックスを省略非表示 */
+    .faction-my-info-bar {
+      display: none !important;
+    }
+
+    .faction-list-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    .faction-list-table thead {
+      display: none !important;
+    }
+    .faction-list-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .faction-table-row {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr auto !important;
+      gap: 3px 6px !important;
+      padding: 7px 10px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+    }
+    .faction-table-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+    /* 1行目: 家名 (当主名) ＋ 外交ボタン */
+    .fac-td-clan {
+      grid-column: 1 / 3 !important;
+      grid-row: 1 !important;
+      font-size: 11.5pt !important;
+      font-weight: bold !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .fac-mobile-leader-name {
+      display: inline !important;
+      font-size: 10pt !important;
+      color: var(--gold-bright) !important;
+      margin-left: 4px !important;
+      font-weight: normal !important;
+    }
+    .fac-td-leader {
+      display: none !important;
+    }
+    .fac-td-action {
+      grid-column: 3 / 4 !important;
+      grid-row: 1 !important;
+      justify-self: end !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .btn-break-alliance-row,
+    .btn-form-alliance-row {
+      min-height: 26px !important;
+      height: 26px !important;
+      padding: 2px 8px !important;
+      font-size: 9.5pt !important;
+    }
+    /* 2行目: 本拠地 (居城) ＋ 領国数 */
+    .fac-td-base {
+      grid-column: 1 / 3 !important;
+      grid-row: 2 !important;
+      font-size: 9.5pt !important;
+      color: #ddd !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+    .fac-td-base::before { content: "🏯 "; }
+    .fac-td-provs {
+      grid-column: 3 / 4 !important;
+      grid-row: 2 !important;
+      justify-self: end !important;
+      font-size: 9.5pt !important;
+      color: #aaa !important;
+      white-space: nowrap !important;
+    }
+    .fac-td-provs::before { content: "領国: "; }
+    .fac-td-allies {
+      display: none !important;
+    }
+    /* 3行目: 総石高 ｜ 総兵力 ｜ 武将数 */
+    .fac-td-rice {
+      grid-column: 1 / 2 !important;
+      grid-row: 3 !important;
+      font-size: 9.5pt !important;
+      text-align: left !important;
+      white-space: nowrap !important;
+    }
+    .fac-td-rice::before { content: "🌾 "; }
+    .fac-td-troops {
+      grid-column: 2 / 3 !important;
+      grid-row: 3 !important;
+      font-size: 9.5pt !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+    }
+    .fac-td-troops::before { content: "⚔️ "; }
+    .fac-td-officers {
+      grid-column: 3 / 4 !important;
+      grid-row: 3 !important;
+      font-size: 9.5pt !important;
+      justify-self: end !important;
+      white-space: nowrap !important;
+    }
+    .fac-td-officers::before { content: "👥 "; }
+    .fac-footer-note {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       4. 領国一括委任（#governModal）：カード化最適化
+       ========================================================================== */
+    .govern-modal-card {
+      width: 96vw !important;
+      max-width: 96vw !important;
+      max-height: 94dvh !important;
+      padding: 10px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      border-radius: 6px !important;
+    }
+    /* 説明書きはスマホでは省略 */
+    .modal-desc-govern {
+      display: none !important;
+    }
+    .govern-preset-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 4px !important;
+      margin-bottom: 6px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .govern-preset-btn {
+      padding: 6px 3px !important;
+      font-size: 8.5pt !important;
+      min-height: 36px !important;
+      line-height: 1.2 !important;
+      text-align: center !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .btn-preset-full {
+      display: none !important;
+    }
+    .btn-preset-short {
+      display: inline-block !important;
+      font-size: 8.5pt !important;
+      font-weight: bold !important;
+      white-space: nowrap !important;
+    }
+    .govern-batch-bar {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 5px !important;
+      padding: 5px 8px !important;
+      margin-bottom: 6px !important;
+    }
+    .govern-batch-left {
+      font-size: 9.5pt !important;
+    }
+    .govern-batch-label {
+      font-size: 9pt !important;
+    }
+    .govern-batch-btns {
+      display: flex !important;
+      gap: 3px !important;
+      width: 100% !important;
+    }
+    .govern-batch-btns > button {
+      flex: 1 1 auto !important;
+      padding: 4px 2px !important;
+      font-size: 8.5pt !important;
+      text-align: center !important;
+      min-height: 28px !important;
+    }
+    .govern-table-scroll {
+      flex: 1 1 auto !important;
+      max-height: 48dvh !important;
+      overflow-y: auto !important;
+    }
+    .govern-prov-table thead {
+      display: none !important;
+    }
+    .govern-prov-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    /* 領国カード: 3行で整然と表示 */
+    .govern-prov-row {
+      display: grid !important;
+      grid-template-columns: auto 1fr auto !important;
+      row-gap: 4px !important;
+      column-gap: 6px !important;
+      padding: 7px 9px !important;
+      background: rgba(26, 17, 10, 0.95) !important;
+      border: 1px solid #5a3d24 !important;
+      border-radius: 6px !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      align-items: center !important;
+    }
+    .govern-prov-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+    /* 1行目: 選 + 領国名(城名) + 位置バッジ */
+    .gov-td-check {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .gov-td-name {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      font-size: 11pt !important;
+      font-weight: bold !important;
+      color: #fff !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+    .gov-castle-name {
+      font-size: 9.5pt !important;
+      color: #aaa !important;
+      font-weight: normal !important;
+      margin-left: 4px !important;
+    }
+    .gov-td-pos {
+      grid-column: 3 !important;
+      grid-row: 1 !important;
+      justify-self: end !important;
+      font-size: 9pt !important;
+    }
+    /* 2行目: 兵力 + 経済 */
+    .gov-td-troops {
+      grid-column: 1 / 3 !important;
+      grid-row: 2 !important;
+      font-size: 9pt !important;
+      color: #ffaaaa !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .gov-td-troops::before { content: "⚔️ 兵: "; color: #aaa; }
+    .gov-td-eco {
+      grid-column: 3 !important;
+      grid-row: 2 !important;
+      justify-self: end !important;
+      font-size: 9pt !important;
+      color: #ffd700 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .gov-td-eco::before { content: "🌾/💰: "; color: #aaa; }
+    /* 3行目: セレクトボックス */
+    .gov-td-select {
+      grid-column: 1 / 4 !important;
+      grid-row: 3 !important;
+      width: 100% !important;
+      margin-top: 1px !important;
+    }
+    .govern-row-select {
+      width: 100% !important;
+      min-height: 30px !important;
+      font-size: 9pt !important;
+      padding: 3px 6px !important;
+      box-sizing: border-box !important;
+    }
+    .govern-footer-bar {
+      margin-top: 6px !important;
+    }
+    #closeGovernModalBtn {
+      width: 100% !important;
+      min-height: 38px !important;
+      font-size: 11pt !important;
+      padding: 6px 12px !important;
+    }
+
+    /* ==========================================================================
+       5. 城主交代の任命画面（#governorAppointModal）：3行カード化＆ソート
+       ========================================================================== */
+    .appoint-list-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    .appoint-list-table thead {
+      display: none !important;
+    }
+    .appoint-list-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .appoint-table-row {
+      display: block !important;
+      padding: 7px 10px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .appoint-table-row:active {
+      background: rgba(55, 38, 26, 0.98) !important;
+    }
+    .appoint-table-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    /* 旧個別カラムtdはスマホでは全て非表示 */
+    .appoint-td-name,
+    .appoint-td-role,
+    .appoint-td-base,
+    .appoint-td-age,
+    .appoint-td-mil,
+    .appoint-td-pol,
+    .appoint-td-int,
+    .appoint-td-action,
+    .appoint-td-mobile-stats {
+      display: none !important;
+    }
+
+    /* スマホ専用2行カードを表示 */
+    .appoint-td-mobile-card {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 5px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 1行目: 武将名・年齢（左） ＆ 能力値（右） */
+    .appoint-mcard-row1 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    .appoint-mcard-left {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 6px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .appoint-mcard-name {
+      font-size: 11.5pt !important;
+      font-weight: bold !important;
+      color: #ffffff !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+    .appoint-mcard-age {
+      font-size: 9.5pt !important;
+      color: #bbb !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    .appoint-mcard-stats {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      font-size: 9pt !important;
+      flex-shrink: 0 !important;
+      background: rgba(0, 0, 0, 0.35) !important;
+      border: 1px solid #4a3420 !important;
+      border-radius: 4px !important;
+      padding: 2px 6px !important;
+      white-space: nowrap !important;
+    }
+    .appoint-mcard-stats .stat-mil b { color: #ff6b6b !important; }
+    .appoint-mcard-stats .stat-pol b { color: #5dade2 !important; }
+    .appoint-mcard-stats .stat-int b { color: #a3e4d7 !important; }
+
+    /* 2行目: 身分・拠点（左） ＆ 任命ボタン（右） */
+    .appoint-mcard-row2 {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      width: 100% !important;
+      font-size: 9pt !important;
+      color: #ccc !important;
+    }
+    .appoint-mcard-meta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      flex: 1 1 auto !important;
+    }
+    .appoint-mcard-role {
+      flex-shrink: 0 !important;
+      font-size: 8.5pt !important;
+    }
+    .appoint-mcard-base {
+      flex-shrink: 1 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      color: #85c1e9 !important;
+      white-space: nowrap !important;
+    }
+    .appoint-mcard-action {
+      flex-shrink: 0 !important;
+      margin-left: auto !important;
+    }
+    .appoint-mcard-action .btn-select-gov {
+      min-height: 24px !important;
+      height: 24px !important;
+      padding: 1px 10px !important;
+      font-size: 8.5pt !important;
+      font-weight: bold !important;
+    }
+
+    .appoint-current-status {
+      font-size: 9.5pt !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+    .appoint-current-status button {
+      min-height: 26px !important;
+      padding: 2px 8px !important;
+      font-size: 9pt !important;
+    }
+    .appoint-footer-bar {
+      padding: 6px 10px !important;
+      justify-content: flex-end !important;
+    }
+    .appoint-footer-bar .modal-footer-info {
+      display: none !important;
+    }
+    .appoint-footer-btn-group {
+      display: flex !important;
+      gap: 8px !important;
+      width: 100% !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+    }
+    .appoint-footer-btn-group .btn-label-full {
+      display: none !important;
+    }
+    .appoint-footer-btn-group .btn-label-short {
+      display: inline !important;
+    }
+    .appoint-footer-bar button {
+      min-height: 32px !important;
+      height: 32px !important;
+      padding: 0 14px !important;
+      font-size: 9.5pt !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    /* 一括城主任命モーダル（#batchGovernorModal）のスマホ最適化 */
+    #batchGovernorModal > div {
+      width: 96vw !important;
+      max-width: 96vw !important;
+      height: 94dvh !important;
+      max-height: 94dvh !important;
+    }
+    #batchGovernorModal .modal-header-bar span,
+    #batchGovernorModal > div > div:first-child span {
+      display: none !important;
+    }
+    #batchGovernorModal table {
+      display: block !important;
+      width: 100% !important;
+    }
+    #batchGovernorModal thead {
+      display: none !important;
+    }
+    #batchGovernorModal tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+    #batchGovernorModal tbody tr {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3px !important;
+      padding: 6px 8px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    #batchGovernorModal tbody td {
+      border: none !important;
+      padding: 0 !important;
+    }
+    #batchGovernorModal .batch-gov-select {
+      width: 100% !important;
+      min-height: 32px !important;
+      font-size: 9.5pt !important;
+      padding: 3px 6px !important;
+      box-sizing: border-box !important;
+    }
+    #batchGovernorModal > div > div:last-child {
+      padding: 8px 10px !important;
+      gap: 6px !important;
+    }
+    #batchGovernorModal button {
+      min-height: 32px !important;
+      padding: 4px 10px !important;
+      font-size: 9pt !important;
+    }
+
+    /* ==========================================================================
+       6. 領国詳細：在国武将一覧（#provinceOfficersModal）：カード化＆スマホ最適化
+       ========================================================================== */
+    .prov-officers-modal-content {
+      width: 96vw !important;
+      max-width: 96vw !important;
+      height: 94dvh !important;
+      max-height: 94dvh !important;
+      border-radius: 6px !important;
+    }
+
+    .prov-officers-header-bar {
+      padding: 8px 12px !important;
+    }
+
+    .prov-officers-title-text {
+      font-size: 13pt !important;
+      display: flex !important;
+      align-items: baseline !important;
+      flex-wrap: wrap !important;
+      gap: 4px !important;
+    }
+
+    .prov-officers-castle-tag {
+      font-size: 10pt !important;
+      margin-left: 0 !important;
+      color: #bbb !important;
+      font-weight: normal !important;
+    }
+
+    .prov-officers-subtitle-text {
+      display: none !important;
+    }
+
+    .prov-officers-mobile-sub {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 9.5pt !important;
+      color: #aaa !important;
+      margin-top: 3px !important;
+    }
+
+    .prov-officers-mobile-owner strong,
+    .prov-officers-mobile-count strong {
+      font-weight: bold;
+    }
+
+    .prov-officers-control-bar {
+      padding: 6px 8px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 6px !important;
+    }
+
+    .prov-officers-actions {
+      width: 100% !important;
+    }
+
+    .btn-prov-officers-appoint {
+      width: 100% !important;
+      min-height: 36px !important;
+      font-size: 11pt !important;
+      text-align: center !important;
+      padding: 6px 10px !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4) !important;
+      justify-content: center !important;
+    }
+
+    .prov-officers-search-wrap {
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+
+    .prov-officers-search-wrap input {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      padding: 5px 8px !important;
+      font-size: 10pt !important;
+      box-sizing: border-box !important;
+      height: 32px !important;
+    }
+
+    .prov-officers-table-scroll {
+      padding: 6px 8px !important;
+    }
+
+    /* --- テーブルのカード化 --- */
+    .prov-officers-table {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+
+    .prov-officers-table thead {
+      display: none !important;
+    }
+
+    .prov-officers-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 7px !important;
+      width: 100% !important;
+    }
+
+    .prov-officers-empty-row {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .prov-officers-empty-row td {
+      display: block !important;
+      width: 100% !important;
+      padding: 30px 10px !important;
+      box-sizing: border-box !important;
+    }
+
+    .prov-officer-table-row {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      row-gap: 5px !important;
+      column-gap: 8px !important;
+      padding: 10px 12px !important;
+      background: rgba(28, 19, 13, 0.94) !important;
+      border: 1px solid #5a4025 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+      transition: background 0.15s ease, border-color 0.15s ease !important;
+      position: relative !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      cursor: pointer !important;
+      align-items: center !important;
+    }
+
+    .prov-officer-table-row:active {
+      background: rgba(55, 38, 26, 0.98) !important;
+      border-color: var(--gold) !important;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
+    }
+
+    .prov-officer-table-row td {
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    /* 1行目: 武将名（左） ＆ 身分バッジ（右） */
+    .prov-off-td-name {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      font-size: 13pt !important;
+      font-weight: bold !important;
+      color: #ffffff !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    .prov-off-td-role {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      justify-self: end !important;
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+
+    /* 2行目: 所属（左） ＆ 年齢・生没年（右） */
+    .prov-off-td-clan {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+      font-size: 9.5pt !important;
+      color: #d5dbdb !important;
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+    .prov-off-td-clan::before {
+      content: "旗印: ";
+      color: #888;
+      font-size: 8.5pt;
+      margin-right: 2px;
+    }
+
+    .prov-off-td-age {
+      grid-column: 2 !important;
+      grid-row: 2 !important;
+      justify-self: end !important;
+      font-size: 9.5pt !important;
+      color: #ccc !important;
+      white-space: nowrap !important;
+    }
+    .prov-off-td-age::before {
+      content: "齢: ";
+      color: #888;
+      font-size: 8.5pt;
+      margin-right: 2px;
+    }
+
+    /* 個別の武勇・内政・知略セルはスマホでは非表示 */
+    .prov-officer-table-row .prov-off-td-mil,
+    .prov-officer-table-row .prov-off-td-pol,
+    .prov-officer-table-row .prov-off-td-int {
+      display: none !important;
+    }
+
+    /* 3行目: 能力値バー（全幅・横並びバッジ） */
+    .prov-off-td-mobile-stats {
+      grid-column: 1 / -1 !important;
+      grid-row: 3 !important;
+      display: block !important;
+      margin: 2px 0 0 0 !important;
+    }
+
+    .prov-off-mobile-stats-line {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+
+    .prov-off-mobile-stats-line .stat-badge {
+      flex: 1 1 auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 3px !important;
+      padding: 3px 6px !important;
+      border-radius: 4px !important;
+      background: rgba(0, 0, 0, 0.45) !important;
+      border: 1px solid #4a3420 !important;
+      font-size: 9.5pt !important;
+      white-space: nowrap !important;
+    }
+
+    .prov-off-mobile-stats-line .stat-mil b { color: #ff7675; }
+    .prov-off-mobile-stats-line .stat-pol b { color: #74b9ff; }
+    .prov-off-mobile-stats-line .stat-int b { color: #55efc4; }
+
+    /* 4行目: 略歴・特徴（全幅） */
+    .prov-off-td-comment {
+      grid-column: 1 / -1 !important;
+      grid-row: 4 !important;
+      display: -webkit-box !important;
+      -webkit-box-orient: vertical !important;
+      -webkit-line-clamp: 2 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: normal !important;
+      font-size: 9pt !important;
+      color: #c8b9ab !important;
+      line-height: 1.4 !important;
+      margin-top: 1px !important;
+      padding-top: 4px !important;
+      border-top: 1px dashed rgba(90, 70, 56, 0.4) !important;
+      max-width: 100% !important;
+    }
+
+    /* フッター */
+    .prov-officers-footer-bar {
+      padding: 8px 12px !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    .prov-officers-footer-info {
+      font-size: 9pt !important;
+      line-height: 1.35 !important;
+      flex: 1 1 100% !important;
+      color: #aaa !important;
+    }
+
+    #btnProvOfficersCloseFooter {
+      width: 100% !important;
+      min-height: 38px !important;
+      font-size: 11pt !important;
+      margin-top: 2px !important;
+    }
+
+    /* ==========================================================================
+       スマホ用：アラート表示の軽量・スマート・簡単表示（文字見切れ完全防止）
+       ========================================================================== */
+    /* SweetAlert2 全体のコンテナ背景（画面上部へ配置し、暗転を大幅に軽減） */
+    .swal2-container.swal2-backdrop-show {
+      background: rgba(0, 0, 0, 0.25) !important;
+      padding: 10px 8px !important;
+      align-items: flex-start !important;
+      padding-top: 12px !important;
+      overflow-y: auto !important;
+      box-sizing: border-box !important;
+    }
+    .swal2-container.swal2-toast-shown {
+      background: transparent !important;
+      pointer-events: none !important;
+      align-items: flex-start !important;
+      padding-top: 10px !important;
+    }
+
+    /* ポップアップ本体（文字見切れを防ぎつつスリム＆スマートに収容） */
+    .swal2-popup {
+      width: min(92vw, 360px) !important;
+      max-width: 92vw !important;
+      min-width: 230px !important;
+      padding: 8px 12px 10px !important;
+      border-radius: 6px !important;
+      border: 1px solid var(--border-gold) !important;
+      background: linear-gradient(180deg, #2b1c14 0%, #170f0a 100%) !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
+      font-size: 9pt !important;
+      pointer-events: auto !important;
+      box-sizing: border-box !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* アイコン（22pxの超小型スマートアイコン） */
+    .swal2-icon {
+      width: 22px !important;
+      height: 22px !important;
+      min-width: 22px !important;
+      min-height: 22px !important;
+      margin: 2px auto 4px !important;
+      border-width: 1.5px !important;
+      transform: scale(0.55) !important;
+      transform-origin: center center !important;
+    }
+
+    /* タイトル（文字見切れ防止・折り返し対応） */
+    .swal2-title {
+      font-size: 10.5pt !important;
+      color: var(--gold-bright) !important;
+      margin: 0 0 4px 0 !important;
+      padding: 0 !important;
+      line-height: 1.35 !important;
+      font-weight: bold !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      text-align: center !important;
+    }
+
+    /* メッセージ本文（文字見切れ防止・十分な高さ・スクロール可能） */
+    .swal2-html-container {
+      font-size: 8.8pt !important;
+      color: #f2e6d0 !important;
+      margin: 0 0 6px 0 !important;
+      padding: 0 2px !important;
+      line-height: 1.4 !important;
+      max-height: 55vh !important;
+      overflow-y: auto !important;
+      box-sizing: border-box !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* ボタンエリア（コンパクトに配置・文字折り返し防止） */
+    .swal2-actions {
+      margin: 4px 0 0 0 !important;
+      gap: 6px !important;
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    .swal2-actions button {
+      min-height: 28px !important;
+      height: 28px !important;
+      padding: 0 16px !important;
+      font-size: 8.8pt !important;
+      border-radius: 4px !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* タイマープログレスバー */
+    .swal2-timer-progress-bar {
+      background: var(--gold) !important;
+      height: 2px !important;
+    }
+
+    /* 包囲網警報バナー（スマホ時は短縮1行テキストで簡潔表示・文字見切れ防止） */
+    .coalition-banner {
+      font-size: 8.5pt !important;
+      padding: 3px 8px !important;
+      line-height: 1.3 !important;
+      margin: 2px 4px !important;
+      border-radius: 4px !important;
+      white-space: normal !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+      max-width: calc(100vw - 8px) !important;
+    }
+    .coalition-banner .coalition-text-full {
+      display: none !important;
+    }
+    .coalition-banner .coalition-text-short {
+      display: inline !important;
+    }
+
+    /* ==========================================================================
+       スマホ画面：アラート表示（敵襲撃退・軍令結果全般）の簡潔表示
+       左側のタイトル表示のみ残し、右側の内訳メッセージはすべて省略
+       ========================================================================== */
+    .order-result-toast {
+      top: 40px !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-15px) !important;
+      width: auto !important;
+      max-width: max-content !important;
+      min-width: 0 !important;
+      padding: 4px 14px !important;
+      font-size: 9.5pt !important;
+      border-radius: 20px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.75) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      white-space: nowrap !important;
+    }
+    .order-result-toast.show {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    .order-result-toast.hide {
+      transform: translateX(-50%) translateY(-15px) !important;
+    }
+
+    /* 右側の内訳（メッセージ・境界線）はスマホではすべて省略し左側タイトルのみ残す */
+    .order-result-toast .order-result-msg {
+      display: none !important;
+    }
+    .order-result-toast .order-result-title {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 9.5pt !important;
+      white-space: nowrap !important;
+    }
+
+    /* ==========================================================================
+       スマホ用：エンディング・統一結果の記録の簡潔表示（文字折り返し完全防止）
+       ========================================================================== */
+    .ending-ctrl-bar .btn-label-full,
+    .ending-close-btn .btn-label-full,
+    .victory-btn-group .btn-label-full {
+      display: none !important;
+    }
+    .ending-ctrl-bar .btn-label-short,
+    .ending-close-btn .btn-label-short,
+    .victory-btn-group .btn-label-short {
+      display: inline !important;
+    }
+
+    /* エンドロール画面の操作コントロールバー（右上） */
+    .ending-ctrl-bar {
+      top: 10px !important;
+      right: 10px !important;
+      gap: 6px !important;
+    }
+    .ending-ctrl-bar button {
+      padding: 4px 10px !important;
+      font-size: 8.5pt !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      border-radius: 16px !important;
+      letter-spacing: 0.3px !important;
+    }
+
+    /* エンドロール終幕の統一記録遷移ボタン */
+    #endingCloseFinalBtn {
+      padding: 8px 20px !important;
+      font-size: 11pt !important;
+      white-space: nowrap !important;
+      letter-spacing: 1px !important;
+      max-width: 90vw !important;
+      box-sizing: border-box !important;
+    }
+
+    /* エンドロールスクロールバー非表示 */
+    #endingRollContainer {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    #endingRollContainer::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* 天下統一達成モーダル（#victoryModal）のスマホ最適化：スクロールバー廃止・全展開表示＆下部ボタンを文章終了後の最下部に配置 */
+    #victoryModal.hidden {
+      display: none !important;
+    }
+    #victoryModal:not(.hidden) {
+      display: block !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100dvh !important;
+      max-height: 100dvh !important;
+      background: rgba(0, 0, 0, 0.92) !important;
+    }
+    #victoryModal::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    #victoryModal .modal-card {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      min-height: 100dvh !important;
+      height: auto !important;
+      max-height: none !important;
+      flex-shrink: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      border-left: none !important;
+      border-right: none !important;
+      padding: 8px 8px calc(12px + env(safe-area-inset-bottom, 0px)) 8px !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    #victoryModal .modal-card::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    #victoryMainTitle {
+      font-size: 13pt !important;
+      line-height: 1.3 !important;
+      margin-bottom: 3px !important;
+    }
+    #victorySubTitle, #victoryStatsSummary {
+      font-size: 8.5pt !important;
+      line-height: 1.3 !important;
+    }
+    #victoryDaimyoName {
+      font-size: 12pt !important;
+    }
+
+    /* 統一記録テキストエリア：内部スクロールバーを排除し全体を展開表示 */
+    #victoryChronicleText {
+      flex: 0 0 auto !important;
+      min-height: auto !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      font-size: 8.8pt !important;
+      line-height: 1.45 !important;
+      padding: 8px 10px 12px 10px !important;
+      margin-bottom: 10px !important;
+    }
+    #victoryChronicleText::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    #victoryChronicleText > div:nth-child(2) {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+
+    /* 下部ボタン（「📜 エンドロール」「🔄 新たな覇道」）：統一結果の記録の文章が終わった後、一番下に表示 */
+    .victory-btn-group {
+      position: static !important;
+      flex-shrink: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-top: 1px solid rgba(212, 175, 55, 0.4) !important;
+      box-shadow: none !important;
+      padding: 10px 4px 4px 4px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 8px !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: auto 0 0 0 !important;
+    }
+    .victory-btn-group button,
+    #victoryWatchRollBtn,
+    #victoryRestartBtn {
+      min-width: 0 !important;
+      width: auto !important;
+      flex: 1 1 0 !important;
+      max-width: calc(50% - 4px) !important;
+      padding: 9px 4px !important;
+      font-size: 9pt !important;
+      font-weight: bold !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      border-radius: 4px !important;
+      box-sizing: border-box !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      letter-spacing: 0 !important;
+      margin: 0 !important;
     }
   }
 

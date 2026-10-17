@@ -9,11 +9,11 @@
  * @typedef {import('./types.js').GameSaveData} GameSaveData
  */
 
-import { GameState, GameStateMethods } from './core/GameState.js?v=20261011cn';
+import { GameState, GameStateMethods } from './core/GameState.js?v=20261016succ';
 import { UIManager, UIManagerMethods } from './ui/UIManager.js?v=20261011cn';
 import { MapRenderer, MapRendererMethods } from './render/MapRenderer.js?v=20261011cn';
 import { ComputerLogic, ComputerLogicMethods } from './ai/ComputerLogic.js?v=20261011cn';
-import { DataLoader } from './core/DataLoader.js?v=20261011cn';
+import { DataLoader } from './core/DataLoader.js?v=20261017otomo';
 import * as GameRules from './core/GameRules.js?v=20261011cn';
 
 // 早期初期化: モジュール評価時点で即座に window.getClanAbility を配備
@@ -276,7 +276,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // スマホ幅のときだけ、操作メニューと勢力状況の折りたたみを初期化する
   setupMobileLayout();
+  setupMobileAlerts();
 });
+
+// スマホ用アラートの簡単・軽量表示（SweetAlert2のスマホ最適化・画面占有防止）
+function setupMobileAlerts() {
+  if (typeof window === 'undefined') return;
+  const patchSwal = () => {
+    if (!window.Swal || window._mobileSwalPatched) return;
+    window._mobileSwalPatched = true;
+
+    const origFire = window.Swal.fire.bind(window.Swal);
+    window.Swal.fire = function(...args) {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile && args.length > 0) {
+        let opts = {};
+        if (typeof args[0] === 'string') {
+          opts.title = args[0];
+          if (typeof args[1] === 'string') opts.html = args[1];
+          if (typeof args[2] === 'string') opts.icon = args[2];
+        } else if (typeof args[0] === 'object' && args[0] !== null) {
+          opts = Object.assign({}, args[0]);
+        }
+
+        // スマホ画面では上部に配置し画面中央の占有を防止
+        if (!opts.position) opts.position = 'top';
+
+        // スマホ画面での文字見切れ防止（PC用の固定横幅を解除し画面幅に適応）
+        if (opts.width && (typeof opts.width === 'number' && opts.width > 360 || typeof opts.width === 'string' && /px/.test(opts.width))) {
+          delete opts.width;
+        }
+
+        // 包囲網警告表示の簡潔化（スマホ画面で画面いっぱいを占有しないよう要約）
+        const isCoalition = (opts.title && /包囲網|反覇道/.test(opts.title)) || (opts.text && /包囲網|反覇道/.test(opts.text));
+        if (isCoalition) {
+          opts.title = '⚠ 反覇道包囲網 結成';
+          opts.text = '諸大名が貴家打倒の包囲網を結成！国境防備を固めよ';
+          delete opts.html;
+        }
+
+        // 確認ダイアログ（キャンセルボタン、入力項目等）ではない単なる通知/警告/完了アラート
+        const isNotice = !opts.showCancelButton && !opts.showDenyButton && !opts.input && !opts.preConfirm;
+        if (isNotice) {
+          if (opts.allowOutsideClick === undefined) opts.allowOutsideClick = true;
+          if (opts.allowEscapeKey === undefined) opts.allowEscapeKey = true;
+
+          // スマホ用アラートは画面占有を避けるため、自動消去またはコンパクト表示に
+          if (!opts.timer) {
+            if (isCoalition || opts.icon === 'warning' || opts.icon === 'error') {
+              opts.timer = 3200; // 警告系は3.2秒で自動消去（外側タップでも即消去）
+              opts.timerProgressBar = true;
+            } else {
+              opts.timer = 2000; // 成功・案内系は2秒で自動消去
+              opts.timerProgressBar = true;
+            }
+          }
+          // ボタン文言もコンパクトに
+          if (opts.confirmButtonText && opts.confirmButtonText.length > 4) {
+            opts.confirmButtonText = '了解';
+          }
+        }
+        return origFire(opts);
+      }
+      return origFire(...args);
+    };
+  };
+
+  patchSwal();
+  // 万一Swalが後から読み込まれた場合にも対応
+  if (!window.Swal) {
+    window.addEventListener('load', patchSwal, { once: true });
+  }
+}
 
 // 画面幅768px以下のレイアウト切替（見た目だけ。ゲーム進行の計算は触らない）
 function setupMobileLayout() {
@@ -286,31 +357,22 @@ function setupMobileLayout() {
   const clanBar = document.getElementById('clanBar');
   const clanToggle = document.getElementById('clanBarToggle');
 
-  // ボタン文言を、いま開いているか閉じているかに合わせる
+  // ボタン文言を、ピクトグラム1文字で表示（開閉時は✕）
   const refreshLabels = () => {
     if (!headerToggle || !clanToggle) return;
     const headerOpen = !!(headerControls && headerControls.classList.contains('is-open'));
     const clanOpen = !!(clanBar && clanBar.classList.contains('is-open'));
-    headerToggle.innerHTML = headerOpen ? '✕ 操作を閉じる' : '⚙️ 操作メニュー';
-    clanToggle.innerHTML = clanOpen ? '✕ 勢力を閉じる' : '🏯 勢力状況';
+    headerToggle.innerHTML = headerOpen ? '✕' : '⚙️';
+    clanToggle.innerHTML = clanOpen ? '✕' : '🏯';
     headerToggle.setAttribute('aria-expanded', headerOpen ? 'true' : 'false');
     clanToggle.setAttribute('aria-expanded', clanOpen ? 'true' : 'false');
   };
 
-  // 地図が下部の固定バーに隠れず、その下に軍令の先頭が見える高さへ合わせる
+  // 地図の高さはレスポンシブCSS (38dvh) に委ねる
   const fitMobileMap = () => {
     const map = document.getElementById('mapWrapper');
     if (!map) return;
-    if (!mq.matches) {
-      map.style.height = '';
-      return;
-    }
-    const dock = document.getElementById('bottomActionDock');
-    const dockH = dock?.offsetHeight || 56;
-    const peek = 70;
-    const available = window.innerHeight - map.offsetTop - dockH - peek;
-    const height = Math.max(280, Math.min(available, Math.round(window.innerHeight * 0.65)));
-    map.style.height = height + 'px';
+    map.style.height = '';
   };
 
   headerToggle?.addEventListener('click', () => {

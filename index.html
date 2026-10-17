@@ -38,44 +38,54 @@
       </button>
     </div>
 
-    <!-- スマホのみ表示。操作ボタン群の開閉（PCでは非表示） -->
-    <button type="button" id="headerControlsToggle" class="mobile-accordion-btn" aria-expanded="false" aria-controls="headerControls">
-      操作メニュー
-    </button>
-
-    <!-- スマホのみ。勢力ステータスは初期折りたたみ（PCではボタン自体を出さない） -->
-    <button type="button" id="clanBarToggle" class="mobile-accordion-btn" aria-expanded="false" aria-controls="clanBar" title="金・兵糧・兵力などの勢力状況">
-      勢力状況
-    </button>
+    <!-- スマホ用クイックアクションボタングループ：全記録一覧(📖)、操作メニュー(⚙️)、勢力情勢(🏯)を1行で配置 -->
+    <div class="header-mobile-quick-actions" id="headerMobileQuickActions">
+      <button type="button" id="headerChronicleBtnMobile" class="mobile-quick-btn" title="戦況年代記・全記録一覧">
+        <span class="btn-icon">📖</span>
+      </button>
+      <button type="button" id="headerControlsToggle" class="mobile-accordion-btn mobile-quick-btn" aria-expanded="false" aria-controls="headerControls" title="操作メニュー一覧">
+        <span class="btn-icon">⚙️</span>
+      </button>
+      <button type="button" id="clanBarToggle" class="mobile-accordion-btn mobile-quick-btn" aria-expanded="false" aria-controls="clanBar" title="勢力情勢">
+        <span class="btn-icon">🏯</span>
+      </button>
+    </div>
 
     <div class="header-controls" id="headerControls">
       <button class="header-btn" id="openJukeboxBtn" title="菅野よう子風 戦国管弦楽 響宴録 (全24曲BGM・効果音鑑賞)" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="music" style="width:15px; height:15px;"></i>
-        <span>管弦楽</span>
+        <span class="btn-label-full">管弦楽</span>
+        <span class="btn-label-short">音楽</span>
       </button>
       <button class="header-btn" id="factionListModalBtn" title="各大名の支配勢力と外交・同盟関係を確認" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="shield" style="width:15px; height:15px;"></i>
-        <span>勢力一覧</span>
+        <span class="btn-label-full">勢力一覧</span>
+        <span class="btn-label-short">勢力</span>
       </button>
       <button class="header-btn" id="provinceListModalBtn" title="全国の領国・城主・石高を確認" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="landmark" style="width:15px; height:15px;"></i>
-        <span>領国一覧</span>
+        <span class="btn-label-full">領国一覧</span>
+        <span class="btn-label-short">領国</span>
       </button>
       <button class="header-btn" id="officerListModalBtn" title="配下・参陣武将の一覧と列伝を確認" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="users" style="width:15px; height:15px;"></i>
-        <span>武将一覧</span>
+        <span class="btn-label-full">武将一覧</span>
+        <span class="btn-label-short">武将</span>
       </button>
       <button class="header-btn" id="governModalBtn" title="複数の国をまとめて委任統治" style="border-color:var(--gold-bright); color:var(--gold-bright); font-weight:bold;">
         <i data-lucide="briefcase" style="width:15px; height:15px;"></i>
-        <span>領国一括委任</span>
+        <span class="btn-label-full">領国一括委任</span>
+        <span class="btn-label-short">委任</span>
       </button>
       <button class="header-btn" id="saveGameBtn" title="戦況保存">
         <i data-lucide="save" style="width:15px; height:15px;"></i>
-        <span>記録</span>
+        <span class="btn-label-full">記録</span>
+        <span class="btn-label-short">記録</span>
       </button>
       <button class="header-btn" id="loadGameBtn" title="戦況読込">
         <i data-lucide="folder-open" style="width:15px; height:15px;"></i>
-        <span>読込</span>
+        <span class="btn-label-full">読込</span>
+        <span class="btn-label-short">読込</span>
       </button>
       <button class="sound-btn" id="soundToggleBtn">
         <span id="soundIcon">🔊</span> <span id="soundText">音: ON</span>
@@ -86,7 +96,8 @@
 
   <!-- 反覇道包囲網警報バナー -->
   <div class="coalition-banner" id="coalitionBanner">
-    ⚠【反覇道包囲網 結成】諸大名が同盟を結び、貴家打倒に立ち上がりました！前線各城の防備を固めてください！
+    <span class="coalition-text-full">⚠【反覇道包囲網 結成】諸大名が同盟を結び、貴家打倒に立ち上がりました！前線各城の防備を固めてください！</span>
+    <span class="coalition-text-short">⚠【包囲網結成】諸大名が貴家包囲網を結成！国境防備を固めよ</span>
   </div>
 
   <!-- 戦況年代記（幅広バー：一つ下のボックス上端・覇道進捗の上・クリックで全年代記モーダル展開） -->
@@ -140,17 +151,17 @@
       <span class="sub-value" id="statProgression">天下統一まで 49国</span>
     </div>
     <div class="stat-card ap-highlight">
-      <span class="label"><i data-lucide="scroll" style="width:13px; height:13px;"></i> 軍令権 (行動力)</span>
+      <span class="label"><i data-lucide="scroll" style="width:13px; height:13px;"></i> 軍令権<span class="stat-label-sub"> (行動力)</span></span>
       <span class="value" id="statAp" style="color:var(--gold-bright);">3 / 3</span>
       <div class="ap-tokens-wrap" id="apTokensContainer" style="margin-top:1px;"></div>
     </div>
     <div class="stat-card">
-      <span class="label"><i data-lucide="coins" style="width:13px; height:13px;"></i> 備蓄金 (貫)</span>
+      <span class="label"><i data-lucide="coins" style="width:13px; height:13px;"></i> 備蓄金<span class="stat-label-sub"> (貫)</span></span>
       <span class="value" id="statGold" style="color:#ffd700;">400</span>
       <span class="sub-value">夏・冬に商業運上</span>
     </div>
     <div class="stat-card">
-      <span class="label"><i data-lucide="wheat" style="width:13px; height:13px;"></i> 兵糧米 (石)</span>
+      <span class="label"><i data-lucide="wheat" style="width:13px; height:13px;"></i> 兵糧米<span class="stat-label-sub"> (石)</span></span>
       <span class="value" id="statRice" style="color:#ffcc66;">600</span>
       <span class="sub-value">秋に収穫 / 毎季消費</span>
     </div>
@@ -1465,7 +1476,287 @@
     <g><path d="M 25.87 21.7 L 26.13 21.17 L 26.37 20.64 L 26.57 20.09 L 26.74 19.53 L 26.89 18.97 L 27.01 18.4 L 27.09 17.83 L 27.15 17.25 L 27.18 16.67 L 27.17 16.1 L 27.14 15.52 L 27.08 14.95 L 26.99 14.39 L 26.87 13.83 L 26.72 13.28 L 26.55 12.74 L 26.34 12.2 L 26.11 11.69 L 25.86 11.18 L 25.58 10.69 L 25.27 10.22 L 24.94 9.76 L 24.59 9.32 L 24.22 8.9 L 23.83 8.51 L 23.42 8.13 L 22.99 7.77 L 22.54 7.44 L 22.08 7.14 L 21.6 6.86 L 21.11 6.6 L 20.61 6.37 L 20.1 6.16 L 19.59 5.99 L 19.06 5.84 L 18.53 5.72 L 17.99 5.62 L 17.45 5.56 L 16.91 5.52 L 16.37 5.51 L 16.37 5.51 L 16.91 5.54 L 17.44 5.63 L 17.96 5.76 L 18.47 5.94 L 18.97 6.15 L 19.44 6.39 L 19.89 6.68 L 20.32 6.99 L 20.72 7.33 L 21.09 7.69 L 21.43 8.08 L 21.75 8.49 L 22.02 8.91 L 22.27 9.35 L 22.48 9.8 L 22.65 10.26 L 22.79 10.73 L 22.89 11.2 L 22.95 11.66 L 22.98 12.13 L 22.97 12.59 L 22.93 13.04 L 22.86 13.48 L 22.75 13.91 L 22.61 14.32 L 22.44 14.71 L 22.24 15.08 L 22.02 15.43 L 21.77 15.75 L 21.49 16.05 L 21.2 16.31 L 20.89 16.55 L 20.57 16.75 L 20.23 16.92 L 19.88 17.06 L 19.52 17.16 L 19.16 17.22 L 18.8 17.25 L 18.44 17.24 L 18.08 17.2 Z" fill="#ffffff" stroke="#b03a2e" stroke-width="0.7" stroke-linejoin="round"/><circle cx="21.98" cy="19.45" r="4.5" fill="#ffffff"/></g>
     <g><path d="M 6.13 21.7 L 6.45 22.19 L 6.8 22.66 L 7.17 23.11 L 7.57 23.54 L 7.98 23.95 L 8.42 24.33 L 8.87 24.69 L 9.34 25.03 L 9.83 25.34 L 10.33 25.63 L 10.84 25.89 L 11.37 26.12 L 11.9 26.32 L 12.45 26.5 L 13 26.65 L 13.55 26.77 L 14.12 26.86 L 14.68 26.92 L 15.24 26.95 L 15.81 26.95 L 16.37 26.92 L 16.93 26.87 L 17.49 26.78 L 18.03 26.67 L 18.58 26.53 L 19.11 26.36 L 19.63 26.16 L 20.14 25.94 L 20.64 25.7 L 21.12 25.43 L 21.58 25.13 L 22.03 24.81 L 22.47 24.47 L 22.88 24.11 L 23.27 23.73 L 23.64 23.33 L 23.99 22.91 L 24.32 22.48 L 24.62 22.03 L 24.9 21.56 L 24.9 21.56 L 24.6 22.01 L 24.26 22.43 L 23.89 22.82 L 23.48 23.17 L 23.05 23.49 L 22.6 23.78 L 22.13 24.03 L 21.65 24.25 L 21.15 24.42 L 20.65 24.56 L 20.14 24.67 L 19.64 24.73 L 19.13 24.76 L 18.63 24.75 L 18.13 24.71 L 17.65 24.63 L 17.17 24.51 L 16.72 24.37 L 16.28 24.19 L 15.86 23.98 L 15.47 23.74 L 15.09 23.48 L 14.75 23.2 L 14.43 22.89 L 14.15 22.56 L 13.89 22.22 L 13.67 21.86 L 13.48 21.5 L 13.33 21.12 L 13.21 20.73 L 13.13 20.35 L 13.08 19.96 L 13.07 19.58 L 13.09 19.2 L 13.15 18.83 L 13.24 18.47 L 13.36 18.13 L 13.52 17.8 L 13.71 17.49 L 13.92 17.2 Z" fill="#ffffff" stroke="#b03a2e" stroke-width="0.7" stroke-linejoin="round"/><circle cx="10.02" cy="19.45" r="4.5" fill="#ffffff"/></g>
   </symbol>
-  </defs>
+  
+  <!-- 邪馬台国: 金印・日輪・三角縁神獣鏡をモチーフとした神聖なる太陽紋 -->
+  <symbol id="kamon-yamatai" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#800000" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12" fill="none" stroke="#ffd700" stroke-width="1.2" stroke-dasharray="2,1"/>
+    <circle cx="16" cy="16" r="5.5" fill="#ffd700"/>
+    <circle cx="16" cy="16" r="3.2" fill="#800000"/>
+    <!-- 八光芒の神威 -->
+    <path d="M16 2.5 L17.5 7 L14.5 7 Z" fill="#ffd700"/>
+    <path d="M16 29.5 L17.5 25 L14.5 25 Z" fill="#ffd700"/>
+    <path d="M2.5 16 L7 17.5 L7 14.5 Z" fill="#ffd700"/>
+    <path d="M29.5 16 L25 17.5 L25 14.5 Z" fill="#ffd700"/>
+    <path d="M6.5 6.5 L10.5 8.5 L8.5 10.5 Z" fill="#ffd700"/>
+    <path d="M25.5 25.5 L21.5 23.5 L23.5 21.5 Z" fill="#ffd700"/>
+    <path d="M6.5 25.5 L8.5 21.5 L10.5 23.5 Z" fill="#ffd700"/>
+    <path d="M25.5 6.5 L23.5 10.5 L21.5 8.5 Z" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 狗奴国: 男王・卑弥弓呼と軍神・狗古智卑狗を象徴する戦弓と三つ巴勾玉 -->
+  <symbol id="kamon-kuna" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#3a0505" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="11.5" fill="none" stroke="#e74c3c" stroke-width="1.8"/>
+    <!-- 剛弓と弦 -->
+    <path d="M8 6 C13 10 13 22 8 26" fill="none" stroke="#ffd700" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="8" y1="6" x2="8" y2="26" stroke="#ffffff" stroke-width="1"/>
+    <!-- 鏑矢・矛 -->
+    <line x1="6" y1="16" x2="26" y2="16" stroke="#ffd700" stroke-width="2.2"/>
+    <polygon points="26,16 21,12 22,16 21,20" fill="#ffd700"/>
+    <!-- 狗奴の勾玉 -->
+    <circle cx="19" cy="9" r="2.5" fill="#e74c3c"/>
+    <circle cx="19" cy="23" r="2.5" fill="#e74c3c"/>
+  </symbol>
+
+  <!-- ヤマト王権: 神剣・草薙の剣と八咫烏の翼、日輪の大王紋 -->
+  <symbol id="kamon-yamato_court" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#4a235a" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <!-- 草薙の神剣 (中央に屹立する両刃の古代神剣) -->
+    <path d="M16 4 L17.5 7 L17.5 22 L19.5 23 L19.5 24.5 L17 24.5 L17 27 L15 27 L15 24.5 L12.5 24.5 L12.5 23 L14.5 22 L14.5 7 Z" fill="#ffffff" stroke="#ffd700" stroke-width="0.8"/>
+    <!-- 左右に広がる八咫烏の神翼 -->
+    <path d="M14.5 13 C10 11 6 13 4 18 C8 17 12 17 14.5 18 Z" fill="#ffd700"/>
+    <path d="M17.5 13 C22 11 26 13 28 18 C24 17 20 17 17.5 18 Z" fill="#ffd700"/>
+    <circle cx="16" cy="8" r="1.2" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 熊襲国: 隼人の盾に描かれた古代の鋸歯文・渦巻幾何学文様 -->
+  <symbol id="kamon-kumaso" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#5c1d11" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 隼人の盾の矩形枠 -->
+    <rect x="7" y="5" width="18" height="22" rx="2" fill="#78281f" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 逆V字の鋸歯文様 -->
+    <path d="M8 10 L16 16 L24 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M8 16 L16 22 L24 16" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="16" cy="9" r="1.8" fill="#ffd700"/>
+    <circle cx="16" cy="23" r="1.8" fill="#ffffff"/>
+  </symbol>
+
+  <!-- 出雲国: 出雲大社の巨大神殿千木と八雲の神紋 -->
+  <symbol id="kamon-izumo" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#145a32" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 八雲のうねり -->
+    <path d="M6 21 C6 17 11 16 13 18 C15 15 21 15 22 19 C25 19 26 22 24 24 C21 26 8 26 6 21 Z" fill="#ffffff" opacity="0.9"/>
+    <!-- 出雲の千木・勝男木 (交差する千木) -->
+    <line x1="11" y1="5" x2="21" y2="17" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="21" y1="5" x2="11" y2="17" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 勾玉 -->
+    <circle cx="16" cy="12" r="2" fill="#145a32"/>
+  </symbol>
+
+  <!-- 吉備国: 巨石山城・鬼ノ城と古代吉備のタタラ鉄鋼紋 -->
+  <symbol id="kamon-kibi" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#b9770e" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 鬼ノ城の石垣城郭 -->
+    <polygon points="16,6 25,12 25,24 7,24 7,12" fill="#6e2c00" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 吉備の鉄兜・タタラ角 -->
+    <path d="M12 12 Q16 8 20 12 Q20 18 16 21 Q12 18 12 12 Z" fill="#ffd700"/>
+    <circle cx="16" cy="15" r="1.5" fill="#6e2c00"/>
+  </symbol>
+
+  <!-- 毛野国: 東国の雄・巨大古墳と騎馬の轡紋 -->
+  <symbol id="kamon-keno" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1b4f72" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="11" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 前方後円墳のシルエット -->
+    <circle cx="16" cy="11.5" r="4.5" fill="#ffd700"/>
+    <polygon points="11,15 21,15 24,24 8,24" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 東国蝦夷: 北天の弓矢と縄文・アイヌの渦巻文様 -->
+  <symbol id="kamon-emishi" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1c2833" stroke="#5dade2" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12" fill="none" stroke="#5dade2" stroke-width="1"/>
+    <!-- 縄文・モレウ渦巻 -->
+    <path d="M16 7 C21 7 24 11 24 16 C24 21 20 24 16 24 C12 24 9 21 9 17 C9 14 11 12 14 12 C17 12 18 14 18 16 C18 17.5 17 18.5 16 18.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="1.5" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 投馬国: 五万戸の海運を誇る古代巨船と波紋 -->
+  <symbol id="kamon-toma" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#0e6251" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="11.5" fill="none" stroke="#a3e4d7" stroke-width="1.2"/>
+    <!-- 古代の丸木舟・準構造船 -->
+    <path d="M5 18 C9 22 23 22 27 18 L24 22 C19 25 13 25 8 22 Z" fill="#ffd700"/>
+    <!-- 帆と波 -->
+    <polygon points="16,6 16,17 22,17" fill="#ffffff"/>
+    <line x1="16" y1="5" x2="16" y2="18" stroke="#ffd700" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- 高志国造: 越の翡翠勾玉と日本海の荒波 -->
+  <symbol id="kamon-koshi" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1f618d" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 翡翠の勾玉二つ巴 -->
+    <path d="M16 7 C12 7 9 10 9 14 C9 18 13 21 16 25 C15 22 17 19 19 17 C21 15 23 12 23 9 C23 7 20 7 16 7 Z" fill="#a2d9ce"/>
+    <circle cx="14" cy="11" r="2" fill="#1f618d"/>
+    <circle cx="18" cy="20" r="1.8" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 相模国造: 焼津の野火と相模野原の草炎 -->
+  <symbol id="kamon-sagami" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#784212" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 野火の炎 -->
+    <path d="M16 6 C18 10 23 13 21 19 C19 23 13 24 10 20 C8 17 11 14 12 11 C13 9 14 7 16 6 Z" fill="#e67e22"/>
+    <path d="M16 11 C17 13 20 15 19 18 C18 20 15 21 13 19 C12 17 14 15 14 13 C15 12 15 11 16 11 Z" fill="#ffd700"/>
+  </symbol>
+
+  <!-- 科野国造: 諏訪の神峰と御柱・梶葉 -->
+  <symbol id="kamon-shinano" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1e8449" stroke="#ffd700" stroke-width="1.5"/>
+    <!-- 諏訪の山並みと四本御柱 -->
+    <polygon points="16,8 24,22 8,22" fill="#ffffff"/>
+    <line x1="11" y1="12" x2="11" y2="24" stroke="#ffd700" stroke-width="1.8"/>
+    <line x1="14" y1="10" x2="14" y2="24" stroke="#ffd700" stroke-width="1.8"/>
+    <line x1="18" y1="10" x2="18" y2="24" stroke="#ffd700" stroke-width="1.8"/>
+    <line x1="21" y1="12" x2="21" y2="24" stroke="#ffd700" stroke-width="1.8"/>
+  </symbol>
+
+  <!-- 筑紫国造: 玄界の荒波と金印の紐 -->
+  <symbol id="kamon-tsukushi" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#6e2c00" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="11" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+    <rect x="10" y="10" width="12" height="12" fill="#ffd700"/>
+    <rect x="12" y="12" width="8" height="8" fill="#6e2c00"/>
+    <circle cx="16" cy="16" r="2" fill="#ffd700"/>
+  </symbol>
+
+  
+  <!-- 大海人皇子軍・飛鳥朝廷 (天武天皇): 赤旗の朱紅地に日輪菊花・八咫烏の神翼・吉野雷光紋 -->
+  <symbol id="kamon-oama" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#922b21" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <!-- 八方に放たれる日輪光芒 -->
+    <polygon points="16,3.8 17.3,8.5 14.7,8.5" fill="#ffd700"/>
+    <polygon points="16,28.2 17.3,23.5 14.7,23.5" fill="#ffd700"/>
+    <polygon points="3.8,16 8.5,17.3 8.5,14.7" fill="#ffd700"/>
+    <polygon points="28.2,16 23.5,17.3 23.5,14.7" fill="#ffd700"/>
+    <polygon points="7.4,7.4 11.4,10.0 10.0,11.4" fill="#ffd700"/>
+    <polygon points="24.6,24.6 20.6,22.0 22.0,20.6" fill="#ffd700"/>
+    <polygon points="7.4,24.6 10.0,20.6 11.4,22.0" fill="#ffd700"/>
+    <polygon points="24.6,7.4 22.0,11.4 20.6,10.0" fill="#ffd700"/>
+    <!-- 左右に大きく広がる八咫烏の神翼 -->
+    <path d="M13.5 13.5 C9.5 10.5 5.2 12.0 4.5 16.5 C7.5 15.8 10.5 16.2 13.0 17.5 Z" fill="#ffffff" stroke="#ffd700" stroke-width="0.6"/>
+    <path d="M18.5 13.5 C22.5 10.5 26.8 12.0 27.5 16.5 C24.5 15.8 21.5 16.2 19.0 17.5 Z" fill="#ffffff" stroke="#ffd700" stroke-width="0.6"/>
+    <path d="M13.0 17.2 C9.5 16.8 6.8 18.8 6.5 22.0 C9.2 21.0 11.8 20.2 13.8 19.5 Z" fill="#ffd700"/>
+    <path d="M19.0 17.2 C22.5 16.8 25.2 18.8 25.5 22.0 C22.8 21.0 20.2 20.2 18.2 19.5 Z" fill="#ffd700"/>
+    <!-- 中央の神剣と八咫日輪 -->
+    <path d="M16 5.5 L17.3 8.2 L17.3 23.5 L16 26.2 L14.7 23.5 L14.7 8.2 Z" fill="#ffffff" stroke="#922b21" stroke-width="0.5"/>
+    <circle cx="16" cy="15" r="4.8" fill="#ffd700" stroke="#922b21" stroke-width="0.8"/>
+    <circle cx="16" cy="15" r="2.6" fill="#ffffff"/>
+    <circle cx="16" cy="15" r="1.3" fill="#922b21"/>
+  </symbol>
+
+  <!-- 近江朝廷 (大友皇子・弘文天皇): 紫冠の濃紫地に朝廷五七桐花と近江琵琶湖の青海波紋 -->
+  <symbol id="kamon-omi_court" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#4a235a" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.3" fill="none" stroke="#ffd700" stroke-width="1.1"/>
+    <!-- 朝廷の桐花（中央と左右の花房） -->
+    <line x1="16" y1="5.5" x2="16" y2="14.5" stroke="#ffd700" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="16" cy="5.8" r="1.2" fill="#ffd700"/>
+    <circle cx="14.6" cy="7.8" r="1.0" fill="#ffffff"/>
+    <circle cx="17.4" cy="7.8" r="1.0" fill="#ffffff"/>
+    <circle cx="14.6" cy="10.2" r="1.0" fill="#ffd700"/>
+    <circle cx="17.4" cy="10.2" r="1.0" fill="#ffd700"/>
+    <line x1="11.2" y1="7.8" x2="11.2" y2="14.8" stroke="#ffd700" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="11.2" cy="7.8" r="1.0" fill="#ffd700"/>
+    <circle cx="10.0" cy="9.8" r="0.9" fill="#ffffff"/>
+    <circle cx="12.4" cy="9.8" r="0.9" fill="#ffffff"/>
+    <line x1="20.8" y1="7.8" x2="20.8" y2="14.8" stroke="#ffd700" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="20.8" cy="7.8" r="1.0" fill="#ffd700"/>
+    <circle cx="19.6" cy="9.8" r="0.9" fill="#ffffff"/>
+    <circle cx="22.0" cy="9.8" r="0.9" fill="#ffffff"/>
+    <!-- 三枚の桐葉 -->
+    <path d="M16 12.2 C13.2 12.2 11.8 14.5 12.5 17.2 C13.8 18.5 18.2 18.5 19.5 17.2 C20.2 14.5 18.8 12.2 16 12.2 Z" fill="#ffd700" stroke="#4a235a" stroke-width="0.6"/>
+    <path d="M11.8 14.0 C9.0 14.0 7.2 16.0 8.2 18.2 C9.5 19.2 12.5 18.8 13.5 17.5 Z" fill="#ffffff" stroke="#4a235a" stroke-width="0.5"/>
+    <path d="M20.2 14.0 C23.0 14.0 24.8 16.0 23.8 18.2 C22.5 19.2 19.5 18.8 18.5 17.5 Z" fill="#ffffff" stroke="#4a235a" stroke-width="0.5"/>
+    <!-- 近江大津宮・琵琶湖と瀬田川の青海波 -->
+    <path d="M6.2 21.2 Q9.5 18.8 12.8 21.2 T19.2 21.2 T25.8 21.2" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M7.5 24.2 Q11.0 22.0 14.5 24.2 T21.5 24.2 T24.8 24.2" fill="none" stroke="#ffd700" stroke-width="1.4" stroke-linecap="round"/>
+  </symbol>
+
+  
+  <!-- 神武天皇・神武東征軍: 朱紅地に金鵄の瑞光・八咫烏の神翼・天之麻迦古弓 -->
+
+  <!-- 長髄彦・大和先住軍: 濃藍地に天磐船・天羽羽矢・鳥見の神鏑 -->
+
+  <!-- 紀伊熊野戸畔衆: 深緑地に熊野霊山・荒坂白波 -->
+
+  <!-- 四国忌部・天日鷲命: 紫紺地に麻の葉紋と木綿神宝 -->
+
+  
+  <!-- 神武天皇・神武東征軍: 朱紅地に金鵄の瑞光・八咫烏の神翼・天之麻迦古弓 -->
+  <symbol id="kamon-jimmu" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#991b1b" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <!-- 金鵄の瑞光芒 -->
+    <polygon points="16,3.5 17.5,8.0 14.5,8.0" fill="#ffd700"/>
+    <polygon points="16,28.5 17.5,24.0 14.5,24.0" fill="#ffd700"/>
+    <polygon points="3.5,16 8.0,17.5 8.0,14.5" fill="#ffd700"/>
+    <polygon points="28.5,16 24.0,17.5 24.0,14.5" fill="#ffd700"/>
+    <polygon points="7.2,7.2 11.2,9.8 9.8,11.2" fill="#ffd700"/>
+    <polygon points="24.8,24.8 20.8,22.2 22.2,20.8" fill="#ffd700"/>
+    <polygon points="7.2,24.8 9.8,20.8 11.2,22.2" fill="#ffd700"/>
+    <polygon points="24.8,7.2 22.2,11.2 20.8,9.8" fill="#ffd700"/>
+    <!-- 天之麻迦古弓と天羽羽矢 -->
+    <line x1="8" y1="16" x2="24" y2="16" stroke="#ffffff" stroke-width="1.2"/>
+    <path d="M16 6 Q8 16 16 26" fill="none" stroke="#ffd700" stroke-width="1.2"/>
+    <!-- 金鵄の雄姿（黄金の霊鳥） -->
+    <path d="M16 9 L18 13 L24 14 C21 16 18 16 16 21 C14 16 11 16 8 14 L14 13 Z" fill="#ffd700" stroke="#ffffff" stroke-width="0.5"/>
+    <circle cx="16" cy="12" r="1.5" fill="#ffffff"/>
+  </symbol>
+
+  <!-- 長髄彦・大和先住軍: 濃藍地に天磐船・天羽羽矢・鳥見の神鏑 -->
+  <symbol id="kamon-nagasunehiko" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1e293b" stroke="#e2e8f0" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#c084fc" stroke-width="1"/>
+    <!-- 天磐船の輪郭 -->
+    <path d="M6 19 C10 23 22 23 26 19 C24 17 21 16 16 16 C11 16 8 17 6 19 Z" fill="#c084fc" stroke="#ffffff" stroke-width="0.8"/>
+    <!-- 十種神宝・天羽羽矢の交差 -->
+    <line x1="10" y1="8" x2="22" y2="24" stroke="#ffd700" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="22" y1="8" x2="10" y2="24" stroke="#ffd700" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- 鳥見の巨石・生駒日輪 -->
+    <circle cx="16" cy="12" r="3.5" fill="#f59e0b" stroke="#ffffff" stroke-width="0.8"/>
+  </symbol>
+
+  <!-- 紀伊熊野戸畔衆: 深緑地に熊野霊山・荒坂白波 -->
+  <symbol id="kamon-kumano_tobe" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#0f766e" stroke="#5eead4" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#5eead4" stroke-width="1"/>
+    <!-- 熊野三山・神奈備の神山 -->
+    <polygon points="16,7 21,17 11,17" fill="#134e4a" stroke="#5eead4" stroke-width="0.8"/>
+    <polygon points="10,12 15,20 5,20" fill="#134e4a" stroke="#5eead4" stroke-width="0.8"/>
+    <polygon points="22,12 27,20 17,20" fill="#134e4a" stroke="#5eead4" stroke-width="0.8"/>
+    <!-- 熊野荒坂津の白波 -->
+    <path d="M6 23 Q11 20 16 23 T26 23" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M8 26 Q12 24 16 26 T24 26" fill="none" stroke="#5eead4" stroke-width="1.2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- 四国忌部・天日鷲命: 紫紺地に麻の葉紋と木綿神宝 -->
+  <symbol id="kamon-awa_imbe" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#581c87" stroke="#e9d5ff" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12.5" fill="none" stroke="#e9d5ff" stroke-width="1"/>
+    <!-- 伝統の麻の葉紋 -->
+    <polygon points="16,6 23,11 23,21 16,26 9,21 9,11" fill="none" stroke="#ffd700" stroke-width="1.2"/>
+    <line x1="16" y1="6" x2="16" y2="26" stroke="#ffd700" stroke-width="1"/>
+    <line x1="9" y1="11" x2="23" y2="21" stroke="#ffd700" stroke-width="1"/>
+    <line x1="9" y1="21" x2="23" y2="11" stroke="#ffd700" stroke-width="1"/>
+    <polygon points="16,11 20,13.5 20,18.5 16,21 12,18.5 12,13.5" fill="#ffffff" stroke="#ffd700" stroke-width="0.6"/>
+  </symbol>
+
+    <!-- 伊服岐能山之神: 霊峰伊吹山と氷雨・雹嵐、白猪・大蛇の神威を宿す古代霊山神紋 -->
+  <symbol id="kamon-ibuki" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#1a5276" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="12" fill="none" stroke="#85c1e9" stroke-width="1.2" stroke-dasharray="3,1.5"/>
+    <path d="M16 7 L23 20 L9 20 Z" fill="#2e86c1" stroke="#ffffff" stroke-width="1"/>
+    <path d="M16 7 L19 13 L13 13 Z" fill="#ffffff"/>
+    <circle cx="11" cy="10" r="1.3" fill="#ffffff"/>
+    <circle cx="21" cy="10" r="1.3" fill="#ffffff"/>
+    <circle cx="8" cy="15" r="1" fill="#85c1e9"/>
+    <circle cx="24" cy="15" r="1" fill="#85c1e9"/>
+    <path d="M7 23 C10 20 13 25 16 22 C19 19 22 25 25 22" fill="none" stroke="#ffd700" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+</defs>
 
         <g id="mapPanZoomLayer">
           <!-- 街道・航路接続線グループ -->
@@ -1503,9 +1794,23 @@
     <div class="side-panel">
       <!-- 領地詳細情報 ＆ 統治方針設定 -->
       <div class="panel-box prov-panel">
-        <div class="panel-title">
-          <span>領国軍情</span>
-          <span id="selectedProvBadge" style="font-size: 12pt; color:var(--gold);">選択なし</span>
+        <div class="panel-title prov-panel-title">
+          <div class="prov-panel-title-left">
+            <span>領国軍情</span>
+            <div id="mobileGovernPolicyWrap" class="mobile-govern-policy-wrap">
+              <select id="mobileProvGovernSelect" class="mobile-govern-select" aria-label="統治方針">
+                <option value="direct">👑直轄</option>
+                <option value="military">⚔️軍事</option>
+                <option value="domestic">🌾内政</option>
+                <option value="balanced">⚖️均衡</option>
+                <option value="logistics">🚚兵站</option>
+              </select>
+            </div>
+          </div>
+          <div class="prov-panel-title-right">
+            <span id="selectedProvBadge" style="font-size: 12pt; color:var(--gold);">選択なし</span>
+            <button id="btnMobileCastleLore" class="btn-castle-lore is-hidden" title="城の解説を見る" aria-label="城の解説">🏯</button>
+          </div>
         </div>
         <div class="province-detail" id="provDetailBox">
           <p style="color:var(--text-muted); text-align:center; padding: 10px 0; font-size: 12pt;">
@@ -1648,7 +1953,7 @@
   }
 </style>
 
-<!-- 1. ゲーム開始・シナリオ＆大名家選択モーダル (全53大歴史シナリオ・年代順網羅) -->
+<!-- 1. ゲーム開始・シナリオ＆大名家選択モーダル (全54大歴史シナリオ・年代順網羅) -->
 <div class="modal-overlay" id="startModal">
   <div class="modal-card" style="width: 96vw; max-width: 1760px; max-height: 94vh; padding: 16px 24px; box-sizing: border-box;">
     <div class="modal-title" style="font-size: 16pt; font-weight: bold; text-align: center; color: var(--gold-bright); margin-bottom: 12px;">❖ 歴史シナリオ ＆ 戦国大名家 選択 ❖</div>
@@ -1656,139 +1961,165 @@
     <!-- 自動セーブ再開バナー -->
     <div id="resumeSaveBanner" style="display:none; background:linear-gradient(90deg, rgba(27,79,114,0.9), rgba(41,128,185,0.9)); border:2px solid #5dade2; border-radius:6px; padding:6px 16px; margin-bottom:8px; align-items:center; justify-content:space-between; box-shadow:0 0 15px rgba(93,173,226,0.4);">
       <div>
-        <span style="font-weight:bold; font-size:12pt; color:#fff;">🔁 自動保存された前回の戦況記録があります</span>
-        <div style="font-size: 12pt; color:#d4e6f1;" id="resumeSaveSummary">1565年 秋 / 長宗我部家 (支配: 8国)</div>
+        <span class="resume-save-title" style="font-weight:bold; font-size:12pt; color:#fff;">🔁 自動保存された前回の戦況記録があります</span>
+        <div style="font-size: 12pt; color:#d4e6f1;" id="resumeSaveSummary"><span class="resume-main-info">1565年 秋 / 長宗我部家</span><span class="resume-sub-info"> (支配: 8国)</span></div>
       </div>
       <button class="turn-btn" id="resumeSaveBtn" style="margin:0; width:auto; padding:4px 20px; font-size:12pt; background:linear-gradient(180deg, #27ae60, #1e8449); border-color:#2ecc71;">
         前回の戦況から再開
       </button>
     </div>
 
-    <div style="text-align:center; font-size: 12pt; color:var(--text-muted); margin-bottom:8px;">
+    <div class="scenario-intro-desc" style="text-align:center; font-size: 12pt; color:var(--text-muted); margin-bottom:8px;">
       時代と覇業を率いる大名家を選択してください。選択したシナリオに応じて領国支配図・兵力・情勢・選択可能大名が劇的に変化します。
     </div>
 
-    <!-- 歴史シナリオ選択セレクター (全53大動乱・年代順完全網羅) -->
+    <!-- 歴史シナリオ選択セレクター (全56大動乱・年代順完全網羅) -->
     <div style="margin-bottom: 6px;">
       <div style="font-size: 12pt; font-weight:bold; color:var(--gold-bright); margin-bottom:4px; display:flex; justify-content:space-between; align-items:center;">
-        <span>📜 歴史シナリオ選択 (全53大動乱・東北征討から西南戦争まで)</span>
+        <span>📜 歴史シナリオ選択<span class="scenario-select-sub"> (全56大動乱・神武東征から西南戦争まで)</span></span>
         <span style="font-size: 12pt; color:#ffdd88;">全領国各大名プレイ可能</span>
       </div>
 
       <!-- 時代別クイック切替タブ -->
       <div class="scenario-era-tabs" id="scenarioEraTabs">
-        <button class="era-tab-btn active" data-era="all">❖ すべて (全52動乱)</button>
-        <button class="era-tab-btn" data-era="ancient_medieval">古代・中世 (801〜1391)</button>
+        <button class="era-tab-btn active" data-era="all">❖ すべて (全56動乱)</button>
+        <button class="era-tab-btn" data-era="ancient">古代・平安 (前663〜1159)</button>
+        <button class="era-tab-btn" data-era="medieval">中世武士 (1180〜1391)</button>
         <button class="era-tab-btn" data-era="sengoku_early">戦国黎明 (1400〜1546)</button>
         <button class="era-tab-btn" data-era="sengoku_climax">戦国乱世 (1555〜1577)</button>
         <button class="era-tab-btn" data-era="unification">天下統一 (1582〜1614)</button>
         <button class="era-tab-btn" data-era="edo_bakumatsu">泰平・幕末 (1637〜1877)</button>
       </div>
 
-      <!-- 全52シナリオ年代順スクロールグリッド -->
+      <!-- 全56シナリオ年代順スクロールグリッド -->
       <div class="scenario-selector-container">
         <div class="scenario-selector-group" id="scenarioSelectorGroup">
-        <button class="scenario-btn" data-scen-id="801" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="-663" data-era="ancient">
+          <span class="scen-badge">前663年</span>
+          <strong class="scen-title">神武東征</strong>
+          <span class="scen-sub">神武天皇と長髄彦</span>
+        </button>
+        <button class="scenario-btn" data-scen-id="97" data-era="ancient">
+          <span class="scen-badge">97年</span>
+          <strong class="scen-title">ヤマトタケル西征</strong>
+          <span class="scen-sub">熊襲・出雲討伐</span>
+        </button>
+        <button class="scenario-btn" data-scen-id="240" data-era="ancient">
+          <span class="scen-badge">240年</span>
+          <strong class="scen-title">邪馬台国九州説</strong>
+          <span class="scen-sub">卑弥呼vs卑弥弓呼</span>
+        </button>
+        <button class="scenario-btn" data-scen-id="240_yamato" data-era="ancient">
+          <span class="scen-badge">240年</span>
+          <strong class="scen-title">邪馬台国大和説</strong>
+          <span class="scen-sub">卑弥呼とヤマト王権</span>
+        </button>
+        <button class="scenario-btn" data-scen-id="672" data-era="ancient">
+          <span class="scen-badge">672年</span>
+          <strong class="scen-title">壬申の乱</strong>
+          <span class="scen-sub">大海人皇子と大友皇子</span>
+        </button>
+        <button class="scenario-btn" data-scen-id="801" data-era="ancient">
           <span class="scen-badge">801年</span>
           <strong class="scen-title">東北征討</strong>
           <span class="scen-sub">田村麻呂vsアテルイ</span>
         </button>
-        <button class="scenario-btn" data-scen-id="939" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="939" data-era="ancient">
           <span class="scen-badge">939年</span>
           <strong class="scen-title">承平・天慶の乱</strong>
           <span class="scen-sub">将門・純友</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1019" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1019" data-era="ancient">
           <span class="scen-badge">1019年</span>
           <strong class="scen-title">刀伊の入寇</strong>
           <span class="scen-sub">藤原隆家・大宰府</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1028" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1028" data-era="ancient">
           <span class="scen-badge">1028年</span>
           <strong class="scen-title">平忠常の乱</strong>
           <span class="scen-sub">房総の乱</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1056" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1056" data-era="ancient">
           <span class="scen-badge">1056年</span>
           <strong class="scen-title">前九年の役</strong>
           <span class="scen-sub">頼義・貞任</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1087" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1087" data-era="ancient">
           <span class="scen-badge">1087年</span>
           <strong class="scen-title">後三年の役</strong>
           <span class="scen-sub">義家・金沢柵</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1156" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1156" data-era="ancient">
           <span class="scen-badge">1156年</span>
           <strong class="scen-title">保元・平治の乱</strong>
           <span class="scen-sub">清盛と義朝</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1159" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1159" data-era="ancient">
           <span class="scen-badge">1159年</span>
           <strong class="scen-title">平治の乱</strong>
           <span class="scen-sub">清盛と義朝</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1180" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1180" data-era="medieval">
           <span class="scen-badge">1180年</span>
           <strong class="scen-title">治承・寿永の乱</strong>
           <span class="scen-sub">頼朝の挙兵</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1183" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1183" data-era="medieval">
           <span class="scen-badge">1183年</span>
           <strong class="scen-title">義仲入京</strong>
           <span class="scen-sub">木曾義仲</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1184" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1184" data-era="medieval">
           <span class="scen-badge">1184年</span>
           <strong class="scen-title">一の谷の戦い</strong>
           <span class="scen-sub">源義経</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1185" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1185" data-era="medieval">
           <span class="scen-badge">1185年</span>
           <strong class="scen-title">壇ノ浦の戦い</strong>
           <span class="scen-sub">平家滅亡</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1189" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1189" data-era="medieval">
           <span class="scen-badge">1189年</span>
           <strong class="scen-title">義経追討</strong>
           <span class="scen-sub">奥州合戦</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1221" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1221" data-era="medieval">
           <span class="scen-badge">1221年</span>
           <strong class="scen-title">承久の乱</strong>
           <span class="scen-sub">後鳥羽上皇</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1274" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1274" data-era="medieval">
           <span class="scen-badge">1274年</span>
           <strong class="scen-title">文永の役（元寇）</strong>
           <span class="scen-sub">時宗と蒙古</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1331" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1331" data-era="medieval">
           <span class="scen-badge">1331年</span>
           <strong class="scen-title">元弘の乱</strong>
           <span class="scen-sub">千早城の戦</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1333" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1333" data-era="medieval">
           <span class="scen-badge">1333年</span>
           <strong class="scen-title">建武の新政</strong>
           <span class="scen-sub">幕府滅亡</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1336" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1336" data-era="medieval">
           <span class="scen-badge">1336年</span>
           <strong class="scen-title">湊川の戦い</strong>
           <span class="scen-sub">建武の内乱</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1350" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1350" data-era="medieval">
           <span class="scen-badge">1350年</span>
           <strong class="scen-title">南北朝時代</strong>
           <span class="scen-sub">尊氏vs直義</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1359" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1359" data-era="medieval">
           <span class="scen-badge">1359年</span>
           <strong class="scen-title">筑後川の戦い</strong>
           <span class="scen-sub">九州の戦い</span>
         </button>
-        <button class="scenario-btn" data-scen-id="1391" data-era="ancient_medieval">
+        <button class="scenario-btn" data-scen-id="1391" data-era="medieval">
           <span class="scen-badge">1391年</span>
           <strong class="scen-title">明徳の乱</strong>
           <span class="scen-sub">義満vs山名</span>
@@ -1960,19 +2291,19 @@
 
     <!-- 難易度選択 (上下圧縮・1行配置) -->
     <div class="diff-selector-wrapper" style="background:rgba(0,0,0,0.4); border:1px solid #553e2a; border-radius:4px; padding:4px 12px; margin: 6px 0 12px 0; display:flex; align-items:center; gap:12px;">
-      <span style="font-size: 12pt; font-weight:bold; color:var(--gold-bright); flex-shrink:0;">⚙️ 難易度:</span>
+      <span class="diff-selector-label" style="font-size: 12pt; font-weight:bold; color:var(--gold-bright); flex-shrink:0;">⚙️ 難易度:</span>
       <div class="diff-selector-group" style="flex:1; display:grid; grid-template-columns:repeat(4, 1fr); gap:6px;">
         <button class="diff-option-btn" data-diff="easy" style="padding:2px 8px; font-size:12pt;">
-          【初級】天下泰平 <span style="color:#aaa; font-size:12pt;">(金800/米1200)</span>
+          <span class="diff-btn-name">【初級】</span><span class="diff-btn-sub">天下泰平 <span style="color:#aaa; font-size:12pt;">(金800/米1200)</span></span>
         </button>
         <button class="diff-option-btn selected" data-diff="normal" style="padding:2px 8px; font-size:12pt;">
-          【中級】群雄割拠 <span style="color:#aaa; font-size:12pt;">(金500/米800)</span>
+          <span class="diff-btn-name">【中級】</span><span class="diff-btn-sub">群雄割拠 <span style="color:#aaa; font-size:12pt;">(金500/米800)</span></span>
         </button>
         <button class="diff-option-btn" data-diff="hard" style="padding:2px 8px; font-size:12pt;">
-          【上級】風雲再起 <span style="color:#aaa; font-size:12pt;">(金350/米500)</span>
+          <span class="diff-btn-name">【上級】</span><span class="diff-btn-sub">風雲再起 <span style="color:#aaa; font-size:12pt;">(金350/米500)</span></span>
         </button>
         <button class="diff-option-btn" data-diff="hell" style="padding:2px 8px; font-size:12pt;">
-          【修羅】戦国地獄 <span style="color:#ff9999; font-size:12pt;">(包囲網)</span>
+          <span class="diff-btn-name">【修羅】</span><span class="diff-btn-sub">戦国地獄 <span style="color:#ff9999; font-size:12pt;">(包囲網)</span></span>
         </button>
       </div>
     </div>
@@ -1980,7 +2311,7 @@
     <!-- 大名選択グリッド -->
     <div style="display:flex; justify-content:space-between; align-items:center; margin:6px 0 4px 0;">
       <div style="font-size: 12pt; font-weight:bold; color:var(--gold-bright);">
-        🏯 選択可能大名一覧 (各大名をクリックすると歴史情勢・戦略解説図が表示され出陣できます)
+        🏯 選択可能大名一覧<span class="daimyo-list-sub"> (各大名をクリックすると歴史情勢・戦略解説図が表示され出陣できます)</span>
       </div>
       <div id="selectedDaimyoBadge" style="font-size: 12pt; color:#ffd700; background:rgba(0,0,0,0.6); padding:4px 12px; border-radius:3px; border:1px solid #d4af37;">
         大名をクリックして出陣へ
@@ -1992,37 +2323,41 @@
 
 <!-- 2. 領国一括委任モーダル (軍事型、内政型、バランス型、兵站輸送型、直轄) -->
 <div class="modal-overlay hidden" id="governModal">
-  <div class="modal-card" style="max-width: 820px;">
+  <div class="modal-card govern-modal-card" style="max-width: 820px;">
     <div class="modal-title" style="color:var(--gold-bright); border-bottom-color:var(--gold);">
       📋 領国一括委任（軍団統治・方針設定）
     </div>
-    <div style="font-size: 12pt; color:#ddd; margin-bottom:12px; line-height:1.6;">
+    <div class="modal-desc-govern" style="font-size: 12pt; color:#ddd; margin-bottom:12px; line-height:1.6;">
       支配下の領国に統治方針を設定します。委任された国は季節進行時に方針に従って自動で発展・兵站輸送を行い、プレイヤーの手間を大幅に軽減します。
     </div>
 
     <!-- 一括設定プリセットボタン -->
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-bottom:14px;">
-      <button class="diff-option-btn" id="btnPresetDomestic" style="border-color:#27ae60; color:#a9dfbf; padding:8px;">
-        🌾 後方を全て内政委任<br><span style="font-size: 12pt; color:#ccc;">商業・石高を自動強化</span>
+    <div class="govern-preset-grid" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-bottom:14px;">
+      <button class="diff-option-btn govern-preset-btn" id="btnPresetDomestic" style="border-color:#27ae60; color:#a9dfbf; padding:8px;">
+        <span class="btn-preset-full">🌾 後方を全て内政委任<br><span class="btn-preset-sub" style="font-size: 12pt; color:#ccc;">商業・石高を自動強化</span></span>
+        <span class="btn-preset-short">🌾 後方を内政委任</span>
       </button>
-      <button class="diff-option-btn" id="btnPresetLogistics" style="border-color:#3498db; color:#aed6f1; padding:8px;">
-        🚚 後方を全て兵站輸送<br><span style="font-size: 12pt; color:#ccc;">前線城へ兵力を自動集結</span>
+      <button class="diff-option-btn govern-preset-btn" id="btnPresetLogistics" style="border-color:#3498db; color:#aed6f1; padding:8px;">
+        <span class="btn-preset-full">🚚 後方を全て兵站輸送<br><span class="btn-preset-sub" style="font-size: 12pt; color:#ccc;">前線城へ兵力を自動集結</span></span>
+        <span class="btn-preset-short">🚚 後方を兵站輸送</span>
       </button>
-      <button class="diff-option-btn" id="btnPresetMilitary" style="border-color:#e74c3c; color:#ffaaaa; padding:8px;">
-        ⚔️ 前線を全て軍事委任<br><span style="font-size: 12pt; color:#ccc;">兵員徴募・防備を自動強化</span>
+      <button class="diff-option-btn govern-preset-btn" id="btnPresetMilitary" style="border-color:#e74c3c; color:#ffaaaa; padding:8px;">
+        <span class="btn-preset-full">⚔️ 前線を全て軍事委任<br><span class="btn-preset-sub" style="font-size: 12pt; color:#ccc;">兵員徴募・防備を自動強化</span></span>
+        <span class="btn-preset-short">⚔️ 前線を軍事委任</span>
       </button>
-      <button class="diff-option-btn" id="btnPresetDirect" style="border-color:var(--gold); color:var(--gold-bright); padding:8px;">
-        👑 全領国を直轄に戻す<br><span style="font-size: 12pt; color:#ccc;">全て自分で手動指揮</span>
+      <button class="diff-option-btn govern-preset-btn" id="btnPresetDirect" style="border-color:var(--gold); color:var(--gold-bright); padding:8px;">
+        <span class="btn-preset-full">👑 全領国を直轄に戻す<br><span class="btn-preset-sub" style="font-size: 12pt; color:#ccc;">全て自分で手動指揮</span></span>
+        <span class="btn-preset-short">👑 全領国を直轄</span>
       </button>
     </div>
 
     <!-- 領国個別・選択一括切替バー -->
-    <div style="background:rgba(0,0,0,0.4); border:1px solid #553e2a; border-radius:5px; padding:10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-      <div style="display:flex; align-items:center; gap:8px;">
+    <div class="govern-batch-bar" style="background:rgba(0,0,0,0.4); border:1px solid #553e2a; border-radius:5px; padding:10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <div class="govern-batch-left" style="display:flex; align-items:center; gap:8px;">
         <label><input type="checkbox" id="selectAllProvsCheckbox" style="accent-color:var(--gold);"> 全選択</label>
-        <span style="font-size: 12pt; color:var(--text-muted);">選択中の国に一括適用:</span>
+        <span class="govern-batch-label" style="font-size: 12pt; color:var(--text-muted);">選択中の国に一括適用:</span>
       </div>
-      <div style="display:flex; gap:6px;">
+      <div class="govern-batch-btns" style="display:flex; gap:6px;">
         <button class="diff-option-btn" id="applyDirectBatch" style="padding:4px 10px;">👑 直轄</button>
         <button class="diff-option-btn" id="applyMilitaryBatch" style="padding:4px 10px; border-color:#e74c3c; color:#ffaaaa;">⚔️ 軍事</button>
         <button class="diff-option-btn" id="applyDomesticBatch" style="padding:4px 10px; border-color:#27ae60; color:#a9dfbf;">🌾 内政</button>
@@ -2032,8 +2367,8 @@
     </div>
 
     <!-- 自家領国一覧テーブル -->
-    <div style="max-height: 320px; overflow-y: auto; border:1px solid #443322; border-radius:4px; background:rgba(15,10,8,0.7);">
-      <table style="width:100%; border-collapse:collapse; font-size: 12pt; text-align:left;">
+    <div class="govern-table-scroll" style="max-height: 320px; overflow-y: auto; border:1px solid #443322; border-radius:4px; background:rgba(15,10,8,0.7);">
+      <table class="govern-prov-table" style="width:100%; border-collapse:collapse; font-size: 12pt; text-align:left;">
         <thead>
           <tr style="background:#2b1c14; color:var(--gold-bright); border-bottom:1px solid #553e2a;">
             <th style="padding:8px 10px; width:40px;">選</th>
@@ -2049,7 +2384,7 @@
       </table>
     </div>
 
-    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:14px;">
+    <div class="govern-footer-bar" style="display:flex; justify-content:flex-end; gap:10px; margin-top:14px;">
       <button class="turn-btn" id="closeGovernModalBtn" style="margin:0; width:auto; padding:6px 24px; font-size:12pt;">
         統治方針を決定して戻る
       </button>
@@ -2324,15 +2659,18 @@
   <div id="endingKamonBackdrop" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0.12; pointer-events:none; z-index:1;"></div>
 
   <!-- 操作コントロールバー (右上固定) -->
-  <div style="position:absolute; top:20px; right:28px; z-index:10; display:flex; gap:10px; align-items:center;">
+  <div class="ending-ctrl-bar" style="position:absolute; top:20px; right:28px; z-index:10; display:flex; gap:10px; align-items:center;">
     <button id="endingPauseBtn" style="background:rgba(20,12,8,0.85); color:#ffd700; border:1px solid #8c734b; border-radius:20px; padding:6px 16px; font-size:11.5pt; font-family:inherit; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.8); transition:all 0.2s;">
-      ⏸ 一時停止
+      <span class="btn-label-full">⏸ 一時停止</span>
+      <span class="btn-label-short">⏸ 停止</span>
     </button>
     <button id="endingSpeedBtn" style="background:rgba(20,12,8,0.85); color:#ffd700; border:1px solid #8c734b; border-radius:20px; padding:6px 16px; font-size:11.5pt; font-family:inherit; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.8); transition:all 0.2s;">
-      ⏩ 速度: 1.0x
+      <span class="btn-label-full">⏩ 速度: 1.0x</span>
+      <span class="btn-label-short">⏩ 1.0x</span>
     </button>
-    <button id="endingSkipBtn" style="background:linear-gradient(180deg, #d4af37, #8c6d23); color:#111; border:1px solid #fff; border-radius:20px; padding:6px 18px; font-size:11.5pt; font-weight:bold; font-family:inherit; cursor:pointer; box-shadow:0 0 15px rgba(212,175,55,0.6); transition:all 0.2s;">
-      ⏭ スキップして統一記録へ
+    <button id="endingSkipBtn" style="background:linear-gradient(180deg, #d4af37, #8c6d23); color:#111; border:1px solid #fff; border-radius:20px; padding:6px 18px; font-size:11.5pt; font-weight:bold; font-family:inherit; cursor:pointer; box-shadow:0 0 15px rgba(212,175,55,0.6); transition:all 0.2s; white-space:nowrap;">
+      <span class="btn-label-full">⏭ スキップして統一記録へ</span>
+      <span class="btn-label-short">⏭ 統一記録</span>
     </button>
   </div>
 
@@ -2361,12 +2699,14 @@
     <div style="flex: 1 1 auto; min-height: 0; background: rgba(0,0,0,0.65); border: 1px solid #665533; border-radius: 8px; padding: 16px 22px; margin-bottom: 12px; font-size: 12pt; line-height: 1.8; color: #f2e6d5; text-align: left; overflow-y: auto;" id="victoryChronicleText">
     </div>
 
-    <div style="flex-shrink: 0; display:flex; justify-content:center; gap:16px; margin-top: 2px;">
-      <button class="turn-btn" id="victoryWatchRollBtn" style="margin: 0; min-width: 280px; font-size: 13pt; padding: 10px 28px; background:linear-gradient(180deg, #d4af37, #8c6d23); color:#111; font-weight:bold; box-shadow: 0 4px 15px rgba(212,175,55,0.4);">
-        📜 エンドロールをもう一度観る
+    <div class="victory-btn-group" style="flex-shrink: 0; display:flex; justify-content:center; gap:16px; margin-top: 2px;">
+      <button class="turn-btn" id="victoryWatchRollBtn" style="margin: 0; min-width: 280px; font-size: 13pt; padding: 10px 28px; background:linear-gradient(180deg, #d4af37, #8c6d23); color:#111; font-weight:bold; box-shadow: 0 4px 15px rgba(212,175,55,0.4); white-space:nowrap;">
+        <span class="btn-label-full">📜 エンドロールをもう一度観る</span>
+        <span class="btn-label-short">📜 エンドロール</span>
       </button>
-      <button class="turn-btn" id="victoryRestartBtn" style="margin: 0; min-width: 240px; font-size: 13pt; padding: 10px 28px;">
-        🔄 新たなる覇道へ
+      <button class="turn-btn" id="victoryRestartBtn" style="margin: 0; min-width: 240px; font-size: 13pt; padding: 10px 28px; white-space:nowrap;">
+        <span class="btn-label-full">🔄 新たなる覇道へ</span>
+        <span class="btn-label-short">🔄 新たな覇道</span>
       </button>
     </div>
   </div>
@@ -2520,7 +2860,7 @@
     </div>
 
     <!-- 統治気質 & 奥義バナー -->
-    <div style="display:flex; gap:10px; margin-bottom:12px; align-items:center;">
+    <div class="daimyo-popup-personality-tactic-row" style="display:flex; gap:10px; margin-bottom:12px; align-items:center;">
       <div id="popupPersonality" style="flex-shrink:0;"></div>
       <div class="daimyo-popup-tactic" id="popupTactic" style="margin:0; flex:1; padding:6px 12px;">
         <strong>⚡ 奥義「天下布武」</strong> 全軍の士気を大幅に高め、一斉攻撃を行う！
@@ -2705,16 +3045,45 @@
   </div>
 </div>
 
+<!-- 9. 城郭解説モーダル（スマホ用・ピクトグラムボタン連動） -->
+<div class="modal-overlay hidden" id="castleLoreModal" style="z-index: 10005;">
+  <div class="modal-card castle-lore-modal-card">
+    <div class="modal-title" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 12px;">
+      <span style="color: var(--gold-bright); font-size: 13pt; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 14pt;">🏯</span>
+        <span id="castleLoreModalTitle">城郭解説</span>
+      </span>
+      <button id="closeCastleLoreModalBtn" style="background:none; border:none; color:#aaa; font-size:18pt; cursor:pointer; line-height:1; padding:0 4px;" title="閉じる">✕</button>
+    </div>
+    <div style="background: rgba(0,0,0,0.55); border: 1px solid #553e2a; border-radius: 6px; padding: 12px 14px; margin-bottom: 14px;">
+      <div id="castleLoreModalSub" style="font-size: 11pt; color: #ffd700; margin-bottom: 8px; font-weight: bold; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px;">
+        <span id="castleLoreModalPlace">尾張国（清洲城）</span>
+        <span id="castleLoreModalOwner" style="font-size: 10pt; color: #ddd; font-weight: normal;">領主: 織田家</span>
+      </div>
+      <div id="castleLoreModalContent" style="font-size: 11.5pt; color: #f0e6d6; line-height: 1.65; letter-spacing: 0.3px; white-space: pre-wrap;">
+      </div>
+      <div id="castleLoreModalStats" style="display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #553e2a; font-size: 9.5pt; color: #bbb;">
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <button class="turn-btn" id="closeCastleLoreModalBtn2" style="width: auto; min-width: 140px; padding: 7px 24px; font-size: 11pt; margin: 0; background: linear-gradient(180deg, #442a1b 0%, #25160e 100%); border: 1px solid var(--gold); color: var(--gold-bright); border-radius: 4px; cursor: pointer;">
+        閉じる
+      </button>
+    </div>
+  </div>
+</div>
+
+
 
   <!-- モジュール化されたJavaScript群 (順序保証ロード) -->
-  <!-- 1. 全136大名家・全53シナリオ・全77領国データベース -->
-  <script src="assets/kamons.js?v=20261015ryukyu"></script>
+  <!-- 1. 全149大名家・全56シナリオ・全77領国データベース -->
+  <script src="assets/kamons.js?v=20261016ancient"></script>
   
   <!-- 2. 菅野よう子風 洗練和風交響BGMエンジン (全15曲) -->
   <script src="js/bgm.js?v=20261011cn"></script>
 
   <!-- 3. 戦国天下統一伝 ゲームエンジン本体 -->
-  <script type="module" src="js/app.js?v=20261015ryukyu"></script>
+  <script type="module" src="js/app.js?v=20261017otomo"></script>
 
 
 

@@ -56,6 +56,16 @@ var EVENT_CLAN_LINEAGE = (typeof window !== 'undefined' && window.EVENT_CLAN_LIN
 ];
 var HISTORICAL_ALLIANCE_BONDS = (typeof window !== 'undefined' && window.HISTORICAL_ALLIANCE_BONDS) || [];
 
+export function formatHistoricalYear(year) {
+  if (year === null || year === undefined || year === '') return '';
+  const str = String(year).trim();
+  if (str.startsWith('前') || str.startsWith('紀元前')) return str;
+  const y = Number(year);
+  if (isNaN(y)) return str;
+  return y < 0 ? `前${Math.abs(y)}` : `${y}`;
+}
+if (typeof window !== 'undefined') window.formatHistoricalYear = formatHistoricalYear;
+
 export class GameState {
   /**
    * @param {Object} [game] - SengokuGame インスタンス
@@ -80,6 +90,9 @@ export class GameState {
     this.selectedProvId = null;
     this.mapHeatMode = 'none';
     this._eventDecidedId = null;
+    this.jimmuEnthronementAccepted = false;
+    this.jimmuEnthronementDeclined = false;
+    this._jimmuAnnounced = false;
   }
 
   /**
@@ -101,6 +114,10 @@ export class GameState {
 }
 
 export const GameStateMethods = {
+  formatYear(year = this.year) {
+    return formatHistoricalYear(year);
+  },
+
   isFormerDaimyo(off) {
     if (!off) return false;
     if (off.hasBeenDaimyo || off.isDaimyo) return true;
@@ -181,6 +198,12 @@ export const GameStateMethods = {
     this.kiyohiraFujiwaraAccepted = false;
     this.kiyohiraSurnameDeclined = false;
     this._kiyohiraAnnounced = false;
+    this.tenmuEnthronementAccepted = false;
+    this.tenmuEnthronementDeclined = false;
+    this._tenmuAnnounced = false;
+    this.jimmuEnthronementAccepted = false;
+    this.jimmuEnthronementDeclined = false;
+    this._jimmuAnnounced = false;
     const seasonMap = {'春': 0, '夏': 1, '秋': 2, '冬': 3};
     this.seasonIdx = scen.seasonIdx !== undefined ? scen.seasonIdx : (seasonMap[scen.season] ?? 0);
     this.alliances = this.normalizeAlliances(scen.alliances || [], this.year, this.seasonIdx, INITIAL_ALLIANCE_DURATION_SEASONS);
@@ -193,7 +216,7 @@ export const GameStateMethods = {
     if (descBox) {
       descBox.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #775533; padding-bottom:3px; margin-bottom:5px;">
-          <strong style="color:var(--gold-bright); font-size: 12pt;">【${scen.year}年 ${scen.title} 〜${scen.subtitle || ''}〜】</strong>
+          <strong style="color:var(--gold-bright); font-size: 12pt;">【${this.formatYear(scen.year)}年 ${scen.title} 〜${scen.subtitle || ''}〜】</strong>
           <span style="font-size: 12pt; color:#ffd700;">年号: ${scen.gengo || ''}</span>
         </div>
         <div style="margin-bottom:5px; color:#f5eedc; font-size: 12pt; line-height:1.5;">
@@ -324,6 +347,7 @@ export const GameStateMethods = {
       if (clean === '松平綱吉' || clean === '徳川綱吉') return '徳川綱吉';
       if (clean === '松平家宣' || clean === '徳川家宣') return '徳川家宣';
       if (clean === '松平治郷' || clean === '松平不昧') return '松平治郷';
+      if (clean === '神武天皇' || clean === '神日本磐余彦尊') return '神武天皇';
       return clean;
     };
 
@@ -480,7 +504,7 @@ export const GameStateMethods = {
     this.processBlankProvinceUprisings();
     // 初期配置は史実城代とゆかりの地だけ。進行が始まってから前線へ配る
     this.appointHistoricalHomeGovernors();
-    this.autoAppointComputerCastellans();
+    this.autoAppointComputerCastellans({ fillVacancies: true });
 
     const allPlayables = this.ensureAllPlayables(scen);
     this.renderDaimyoGrid(allPlayables, scen.recommendedClan);
@@ -843,21 +867,34 @@ export const GameStateMethods = {
     });
 
     this.activeOfficers.forEach(off => {
+      // ★【最重要】生存中の大名は、シナリオ補正や城代配置で絶対に大名フラグを解除せず、所属も変更しない
+      if (off.isDaimyo && !off.isDead && ownersSet.has(off.clanId)) return;
+
+      // ゲーム進行中（年越し・イベント時）の保護ガード（シナリオ初期配置の上書きを防ぐ）
+      if (!this._isSwitchingScenario) {
+        // プレイヤー配下に仕官済みの武将は、年が変わってもシナリオ補正で引き抜かない
+        if (off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
+        // 領地を持つ家の武将（新独立大名含む）は、シナリオ初期所属で別勢力に引き抜かれない
+        if (ownersSet.has(off.clanId) && ['goryokaku', 'saigo_gun', 'amakusa', 'sue', 'matsunaga', 'kunohe', 'yui', 'oshio'].includes(off.clanId)) return;
+      }
+
       // シナリオ固有の所属・配置は、武将マスターの既定所属より優先する。
       const scenarioOverride = scenarioAffiliations[off.id];
       if (scenarioOverride) {
+        if (typeof scenarioOverride === 'string') {
+          off.clanId = scenarioOverride;
+          return;
+        }
         if (scenarioOverride.clanId) off.clanId = scenarioOverride.clanId;
         if (scenarioOverride.defaultProv) off.defaultProv = scenarioOverride.defaultProv;
         if (scenarioOverride.assignedProvId) off.assignedProvId = scenarioOverride.assignedProvId;
         else if (scenarioOverride.clearAssignment) off.assignedProvId = null;
-        if (typeof scenarioOverride.isDaimyo === 'boolean') off.isDaimyo = scenarioOverride.isDaimyo;
+        // ★【世継ぎ大名保護】isDaimyo はシナリオ開始時（switchScenario）のみ適用し、ゲーム進行中は家督相続した大名を剥奪しない
+        if (this._isSwitchingScenario && typeof scenarioOverride.isDaimyo === 'boolean') {
+          off.isDaimyo = scenarioOverride.isDaimyo;
+        }
         return;
       }
-      // プレイヤー配下に仕官済みの武将は、年が変わってもシナリオ補正で引き抜かない
-      if (!this._isSwitchingScenario && off.clanId === this.playerClanId && ownersSet.has(this.playerClanId)) return;
-      // 領地を持つ家の武将（新独立大名含む）は、シナリオ初期所属で別勢力に引き抜かれない
-      if (ownersSet.has(off.clanId) && (off.isDaimyo || ['goryokaku', 'saigo_gun', 'amakusa', 'sue', 'matsunaga', 'kunohe', 'yui', 'oshio'].includes(off.clanId))) return;
-      if (off.isDaimyo && !off.isDead && ownersSet.has(off.clanId)) return;
 
       // 【史実城代・配置武将の絶対保証】
       // シナリオの史実城代（SCENARIO_HISTORICAL_GOVERNORS）に指名されている武将は、
@@ -1085,7 +1122,7 @@ export const GameStateMethods = {
       }
       const wasLordOfTarget = off.clanId === rule.setClanId && !!off.isDaimyo;
       off.clanId = rule.setClanId;
-      if (rule.setDaimyo === false) off.isDaimyo = false;
+      if (rule.setDaimyo === false && !wasLordOfTarget) off.isDaimyo = false;
       if (rule.setDaimyo === true) off.isDaimyo = true;
       // すでにその家の当主なら当主のまま（2026-10-11 be）
       if (rule.keepDaimyoIfSameClan && wasLordOfTarget) off.isDaimyo = true;
@@ -1473,8 +1510,7 @@ export const GameStateMethods = {
       if (!prov || !prov.ownerId) continue;
       const aliasId = (window.OFFICER_ID_ALIASES || {})[offId] || offId;
       const off = this.activeOfficers.find(o => o.id === offId || o.id === aliasId);
-      if (!off || off.isDead) continue;
-      if (off.isDaimyo && off.clanId === prov.ownerId && this.isCapitalProvince(prov.id, prov.ownerId)) continue;
+      if (!off || off.isDead || off.isDaimyo) continue;
       const prev = this.provinces.find(p => p.governorId === off.id);
       if (prev && prev.id !== prov.id) {
         prev.governorId = null;
@@ -2175,7 +2211,187 @@ export const GameStateMethods = {
     }
 
     this.updateKiyohiraSurname(false);
+    this.updateTenmuEnthronement(false);
+    this.updateJimmuEnthronement(false);
     this.updateClanNameEras(announce);
+  },
+
+  // 大海人皇子は天武2年（673）春、飛鳥浄御原宮にて即位し第40代・天武天皇となる
+  oamaInTenmuEra() {
+    if (this.tenmuEnthronementDeclined) return false;
+    if (this.tenmuEnthronementAccepted) return true;
+    const y = Number(this.year);
+    if (y > 673 && y < 710) return true;
+    if (y === 673 && Number(this.seasonIdx) >= 1) return true;
+    return false;
+  },
+
+  updateTenmuEnthronement(announce = false) {
+    const isTenmuEra = this.oamaInTenmuEra();
+    const targetName = isTenmuEra ? '天武天皇' : '大海人皇子';
+    const targetWifeName = isTenmuEra ? '鵜野讚良皇后' : '鵜野讚良皇女';
+    const targetClanName = isTenmuEra ? '飛鳥朝廷' : '大海人皇子軍';
+
+    // 1. 武将名の更新 (activeOfficers & OFFICERS_MASTER)
+    const allOffs = [...(this.activeOfficers || []), ...(window.OFFICERS_MASTER || [])];
+    const seen = new Set();
+    allOffs.forEach(o => {
+      if (!o || seen.has(o)) return;
+      seen.add(o);
+      if (o.id === 'off_oama_prince') {
+        o.name = targetName;
+      } else if (o.id === 'off_unosarara') {
+        o.name = targetWifeName;
+      }
+    });
+
+    // 2. プレイヤー大名情報の更新
+    if (this.playerClanId === 'oama' && this.playerDaimyo) {
+      if (!this.playerDaimyo._origClan) this.playerDaimyo._origClan = this.playerDaimyo.clan || '大海人皇子軍';
+      if (!this.playerDaimyo._origCrest) this.playerDaimyo._origCrest = this.playerDaimyo.crest || '海';
+      if (this.playerDaimyo.officerId === 'off_oama_prince' || (this.playerDaimyo.name && this.leaderNamesMatch(this.playerDaimyo.name, '大海人皇子'))) {
+        this.playerDaimyo.name = targetName;
+      }
+      if (isTenmuEra) {
+        this.playerDaimyo.clan = '飛鳥朝廷';
+        this.playerDaimyo.crest = '飛';
+        this.playerDaimyo.tactic = '八色の姓・皇親政治';
+        this.playerDaimyo.tacticDesc = '天武天皇の絶対的皇威と八色の姓の秩序により、全軍の士気・攻撃力・内政効率を最大化する。';
+        this.playerDaimyo.desc = '壬申の乱を勝ち抜き飛鳥浄御原宮にて即位した第40代・天武天皇。皇后・鵜野讚良や高市皇子らとともに皇親政治を推進し、律令国家を建設する。';
+      } else {
+        this.playerDaimyo.clan = this.playerDaimyo._origClan || '大海人皇子軍';
+        this.playerDaimyo.crest = this.playerDaimyo._origCrest || '海';
+      }
+    }
+
+    // 3. プレイアブル大名リストの更新
+    if (this.currentScenario && this.currentScenario.playables) {
+      const pOama = this.currentScenario.playables.find(d => d.id === 'oama');
+      if (pOama) {
+        pOama.name = targetName;
+        pOama.clan = targetClanName;
+        pOama.crest = isTenmuEra ? '飛' : '海';
+        if (isTenmuEra) {
+          pOama.tactic = '八色の姓・皇親政治';
+          pOama.tacticDesc = '天武天皇の絶対的皇威と八色の姓の秩序により、全軍の士気・攻撃力・内政効率を最大化する。';
+          pOama.desc = '壬申の乱を勝ち抜き飛鳥浄御原宮にて即位した第40代・天武天皇。皇后・鵜野讚良や高市皇子らとともに皇親政治を推進し、律令国家を建設する。';
+        }
+      }
+    }
+
+    // 4. CLAN_MASTER_DATA の更新
+    if (window.CLAN_MASTER_DATA && window.CLAN_MASTER_DATA.oama) {
+      const master = window.CLAN_MASTER_DATA.oama;
+      master.family = targetClanName;
+      master.tactic = isTenmuEra ? '八色の姓・皇親政治' : '吉野雷動の神算';
+      master.tacticDesc = isTenmuEra
+        ? '天武天皇の絶対的皇威と八色の姓の秩序により、全軍の士気・攻撃力・内政効率を最大化する。'
+        : '不破関を封鎖し東国軍団を神速で統率。味方部隊の攻撃力と移動力を大幅に引き上げ、敵部隊の士気を挫く。';
+      if (master.leaders) {
+        master.leaders['672'] = targetName;
+        master.leaders.default = targetName;
+      }
+    }
+
+    // 5. アナウンス
+    if (announce && isTenmuEra && !this._tenmuAnnounced) {
+      this._tenmuAnnounced = true;
+      this.log('👑【天武天皇即位】大海人皇子は飛鳥浄御原宮にて高御座に昇り、第40代「天武天皇」として即位しました！これより「飛鳥朝廷」を称し、律令国家の礎を築きます。', 'important');
+      if (this.audio) this.audio.playHyoshigi();
+    }
+  },
+
+  // 神武天皇は辛酉年（前660）春正月、畝傍山東南の橿原宮にて即位し初代天皇となる
+  jimmuInTennoEra() {
+    if (this.jimmuEnthronementDeclined) return false;
+    if (this.jimmuEnthronementAccepted) return true;
+    const y = Number(this.year);
+    if (y > -660) return true;
+    if (y === -660 && Number(this.seasonIdx) >= 1) return true;
+    return false;
+  },
+
+  updateJimmuEnthronement(announce = false) {
+    const isJimmuTennoEra = this.jimmuInTennoEra();
+    const targetLeaderName = isJimmuTennoEra ? '神武天皇' : '神日本磐余彦尊';
+    const targetEmpressName = isJimmuTennoEra ? '五十鈴媛皇后' : '媛蹈鞴五十鈴媛命';
+    const targetClanName = isJimmuTennoEra ? '大和朝廷' : '神武東征軍';
+    const targetCrest = isJimmuTennoEra ? '皇' : '神';
+    const targetTactic = isJimmuTennoEra ? '八紘一宇・建国の詔' : '金鵄の神光と八咫烏';
+    const targetTacticDesc = isJimmuTennoEra
+      ? '畝傍山東南・橿原宮にて初代・神武天皇として即位。「八紘を掩いて宇と為む」と宣べ、全領国の治安・民忠を最大化し、全軍の攻撃力・守備力を飛躍的に向上させる。'
+      : '日輪・金鵄の神威と八咫烏の導きにより、味方全軍の士気・攻撃力・行軍速度を飛躍的に高め、敵の奇策を無力化する。';
+    const targetDesc = isJimmuTennoEra
+      ? '畝傍山東南の橿原宮にて初代・神武天皇として即位。皇后・媛蹈鞴五十鈴媛命や道臣命・大久米命・宇摩志麻治命らとともに大和朝廷を開き、日本建国の基盤を定めた。'
+      : '天孫瓊瓊杵尊の曾孫・神日本磐余彦尊（神武天皇）が率いる東征皇軍。日向を進発し、吉備・浪速を経て大和の平定を目指す。';
+
+    // 1. 武将名の更新 (activeOfficers & OFFICERS_MASTER)
+    const allOffs = [...(this.activeOfficers || []), ...(window.OFFICERS_MASTER || [])];
+    const seen = new Set();
+    allOffs.forEach(o => {
+      if (!o || seen.has(o)) return;
+      seen.add(o);
+      if (o.id === 'off_jimmu') {
+        o.name = targetLeaderName;
+      } else if (o.id === 'off_isuzuhime') {
+        o.name = targetEmpressName;
+      }
+    });
+
+    // 2. プレイヤー大名情報の更新
+    if (this.playerClanId === 'jimmu' && this.playerDaimyo) {
+      if (!this.playerDaimyo._origClan) this.playerDaimyo._origClan = this.playerDaimyo.clan || '神武東征軍';
+      if (!this.playerDaimyo._origCrest) this.playerDaimyo._origCrest = this.playerDaimyo.crest || '神';
+      if (this.playerDaimyo.officerId === 'off_jimmu' || (this.playerDaimyo.name && (this.leaderNamesMatch(this.playerDaimyo.name, '神武天皇') || this.leaderNamesMatch(this.playerDaimyo.name, '神日本磐余彦尊')))) {
+        this.playerDaimyo.name = targetLeaderName;
+      }
+      if (isJimmuTennoEra) {
+        this.playerDaimyo.clan = targetClanName;
+        this.playerDaimyo.crest = targetCrest;
+        this.playerDaimyo.tactic = targetTactic;
+        this.playerDaimyo.tacticDesc = targetTacticDesc;
+        this.playerDaimyo.desc = targetDesc;
+      } else {
+        this.playerDaimyo.clan = this.playerDaimyo._origClan || '神武東征軍';
+        this.playerDaimyo.crest = this.playerDaimyo._origCrest || '神';
+        this.playerDaimyo.tactic = targetTactic;
+        this.playerDaimyo.tacticDesc = targetTacticDesc;
+        this.playerDaimyo.desc = targetDesc;
+      }
+    }
+
+    // 3. プレイアブル大名リストの更新
+    if (this.currentScenario && this.currentScenario.playables) {
+      const pJimmu = this.currentScenario.playables.find(d => d.id === 'jimmu');
+      if (pJimmu) {
+        pJimmu.name = targetLeaderName;
+        pJimmu.clan = targetClanName;
+        pJimmu.crest = targetCrest;
+        pJimmu.tactic = targetTactic;
+        pJimmu.tacticDesc = targetTacticDesc;
+        pJimmu.desc = targetDesc;
+      }
+    }
+
+    // 4. CLAN_MASTER_DATA の更新
+    if (window.CLAN_MASTER_DATA && window.CLAN_MASTER_DATA.jimmu) {
+      const master = window.CLAN_MASTER_DATA.jimmu;
+      master.family = targetClanName;
+      master.tactic = targetTactic;
+      master.tacticDesc = targetTacticDesc;
+      master.desc = targetDesc;
+      if (master.leaders) {
+        master.leaders['-663'] = targetLeaderName;
+        master.leaders.default = targetLeaderName;
+      }
+    }
+
+    // 5. アナウンス
+    if (announce && isJimmuTennoEra && !this._jimmuAnnounced) {
+      this._jimmuAnnounced = true;
+      this.log('👑【神武天皇即位・橿原建国】神日本磐余彦尊は畝傍山東南の橿原宮にて初代「神武天皇」として即位しました！「八紘一宇」を宣し「大和朝廷」を開創、日本の建国がここに成りました！', 'important');
+      if (this.audio) this.audio.playHyoshigi();
+    }
   },
 
   // 清原清衡は寛治2年（1088）春、実父藤原経清の姓に復して藤原清衡となる,
@@ -3681,8 +3897,8 @@ export const GameStateMethods = {
             era: 'sengoku',
             skill: profile?.tactic || '威風堂々',
             lore: profile?.desc || `${this.getClanDisplayName(ownerId)}の当主。`,
-            birthYear: Math.max(900, (this.year || 1560) - 30),
-            deathYear: (this.year || 1560) + 40,
+            birthYear: (this.year ?? 1560) - 30,
+            deathYear: (this.year ?? 1560) + 40,
             isDaimyo: true,
             isDead: false
           };
@@ -4058,7 +4274,7 @@ export const GameStateMethods = {
     // シナリオ開始前・時代背景＆天下情勢解説モーダルの表示
     const introModal = document.getElementById('scenarioIntroModal');
     if (introModal && scen) {
-      document.getElementById('introModalTitle').textContent = `❖ ${scen.year}年 【${scen.title}】 〜時代背景と天下情勢〜 ❖`;
+      document.getElementById('introModalTitle').textContent = `❖ ${this.formatYear(scen.year)}年 【${scen.title}】 〜時代背景と天下情勢〜 ❖`;
       document.getElementById('introBackgroundText').textContent = scen.lore_background || scen.desc;
       document.getElementById('introFactionsText').textContent = scen.lore_factions || '全国諸侯が覇を競う天下の情勢。';
       document.getElementById('introFocusText').textContent = scen.lore_focus || '自領を固め、天下統一への覇道を切り拓け！';
@@ -4826,9 +5042,16 @@ export const GameStateMethods = {
       this._toastTimer = null;
     }
 
+    const isRepelled = /撃退/.test(title);
+    if (isRepelled) {
+      toast.classList.add('toast-repelled');
+    } else {
+      toast.classList.remove('toast-repelled');
+    }
+
     toast.innerHTML = `
-      <strong style="color:${accentColor}; font-size:12pt; white-space:nowrap;">${title}</strong>
-      <span style="color:#eee; font-size: 12pt; border-left:1px solid #665544; padding-left:10px;">${message}</span>
+      <strong class="order-result-title" style="color:${accentColor}; font-size:12pt; white-space:nowrap;">${title}</strong>
+      <span class="order-result-msg" style="color:#eee; font-size: 12pt; border-left:1px solid #665544; padding-left:10px;">${message}</span>
     `;
     toast.style.borderColor = accentColor;
 
@@ -6675,7 +6898,7 @@ export const GameStateMethods = {
       this.audio.playHyoshigi();
       this._lastHyoshigiTime = now;
     }
-    this.log(`【季節進行】${this.year}年 ${this.seasonNames[this.seasonIdx]}へ。軍令権が回復しました。`);
+    this.log(`【季節進行】${this.formatYear()}年 ${this.seasonNames[this.seasonIdx]}へ。軍令権が回復しました。`);
 
     const updatedMyProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
     if (updatedMyProvs.length === 0) {
@@ -6815,6 +7038,10 @@ export const GameStateMethods = {
         clanLookOverrides: this.clanLookOverrides || {},
         kiyohiraFujiwaraAccepted: !!this.kiyohiraFujiwaraAccepted,
         kiyohiraSurnameDeclined: !!this.kiyohiraSurnameDeclined,
+        tenmuEnthronementAccepted: !!this.tenmuEnthronementAccepted,
+        tenmuEnthronementDeclined: !!this.tenmuEnthronementDeclined,
+        jimmuEnthronementAccepted: !!this.jimmuEnthronementAccepted,
+        jimmuEnthronementDeclined: !!this.jimmuEnthronementDeclined,
         // 歴史イベントの進行（再読込で同じイベントが二重に出ないように）
         historyStateVersion: 1,
         triggeredHistoricalEvents: [...(this.triggeredHistoricalEvents || [])],
@@ -6952,6 +7179,10 @@ export const GameStateMethods = {
     this.lastDaimyoNames = data.lastDaimyoNames || { ...(this.foundingLeaderNames || {}) };
     this.kiyohiraFujiwaraAccepted = !!data.kiyohiraFujiwaraAccepted;
     this.kiyohiraSurnameDeclined = !!data.kiyohiraSurnameDeclined;
+    this.tenmuEnthronementAccepted = !!data.tenmuEnthronementAccepted;
+    this.tenmuEnthronementDeclined = !!data.tenmuEnthronementDeclined;
+    this.jimmuEnthronementAccepted = !!data.jimmuEnthronementAccepted;
+    this.jimmuEnthronementDeclined = !!data.jimmuEnthronementDeclined;
     this.triggeredHistoricalEvents = new Set(Array.isArray(data.triggeredHistoricalEvents) ? data.triggeredHistoricalEvents : []);
     this.happenedEvents = new Set(Array.isArray(data.happenedEvents) ? data.happenedEvents : []);
     this.honnojiSplit = !!data.honnojiSplit;
@@ -6965,6 +7196,8 @@ export const GameStateMethods = {
       this.sealCurrentSeasonHistoricalEvents();
     }
     this.updateKiyohiraSurname(false);
+    this.updateTenmuEnthronement(false);
+    this.updateJimmuEnthronement(false);
     this.updateClanNameEras(false);
 
     const templateDaimyo = (typeof DAIMYOS !== 'undefined' ? DAIMYOS : []).find(x => x.id === this.playerClanId);
@@ -6995,7 +7228,7 @@ export const GameStateMethods = {
     this.music.init();
     this.music.playTrack(this.getSeasonTrackKey());
     this.updateUI();
-    this.log(`【戦況再開】${this.year}年 ${this.seasonNames[this.seasonIdx]}の記録から戦況を再開しました！`, 'important');
+    this.log(`【戦況再開】${this.formatYear()}年 ${this.seasonNames[this.seasonIdx]}の記録から戦況を再開しました！`, 'important');
     Swal.fire({ icon: 'success', title: '戦況再開完了', text: `${this.playerDaimyo?.name || ''}公の覇業を再開しました。`, background: '#241710', color: '#fff' });
     // 選ぶ前に保存された今季のイベントを出し直す（発火済みのものは出ない）
     if (hasHistoryState) this.scheduleHistoricalEventCheck(900);
@@ -7023,8 +7256,38 @@ export const GameStateMethods = {
     return false;
   },
 
-  /** 征夷大将軍の条件：山城（京）を領有し、国数が閾値以上（2026-10-11 cc で判定を切り出し） */
+  /** 現在のシナリオの開始年（西暦）を取得 */
+  getScenarioYear() {
+    if (this.currentScenario && typeof this.currentScenario.year === 'number') {
+      return this.currentScenario.year;
+    }
+    const scen = (typeof SCENARIOS !== 'undefined' ? SCENARIOS : []).find(s => String(s.id) === String(this.currentScenarioId));
+    if (scen && typeof scen.year === 'number') {
+      return scen.year;
+    }
+    const scenNum = Number(this.currentScenarioId);
+    if (!isNaN(scenNum)) {
+      return scenNum;
+    }
+    return typeof this.year === 'number' ? this.year : 1560;
+  },
+
+  /**
+   * 現在のシナリオで征夷大将軍就任エンディングが許可されているか判定
+   * 801年以前のシナリオ (year <= 801) と 明治時代のシナリオ (year >= 1868) では
+   * 征夷大将軍就任によるエンディングはなく、完全統一のみとする
+   */
+  isShogunEndingAllowed() {
+    const scenYear = this.getScenarioYear();
+    if (scenYear <= 801 || scenYear >= 1868) {
+      return false;
+    }
+    return true;
+  },
+
+  /** 征夷大将軍の条件：山城（京）を領有し、国数が閾値以上（801年以前・明治は対象外） */
   meetsShogunCondition() {
+    if (!this.isShogunEndingAllowed()) return false;
     const myProvs = (this.provinces || []).filter(p => p.ownerId === this.playerClanId);
     const hasKyoto = myProvs.some(p => p.id === 'yamashiro' || p.id === 'kyoto');
     const threshold = Math.min(30, Math.floor((this.provinces || []).length * 0.45));
@@ -7032,6 +7295,7 @@ export const GameStateMethods = {
   },
 
   triggerShogunAppointment() {
+    if (!this.isShogunEndingAllowed()) return;
     this.shogunAppointed = true; // 確実にフラグを立てて毎ターンブロックを防止
     if (this.isAutoPlay) this.pauseAutoPlayForEvent?.(); // 宣下はイベントと同じく一時停止（2026-10-11 cc）
     this.audio.playHoragai();
@@ -7079,10 +7343,16 @@ export const GameStateMethods = {
 
     // victoryModal（詳細結果モーダル）を表示
     const modal = document.getElementById('victoryModal');
-    if (modal) modal.classList.remove('hidden');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.scrollTop = 0;
+    }
   },
 
   triggerVictory(isShogunRoute = false) {
+    if (!this.isShogunEndingAllowed()) {
+      isShogunRoute = false;
+    }
     this._isShogunRoute = isShogunRoute;
 
     const modal = document.getElementById('victoryModal');
@@ -7097,33 +7367,47 @@ export const GameStateMethods = {
     const clanName = this.playerDaimyo.clan;
     const daimyoName = this.playerDaimyo.name;
     const myProvs = this.provinces.filter(p => p.ownerId === this.playerClanId);
+    const scenYear = this.getScenarioYear();
+    const isShogun = isShogunRoute && this.isShogunEndingAllowed();
 
-    if (isShogunRoute) {
+    if (isShogun) {
       if (subTitleEl) subTitleEl.textContent = '【朝廷勅命・天下静謐の武門棟梁】';
       if (mainTitleEl) mainTitleEl.textContent = '❖ 征夷大将軍就任・天下泰平の幕府開府 ❖';
     } else {
-      if (subTitleEl) subTitleEl.textContent = '【前人未到・日本全五拾州完全統一】';
+      if (subTitleEl) subTitleEl.textContent = `【前人未到・日本全${this.provinces?.length || 72}州完全統一】`;
       if (mainTitleEl) mainTitleEl.textContent = '❖ 天下布武・不滅の大覇業達成 ❖';
     }
 
-    if (daimyoNameEl) daimyoNameEl.textContent = `${clanName} 征夷大将軍 ${daimyoName}`;
+    if (daimyoNameEl) {
+      daimyoNameEl.textContent = isShogun
+        ? `${clanName} 征夷大将軍 ${daimyoName}`
+        : `${clanName} 当主 ${daimyoName}`;
+    }
     if (statsEl) {
-      statsEl.textContent = `${this.year}年 ${this.seasonNames[this.seasonIdx]} 達成 ｜ 支配領国: ${myProvs.length}州 ｜ 激闘戦歴: ${this.stats.battlesWon}勝 (${this.stats.battlesFought}戦)`;
+      statsEl.textContent = `${this.formatYear()}年 ${this.seasonNames[this.seasonIdx]} 達成 ｜ 支配領国: ${myProvs.length}州 ｜ 激闘戦歴: ${this.stats.battlesWon}勝 (${this.stats.battlesFought}戦)`;
     }
 
+    const defaultRegime = isShogun
+      ? `${clanName}幕府・天下泰平の新体制`
+      : (scenYear >= 1868 ? `${clanName}新政府・近代国家の新体制` : `${clanName}政権・天下泰平の新体制`);
+
     const ep = DAIMYO_EPILOGUES[this.playerClanId] || {
-      regime: `${clanName}幕府・天下泰平の新体制`,
+      regime: defaultRegime,
       capital: `${daimyoName}公の居城（京洛ならびに天下の要衝）`,
-      pillar1: '万民の生業を安堵し、武力による横暴を厳禁とする徳政令と武家諸法度を敷いた。',
-      pillar2: '新田開拓と街道・河川の整備を全国で推進し、飢饉なき豊かな国づくりを成し遂げた。',
-      pillar3: '諸大名との和睦と公正な統治を確立し、百余年にわたる乱世の争乱を永遠に終焉させた。',
+      pillar1: scenYear <= 801
+        ? '大いなる和の規範を敷き、私闘を禁じ民百姓が安心して暮らせる法と秩序を整えた。'
+        : (scenYear >= 1868 ? '四民平等の原則を貫き、国民の権利を守り法の下の公正な統治を確立した。' : '万民の生業を安堵し、武力による横暴を厳禁とする徳政令と武家諸法度を敷いた。'),
+      pillar2: scenYear >= 1868
+        ? '近代産業の振興と交通網の整備を全国で推進し、国力富強の礎を築いた。'
+        : '新田開拓と街道・河川の整備を全国で推進し、飢饉なき豊かな国づくりを成し遂げた。',
+      pillar3: '諸勢力との和睦と公正な統治を確立し、百余年にわたる争乱の世を永遠に終焉させた。',
       future10: '【統一後十年：礎の時代】天下普請と新法度の敷設。荒廃した山河が蘇り、民百姓の安穏な耕作が戻った。',
       future50: '【統一後五十年：文化と産業の開花】二代・三代へと政権が継承され、街道と港湾が結ばれ空前の好景気を迎えた。',
       future100: '【統一後百年〜近代へ：悠久の泰平】百年の平和が人々の心を潤し、夜も戸を鎖さぬ世界無比の平和国家が完成した。',
       historianQuote: '『乱世の塗炭の苦しみから人々を救い出し、永遠の泰平を築いたその英名は、未来永劫語り継がれるであろう』'
     };
 
-    const routeStory = isShogunRoute
+    const routeStory = isShogun
       ? `<p style="margin-bottom:12px; color:#ffd700; font-size:12.5pt; font-weight:bold;">
           「山城に入洛し都の戦乱を鎮定、天下三十有余州を統べる武威と仁徳を讃え、朝廷より征夷大将軍の重職を拝命す――」
         </p>
@@ -7136,6 +7420,9 @@ export const GameStateMethods = {
         <p style="margin-bottom:10px; text-indent:1.5em;">
           日本全土の完全平定。幾多の激闘を戦い抜き、倒れていった忠勇の将兵たちの想いを胸に、貴家はついに日の本すべての頂点へと登りつめました。もはやこの国土に刀を向け合う敵はなく、八百万の民が夜を徹して平和を喜び合いました。
         </p>`;
+
+    const regimeTitleLabel = isShogun ? '幕府' : (scenYear >= 1868 ? '新政府' : '政権');
+    const warriorLabel = scenYear <= 801 ? '将兵たち' : (scenYear >= 1868 ? '志士と将兵たち' : '武士');
 
     if (chronicleEl) {
       chronicleEl.innerHTML = `
@@ -7163,7 +7450,7 @@ export const GameStateMethods = {
           <div style="background: rgba(0,0,0,0.45); border: 1px solid #775533; border-radius: 6px; padding: 12px 16px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h3 style="color:#ffd700; font-size:12pt; margin-bottom:6px;">
-                ❖ この幕府が紡いだ「その後の日本」（百年の変遷）
+                ❖ この${regimeTitleLabel}が紡いだ「その後の日本」（百年の変遷）
               </h3>
               <div style="font-size: 11pt; color:#ddd; margin-bottom:6px; line-height: 1.6;">${ep.future10}</div>
               <div style="font-size: 11pt; color:#ddd; margin-bottom:6px; line-height: 1.6;">${ep.future50}</div>
@@ -7176,7 +7463,7 @@ export const GameStateMethods = {
         </div>
 
         <div style="border-top: 1px dashed #665533; padding-top: 8px; font-style: italic; color: #ffd700; font-size: 11.5pt; text-align: center; line-height: 1.8;">
-          「武士が捧げし至誠は豊かなる国土を育み、民が流した汗は永遠の泰平の礎となった。<br>
+          「${warriorLabel}が捧げし至誠は豊かなる国土を育み、民が流した汗は永遠の泰平の礎となった。<br>
           乱世の闇を切り裂き、輝かしき黎明をもたらした貴家の徳政と英名は、歴史の彼方まで語り継がれるであろう――」
         </div>
       `;
@@ -7287,7 +7574,7 @@ export const GameStateMethods = {
       <div style="font-size: 12pt; color:var(--gold); letter-spacing:3px; margin-bottom:4px;">❖ 季節の移ろい ❖</div>
       <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
         <span style="font-size:24pt;">${seasonIcon}</span>
-        <span>${year}年 ${seasonName}</span>
+        <span>${this.formatYear(year)}年 ${seasonName}</span>
         <span style="font-size:13pt; color:#ffdd88; font-weight:normal; margin-left:6px;">【${weather}】</span>
       </div>
     `;
@@ -8076,6 +8363,10 @@ applyEventTerritory(changes) {
       lines.push('清原領の治安 +15、兵力 +1,000');
       if (this.playerClanId === 'kiyohara') lines.push('清原家として金 +1,500、兵糧 +2,000');
     }
+    if (branch === 'accept' && ev.id === 'evt_673_tenmu_enthronement') {
+      lines.push('大海人皇子が第40代「天武天皇」に即位し、勢力名が「飛鳥朝廷」へ昇格');
+      lines.push('正妃・鵜野讚良皇女を「鵜野讚良皇后」に冊立、固有戦術が「八色の姓・皇親政治」に進化');
+    }
     if (branch === 'accept') lines.push(...(this.eventRuleFor('acceptEffectLines', ev.id) || []));
     return lines;
   },
@@ -8216,7 +8507,7 @@ applyEventTerritory(changes) {
     if (titleEl) titleEl.textContent = `❖ ${ev.title} ❖`;
 
     const subEl = document.getElementById('eventModalSubtitle');
-    if (subEl) subEl.textContent = `${this.year}年 ${this.seasonNames[this.seasonIdx]}`;
+    if (subEl) subEl.textContent = `${this.formatYear()}年 ${this.seasonNames[this.seasonIdx]}`;
 
     const descEl = document.getElementById('eventModalDesc');
     if (descEl) descEl.innerHTML = ev.desc;
@@ -8228,7 +8519,7 @@ applyEventTerritory(changes) {
         noticeEl.innerHTML = `<strong>【この季節に起きること】</strong>${this.escapeEventText(ev.changes?.message || '')}${acceptFx}`;
       } else if (ev.onReject) {
         const rejectFx = this.eventEffectHtml(this.eventEffectLines(ev, 'reject'));
-        noticeEl.innerHTML = `<strong>【史実を適用・乱は鎮圧】</strong>${this.escapeEventText(ev.changes?.message || '乱は鎮圧されます。')}${acceptFx}<br><strong style="color:#f39c12;">【史実を適用しない・乱は成功】</strong>${this.escapeEventText(ev.onReject.message || '乱は成功します。')}${rejectFx}`;
+        noticeEl.innerHTML = `<strong>【史実を適用】</strong>${this.escapeEventText(ev.changes?.message || '')}${acceptFx}<br><strong style="color:#f39c12;">【史実を適用しない】</strong>${this.escapeEventText(ev.onReject.message || '')}${rejectFx}`;
       } else {
         noticeEl.innerHTML = `<strong>【史実を適用すると】</strong>${this.escapeEventText(ev.changes?.message || '')}${acceptFx}<br><span style="font-size:11pt; color:#ffd700; margin-top:4px; display:inline-block;">現状維持を選ぶと、上の効果は起きません。</span>`;
       }
@@ -8240,7 +8531,7 @@ applyEventTerritory(changes) {
     if (acceptBtn) {
       const newAccept = acceptBtn.cloneNode(true);
       acceptBtn.parentNode.replaceChild(newAccept, acceptBtn);
-      newAccept.textContent = ev.forced ? '承知した' : (ev.onReject ? '⚔️ 史実通り効果を適用（乱を鎮圧）' : '⚔️ 史実通り効果を適用');
+      newAccept.textContent = ev.forced ? '承知した' : '⚔️ 史実通り効果を適用';
       newAccept.addEventListener('click', () => {
         if (this._eventDecidedId === ev.id) return;
         this._eventDecidedId = ev.id;
@@ -8253,11 +8544,21 @@ applyEventTerritory(changes) {
       const newReject = rejectBtn.cloneNode(true);
       rejectBtn.parentNode.replaceChild(newReject, rejectBtn);
       newReject.style.display = ev.forced ? 'none' : '';
-      newReject.textContent = ev.onReject ? '⚡ 史実を適用しない（乱が成功）' : '🛡️ 史実に抗い現状維持 (効果なし)';
+      newReject.textContent = ev.onReject ? '⚡ 史実を適用しない' : '🛡️ 史実に抗い現状維持 (効果なし)';
       newReject.addEventListener('click', () => {
         if (this._eventDecidedId === ev.id) return;
         this._eventDecidedId = ev.id;
         this.audio.playHyoshigi();
+        if (ev.id === 'evt_673_tenmu_enthronement') {
+          this.tenmuEnthronementDeclined = true;
+          this.tenmuEnthronementAccepted = false;
+          this.updateTenmuEnthronement(false);
+        }
+        if (ev.id === 'evt_jimmu_kashihara_enthronement') {
+          this.jimmuEnthronementDeclined = true;
+          this.jimmuEnthronementAccepted = false;
+          this.updateJimmuEnthronement(false);
+        }
         if (ev.onReject) {
           this.applyEventTerritory(ev.onReject);
           const bonus = this.eventRuleFor('playerRejectBonus', ev.id);
@@ -8266,7 +8567,7 @@ applyEventTerritory(changes) {
             this.gold += Number(bonus.gold) || 0;
             this.updateUI();
           }
-          this.log(`⚡【史実を適用せず】${ev.title}：${ev.onReject.message || '乱は成功しました。'}`, 'important');
+          this.log(`⚡【史実を適用せず】${ev.title}：${ev.onReject.message || '史実とは異なる展開となりました。'}`, 'important');
           modal.classList.add('hidden');
           this.music.playTrack(this.getSeasonTrackKey(), false, { seasonReturn: true });
           this.continueAfterHistoricalEvent();
@@ -8393,6 +8694,34 @@ applyEventTerritory(changes) {
         this.gold += 1500;
         this.rice += 2000;
       }
+      this.updateUI();
+    }
+    if (ev.id === 'evt_673_tenmu_enthronement') {
+      this.tenmuEnthronementDeclined = false;
+      this.tenmuEnthronementAccepted = true;
+      this.updateTenmuEnthronement(true);
+      this.updateUI();
+    }
+    if (ev.id === 'evt_jimmu_golden_kite') {
+      const defectorIds = ['off_nigihayahi', 'off_umashimaji', 'off_tomiyahime'];
+      const allOffs = [...(this.activeOfficers || []), ...(window.OFFICERS_MASTER || [])];
+      allOffs.forEach(o => {
+        if (!o) return;
+        if (defectorIds.includes(o.id) || o.clanId === 'nagasunehiko') {
+          if (!ev.changes?.killOfficerIds?.includes(o.id)) {
+            o.clanId = 'jimmu';
+            o.assignedProvId = 'yamato';
+            o.isDead = false;
+          }
+        }
+      });
+      this.log('🦅【帰順】天孫・饒速日命と宇摩志麻治命が神武軍に帰順し、物部・大和の諸族が従いました！', 'important');
+      this.updateUI();
+    }
+    if (ev.id === 'evt_jimmu_kashihara_enthronement') {
+      this.jimmuEnthronementDeclined = false;
+      this.jimmuEnthronementAccepted = true;
+      this.updateJimmuEnthronement(true);
       this.updateUI();
     }
     this.audio.playFanfare();

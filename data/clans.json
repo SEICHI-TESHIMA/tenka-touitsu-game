@@ -337,7 +337,8 @@
         "1576": "安東愛季",
         "1584": "秋田実季",
         "1587": "秋田実季",
-        "1592": "秋田実季"
+        "1592": "秋田実季",
+        "1359": "安東師季"
       }
     },
     "arima": {
@@ -1871,7 +1872,8 @@
         "1702": "島津綱貴",
         "1721": "島津継豊",
         "1789": "島津斉宣",
-        "1866": "島津忠義"
+        "1866": "島津忠義",
+        "1391": "島津元久"
       }
     },
     "shoni": {
@@ -3107,7 +3109,9 @@
         "default": "藤原忠平",
         "1019": "藤原道長",
         "801": "桓武天皇",
-        "811": "桓武天皇"
+        "811": "桓武天皇",
+        "1156": "鳥羽上皇",
+        "1159": "藤原伊通"
       }
     },
     "abe": {
@@ -3174,7 +3178,8 @@
         "1467": "タニコシャ",
         "1274": "安藤季盛",
         "1359": "安藤家季",
-        "1391": "安藤道貞"
+        "1391": "安藤道貞",
+        "801": "渡島部族長"
       }
     },
     "shimazu_proto": {
@@ -4667,13 +4672,13 @@
       "desc": "首里城を王府として南蛮・明・日本を結ぶ南海の大交易王国。舜天・英祖・尚氏と王統を継ぎ、独自の琉球文化と海洋ネットワークを誇る。",
       "leaders": {
         "801": "天孫按司",
-        "939": "天孫按司",
-        "1019": "天孫按司",
-        "1028": "天孫按司",
-        "1056": "天孫按司",
-        "1087": "天孫按司",
-        "1156": "舜天",
-        "1159": "舜天",
+        "939": "天孫氏按司",
+        "1019": "天孫氏按司",
+        "1028": "天孫氏按司",
+        "1056": "天孫氏按司",
+        "1087": "天孫按司利勇",
+        "1156": "天孫按司利勇",
+        "1159": "天孫按司利勇",
         "1180": "舜天",
         "1183": "舜天",
         "1184": "舜天",
@@ -4681,8 +4686,8 @@
         "1189": "舜天",
         "1221": "舜馬順煕",
         "1274": "英祖",
-        "1331": "察度",
-        "1333": "察度",
+        "1331": "玉城王",
+        "1333": "玉城王",
         "1336": "察度",
         "1350": "察度",
         "1359": "察度",
@@ -4706,7 +4711,411 @@
         "1590": "尚寧",
         "1592": "尚寧",
         "1600": "尚寧",
-        "default": "尚寧"
+        "default": "尚寧",
+        "110": "天孫氏按司",
+        "240": "天孫氏按司",
+        "672": "天孫氏按司",
+        "97": "天孫氏按司",
+        "-663": "天孫按司"
+      }
+    },
+    "yamatai": {
+      "family": "邪馬台国",
+      "color": "#800000",
+      "kamon": "kamon-yamatai",
+      "capital_pref": [
+        "chikuzen",
+        "hizen",
+        "yamato"
+      ],
+      "tactic": "鬼道神託の儀",
+      "tacticDesc": "卑弥呼の霊力と魏の金印の威光により、全軍の士気を極限まで高め敵を恐慌に陥れる。",
+      "desc": "女王・卑弥呼が統べる古代倭国の連合国家。魏の明帝より「親魏倭王」の金印紫綬を賜り、鬼道の呪術と一大率による厳格な監察で北部九州・西国諸国を束ねる。",
+      "leaders": {
+        "240": "卑弥呼",
+        "default": "卑弥呼"
+      }
+    },
+    "kuna": {
+      "family": "狗奴国",
+      "color": "#3a0505",
+      "kamon": "kamon-kuna",
+      "capital_pref": [
+        "higo",
+        "hyuga",
+        "satsuma"
+      ],
+      "tactic": "狗奴の剛弓突撃",
+      "tacticDesc": "南九州の屈強な戦士団が剛弓と毒矢を一斉射撃し、猛然と敵本陣を蹂躙する。",
+      "desc": "男王・卑弥弓呼と官・狗古智卑狗が率いる南九州の強国。邪馬台国の女王支配に屈せず、長年にわたり倭国大戦を繰り広げた。",
+      "leaders": {
+        "240": "卑弥弓呼",
+        "default": "卑弥弓呼"
+      }
+    },
+    "yamato_court": {
+      "family": "ヤマト王権",
+      "color": "#4a235a",
+      "kamon": "kamon-yamato_court",
+      "capital_pref": [
+        "yamato",
+        "yamashiro",
+        "kawachi"
+      ],
+      "tactic": "草薙剣・天威薙ぎ払い",
+      "tacticDesc": "神剣草薙の霊威を放ち、周囲の敵軍を焼き払い一掃する。",
+      "desc": "大和・纒向を拠点に天下統一を進める古代大王（天皇）の王権。日本武尊の勇武と武内宿禰の輔弼により、東西の荒ぶる国々を平定して版図を拡大する。",
+      "leaders": {
+        "110": "日本武尊",
+        "240": "崇神天皇",
+        "default": "日本武尊",
+        "97": "日本武尊"
+      }
+    },
+    "kumaso": {
+      "family": "熊襲国",
+      "color": "#5c1d11",
+      "kamon": "kamon-kumaso",
+      "capital_pref": [
+        "satsuma",
+        "osumi",
+        "higo"
+      ],
+      "tactic": "隼人の激浪陣",
+      "tacticDesc": "隼人の盾と波状攻撃で敵軍を包囲し、一撃のもとに粉砕する。",
+      "desc": "南九州に拠る勇猛果敢な熊襲・隼人族の王国。川上梟帥（クマソタケル）を筆頭とする巨魁たちが、大和王権の支配を拒み不抜の防衛戦を展開する。",
+      "leaders": {
+        "110": "川上梟帥",
+        "default": "川上梟帥",
+        "672": "熊襲勇者",
+        "97": "川上梟帥",
+        "-663": "吾田君小橋",
+        "801": "大隅直足人"
+      }
+    },
+    "izumo": {
+      "family": "出雲国",
+      "color": "#145a32",
+      "kamon": "kamon-izumo",
+      "capital_pref": [
+        "izumo",
+        "hoki",
+        "iwami"
+      ],
+      "tactic": "八雲立つ神陣",
+      "tacticDesc": "出雲の大神の加護を受け、味方の防御力を飛躍的に引き上げ敵の計略を無効化する。",
+      "desc": "大国主神の神話を受け継ぎ、杵築の巨大神殿と豊かな製鉄・青銅器文化を誇る古代の王国。山陰の盟主として確固たる独自性を保つ。",
+      "leaders": {
+        "110": "出雲建",
+        "240": "出雲振根",
+        "default": "出雲建",
+        "672": "出雲国造",
+        "97": "出雲建",
+        "-663": "出雲櫛瓊命",
+        "801": "出雲国造果成"
+      }
+    },
+    "kibi": {
+      "family": "吉備国",
+      "color": "#b9770e",
+      "kamon": "kamon-kibi",
+      "capital_pref": [
+        "bizen",
+        "bicchu",
+        "mimasaka"
+      ],
+      "tactic": "鬼ノ城の鉄壁",
+      "tacticDesc": "巨大な石垣と製鉄技術による強固な武装で、敵の攻撃を完全に跳ね返す。",
+      "desc": "山陽道の中央に栄えた大国。豊富な鉄資源と優れた製鉄技術、巨大な前方後円墳・楯築遺跡を誇り、大和王権にも匹敵する大勢力。",
+      "leaders": {
+        "110": "御友別",
+        "240": "温羅",
+        "default": "温羅",
+        "672": "吉備笠垂",
+        "97": "御友別"
+      }
+    },
+    "keno": {
+      "family": "毛野国",
+      "color": "#1b4f72",
+      "kamon": "kamon-keno",
+      "capital_pref": [
+        "kozuke",
+        "shimotsuke"
+      ],
+      "tactic": "東国騎馬の突進",
+      "tacticDesc": "坂東平野で育まれた精鋭騎馬隊が敵の側背を強襲する。",
+      "desc": "上野・下野にまたがる東国最大の内陸大国。巨大古墳群と騎馬文化を誇り、大和朝廷の皇族・豊城入彦命が下向して版図を固めた。",
+      "leaders": {
+        "110": "毛野国造",
+        "240": "豊城入彦命",
+        "default": "豊城入彦命",
+        "672": "毛野大夫",
+        "97": "毛野国造",
+        "-663": "坂東毛野彦",
+        "801": "上毛野長谷"
+      }
+    },
+    "emishi_east": {
+      "family": "東国蝦夷",
+      "color": "#1c2833",
+      "kamon": "kamon-emishi",
+      "capital_pref": [
+        "mutsu",
+        "rikuchu",
+        "rikuzen"
+      ],
+      "tactic": "日高見の風雪伏兵",
+      "tacticDesc": "深い山林と雪原に敵を誘い込み、毒矢と奇襲で大打撃を与える。",
+      "desc": "奥羽の深山幽谷に暮らす原初の部族連合。自然の神々と共生し、弓馬の術に優れ、侵入する遠征軍にゲリラ戦で対抗した。",
+      "leaders": {
+        "110": "島つ鳥鵜飼",
+        "240": "日高見大首長",
+        "default": "島つ鳥鵜飼",
+        "672": "日高見大首長",
+        "97": "島つ鳥鵜飼",
+        "-663": "日高見大梟帥",
+        "801": "爾薩体阿奴志己"
+      }
+    },
+    "toma": {
+      "family": "投馬国",
+      "color": "#0e6251",
+      "kamon": "kamon-toma",
+      "capital_pref": [
+        "izumo",
+        "aki",
+        "suo"
+      ],
+      "tactic": "巨船五万戸の水陣",
+      "tacticDesc": "瀬戸内と日本海を往来する巨大軍船団で敵の退路を断ち猛撃を加える。",
+      "desc": "魏志倭人伝に五万余戸と記される西日本の大国。長官・弥弥と副官・弥弥那利が統治し、活発な海上交易を展開した。",
+      "leaders": {
+        "240": "弥弥",
+        "default": "弥弥"
+      }
+    },
+    "tsukushi": {
+      "family": "筑紫国造",
+      "color": "#6e2c00",
+      "kamon": "kamon-tsukushi",
+      "capital_pref": [
+        "chikuzen",
+        "chikugo"
+      ],
+      "tactic": "玄界灘の潮汐陣",
+      "tacticDesc": "潮の流れを利用して敵軍を分断し、各個撃破する。",
+      "desc": "北部九州・有明海沿岸を領する在地豪族。大陸との通商ルートを押さえ、独自の勢力を維持した。",
+      "leaders": {
+        "110": "筑紫国造",
+        "default": "筑紫国造",
+        "672": "栗隈王",
+        "97": "筑紫国造",
+        "-663": "穂高見命",
+        "801": "紀真人"
+      }
+    },
+    "koshi": {
+      "family": "高志国造",
+      "color": "#1f618d",
+      "kamon": "kamon-koshi",
+      "capital_pref": [
+        "echizen",
+        "etchu",
+        "echigo"
+      ],
+      "tactic": "九頭竜の激流陣",
+      "tacticDesc": "北陸の暴れ川の如き勢いで敵陣を突破する。",
+      "desc": "北陸沿岸を統べる古代豪族。日本海の翡翠交易や豊かな稲作平野を基盤に、越前・越中・越後を支配した。",
+      "leaders": {
+        "110": "高志国造",
+        "240": "大彦命",
+        "default": "高志国造",
+        "672": "阿倍比羅夫",
+        "97": "高志国造",
+        "-663": "高志沼河彦",
+        "801": "阿倍真勝"
+      }
+    },
+    "sagami_clan": {
+      "family": "相模国造",
+      "color": "#784212",
+      "kamon": "kamon-sagami",
+      "capital_pref": [
+        "sagami",
+        "musashi"
+      ],
+      "tactic": "原野の野火計",
+      "tacticDesc": "草原に火を放ち、敵軍を火煙で包み込んで大混乱に陥れる。",
+      "desc": "相模・武蔵平野に勢力を持つ東国の在地豪族。焼津の地で日本武尊を謀殺せんと野火を放った伝承で知られる。",
+      "leaders": {
+        "110": "相模国造",
+        "240": "相模大夫",
+        "default": "相模国造",
+        "97": "相模国造"
+      }
+    },
+    "shinano_gousoku": {
+      "family": "科野国造",
+      "color": "#1e8449",
+      "kamon": "kamon-shinano",
+      "capital_pref": [
+        "north_shinano",
+        "south_shinano"
+      ],
+      "tactic": "信濃の天険陣",
+      "tacticDesc": "山岳要害を利用して敵軍の補給を断ち疲弊させる。",
+      "desc": "諏訪大社を中心とする信濃山林の古代豪族。山岳要害に拠り、東西を結ぶ交通の要衝を守護した。",
+      "leaders": {
+        "110": "科野国造",
+        "240": "科野大夫",
+        "default": "科野国造",
+        "97": "科野国造",
+        "-663": "建御名方彦"
+      }
+    },
+    "oama": {
+      "family": "大海人皇子軍",
+      "color": "#b03a2e",
+      "kamon": "kamon-oama",
+      "capital_pref": [
+        "mino",
+        "yamato"
+      ],
+      "tactic": "吉野雷動の神算",
+      "tacticDesc": "不破関を封鎖し東国軍団を神速で統率。味方部隊の攻撃力と移動力を大幅に引き上げ、敵部隊の士気を挫く。",
+      "desc": "天智天皇の同母弟・大海人皇子が吉野宮を脱出して美濃不破関で挙兵した軍勢。東海道・東山道の精鋭騎馬軍と飛鳥を奪取した大和軍を率い、近江朝廷に挑む。",
+      "leaders": {
+        "672": "大海人皇子",
+        "default": "大海人皇子"
+      }
+    },
+    "omi_court": {
+      "family": "近江朝廷",
+      "color": "#4a235a",
+      "kamon": "kamon-omi_court",
+      "capital_pref": [
+        "south_omi",
+        "yamashiro"
+      ],
+      "tactic": "近江令の威信",
+      "tacticDesc": "朝廷の正統性と律令の威令により、全軍の防御力と内政効率を上昇させ、敵の調略を防ぐ。",
+      "desc": "天智天皇の長男・大友皇子（弘文天皇）と左大臣蘇我赤兄、右大臣中臣金らが統帥する正統朝廷。近江大津宮に拠り、反旗を翻した大海人軍を迎撃する。",
+      "leaders": {
+        "672": "大友皇子",
+        "default": "大友皇子"
+      }
+    },
+    "jimmu": {
+      "family": "神武東征軍",
+      "color": "#c0392b",
+      "kamon": "kamon-jimmu",
+      "capital_pref": [
+        "settsu",
+        "bizen",
+        "yamato",
+        "hyuga"
+      ],
+      "tactic": "金鵄の神光と八咫烏",
+      "tacticDesc": "日輪・金鵄の神威と八咫烏の導きにより、味方全軍の士気・攻撃力・行軍速度を飛躍的に高め、敵の奇策を無力化する。",
+      "desc": "天孫瓊瓊杵尊の曾孫・神日本磐余彦尊（神武天皇）が率いる東征皇軍。日向を進発し、吉備・浪速を経て大和の平定を目指す。",
+      "leaders": {
+        "-663": "神武天皇",
+        "default": "神武天皇"
+      }
+    },
+    "nagasunehiko": {
+      "family": "大和・長髄彦軍",
+      "color": "#2c3e50",
+      "kamon": "kamon-nagasunehiko",
+      "capital_pref": [
+        "yamato",
+        "kawachi"
+      ],
+      "tactic": "草香の強弓・長髄猛威",
+      "tacticDesc": "生駒・鳥見の険阻な地勢と精強無比な大弓隊をもって侵攻軍を迎撃し、敵の前衛部隊に大打撃を与える。",
+      "desc": "生駒・鳥見一帯に君臨する大和先住の勇者。天磐船で降臨した饒速日命を主君と仰ぎ、強弓の兵団を率いて皇軍の前に立ち塞がる。",
+      "leaders": {
+        "-663": "長髄彦",
+        "default": "長髄彦"
+      }
+    },
+    "kumano_tobe": {
+      "family": "紀伊熊野戸畔衆",
+      "color": "#16a085",
+      "kamon": "kamon-kumano_tobe",
+      "capital_pref": [
+        "kii",
+        "ise"
+      ],
+      "tactic": "熊野毒気・荒坂水軍",
+      "tacticDesc": "熊野の深山幽谷の瘴気と荒坂津の荒波を味方につけ、侵入した敵部隊の士気と兵力を急激に消耗させる。",
+      "desc": "紀伊名草・熊野に拠る土着の女首長・名草戸畔と丹敷戸畔らの豪族連合。熊野の霊山と海人を統率して自立する。",
+      "leaders": {
+        "-663": "名草戸畔",
+        "default": "名草戸畔"
+      }
+    },
+    "awa_imbe": {
+      "family": "四国忌部海人族",
+      "color": "#8e44ad",
+      "kamon": "kamon-awa_imbe",
+      "capital_pref": [
+        "awa_shikoku",
+        "sanuki"
+      ],
+      "tactic": "麻穀豊穣・忌部神威",
+      "tacticDesc": "天日鷲命がもたらした麻と木綿の神事・農業力により、領国の内政力と補給効率を劇的に向上させる。",
+      "desc": "阿波・伊予・讃岐・土佐の四国諸国を統べる忌部氏と海人族の連合。天日鷲命を中心に神まつりと豊かな農耕で栄える。",
+      "leaders": {
+        "-663": "天日鷲命",
+        "default": "天日鷲命"
+      }
+    },
+    "ibuki": {
+      "family": "伊服岐能山之神",
+      "color": "#1a5276",
+      "kamon": "kamon-ibuki",
+      "capital_pref": [
+        "north_omi"
+      ],
+      "tactic": "神威氷雨雹嵐",
+      "tacticDesc": "猛烈なる氷雨と雹、濃霧を巻き起こし、敵軍を神威の毒気で包み込んで大打撃を与える。",
+      "desc": "近江・美濃の境に聳える霊峰・伊服岐能山（伊吹山）に君臨する荒ぶる巨神。白猪や大蛇の化身として現れ、神威の氷雨と雹嵐でヤマトタケルをも打ち倒した古代最強の霊山勢力。",
+      "leaders": {
+        "97": "伊服岐能山之神",
+        "default": "伊服岐能山之神"
+      }
+    },
+    "sakanoue": {
+      "family": "坂上征夷軍",
+      "color": "#922b21",
+      "kamon": "kamon-heian_court",
+      "capital_pref": [
+        "rikuzen",
+        "uzen"
+      ],
+      "tactic": "毘沙門天の神護",
+      "tacticDesc": "毘沙門天の加護を信じ、精鋭騎射部隊と城柵連携で敵陣を粉砕する。",
+      "desc": "桓武天皇より征夷大将軍の節刀を賜った坂上田村麻呂が率いる東北征討軍。陸奥多賀城・鎮守府を拠点に、副使・文室綿麻呂ら歴戦の精鋭を擁し、奥羽平定と城柵造営を目指す。",
+      "leaders": {
+        "801": "坂上田村麻呂",
+        "default": "坂上田村麻呂"
+      }
+    },
+    "dewa_emishi": {
+      "family": "出羽蝦夷",
+      "color": "#196f3d",
+      "kamon": "kamon-ezo",
+      "capital_pref": [
+        "ugo"
+      ],
+      "tactic": "雄物の毒矢奇襲",
+      "tacticDesc": "雄物川の湿地と鳥海山麓の険隘に敵を誘い、毒矢と伏兵で補給線を壊滅させる。",
+      "desc": "出羽国北部・雄物川流域に拠る出羽蝦夷の精強な部族連合。大首長・吉弥侯伊佐西古のもと、秋田城を急襲し日本海側の朝廷軍を翻弄した。",
+      "leaders": {
+        "801": "吉弥侯伊佐西古",
+        "default": "吉弥侯伊佐西古"
       }
     }
   },
@@ -6060,6 +6469,164 @@
       "stratagem": 75,
       "tactic": "万国津梁の交易",
       "specialty": "海洋交易"
+    },
+    "yamatai": {
+      "military": 72,
+      "politics": 92,
+      "stratagem": 88,
+      "personality": "domestic",
+      "title": "親魏倭王",
+      "note": "鬼道の巫術と魏の後ろ盾を誇る女王国家"
+    },
+    "kuna": {
+      "military": 86,
+      "politics": 52,
+      "stratagem": 76,
+      "personality": "aggressive",
+      "title": "南方の剛覇",
+      "note": "卑弥呼の支配に抗う南九州の屈強な男王国"
+    },
+    "yamato_court": {
+      "military": 90,
+      "politics": 85,
+      "stratagem": 82,
+      "personality": "balanced",
+      "title": "日出づる大王",
+      "note": "神話の英雄ヤマトタケルを擁する古代王権"
+    },
+    "kumaso": {
+      "military": 88,
+      "politics": 45,
+      "stratagem": 62,
+      "personality": "aggressive",
+      "title": "荒ぶる隼人",
+      "note": "南九州の険山に拠る精強無比の戦士集団"
+    },
+    "izumo": {
+      "military": 78,
+      "politics": 78,
+      "stratagem": 75,
+      "personality": "domestic",
+      "title": "神代の名残",
+      "note": "巨大神殿と製鉄・青銅器を擁する山陰の大国"
+    },
+    "kibi": {
+      "military": 80,
+      "politics": 80,
+      "stratagem": 74,
+      "personality": "balanced",
+      "title": "吉備の鉄王",
+      "note": "豊かな製鉄と巨石山城・鬼ノ城を誇る西国の雄"
+    },
+    "keno": {
+      "military": 79,
+      "politics": 75,
+      "stratagem": 70,
+      "personality": "balanced",
+      "title": "坂東の巨魁",
+      "note": "豊かな関東平野と馬産・巨陵を擁する東国の盟主"
+    },
+    "emishi_east": {
+      "military": 82,
+      "politics": 40,
+      "stratagem": 72,
+      "personality": "aggressive",
+      "title": "日高見の勇者",
+      "note": "奥羽の峻険な山河を守る北天の戦士団"
+    },
+    "toma": {
+      "military": 70,
+      "politics": 82,
+      "stratagem": 74,
+      "personality": "domestic",
+      "title": "五万戸の大邦",
+      "note": "活発な海運と人口を誇る西日本の大勢力"
+    },
+    "tsukushi": {
+      "military": 72,
+      "politics": 70,
+      "stratagem": 68,
+      "personality": "balanced",
+      "title": "西海の守護",
+      "note": "大陸交易と水運を押さえる九州の在地勢力"
+    },
+    "koshi": {
+      "military": 74,
+      "politics": 72,
+      "stratagem": 69,
+      "personality": "domestic",
+      "title": "北陸の翡翠",
+      "note": "翡翠と豊かな雪解け水で栄える北陸の大国"
+    },
+    "sagami_clan": {
+      "military": 70,
+      "politics": 65,
+      "stratagem": 78,
+      "personality": "cautious",
+      "title": "相模の野火",
+      "note": "相模・武蔵平野の在地豪族"
+    },
+    "shinano_gousoku": {
+      "military": 75,
+      "politics": 68,
+      "stratagem": 72,
+      "personality": "domestic",
+      "title": "諏訪の神風",
+      "note": "信濃の険山に拠る古代の山岳豪族"
+    },
+    "oama": {
+      "military": 95,
+      "politics": 90,
+      "stratagem": 94,
+      "personality": "aggressive",
+      "title": "吉野雷動の雄",
+      "note": "不破関を電撃封鎖し東国の騎馬兵を率いて近江朝廷を覆した天武天皇の軍威"
+    },
+    "omi_court": {
+      "military": 80,
+      "politics": 88,
+      "stratagem": 84,
+      "personality": "balanced",
+      "title": "近江大津宮の威令",
+      "note": "天智天皇の近江令と朝廷の正統性を奉ずる大友皇子の執政"
+    },
+    "jimmu": {
+      "military": 99,
+      "politics": 98,
+      "stratagem": 97,
+      "personality": "aggressive",
+      "title": "神武東征の皇祖",
+      "note": "金鵄の瑞光と八咫烏の先導により大和を平定し初代天皇となった皇祖"
+    },
+    "nagasunehiko": {
+      "military": 94,
+      "politics": 78,
+      "stratagem": 88,
+      "personality": "aggressive",
+      "title": "鳥見の猛者",
+      "note": "孔舎衛坂にて皇軍を撃退し長きにわたり大和を死守した先住の雄"
+    },
+    "kumano_tobe": {
+      "military": 85,
+      "politics": 82,
+      "stratagem": 86,
+      "personality": "balanced",
+      "title": "熊野の霊神",
+      "note": "紀伊名草と熊野の山海の険を支配した女首長連合"
+    },
+    "awa_imbe": {
+      "military": 80,
+      "politics": 92,
+      "stratagem": 85,
+      "personality": "domestic",
+      "title": "忌部の斎神",
+      "note": "四国を統べ麻と神具の祭祀と豊穣を司る忌部一族"
+    },
+    "ibuki": {
+      "politics": 50,
+      "military": 92,
+      "stratagem": 82,
+      "personality": "cautious"
     }
   },
   "capitals": {
@@ -6212,6 +6779,26 @@
     "gamou": "iwashiro",
     "shiba_oshu": "rikuchu",
     "todo": "ise",
-    "ryukyu": "ryukyu"
+    "ryukyu": "ryukyu",
+    "yamatai": "chikuzen",
+    "kuna": "higo",
+    "yamato_court": "yamato",
+    "kumaso": "satsuma",
+    "izumo": "izumo",
+    "kibi": "bizen",
+    "keno": "kozuke",
+    "emishi_east": "mutsu",
+    "toma": "izumo",
+    "tsukushi": "chikuzen",
+    "koshi": "echizen",
+    "sagami_clan": "sagami",
+    "shinano_gousoku": "north_shinano",
+    "oama": "mino",
+    "omi_court": "south_omi",
+    "jimmu": "settsu",
+    "nagasunehiko": "yamato",
+    "kumano_tobe": "kii",
+    "awa_imbe": "awa_shikoku",
+    "ibuki": "north_omi"
   }
 }
